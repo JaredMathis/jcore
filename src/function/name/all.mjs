@@ -10,6 +10,9 @@ import { function_name_separator } from "../name/separator.mjs";
 import { string_includes } from "../../string/includes.mjs";
 import { assert } from "../../assert.mjs";
 import { array_skip } from "../../array/skip.mjs";
+import { file_extension_separator } from "../../file/extension/separator.mjs";
+import { function_extension } from "../extension.mjs";
+import { string_without_suffix } from "../../string/without/suffix.mjs";
 
 export async function function_name_all() {
     let ds = directory_separator();
@@ -17,12 +20,18 @@ export async function function_name_all() {
     let result = await directory_read('./' + directory_source);
     let filtered = array_filter(
         result, 
-        a => string_ends_with(a, '.mjs') && !string_includes(a, `${ds}test${ds}`));
+        a => string_ends_with(a, function_extension()) && !string_includes(a, `${ds}test${ds}`));
     let mapped = array_map(filtered, a => string_split(a, ds));
     let mapped2 = array_map(mapped, a => {
         assert(array_first(a) === directory_source);
         return array_skip(a, 1);
     });
-    let joined = array_join(mapped2, function_name_separator());
-    return joined;
+    let mapped3 = array_map(
+        mapped2, 
+        a => array_join(a, function_name_separator()));
+    let mapped4 = array_map(
+        mapped3,
+        a => string_without_suffix(a, function_extension())
+    )
+    return mapped4;
 }
