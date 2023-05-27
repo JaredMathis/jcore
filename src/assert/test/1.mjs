@@ -4,4 +4,4 @@ import { comment } from "../../comment.mjs";
 comment(`Should execute without exception`);
 assert(true);
 
-assert(false);
+throws(() => assert(false));
