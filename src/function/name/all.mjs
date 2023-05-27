@@ -33,5 +33,6 @@ export async function function_name_all() {
         mapped3,
         a => string_without_suffix(a, function_extension())
     )
+    console.log({mapped4})
     return mapped4;
 }
