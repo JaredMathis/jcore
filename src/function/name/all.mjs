@@ -21,7 +21,8 @@ export async function function_name_all() {
     let filtered = array_filter(
         result, 
         a => string_ends_with(a, function_extension()) && !string_includes(a, `${ds}test${ds}`));
-    let mapped = array_map(filtered, a => string_split(a, ds));
+    let filtered2 = filtered;
+    let mapped = array_map(filtered2, a => string_split(a, ds));
     let mapped2 = array_map(mapped, a => {
         assert(array_first(a) === directory_source);
         return array_skip(a, 1);
