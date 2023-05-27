@@ -3,7 +3,7 @@ import * as fs from 'fs/promises';
 import path from 'path';
 
 comment('From: https://gist.github.com/kethinov/6658166')
-export async function directory_read(dir, filelist = []) {
+export async function directory_read(dir, file_list = []) {
   const files = await fs.readdir(dir);
 
   for (let file of files) {
@@ -11,11 +11,11 @@ export async function directory_read(dir, filelist = []) {
     const stat = await fs.stat(filepath);
 
     if (stat.isDirectory()) {
-      filelist = await directory_read(filepath, filelist);
+      file_list = await directory_read(filepath, file_list);
     } else {
-      filelist.push(file);
+      file_list.push(file);
     }
   }
 
-  return filelist;
+  return file_list;
 }
