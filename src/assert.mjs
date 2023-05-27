@@ -1,9 +1,8 @@
 import { error } from './error.mjs';
+import { arguments_count } from './arguments/count.mjs';
 
 export function assert(value) {
-    if (arguments.length !== 1) {
-        error('Invalid argument count: ' + arguments.length);
-    }
+    arguments_count(arguments, 1);
     if (value === true) {
         return;
     }
