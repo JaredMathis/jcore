@@ -15,11 +15,20 @@ import { function_extension } from "../extension.mjs";
 import { string_without_suffix } from "../../string/without/suffix.mjs";
 
 export async function function_name_all() {
+    let mapped4 = await file_js_all();
+    let fns = function_name_separator();
+    let filtered2 =  array_filter(
+        mapped4, 
+        a => !string_includes(a, `${fns}test${fns}`));
+    return filtered2;
+}
+
+async function file_js_all() {
     let ds = directory_separator();
     let directory_source = 'src';
     let result = await directory_read('./' + directory_source);
     let filtered = array_filter(
-        result, 
+        result,
         a => string_ends_with(a, function_extension()));
     let mapped = array_map(filtered, a => string_split(a, ds));
     let mapped2 = array_map(mapped, a => {
@@ -28,14 +37,11 @@ export async function function_name_all() {
     });
     let fns = function_name_separator();
     let mapped3 = array_map(
-        mapped2, 
+        mapped2,
         a => array_join(a, fns));
     let mapped4 = array_map(
         mapped3,
         a => string_without_suffix(a, function_extension())
-    )
-    let filtered2 =  array_filter(
-        mapped4, 
-        a => !string_includes(a, `${fns}test${fns}`));
-    return filtered2;
+    );
+    return mapped4;
 }
