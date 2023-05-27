@@ -1,3 +1,8 @@
+import "./src/arguments/count/test/1.mjs";
+import "./src/arguments/count/test/2.mjs";
+import "./src/arguments/count/test/3.mjs";
+import "./src/arguments/count/test/4.mjs";
+import "./src/arguments/count/test/5.mjs";
 import "./src/assert/test/1.mjs";
 import "./src/assert/test/2.mjs";
 import "./src/assert/test/3.mjs";
