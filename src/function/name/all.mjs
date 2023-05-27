@@ -21,20 +21,21 @@ export async function function_name_all() {
     let filtered = array_filter(
         result, 
         a => string_ends_with(a, function_extension()));
-    let filtered2 =  array_filter(
-        filtered, 
-        a => !string_includes(a, `${ds}test${ds}`));
-    let mapped = array_map(filtered2, a => string_split(a, ds));
+    let mapped = array_map(filtered, a => string_split(a, ds));
     let mapped2 = array_map(mapped, a => {
         assert(array_first(a) === directory_source);
         return array_skip(a, 1);
     });
+    let fns = function_name_separator();
     let mapped3 = array_map(
         mapped2, 
-        a => array_join(a, function_name_separator()));
+        a => array_join(a, fns));
     let mapped4 = array_map(
         mapped3,
         a => string_without_suffix(a, function_extension())
     )
-    return mapped4;
+    let filtered2 =  array_filter(
+        mapped4, 
+        a => !string_includes(a, `${fns}test${fns}`));
+    return filtered2;
 }
