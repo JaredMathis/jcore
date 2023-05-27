@@ -1,5 +1,7 @@
 import { directory_read } from "../../directory/read.mjs";
 
 export async function function_name_all() {
-    return await directory_read('.');
+    let result = await directory_read('.');
+    let filtered = array_filter(result, a => string_ends_with(a, '.mjs'));
+    return filtered;
 }
