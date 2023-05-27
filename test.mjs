@@ -15,3 +15,4 @@ import "./src/error/test/1.mjs";
 import "./src/error/test/2.mjs";
 import "./src/error/test/3.mjs";
 import "./src/arguments/assert/test/1.mjs";
+import "./src/arguments/assert/test/2.mjs";
