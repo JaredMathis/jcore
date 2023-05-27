@@ -1,0 +1,1 @@
+import * as a from "./src/assert/test/1.mjs";
