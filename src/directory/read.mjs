@@ -13,7 +13,7 @@ export async function directory_read(dir, file_list = []) {
     if (stat.isDirectory()) {
       file_list = await directory_read(file_path, file_list);
     } else {
-      file_list.push(file);
+      file_list.push(file_path);
     }
   }
 
