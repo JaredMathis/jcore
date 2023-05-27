@@ -3,5 +3,5 @@ import { number_is } from "../../../number/is.mjs";
 import { throws } from "../../../throws.mjs";
 import { arguments_assert } from "../../assert.mjs";
 
-comment('wrong type')
+comment('wrong type (string is not a number)')
 throws(() => arguments_assert([`1`], [number_is]));
