@@ -20,8 +20,11 @@ export async function function_name_all() {
     let result = await directory_read('./' + directory_source);
     let filtered = array_filter(
         result, 
-        a => string_ends_with(a, function_extension()) && !string_includes(a, `${ds}test${ds}`));
-    let filtered2 = filtered;
+        a => string_ends_with(a, function_extension()));
+    let filtered2 =  array_filter(
+        filtered, 
+        a => !string_includes(a, `${ds}test${ds}`));
+    console.log({filtered,filtered2})
     let mapped = array_map(filtered2, a => string_split(a, ds));
     let mapped2 = array_map(mapped, a => {
         assert(array_first(a) === directory_source);
