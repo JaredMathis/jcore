@@ -5,6 +5,6 @@ export async function function_name_all() {
     let all = await file_js_all();
     let filtered =  array_filter(
         all, 
-        a => !string_function_test_name_is(a));
+        a => !string_function_tests_name_is(a));
     return filtered;
 }
