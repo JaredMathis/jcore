@@ -24,7 +24,6 @@ export async function function_name_all() {
     let filtered2 =  array_filter(
         filtered, 
         a => !string_includes(a, `${ds}test${ds}`));
-    console.log({filtered,filtered2})
     let mapped = array_map(filtered2, a => string_split(a, ds));
     let mapped2 = array_map(mapped, a => {
         assert(array_first(a) === directory_source);
@@ -37,6 +36,5 @@ export async function function_name_all() {
         mapped3,
         a => string_without_suffix(a, function_extension())
     )
-    console.log({mapped4})
     return mapped4;
 }
