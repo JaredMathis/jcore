@@ -8,15 +8,16 @@ import { js_node_is_import_specifier } from "../../js/node/is/import/specifier.m
 import { js_node_is_identifier } from "../../js/node/is/identifier.mjs";
 import { array_first } from "../../array/first.mjs";
 import { directory_current } from "../../directory/current.mjs";
-import { directory_separator } from "../../directory/separator.mjs";
+import { js_directory_separator } from "../../js/directory/separator.mjs";
 import { string_starts_with } from "../../string/starts/with.mjs";
+import { array_length } from "../../array/length.mjs";
+import { array_map } from "../../array/map.mjs";
 
 export async function refactor_import_missing(file_path) {
     let parsed = await file_js_parse(file_path);
     let identifiers = js_identifiers(parsed);
     let import_all = js_import_all(parsed);
     let function_names = await function_name_all();
-console.log(import_all)
     for (let i of import_all) {
         let source = object_property_get(i, 'source');
         if (!js_node_is_type(source, 'Literal')) {
@@ -24,17 +25,24 @@ console.log(import_all)
         }
 
         let source_value = object_property_get(source, 'value');
-        if (!string_starts_with(source_value, `${directory_current()}${directory_separator()}`)) {
+        const prefix = `${directory_current()}${js_directory_separator()}`;
+        if (!string_starts_with(source_value, prefix)) {
             continue;
         }
 
-        if (!js_node_is_import_specifier(i)) {
+        let specifiers = object_property_get(i, 'specifiers');
+        if (array_length(specifiers) !== 1) {
             continue;
         }
-        let values = [
-            object_property_get(i, 'imported'),
-            object_property_get(i, 'local')
-        ]
+
+        let specifier = array_first(specifiers);
+
+        console.log({specifier})
+        if (!js_node_is_import_specifier(specifier)) {
+            continue;
+        }
+        let properties = ['imported', 'local']
+        let values = array_map(properties, p =>  object_property_get(specifier, p));
         if (array_any(values, v => !js_node_is_identifier(v))) {
             continue;
         }
