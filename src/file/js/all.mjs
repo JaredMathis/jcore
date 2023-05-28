@@ -13,11 +13,12 @@ import { function_extension } from "../../function/extension.mjs";
 import { string_without_suffix } from "../../string/without/suffix.mjs";
 import { array_skip_first } from "../../array/skip/first.mjs";
 import { directory_source } from "../../directory/source.mjs";
+import { directory_current } from "../../directory/current.mjs";
 
 export async function file_js_all() {
     let ds = directory_separator();
     let directory_source_result = directory_source();
-    let result = await directory_read(`.${ds}${directory_source_result}`);
+    let result = await directory_read(`${directory_current()}${ds}${directory_source_result}`);
     let filtered = array_filter(
         result,
         a => string_ends_with(a, function_extension()));
