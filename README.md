@@ -27,4 +27,4 @@ Note: the path is incorrect
 
 ---
 
-To format all whitespace in all files: `node run.mjs file_js_all_map identity`
+To format all whitespace in all `mjs` files: `node run.mjs file_js_all_map identity`
