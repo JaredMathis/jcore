@@ -1,3 +1,3 @@
 export function directory_current() {
-    return '.'
+    return '.';
 }

@@ -1,5 +1,4 @@
-import {array_add} from '../add.mjs'
-
+import { array_add } from '../add.mjs';
 export async function array_filter_async(array, filter) {
     let result = [];
     for (let a of array) {

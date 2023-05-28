@@ -1,4 +1,3 @@
-import { comment } from "../../comment.mjs";
-import { throws } from "../../throws.mjs";
-
+import { comment } from '../../comment.mjs';
+import { throws } from '../../throws.mjs';
 throws(() => comment());

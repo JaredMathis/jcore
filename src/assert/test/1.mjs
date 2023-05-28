@@ -1,3 +1,2 @@
-import { assert } from "../../assert.mjs";
-
+import { assert } from '../../assert.mjs';
 assert(true);

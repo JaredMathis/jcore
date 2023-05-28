@@ -1,8 +1,7 @@
-import { assert } from "../assert.mjs";
-import { arguments_count } from "./count.mjs";
-import { array_is } from "../array/is.mjs";
-import { range } from "../range.mjs";
-
+import { assert } from '../assert.mjs';
+import { arguments_count } from './count.mjs';
+import { array_is } from '../array/is.mjs';
+import { range } from '../range.mjs';
 export function arguments_assert(args, predicates) {
     arguments_count(arguments, 2);
     assert(array_is(predicates));

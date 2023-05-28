@@ -1,9 +1,8 @@
-
-import {Parser} from "acorn";
+import { Parser } from 'acorn';
 export function js_parse(unparsed) {
     let parsed = Parser.parse(unparsed, {
         sourceType: 'module',
-        ecmaVersion:'2020'
+        ecmaVersion: '2020'
     });
     return parsed;
 }

@@ -1,3 +1,2 @@
-import { comment } from "../../comment.mjs";
-
+import { comment } from '../../comment.mjs';
 comment(`Example comment`);

@@ -1,7 +1,6 @@
-import { comment } from "../../../comment.mjs";
-import { number_is } from "../../../number/is.mjs";
-import { throws } from "../../../throws.mjs";
-import { arguments_assert } from "../../assert.mjs";
-
-comment('wrong type (string is not a number)')
+import { comment } from '../../../comment.mjs';
+import { number_is } from '../../../number/is.mjs';
+import { throws } from '../../../throws.mjs';
+import { arguments_assert } from '../../assert.mjs';
+comment('wrong type (string is not a number)');
 throws(() => arguments_assert([`1`], [number_is]));

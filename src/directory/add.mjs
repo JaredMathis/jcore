@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'fs';
 import { path_parent } from '../path/parent.mjs';
 import { directory_exists_ensure } from './exists/ensure.mjs';
 export async function directory_add(directory_path) {

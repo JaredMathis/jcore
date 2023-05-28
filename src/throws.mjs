@@ -1,6 +1,5 @@
-import { arguments_count } from "./arguments/count.mjs";
-import { error } from "./error.mjs";
-
+import { arguments_count } from './arguments/count.mjs';
+import { error } from './error.mjs';
 export function throws(lambda) {
     arguments_count(arguments, 1);
     let errored = false;

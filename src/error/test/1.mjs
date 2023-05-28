@@ -1,4 +1,3 @@
-import { error } from "../../error.mjs";
-import { throws } from "../../throws.mjs";
-
+import { error } from '../../error.mjs';
+import { throws } from '../../throws.mjs';
 throws(() => error());

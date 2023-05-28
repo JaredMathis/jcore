@@ -1,5 +1,4 @@
-import { array_add } from './array/add.mjs'
-
+import { array_add } from './array/add.mjs';
 export function range(count) {
     let result = [];
     for (let i = 0; i < count; i++) {
