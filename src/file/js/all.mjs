@@ -18,10 +18,7 @@ import { file_path_split } from "../path/split.mjs";
 
 export async function file_js_all() {
     let directory_source_result = directory_source();
-    let result = await directory_read(`${directory_current()}${directory_separator()}${directory_source_result}`);
-    let filtered = array_filter(
-        result,
-        a => string_ends_with(a, function_extension()));
+    let filtered = await file_js_all_path(directory_source_result);
     let mapped = array_map(filtered, a => file_path_split(a));
     let mapped2 = array_map(mapped, a => {
         assert(array_first(a) === directory_source_result);
@@ -37,3 +34,11 @@ export async function file_js_all() {
     );
     return mapped4;
 }
+async function file_js_all_path(directory_source_result) {
+    let result = await directory_read(`${directory_current()}${directory_separator()}${directory_source_result}`);
+    let filtered = array_filter(
+        result,
+        a => string_ends_with(a, function_extension()));
+    return filtered;
+}
+
