@@ -1,3 +1,3 @@
-export function js_node_is_type(node) {
-    return node.type === 'ImportDeclaration'
+export function js_node_is_type(node, type) {
+    return node.type === type
 }
