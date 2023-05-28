@@ -27,8 +27,7 @@ import { array_add_beginning_all } from "../../array/add/beginning/all.mjs";
 import { js_unparse } from "../../js/unparse.mjs";
 import { file_overwrite } from "../../file/overwrite.mjs";
 
-export async function refactor_import_missing(file_path) {
-    let parsed = await file_js_parse(file_path);
+export async function refactor_import_missing(parsed) {
     let identifiers = js_identifiers(parsed);
     let import_all = js_import_all(parsed);
     let function_names = await function_name_all();
@@ -83,10 +82,6 @@ export async function refactor_import_missing(file_path) {
 
     let body = js_body_get(parsed);
     array_add_beginning_all(body, import_new_all);
-    
-    let unparsed = js_unparse(parsed);
-
-    file_overwrite(file_path, unparsed);
 }
 
 
