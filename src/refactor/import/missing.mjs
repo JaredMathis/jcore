@@ -13,12 +13,14 @@ import { string_starts_with } from "../../string/starts/with.mjs";
 import { array_length } from "../../array/length.mjs";
 import { array_map } from "../../array/map.mjs";
 import { array_any } from "../../array/any.mjs";
+import { array_add } from "../../array/add.mjs";
 
 export async function refactor_import_missing(file_path) {
     let parsed = await file_js_parse(file_path);
     let identifiers = js_identifiers(parsed);
     let import_all = js_import_all(parsed);
     let function_names = await function_name_all();
+    let import_name_all = [];
     for (let i of import_all) {
         let source = object_property_get(i, 'source');
         if (!js_node_is_type(source, 'Literal')) {
@@ -51,6 +53,7 @@ export async function refactor_import_missing(file_path) {
         if (array_any(values, v => object_property_get(v, 'name') !== first_name)) {
             continue;
         }
-        console.log(i)
+        array_add(import_name_all, first_name);
     }
+    console.log({import_name_all});
 }
