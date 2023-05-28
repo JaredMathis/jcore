@@ -85,7 +85,7 @@ export async function refactor_import_missing(file_path) {
     
     let unparsed = js_unparse(parsed);
 
-    console.log({unparsed});
+    file_overwrite(file_path, unparsed);
 }
 
 
