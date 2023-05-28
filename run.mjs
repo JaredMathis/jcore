@@ -11,3 +11,6 @@ let function_name = array_first(skipped);
 let remaining = array_skip_first(skipped);
 
 let function_path = function_name_to_path(function_name);
+let imported = await import(function_path);
+let imported_function = imported[function_name];
+imported_function(...remaining);
