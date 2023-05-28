@@ -1,4 +1,4 @@
-import directory_exists from '../directory/exists.mjs'
+import {directory_exists} from '../directory/exists.mjs'
 import { error } from '../error.mjs'
 import { file_overwrite } from './overwrite.mjs';
 export async function file_write(file_path, contents) {
