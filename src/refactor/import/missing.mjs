@@ -72,7 +72,3 @@ export async function refactor_import_missing(file_path) {
     
     console.log({missing});
 }
-function js_body_get(parsed) {
-    return object_property_get(parsed, 'body');
-}
-
