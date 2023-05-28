@@ -19,7 +19,7 @@ import { file_js_all_path } from "./all/path.mjs";
 
 export async function file_js_all() {
     let directory_source_result = directory_source();
-    let filtered = await file_js_all_path(directory_source_result);
+    let filtered = await file_js_all_path();
     let mapped = array_map(filtered, a => file_path_split(a));
     let mapped2 = array_map(mapped, a => {
         assert(array_first(a) === directory_source_result);

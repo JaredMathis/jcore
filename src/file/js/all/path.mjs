@@ -16,7 +16,8 @@ import { directory_source } from "../../directory/source.mjs";
 import { directory_current } from "../../directory/current.mjs";
 import { file_path_split } from "../path/split.mjs";
 
-export async function file_js_all_path(directory_source_result) {
+export async function file_js_all_path() {
+    let directory_source_result = directory_source();
     let result = await directory_read(`${directory_current()}${directory_separator()}${directory_source_result}`);
     let filtered = array_filter(
         result,
