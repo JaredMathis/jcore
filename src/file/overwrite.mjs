@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { directory_exists_ensure } from '../directory/exists/ensure.mjs';
 import { file_path_split } from '../file/path/split.mjs';
-import { path_join } from '../path_join.mjs';
+import { path_join } from '../path/join.mjs';
 
 export async function file_overwrite(file_path, contents) {
     let split = file_path_split(file_path);
