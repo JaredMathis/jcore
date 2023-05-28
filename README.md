@@ -24,3 +24,7 @@ import array_contains from './array_contains.mjs';
 array_contains();
 ```
 Note: the path is incorrect
+
+---
+
+To format all whitespace in all files: `node run.mjs file_js_all_map identity`
