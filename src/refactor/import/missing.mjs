@@ -6,6 +6,7 @@ import { object_property_get } from "../../object/property/get.mjs";
 import { js_node_is_type } from "../../js/node/is/type.mjs";
 import { js_node_is_import_specifier } from "../../js/node/is/import/specifier.mjs";
 import { js_node_is_identifier } from "../../js/node/is/identifier.mjs";
+import { array_first } from "../../array/first.mjs";
 
 export async function refactor_import_missing(file_path) {
     let parsed = await file_js_parse(file_path);
@@ -24,6 +25,11 @@ export async function refactor_import_missing(file_path) {
         if (array_any(values, v => !js_node_is_identifier(v))) {
             continue;
         }
-        
+        let first = array_first(values);
+        let first_name = object_property_get(first, 'name');
+        if (array_any(values, v => object_property_get(v, 'name') !== first_name)) {
+            continue;
+        }
+        console.log(i)
     }
 }
