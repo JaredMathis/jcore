@@ -22,6 +22,7 @@ import { js_parse } from "../../js/parse.mjs";
 import { function_extension } from "../../function/extension.mjs";
 import { assert } from "../../assert.mjs";
 import { js_parse_statement } from "../../js/parse/statement.mjs";
+import { array_add_beginning } from "../../array/add/beginning.mjs";
 
 export async function refactor_import_missing(file_path) {
     let parsed = await file_js_parse(file_path);
@@ -75,7 +76,7 @@ export async function refactor_import_missing(file_path) {
         let body = js_body_get(parsed);
         const statement_code = `import ${m} from './${m}${function_extension()}'`;
         let import_new = js_parse_statement(statement_code);
-        console.log({import_new_body: import_new});
+        array_add_beginning(body, import_new);
     }
     
     console.log({missing});
