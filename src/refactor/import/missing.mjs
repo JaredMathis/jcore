@@ -5,6 +5,7 @@ import { function_name_all } from "../../function/name/all.mjs";
 import { object_property_get } from "../../object/property/get.mjs";
 import { js_node_is_type } from "../../js/node/is/type.mjs";
 import { js_node_is_import_specifier } from "../../js/node/is/import/specifier.mjs";
+import { js_node_is_identifier } from "../../js/node/is/identifier.mjs";
 
 export async function refactor_import_missing(file_path) {
     let parsed = await file_js_parse(file_path);
@@ -13,11 +14,16 @@ export async function refactor_import_missing(file_path) {
     let function_names = await function_name_all();
 
     for (let i of import_all) {
-        if (js_node_is_import_specifier(i)) {
-            let values = [
-                object_property_get(i, 'imported'),
-                object_property_get(i, 'local')
-            ]
+        if (!js_node_is_import_specifier(i)) {
+            continue;
         }
+        let values = [
+            object_property_get(i, 'imported'),
+            object_property_get(i, 'local')
+        ]
+        if (array_any(values, v => !js_node_is_identifier(v))) {
+            continue;
+        }
+        
     }
 }
