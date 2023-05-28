@@ -13,8 +13,13 @@ export async function refactor_import_missing(file_path) {
     let identifiers = js_identifiers(parsed);
     let import_all = js_import_all(parsed);
     let function_names = await function_name_all();
-
+console.log(import_all)
     for (let i of import_all) {
+        let source = object_property_get(i, 'source');
+        if (!js_node_is_type(i, 'Literal')) {
+            continue;
+        }
+
         if (!js_node_is_import_specifier(i)) {
             continue;
         }
