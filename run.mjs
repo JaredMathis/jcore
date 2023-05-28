@@ -1,5 +1,4 @@
 import { array_skip } from "./src/array/skip.mjs";
-import { array_take } from "./src/array/take.mjs"
 import { log } from "./src/log.mjs"
 
 let args = Array.from(process.argv);
