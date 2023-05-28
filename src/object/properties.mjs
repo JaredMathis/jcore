@@ -1,5 +1,4 @@
-import {object_property_exists} from '../object/property/exists.mjs'
-import {object_property_get} from '../object/property/get.mjs'
+import {object_property_invoke} from '../object/property/invoke.mjs'
 export function object_properties(object) {
     let property_name = 'getOwnPropertyNames';
     let default_value = [];
