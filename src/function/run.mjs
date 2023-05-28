@@ -8,7 +8,6 @@ export async function function_run(function_name, args) {
     let function_path = function_name_to_path(function_name);
     let concated = '../../' + directory_current() + directory_separator() + function_path;
     let replaced = string_replace(concated, directory_separator(), js_directory_separator());
-    console.log({replaced})
     let imported = await import(replaced);
     let imported_function = imported[function_name];
     let result = await imported_function(...args);
