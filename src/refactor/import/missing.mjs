@@ -67,8 +67,12 @@ export async function refactor_import_missing(file_path) {
         i => !array_contains(import_name_all, i));
     
     for (let m of missing) {
-        let body = object_property_get(parsed, 'body');
+        let body = js_body_get(parsed);
     }
     
     console.log({missing});
 }
+function js_body_get(parsed) {
+    return object_property_get(parsed, 'body');
+}
+
