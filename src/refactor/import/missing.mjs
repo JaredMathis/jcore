@@ -16,7 +16,7 @@ export async function refactor_import_missing(file_path) {
 console.log(import_all)
     for (let i of import_all) {
         let source = object_property_get(i, 'source');
-        if (!js_node_is_type(i, 'Literal')) {
+        if (!js_node_is_type(source, 'Literal')) {
             continue;
         }
 
