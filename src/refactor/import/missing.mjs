@@ -14,7 +14,10 @@ export async function refactor_import_missing(file_path) {
 
     for (let i of import_all) {
         if (js_node_is_import_specifier(i)) {
-
+            let values = [
+                object_property_get(i, 'imported'),
+                object_property_get(i, 'local')
+            ]
         }
     }
 }
