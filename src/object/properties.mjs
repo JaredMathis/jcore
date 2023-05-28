@@ -1,4 +1,4 @@
-import array_add from '../array/add.mjs'
+import {array_add} from '../array/add.mjs'
 export function object_properties(object) {
     let result = [];
     for (let property in object) {
