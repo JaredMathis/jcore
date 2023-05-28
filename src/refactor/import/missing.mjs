@@ -66,5 +66,9 @@ export async function refactor_import_missing(file_path) {
     let missing = array_filter(identifier_function_names, 
         i => !array_contains(import_name_all, i));
     
+    for (let m of missing) {
+        let body = object_property_get(parsed, 'body');
+    }
+    
     console.log({missing});
 }

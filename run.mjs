@@ -21,6 +21,8 @@ async function run() {
     let imported = await import(replaced);
     let imported_function = imported[function_name];
     let result = await imported_function(...remaining);
+
+    array_contains;
     
     log(`Run result: ${result}`);
 }
