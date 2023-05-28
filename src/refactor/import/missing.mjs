@@ -14,6 +14,8 @@ import { array_length } from "../../array/length.mjs";
 import { array_map } from "../../array/map.mjs";
 import { array_any } from "../../array/any.mjs";
 import { array_add } from "../../array/add.mjs";
+import { array_contains } from "../../array/contains.mjs";
+import { array_filter } from "../../array/filter.mjs";
 
 export async function refactor_import_missing(file_path) {
     let parsed = await file_js_parse(file_path);
@@ -55,5 +57,8 @@ export async function refactor_import_missing(file_path) {
         }
         array_add(import_name_all, first_name);
     }
+
+    let missing = array_filter(identifiers, 
+        i => array_contains(import_name_all, i));
     console.log({import_name_all});
 }
