@@ -21,6 +21,7 @@ import { js_body_get } from "../../js/body/get.mjs";
 import { js_parse } from "../../js/parse.mjs";
 import { function_extension } from "../../function/extension.mjs";
 import { assert } from "../../assert.mjs";
+import { js_parse_statement } from "../../js/parse/statement.mjs";
 
 export async function refactor_import_missing(file_path) {
     let parsed = await file_js_parse(file_path);
@@ -78,13 +79,5 @@ export async function refactor_import_missing(file_path) {
     }
     
     console.log({missing});
-}
-
-function js_parse_statement(statement_code) {
-    let parsed = js_parse(statement_code);
-    let body = js_body_get(parsed);
-    assert(array_length_is_1(body, 1));
-    let statement = array_first(body);
-    return statement;
 }
 
