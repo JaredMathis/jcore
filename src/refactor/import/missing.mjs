@@ -16,6 +16,7 @@ import { array_any } from "../../array/any.mjs";
 import { array_add } from "../../array/add.mjs";
 import { array_contains } from "../../array/contains.mjs";
 import { array_filter } from "../../array/filter.mjs";
+import { comment } from "../../comment.mjs";
 
 export async function refactor_import_missing(file_path) {
     let parsed = await file_js_parse(file_path);
@@ -58,7 +59,12 @@ export async function refactor_import_missing(file_path) {
         array_add(import_name_all, first_name);
     }
 
-    let missing = array_filter(identifiers, 
-        i => array_contains(import_name_all, i));
-    console.log({import_name_all});
+    comment(`Identifiers that are also function names`)
+    let identifier_function_names = array_filter(identifiers, i => array_contains(function_names, i));
+
+    comment(`Identifiers missing an import`)
+    let missing = array_filter(identifier_function_names, 
+        i => !array_contains(import_name_all, i));
+    
+    console.log({missing});
 }
