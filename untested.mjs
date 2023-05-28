@@ -5,9 +5,10 @@ import { function_tests_count } from "./src/function/tests/count.mjs";
 import { log } from "./src/log.mjs";
 
 const function_names = await function_name_all();
-array_take(function_names, 10);
-for (let function_name of function_names) {
-    if (await function_tests_count(function_name) === 0) {
-        log(function_name);
-    }
+let filtered = await array_filter_async(
+    function_names, 
+    async f =>  await function_tests_count(function_name) === 0);
+let limited = array_take(filtered, 10);
+for (let function_name of limited) {
+    log(function_name);
 }
