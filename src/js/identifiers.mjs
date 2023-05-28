@@ -1,3 +1,4 @@
+import { object_properties } from '../object/properties.mjs';
 import {visit} from '../visit.mjs'
 export function js_identifiers(parsed) {
     let {body} = parsed;
