@@ -7,5 +7,9 @@ export async function function_add(function_name) {
     await file_write(function_path, `export function ${function_name}() {
     
 }`);
+    await file_open_vs_code(function_path);
+}
+
+async function file_open_vs_code(function_path) {
     await command_line(`code ${function_path}`);
 }
