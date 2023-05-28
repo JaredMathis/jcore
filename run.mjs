@@ -13,6 +13,6 @@ let remaining = array_skip_first(skipped);
 let function_path = function_name_to_path(function_name);
 let imported = await import(function_path);
 let imported_function = imported[function_name];
-let result = imported_function(...remaining);
+let result = await imported_function(...remaining);
 
 log(`Run result: ${result}`);
