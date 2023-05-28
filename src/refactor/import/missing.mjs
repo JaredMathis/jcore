@@ -9,5 +9,9 @@ export async function refactor_import_missing(file_path) {
     let import_all = js_import_all(parsed);
     let function_names = await function_name_all();
 
-    console.log(import_all)
+    for (let i of import_all) {
+
+        console.log(i.specifiers)
+    }
+
 }
