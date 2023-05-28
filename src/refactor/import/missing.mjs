@@ -17,6 +17,9 @@ import { array_add } from "../../array/add.mjs";
 import { array_contains } from "../../array/contains.mjs";
 import { array_filter } from "../../array/filter.mjs";
 import { comment } from "../../comment.mjs";
+import { js_body_get } from "../../js/body/get.mjs";
+import { js_parse } from "../../js/parse.mjs";
+import { function_extension } from "../../function/extension.mjs";
 
 export async function refactor_import_missing(file_path) {
     let parsed = await file_js_parse(file_path);
@@ -68,6 +71,8 @@ export async function refactor_import_missing(file_path) {
     
     for (let m of missing) {
         let body = js_body_get(parsed);
+        let import_new = js_parse(`import ${m} from './${m}${function_extension()}'`)
+        console.log({import_new});
     }
     
     console.log({missing});
