@@ -20,6 +20,7 @@ import { comment } from "../../comment.mjs";
 import { js_body_get } from "../../js/body/get.mjs";
 import { js_parse } from "../../js/parse.mjs";
 import { function_extension } from "../../function/extension.mjs";
+import { assert } from "../../assert.mjs";
 
 export async function refactor_import_missing(file_path) {
     let parsed = await file_js_parse(file_path);
@@ -40,7 +41,7 @@ export async function refactor_import_missing(file_path) {
         }
 
         let specifiers = object_property_get(i, 'specifiers');
-        if (array_length(specifiers) !== 1) {
+        if (!(array_length(specifiers) === 1)) {
             continue;
         }
 
@@ -72,11 +73,16 @@ export async function refactor_import_missing(file_path) {
     for (let m of missing) {
         let body = js_body_get(parsed);
         const statement_code = `import ${m} from './${m}${function_extension()}'`;
-        let import_new = js_parse(statement_code);
-        let import_new_body = js_body_get(import_new);
-        let statement = array_first(import_new_body);
+        let import_new_body = js_parse_statement(statement_code);
         console.log({import_new_body});
     }
     
     console.log({missing});
 }
+function js_parse_statement(statement_code) {
+    let import_new = js_parse(statement_code);
+    let import_new_body = js_body_get(import_new);
+    let statement = array_first(import_new_body);
+    return import_new_body;
+}
+
