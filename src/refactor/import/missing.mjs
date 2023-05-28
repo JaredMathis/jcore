@@ -7,6 +7,8 @@ import { js_node_is_type } from "../../js/node/is/type.mjs";
 import { js_node_is_import_specifier } from "../../js/node/is/import/specifier.mjs";
 import { js_node_is_identifier } from "../../js/node/is/identifier.mjs";
 import { array_first } from "../../array/first.mjs";
+import { directory_current } from "../../directory/current.mjs";
+import { directory_separator } from "../../directory/separator.mjs";
 
 export async function refactor_import_missing(file_path) {
     let parsed = await file_js_parse(file_path);
@@ -17,6 +19,11 @@ console.log(import_all)
     for (let i of import_all) {
         let source = object_property_get(i, 'source');
         if (!js_node_is_type(source, 'Literal')) {
+            continue;
+        }
+
+        let source_value = object_property_get(source, 'value');
+        if (!string_starts_with(source_value, `${directory_current()}${directory_separator()}`)) {
             continue;
         }
 
