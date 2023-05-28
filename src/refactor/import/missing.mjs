@@ -88,6 +88,6 @@ function js_parse_statement(statement_code) {
     let body = js_body_get(parsed);
     assert(array_length_is_1(body, 1));
     let statement = array_first(body);
-    return body;
+    return statement;
 }
 
