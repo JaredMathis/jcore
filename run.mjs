@@ -22,7 +22,7 @@ async function run() {
     let imported_function = imported[function_name];
     let result = await imported_function(...remaining);
 
-    array_contains;
+    if (false)array_contains;
     
     log(`Run result: ${result}`);
 }
