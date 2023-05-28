@@ -3,9 +3,10 @@ import { visit_filter } from '../visit/filter.mjs';
 import { js_node_is_identifier } from './node/is/identifier.mjs';
 import { array_add } from '../array/add.mjs';
 import { object_property_get } from '../object/property/get.mjs';
+import { js_body_get } from './body/get.mjs';
 export function js_identifiers(parsed) {
     let result = [];
-    let {body} = parsed;
+    let body = js_body_get(parsed);
     visit_filter(
         body, 
         node => object_properties(node), 
