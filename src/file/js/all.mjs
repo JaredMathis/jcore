@@ -16,7 +16,7 @@ import { array_skip_first } from "../../array/skip/first.mjs";
 export async function file_js_all() {
     let ds = directory_separator();
     let directory_source = 'src';
-    let result = await directory_read('./' + directory_source);
+    let result = await directory_read(`.${ds}${directory_source}`);
     let filtered = array_filter(
         result,
         a => string_ends_with(a, function_extension()));
