@@ -4,10 +4,10 @@ import { array_skip_first } from "./src/array/skip/first.mjs";
 import { function_name_to_path } from "./src/function/name/to/path.mjs";
 import { log } from "./src/log.mjs"
 
-let args = Array.from(process.argv);
-let skipped = array_skip(args, 2);
+let args_command_line = Array.from(process.argv);
+let skipped = array_skip(args_command_line, 2);
 
 let function_name = array_first(skipped);
 let remaining = array_skip_first(skipped);
 
-log(function_name_to_path(function_name)) 
+let function_path = function_name_to_path(function_name);
