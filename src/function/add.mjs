@@ -1,6 +1,6 @@
 import { file_write } from "../file/write.mjs";
-import { command_line } from "../command/line.mjs";
 import { function_name_to_path } from "./name/to/path.mjs";
+import { file_open_vs_code } from "../file/open/vs/code.mjs";
 
 export async function function_add(function_name) {
     let function_path = function_name_to_path(function_name);
@@ -8,8 +8,4 @@ export async function function_add(function_name) {
     
 }`);
     await file_open_vs_code(function_path);
-}
-
-async function file_open_vs_code(function_path) {
-    await command_line(`code ${function_path}`);
 }
