@@ -1,10 +1,10 @@
 # jcore
 
-To add a function: `node run.mjs function_add test`
+To add a function: `node run.mjs function_add my_new_function`
 
-Output (in `src/test.mjs`):
+Output (in `src/my/new/function.mjs`):
 ```
-export function test() {
+export function my_new_function() {
     
 }
 ```
