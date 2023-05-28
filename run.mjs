@@ -14,9 +14,9 @@ let function_name = array_first(skipped);
 let remaining = array_skip_first(skipped);
 
 let function_path = function_name_to_path(function_name);
-let replaced = string_replace(function_path, directory_separator(), '/');
-let concated = directory_current() + directory_separator() + replaced;
-let imported = await import(concated);
+let concated = directory_current() + directory_separator() + function_path;
+let replaced = string_replace(concated, directory_separator(), '/');
+let imported = await import(replaced);
 let imported_function = imported[function_name];
 let result = await imported_function(...remaining);
 
