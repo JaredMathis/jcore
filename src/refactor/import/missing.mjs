@@ -79,10 +79,14 @@ export async function refactor_import_missing(file_path) {
     });
 
     let body = js_body_get(parsed);
+    array_add_beginning_all(body, import_new_all);
+    
+    console.log({missing});
+}
+
+function array_add_beginning_all(body, import_new_all) {
     for (let i of import_new_all) {
         array_add_beginning(body, i);
     }
-    
-    console.log({missing});
 }
 
