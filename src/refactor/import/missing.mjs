@@ -86,6 +86,7 @@ function array_length_is_1(specifiers) {
 function js_parse_statement(statement_code) {
     let import_new = js_parse(statement_code);
     let import_new_body = js_body_get(import_new);
+    assert(array_length_is_1(import_new_body, 1));
     let statement = array_first(import_new_body);
     return import_new_body;
 }
