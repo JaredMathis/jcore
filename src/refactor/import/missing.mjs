@@ -37,7 +37,6 @@ export async function refactor_import_missing(file_path) {
 
         let specifier = array_first(specifiers);
 
-        console.log({specifier})
         if (!js_node_is_import_specifier(specifier)) {
             continue;
         }
