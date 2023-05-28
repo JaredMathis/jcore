@@ -25,6 +25,7 @@ import { js_parse_statement } from "../../js/parse/statement.mjs";
 import { array_add_beginning } from "../../array/add/beginning.mjs";
 import { array_add_beginning_all } from "../../array/add/beginning/all.mjs";
 import { js_unparse } from "../../js/unparse.mjs";
+import { file_overwrite } from "../../file/overwrite.mjs";
 
 export async function refactor_import_missing(file_path) {
     let parsed = await file_js_parse(file_path);
