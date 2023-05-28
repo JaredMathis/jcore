@@ -11,7 +11,7 @@ export function js_identifiers(parsed) {
     visit_filter(
         body, 
         node => object_properties(node), 
-        node => !array_is(node) && js_node_is_identifier(node),
+        node => js_node_is(node) && js_node_is_identifier(node),
         node => {
             let r = object_property_get(node, 'name');
             array_add(result, r);
