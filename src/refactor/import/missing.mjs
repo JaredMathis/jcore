@@ -41,7 +41,7 @@ export async function refactor_import_missing(file_path) {
         }
 
         let specifiers = object_property_get(i, 'specifiers');
-        if (!(array_length(specifiers) === 1)) {
+        if (!array_length_is_1(specifiers)) {
             continue;
         }
 
@@ -79,6 +79,10 @@ export async function refactor_import_missing(file_path) {
     
     console.log({missing});
 }
+function array_length_is_1(specifiers) {
+    return array_length(specifiers) === 1;
+}
+
 function js_parse_statement(statement_code) {
     let import_new = js_parse(statement_code);
     let import_new_body = js_body_get(import_new);
