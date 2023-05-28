@@ -71,8 +71,10 @@ export async function refactor_import_missing(file_path) {
     
     for (let m of missing) {
         let body = js_body_get(parsed);
-        let import_new = js_parse(`import ${m} from './${m}${function_extension()}'`);
+        const statement_code = `import ${m} from './${m}${function_extension()}'`;
+        let import_new = js_parse(statement_code);
         let import_new_body = js_body_get(import_new);
+        let statement = array_first(import_new_body);
         console.log({import_new_body});
     }
     
