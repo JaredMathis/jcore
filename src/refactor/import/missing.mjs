@@ -23,6 +23,7 @@ import { function_extension } from "../../function/extension.mjs";
 import { assert } from "../../assert.mjs";
 import { js_parse_statement } from "../../js/parse/statement.mjs";
 import { array_add_beginning } from "../../array/add/beginning.mjs";
+import { array_add_beginning_all } from "../../array/add/beginning/all.mjs";
 
 export async function refactor_import_missing(file_path) {
     let parsed = await file_js_parse(file_path);
@@ -84,9 +85,5 @@ export async function refactor_import_missing(file_path) {
     console.log({missing});
 }
 
-function array_add_beginning_all(list, element_new_all) {
-    for (let e of element_new_all) {
-        array_add_beginning(list, e);
-    }
-}
+
 
