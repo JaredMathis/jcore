@@ -11,6 +11,7 @@ import { assert } from "../../assert.mjs";
 import { array_skip } from "../../array/skip.mjs";
 import { function_extension } from "../../function/extension.mjs";
 import { string_without_suffix } from "../../string/without/suffix.mjs";
+import { array_skip_first } from "../../array/skip/first.mjs";
 
 export async function file_js_all() {
     let ds = directory_separator();
@@ -22,7 +23,7 @@ export async function file_js_all() {
     let mapped = array_map(filtered, a => string_split(a, ds));
     let mapped2 = array_map(mapped, a => {
         assert(array_first(a) === directory_source);
-        return array_skip(a, 1);
+        return array_skip_first(a);
     });
     let fns = function_name_separator();
     let mapped3 = array_map(
