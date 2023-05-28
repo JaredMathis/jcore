@@ -8,6 +8,6 @@ export function function_name_to_path(function_name) {
     let directory_source_result = directory_source();
 
     let split = string_split(function_name, '_');
-    let joined = array_join(split, '/');
+    let joined = array_join(split, ds);
     return joined
 }
