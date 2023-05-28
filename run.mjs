@@ -6,6 +6,7 @@ import { directory_separator } from "./src/directory/separator.mjs";
 import { function_name_to_path } from "./src/function/name/to/path.mjs";
 import { log } from "./src/log.mjs"
 import { directory_current } from "./src/directory/current.mjs";
+import { js_directory_separator } from "./src/js/directory/separator.mjs";
 
 async function run() {
     let args_command_line = Array.from(process.argv);
@@ -16,7 +17,7 @@ async function run() {
     
     let function_path = function_name_to_path(function_name);
     let concated = directory_current() + directory_separator() + function_path;
-    let replaced = string_replace(concated, directory_separator(), '/');
+    let replaced = string_replace(concated, directory_separator(), js_directory_separator());
     let imported = await import(replaced);
     let imported_function = imported[function_name];
     let result = await imported_function(...remaining);
