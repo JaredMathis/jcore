@@ -16,10 +16,6 @@ export function js_identifier_counts(parsed) {
         let r = object_property_get(node, 'name');
         object_property_initialize(result, r, 0);
         let invalid_names = ['hasOwnProperty']
-        console.log({
-            result,
-            r
-        });
         let previous = object_property_get(result, r);
         object_property_set(result, r, add_1(previous));
     });
