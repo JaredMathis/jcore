@@ -12,7 +12,7 @@ import { js_node_is_import_specifier } from "../../../../node/is/import/specifie
 import { js_node_is_type } from "../../../../node/is/type.mjs";
 import { js_import_all } from "../../../all.mjs";
 
-export function js_import_all_to_function_name() {
+export function js_import_all_to_function_name(parsed) {
     let import_all = js_import_all(parsed);
     let import_name_all = [];
     for (let i of import_all) {
