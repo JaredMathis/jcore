@@ -22,6 +22,7 @@ export async function refactor_import_missing(args) {
     let exported_function_names = js_exported_function_names(parsed);
     let without = array_without_all(missing, exported_function_names);
     let import_new_all = array_map(without, js_function_name_to_import);
+    console.log({import_new_all})
     let body = js_body_get(parsed);
     array_add_beginning_all(body, import_new_all);
 }
