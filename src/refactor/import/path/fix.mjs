@@ -18,8 +18,3 @@ export function refactor_import_path_fix(args) {
     }
 }
 
-function path_relative_file(file_path, function_path) {
-    let file_path_directory = path_parent(file_path);
-    let relative = path_relative(file_path_directory, function_path);
-    return relative;
-}
