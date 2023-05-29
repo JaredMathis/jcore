@@ -33,7 +33,6 @@ import { js_function_name_to_import } from '../../js/function/name/to/import.mjs
 export async function refactor_import_missing(parsed) {
     let identifiers = js_identifiers(parsed);
     let import_all = js_import_all(parsed);
-    let function_names = await function_name_all();
     let import_name_all = [];
     for (let i of import_all) {
         let source = object_property_get(i, 'source');
@@ -68,6 +67,7 @@ export async function refactor_import_missing(parsed) {
         }
         array_add(import_name_all, first_name);
     }
+    let function_names = await function_name_all();
     comment(`Identifiers that are also function names`);
     let identifier_function_names = array_filter(
         identifiers, i => array_contains(function_names, i));
