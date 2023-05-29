@@ -1,3 +1,3 @@
 export function aa() {
-    bb();
+    cc();
 }
