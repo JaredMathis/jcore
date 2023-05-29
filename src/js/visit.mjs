@@ -1,2 +1,2 @@
-export function js_visit() {
+export function js_visit(parsed) {
 }
