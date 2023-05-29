@@ -88,10 +88,14 @@ export async function refactor_import_missing(parsed) {
     let without = array_without_all(missing, mapped);
 
     let import_new_all = array_map(without, m => {
-        const statement_code = `import ${ m } from './${ m }${ function_extension() }'`;
-        let import_new = js_parse_statement(statement_code);
-        return import_new;
+        return js_function_name_to_import(m);
     });
     array_add_beginning_all(body, import_new_all);
+}
+
+function js_function_name_to_import(m) {
+    const statement_code = `import ${m} from './${m}${function_extension()}'`;
+    let import_new = js_parse_statement(statement_code);
+    return import_new;
 }
 
