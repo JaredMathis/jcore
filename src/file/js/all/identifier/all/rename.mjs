@@ -1,3 +1,4 @@
+import { array_unique_is } from '../../../../../array/unique/is.mjs';
 import { array_all_combine } from '../../../../../array/all/combine.mjs';
 import { object_properties } from '../../../../../object/properties.mjs';
 import { object_keys } from '../../../../../object/keys.mjs';
@@ -13,6 +14,5 @@ export function file_js_all_identifier_all_rename(dictionary) {
     let concat = array_all_combine(concats);
     assert(array_unique_is(concat));
     object_each(dictionary, (to, from) => {
-        
     });
 }

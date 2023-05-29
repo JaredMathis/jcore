@@ -1,5 +1,5 @@
 import { object_property_get } from '../../object/property/get.mjs';
-import { object_property_initialize } from '../../object/property/initialize.mjs';
+import { object_property_initialize_if_unset } from '../../object/property/initialize/if/unset.mjs';
 import { object_property_set } from '../../object/property/set.mjs';
 import { array_contains } from '../../array/contains.mjs';
 import { add_1 } from '../../add/1.mjs';
@@ -12,7 +12,7 @@ export function js_identifier_counts(parsed) {
         let invalid_names = ['hasOwnProperty'];
         let r = object_property_get(node, 'name');
         if (!array_contains(invalid_names, r)) {
-            object_property_initialize(result, r, 0);
+            object_property_initialize_if_unset(result, r, 0);
             let previous = object_property_get(result, r);
             object_property_set(result, r, add_1(previous));
         }
