@@ -1,6 +1,6 @@
+import { log } from '../../../../log.mjs';
 import { string_prefix_replace } from '../../../../string/prefix/replace.mjs';
 import { string_starts_with } from '../../../../string/starts/with.mjs';
-import { todo } from '../../../../todo.mjs';
 import { function_name_all } from '../../../name/all.mjs';
 export async function function_rename_if_starts_with(prefix_old, prefix_new) {
     let names = await function_name_all();
