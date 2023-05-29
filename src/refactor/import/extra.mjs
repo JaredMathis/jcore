@@ -13,9 +13,9 @@ import { js_exported_function_names } from '../../js/exported/function/names.mjs
 import { js_import_all_with_function_names } from '../../js/import/all/with/function/names.mjs';
 import { array_find } from '../../array/find.mjs';
 export async function refactor_import_extra(parsed) {
-    let with_function_names = js_import_all_with_function_names(parsed);
+    let imports = js_import_all_with_function_names(parsed);
     let import_name_all = array_map(
-        with_function_names, w => object_property_get(w, 'name'));
+        imports, w => object_property_get(w, 'name'));
     let counts = js_identifier_counts(parsed);
     let twices = object_each_filter(counts, function is_two(value, key) {
         return value === 2;
