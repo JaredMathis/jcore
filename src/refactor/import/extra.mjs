@@ -17,13 +17,16 @@ export async function refactor_import_extra(parsed) {
     error();
 }
 
-function object_each_filter(counts, predicate) {
+function object_each_filter(object, predicate) {
     let result = [];
-    for (let i in counts) {
-        let value = object_property_get(counts, i);
+    let lambda = (value, key) => {
         if (predicate(value)) {
             array_add(result, value);
         }
+    }
+    for (let key in object) {
+        let value = object_property_get(object, key);
+        lambda(value, key);
     }
     return result;
 }
