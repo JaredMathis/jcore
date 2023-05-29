@@ -21,8 +21,5 @@ export function refactor_import_path_fix(args) {
         assert(!string_includes(normalized, '\''));
         let raw = `'${ normalized }'`;
         object_property_set(source, 'raw', raw);
-        if (!js_node_is_literal(source)) {
-            continue;
-        }
     }
 }
