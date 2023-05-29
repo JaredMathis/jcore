@@ -36,29 +36,23 @@ export async function refactor_import_missing(parsed) {
     let identifiers = js_identifiers(parsed);
     let function_names = await function_name_all();
     comment(`Identifiers that are also function names`);
-    let identifier_function_names = array_filter(
-        identifiers, i => array_contains(function_names, i));
+    let identifier_function_names = array_filter(identifiers, i => array_contains(function_names, i));
     comment(`Identifiers missing an import`);
     let missing = array_filter(identifier_function_names, i => !array_contains(import_name_all, i));
-
     let body = js_body_get(parsed);
-    let exports = array_filter(body, b => js_node_is_export_named_declaration(b))
+    let exports = array_filter(body, b => js_node_is_export_named_declaration(b));
     let declarations = array_map(exports, e => {
         let d = object_property_get(e, 'declaration');
         return d;
-    })
+    });
     let filtered = array_filter(declarations, d => js_node_is_function_declaration(d));
     let mapped = array_map(filtered, f => {
         let id = object_property_get(f, 'id');
         assert(js_node_is_identifier(id));
         let name = object_property_get(id, 'name');
         return name;
-    })
+    });
     let without = array_without_all(missing, mapped);
-
     let import_new_all = array_map(without, js_function_name_to_import);
     array_add_beginning_all(body, import_new_all);
 }
-
-
-
