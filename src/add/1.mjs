@@ -1,3 +1,3 @@
-export function add_1() {
-    
+export function add_1(value) {
+    return add(value, 1);
 }
