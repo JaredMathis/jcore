@@ -1,8 +1,8 @@
 import { json_from } from '../json/from.mjs';
 import { json_to } from '../json/to.mjs';
 import { path_exists_not } from '../path/exists/not.mjs';
-import { file_read } from '../../file/read.mjs';
-import { file_write } from '../../file/write.mjs';
+import { file_read } from '../file/read.mjs';
+import { file_write } from '../file/write.mjs';
 export async function data_get() {
     const file_path = './data.json';
     let default_value = {};
