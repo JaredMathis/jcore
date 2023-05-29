@@ -81,9 +81,13 @@ export async function refactor_import_missing(parsed) {
         let d = object_property_get(e, 'declaration');
         return d;
     })
-    let filtered = array_filter(declarations, d => js_node_is_type(d, 'FunctionDeclaration'));
+    let filtered = array_filter(declarations, d => js_node_is_function_declaration(d));
     error()
     array_add_beginning_all(body, import_new_all);
 }
 
+
+function js_node_is_function_declaration(d) {
+    return js_node_is_type(d, 'FunctionDeclaration');
+}
 
