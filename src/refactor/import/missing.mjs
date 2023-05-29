@@ -6,6 +6,7 @@ import { object_property_get } from '../../object/property/get.mjs';
 import { js_node_is_type } from '../../js/node/is/type.mjs';
 import { js_node_is_import_specifier } from '../../js/node/is/import/specifier.mjs';
 import { js_node_is_export_named_declaration } from '../../js/node/is/export/named/declaration.mjs';
+import { js_node_is_function_declaration } from '../../js/node/is/function/declaration.mjs';
 import { js_node_is_identifier } from '../../js/node/is/identifier.mjs';
 import { array_first } from '../../array/first.mjs';
 import { directory_current } from '../../directory/current.mjs';
@@ -84,10 +85,5 @@ export async function refactor_import_missing(parsed) {
     let filtered = array_filter(declarations, d => js_node_is_function_declaration(d));
     error()
     array_add_beginning_all(body, import_new_all);
-}
-
-
-function js_node_is_function_declaration(d) {
-    return js_node_is_type(d, 'FunctionDeclaration');
 }
 
