@@ -7,6 +7,7 @@ import { string_prefix_replace } from '../../../../string/prefix/replace.mjs';
 import { string_starts_with } from '../../../../string/starts/with.mjs';
 import { function_name_all } from '../../../name/all.mjs';
 import { object_property_set } from '../../../../object/property/set.mjs';
+import { object_property_initialize } from '../../../../object/property/initialize.mjs';
 export async function function_rename_if_starts_with(prefix_old, prefix_new) {
     let names = await function_name_all();
     let dictionary = {};
@@ -14,7 +15,7 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
         if (string_starts_with(n_old, prefix_old)) {
             let n_new = string_prefix_replace(n_old, prefix_old, prefix_new);
             await function_rename_without_all_refactor(n_old, n_new);
-            object_property_set(dictionary, n_old, n_new);
+            object_property_initialize(dictionary, n_old, n_new);
             error();
             await file_js_all_identifier_rename(n_old, n_new);
         }
