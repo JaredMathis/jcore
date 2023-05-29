@@ -7,11 +7,11 @@ import { function_name_to_path } from "./src/function/name/to/path.mjs";
 import { log } from "./src/log.mjs"
 import { directory_current } from "./src/directory/current.mjs";
 import { js_directory_separator } from "./src/js/directory/separator.mjs";
-import { function_run } from "./src/function/run.mjs";
+import { array_to } from "./src/array/to.mjs";
 import { function_run_arguments } from "./src/function/run/arguments.mjs";
 
 async function run() {
-    let args_command_line = Array.from(process.argv);
+    let args_command_line = array_to(process.argv);
     let skipped = array_skip(args_command_line, 2);
     let result = await function_run_arguments(skipped);
     log(`Run result: ${result}`);
