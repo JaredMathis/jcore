@@ -14,7 +14,7 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
             await function_rename_without_all_refactor(n_old, n_new);
             error();
             await file_js_all_identifier_rename(n_old, n_new);
-            await file_js_all_map(refactor_import_fix.name);
         }
     }
+    await file_js_all_map(refactor_import_fix.name);
 }
