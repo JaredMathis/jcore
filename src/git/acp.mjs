@@ -6,8 +6,8 @@ import { data_task_id } from '../data/task/id.mjs';
 import { data_git_commit_message_initial } from '../data/git/commit/message/initial.mjs';
 import { data_git_commit_message_set } from '../data/git/commit/message/set.mjs';
 export async function git_acp() {
-    let data = await data_get();
     let commit_message = await data_git_commit_message_get();
+    let data = await data_get();
     const initial = data_git_commit_message_initial();
     if (commit_message === initial) {
         let task_id = object_property_get(data, data_task_id());
