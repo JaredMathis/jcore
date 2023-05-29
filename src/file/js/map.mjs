@@ -7,10 +7,10 @@ import { file_js_overwrite } from './overwrite.mjs';
 export async function file_js_map(function_name_mapper, file_path) {
     let args = await file_js_path_to_args(file_path);
     mapper(args);
+    await file_js_overwrite(args);
     function mapper() { 
         await function_run(function_name_mapper, [args]);
     }
-    await file_js_overwrite(args);
 }
 
 
