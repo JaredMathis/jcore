@@ -16,4 +16,5 @@ export async function data_task_finish() {
     await file_js_all_map(refactor_import_path_fix.name);
     await data_task_id_set(task_id_none);
     await git_acp_with_message();
+    await data_git_commit_message_set(initial);
 }
