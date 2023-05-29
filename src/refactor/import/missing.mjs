@@ -9,6 +9,7 @@ import { array_add_beginning_all } from '../../array/add/beginning/all.mjs';
 import { js_function_name_to_import } from '../../js/function/name/to/import.mjs';
 import { js_import_all_to_function_name } from '../../js/import/all/to/function/name.mjs';
 import { js_exported_function_names } from '../../js/exported/function/names.mjs';
+import { js_body_get } from '../../js/body/get.mjs';
 export async function refactor_import_missing(parsed) {
     let import_name_all = js_import_all_to_function_name(parsed);
     let identifiers = js_identifiers(parsed);
@@ -20,5 +21,6 @@ export async function refactor_import_missing(parsed) {
     let exported_function_names = js_exported_function_names(parsed);
     let without = array_without_all(missing, exported_function_names);
     let import_new_all = array_map(without, js_function_name_to_import);
+    let body = js_body_get(parsed);
     array_add_beginning_all(body, import_new_all);
 }
