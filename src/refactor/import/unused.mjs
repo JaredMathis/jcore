@@ -7,7 +7,7 @@ import { object_property_get } from '../../object/property/get.mjs';
 import { js_import_all_with_function_names } from '../../js/import/all/with/function/names.mjs';
 import { array_find } from '../../array/find.mjs';
 import { array_remove_all } from '../../array/remove/all.mjs';
-export async function refactor_import_extra(args) {
+export async function refactor_import_unused(args) {
     let {parsed} = args;
     let imports = await js_import_all_with_function_names(parsed);
     let import_name_all = array_map(imports, w => object_property_get(w, 'name'));
