@@ -6,6 +6,7 @@ import { refactor_import_path_fix } from '../../refactor/import/path/fix.mjs';
 import { data_git_commit_message_set } from '../git/commit/message/set.mjs';
 import { assert } from '../../assert.mjs';
 import { git_acp } from '../../git/acp.mjs';
+import { git_acp_with_message } from '../../git/acp/with/message.mjs';
 export async function data_task_finish() {
     todo(`Validate the task id is valid i.e. #123 not asdf`);
     const task_id_none = 'no task';
@@ -14,5 +15,5 @@ export async function data_task_finish() {
     await data_git_commit_message_set(`closes ${ task_id }`);
     await file_js_all_map(refactor_import_path_fix.name);
     await data_task_id_set(task_id_none);
-    await git_acp();
+    await git_acp_with_message();
 }
