@@ -1,6 +1,6 @@
 import { function_run_arguments } from './function/run/arguments.mjs';
-import { git_acp } from './git/acp.mjs';
+import { git_pacp } from './git/pacp.mjs';
 export async function git() {
     await function_run_arguments(arguments);
-    await git_acp();
+    await git_pacp();
 }

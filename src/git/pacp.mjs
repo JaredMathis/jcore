@@ -4,7 +4,7 @@ import { data_git_commit_message_initial } from '../data/git/commit/message/init
 import { git_pacp_with_message } from './pacp/with/message.mjs';
 import { data_get } from '../data/get.mjs';
 import { assert } from '../assert.mjs';
-export async function git_acp() {
+export async function git_pacp() {
     let data = await data_get();
     let task_id = object_property_get(data, data_task_id());
     let initial = data_git_commit_message_initial();
