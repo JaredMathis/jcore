@@ -1,5 +1,4 @@
 import { array_single } from '../../array/single.mjs';
-import { array_length_is_1 } from '../../array/length/is/1.mjs';
 import { assert } from '../../assert.mjs';
 import { js_body_get } from '../body/get.mjs';
 import { js_parse } from '../parse.mjs';
