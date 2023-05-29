@@ -1,3 +1,3 @@
-export function function_auto() {
+export function function_auto(function_name) {
     
 }
