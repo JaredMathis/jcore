@@ -12,7 +12,7 @@ export function js_import_path_normalize(import_path) {
         directory_separator(), 
         js_directory_separator());
     if (!string_starts_with(result, directory_current())) {
-        return './' + result;
+        return `./` + result;
     }
     return result;
 }
