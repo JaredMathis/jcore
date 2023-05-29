@@ -1,3 +1,3 @@
-export function array_single() {
+export function array_single(list) {
     
 }
