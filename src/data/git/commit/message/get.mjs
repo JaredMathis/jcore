@@ -10,7 +10,4 @@ export function data_git_commit_message_get() {
     return object_property_get_initialize(data, property_name);
 }
 
-function object_property_get_initialize(data, property_name) {
-    object_property_initialize(data, property_name, '');
-    return object_property_get(data, property_name);
-}
+
