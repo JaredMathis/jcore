@@ -10,5 +10,5 @@ export async function data_task_finish() {
     let task_id = await data_task_id_get();
     await file_js_all_map(refactor_import_fix.name);
     await git_acp_with_message(`closes ${ task_id }`);
-    await data_task_id_remove(task_id_none);
+    await data_task_id_remove();
 }
