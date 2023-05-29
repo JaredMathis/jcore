@@ -24,7 +24,7 @@ import { js_parse } from '../../js/parse.mjs';
 import { function_extension } from '../../function/extension.mjs';
 import { assert } from '../../assert.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
-import { array_add_beginning } from '../../array/add/beginning.mjs';
+import { array_without_all } from '../../array/without/all.mjs';
 import { array_add_beginning_all } from '../../array/add/beginning/all.mjs';
 import { js_unparse } from '../../js/unparse.mjs';
 import { file_overwrite } from '../../file/overwrite.mjs';
@@ -90,7 +90,7 @@ export async function refactor_import_missing(parsed) {
         let name = object_property_get(id, 'name');
         return name;
     })
-    let without = array_without(import_new_all, mapped);
+    let without = array_without_all(import_new_all, mapped);
     array_add_beginning_all(body, filtered2);
 }
 
