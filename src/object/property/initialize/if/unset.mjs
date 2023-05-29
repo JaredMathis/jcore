@@ -5,6 +5,10 @@ export function object_property_initialize_if_unset(object, property_name, initi
     if (object_property_exists(object, property_name)) {
         return;
     }
-    assert(object_property_exists(object, property_name));
+    object_property_initialize(object, property_name, initial_value);
+}
+
+function object_property_initialize(object, property_name, initial_value) {
+    assert(!object_property_exists(object, property_name));
     object_property_set(object, property_name, initial_value);
 }
