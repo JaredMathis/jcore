@@ -2,7 +2,7 @@ import { data_get } from "../../get.mjs";
 import { data_task_id } from "../id.mjs";
 import { object_property_set } from "../../../object/property/set.mjs";
 import { file_overwrite } from "../../../file/overwrite.mjs";
-import { data_path } from './path.mjs';
+import { data_path } from '../../path.mjs';
 import { json_to } from "../../../json/to.mjs";
 import { file_json_overwrite } from "../../../file/json/overwrite.mjs";
 
