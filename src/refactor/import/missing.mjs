@@ -79,7 +79,6 @@ export async function refactor_import_missing(parsed) {
         return d;
     })
     let filtered = array_filter(declarations, d => js_node_is_function_declaration(d));
-    console.log(filtered);
     let mapped = array_map(filtered, f => {
         let id = object_property_get(f, 'id');
         assert(js_node_is_identifier(id));
