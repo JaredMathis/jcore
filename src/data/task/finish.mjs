@@ -1,3 +1,4 @@
+import { data_git_commit_message_initial } from '../git/commit/message/initial.mjs';
 import { data_task_id_get } from './id/get.mjs';
 import { todo } from '../../todo.mjs';
 import { data_task_id_set } from './id/set.mjs';
@@ -15,5 +16,6 @@ export async function data_task_finish() {
     await file_js_all_map(refactor_import_path_fix.name);
     await data_task_id_set(task_id_none);
     await git_acp_with_message();
+    let initial = data_git_commit_message_initial();
     await data_git_commit_message_set(initial);
 }
