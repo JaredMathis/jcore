@@ -18,11 +18,6 @@ export function js_import_all_with_function_names(parsed) {
         if (!js_node_is_literal(source)) {
             continue;
         }
-        let source_value = object_property_get(source, 'value');
-        const prefix = directory_current();
-        if (!string_starts_with(source_value, prefix)) {
-            continue;
-        }
         let specifiers = object_property_get(i, 'specifiers');
         if (!array_length_is_1(specifiers)) {
             continue;
