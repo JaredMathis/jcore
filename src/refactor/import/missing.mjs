@@ -26,6 +26,7 @@ import { array_add_beginning } from '../../array/add/beginning.mjs';
 import { array_add_beginning_all } from '../../array/add/beginning/all.mjs';
 import { js_unparse } from '../../js/unparse.mjs';
 import { file_overwrite } from '../../file/overwrite.mjs';
+import { error } from '../../error.mjs';
 export async function refactor_import_missing(parsed) {
     let identifiers = js_identifiers(parsed);
     let import_all = js_import_all(parsed);
@@ -74,5 +75,8 @@ export async function refactor_import_missing(parsed) {
         return import_new;
     });
     let body = js_body_get(parsed);
+    let exports = array_filter(body, b => js_node_is_type(b, 'ExportNamedDeclaration'))
+    console.log(parsed);
+    error()
     array_add_beginning_all(body, import_new_all);
 }
