@@ -13,11 +13,7 @@ import { function_run_arguments } from "./src/function/run/arguments.mjs";
 async function run() {
     let args_command_line = Array.from(process.argv);
     let skipped = array_skip(args_command_line, 2);
-    
     let result = await function_run_arguments(skipped);
-
-    if (false)array_contains;
-    
     log(`Run result: ${result}`);
 }
 
