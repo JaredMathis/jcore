@@ -8,9 +8,9 @@ import { js_node_is_literal } from '../../../js/node/is/literal.mjs';
 import { js_import_path_normalize } from '../../../js/import/path/normalize.mjs';
 import { assert } from '../../../assert.mjs';
 export function refactor_import_path_fix(args) {
-    console.log('here')
     let {parsed, file_path} = args;
     let imports = js_import_all_with_function_names(parsed);
+    console.log(imports)
     for (let iw of imports) {
         let function_name = object_property_get(iw, 'name');
         let function_path = function_name_to_path(function_name);
