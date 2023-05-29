@@ -1,4 +1,4 @@
-import { js_identifiers } from '../../js/identifiers.mjs';
+import { js_identifier_all } from '../../js/identifier/all.mjs';
 import { function_name_all } from '../../function/name/all.mjs';
 import { array_map } from '../../array/map.mjs';
 import { array_contains } from '../../array/contains.mjs';
@@ -13,7 +13,7 @@ import { js_body_get } from '../../js/body/get.mjs';
 export async function refactor_import_missing(args) {
     let {parsed} = args;
     let import_name_all = await js_import_all_to_function_name(parsed);
-    let identifiers = js_identifiers(parsed);
+    let identifiers = js_identifier_all(parsed);
     let function_names = await function_name_all();
     comment(`Identifiers that are also function names`);
     let identifier_function_names = array_filter(identifiers, i => array_contains(function_names, i));
