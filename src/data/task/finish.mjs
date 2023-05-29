@@ -13,6 +13,7 @@ export async function data_task_finish() {
     let task_id = await data_task_id_get();
     assert(task_id !== task_id_none);
     await file_js_all_map(refactor_import_path_fix.name);
+    console.log('here');
     await git_acp_with_message(`closes ${ task_id }`);
     await data_task_id_set(task_id_none);
 }
