@@ -17,7 +17,7 @@ export function js_import_all_to_function_name(parsed) {
     let import_name_all = [];
     for (let i of import_all) {
         let source = object_property_get(i, 'source');
-        if (!js_node_is_type(source, 'Literal')) {
+        if (!js_node_is_literal(source)) {
             continue;
         }
         let source_value = object_property_get(source, 'value');
@@ -50,4 +50,8 @@ export function js_import_all_to_function_name(parsed) {
         array_add(import_name_all, first_name);
     }
     return import_name_all;
+}
+
+function js_node_is_literal(source) {
+    return js_node_is_type(source, 'Literal');
 }
