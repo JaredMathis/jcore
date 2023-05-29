@@ -11,9 +11,4 @@ export async function data_task_id_set(task_id) {
     }
 }
 
-async function data_map(map) {
-    let data = await data_get();
-    map(data);
-    await data_overwrite(data);
-}
 
