@@ -9,5 +9,6 @@ export async function data_task_finish() {
     let task_id = await data_task_id_get();
     await data_git_commit_message_set(`closes ${ task_id }`);
     await file_js_all_map(refactor_import_path_fix.name);
-    await data_task_id_set('no task');
+    const task_id_none = 'no task';
+    await data_task_id_set(task_id_none);
 }
