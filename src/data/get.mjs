@@ -1,4 +1,5 @@
 import { file_read } from './file_read.mjs';
-export function data_get() {
-    file_read();
+export async function data_get() {
+    const file_path = './data.json';
+    await file_read(file_path);
 }
