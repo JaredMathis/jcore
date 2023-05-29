@@ -75,8 +75,12 @@ export async function refactor_import_missing(parsed) {
         return import_new;
     });
     let body = js_body_get(parsed);
-    let exports = array_filter(body, b => js_node_is_type(b, 'ExportNamedDeclaration'))
+    let exports = array_filter(body, b => js_node_is_export_named_declaration(b))
     console.log(parsed);
     error()
     array_add_beginning_all(body, import_new_all);
+}
+
+function js_node_is_export_named_declaration(b) {
+    return js_node_is_type(b, 'ExportNamedDeclaration');
 }
