@@ -12,10 +12,9 @@ export async function data_task_finish() {
     const task_id_none = 'no task';
     let task_id = await data_task_id_get();
     assert(task_id !== task_id_none);
-    await data_git_commit_message_set(`closes ${ task_id }`);
+    await data_git_commit_message_set();
     await file_js_all_map(refactor_import_path_fix.name);
-    await data_task_id_set(task_id_none);
-    await git_acp_with_message();
-    let initial = data_git_commit_message_initial();
+    await git_acp_with_message(`closes ${ task_id }`);
     await data_git_commit_message_set(initial);
+    await data_task_id_set(task_id_none);
 }
