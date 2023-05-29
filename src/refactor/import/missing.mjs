@@ -91,6 +91,6 @@ export async function refactor_import_missing(parsed) {
         return name;
     })
     let without = array_without_all(import_new_all, mapped);
-    array_add_beginning_all(body, filtered2);
+    array_add_beginning_all(body, without);
 }
 
