@@ -12,7 +12,6 @@ import { array_first } from '../../array/first.mjs';
 import { directory_current } from '../../directory/current.mjs';
 import { js_directory_separator } from '../../js/directory/separator.mjs';
 import { string_starts_with } from '../../string/starts/with.mjs';
-import { array_length_is_1 } from '../../array/length/is/1.mjs';
 import { array_map } from '../../array/map.mjs';
 import { array_any } from '../../array/any.mjs';
 import { array_add } from '../../array/add.mjs';
