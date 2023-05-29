@@ -14,7 +14,9 @@ import { js_import_all } from "../../../all.mjs";
 import { js_import_all_with_function_names } from "../../with/function/names.mjs";
 
 export function js_import_all_to_function_name(parsed) {
-    return js_import_all_with_function_names(parsed);
+    let with_function_names = js_import_all_with_function_names(parsed);
+    let result = array_map(with_function_names, w => object_property_get(w, 'name'));
+    return result;
 }
 
 

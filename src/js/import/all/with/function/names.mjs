@@ -46,7 +46,9 @@ export function js_import_all_with_function_names(parsed) {
         if (array_any(values, v => object_property_get(v, 'name') !== first_name)) {
             continue;
         }
-        array_add(import_name_all, first_name);
+        array_add(import_name_all, {
+            name: first_name,
+        });
     }
     return import_name_all;
 }
