@@ -10,7 +10,7 @@ import { assert } from '../../../assert.mjs';
 export function refactor_import_path_fix(args) {
     let {parsed, file_path} = args;
     let imports = js_import_all_with_function_names(parsed);
-    console.log(imports)
+    console.log(parsed);
     for (let iw of imports) {
         let function_name = object_property_get(iw, 'name');
         let function_path = function_name_to_path(function_name);
