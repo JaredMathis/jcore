@@ -28,3 +28,14 @@ Note: the path is incorrect
 ---
 
 To format all whitespace in all `mjs` files: `node run.mjs file_js_all_map identity`
+
+---
+
+To set the current git issue: `node run.mjs data_task_id_set_hash 1234`
+
+To commit to git: `node run.mjs git_acp` (Will git add all files, then commit, then push)
+
+To run a function then commit to git: `node run.mjs git my_function my_arg1 my_arg2`
+
+---
+
