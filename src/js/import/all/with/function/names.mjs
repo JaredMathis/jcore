@@ -11,6 +11,7 @@ import { js_node_is_identifier } from '../../../../node/is/identifier.mjs';
 import { js_node_is_import_specifier } from '../../../../node/is/import/specifier.mjs';
 import { js_node_is_literal } from '../../../../node/is/literal.mjs';
 import { js_import_all } from '../../../all.mjs';
+import { array_contains } from '../../../../../array/contains.mjs';
 export function js_import_all_with_function_names(parsed) {
     let function_names = function_name_all();
     let import_all = js_import_all(parsed);
@@ -39,6 +40,9 @@ export function js_import_all_with_function_names(parsed) {
         let first = array_first(values);
         let first_name = object_property_get(first, 'name');
         if (array_any(values, v => object_property_get(v, 'name') !== first_name)) {
+            continue;
+        }
+        if (!array_contains(function_names, first_name)) {
             continue;
         }
         array_add(import_name_all, {
