@@ -1,4 +1,5 @@
 import { comment } from "../../../comment.mjs";
+import { directory_current } from "../../../directory/current.mjs";
 import { directory_separator } from "../../../directory/separator.mjs";
 import { string_replace } from "../../../string/replace.mjs";
 import { string_starts_with } from "../../../string/starts/with.mjs";
@@ -10,7 +11,7 @@ export function js_import_path_normalize(import_path) {
         import_path, 
         directory_separator(), 
         js_directory_separator());
-    if (!string_starts_with(result, '.')) {
+    if (!string_starts_with(result, directory_current())) {
         return './' + result;
     }
     return result;
