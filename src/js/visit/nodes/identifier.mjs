@@ -1,2 +1,6 @@
-export function js_visit_nodes_identifier() {
+import { js_node_is_identifier } from '../../node/is/identifier.mjs';
+import { js_node_is } from '../../node/is.mjs';
+import { js_visit } from '../../visit.mjs';
+export function js_visit_nodes_identifier(parsed, lambda) {
+    js_visit(parsed, node => js_node_is(node) && js_node_is_identifier(node), lambda);
 }
