@@ -88,9 +88,7 @@ export async function refactor_import_missing(parsed) {
     })
     let without = array_without_all(missing, mapped);
 
-    let import_new_all = array_map(without, m => {
-        return js_function_name_to_import(m);
-    });
+    let import_new_all = array_map(without, js_function_name_to_import);
     array_add_beginning_all(body, import_new_all);
 }
 
