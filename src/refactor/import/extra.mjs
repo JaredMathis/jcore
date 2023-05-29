@@ -11,7 +11,7 @@ export async function refactor_import_extra(parsed) {
         return value === 2;
     });
     let intersection = array_intersection(import_name_all)
-    console.log({import_name_all,counts})
+    console.log({import_name_all,twices})
     error();
 }
 
