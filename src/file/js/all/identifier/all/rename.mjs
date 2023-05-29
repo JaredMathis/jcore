@@ -14,10 +14,4 @@ export function file_js_all_identifier_all_rename(dictionary) {
     });
 }
 
-function array_all_combine(concats) {
-    let concat = [];
-    for (let list of concats) {
-        array_add_all(concat, list);
-    }
-    return concat;
-}
+
