@@ -8,11 +8,16 @@ export function file_js_all_identifier_all_rename(dictionary) {
         keys,
         values
     ];
+    let concat = array_all_combine(concats);
+    assert(array_unique_is(concat));
+    object_each(dictionary, (to, from) => {
+    });
+}
+
+function array_all_combine(concats) {
     let concat = [];
     for (let list of concats) {
         array_add_all(concat, list);
     }
-    assert(array_unique_is(concat));
-    object_each(dictionary, (to, from) => {
-    });
+    return concat;
 }
