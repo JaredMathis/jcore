@@ -31,6 +31,7 @@ import { file_overwrite } from '../../file/overwrite.mjs';
 import { error } from '../../error.mjs';
 import { js_function_name_to_import } from '../../js/function/name/to/import.mjs';
 import { js_import_all_to_function_name } from '../../js/import/all/to/function/name.mjs';
+import { js_exported_function_names } from '../../js/exported/function/names.mjs';
 export async function refactor_import_missing(parsed) {
     let import_name_all = js_import_all_to_function_name(parsed);
     let identifiers = js_identifiers(parsed);
