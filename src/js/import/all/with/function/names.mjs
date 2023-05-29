@@ -3,6 +3,7 @@ import { array_any } from '../../../../../array/any.mjs';
 import { array_first } from '../../../../../array/first.mjs';
 import { array_length_is_1 } from '../../../../../array/length/is/1.mjs';
 import { array_map } from '../../../../../array/map.mjs';
+import { function_name_all } from '../../../../../function/name/all.mjs';
 import { directory_current } from '../../../../../directory/current.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { string_starts_with } from '../../../../../string/starts/with.mjs';
@@ -11,6 +12,7 @@ import { js_node_is_import_specifier } from '../../../../node/is/import/specifie
 import { js_node_is_literal } from '../../../../node/is/literal.mjs';
 import { js_import_all } from '../../../all.mjs';
 export function js_import_all_with_function_names(parsed) {
+    let function_names = function_name_all();
     let import_all = js_import_all(parsed);
     let import_name_all = [];
     for (let i of import_all) {
