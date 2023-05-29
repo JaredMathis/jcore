@@ -12,7 +12,7 @@ import { js_exported_function_names } from '../../js/exported/function/names.mjs
 import { js_body_get } from '../../js/body/get.mjs';
 export async function refactor_import_missing(args) {
     let {parsed} = args;
-    let import_name_all = js_import_all_to_function_name(parsed);
+    let import_name_all = await js_import_all_to_function_name(parsed);
     let identifiers = js_identifiers(parsed);
     let function_names = await function_name_all();
     comment(`Identifiers that are also function names`);

@@ -10,7 +10,7 @@ import { array_find } from '../../array/find.mjs';
 import { array_remove_all } from '../../array/remove/all.mjs';
 export async function refactor_import_extra(args) {
     let {parsed} = args;
-    let imports = js_import_all_with_function_names(parsed);
+    let imports = await js_import_all_with_function_names(parsed);
     let import_name_all = array_map(imports, w => object_property_get(w, 'name'));
     let counts = js_identifier_counts(parsed);
     let twices = object_each_filter(counts, function is_two(value, key) {
