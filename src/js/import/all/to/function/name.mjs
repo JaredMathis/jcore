@@ -9,7 +9,7 @@ import { string_starts_with } from "../../../../../string/starts/with.mjs";
 import { js_directory_separator } from "../../../../directory/separator.mjs";
 import { js_node_is_identifier } from "../../../../node/is/identifier.mjs";
 import { js_node_is_import_specifier } from "../../../../node/is/import/specifier.mjs";
-import { js_node_is_type } from "../../../../node/is/type.mjs";
+import { js_node_is_literal } from "../../../../node/is/literal.mjs";
 import { js_import_all } from "../../../all.mjs";
 
 export function js_import_all_to_function_name(parsed) {
@@ -52,6 +52,4 @@ export function js_import_all_to_function_name(parsed) {
     return import_name_all;
 }
 
-function js_node_is_literal(source) {
-    return js_node_is_type(source, 'Literal');
-}
+
