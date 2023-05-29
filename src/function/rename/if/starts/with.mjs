@@ -8,6 +8,7 @@ import { string_starts_with } from '../../../../string/starts/with.mjs';
 import { function_name_all } from '../../../name/all.mjs';
 export async function function_rename_if_starts_with(prefix_old, prefix_new) {
     let names = await function_name_all();
+    let dictionary = {};
     for (let n_old of names) {
         if (string_starts_with(n_old, prefix_old)) {
             let n_new = string_prefix_replace(n_old, prefix_old, prefix_new);
