@@ -8,4 +8,6 @@ export function refactor_import_fix(args) {
         refactor_import_missing,
         refactor_import_path_fix
     ];
+    for (let r of refactors) {
+    }
 }
