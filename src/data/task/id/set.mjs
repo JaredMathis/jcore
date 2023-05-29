@@ -9,6 +9,6 @@ export async function data_task_id_set(task_id) {
     let data = await data_get();
     object_property_set(data, data_task_id(), task_id);
     let file_path = data_path();
-    let json = json_to(data);
-    file_overwrite(file_path, json);
+    file_json_overwrite(data, file_path);
 }
+
