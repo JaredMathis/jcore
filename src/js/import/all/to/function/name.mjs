@@ -21,7 +21,7 @@ export function js_import_all_to_function_name(parsed) {
             continue;
         }
         let source_value = object_property_get(source, 'value');
-        const prefix = `${ directory_current() }${ js_directory_separator() }`;
+        const prefix = directory_current();
         if (!string_starts_with(source_value, prefix)) {
             continue;
         }
