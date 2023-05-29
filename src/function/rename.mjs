@@ -7,12 +7,16 @@ import { function_name_to_path } from './name/to/path.mjs';
 import { file_rename } from '../file/rename.mjs';
 import { file_js_all_identifier_rename } from '../file/js/all/identifier/rename.mjs';
 export async function function_rename(function_name_old, function_name_new) {
+    await function_rename_without_all_refactor(function_name_old, function_name_new);
+    await file_js_all_identifier_rename(function_name_old, function_name_new);
+    await file_js_all_map(refactor_import_fix.name);
+}
+
+async function function_rename_without_all_refactor(function_name_old, function_name_new) {
     assert(await function_exists(function_name_old));
     assert(!await function_exists(function_name_new));
     assert(!await file_js_all_identifier_exists(function_name_new));
     let file_path_old = function_name_to_path(function_name_old);
     let file_path_new = function_name_to_path(function_name_new);
     await file_rename(file_path_old, file_path_new);
-    await file_js_all_identifier_rename(function_name_old, function_name_new);
-    await file_js_all_map(refactor_import_fix.name);
 }
