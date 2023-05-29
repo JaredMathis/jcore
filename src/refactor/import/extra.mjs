@@ -10,8 +10,8 @@ export async function refactor_import_extra(parsed) {
     let twices = object_each_filter(counts, function is_two(value) {
         return value === 2;
     });
-    let intersection = array_intersection(import_name_all)
-    console.log({import_name_all,twices})
+    let intersection = array_intersection(import_name_all, twices)
+    console.log({import_name_all,intersection})
     error();
 }
 
