@@ -3,7 +3,6 @@ import { js_import_all_with_function_names } from '../../../js/import/all/with/f
 import { object_property_get } from '../../../object/property/get.mjs';
 import { string_includes } from '../../../string/includes.mjs';
 import { path_relative_file } from '../../../path/relative/file.mjs';
-import { path_parent } from '../../../path/parent.mjs';
 import { js_node_is_literal } from '../../../js/node/is/literal.mjs';
 import { js_import_path_normalize } from '../../../js/import/path/normalize.mjs';
 import { assert } from '../../../assert.mjs';
