@@ -12,8 +12,8 @@ import { js_node_is_import_specifier } from '../../../../node/is/import/specifie
 import { js_node_is_literal } from '../../../../node/is/literal.mjs';
 import { js_import_all } from '../../../all.mjs';
 import { array_contains } from '../../../../../array/contains.mjs';
-export function js_import_all_with_function_names(parsed) {
-    let function_names = function_name_all();
+export async function js_import_all_with_function_names(parsed) {
+    let function_names = await function_name_all();
     let import_all = js_import_all(parsed);
     let import_name_all = [];
     for (let i of import_all) {
