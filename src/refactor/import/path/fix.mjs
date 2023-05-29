@@ -15,7 +15,6 @@ export async function refactor_import_path_fix(args) {
         let function_path = function_name_to_path(function_name);
         let relative = path_relative_file(file_path, function_path);
         let normalized = js_import_path_normalize(relative);
-        console.log(normalized)
         let i = object_property_get(iw, 'import');
         let source = object_property_get(i, 'source');
         object_property_set(source, 'value', normalized);
