@@ -13,10 +13,7 @@ async function run() {
     let args_command_line = Array.from(process.argv);
     let skipped = array_skip(args_command_line, 2);
     
-    let function_name = array_first(skipped);
-    let remaining = array_skip_first(skipped);
-    
-    let result = await function_run(function_name, remaining);
+    let result = await function_run_arguments(skipped);
 
     if (false)array_contains;
     
@@ -24,3 +21,11 @@ async function run() {
 }
 
 run();
+async function function_run_arguments(skipped) {
+    let function_name = array_first(skipped);
+    let remaining = array_skip_first(skipped);
+
+    let result = await function_run(function_name, remaining);
+    return result;
+}
+
