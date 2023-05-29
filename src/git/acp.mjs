@@ -8,7 +8,7 @@ export async function git_acp() {
     let commit_message = task_id;
     let commands = [
         `git add *`,
-        `git commit -m "${ task_id }"`,
+        `git commit -m "${ commit_message }"`,
         `git push`
     ];
     for (let c of commands) {
