@@ -11,6 +11,7 @@ import { array_map } from '../../array/map.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { js_exported_function_names } from '../../js/exported/function/names.mjs';
 import { js_import_all_with_function_names } from '../../js/import/all/with/function/names.mjs';
+import { array_find } from '../../array/find.mjs';
 export async function refactor_import_extra(parsed) {
     let imports = js_import_all_with_function_names(parsed);
     let import_name_all = array_map(
