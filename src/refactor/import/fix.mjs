@@ -8,6 +8,7 @@ export function refactor_import_fix(args) {
         refactor_import_path_fix
     ];
     for (let r of refactors) {
+        console.log(r.name)
         r(args);
     }
 }
