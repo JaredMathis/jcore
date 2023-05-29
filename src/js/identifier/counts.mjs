@@ -7,6 +7,7 @@ import { visit_filter } from "../../visit/filter.mjs";
 import { js_body_get } from "../body/get.mjs";
 import { js_node_is } from "../node/is.mjs";
 import { js_node_is_identifier } from "../node/is/identifier.mjs";
+import { add_1 } from "../../add/1.mjs";
 
 export function js_identifier_counts(parsed) {
     let result = {};
