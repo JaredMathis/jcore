@@ -1,3 +1,3 @@
-export function array_index_of(list ,element) {
+export function array_index_of(list, element) {
     return list.indexOf(element);
 }

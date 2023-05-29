@@ -1,4 +1,4 @@
-import {file_js_map} from '../file/js/map.mjs'
+import { file_js_map } from '../file/js/map.mjs';
 import { function_name_to_path } from './name/to/path.mjs';
 export async function function_map(function_name_mapper, function_name) {
     let file_path = function_name_to_path(function_name);
