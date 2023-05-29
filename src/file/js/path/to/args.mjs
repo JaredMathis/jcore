@@ -6,5 +6,5 @@ export async function file_js_path_to_args(file_path) {
         parsed,
         file_path
     };
-    return { args, parsed };
+    return args;
 }
