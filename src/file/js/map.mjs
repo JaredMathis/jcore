@@ -6,7 +6,10 @@ import { object_property_get } from '../../object/property/get.mjs';
 import { file_js_overwrite } from './overwrite.mjs';
 export async function file_js_map(function_name_mapper, file_path) {
     let args = await file_js_path_to_args(file_path);
-    await function_run(function_name_mapper, [args]);
+    mapper(args);
+    function mapper() { 
+        await function_run(function_name_mapper, [args]);
+    }
     await file_js_overwrite(args);
 }
 
