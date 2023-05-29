@@ -11,6 +11,13 @@ export async function refactor_import_extra(parsed) {
         return value === 2;
     }
     let predicate = is_two;
+    object_each_filter(counts, predicate);
+    let intersection = array_intersection(import_name_all)
+    console.log({import_name_all,counts})
+    error();
+}
+
+function object_each_filter(counts, predicate) {
     let result = [];
     for (let i in counts) {
         let value = object_property_get(counts, i);
@@ -18,7 +25,5 @@ export async function refactor_import_extra(parsed) {
             array_add(result, value);
         }
     }
-    let intersection = array_intersection(import_name_all)
-    console.log({import_name_all,counts})
-    error();
+    return result;
 }
