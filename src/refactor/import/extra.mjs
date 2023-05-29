@@ -17,7 +17,6 @@ export async function refactor_import_extra(args) {
         return value === 2;
     });
     let intersection = array_intersection(import_name_all, twices);
-    let exported_function_names = js_exported_function_names(parsed);
     let imports_from_intersection = array_map(intersection, import_name => array_find(imports, i => object_property_get(i, 'name') === import_name));
     let import_statements_to_remove = array_map(imports_from_intersection, i => object_property_get(i, 'import'));
     let body = js_body_get(parsed);
