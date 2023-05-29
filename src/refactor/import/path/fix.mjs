@@ -8,6 +8,7 @@ import { js_node_is_literal } from '../../../js/node/is/literal.mjs';
 import { js_import_path_normalize } from '../../../js/import/path/normalize.mjs';
 import { assert } from '../../../assert.mjs';
 export function refactor_import_path_fix(args) {
+    console.log('here')
     let {parsed, file_path} = args;
     let imports = js_import_all_with_function_names(parsed);
     for (let iw of imports) {
