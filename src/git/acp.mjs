@@ -1,5 +1,6 @@
 import {object_property_get} from '../object/property/get.mjs'
 import {command_line} from '../command/line.mjs'
+import { data_get } from '../data/get.mjs';
 
 export async function git_acp() {
     let data = await data_get();
