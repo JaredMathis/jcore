@@ -12,6 +12,7 @@ export async function git_acp() {
     if (commit_message === initial) {
         let task_id = object_property_get(data, data_task_id());
         commit_message = task_id;
+        if(false)data_git_commit_message_set(initial);
     }
     let commands = [
         `git add *`,
