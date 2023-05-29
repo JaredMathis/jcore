@@ -16,7 +16,5 @@ export async function file_js_all_identifier_exists(identifier_name) {
             array_add_if_not_exists(result, i);
         }
     }
-    console.log(all);
-    error('asdf');
     return array_contains(result, identifier_name);
 }
