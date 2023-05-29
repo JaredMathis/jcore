@@ -17,7 +17,7 @@ export async function refactor_import_extra(parsed) {
         return value === 2;
     });
     let intersection = array_intersection(import_name_all, twices)
-    let mapped = js_exported_function_names(parsed);
+    let exported_function_names = js_exported_function_names(parsed);
     console.log({declarations})
     error();
 }
