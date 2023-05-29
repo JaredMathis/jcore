@@ -6,6 +6,7 @@ async function run() {
     let args_command_line = array_to(process.argv);
     let skipped = array_skip(args_command_line, 2);
     let result = await function_run_arguments(skipped);
+    if (false) array_contains;
     log(`Run result: ${ result }`);
 }
 run();
