@@ -13,6 +13,6 @@ export async function function_run(function_name, args) {
     return result;
 }
 
-function js_import_path_normalize(concated) {
-    return string_replace(concated, directory_separator(), js_directory_separator());
+function js_import_path_normalize(import_path) {
+    return string_replace(import_path, directory_separator(), js_directory_separator());
 }
