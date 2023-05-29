@@ -40,7 +40,8 @@ export async function refactor_import_missing(parsed) {
     comment(`Identifiers missing an import`);
     let missing = array_filter(identifier_function_names, i => !array_contains(import_name_all, i));
     let body = js_body_get(parsed);
-    let exports = array_filter(body, b => js_node_is_export_named_declaration(b));
+    let exports = array_filter(
+        body, b => js_node_is_export_named_declaration(b));
     let declarations = array_map(exports, e => {
         let d = object_property_get(e, 'declaration');
         return d;
