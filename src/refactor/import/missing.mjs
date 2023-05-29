@@ -40,8 +40,8 @@ export async function refactor_import_missing(parsed) {
     let identifier_function_names = array_filter(identifiers, i => array_contains(function_names, i));
     comment(`Identifiers missing an import`);
     let missing = array_filter(identifier_function_names, i => !array_contains(import_name_all, i));
-    let mapped = js_exported_function_names(parsed);
-    let without = array_without_all(missing, mapped);
+    let exported_function_names = js_exported_function_names(parsed);
+    let without = array_without_all(missing, exported_function_names);
     let import_new_all = array_map(without, js_function_name_to_import);
     array_add_beginning_all(body, import_new_all);
 }
