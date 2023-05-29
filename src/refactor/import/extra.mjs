@@ -12,6 +12,7 @@ import { object_property_get } from '../../object/property/get.mjs';
 import { js_exported_function_names } from '../../js/exported/function/names.mjs';
 import { js_import_all_with_function_names } from '../../js/import/all/with/function/names.mjs';
 import { array_find } from '../../array/find.mjs';
+import { array_remove_all } from '../../array/remove/all.mjs';
 export async function refactor_import_extra(parsed) {
     let imports = js_import_all_with_function_names(parsed);
     let import_name_all = array_map(
@@ -24,7 +25,8 @@ export async function refactor_import_extra(parsed) {
     let exported_function_names = js_exported_function_names(parsed);
     let imports_from_intersection = array_map(intersection, import_name => array_find(imports, i => object_property_get(i, 'name') === import_name));
     let import_statements_to_remove = array_map(imports_from_intersection, i => object_property_get(i, 'import'))
-    console.log({import_statements_to_remove})
+    let body = js_body_get(parsed);
+    array_remove_all(body, import_statements_to_remove)
     error();
 }
 
