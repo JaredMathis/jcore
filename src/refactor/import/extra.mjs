@@ -4,7 +4,6 @@ import { array_intersection } from '../../array/intersection.mjs';
 import { js_body_get } from '../../js/body/get.mjs';
 import { array_map } from '../../array/map.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
-import { js_exported_function_names } from '../../js/exported/function/names.mjs';
 import { js_import_all_with_function_names } from '../../js/import/all/with/function/names.mjs';
 import { array_find } from '../../array/find.mjs';
 import { array_remove_all } from '../../array/remove/all.mjs';

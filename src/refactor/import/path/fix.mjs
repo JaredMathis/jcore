@@ -4,7 +4,6 @@ import { object_property_get } from '../../../object/property/get.mjs';
 import { object_property_set } from '../../../object/property/set.mjs';
 import { string_includes } from '../../../string/includes.mjs';
 import { path_relative_file } from '../../../path/relative/file.mjs';
-import { js_node_is_literal } from '../../../js/node/is/literal.mjs';
 import { js_import_path_normalize } from '../../../js/import/path/normalize.mjs';
 import { assert } from '../../../assert.mjs';
 export async function refactor_import_path_fix(args) {
