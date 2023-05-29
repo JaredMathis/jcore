@@ -12,10 +12,6 @@ export async function data_get() {
         await file_write(file_path, default_json);
     }
     let json = await file_read(file_path);
-    console.log({
-        json,
-        file_path
-    });
     let data = json_from(json);
     return data;
 }
