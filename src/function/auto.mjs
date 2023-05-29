@@ -4,6 +4,7 @@ import { function_exists } from './exists.mjs';
 import { function_add } from './add.mjs';
 import { function_map } from './map.mjs';
 import { refactor_import_fix } from '../refactor/import/fix.mjs';
+import { function_open_vs_code } from './open/vs/code.mjs';
 export async function function_auto(function_name) {
     if (!await function_exists(function_name)) {
         await function_add(function_name);
@@ -12,7 +13,3 @@ export async function function_auto(function_name) {
     await function_open_vs_code(function_name);
 }
 
-async function function_open_vs_code(function_name) {
-    let function_path = function_name_to_path(function_name);
-    await file_open_vs_code(function_path);
-}
