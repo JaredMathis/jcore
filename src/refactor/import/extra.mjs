@@ -24,9 +24,13 @@ function object_each_filter(object, predicate) {
             array_add(result, value);
         }
     }
+    object_each(object, lambda);
+    return result;
+}
+function object_each(object, lambda) {
     for (let key in object) {
         let value = object_property_get(object, key);
         lambda(value, key);
     }
-    return result;
 }
+
