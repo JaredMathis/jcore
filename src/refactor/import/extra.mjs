@@ -21,7 +21,7 @@ export async function refactor_import_extra(parsed) {
     });
     let intersection = array_intersection(import_name_all, twices)
     let exported_function_names = js_exported_function_names(parsed);
-    let imports_from_intersection = array_map(intersection, import_name => array_find(imports, import_name));
+    let imports_from_intersection = array_map(intersection, import_name => array_find(imports, i => object_property_get(w, 'name') === import_name));
     console.log({intersection})
     error();
 }

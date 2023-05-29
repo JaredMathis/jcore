@@ -1,3 +1,3 @@
-export function array_find() {
+export function array_find(list, predicate) {
     
 }
