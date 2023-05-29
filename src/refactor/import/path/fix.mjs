@@ -21,7 +21,7 @@ export function refactor_import_path_fix(args) {
         console.log({
             function_path,
             file_path,
-            relative,
+            normalized,
             source
         });
     }
