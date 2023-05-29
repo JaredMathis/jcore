@@ -71,11 +71,7 @@ export async function refactor_import_missing(parsed) {
     let identifier_function_names = array_filter(identifiers, i => array_contains(function_names, i));
     comment(`Identifiers missing an import`);
     let missing = array_filter(identifier_function_names, i => !array_contains(import_name_all, i));
-    let import_new_all = array_map(missing, m => {
-        const statement_code = `import ${ m } from './${ m }${ function_extension() }'`;
-        let import_new = js_parse_statement(statement_code);
-        return import_new;
-    });
+
     let body = js_body_get(parsed);
     let exports = array_filter(body, b => js_node_is_export_named_declaration(b))
     let declarations = array_map(exports, e => {
@@ -90,7 +86,13 @@ export async function refactor_import_missing(parsed) {
         let name = object_property_get(id, 'name');
         return name;
     })
-    let without = array_without_all(import_new_all, mapped);
-    array_add_beginning_all(body, without);
+    let without = array_without_all(missing, mapped);
+
+    let import_new_all = array_map(without, m => {
+        const statement_code = `import ${ m } from './${ m }${ function_extension() }'`;
+        let import_new = js_parse_statement(statement_code);
+        return import_new;
+    });
+    array_add_beginning_all(body, import_new_all);
 }
 
