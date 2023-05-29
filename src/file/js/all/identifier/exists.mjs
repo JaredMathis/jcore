@@ -1,3 +1,4 @@
+import { array_contains } from "../../../../array/contains.mjs";
 import { error } from "../../../../error.mjs";
 import { file_js_all_path } from "../path.mjs";
 
@@ -7,11 +8,13 @@ export async function file_js_all_identifier_exists(identifier_name) {
     let result = [];
     for (let a of all) {
         let identifiers = await file_js_identifiers(a);
-        array_add_all(result, identifiers);
+        for (let i of identifiers) {
+            array_add_if_not_exists(result, i);
+        }
     }
     
     console.log(all);
     error();
 
-    return result;
+    return array_contains(result, identifier_name);
 }
