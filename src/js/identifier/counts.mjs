@@ -9,12 +9,12 @@ import { js_node_is } from '../node/is.mjs';
 import { js_node_is_identifier } from '../node/is/identifier.mjs';
 import { add_1 } from '../../add/1.mjs';
 import { comment } from '../../comment.mjs';
-comment(`This does not count "hasOwnProperty" for now`)
+comment(`This does not count "hasOwnProperty" for now`);
 export function js_identifier_counts(parsed) {
     let result = {};
     let body = js_body_get(parsed);
     visit_filter(body, node => object_properties(node), node => js_node_is(node) && js_node_is_identifier(node), node => {
-        let invalid_names = ['hasOwnProperty']
+        let invalid_names = ['hasOwnProperty'];
         let r = object_property_get(node, 'name');
         if (!array_contains(invalid_names, r)) {
             object_property_initialize(result, r, 0);
