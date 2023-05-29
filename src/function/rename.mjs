@@ -11,5 +11,6 @@ export async function function_rename(function_name_old, function_name_new) {
     let file_path_old = function_name_to_path(function_name_old);
     let file_path_new = function_name_to_path(function_name_new);
     await file_rename(file_path_old, file_path_new);
+    await file_js_identifier_rename(file_path_new, function_name_old, function_name_new);
     await file_js_all_map(refactor_import_fix.name);
 }
