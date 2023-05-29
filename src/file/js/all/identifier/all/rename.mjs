@@ -19,8 +19,4 @@ export async function file_js_all_identifier_all_rename(dictionary) {
     });
 }
 
-function js_identifier_all_rename(dictionary, args) {
-    object_each(dictionary, (to, from) => {
-        js_identifier_rename(args, from, to);
-    });
-}
+
