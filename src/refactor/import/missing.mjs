@@ -31,41 +31,7 @@ import { file_overwrite } from '../../file/overwrite.mjs';
 import { error } from '../../error.mjs';
 import { js_function_name_to_import } from '../../js/function/name/to/import.mjs';
 export async function refactor_import_missing(parsed) {
-    let import_all = js_import_all(parsed);
-    let import_name_all = [];
-    for (let i of import_all) {
-        let source = object_property_get(i, 'source');
-        if (!js_node_is_type(source, 'Literal')) {
-            continue;
-        }
-        let source_value = object_property_get(source, 'value');
-        const prefix = `${ directory_current() }${ js_directory_separator() }`;
-        if (!string_starts_with(source_value, prefix)) {
-            continue;
-        }
-        let specifiers = object_property_get(i, 'specifiers');
-        if (!array_length_is_1(specifiers)) {
-            continue;
-        }
-        let specifier = array_first(specifiers);
-        if (!js_node_is_import_specifier(specifier)) {
-            continue;
-        }
-        let properties = [
-            'imported',
-            'local'
-        ];
-        let values = array_map(properties, p => object_property_get(specifier, p));
-        if (array_any(values, v => !js_node_is_identifier(v))) {
-            continue;
-        }
-        let first = array_first(values);
-        let first_name = object_property_get(first, 'name');
-        if (array_any(values, v => object_property_get(v, 'name') !== first_name)) {
-            continue;
-        }
-        array_add(import_name_all, first_name);
-    }
+    let import_name_all = js_import_all_to_function_name(parsed);
     let identifiers = js_identifiers(parsed);
     let function_names = await function_name_all();
     comment(`Identifiers that are also function names`);
