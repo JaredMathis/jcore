@@ -6,6 +6,9 @@ import { object_each_filter } from '../../object/each/filter.mjs';
 import { array_intersection } from '../../array/intersection.mjs';
 import { js_node_is_export_named_declaration } from '../../js/node/is/export/named/declaration.mjs';
 import { array_filter } from '../../array/filter.mjs';
+import { js_body_get } from '../../js/body/get.mjs';
+import { array_map } from '../../array/map.mjs';
+import { object_property_get } from '../../object/property/get.mjs';
 export async function refactor_import_extra(parsed) {
     let import_name_all = js_import_all_to_function_name(parsed);
     let counts = js_identifier_counts(parsed);
@@ -13,9 +16,14 @@ export async function refactor_import_extra(parsed) {
         return value === 2;
     });
     let intersection = array_intersection(import_name_all, twices)
+    let body = js_body_get(parsed);
     let exports = array_filter(
         body, b => js_node_is_export_named_declaration(b));
-    console.log({import_name_all,intersection, twices})
+    let declarations = array_map(exports, e => {
+        let d = object_property_get(e, 'declaration');
+        return d;
+    });
+    console.log({declarations})
     error();
 }
 
