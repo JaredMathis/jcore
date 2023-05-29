@@ -17,7 +17,7 @@ export async function file_js_all_identifier_exists(identifier_name) {
     }
     
     console.log(all);
-    error();
+    error('asdf');
 
     return array_contains(result, identifier_name);
 }
