@@ -15,8 +15,12 @@ export async function file_js_all_identifier_all_rename(dictionary) {
     let concat = array_all_combine(concats);
     assert(array_unique_is(concat));
     await file_js_all_map_args(function mapper(args) {
-        object_each(dictionary, (to, from) => {
-            js_identifier_rename(args, from, to);
-        });
+        js_identifier_all_rename(dictionary, args);
+    });
+}
+
+function js_identifier_all_rename(dictionary, args) {
+    object_each(dictionary, (to, from) => {
+        js_identifier_rename(args, from, to);
     });
 }
