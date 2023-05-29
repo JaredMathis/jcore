@@ -24,11 +24,5 @@ export function refactor_import_path_fix(args) {
         if (!js_node_is_literal(source)) {
             continue;
         }
-        console.log({
-            function_path,
-            file_path,
-            normalized,
-            source
-        });
     }
 }
