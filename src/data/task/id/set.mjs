@@ -9,7 +9,3 @@ export async function data_task_id_set(task_id) {
     await data_overwrite(data);
 }
 
-async function data_overwrite(data) {
-    let file_path = data_path();
-    await file_json_overwrite(data, file_path);
-}
