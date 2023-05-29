@@ -90,7 +90,7 @@ export async function refactor_import_missing(parsed) {
         let name = object_property_get(id, 'name');
         return name;
     })
-    error()
-    array_add_beginning_all(body, import_new_all);
+    let without = array_without(import_new_all, mapped);
+    array_add_beginning_all(body, filtered2);
 }
 
