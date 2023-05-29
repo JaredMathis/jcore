@@ -11,7 +11,6 @@ export function refactor_import_path_fix(args) {
         let function_name = object_property_get(iw, 'name');
         let function_path = function_name_to_path(function_name);
         let relative = path_relative_file(file_path, function_path);
-        
         let i = object_property_get(iw, 'import');
         let source = object_property_get(i, 'source');
         if (!js_node_is_literal(source)) {
