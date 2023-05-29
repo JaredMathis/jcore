@@ -1,3 +1,3 @@
 export function data_commit_message() {
-    return 'commit_message'
+    return 'git_commit_message'
 }
