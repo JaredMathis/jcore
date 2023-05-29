@@ -39,3 +39,4 @@ To run a function then commit to git: `node run.mjs git my_function my_arg1 my_a
 
 ---
 
+To remove unused imports from all files: `node run.mjs git file_js_all_map refactor_import_extra run.mjs`
