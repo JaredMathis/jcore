@@ -48,6 +48,7 @@ export function js_import_all_with_function_names(parsed) {
         }
         array_add(import_name_all, {
             name: first_name,
+            import: i,
         });
     }
     return import_name_all;
