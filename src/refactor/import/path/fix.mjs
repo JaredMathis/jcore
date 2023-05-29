@@ -9,12 +9,17 @@ export function refactor_import_path_fix(args) {
     for (let i of imports) {
         let function_name = object_property_get(i, 'name');
         let function_path = function_name_to_path(function_name);
-        let file_path_directory = path_parent(file_path);
-        let relative = path_relative(file_path_directory, function_path);
+        let relative = path_relative_file(file_path, function_path);
         console.log({
             function_path,
             file_path,
             relative
         });
     }
+}
+
+function path_relative_file(file_path, function_path) {
+    let file_path_directory = path_parent(file_path);
+    let relative = path_relative(file_path_directory, function_path);
+    return relative;
 }
