@@ -7,10 +7,8 @@ import { assert } from '../../assert.mjs';
 import { git_acp_with_message } from '../../git/acp/with/message.mjs';
 export async function data_task_finish() {
     todo(`Validate the task id is valid i.e. #123 not asdf`);
-    const task_id_none = 'no task';
     let task_id = await data_task_id_get();
-    assert(task_id !== task_id_none);
     await file_js_all_map(refactor_import_fix.name);
     await git_acp_with_message(`closes ${ task_id }`);
-    await data_task_id_set(task_id_none);
+    await data_task_id_remove(task_id_none);
 }
