@@ -9,6 +9,10 @@ export async function function_auto(function_name) {
         await function_add(function_name);
     }
     await function_map(refactor_import_fix.name, function_name);
+    await function_open_vs_code(function_name);
+}
+
+async function function_open_vs_code(function_name) {
     let function_path = function_name_to_path(function_name);
     await file_open_vs_code(function_path);
 }
