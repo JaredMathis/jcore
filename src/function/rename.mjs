@@ -1,3 +1,4 @@
+import { file_js_all_identifier_exists } from '../file/js/all/identifier/exists.mjs';
 import { assert } from '../assert.mjs';
 import { file_js_all_map } from '../file/js/all/map.mjs';
 import { refactor_import_fix } from '../refactor/import/fix.mjs';
