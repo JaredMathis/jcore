@@ -10,5 +10,5 @@ export async function file_js_map(function_name_mapper, file_path) {
     };
     await function_run(function_name_mapper, [args]);
     let unparsed = js_unparse(parsed);
-    file_overwrite(file_path, unparsed);
+    await file_overwrite(file_path, unparsed);
 }
