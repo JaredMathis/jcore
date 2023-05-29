@@ -7,6 +7,9 @@ export function refactor_import_path_fix(args) {
     for (let i of imports) {
         let function_name = object_property_get(i, 'name');
         let function_path = function_name_to_path(function_name);
-        console.log({ function_path, file_path });
+        console.log({
+            function_path,
+            file_path
+        });
     }
 }
