@@ -29,6 +29,7 @@ import { array_add_beginning_all } from '../../array/add/beginning/all.mjs';
 import { js_unparse } from '../../js/unparse.mjs';
 import { file_overwrite } from '../../file/overwrite.mjs';
 import { error } from '../../error.mjs';
+import { js_function_name_to_import } from '../../js/function/name/to/import.mjs';
 export async function refactor_import_missing(parsed) {
     let identifiers = js_identifiers(parsed);
     let import_all = js_import_all(parsed);
@@ -93,9 +94,5 @@ export async function refactor_import_missing(parsed) {
     array_add_beginning_all(body, import_new_all);
 }
 
-function js_function_name_to_import(m) {
-    const statement_code = `import ${m} from './${m}${function_extension()}'`;
-    let import_new = js_parse_statement(statement_code);
-    return import_new;
-}
+
 
