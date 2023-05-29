@@ -27,7 +27,6 @@ export async function refactor_import_extra(parsed) {
     let import_statements_to_remove = array_map(imports_from_intersection, i => object_property_get(i, 'import'))
     let body = js_body_get(parsed);
     array_remove_all(body, import_statements_to_remove)
-    error();
 }
 
 
