@@ -1,3 +1,4 @@
+import { data_git_commit_message_get } from '../data/git/commit/message/get.mjs';
 import { object_property_get } from '../object/property/get.mjs';
 import { command_line } from '../command/line.mjs';
 import { data_get } from '../data/get.mjs';
