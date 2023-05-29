@@ -7,7 +7,7 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
     for (let n of names) {
         if (string_starts_with(n, prefix_old)) {
             let n_new = string_prefix_replace(n, prefix_old, prefix_new);
-            todo();
+            console.log(n_new);
         }
     }
 }
