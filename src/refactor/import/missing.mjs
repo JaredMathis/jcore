@@ -69,7 +69,8 @@ export async function refactor_import_missing(parsed) {
         array_add(import_name_all, first_name);
     }
     comment(`Identifiers that are also function names`);
-    let identifier_function_names = array_filter(identifiers, i => array_contains(function_names, i));
+    let identifier_function_names = array_filter(
+        identifiers, i => array_contains(function_names, i));
     comment(`Identifiers missing an import`);
     let missing = array_filter(identifier_function_names, i => !array_contains(import_name_all, i));
 
