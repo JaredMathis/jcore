@@ -12,6 +12,7 @@ export async function refactor_functions_to_files(args) {
     let without_imports = js_without_imports(parsed);
     let functions_to_export = list_filter(without_imports, js_node_is_function_declaration);
     let function_names_new = js_function_declarations_to_names(functions_to_export);
+    assert(!array_length_is_0(function_names_new));
     for (let n of function_names_new) {
         assert(!await function_exists(n));
     }
@@ -19,5 +20,8 @@ export async function refactor_functions_to_files(args) {
         let n = js_function_declaration_to_name(f);
         let statements = js_function_delcaration_to_statements(f);
         await function_add_with_body(n, statements);
+    }
+    for (let n of function_names_new) {
+        error();
     }
 }
