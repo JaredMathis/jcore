@@ -1,7 +1,7 @@
 import { log } from '../../../log.mjs';
 import { command_line_check } from '../../../command/line/check.mjs';
 export async function git_pacp_with_message(commit_message) {
-    let result = {success:true};
+    let result = result_empty();
     let commands = [
         `git pull`,
         `git add *`,
@@ -18,4 +18,8 @@ export async function git_pacp_with_message(commit_message) {
         }
     }
     return result;
+}
+
+function result_empty() {
+    return { success: true };
 }
