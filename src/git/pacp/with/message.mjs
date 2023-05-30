@@ -7,8 +7,7 @@ import { list_first } from '../../../list/first.mjs';
 export async function git_pacp_with_message(commit_message) {
     let args = command_line_args_skipped();
     if (false) {
-        const value = git.name;
-        list_remove_all_first_equals(args, value);
+        list_remove_all_first_equals(args, git.name);
     }
     let args_message = list_join(args, ' ');
     const command_commit = `git commit -m "${ commit_message }: ${ args_message }"`;
