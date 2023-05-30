@@ -1,4 +1,5 @@
 import { error } from '../../../../error.mjs';
-export function file_js_path_to_name() {
-    error('todo: file_js_path_to_name');
+import { file_js_path_all_to_name } from '../all/to/name.mjs';
+export function file_js_path_to_name(file_js_path) {
+    return file_js_path_all_to_name([file_js_path]);
 }
