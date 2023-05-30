@@ -3,7 +3,6 @@ import { file_overwrite } from '../../file/overwrite.mjs';
 import { string_new_line } from '../../string/new/line.mjs';
 import { list_join } from '../../list/join.mjs';
 import { list_map } from '../../list/map.mjs';
-import { log } from '../../log.mjs';
 import { function_all_tests } from '../all/tests.mjs';
 export async function function_tests_generate() {
     let file_path = './src/tests.mjs';
@@ -12,5 +11,4 @@ export async function function_tests_generate() {
     let code = list_join(mapped, string_new_line());
     await file_overwrite(file_path, code);
     refactor_console_to_function;
-    console.log(test_names);
 }
