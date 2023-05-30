@@ -18,7 +18,7 @@ export async function refactor_console_to_function(file_path) {
     let body = js_body_get(parsed);
     let function_body = list_without_all(body, imports);
     list_remove_all(body, function_body);
-    let function_name = file_js_path_all_to_name(file_path);
+    let function_name = file_js_path_to_name(file_path);
     let export_statement = js_parse_statement(`export function ${function_name}() { }`);
     list_add(body, export_statement);
     let exported_function = js_export_function_single(parsed);
