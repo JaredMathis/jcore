@@ -1,13 +1,16 @@
-import { string_prefix_without } from '../string/prefix/without.mjs';
+import { integer_parsable } from '../integer/parsable.mjs';
+import { string_function_name_to_tests_id } from '../string/function/name/to/tests/id.mjs';
 import { function_tests_all } from '../function/tests/all.mjs';
 import { list_map } from '../list/map.mjs';
 import { log } from '../log.mjs';
-import { string_function_tests_sub } from '../string/function/tests/sub.mjs';
+import { list_filter } from '../list/filter.mjs';
 export async function tests_add(function_name) {
     let tests_all = await function_tests_all(function_name);
     let tests_ids_all = list_map(tests_all, t => {
-        let function_tests_prefix = `${ function_name }${ string_function_tests_sub() }`;
-        return string_prefix_without(t, function_tests_prefix);
+        return string_function_name_to_tests_id(function_name, t);
     });
-    log(tests_ids_all);
+    let tests_ids_all_numeric = list_filter(tests_ids_all, id => {
+        return integer_parsable(id);
+    });
+    log(tests_ids_all_numeric);
 }

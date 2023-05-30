@@ -1,4 +1,4 @@
-import { number_is } from '../../../number/is.mjs';
+import { integer_is } from '../../../integer/is.mjs';
 import { arguments_assert } from '../../assert.mjs';
 export function arguments_assert_test_1() {
     arguments_assert([
@@ -6,8 +6,8 @@ export function arguments_assert_test_1() {
         2,
         3
     ], [
-        number_is,
-        number_is,
-        number_is
+        integer_is,
+        integer_is,
+        integer_is
     ]);
 }
