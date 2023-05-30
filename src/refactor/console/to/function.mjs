@@ -31,11 +31,3 @@ export async function refactor_console_to_function(args) {
     js_exported_function_declaration_single_statements_set(parsed, function_body_statements_new);
 }
 
-function js_exported_function_declaration_single_statements_set(parsed, function_body_statements_new) {
-    let fd = js_exported_function_declaration_single(parsed);
-    let function_body = object_property_get(fd, 'body');
-    assert(js_node_is_block_statement(function_body));
-    let function_body_statements_old = object_property_get(function_body, 'body');
-    assert(list_length_is_0(function_body_statements_old));
-    list_add_all(function_body_statements_old, function_body_statements_new);
-}
