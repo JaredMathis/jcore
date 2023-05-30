@@ -1,10 +1,8 @@
-import { refactor_import_fix } from '../../refactor/import/fix.mjs';
-import { file_js_map_multiple } from '../../file/js/map/multiple.mjs';
+import { function_map } from '../map.mjs';
 import { function_add_with_statements_synchronized } from '../add/with/statements/synchronized.mjs';
 import { file_delete } from '../../file/delete.mjs';
 import { file_exists } from '../../file/exists.mjs';
 import { js_parse_statements } from '../../js/parse/statements.mjs';
-import { refactor_console_to_function } from '../../refactor/console/to/function.mjs';
 import { string_new_line } from '../../string/new/line.mjs';
 import { list_join } from '../../list/join.mjs';
 import { list_map } from '../../list/map.mjs';
@@ -22,4 +20,5 @@ export async function function_tests_generate() {
     }
     let is_async = true;
     await function_add_with_statements_synchronized(function_name, statements, is_async);
+    await function_map();
 }
