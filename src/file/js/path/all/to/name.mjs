@@ -1,5 +1,5 @@
 import { function_extension } from '../../../../../function/extension.mjs';
-import { string_without_suffix } from '../../../../../string/without/suffix.mjs';
+import { string_suffix_without } from '../../../../../string/suffix/without.mjs';
 import { list_join } from '../../../../../list/join.mjs';
 import { function_name_separator } from '../../../../../function/name/separator.mjs';
 import { list_skip_first } from '../../../../../list/skip/first.mjs';
@@ -17,6 +17,6 @@ export function file_js_path_all_to_name(file_js_paths) {
     });
     let fns = function_name_separator();
     let mapped3 = list_map(mapped2, a => list_join(a, fns));
-    let mapped4 = list_map(mapped3, a => string_without_suffix(a, function_extension()));
+    let mapped4 = list_map(mapped3, a => string_suffix_without(a, function_extension()));
     return mapped4;
 }
