@@ -28,6 +28,10 @@ export async function refactor_console_to_function(args) {
     let function_name = file_js_path_to_name(file_path);
     let export_statement = js_parse_statement(`export function ${ function_name }() { }`);
     list_add(body, export_statement);
+    js_exported_function_declaration_single_statements_set(parsed, function_body_statements_new);
+}
+
+function js_exported_function_declaration_single_statements_set(parsed, function_body_statements_new) {
     let fd = js_exported_function_declaration_single(parsed);
     let function_body = object_property_get(fd, 'body');
     assert(js_node_is_block_statement(function_body));
