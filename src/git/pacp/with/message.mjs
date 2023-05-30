@@ -13,11 +13,15 @@ export async function git_pacp_with_message(commit_message) {
         if (!c_result.success) {
             log(`Command failed: ${ c }`);
             log(c_result.stdout);
-            result.success = false;
+            result_unsuccess(result);
             return result;
         }
     }
     return result;
+}
+
+function result_unsuccess(result) {
+    result.success = false;
 }
 
 function result_empty() {
