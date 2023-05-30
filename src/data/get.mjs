@@ -1,3 +1,4 @@
+import { log } from '../log.mjs';
 import { json_from } from '../json/from.mjs';
 import { json_to } from '../json/to.mjs';
 import { path_exists_not } from '../path/exists/not.mjs';
@@ -12,6 +13,7 @@ export async function data_get() {
         await file_write(file_path, default_json);
     }
     let json = await file_read(file_path);
+    console.log({ json });
     let data = json_from(json);
     return data;
 }
