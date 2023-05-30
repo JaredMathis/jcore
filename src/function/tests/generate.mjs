@@ -1,4 +1,4 @@
-import { file_js_map_multiple } from '../../file/js/map/multiple.mjs';
+import { file_js_multiple_map } from '../../file/js/multiple/map.mjs';
 import { function_add_with_statements_synchronized } from '../add/with/statements/synchronized.mjs';
 import { file_delete } from '../../file/delete.mjs';
 import { file_exists } from '../../file/exists.mjs';
@@ -21,5 +21,5 @@ export async function function_tests_generate() {
     }
     let is_async = true;
     await function_add_with_statements_synchronized(function_name, statements, is_async);
-    await file_js_map_multiple(refactor_console_to_function.name, file_path);
+    await file_js_multiple_map(refactor_console_to_function.name, file_path);
 }
