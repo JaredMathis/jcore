@@ -8,6 +8,7 @@ export function refactor_member_expression_to_function_call(args) {
         let parent = object_property_get(v, 'parent');
         let property = object_property_get(node, 'property');
         let property_name =  object_property_get(property, 'name');
+        console.log({property_name})
         if (property_name=== 'name') {
             console.log(parent)
         }
