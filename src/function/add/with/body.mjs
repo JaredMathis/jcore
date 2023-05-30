@@ -10,7 +10,7 @@ export async function function_add_with_body(function_name, body) {
     ${ error.name }('todo: ${ function_name }');
 }`;
     let parsed = js_parse(code);
-    let single = js_export_function_single(parsed);
+    js_exported_function_declaration_single_statements_set(parsed, body);
     let unparsed = js_unparse(parsed);
     await file_write(function_path, unparsed);
     return function_path;
