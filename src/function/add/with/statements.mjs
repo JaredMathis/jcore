@@ -4,6 +4,7 @@ import { js_exported_function_declaration_single } from '../../../js/exported/fu
 import { js_function_name_to_export } from '../../../js/function/name/to/export.mjs';
 import { js_parse } from '../../../js/parse.mjs';
 export async function function_add_with_statements(function_name, statements) {
+    let is_async = false;
     const code = js_function_name_to_export(function_name);
     let parsed = js_parse(code);
     let fd = js_exported_function_declaration_single(parsed);
