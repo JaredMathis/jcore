@@ -5,8 +5,10 @@ import { string_new_line } from '../../string/new/line.mjs';
 import { list_join } from '../../list/join.mjs';
 import { list_map } from '../../list/map.mjs';
 import { function_all_tests } from '../all/tests.mjs';
+import { function_name_to_path } from '../name/to/path.mjs';
 export async function function_tests_generate() {
-    let file_path = './src/tests.mjs';
+    let function_name = 'tests';
+    let file_path = function_name_to_path(function_name);
     let test_names = await function_all_tests();
     let mapped = list_map(test_names, n => `await ${ n }();`);
     let tests = list_join(mapped, string_new_line());
