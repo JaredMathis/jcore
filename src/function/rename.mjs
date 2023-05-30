@@ -1,5 +1,4 @@
 import { file_js_multiple_map } from '../file/js/multiple/map.mjs';
-import { error } from '../error.mjs';
 import { refactor_import_fix } from '../refactor/import/fix.mjs';
 import { file_js_all_identifier_rename } from '../file/js/all/identifier/rename.mjs';
 import { function_rename_without_all_refactor } from './rename/without/all/refactor.mjs';
