@@ -14,10 +14,7 @@ export function refactor_member_expression_to_function_call(args) {
         if (property_name === 'name') {
             const code = `${ function_name_get(function_name_get) }()`;
             let expression = js_parse_expression(code);
-            console.log({
-                parent,
-                expression
-            });
+            console.log({ node });
         }
     });
 }
