@@ -1,4 +1,8 @@
 import escodegen from 'escodegen';
 export function js_unparse(parsed) {
-    return escodegen.generate(parsed);
+    try {
+        return escodegen.generate(parsed);
+    } catch (e) {
+        throw e;
+    }
 }
