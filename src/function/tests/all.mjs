@@ -11,7 +11,7 @@ export async function function_tests_all(function_name) {
 }
 async function function_tests_filtered(filter) {
     let all = await file_js_all();
-    let filtered = filter(all);
-    let filtered2 = list_filter(filtered, string_function_tests_name_is);
+    let filtered2 = list_filter(all, string_function_tests_name_is);
+    let filtered = filter(filtered2);
     return filtered2;
 }
