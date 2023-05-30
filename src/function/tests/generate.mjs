@@ -1,6 +1,5 @@
 import { file_delete } from '../../file/delete.mjs';
 import { file_exists } from '../../file/exists.mjs';
-import { tests } from '../../tests.mjs';
 import { js_parse_statements } from '../../js/parse/statements.mjs';
 import { file_js_map } from '../../file/js/map.mjs';
 import { refactor_console_to_function } from '../../refactor/console/to/function.mjs';
@@ -15,8 +14,8 @@ export async function function_tests_generate() {
     let file_path = function_name_to_path(function_name);
     let test_names = await function_all_tests();
     let mapped = list_map(test_names, n => `await ${ n }();`);
-    let tests = list_join(mapped, string_new_line());
-    let statements = js_parse_statements(tests);
+    let code = list_join(mapped, string_new_line());
+    let statements = js_parse_statements(code);
     if (await file_exists(file_path)) {
         await file_delete(file_path);
     }
