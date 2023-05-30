@@ -9,6 +9,7 @@ export function js_parse(unparsed) {
         });
         return parsed;
     } catch (e) {
+        log(e);
         log(unparsed);
         error(`${ js_parse.name } failed`);
     }
