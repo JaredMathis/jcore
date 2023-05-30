@@ -1,3 +1,4 @@
+import { function_name_get } from '../../../name/get.mjs';
 import { file_js_all_identifier_all_rename } from '../../../../file/js/all/identifier/all/rename.mjs';
 import { refactor_import_fix } from '../../../../refactor/import/fix.mjs';
 import { file_js_all_map } from '../../../../file/js/all/map.mjs';
@@ -17,5 +18,5 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
         }
     }
     await file_js_all_identifier_all_rename(dictionary);
-    await file_js_all_map(refactor_import_fix.name);
+    await file_js_all_map(function_name_get(refactor_import_fix));
 }
