@@ -22,7 +22,11 @@ export async function git_pacp_with_message(commit_message) {
 }
 
 function result_unsuccess(result) {
-    object_property_set(result, 'success', false);
+    object_property_set(result, result_success(), false);
+}
+
+function result_success() {
+    return 'success';
 }
 
 function result_empty() {
