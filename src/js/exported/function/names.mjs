@@ -8,12 +8,7 @@ import { js_node_is_function_declaration } from '../../node/is/function/declarat
 import { js_node_is_identifier } from '../../node/is/identifier.mjs';
 import { js_exports } from '../../exports.mjs';
 export function js_exported_function_names(parsed) {
-    let exports = js_exports(parsed);
-    let declarations = list_map(exports, e => {
-        let d = object_property_get(e, 'declaration');
-        return d;
-    });
-    let filtered = list_filter(declarations, d => js_node_is_function_declaration(d));
+    let filtered = js_exported_function_declarations(parsed);
     let mapped = list_map(filtered, f => {
         let id = object_property_get(f, 'id');
         assert(js_node_is_identifier(id));
@@ -22,3 +17,13 @@ export function js_exported_function_names(parsed) {
     });
     return mapped;
 }
+function js_exported_function_declarations(parsed) {
+    let exports = js_exports(parsed);
+    let declarations = list_map(exports, e => {
+        let d = object_property_get(e, 'declaration');
+        return d;
+    });
+    let filtered = list_filter(declarations, d => js_node_is_function_declaration(d));
+    return filtered;
+}
+
