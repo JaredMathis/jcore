@@ -6,7 +6,11 @@ export function js_export_function(function_name, function_statements_code) {
     let is_async = false;
     let async_code = string_empty();
     if (is_async) {
-        async_code = 'async';
+        async_code = js_keyword_async();
     }
     return `export function ${ function_name }() { ${ function_statements_code } }`;
+}
+
+function js_keyword_async() {
+    return 'async';
 }
