@@ -1,3 +1,4 @@
+import { list_last } from '../list/last.mjs';
 import { list_length } from '../list/length.mjs';
 import { list_add_exists_not } from '../list/add/exists/not.mjs';
 import { list_last_remove_verify } from '../list/last/remove/verify.mjs';
