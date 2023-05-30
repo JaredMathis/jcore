@@ -34,6 +34,7 @@ export async function refactor_console_to_function(file_path) {
     error();
 }
 function js_exported_function_declaration_single(parsed) {
-    let exported_function_declarations = js_exported_function_declarations(parsed);
-    let exported_function_declaration = list_single(exported_functions);
+    let declarations = js_exported_function_declarations(parsed);
+    let result = list_single(declarations);
+    return result;
 }
