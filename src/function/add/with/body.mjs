@@ -1,3 +1,4 @@
+import { js_unparse } from '../../../js/unparse.mjs';
 import { file_write } from '../../../file/write.mjs';
 import { function_name_to_path } from '../../name/to/path.mjs';
 import { error } from '../../../error.mjs';
@@ -8,6 +9,7 @@ export async function function_add_with_body(function_name, body) {
     ${ error.name }('todo: ${ function_name }');
 }`;
     let parsed = js_parse(code);
+    let unparsed = js_unparse(parsed);
     await file_write(function_path, code);
     return function_path;
 }
