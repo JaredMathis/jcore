@@ -19,9 +19,8 @@ export async function refactor_console_to_function(args) {
     if (!list_length_is_0(exports_existing)) {
         return;
     }
-    let imports = js_import_all(parsed);
     let body = js_body_get(parsed);
-    let function_body_statements_new = list_without_all(body, imports);
+    let function_body_statements_new = js_without_imports(parsed, body);
     if (list_length_is_0(function_body_statements_new)) {
         comment(`no code to refactor`);
         return;
@@ -36,4 +35,11 @@ export async function refactor_console_to_function(args) {
     let function_body_statements_old = object_property_get(function_body, 'body');
     assert(list_length_is_0(function_body_statements_old));
     list_add_all(function_body_statements_old, function_body_statements_new);
+}
+
+function js_without_imports(parsed, body) {
+    let imports = js_import_all(parsed);
+    let body = js_body_get(parsed);
+    let function_body_statements_new = list_without_all(body, imports);
+    return function_body_statements_new;
 }
