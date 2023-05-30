@@ -1,3 +1,4 @@
+import { refactor_import_fix } from '../../refactor/import/fix.mjs';
 import { function_map } from '../map.mjs';
 import { function_add_with_statements_synchronized } from '../add/with/statements/synchronized.mjs';
 import { file_delete } from '../../file/delete.mjs';
@@ -20,5 +21,5 @@ export async function function_tests_generate() {
     }
     let is_async = true;
     await function_add_with_statements_synchronized(function_name, statements, is_async);
-    await function_map();
+    await function_map(refactor_import_fix.name, function_name);
 }
