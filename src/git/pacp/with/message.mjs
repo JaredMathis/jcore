@@ -1,5 +1,6 @@
 import { log } from '../../../log.mjs';
 import { command_line_check } from '../../../command/line/check.mjs';
+import { object_property_set } from '../../../object/property/set.mjs';
 export async function git_pacp_with_message(commit_message) {
     let result = result_empty();
     let commands = [
@@ -21,7 +22,7 @@ export async function git_pacp_with_message(commit_message) {
 }
 
 function result_unsuccess(result) {
-    result.success = false;
+    object_property_set(result, 'success', false);
 }
 
 function result_empty() {
