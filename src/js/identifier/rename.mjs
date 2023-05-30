@@ -2,6 +2,7 @@ import { object_property_get } from '../../object/property/get.mjs';
 import { object_property_set } from '../../object/property/set.mjs';
 import { js_visit_nodes_identifier } from '../visit/nodes/identifier.mjs';
 export function js_identifier_rename(args, identifier_name_old, identifier_name_new) {
+    let file_paths_changed = [];
     let parsed = object_property_get(args, 'parsed');
     js_visit_nodes_identifier(parsed, node => {
         let n = object_property_get(node, 'name');
@@ -9,4 +10,5 @@ export function js_identifier_rename(args, identifier_name_old, identifier_name_
             object_property_set(node, 'name', identifier_name_new);
         }
     });
+    return [];
 }
