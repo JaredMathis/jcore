@@ -1,3 +1,3 @@
 export function sandbox() {
-    a.name;
+    function_name_get(a);
 }
