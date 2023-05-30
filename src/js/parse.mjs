@@ -9,12 +9,12 @@ export function js_parse(unparsed) {
         });
         return parsed;
     } catch (e) {
-        error_caught(e, unparsed);
+        error_caught(js_parse, e, unparsed);
     }
 }
 
-function error_caught(e, unparsed) {
+function error_caught(fn, e, unparsed) {
     log(e);
     log(unparsed);
-    error(`${js_parse.name} failed`);
+    error(`${fn.name} failed`);
 }
