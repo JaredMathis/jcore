@@ -1,3 +1,5 @@
+import { js_node_is_type } from '../../../js/node/is/type.mjs';
+import { js_node_is_block_statement } from '../../../js/node/is/block/statement.mjs';
 import { js_exported_function_declaration_single } from '../../../js/exported/function/declaration/single.mjs';
 import { log } from '../../../log.mjs';
 import { file_js_path_to_name } from '../../../file/js/path/to/name.mjs';
@@ -14,7 +16,6 @@ import { js_parse_statement } from '../../../js/parse/statement.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { comment } from '../../../comment.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
-import { js_node_is_type as js_node_is_block_statement, js_node_is_type } from '../../../js/node/is/type.mjs';
 export async function refactor_console_to_function(file_path) {
     let parsed = await file_js_parse(file_path);
     let exports_existing = js_exports(parsed);
@@ -33,10 +34,9 @@ export async function refactor_console_to_function(file_path) {
     let fd = js_exported_function_declaration_single(parsed);
     console.log({ fd });
     let function_body = object_property_get(fd, 'body');
-    assert(js_node_is_block_statement(function_body))
+    assert(js_node_is_block_statement(function_body));
     error();
 }
-
 function js_node_is_block_statement(function_body) {
     return js_node_is_type(function_body, 'BlockStatement');
 }
