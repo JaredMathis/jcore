@@ -9,8 +9,7 @@ export async function function_auto(function_name) {
     }
     let mappers = [refactor_import_fix]
     for (let m of mappers) {
-        
+        await function_map(m.name, function_name);
     }
-    await function_map(refactor_import_fix.name, function_name);
     await function_open_vs_code(function_name);
 }
