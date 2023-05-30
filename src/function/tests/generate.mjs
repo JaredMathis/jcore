@@ -1,4 +1,4 @@
-import { file_js_multiple_map } from '../../file/js/multiple/map.mjs';
+import { file_js_map_multiple } from '../../file/js/map/multiple.mjs';
 import { function_add_with_statements_synchronized } from '../add/with/statements/synchronized.mjs';
 import { file_delete } from '../../file/delete.mjs';
 import { file_exists } from '../../file/exists.mjs';
@@ -9,7 +9,6 @@ import { list_join } from '../../list/join.mjs';
 import { list_map } from '../../list/map.mjs';
 import { function_all_tests } from '../all/tests.mjs';
 import { function_name_to_path } from '../name/to/path.mjs';
-import { file_js_map } from '../../file/js/map.mjs';
 export async function function_tests_generate() {
     let function_name = 'tests';
     let file_path = function_name_to_path(function_name);
@@ -24,10 +23,4 @@ export async function function_tests_generate() {
     await function_add_with_statements_synchronized(function_name, statements, is_async);
     const mappers = [refactor_console_to_function.name];
     await file_js_map_multiple(mappers, file_path);
-}
-
-async function file_js_map_multiple(mappers, file_path) {
-    for (let m of mappers) {
-        await file_js_map(m, file_path);
-    }
 }
