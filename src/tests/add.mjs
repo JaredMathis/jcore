@@ -5,6 +5,8 @@ import { list_map } from '../list/map.mjs';
 import { log } from '../log.mjs';
 import { list_filter } from '../list/filter.mjs';
 import { integer_parse } from '../integer/parse.mjs';
+import { list_first } from '../list/first.mjs';
+import { assert } from '../assert.mjs';
 export async function tests_add(function_name) {
     let tests_all = await function_tests_all(function_name);
     let tests_ids_all = list_map(tests_all, t => {
@@ -14,5 +16,8 @@ export async function tests_add(function_name) {
         return integer_parsable(id);
     });
     let test_ids_all_number = list_map(tests_ids_all_numeric, integer_parse)
+    let max = list_first(test_ids_all_number);
+    assert(number_is(max));
+    let test_ids_all_number_max = max;
     log(test_ids_all_number);
 }
