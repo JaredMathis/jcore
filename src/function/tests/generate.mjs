@@ -23,6 +23,10 @@ export async function function_tests_generate() {
     let is_async = true;
     await function_add_with_statements_synchronized(function_name, statements, is_async);
     const mappers = [refactor_console_to_function.name];
+    await file_js_map_multiple(mappers, file_path);
+}
+
+async function file_js_map_multiple(mappers, file_path) {
     for (let m of mappers) {
         await file_js_map(m, file_path);
     }
