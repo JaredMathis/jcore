@@ -7,5 +7,6 @@ export async function git_pacp_with_message(commit_message) {
         command_commit,
         `git push`
     ];
-    return command_line_all(commands);
+    let result = command_line_all(commands);
+    return result;
 }
