@@ -25,6 +25,6 @@ export async function refactor_functions_to_files(args) {
         await function_add_with_body(n, statements);
     }
     for (let n of function_names_new) {
-        await function_map(n, refactor_import_fix.name);
+        await function_map(refactor_import_fix.name, n);
     }
 }
