@@ -1,3 +1,4 @@
+import { file_js_path_all_to_name } from './path/all/to/name.mjs';
 import { list_map } from '../../list/map.mjs';
 import { list_first } from '../../list/first.mjs';
 import { list_join } from '../../list/join.mjs';
@@ -14,7 +15,6 @@ export async function file_js_all() {
     let mapped4 = file_js_path_all_to_name(filtered);
     return mapped4;
 }
-
 function file_js_path_all_to_name(filtered) {
     let mapped = list_map(filtered, a => file_path_split(a));
     let directory_source_result = directory_source();
