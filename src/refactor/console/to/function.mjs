@@ -8,6 +8,7 @@ import { js_exports } from '../../../js/exports.mjs';
 import { assert } from '../../../assert.mjs';
 import { error } from '../../../error.mjs';
 import { file_js_path_all_to_name } from '../../../file/js/path/all/to/name.mjs';
+import { js_parse_statement } from '../../../js/parse/statement.mjs';
 export async function refactor_console_to_function(file_path) {
     let parsed = await file_js_parse(file_path);
     let exports_existing = js_exports(parsed);
@@ -17,5 +18,8 @@ export async function refactor_console_to_function(file_path) {
     let function_body = list_without_all(body, imports);
     list_remove_all(body, function_body);
     let function_name = file_js_path_all_to_name(file_path);
+    js_parse_statement(`export function ${function_name}() {
+        
+    }`)
     error()
 }
