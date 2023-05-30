@@ -10,6 +10,6 @@ export async function function_add_with_body(function_name, body) {
 }`;
     let parsed = js_parse(code);
     let unparsed = js_unparse(parsed);
-    await file_write(function_path, code);
+    await file_write(function_path, unparsed);
     return function_path;
 }
