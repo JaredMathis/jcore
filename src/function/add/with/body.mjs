@@ -9,7 +9,7 @@ export async function function_add_with_body(function_name, body) {
     const code = js_function_name_to_export(function_name);
     let parsed = js_parse(code);
     let fd = js_exported_function_declaration_single(parsed);
-    js_function_declaration_statements_initialize(fd, function_body_statements_new);
+    js_function_declaration_statements_initialize(body, function_body_statements_new);
     await file_js_write(parsed, function_path);
     return function_path;
 }
