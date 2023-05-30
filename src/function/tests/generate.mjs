@@ -1,3 +1,4 @@
+import { js_parse_statements } from '../../js/parse/statements.mjs';
 import { file_js_map } from '../../file/js/map.mjs';
 import { refactor_console_to_function } from '../../refactor/console/to/function.mjs';
 import { string_new_line } from '../../string/new/line.mjs';
