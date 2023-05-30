@@ -1,3 +1,5 @@
+import { string_function_tests_name_is } from './string/function/tests/name/is.mjs';
+import { list_filter } from './list/filter.mjs';
 import { list_filter_async } from './list/filter/async.mjs';
 import { list_take } from './list/take.mjs';
 import { function_name_all } from './function/name/all.mjs';
