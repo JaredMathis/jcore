@@ -1,4 +1,3 @@
-import { log } from '../log.mjs';
 import { json_from } from '../json/from.mjs';
 import { json_to } from '../json/to.mjs';
 import { path_exists_not } from '../path/exists/not.mjs';
