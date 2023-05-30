@@ -1,3 +1,4 @@
+import { function_name_get } from '../../../../../function/name/get.mjs';
 import { js_parse_statement } from '../../../../../js/parse/statement.mjs';
 import { log } from '../../../../../log.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
@@ -12,6 +13,8 @@ export function refactor_member_expression_to_function_call(args) {
         let property_name = object_property_get(property, 'name');
         if (property_name === 'name') {
             console.log(parent);
+            if (false)
+                function_name_get(function_name_get);
             js_parse_statement();
         }
     });
