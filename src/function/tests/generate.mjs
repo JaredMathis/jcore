@@ -7,8 +7,8 @@ export async function function_tests_generate() {
     let test_names = await function_all_tests();
 
     let mapped = list_map(test_names, n => `await ${n}();`)
-    let calls = list_join(mapped, string_new_line())
-    file_js_overwrite()
+    let code = list_join(mapped, string_new_line())
+    await file_overwrite(file_path, code);
     
     console.log(test_names);
 }
