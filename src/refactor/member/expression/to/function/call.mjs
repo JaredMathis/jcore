@@ -12,10 +12,11 @@ export function refactor_member_expression_to_function_call(args) {
         let property = object_property_get(node, 'property');
         let property_name = object_property_get(property, 'name');
         if (property_name === 'name') {
-            console.log(parent);
-            if (false)
-                function_name_get(function_name_get);
-            js_parse_statement();
+            let s = js_parse_statement(`${ function_name_get(function_name_get) }()`);
+            console.log({
+                parent,
+                s
+            });
         }
     });
 }
