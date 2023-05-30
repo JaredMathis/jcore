@@ -1,3 +1,4 @@
+import { object_property_set } from '../../../../../object/property/set.mjs';
 import { object_property_all_delete } from '../../../../../object/property/all/delete.mjs';
 import { js_parse_expression } from '../../../../../js/parse/expression.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
@@ -5,6 +6,7 @@ import { log } from '../../../../../log.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_visit_nodes } from '../../../../../js/visit/nodes.mjs';
 import { js_node_is_type_member_expression } from '../../../../../js/node/is/type/member/expression.mjs';
+import { object_keys } from '../../../../../object/keys.mjs';
 export function refactor_member_expression_to_function_call(args) {
     let {parsed} = args;
     js_visit_nodes(parsed, js_node_is_type_member_expression, v => {
@@ -17,6 +19,10 @@ export function refactor_member_expression_to_function_call(args) {
             const code = `${ function_name_get(function_name_get) }()`;
             let expression = js_parse_expression(code);
             object_property_all_delete(node);
+            for (let property of object_keys(expression)) {
+                let value = object_property_get(expression, property);
+                object_property_set(node, property, value);
+            }
             console.log({ node });
         }
     });
