@@ -8,6 +8,7 @@ import { js_exports } from '../../../js/exports.mjs';
 import { js_parse_statement } from '../../../js/parse/statement.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { comment } from '../../../comment.mjs';
+import { js_function_name_to_export } from '../../../js/function/name/to/export.mjs';
 export async function refactor_console_to_function(args) {
     let {parsed, file_path} = args;
     let exports_existing = js_exports(parsed);
@@ -22,7 +23,7 @@ export async function refactor_console_to_function(args) {
     }
     list_remove_all(body, function_body_statements_new);
     let function_name = file_js_path_to_name(file_path);
-    let export_statement = js_parse_statement(`export function ${ function_name }() { }`);
+    let export_statement = js_parse_statement(js_function_name_to_export(function_name));
     list_add(body, export_statement);
     js_exported_function_declaration_single_statements_set(parsed, function_body_statements_new);
 }
