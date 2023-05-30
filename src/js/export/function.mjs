@@ -1,3 +1,4 @@
+import { js_keyword_async } from '../keyword/async.mjs';
 import { assert } from '../../assert.mjs';
 import { string_empty } from '../../string/empty.mjs';
 import { string_length } from '../../string/length.mjs';
@@ -8,9 +9,5 @@ export function js_export_function(function_name, function_statements_code) {
     if (is_async) {
         async_code = js_keyword_async();
     }
-    return `export ${async_code} function ${ function_name }() { ${ function_statements_code } }`;
-}
-
-function js_keyword_async() {
-    return 'async';
+    return `export ${ async_code } function ${ function_name }() { ${ function_statements_code } }`;
 }
