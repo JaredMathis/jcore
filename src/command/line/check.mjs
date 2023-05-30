@@ -8,6 +8,7 @@ export async function command_line_check(command) {
                 success = false;
             }
             let result = {
+                command,
                 success,
                 error,
                 stdout,
