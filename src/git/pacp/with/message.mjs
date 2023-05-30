@@ -2,10 +2,7 @@ import { command_line_args_skipped } from '../../../command/line/args/skipped.mj
 import { command_line_all } from '../../../command/line/all.mjs';
 import { result_empty } from '../../../result/empty.mjs';
 export async function git_pacp_with_message(commit_message) {
-    let args = '';
-    if (false) {
-        command_line_args_skipped();
-    }
+    let args = command_line_args_skipped();
     const command_commit = `git commit -m "${ commit_message }: ${ args }"`;
     let commands = [
         `git pull`,
