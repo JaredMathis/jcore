@@ -1,4 +1,5 @@
-import { error } from '../../../../error.mjs';
-export function js_function_declarations_to_names() {
-    error('todo: js_function_declarations_to_names');
+import { js_function_declaration_to_name } from '../../declaration/to/name.mjs';
+import { list_map } from '../../../../list/map.mjs';
+export function js_function_declarations_to_names(filtered) {
+    return list_map(filtered, js_function_declaration_to_name);
 }
