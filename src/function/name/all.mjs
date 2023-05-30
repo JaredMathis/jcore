@@ -3,6 +3,5 @@ import { string_function_tests_name_is } from '../../string/function/tests/name/
 import { file_js_all } from '../../file/js/all.mjs';
 export async function function_name_all() {
     let all = await file_js_all();
-    let filtered = list_filter(all, a => !string_function_tests_name_is(a));
-    return filtered;
+    return all;
 }

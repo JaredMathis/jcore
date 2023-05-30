@@ -5,7 +5,8 @@ import { function_tests_count } from './function/tests/count.mjs';
 import { log } from './log.mjs';
 export async function untested() {
     let maximum_untested_display = 10;
-    const function_names = await function_name_all();
+    const all = await function_name_all();
+    let function_names = list_filter(all, a => !string_function_tests_name_is(a));
     let filtered = await list_filter_async(function_names, async f => await function_tests_count(f) === 0);
     let limited = list_take(filtered, maximum_untested_display);
     for (let function_name of limited) {
