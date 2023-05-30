@@ -1,7 +1,8 @@
 import { command_line_all } from '../../../command/line/all.mjs';
 import { result_empty } from '../../../result/empty.mjs';
 export async function git_pacp_with_message(commit_message) {
-    const command_commit = `git commit -m "${ commit_message }"`;
+    let args = '';
+    const command_commit = `git commit -m "${ commit_message }: ${ args }"`;
     let commands = [
         `git pull`,
         `git add *`,
