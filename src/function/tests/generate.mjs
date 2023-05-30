@@ -9,7 +9,7 @@ export async function function_tests_generate() {
     let file_path = './src/tests.mjs';
     let test_names = await function_all_tests();
     let mapped = list_map(test_names, n => `await ${ n }();`);
-    let code = list_join(mapped, string_new_line());
-    await file_overwrite(file_path, code);
+    let tests = list_join(mapped, string_new_line());
+    await file_overwrite(file_path, tests);
     await file_js_map(refactor_console_to_function.name, file_path);
 }
