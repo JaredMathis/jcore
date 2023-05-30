@@ -8,6 +8,8 @@ import { list_filter } from '../../../list/filter.mjs';
 import { assert } from '../../../assert.mjs';
 import { function_add_with_body } from '../../../function/add/with/body.mjs';
 import { js_function_declaration_to_name } from '../../../js/function/declaration/to/name.mjs';
+import { file_js_map_multiple } from '../../../file/js/map/multiple.mjs';
+import { refactor_import_fix } from '../../import/fix.mjs';
 export async function refactor_functions_to_files(args) {
     let {parsed} = args;
     let without_imports = js_without_imports(parsed);
@@ -22,7 +24,5 @@ export async function refactor_functions_to_files(args) {
         let statements = js_function_delcaration_to_statements(f);
         await function_add_with_body(n, statements);
     }
-    for (let n of function_names_new) {
-        error();
-    }
+    await file_js_map_multiple(function_names_new, refactor_import_fix.name);
 }
