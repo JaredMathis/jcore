@@ -7,7 +7,8 @@ import { list_first } from '../../../list/first.mjs';
 export async function git_pacp_with_message(commit_message) {
     let args = command_line_args_skipped();
     if (false) {
-        while (list_first(args, a => a === git.name)) {
+        const value = git.name;
+        while (list_first(args, a => a === value)) {
             list_first_remove(args);
         }
     }
