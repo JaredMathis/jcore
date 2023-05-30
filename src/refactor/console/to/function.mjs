@@ -5,4 +5,5 @@ export async function refactor_console_to_function(file_path) {
     let parsed = file_js_parse(file_path);
     let imports = js_import_all(parsed);
     let body = js_body_get(parsed);
+    list_without_all(body, imports);
 }
