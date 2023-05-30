@@ -4,5 +4,5 @@ export function visit_filter(root, children_get, filter, lambda) {
         if (filter(node)) {
             lambda(node);
         }
-    });
+    }, []);
 }
