@@ -4,16 +4,14 @@ export function command_line(command) {
     return new Promise(function (resolve, reject) {
         exec(command, (error, stdout, stderr) => {
             let success = true;
+            if (error) {
+                success = false;
+            }
             let result = {
                 error,
                 stdout,
                 stderr
             };
-            if (error) {
-                success = false;
-                reject(result);
-                return;
-            }
             resolve(result);
         });
     });
