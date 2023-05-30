@@ -10,6 +10,6 @@ export function js_parse(unparsed) {
         return parsed;
     } catch (e) {
         log(unparsed);
-        error(`${js_parse.name} failed`);
+        error(`${ js_parse.name } failed`);
     }
 }
