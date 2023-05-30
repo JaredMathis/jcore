@@ -3,4 +3,8 @@ export function aa() {
     error('todo: aa');
 }
 function bb() {
+    cc();
+}
+function cc() {
+    
 }
