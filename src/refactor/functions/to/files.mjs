@@ -1,5 +1,5 @@
+import { function_add } from '../../../function/add.mjs';
 import { function_exists } from '../../../function/exists.mjs';
-import { log } from '../../../log.mjs';
 import { js_function_declarations_to_names } from '../../../js/function/declarations/to/names.mjs';
 import { js_node_is_function_declaration } from '../../../js/node/is/function/declaration.mjs';
 import { js_without_imports } from '../../../js/without/imports.mjs';
@@ -13,5 +13,7 @@ export async function refactor_functions_to_files(args) {
     for (let n of function_names_new) {
         assert(!await function_exists(n));
     }
-    console.log({ function_names_new });
+    for (let n of function_names_new) {
+        await function_add(n);
+    }
 }
