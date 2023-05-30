@@ -1,4 +1,3 @@
-import { js_node_is_type } from '../../../js/node/is/type.mjs';
 import { js_node_is_block_statement } from '../../../js/node/is/block/statement.mjs';
 import { js_exported_function_declaration_single } from '../../../js/exported/function/declaration/single.mjs';
 import { log } from '../../../log.mjs';
@@ -36,7 +35,4 @@ export async function refactor_console_to_function(file_path) {
     let function_body = object_property_get(fd, 'body');
     assert(js_node_is_block_statement(function_body));
     error();
-}
-function js_node_is_block_statement(function_body) {
-    return js_node_is_type(function_body, 'BlockStatement');
 }
