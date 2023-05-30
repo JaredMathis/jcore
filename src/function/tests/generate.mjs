@@ -8,7 +8,6 @@ import { function_all_tests } from '../all/tests.mjs';
 import { function_name_to_path } from '../name/to/path.mjs';
 import { js_add_function_with_statements } from '../../js/add/function/with/statements.mjs';
 import { function_add_with_statements } from '../add/with/statements.mjs';
-import { js_export_function } from '../../js/export/function.mjs';
 export async function function_tests_generate() {
     let function_name = 'tests';
     let file_path = function_name_to_path(function_name);
