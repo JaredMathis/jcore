@@ -1,7 +1,4 @@
-import { result_unsuccess } from '../../../result/unsuccess.mjs';
-import { result_empty } from '../../../result/empty.mjs';
-import { log } from '../../../log.mjs';
-import { command_line_check } from '../../../command/line/check.mjs';
+import { command_line_all } from '../../../command/line/all.mjs';
 export async function git_pacp_with_message(commit_message) {
     let commands = [
         `git pull`,
@@ -9,15 +6,5 @@ export async function git_pacp_with_message(commit_message) {
         `git commit -m "${ commit_message }"`,
         `git push`
     ];
-    let result = result_empty();
-    for (let c of commands) {
-        let c_result = await command_line_check(c);
-        if (!c_result.success) {
-            log(`Command failed: ${ c }`);
-            log(c_result.stdout);
-            result_unsuccess(result);
-            return result;
-        }
-    }
-    return result;
+    return command_line_all(commands);
 }
