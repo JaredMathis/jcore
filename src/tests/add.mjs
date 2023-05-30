@@ -1,3 +1,4 @@
+import { function_tests_prefix_get } from '../function/tests/prefix/get.mjs';
 import { add_1 } from '../add/1.mjs';
 import { list_max } from '../list/max.mjs';
 import { integer_parsable } from '../integer/parsable.mjs';
@@ -18,6 +19,6 @@ export async function tests_add(function_name) {
     let test_ids_all_number = list_map(tests_ids_all_numeric, integer_parse);
     let max = list_max(test_ids_all_number);
     let test_ids_all_number_max = add_1(max);
-    let test_name = `${function_tests_prefix_get(function_name)}${test_ids_all_number_max}`;
+    let test_name = `${ function_tests_prefix_get(function_name) }${ test_ids_all_number_max }`;
     log(test_name);
 }
