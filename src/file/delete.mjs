@@ -1,4 +1,4 @@
-import { error } from '../error.mjs';
-export function file_delete() {
-    error('todo: file_delete');
+import { assert } from '../assert.mjs';
+export async function file_delete(file_path) {
+    assert(await file_exists(file_path));
 }
