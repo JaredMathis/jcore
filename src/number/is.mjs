@@ -1,4 +1,3 @@
-import { error } from '../error.mjs';
-export function number_is() {
-    error('todo: number_is');
+export function number_is(value) {
+    return typeof value === 'number';
 }
