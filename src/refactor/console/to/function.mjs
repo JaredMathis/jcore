@@ -13,12 +13,12 @@ export async function refactor_console_to_function(args) {
         return;
     }
     let body = js_body_get(parsed);
-    let function_body_statements_new = js_without_imports(parsed);
-    if (list_length_is_0(function_body_statements_new)) {
+    let statements = js_without_imports(parsed);
+    if (list_length_is_0(statements)) {
         comment(`no code to refactor`);
         return;
     }
-    list_remove_all(body, function_body_statements_new);
+    list_remove_all(body, statements);
     let function_name = file_js_path_to_name(file_path);
-    js_add_function_with_statements(function_name, parsed, function_body_statements_new);
+    js_add_function_with_statements(function_name, parsed, statements);
 }
