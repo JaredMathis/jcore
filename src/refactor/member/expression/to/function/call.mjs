@@ -5,7 +5,9 @@ export function refactor_member_expression_to_function_call(args) {
     let {parsed} = args;
     js_visit_nodes(parsed, js_node_is_type_member_expression, v => {
         let node = object_property_get(v, 'node');
+        let parent = object_property_get(v, 'parent');
         if (object_property_get(node, 'name') === 'name') {
+            console.log(parent)
         }
     });
 }
