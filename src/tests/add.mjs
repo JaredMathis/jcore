@@ -14,5 +14,5 @@ export async function tests_add(function_name) {
         return integer_parsable(id);
     });
     let test_ids_all_number = list_map(tests_ids_all_numeric, integer_parse)
-    log(tests_ids_all_numeric);
+    log(test_ids_all_number);
 }
