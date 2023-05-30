@@ -1,4 +1,5 @@
 import { error } from '../error.mjs';
-export function file_exists() {
-    error('todo: file_exists');
+import { path_exists } from '../path/exists.mjs';
+export async function file_exists(file_path) {
+    return await path_exists(file_path);
 }
