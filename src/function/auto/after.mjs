@@ -6,7 +6,7 @@ export async function function_auto_after(function_name) {
         refactor_import_fix,
         refactor_functions_to_files
     ];
-    for (let m of refactors) {
-        await function_map(m.name, function_name);
+    for (let r of refactors) {
+        await function_map(r.name, function_name);
     }
 }
