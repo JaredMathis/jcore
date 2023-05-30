@@ -13,6 +13,7 @@ import { error } from '../../../error.mjs';
 import { js_parse_statement } from '../../../js/parse/statement.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { comment } from '../../../comment.mjs';
+import { object_property_get } from '../../../object/property/get.mjs';
 export async function refactor_console_to_function(file_path) {
     let parsed = await file_js_parse(file_path);
     let exports_existing = js_exports(parsed);
@@ -30,5 +31,6 @@ export async function refactor_console_to_function(file_path) {
     list_add(body, export_statement);
     let fd = js_exported_function_declaration_single(parsed);
     console.log({ fd });
+    let function_body = object_property_get(fd, 'body');
     error();
 }
