@@ -11,6 +11,11 @@ import { file_path_split } from '../path/split.mjs';
 import { file_js_all_path } from './all/path.mjs';
 export async function file_js_all() {
     let filtered = await file_js_all_path();
+    let mapped4 = file_js_path_all_to_name(filtered);
+    return mapped4;
+}
+
+function file_js_path_all_to_name(filtered) {
     let mapped = list_map(filtered, a => file_path_split(a));
     let directory_source_result = directory_source();
     let mapped2 = list_map(mapped, a => {
