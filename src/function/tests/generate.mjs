@@ -1,3 +1,4 @@
+import { refactor_console_to_function } from '../../refactor/console/to/function.mjs';
 import { file_overwrite } from '../../file/overwrite.mjs';
 import { string_new_line } from '../../string/new/line.mjs';
 import { list_join } from '../../list/join.mjs';
@@ -10,5 +11,6 @@ export async function function_tests_generate() {
     let mapped = list_map(test_names, n => `await ${ n }();`);
     let code = list_join(mapped, string_new_line());
     await file_overwrite(file_path, code);
+    refactor_console_to_function;
     console.log(test_names);
 }
