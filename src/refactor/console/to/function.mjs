@@ -19,7 +19,9 @@ import { object_property_get } from '../../../object/property/get.mjs';
 export async function refactor_console_to_function(args) {
     let {parsed, file_path} = args;
     let exports_existing = js_exports(parsed);
-    assert(list_length_is_0(exports_existing));
+    if (!list_length_is_0(exports_existing)) {
+        return;
+    }
     let imports = js_import_all(parsed);
     let body = js_body_get(parsed);
     let function_body_statements_new = list_without_all(body, imports);
