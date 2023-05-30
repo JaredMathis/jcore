@@ -25,7 +25,6 @@ export async function refactor_console_to_function(args) {
     let function_name = file_js_path_to_name(file_path);
     js_add_function_with_statements(function_name, parsed, function_body_statements_new);
 }
-
 function js_add_function_with_statements(function_name, parsed, statements) {
     let body = js_body_get(parsed);
     let export_statement = js_parse_statement(js_function_name_to_export(function_name));

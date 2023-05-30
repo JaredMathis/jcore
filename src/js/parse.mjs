@@ -1,4 +1,5 @@
 import { Parser } from 'acorn';
+import { error } from '../error.mjs';
 import { log } from '../log.mjs';
 export function js_parse(unparsed) {
     try {
@@ -9,6 +10,6 @@ export function js_parse(unparsed) {
         return parsed;
     } catch (e) {
         log(unparsed);
-        throw e;
+        error(`${js_parse.name} failed`);
     }
 }
