@@ -13,8 +13,8 @@ export function js_parse(unparsed) {
     }
 }
 
-function error_caught(fn, e, unparsed) {
+function error_caught(fn, e, error_message) {
     log(e);
-    log(unparsed);
+    log(error_message);
     error(`${fn.name} failed`);
 }
