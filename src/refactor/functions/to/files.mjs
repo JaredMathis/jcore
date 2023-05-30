@@ -1,3 +1,4 @@
+import { list_length_is_0 } from '../../../list/length/is/0.mjs';
 import { js_function_delcaration_to_statements } from '../../../js/function/delcaration/to/statements.mjs';
 import { function_exists } from '../../../function/exists.mjs';
 import { js_function_declarations_to_names } from '../../../js/function/declarations/to/names.mjs';
@@ -14,7 +15,7 @@ export async function refactor_functions_to_files(args) {
     let without_imports = js_without_imports(parsed);
     let functions_to_export = list_filter(without_imports, js_node_is_function_declaration);
     let function_names_new = js_function_declarations_to_names(functions_to_export);
-    assert(!array_length_is_0(function_names_new));
+    assert(!list_length_is_0(function_names_new));
     for (let n of function_names_new) {
         assert(!await function_exists(n));
     }
