@@ -8,6 +8,8 @@ export function js_identifier_rename(args, identifier_name_old, identifier_name_
         let n = object_property_get(node, 'name');
         if (n === identifier_name_old) {
             object_property_set(node, 'name', identifier_name_new);
+            changed = true;
         }
     });
+    return changed;
 }
