@@ -2,7 +2,6 @@ import { js_exported_function_declaration_single_statements_set } from '../../..
 import { js_unparse } from '../../../js/unparse.mjs';
 import { file_write } from '../../../file/write.mjs';
 import { function_name_to_path } from '../../name/to/path.mjs';
-import { error } from '../../../error.mjs';
 import { js_parse } from '../../../js/parse.mjs';
 export async function function_add_with_body(function_name, body) {
     let function_path = function_name_to_path(function_name);
