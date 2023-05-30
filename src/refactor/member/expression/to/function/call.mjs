@@ -12,6 +12,7 @@ export function refactor_member_expression_to_function_call(args) {
         let property = object_property_get(node, 'property');
         let property_name = object_property_get(property, 'name');
         if (property_name === 'name') {
+            let object = object_property_get(node, 'object');
             const code = `${ function_name_get(function_name_get) }()`;
             let expression = js_parse_expression(code);
             console.log({ node });
