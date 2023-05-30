@@ -8,8 +8,8 @@ import { assert } from '../../../../../assert.mjs';
 import { directory_source } from '../../../../../directory/source.mjs';
 import { file_path_split } from '../../../../path/split.mjs';
 import { list_map } from '../../../../../list/map.mjs';
-export function file_js_path_all_to_name(filtered) {
-    let mapped = list_map(filtered, a => file_path_split(a));
+export function file_js_path_all_to_name(file_js_paths) {
+    let mapped = list_map(file_js_paths, a => file_path_split(a));
     let directory_source_result = directory_source();
     let mapped2 = list_map(mapped, a => {
         assert(list_first(a) === directory_source_result);
