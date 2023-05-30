@@ -5,6 +5,7 @@ import { log } from '../../../../../log.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_visit_nodes } from '../../../../../js/visit/nodes.mjs';
 import { js_node_is_type_member_expression } from '../../../../../js/node/is/type/member/expression.mjs';
+import { object_property_remove } from '../../../../../object/property/remove.mjs';
 export function refactor_member_expression_to_function_call(args) {
     let {parsed} = args;
     js_visit_nodes(parsed, js_node_is_type_member_expression, v => {
@@ -16,7 +17,9 @@ export function refactor_member_expression_to_function_call(args) {
             let object = object_property_get(node, 'object');
             const code = `${ function_name_get(function_name_get) }()`;
             let expression = js_parse_expression(code);
-            object_keys;
+            for (let key of object_keys(node)) {
+                object_property_remove(node, key);
+            }
             console.log({ node });
         }
     });
