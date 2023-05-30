@@ -9,6 +9,5 @@ export function visit_recursive(node, children_get, lambda, stack) {
         visit_recursive(c, children_get, lambda, stack);
     }
     let last = list_last_remove(stack);
-    if (false)
-        assert(node === last);
+    assert(node === last);
 }
