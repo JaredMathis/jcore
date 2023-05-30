@@ -1,4 +1,3 @@
-import { js_function_name_to_parsed } from '../../../js/function/name/to/parsed.mjs';
 import { js_node_property_declaration } from '../../../js/node/property/declaration.mjs';
 import { object_property_change } from '../../../object/property/change.mjs';
 import { js_export_single } from '../../../js/export/single.mjs';
