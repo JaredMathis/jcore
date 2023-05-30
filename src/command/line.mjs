@@ -7,6 +7,7 @@ export function command_line(command) {
             let success = true;
             if (error) {
                 success = false;
+                console.log({command, error, stdout})
             }
             let result = {
                 success,
