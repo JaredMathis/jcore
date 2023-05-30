@@ -8,7 +8,7 @@ export function js_export_function(function_name, function_statements_code) {
     if (is_async) {
         async_code = js_keyword_async();
     }
-    return `export function ${ function_name }() { ${ function_statements_code } }`;
+    return `export ${async_code} function ${ function_name }() { ${ function_statements_code } }`;
 }
 
 function js_keyword_async() {
