@@ -1,7 +1,6 @@
 import { file_js_all_identifier_all_rename } from '../../../../file/js/all/identifier/all/rename.mjs';
 import { refactor_import_fix } from '../../../../refactor/import/fix.mjs';
 import { file_js_all_map } from '../../../../file/js/all/map.mjs';
-import { error } from '../../../../error.mjs';
 import { function_rename_without_all_refactor } from '../../without/all/refactor.mjs';
 import { string_prefix_replace } from '../../../../string/prefix/replace.mjs';
 import { string_starts_with } from '../../../../string/starts/with.mjs';
