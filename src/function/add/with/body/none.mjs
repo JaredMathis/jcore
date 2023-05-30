@@ -1,3 +1,4 @@
+import { function_add_with_body } from '../body.mjs';
 import { file_write } from '../../../../file/write.mjs';
 import { function_name_to_path } from '../../../name/to/path.mjs';
 import { error } from '../../../../error.mjs';
