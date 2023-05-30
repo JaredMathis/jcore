@@ -37,6 +37,4 @@ export async function refactor_console_to_function(file_path) {
     let function_body_statements_old = object_property_get(function_body, 'body');
     assert(list_length_is_0(function_body_statements_old));
     list_add_all(function_body_statements_old, function_body_statements_new);
-    console.log({ function_body });
-    error();
 }
