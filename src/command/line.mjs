@@ -1,5 +1,6 @@
 import { error } from '../error.mjs';
 import { exec } from 'child_process';
+import { assert } from 'console';
 export function command_line(command) {
     let result = new Promise(function (resolve, reject) {
         exec(command, (error, stdout, stderr) => {
@@ -16,5 +17,6 @@ export function command_line(command) {
             resolve(result);
         });
     });
+    assert(result.success);
     return result;
 }
