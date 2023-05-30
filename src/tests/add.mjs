@@ -1,3 +1,4 @@
+import { add_1 } from '../add/1.mjs';
 import { list_max } from '../list/max.mjs';
 import { integer_parsable } from '../integer/parsable.mjs';
 import { string_function_name_to_tests_id } from '../string/function/name/to/tests/id.mjs';
@@ -16,6 +17,6 @@ export async function tests_add(function_name) {
     });
     let test_ids_all_number = list_map(tests_ids_all_numeric, integer_parse);
     let max = list_max(test_ids_all_number);
-    let test_ids_all_number_max = max;
-    log(test_ids_all_number);
+    let test_ids_all_number_max = add_1(max);
+    log(test_ids_all_number_max);
 }
