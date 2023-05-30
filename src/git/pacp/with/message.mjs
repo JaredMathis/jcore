@@ -16,7 +16,7 @@ export async function git_pacp_with_message(commit_message) {
         command_commit,
         `git push`
     ];
-    let c_result = command_line_all(commands);
+    let c_result = await command_line_all(commands);
     console.log({ c_result });
     if (!c_result.success) {
         if (c_result.command === command_commit) {
