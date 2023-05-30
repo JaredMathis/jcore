@@ -10,7 +10,7 @@ export async function git_pacp_with_message(commit_message) {
     for (let c of commands) {
         let c_result = await command_line_check(c);
         if (!c_result.success) {
-            log(`Command failed: ${ c_result }`);
+            log(`Command failed: ${ c }`);
             log(c_result.stdout);
             break;
         }
