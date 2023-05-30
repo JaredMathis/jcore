@@ -17,6 +17,7 @@ export async function refactor_functions_to_files(args) {
     }
     for (let f of functions_to_export) {
         let n = js_function_declaration_to_name(f);
+        
         await function_add_with_body(n, f);
     }
 }
