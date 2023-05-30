@@ -1,4 +1,3 @@
-import { error } from '../../../../error.mjs';
-export function js_node_is_block_statement() {
-    error('todo: js_node_is_block_statement');
+export function js_node_is_block_statement(function_body) {
+    return js_node_is_block_statement(function_body, 'BlockStatement');
 }
