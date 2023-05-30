@@ -16,8 +16,8 @@ import { js_parse_statement } from '../../../js/parse/statement.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { comment } from '../../../comment.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
-export async function refactor_console_to_function(file_path) {
-    let parsed = await file_js_parse(file_path);
+export async function refactor_console_to_function(args) {
+    let {parsed, file_path} = args;
     let exports_existing = js_exports(parsed);
     assert(list_length_is_0(exports_existing));
     let imports = js_import_all(parsed);
