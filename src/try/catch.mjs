@@ -1,8 +1,8 @@
 import { error_caught } from '../error/caught.mjs';
-export function try_catch(fn, lambda, unparsed) {
+export function try_catch(fn, lambda, error_message) {
     try {
         return lambda();
     } catch (e) {
-        error_caught(fn, e, unparsed);
+        error_caught(fn, e, error_message);
     }
 }
