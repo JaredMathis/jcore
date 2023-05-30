@@ -10,6 +10,7 @@ import { assert } from '../../../assert.mjs';
 import { function_add_with_body } from '../../../function/add/with/body.mjs';
 import { js_function_declaration_to_name } from '../../../js/function/declaration/to/name.mjs';
 import { refactor_import_fix } from '../../import/fix.mjs';
+import { js_body_get } from '../../../js/body/get.mjs';
 export async function refactor_functions_to_files(args) {
     let {parsed} = args;
     let without_imports = js_without_imports(parsed);
@@ -27,4 +28,6 @@ export async function refactor_functions_to_files(args) {
     for (let n of function_names_new) {
         await function_map(refactor_import_fix.name, n);
     }
+    let body = js_body_get(parsed);
+    list_remove_all(body, functions_to_export);
 }
