@@ -26,8 +26,8 @@ export async function refactor_console_to_function(args) {
     js_add_function_with_statements(function_name, body, parsed, function_body_statements_new);
 }
 
-function js_add_function_with_statements(function_name, body, parsed, function_body_statements_new) {
+function js_add_function_with_statements(function_name, body, parsed, statements) {
     let export_statement = js_parse_statement(js_function_name_to_export(function_name));
     list_add(body, export_statement);
-    js_exported_function_declaration_single_statements_initialize(parsed, function_body_statements_new);
+    js_exported_function_declaration_single_statements_initialize(parsed, statements);
 }
