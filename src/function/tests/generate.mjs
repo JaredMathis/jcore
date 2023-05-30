@@ -6,7 +6,6 @@ import { list_join } from '../../list/join.mjs';
 import { list_map } from '../../list/map.mjs';
 import { function_all_tests } from '../all/tests.mjs';
 import { function_name_to_path } from '../name/to/path.mjs';
-import { js_add_function_with_statements } from '../../js/add/function/with/statements.mjs';
 import { function_add_with_statements } from '../add/with/statements.mjs';
 export async function function_tests_generate() {
     let function_name = 'tests';
@@ -16,6 +15,5 @@ export async function function_tests_generate() {
     let tests = list_join(mapped, string_new_line());
     let statements = js_parse_statements(tests);
     await function_add_with_statements(function_name, statements);
-    js_add_function_with_statements(parsed, function_name, statements);
     await file_js_map(refactor_console_to_function.name, file_path);
 }
