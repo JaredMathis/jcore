@@ -16,8 +16,19 @@ export async function tests_add(function_name) {
         return integer_parsable(id);
     });
     let test_ids_all_number = list_map(tests_ids_all_numeric, integer_parse)
-    let max = list_first(test_ids_all_number);
-    assert(number_is(max));
+    let max = list_max(test_ids_all_number);
     let test_ids_all_number_max = max;
     log(test_ids_all_number);
+}
+
+function list_max(test_ids_all_number) {
+    let max = list_first(test_ids_all_number);
+    assert(number_is(max));
+    for (let n of test_ids_all_number) {
+        assert(number_is(n));
+        if (n > max) {
+            max = n;
+        }
+    }
+    return max;
 }
