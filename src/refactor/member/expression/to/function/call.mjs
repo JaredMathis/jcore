@@ -24,9 +24,8 @@ export async function refactor_member_expression_to_function_call(args) {
             changed = true;
         }
     });
-    if (false)
-        if (changed) {
-            let refactors = function_auto_after_refactors();
-            await refactor_multiple(args, refactors);
-        }
+    if (changed) {
+        let refactors = function_auto_after_refactors();
+        await refactor_multiple(args, refactors);
+    }
 }
