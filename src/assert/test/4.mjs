@@ -1,3 +1,5 @@
 import { assert } from '../../assert.mjs';
 import { throws } from '../../throws.mjs';
-throws(() => assert());
+export function assert_test_4() {
+    throws(() => assert());
+}

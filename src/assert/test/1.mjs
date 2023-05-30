@@ -1,2 +1,4 @@
 import { assert } from '../../assert.mjs';
-assert(true);
+export function assert_test_1() {
+    assert(true);
+}

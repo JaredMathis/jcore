@@ -1,3 +1,5 @@
 import { error } from '../../error.mjs';
 import { throws } from '../../throws.mjs';
-throws(() => error());
+export function error_test_1() {
+    throws(() => error());
+}

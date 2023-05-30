@@ -1,2 +1,4 @@
 import { comment } from '../../comment.mjs';
-comment(`Example comment`);
+export function comment_test_1() {
+    comment(`Example comment`);
+}

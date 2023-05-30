@@ -1,3 +1,5 @@
 import { comment } from '../../comment.mjs';
 import { throws } from '../../throws.mjs';
-throws(() => comment());
+export function comment_test_2() {
+    throws(() => comment());
+}
