@@ -30,8 +30,4 @@ export async function git_pacp_with_message(commit_message) {
     return c_result;
 }
 
-function list_remove_all_first_equals(args, value) {
-    while (list_first(args, a => a === value)) {
-        list_first_remove(args);
-    }
-}
+
