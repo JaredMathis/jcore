@@ -21,6 +21,6 @@ export async function function_tests_generate() {
     }
     let is_async = true;
     await function_add_with_statements_synchronized(function_name, statements, is_async);
-    const mappers = [refactor_console_to_function.name];
+    const mappers = [refactor_console_to_function.name, refactor_imports_fix.name];
     await file_js_map_multiple(mappers, file_path);
 }
