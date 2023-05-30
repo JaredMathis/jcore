@@ -6,6 +6,7 @@ import { file_js_parse } from '../../../file/js/parse.mjs';
 import { js_body_get } from '../../../js/body/get.mjs';
 import { js_exports } from '../../../js/exports.mjs';
 import { assert } from '../../../assert.mjs';
+import { error } from '../../../error.mjs';
 export async function refactor_console_to_function(file_path) {
     let parsed = await file_js_parse(file_path);
     let exports_existing = js_exports(parsed);
@@ -14,4 +15,6 @@ export async function refactor_console_to_function(file_path) {
     let body = js_body_get(parsed);
     let function_body = list_without_all(body, imports);
     list_remove_all(body, function_body);
+    let function_name = file_js_path_to_name();
+    error()
 }
