@@ -1,4 +1,4 @@
-import { js_export_function_single } from '../../../js/export/function/single.mjs';
+import { js_exported_function_declaration_single_statements_set } from '../../../js/exported/function/declaration/single/statements/set.mjs';
 import { js_unparse } from '../../../js/unparse.mjs';
 import { file_write } from '../../../file/write.mjs';
 import { function_name_to_path } from '../../name/to/path.mjs';
