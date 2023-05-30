@@ -20,5 +20,5 @@ export async function refactor_console_to_function(args) {
     }
     list_remove_all(body, statements);
     let function_name = file_js_path_to_name(file_path);
-    js_add_function_with_statements(function_name, parsed, statements);
+    js_add_function_with_statements(parsed, function_name, statements);
 }
