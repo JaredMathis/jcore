@@ -8,6 +8,7 @@ export function command_line(command) {
                 success = false;
             }
             let result = {
+                success,
                 error,
                 stdout,
                 stderr
