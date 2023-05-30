@@ -10,7 +10,7 @@ export function visit_recursive(node, children_get, lambda, stack) {
     list_add_exists_not(stack, node);
     lambda({
         node,
-        stack
+        parent
     });
     let children = children_get(node);
     for (let c of children) {
