@@ -14,7 +14,7 @@ export async function function_tests_generate() {
     let mapped = list_map(test_names, n => `await ${ n }();`);
     let tests = list_join(mapped, string_new_line());
 
-    let statements = js_parse_statements();
+    let statements = js_parse_statements(tests);
     await function_add_with_statements(function_name, statements);
     js_add_function_with_statements(parsed, function_name, statements);
     await file_js_map(refactor_console_to_function.name, file_path);
