@@ -13,7 +13,4 @@ export async function function_add_with_body(function_name, body) {
     return function_path;
 }
 
-async function file_js_write(parsed, function_path) {
-    let unparsed = js_unparse(parsed);
-    await file_write(function_path, unparsed);
-}
+

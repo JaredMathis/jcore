@@ -1,4 +1,6 @@
-import { error } from '../../error.mjs';
-export function file_js_write() {
-    error('todo: file_js_write');
+import { file_write } from '../write.mjs';
+import { js_unparse } from '../../js/unparse.mjs';
+export async function file_js_write(parsed, function_path) {
+    let unparsed = js_unparse(parsed);
+    await file_write(function_path, unparsed);
 }
