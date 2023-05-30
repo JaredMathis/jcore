@@ -1,3 +1,4 @@
+import { log } from '../../../log.mjs';
 import { list_remove_all_first_equals } from '../../../list/remove/all/first/equals.mjs';
 import { git } from '../../../git.mjs';
 import { list_join } from '../../../list/join.mjs';
@@ -17,6 +18,7 @@ export async function git_pacp_with_message(commit_message) {
     ];
     let c_result = command_line_all(commands);
     if (!c_result.success) {
+        console.log('here');
         if (c_result.command === command_commit) {
             let result = result_empty();
             result.inner = c_result;
