@@ -19,6 +19,7 @@ export async function function_tests_generate() {
     if (await file_exists(file_path)) {
         await file_delete(file_path);
     }
-    await function_add_with_statements(function_name, statements);
+    let is_async = true;
+    await function_add_with_statements_synchronized(function_name, statements, is_async);
     await file_js_map(refactor_console_to_function.name, file_path);
 }
