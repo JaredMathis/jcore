@@ -1,3 +1,4 @@
+import { error } from '../../../error.mjs';
 import { js_function_delcaration_to_statements } from '../../../js/function/delcaration/to/statements.mjs';
 import { function_exists } from '../../../function/exists.mjs';
 import { js_function_declarations_to_names } from '../../../js/function/declarations/to/names.mjs';
