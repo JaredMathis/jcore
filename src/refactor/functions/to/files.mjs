@@ -5,6 +5,8 @@ import { js_node_is_function_declaration } from '../../../js/node/is/function/de
 import { js_without_imports } from '../../../js/without/imports.mjs';
 import { list_filter } from '../../../list/filter.mjs';
 import { assert } from '../../../assert.mjs';
+import { function_add_with_body } from '../../../function/add/with/body.mjs';
+import { js_function_declaration_to_name } from '../../../js/function/declaration/to/name.mjs';
 export async function refactor_functions_to_files(args) {
     let {parsed} = args;
     let without_imports = js_without_imports(parsed);
@@ -13,7 +15,8 @@ export async function refactor_functions_to_files(args) {
     for (let n of function_names_new) {
         assert(!await function_exists(n));
     }
-    for (let n of function_names_new) {
-        await function_add(n);
+    for (let f of functions_to_export) {
+        let n = js_function_declaration_to_name(f);
+        await function_add_with_body(n, f);
     }
 }
