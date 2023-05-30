@@ -5,5 +5,8 @@ export function refactor_functions_to_files(args) {
     let {parsed} = args;
     let without_imports = js_without_imports(parsed);
     let functions_to_export = list_filter(without_imports, js_node_is_function_declaration);
+
+    let function_names_new = list_map(functions_to_export)
+
     console.log({functions_to_export})
 }
