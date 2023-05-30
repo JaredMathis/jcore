@@ -6,8 +6,9 @@ import { error } from '../../../error.mjs';
 import { js_parse } from '../../../js/parse.mjs';
 export async function function_add_with_body(function_name, body) {
     let function_path = function_name_to_path(function_name);
+    let error_statement=`${ error.name }('todo: ${ function_name }');`;
     const code = `export function ${ function_name }() {
-    ${ error.name }('todo: ${ function_name }');
+    ${error_statement}
 }`;
     let parsed = js_parse(code);
     js_exported_function_declaration_single_statements_set(parsed, body);
