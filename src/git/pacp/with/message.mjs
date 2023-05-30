@@ -26,5 +26,5 @@ function result_unsuccess(result) {
 }
 
 function result_empty() {
-    return { success: true };
+    return { 'success': true };
 }
