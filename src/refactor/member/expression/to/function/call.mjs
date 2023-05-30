@@ -1,3 +1,4 @@
+import { object_keys } from '../../../../../object/keys.mjs';
 import { js_parse_expression } from '../../../../../js/parse/expression.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { log } from '../../../../../log.mjs';
@@ -15,6 +16,7 @@ export function refactor_member_expression_to_function_call(args) {
             let object = object_property_get(node, 'object');
             const code = `${ function_name_get(function_name_get) }()`;
             let expression = js_parse_expression(code);
+            object_keys;
             console.log({ node });
         }
     });
