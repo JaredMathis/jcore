@@ -21,18 +21,19 @@ export async function refactor_console_to_function(file_path) {
     assert(list_length_is_0(exports_existing));
     let imports = js_import_all(parsed);
     let body = js_body_get(parsed);
-    let function_body_statements = list_without_all(body, imports);
-    if (list_length_is_0(function_body_statements)) {
+    let function_body_statements_new = list_without_all(body, imports);
+    if (list_length_is_0(function_body_statements_new)) {
         comment(`no code to refactor`);
         return;
     }
-    list_remove_all(body, function_body_statements);
+    list_remove_all(body, function_body_statements_new);
     let function_name = file_js_path_to_name(file_path);
     let export_statement = js_parse_statement(`export function ${ function_name }() { }`);
     list_add(body, export_statement);
     let fd = js_exported_function_declaration_single(parsed);
-    console.log({ fd });
     let function_body = object_property_get(fd, 'body');
     assert(js_node_is_block_statement(function_body));
+    let function_body_statements_old = object_property_get(function_body, 'body');
+    console.log({ function_body });
     error();
 }
