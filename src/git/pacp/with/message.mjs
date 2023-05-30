@@ -8,6 +8,6 @@ export async function git_pacp_with_message(commit_message) {
         `git push`
     ];
     for (let c of commands) {
-        await command_line_try(c);
+        await command_line(c);
     }
 }
