@@ -1,3 +1,4 @@
+import { js_function_delcaration_to_statements } from '../../../../../function/delcaration/to/statements.mjs';
 import { list_add_all } from '../../../../../../list/add/all.mjs';
 import { list_length_is_0 } from '../../../../../../list/length/is/0.mjs';
 import { js_node_is_block_statement } from '../../../../../node/is/block/statement.mjs';
@@ -10,7 +11,6 @@ export function js_exported_function_declaration_single_statements_set(parsed, f
     assert(list_length_is_0(function_body_statements_old));
     list_add_all(function_body_statements_old, function_body_statements_new);
 }
-
 function js_function_delcaration_to_statements(fd) {
     let function_body = object_property_get(fd, 'body');
     assert(js_node_is_block_statement(function_body));
