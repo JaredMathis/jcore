@@ -1,4 +1,3 @@
-import { error } from '../../../error.mjs';
-export function refactor_functions_to_files() {
-    error('todo: refactor_functions_to_files');
+export function refactor_functions_to_files(args) {
+    let {parsed, file_path} = args;
 }
