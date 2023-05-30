@@ -18,12 +18,20 @@ export function refactor_member_expression_to_function_call(args) {
             let object = object_property_get(node, 'object');
             const code = `${ function_name_get(function_name_get) }()`;
             let expression = js_parse_expression(code);
-            object_property_all_delete(node);
-            for (let property of object_keys(expression)) {
-                let value = object_property_get(expression, property);
-                object_property_set(node, property, value);
-            }
+            object_replace(node, expression);
             console.log({ node });
         }
     });
+}
+
+function object_replace(object, replacement) {
+    object_property_all_delete(object);
+    object_merge(replacement, object);
+}
+
+function object_merge(from, to) {
+    for (let property of object_keys(from)) {
+        let value = object_property_get(from, property);
+        object_property_set(to, property, value);
+    }
 }
