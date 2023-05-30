@@ -9,12 +9,14 @@ export async function git_pacp_with_message(commit_message) {
         command_commit,
         `git push`
     ];
-    let result = command_line_all(commands);
-    if (!result.success) {
-        if (result.command === command_commit) {
-            comment(`There was probably no code to commit`);
-            return result_empty();
+    let c_result = command_line_all(commands);
+    if (!c_result.success) {
+        if (c_result.command === command_commit) {
+            let result = result_empty();
+            result.inner = c_result;
+            result.message = `There was probably no code to commit. If this is not true, fix the code!`
+            return result;
         }
     }
-    return result;
+    return c_result;
 }
