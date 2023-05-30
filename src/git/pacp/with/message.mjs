@@ -8,9 +8,7 @@ export async function git_pacp_with_message(commit_message) {
     let args = command_line_args_skipped();
     if (false) {
         const value = git.name;
-        while (list_first(args, a => a === value)) {
-            list_first_remove(args);
-        }
+        list_remove_all_first_equals(args, value);
     }
     let args_message = list_join(args, ' ');
     const command_commit = `git commit -m "${ commit_message }: ${ args_message }"`;
@@ -30,4 +28,10 @@ export async function git_pacp_with_message(commit_message) {
         }
     }
     return c_result;
+}
+
+function list_remove_all_first_equals(args, value) {
+    while (list_first(args, a => a === value)) {
+        list_first_remove(args);
+    }
 }
