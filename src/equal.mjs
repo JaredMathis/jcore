@@ -1,3 +1,3 @@
-export function equal(node, last) {
-    return node === last;
+export function equal(left, right) {
+    return left === right;
 }
