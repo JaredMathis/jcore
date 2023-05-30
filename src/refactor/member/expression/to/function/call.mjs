@@ -1,5 +1,5 @@
+import { js_parse_expression } from '../../../../../js/parse/expression.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
-import { js_parse_statement } from '../../../../../js/parse/statement.mjs';
 import { log } from '../../../../../log.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_visit_nodes } from '../../../../../js/visit/nodes.mjs';
@@ -12,9 +12,8 @@ export function refactor_member_expression_to_function_call(args) {
         let property = object_property_get(node, 'property');
         let property_name = object_property_get(property, 'name');
         if (property_name === 'name') {
-            const code = `${function_name_get(function_name_get)}()`;
-            let s = js_parse_statement(code);
-            let expression = object_property_get(s, 'expression');
+            const code = `${ function_name_get(function_name_get) }()`;
+            let expression = js_parse_expression(code);
             console.log({
                 parent,
                 expression
