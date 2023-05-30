@@ -1,3 +1,4 @@
+import { list_remove_all } from '../../../list/remove/all.mjs';
 import { function_map } from '../../../function/map.mjs';
 import { list_length_is_0 } from '../../../list/length/is/0.mjs';
 import { js_function_delcaration_to_statements } from '../../../js/function/delcaration/to/statements.mjs';
