@@ -5,7 +5,7 @@ import { list_map } from '../../../list/map.mjs';
 import { js_exports } from '../../exports.mjs';
 export function js_exported_function_declarations(parsed) {
     let exports = js_exports(parsed);
-    let declarations = list_map(exports, e => {
+    let declarations = list_map(exports, function (e) {
         let d = object_property_get(e, 'declaration');
         return d;
     });
