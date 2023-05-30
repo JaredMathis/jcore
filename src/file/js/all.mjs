@@ -10,9 +10,9 @@ import { directory_source } from '../../directory/source.mjs';
 import { file_path_split } from '../path/split.mjs';
 import { file_js_all_path } from './all/path.mjs';
 export async function file_js_all() {
-    let directory_source_result = directory_source();
     let filtered = await file_js_all_path();
     let mapped = list_map(filtered, a => file_path_split(a));
+    let directory_source_result = directory_source();
     let mapped2 = list_map(mapped, a => {
         assert(list_first(a) === directory_source_result);
         return list_skip_first(a);
