@@ -7,6 +7,7 @@ export async function function_auto(function_name) {
     if (!await function_exists(function_name)) {
         await function_add(function_name);
     }
+    let mappers = [refactor_import_fix]
     await function_map(refactor_import_fix.name, function_name);
     await function_open_vs_code(function_name);
 }
