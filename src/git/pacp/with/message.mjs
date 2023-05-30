@@ -30,5 +30,5 @@ function result_success() {
 }
 
 function result_empty() {
-    return { 'success': true };
+    return { [result_success()]: true };
 }
