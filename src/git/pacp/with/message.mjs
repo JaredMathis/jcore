@@ -1,6 +1,7 @@
+import { result_unsuccess } from '../../../result/unsuccess.mjs';
+import { result_empty } from '../../../result/empty.mjs';
 import { log } from '../../../log.mjs';
 import { command_line_check } from '../../../command/line/check.mjs';
-import { object_property_set } from '../../../object/property/set.mjs';
 export async function git_pacp_with_message(commit_message) {
     let result = result_empty();
     let commands = [
@@ -19,16 +20,4 @@ export async function git_pacp_with_message(commit_message) {
         }
     }
     return result;
-}
-
-function result_unsuccess(result) {
-    object_property_set(result, result_success(), false);
-}
-
-function result_success() {
-    return 'success';
-}
-
-function result_empty() {
-    return { [result_success()]: true };
 }
