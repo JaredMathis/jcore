@@ -8,7 +8,7 @@ export async function git_pacp_with_message(commit_message) {
     let args = command_line_args_skipped();
     list_remove_all_first_equals(args, git.name);
     let args_message = list_join(args, ' ');
-    const command_commit = `git commit -m "${ commit_message }: ${ args_message }"`;
+    const command_commit = `git commit -m "${ commit_message } ${ args_message }"`;
     let commands = [
         `git pull`,
         `git add *`,
