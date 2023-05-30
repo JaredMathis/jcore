@@ -8,7 +8,8 @@ import { js_visit_nodes_identifier } from '../visit/nodes/identifier.mjs';
 comment(`This does not count "hasOwnProperty" for now`);
 export function js_identifier_counts(parsed) {
     let result = {};
-    js_visit_nodes_identifier(parsed, node => {
+    js_visit_nodes_identifier(parsed, v => {
+        let node = object_property_get(v, 'node');
         let invalid_names = ['hasOwnProperty'];
         let r = object_property_get(node, 'name');
         if (!list_contains(invalid_names, r)) {
