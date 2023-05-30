@@ -1,4 +1,4 @@
-import { js_exported_function_declarations } from '../../../js/exported/function/declarations.mjs';
+import { js_exported_function_declaration_single } from '../../../js/exported/function/declaration/single.mjs';
 import { log } from '../../../log.mjs';
 import { file_js_path_to_name } from '../../../file/js/path/to/name.mjs';
 import { list_length_is_0 } from '../../../list/length/is/0.mjs';
@@ -13,7 +13,6 @@ import { error } from '../../../error.mjs';
 import { js_parse_statement } from '../../../js/parse/statement.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { comment } from '../../../comment.mjs';
-import { list_single } from '../../../list/single.mjs';
 export async function refactor_console_to_function(file_path) {
     let parsed = await file_js_parse(file_path);
     let exports_existing = js_exports(parsed);
@@ -32,9 +31,4 @@ export async function refactor_console_to_function(file_path) {
     let fd = js_exported_function_declaration_single(parsed);
     console.log({ fd });
     error();
-}
-function js_exported_function_declaration_single(parsed) {
-    let declarations = js_exported_function_declarations(parsed);
-    let result = list_single(declarations);
-    return result;
 }
