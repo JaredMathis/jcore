@@ -1,3 +1,4 @@
+import { file_delete } from '../file/delete.mjs';
 import { function_exists } from './exists.mjs';
 import { assert } from '../assert.mjs';
 import { function_name_to_path } from './name/to/path.mjs';
