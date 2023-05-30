@@ -7,6 +7,10 @@ export async function refactor_import_fix(args) {
         refactor_import_missing,
         refactor_import_path_fix
     ];
+    await refactor_multiple(args,refactors);
+}
+
+async function refactor_multiple(args,refactors) {
     for (let r of refactors) {
         await r(args);
     }
