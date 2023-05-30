@@ -4,6 +4,7 @@ import { file_js_map } from '../map.mjs';
 export async function file_js_multiple_map(function_name_mapper, multiple) {
     assert(list_is(multiple))
     for (let m of multiple) {
+        console.log({m})
         await file_js_map(function_name_mapper, m);
     }
 }
