@@ -1,12 +1,10 @@
-import { object_property_set } from '../../../../../object/property/set.mjs';
-import { object_property_all_delete } from '../../../../../object/property/all/delete.mjs';
+import { object_replace } from '../../../../../object/replace.mjs';
 import { js_parse_expression } from '../../../../../js/parse/expression.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { log } from '../../../../../log.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_visit_nodes } from '../../../../../js/visit/nodes.mjs';
 import { js_node_is_type_member_expression } from '../../../../../js/node/is/type/member/expression.mjs';
-import { object_keys } from '../../../../../object/keys.mjs';
 export function refactor_member_expression_to_function_call(args) {
     let {parsed} = args;
     js_visit_nodes(parsed, js_node_is_type_member_expression, v => {
@@ -22,16 +20,4 @@ export function refactor_member_expression_to_function_call(args) {
             console.log({ node });
         }
     });
-}
-
-function object_replace(object, replacement) {
-    object_property_all_delete(object);
-    object_merge(replacement, object);
-}
-
-function object_merge(from, to) {
-    for (let property of object_keys(from)) {
-        let value = object_property_get(from, property);
-        object_property_set(to, property, value);
-    }
 }
