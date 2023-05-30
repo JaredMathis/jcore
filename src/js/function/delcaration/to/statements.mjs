@@ -4,6 +4,6 @@ import { object_property_get } from '../../../../object/property/get.mjs';
 export function js_function_delcaration_to_statements(fd) {
     let function_body = object_property_get(fd, 'body');
     assert(js_node_is_block_statement(function_body));
-    let function_body_statements_old = object_property_get(function_body, 'body');
-    return function_body_statements_old;
+    let function_body_statements = object_property_get(function_body, 'body');
+    return function_body_statements;
 }
