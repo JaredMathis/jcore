@@ -5,4 +5,5 @@ export function js_export_function_single(parsed) {
     let body = js_body_get(parsed);
     let exports_existing = js_exports(parsed);
     let export_single = list_single(exports_existing);
+    return export_single;
 }
