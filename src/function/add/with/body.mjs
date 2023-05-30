@@ -9,6 +9,10 @@ export async function function_add_with_body(function_name, body) {
     let parsed = js_parse(code);
     let fd = js_exported_function_declaration_single(parsed);
     js_function_declaration_statements_initialize(fd, body);
+    return await function_add_with_declaration(function_name, parsed);
+}
+
+async function function_add_with_declaration(function_name, parsed) {
     let function_path = function_name_to_path(function_name);
     await file_js_write(parsed, function_path);
     return function_path;
