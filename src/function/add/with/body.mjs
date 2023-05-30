@@ -1,4 +1,4 @@
-import { function_add_with_declaration } from './declaration.mjs';
+import { function_write } from '../../write.mjs';
 import { js_function_declaration_statements_initialize } from '../../../js/function/declaration/statements/initialize.mjs';
 import { js_exported_function_declaration_single } from '../../../js/exported/function/declaration/single.mjs';
 import { js_function_name_to_export } from '../../../js/function/name/to/export.mjs';
@@ -8,5 +8,5 @@ export async function function_add_with_body(function_name, body) {
     let parsed = js_parse(code);
     let fd = js_exported_function_declaration_single(parsed);
     js_function_declaration_statements_initialize(fd, body);
-    return await function_add_with_declaration(function_name, parsed);
+    return await function_write(function_name, parsed);
 }
