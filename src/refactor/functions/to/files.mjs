@@ -1,4 +1,4 @@
-import { function_add } from '../../../function/add.mjs';
+import { js_function_delcaration_to_statements } from '../../../js/function/delcaration/to/statements.mjs';
 import { function_exists } from '../../../function/exists.mjs';
 import { js_function_declarations_to_names } from '../../../js/function/declarations/to/names.mjs';
 import { js_node_is_function_declaration } from '../../../js/node/is/function/declaration.mjs';
@@ -17,7 +17,7 @@ export async function refactor_functions_to_files(args) {
     }
     for (let f of functions_to_export) {
         let n = js_function_declaration_to_name(f);
-        
-        await function_add_with_body(n, f);
+        let statements = js_function_delcaration_to_statements(f);
+        await function_add_with_body(n, statements);
     }
 }
