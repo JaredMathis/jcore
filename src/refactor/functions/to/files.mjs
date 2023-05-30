@@ -33,4 +33,5 @@ export async function refactor_functions_to_files(args) {
     }
     let body = js_body_get(parsed);
     list_remove_all(body, functions_to_export);
+    await refactor_import_fix(args);
 }
