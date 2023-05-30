@@ -1,3 +1,4 @@
+import { refactor_import_fix } from '../../refactor/import/fix.mjs';
 import { file_js_map_multiple } from '../../file/js/map/multiple.mjs';
 import { function_add_with_statements_synchronized } from '../add/with/statements/synchronized.mjs';
 import { file_delete } from '../../file/delete.mjs';
@@ -23,7 +24,7 @@ export async function function_tests_generate() {
     await function_add_with_statements_synchronized(function_name, statements, is_async);
     const mappers = [
         refactor_console_to_function.name,
-        refactor_imports_fix.name
+        refactor_import_fix.name
     ];
     await file_js_map_multiple(mappers, file_path);
 }
