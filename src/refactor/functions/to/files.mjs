@@ -1,3 +1,4 @@
+import { function_map } from '../../../function/map.mjs';
 import { list_length_is_0 } from '../../../list/length/is/0.mjs';
 import { js_function_delcaration_to_statements } from '../../../js/function/delcaration/to/statements.mjs';
 import { function_exists } from '../../../function/exists.mjs';
@@ -8,7 +9,6 @@ import { list_filter } from '../../../list/filter.mjs';
 import { assert } from '../../../assert.mjs';
 import { function_add_with_body } from '../../../function/add/with/body.mjs';
 import { js_function_declaration_to_name } from '../../../js/function/declaration/to/name.mjs';
-import { file_js_map_multiple } from '../../../file/js/map/multiple.mjs';
 import { refactor_import_fix } from '../../import/fix.mjs';
 export async function refactor_functions_to_files(args) {
     let {parsed} = args;
@@ -24,5 +24,7 @@ export async function refactor_functions_to_files(args) {
         let statements = js_function_delcaration_to_statements(f);
         await function_add_with_body(n, statements);
     }
-    await file_js_map_multiple(function_names_new, refactor_import_fix.name);
+    for (let n of function_names_new) {
+        await function_map(n, refactor_import_fix.name);
+    }
 }
