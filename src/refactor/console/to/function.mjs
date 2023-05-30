@@ -29,8 +29,8 @@ export async function refactor_console_to_function(file_path) {
     let function_name = file_js_path_to_name(file_path);
     let export_statement = js_parse_statement(`export function ${ function_name }() { }`);
     list_add(body, export_statement);
-    js_exported_function_declaration_single(parsed);
-    console.log({ exported_function });
+    let fd = js_exported_function_declaration_single(parsed);
+    console.log({ fd });
     error();
 }
 function js_exported_function_declaration_single(parsed) {
