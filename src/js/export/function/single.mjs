@@ -1,3 +1,4 @@
+import { value_get } from '../../../value/get.mjs';
 import { value_set_is } from '../../../value/set/is.mjs';
 import { value_set } from '../../../value/set.mjs';
 import { value_new } from '../../../value/new.mjs';
@@ -16,5 +17,5 @@ export function js_export_function_single(parsed) {
     if (!value_set_is(result)) {
         value_set(result, list_single(exports_existing));
     }
-    return result;
+    return value_get(result);
 }
