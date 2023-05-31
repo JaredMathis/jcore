@@ -19,7 +19,7 @@ import { tautology } from '../../../../tautology.mjs';
 import { list_join } from '../../../../list/join.mjs';
 import { refactor_import_fix } from '../../../import/fix.mjs';
 export async function refactor_functions_arguments_assert_add() {
-    await file_js_all_map_args(function mapper(args) {
+    await file_js_all_map_args(async function mapper(args) {
         let {parsed, file_path} = args;
         let fd = js_export_function_single_or_null(parsed);
         if (fd === null) {
