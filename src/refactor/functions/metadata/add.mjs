@@ -14,7 +14,7 @@ export async function refactor_functions_metadata_add() {
     await file_js_all_map_args(async function mapper(args) {
         let {parsed} = args;
         let fd = js_export_function_single_or_null(parsed);
-        if (fd !== null) {
+        if (fd === null) {
             return;
         }
         let already_exists = false;
@@ -25,6 +25,7 @@ export async function refactor_functions_metadata_add() {
                 already_exists = true;
             });
         }
+        console.log('here');
         if (!already_exists) {
             let args = '[]';
             let metadata_new_code = `${ js_code_call_expression_with_args(function_name_get(metadata), args) }${ js_statement_end() }`;
