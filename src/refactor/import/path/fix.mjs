@@ -1,3 +1,4 @@
+import { js_node_property_source } from '../../../js/node/property/source.mjs';
 import { js_node_property_raw } from '../../../js/node/property/raw.mjs';
 import { function_name_to_path } from '../../../function/name/to/path.mjs';
 import { js_import_all_with_function_names } from '../../../js/import/all/with/function/names.mjs';
@@ -16,7 +17,7 @@ export async function refactor_import_path_fix(args) {
         let relative = path_relative_file(file_path, function_path);
         let normalized = js_import_path_normalize(relative);
         let i = object_property_get(iw, 'import');
-        let source = object_property_get(i, 'source');
+        let source = object_property_get(i, js_node_property_source());
         object_property_set(source, 'value', normalized);
         assert(!string_includes(normalized, '\''));
         let raw = `'${ normalized }'`;
