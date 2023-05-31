@@ -22,6 +22,7 @@ export async function refactor_functions_arguments_assert_add() {
         if (node_is_type_call_expression(statement_first)) {
             let name = js_call_expression_to_name(statement_first);
             if (equal(name, function_name_get(arguments_assert))) {
+                exists = true;
             }
         }
         console.log(statement_first);
