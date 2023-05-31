@@ -1,4 +1,4 @@
-import { error } from '../error.mjs';
-export function value_set() {
-    error('todo: value_set');
+import { object_property_set } from '../object/property/set.mjs';
+export function value_set(value_object, value) {
+    object_property_set(value_object, 'value', value);
 }
