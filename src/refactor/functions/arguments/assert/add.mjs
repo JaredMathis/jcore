@@ -4,5 +4,8 @@ export async function refactor_functions_arguments_assert_add() {
     await file_js_all_map_args(function mapper(args) {
         let {parsed, file_path} = args;
         let export_single = js_export_function_single_or_null(parsed);
+        if (export_single === null) {
+            
+        }
     });
 }
