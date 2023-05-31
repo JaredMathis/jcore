@@ -1,4 +1,5 @@
-import { js_function_declaration_asyncify } from '../../js/function/declaration/asyncify.mjs';
+import { js_keyword_async } from '../../js/keyword/async.mjs';
+import { object_property_set } from '../../object/property/set.mjs';
 import { object_replace } from '../../object/replace.mjs';
 import { js_node_property_argument } from '../../js/node/property/argument.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
@@ -11,6 +12,6 @@ export function refactor_unasyncify_each(v) {
         object_replace(node, arg);
     }
     if (js_node_is_function_declaration(node)) {
-        js_function_declaration_asyncify(node);
+        object_property_set(fd, js_keyword_async(), false);
     }
 }
