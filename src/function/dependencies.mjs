@@ -1,6 +1,14 @@
+import { file_js_path_to_name } from '../file/js/path/to/name.mjs';
 import { file_js_dependencies } from '../file/js/dependencies.mjs';
+import { list_map } from '../list/map.mjs';
 import { function_name_to_path } from './name/to/path.mjs';
 export async function function_dependencies(function_name) {
     let file_path = function_name_to_path(function_name);
-    return await file_js_dependencies(file_path);
+    let d = await file_js_dependencies(file_path);
+    return list_map(d, file_path => {
+        return {
+            file_path,
+            function_name: file_js_path_to_name(path_relative_to_current)
+        };
+    });
 }

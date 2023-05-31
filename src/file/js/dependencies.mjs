@@ -20,9 +20,6 @@ export async function file_js_dependencies(file_path) {
         let path_full = path_join([file_path, path_relative_to_file_path])
         let resolved = path_resolve(path_full);
         let path_relative_to_current = path_relative(directory_current(), resolved);
-        if (true) {
-            let function_name = file_js_path_to_name(path_relative_to_current);
-        }
         return path_relative_to_current;
     });
     return mapped;
