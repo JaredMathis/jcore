@@ -17,6 +17,7 @@ import { list_map } from '../../../../list/map.mjs';
 import { range } from '../../../../range.mjs';
 import { tautology } from '../../../../tautology.mjs';
 import { list_join } from '../../../../list/join.mjs';
+import { refactor_import_fix } from '../../../import/fix.mjs';
 export async function refactor_functions_arguments_assert_add() {
     await file_js_all_map_args(function mapper(args) {
         let {parsed, file_path} = args;
@@ -43,6 +44,7 @@ export async function refactor_functions_arguments_assert_add() {
             let params_code = list_join(params_mapped, ', ');
             let statement_new = js_parse_statement(`${ function_name_get(arguments_assert) }(${ params_code })`);
             list_add_beginning(statements, statement_new);
+            await refactor_import_fix(args);
         }
     });
 }
