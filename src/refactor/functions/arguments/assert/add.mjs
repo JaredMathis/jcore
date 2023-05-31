@@ -1,3 +1,4 @@
+import { node_is_type_call_expression } from '../../../../node/is/type/call/expression.mjs';
 import { js_function_delcaration_to_statements } from '../../../../js/function/delcaration/to/statements.mjs';
 import { log } from '../../../../log.mjs';
 import { js_export_function_single_or_null } from '../../../../js/export/function/single/or/null.mjs';
@@ -13,6 +14,8 @@ export async function refactor_functions_arguments_assert_add() {
         }
         let statements = js_function_delcaration_to_statements(export_single);
         let statement_first = list_first(statements);
+        if (node_is_type_call_expression(statement_first)) {
+        }
         console.log(statement_first);
         error();
     });
