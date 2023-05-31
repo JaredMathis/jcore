@@ -1,4 +1,3 @@
-import { log } from '../../log.mjs';
 import { js_function_declaration_asyncify } from '../../js/function/declaration/asyncify.mjs';
 import { object_replace } from '../../object/replace.mjs';
 import { js_node_property_argument } from '../../js/node/property/argument.mjs';
