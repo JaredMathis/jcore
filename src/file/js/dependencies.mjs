@@ -18,8 +18,11 @@ export async function file_js_dependencies(file_path) {
         let relative_path = object_property_get(source, js_node_property_value());
         let path_full = path_join([file_path, relative_path])
         let resolved = path_resolve(path_full);
-        let relative_path2 = path_relative(directory_source(), resolved);
-        return relative_path2;
+        if (false) {
+            let relative_path2 = path_relative(directory_source(), resolved);
+            let function_name = file_js_path_to_name(relative_path2);
+        }
+        return resolved;
     });
-    console.log(mapped);
+    return mapped;
 }
