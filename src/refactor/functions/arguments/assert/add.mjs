@@ -1,4 +1,4 @@
-import { todo } from '../../../../todo.mjs';
+import { js_keyword_arguments } from '../../../../js/keyword/arguments.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_call_expression_to_name } from '../../../../js/call/expression/to/name.mjs';
 import { node_is_type_call_expression } from '../../../../node/is/type/call/expression.mjs';
@@ -12,6 +12,12 @@ import { equal } from '../../../../equal.mjs';
 import { function_name_get } from '../../../../function/name/get.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { list_add_beginning } from '../../../../list/add/beginning.mjs';
+import { js_parse_statement } from '../../../../js/parse/statement.mjs';
+import { list_length } from '../../../../list/length.mjs';
+import { list_map } from '../../../../list/map.mjs';
+import { range } from '../../../../range.mjs';
+import { tautology } from '../../../../tautology.mjs';
+import { list_join } from '../../../../list/join.mjs';
 export async function refactor_functions_arguments_assert_add() {
     await file_js_all_map_args(function mapper(args) {
         let {parsed, file_path} = args;
@@ -29,8 +35,12 @@ export async function refactor_functions_arguments_assert_add() {
             }
         }
         if (!exists) {
-            let statement_new = todo();
             let params = object_property_get(fd, 'params');
+            let params_length = list_length(params);
+            let params_mapped = list_map(range(params_length), i => function_name_get(tautology));
+            list_add_beginning(params_mapped, js_keyword_arguments());
+            let params_code = list_join(params_mapped, ', ');
+            let statement_new = js_parse_statement(`${ function_name_get(arguments_assert) }(${ params_code })`);
             list_add_beginning(params, statement_new);
             console.log({ fd });
         }
