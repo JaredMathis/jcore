@@ -1,3 +1,4 @@
+import { js_property_raw } from '../../../js/property/raw.mjs';
 import { function_name_to_path } from '../../../function/name/to/path.mjs';
 import { js_import_all_with_function_names } from '../../../js/import/all/with/function/names.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
@@ -19,6 +20,6 @@ export async function refactor_import_path_fix(args) {
         object_property_set(source, 'value', normalized);
         assert(!string_includes(normalized, '\''));
         let raw = `'${ normalized }'`;
-        object_property_set(source, 'raw', raw);
+        object_property_set(source, js_property_raw(), raw);
     }
 }
