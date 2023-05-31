@@ -12,6 +12,7 @@ import { list_add } from '../../../list/add.mjs';
 import { js_code_call_expression_with_args } from '../../../js/code/call/expression/with/args.mjs';
 export async function refactor_functions_metadata_add() {
     await file_js_all_map_args(async function mapper(args) {
+        let {parsed} = args;
         let fd = js_export_function_single_or_null(parsed);
         if (fd !== null) {
             return;
