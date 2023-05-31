@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_add_function_with_statements } from '../../../js/add/function/with/statements.mjs';
 import { js_without_imports } from '../../../js/without/imports.mjs';
 import { file_js_path_to_name } from '../../../file/js/path/to/name.mjs';
@@ -21,4 +22,5 @@ export async function refactor_console_to_function(args) {
     list_remove_all(body, statements);
     let function_name = file_js_path_to_name(file_path);
     js_add_function_with_statements(parsed, function_name, statements);
+    metadata([]);
 }

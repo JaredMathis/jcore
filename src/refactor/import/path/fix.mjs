@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_node_property_source } from '../../../js/node/property/source.mjs';
 import { js_node_property_raw } from '../../../js/node/property/raw.mjs';
 import { function_name_to_path } from '../../../function/name/to/path.mjs';
@@ -24,4 +25,5 @@ export async function refactor_import_path_fix(args) {
         let raw = `'${ normalized }'`;
         object_property_set(source, js_node_property_raw(), raw);
     }
+    metadata([]);
 }

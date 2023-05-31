@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { list_add_beginning } from '../../../list/add/beginning.mjs';
 import { list_last_map } from '../../../list/last/map.mjs';
 import { directory_source } from '../../../directory/source.mjs';
@@ -14,4 +15,5 @@ export function function_name_to_path(function_name) {
     list_last_map(split, last => last + function_extension());
     let joined = path_join(split);
     return joined;
+    metadata([]);
 }

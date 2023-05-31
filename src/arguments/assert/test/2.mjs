@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { comment } from '../../../comment.mjs';
 import { integer_is } from '../../../integer/is.mjs';
 import { throws } from '../../../throws.mjs';
@@ -12,4 +13,5 @@ export function arguments_assert_test_2() {
         integer_is,
         integer_is
     ]));
+    metadata([]);
 }

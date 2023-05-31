@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { function_write } from '../../../write.mjs';
 import { js_function_declaration_asyncify } from '../../../../js/function/declaration/asyncify.mjs';
 import { js_function_declaration_statements_initialize } from '../../../../js/function/declaration/statements/initialize.mjs';
@@ -13,4 +14,5 @@ export async function function_add_with_statements_synchronized(function_name, s
         js_function_declaration_asyncify(fd);
     }
     return await function_write(function_name, parsed);
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { function_name_get } from '../../function/name/get.mjs';
 import { data_task_id_remove } from './id/remove.mjs';
 import { data_task_id_get } from './id/get.mjs';
@@ -13,4 +14,5 @@ export async function data_task_finish() {
     let result = await git_pacp_with_message(`closes ${ task_id }`);
     assert(result.success);
     await data_task_id_remove();
+    metadata([]);
 }

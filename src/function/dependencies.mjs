@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { file_js_path_to_name } from '../file/js/path/to/name.mjs';
 import { file_js_dependencies } from '../file/js/dependencies.mjs';
 import { list_map } from '../list/map.mjs';
@@ -11,4 +12,5 @@ export async function function_dependencies(function_name) {
             function_name: file_js_path_to_name(file_path)
         };
     });
+    metadata([]);
 }

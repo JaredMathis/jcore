@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { file_rename } from '../../../../file/rename.mjs';
 import { function_name_to_path } from '../../../name/to/path.mjs';
 import { file_js_all_identifier_exists } from '../../../../file/js/all/identifier/exists.mjs';
@@ -10,4 +11,5 @@ export async function function_rename_without_all_refactor(function_name_old, fu
     let file_path_old = function_name_to_path(function_name_old);
     let file_path_new = function_name_to_path(function_name_new);
     await file_rename(file_path_old, file_path_new);
+    metadata([]);
 }

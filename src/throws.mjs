@@ -1,3 +1,4 @@
+import { metadata } from './metadata.mjs';
 import { arguments_count } from './arguments/count.mjs';
 import { error } from './error.mjs';
 export function throws(lambda) {
@@ -11,4 +12,5 @@ export function throws(lambda) {
     if (!errored) {
         error(`Expecting throw`);
     }
+    metadata([]);
 }

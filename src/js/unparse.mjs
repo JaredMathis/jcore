@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { json_to } from '../json/to.mjs';
 import { js_parse } from './parse.mjs';
 import { try_catch } from '../try/catch.mjs';
@@ -7,4 +8,5 @@ export function js_unparse(parsed) {
     function lambda() {
         return escodegen.generate(parsed);
     }
+    metadata([]);
 }

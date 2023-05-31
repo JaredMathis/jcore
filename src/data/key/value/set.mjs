@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { object_property_set } from '../../../object/property/set.mjs';
 import { data_map } from '../../map.mjs';
 export async function data_key_value_set(key, value) {
@@ -5,4 +6,5 @@ export async function data_key_value_set(key, value) {
     function map(data) {
         object_property_set(data, key, value);
     }
+    metadata([]);
 }

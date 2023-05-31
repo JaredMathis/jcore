@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { refactor_multiple } from '../multiple.mjs';
 import { refactor_import_missing } from './missing.mjs';
 import { refactor_import_unused } from './unused.mjs';
@@ -9,4 +10,5 @@ export async function refactor_import_fix(args) {
         refactor_import_path_fix
     ];
     await refactor_multiple(args, refactors);
+    metadata([]);
 }

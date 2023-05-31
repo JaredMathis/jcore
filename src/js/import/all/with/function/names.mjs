@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { list_add } from '../../../../../list/add.mjs';
 import { list_any } from '../../../../../list/any.mjs';
 import { list_first } from '../../../../../list/first.mjs';
@@ -50,4 +51,5 @@ export async function js_import_all_with_function_names(parsed) {
         });
     }
     return import_name_all;
+    metadata([]);
 }

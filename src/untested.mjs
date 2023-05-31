@@ -1,3 +1,4 @@
+import { metadata } from './metadata.mjs';
 import { string_function_tests_name_is } from './string/function/tests/name/is.mjs';
 import { list_filter } from './list/filter.mjs';
 import { list_filter_async } from './list/filter/async.mjs';
@@ -14,4 +15,5 @@ export async function untested() {
     for (let function_name of limited) {
         log(function_name);
     }
+    metadata([]);
 }

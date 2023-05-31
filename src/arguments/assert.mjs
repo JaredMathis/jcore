@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { assert } from '../assert.mjs';
 import { arguments_count } from './count.mjs';
 import { list_is } from '../list/is.mjs';
@@ -18,4 +19,5 @@ export function arguments_assert(args, predicates) {
             error();
         }
     }
+    metadata([]);
 }

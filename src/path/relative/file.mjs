@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { function_name_get } from '../../function/name/get.mjs';
 import { comment } from '../../comment.mjs';
 import { path_parent } from '../parent.mjs';
@@ -7,4 +8,5 @@ export function path_relative_file(file_path, function_path) {
     let file_path_directory = path_parent(file_path);
     let relative = path_relative(file_path_directory, function_path);
     return relative;
+    metadata([]);
 }

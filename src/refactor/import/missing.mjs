@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { js_identifier_all } from '../../js/identifier/all.mjs';
 import { function_name_all } from '../../function/name/all.mjs';
 import { list_map } from '../../list/map.mjs';
@@ -24,4 +25,5 @@ export async function refactor_import_missing(args) {
     let import_new_all = list_map(without, js_function_name_to_import);
     let body = js_body_get(parsed);
     list_add_beginning_all(body, import_new_all);
+    metadata([]);
 }

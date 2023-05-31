@@ -1,3 +1,4 @@
+import { metadata } from './metadata.mjs';
 import { list_add } from './list/add.mjs';
 export function range(count) {
     let result = [];
@@ -5,4 +6,5 @@ export function range(count) {
         list_add(result, i);
     }
     return result;
+    metadata([]);
 }

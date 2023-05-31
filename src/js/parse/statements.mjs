@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { js_node_property_declaration } from '../node/property/declaration.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { js_code_export_function_synchronized } from '../code/export/function/synchronized.mjs';
@@ -13,4 +14,5 @@ export function js_parse_statements(code) {
     let fd = object_property_get(export_single, js_node_property_declaration());
     let statements = js_function_delcaration_to_statements(fd);
     return statements;
+    metadata([]);
 }

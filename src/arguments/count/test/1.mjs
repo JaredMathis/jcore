@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { comment } from '../../../comment.mjs';
 import { arguments_count } from '../../count.mjs';
 export function arguments_count_test_1() {
@@ -6,4 +7,5 @@ export function arguments_count_test_1() {
         1,
         2
     ], 2);
+    metadata([]);
 }

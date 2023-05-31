@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { directory_separator } from '../directory/separator.mjs';
 import { function_name_to_path } from './name/to/path.mjs';
 import { directory_current } from '../directory/current.mjs';
@@ -10,4 +11,5 @@ export async function function_run(function_name, args) {
     let imported_function = imported[function_name];
     let result = await imported_function(...args);
     return result;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { js_node_call_expression_on_name_equal } from '../../../../js/node/call/expression/on/name/equal.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 import { js_keyword_arguments } from '../../../../js/keyword/arguments.mjs';
@@ -42,4 +43,5 @@ export async function refactor_functions_arguments_assert_add() {
             await refactor_import_fix(args);
         }
     });
+    metadata([]);
 }

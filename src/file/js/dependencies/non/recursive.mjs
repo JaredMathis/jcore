@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { directory_current } from '../../../../directory/current.mjs';
 import { path_relative } from '../../../../path/relative.mjs';
 import { path_resolve } from '../../../../path/resolve.mjs';
@@ -24,4 +25,5 @@ export async function file_js_dependencies_non_recursive(file_path) {
         return path_relative_to_current;
     });
     return mapped;
+    metadata([]);
 }

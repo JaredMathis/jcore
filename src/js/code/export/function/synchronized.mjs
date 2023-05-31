@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { string_length } from '../../../../string/length.mjs';
 import { assert } from '../../../../assert.mjs';
 import { js_keyword_async } from '../../../keyword/async.mjs';
@@ -10,4 +11,5 @@ export function js_code_export_function_synchronized(function_name, is_async, fu
     }
     let result = `export ${ async_code } function ${ function_name }() { ${ function_statements_code } }`;
     return result;
+    metadata([]);
 }

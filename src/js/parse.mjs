@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { try_catch } from '../try/catch.mjs';
 import { Parser } from 'acorn';
 export function js_parse(unparsed) {
@@ -9,4 +10,5 @@ export function js_parse(unparsed) {
         });
         return parsed;
     }
+    metadata([]);
 }

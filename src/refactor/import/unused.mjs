@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { js_identifier_counts } from '../../js/identifier/counts.mjs';
 import { object_each_filter } from '../../object/each/filter.mjs';
 import { list_intersection } from '../../list/intersection.mjs';
@@ -20,4 +21,5 @@ export async function refactor_import_unused(args) {
     let import_statements_to_remove = list_map(imports_from_intersection, i => object_property_get(i, 'import'));
     let body = js_body_get(parsed);
     list_remove_all(body, import_statements_to_remove);
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { json_from } from '../json/from.mjs';
 import { json_to } from '../json/to.mjs';
 import { path_exists_not } from '../path/exists/not.mjs';
@@ -14,4 +15,5 @@ export async function data_get() {
     let json = await file_read(file_path);
     let data = json_from(json);
     return data;
+    metadata([]);
 }

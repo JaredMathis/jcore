@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { error_caught } from '../error/caught.mjs';
 export function try_catch(fn, lambda, error_message) {
     try {
@@ -5,4 +6,5 @@ export function try_catch(fn, lambda, error_message) {
     } catch (e) {
         error_caught(fn, e, error_message);
     }
+    metadata([]);
 }

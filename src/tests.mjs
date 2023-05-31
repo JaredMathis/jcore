@@ -1,3 +1,4 @@
+import { metadata } from './metadata.mjs';
 import { log } from './log.mjs';
 import { error_test_3 } from './error/test/3.mjs';
 import { error_test_2 } from './error/test/2.mjs';
@@ -53,4 +54,5 @@ export async function tests() {
     await error_test_2();
     await error_test_3();
     log(26 + ' tests ran successfully');
+    metadata([]);
 }

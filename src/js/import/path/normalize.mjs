@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { comment } from '../../../comment.mjs';
 import { directory_current } from '../../../directory/current.mjs';
 import { directory_separator } from '../../../directory/separator.mjs';
@@ -11,4 +12,5 @@ export function js_import_path_normalize(import_path) {
         return `${ directory_current() }${ js_directory_separator() }` + result;
     }
     return result;
+    metadata([]);
 }

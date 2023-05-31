@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { js_identifier_all_rename } from '../../../../../js/identifier/all/rename.mjs';
 import { file_js_all_map_args } from '../../map/args.mjs';
 import { list_unique_is } from '../../../../../list/unique/is.mjs';
@@ -17,4 +18,5 @@ export async function file_js_all_identifier_all_rename(dictionary) {
     await file_js_all_map_args(function mapper(args) {
         js_identifier_all_rename(dictionary, args);
     });
+    metadata([]);
 }

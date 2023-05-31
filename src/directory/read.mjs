@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { comment } from '../comment.mjs';
 import * as fs from 'fs/promises';
 import path from 'path';
@@ -14,4 +15,5 @@ export async function directory_read(dir, file_list = []) {
         }
     }
     return file_list;
+    metadata([]);
 }

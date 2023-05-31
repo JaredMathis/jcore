@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { function_name_get } from '../../../function/name/get.mjs';
 import { list_remove_all_first_equals } from '../../../list/remove/all/first/equals.mjs';
 import { git } from '../../../git.mjs';
@@ -26,4 +27,5 @@ export async function git_pacp_with_message(commit_message) {
         }
     }
     return c_result;
+    metadata([]);
 }

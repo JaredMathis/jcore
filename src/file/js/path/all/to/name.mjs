@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { function_extension } from '../../../../../function/extension.mjs';
 import { string_suffix_without } from '../../../../../string/suffix/without.mjs';
 import { list_join } from '../../../../../list/join.mjs';
@@ -18,4 +19,5 @@ export function file_js_path_all_to_name(file_js_paths) {
     let mapped3 = list_map(mapped2, a => list_join(a, function_name_separator()));
     let mapped4 = list_map(mapped3, a => string_suffix_without(a, function_extension()));
     return mapped4;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { js_keyword_async } from '../js/keyword/async.mjs';
 import { object_property_set } from '../object/property/set.mjs';
 import { refactor_unasyncify_each } from './unasyncify/each.mjs';
@@ -13,4 +14,5 @@ export async function refactor_unasyncify(args) {
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     let fd = js_export_function_single(parsed);
     object_property_set(fd, js_keyword_async(), false);
+    metadata([]);
 }

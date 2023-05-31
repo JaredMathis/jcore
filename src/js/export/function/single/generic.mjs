@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { value_get } from '../../../../value/get.mjs';
 import { list_single } from '../../../../list/single.mjs';
 import { value_set_is } from '../../../../value/set/is.mjs';
@@ -23,4 +24,5 @@ export function js_export_function_single_generic(parsed, or_null) {
         }
     }
     return value_get(result);
+    metadata([]);
 }

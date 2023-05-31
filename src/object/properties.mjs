@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { comment } from '../comment.mjs';
 import { string_is } from '../string/is.mjs';
 export function object_properties(object) {
@@ -10,4 +11,5 @@ export function object_properties(object) {
         return default_value;
     }
     return Object.values(object);
+    metadata([]);
 }

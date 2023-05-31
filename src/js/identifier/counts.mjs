@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { object_property_initialize_if_unset } from '../../object/property/initialize/if/unset.mjs';
 import { object_property_set } from '../../object/property/set.mjs';
@@ -19,4 +20,5 @@ export function js_identifier_counts(parsed) {
         }
     });
     return result;
+    metadata([]);
 }

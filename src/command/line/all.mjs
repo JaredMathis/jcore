@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { result_unsuccess } from '../../result/unsuccess.mjs';
 import { log } from '../../log.mjs';
 import { command_line_check } from './check.mjs';
@@ -14,4 +15,5 @@ export async function command_line_all(commands) {
         }
     }
     return result;
+    metadata([]);
 }

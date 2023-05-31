@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_add } from '../add.mjs';
 export async function list_filter_async(array, filter) {
     let result = [];
@@ -7,4 +8,5 @@ export async function list_filter_async(array, filter) {
         }
     }
     return result;
+    metadata([]);
 }

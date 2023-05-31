@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { comment } from '../../../comment.mjs';
 import { list_single } from '../../../list/single.mjs';
 import { js_body_get } from '../../body/get.mjs';
@@ -8,4 +9,5 @@ export function js_parse_statement_module(code) {
     let statements = js_body_get(parsed);
     let statement = list_single(statements);
     return statement;
+    metadata([]);
 }

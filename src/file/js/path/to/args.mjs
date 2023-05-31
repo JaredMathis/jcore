@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { file_js_parse } from '../../parse.mjs';
 export async function file_js_path_to_args(file_path) {
     let parsed = await file_js_parse(file_path);
@@ -6,4 +7,5 @@ export async function file_js_path_to_args(file_path) {
         file_path
     };
     return args;
+    metadata([]);
 }

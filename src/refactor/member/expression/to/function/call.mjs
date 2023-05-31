@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { js_code_call_expression } from '../../../../../js/code/call/expression.mjs';
 import { js_node_property_name } from '../../../../../js/node/property/name.mjs';
 import { function_auto_after_refactors } from '../../../../../function/auto/after/refactors.mjs';
@@ -36,4 +37,5 @@ export async function refactor_member_expression_to_function_call(args) {
         let refactors = function_auto_after_refactors();
         await refactor_multiple(args, refactors);
     }
+    metadata([]);
 }

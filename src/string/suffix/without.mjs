@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { assert } from '../../assert.mjs';
 import { string_ends_with } from '../ends/with.mjs';
 import { string_length } from '../length.mjs';
@@ -6,4 +7,5 @@ export function string_suffix_without(input, suffix) {
     assert(string_ends_with(suffix, suffix));
     let end = string_length(input) - string_length(suffix);
     return string_sub_from(input, 0, end);
+    metadata([]);
 }

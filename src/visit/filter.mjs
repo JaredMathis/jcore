@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { object_property_get } from '../object/property/get.mjs';
 import { visit } from '../visit.mjs';
 export function visit_filter(root, children_get, filter, lambda) {
@@ -8,4 +9,5 @@ export function visit_filter(root, children_get, filter, lambda) {
             lambda(v);
         }
     }
+    metadata([]);
 }

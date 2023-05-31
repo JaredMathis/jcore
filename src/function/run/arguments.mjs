@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_first } from '../../list/first.mjs';
 import { list_skip_first } from '../../list/skip/first.mjs';
 import { list_to } from '../../list/to.mjs';
@@ -8,4 +9,5 @@ export async function function_run_arguments(input) {
     let remaining = list_skip_first(args);
     let result = await function_run(function_name, remaining);
     return result;
+    metadata([]);
 }

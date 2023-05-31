@@ -33,4 +33,5 @@ export async function refactor_functions_metadata_add() {
             await refactor_import_fix(args);
         }
     });
+    metadata([]);
 }

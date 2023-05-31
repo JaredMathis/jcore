@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { function_tests_generate } from '../function/tests/generate.mjs';
 import { list_max_or_0 } from '../list/max/or/0.mjs';
 import { function_auto } from '../function/auto.mjs';
@@ -23,4 +24,5 @@ export async function tests_add(function_name) {
     let test_name = `${ function_tests_prefix_get(function_name) }${ test_ids_all_number_max }`;
     await function_auto(test_name);
     await function_tests_generate();
+    metadata([]);
 }

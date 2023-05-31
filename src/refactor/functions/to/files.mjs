@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { function_name_get } from '../../../function/name/get.mjs';
 import { function_add_with_declaration } from '../../../function/add/with/declaration.mjs';
 import { list_remove_all } from '../../../list/remove/all.mjs';
@@ -33,4 +34,5 @@ export async function refactor_functions_to_files(args) {
     let body = js_body_get(parsed);
     list_remove_all(body, function_declarations_to_export);
     await refactor_import_fix(args);
+    metadata([]);
 }

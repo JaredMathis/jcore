@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_code_function_name_to_parsed } from '../../../js/code/function/name/to/parsed.mjs';
 import { js_node_property_declaration } from '../../../js/node/property/declaration.mjs';
 import { object_property_change } from '../../../object/property/change.mjs';
@@ -8,4 +9,5 @@ export async function function_add_with_declaration(function_name, fd) {
     let export_single = js_export_single(parsed);
     object_property_change(export_single, js_node_property_declaration(), fd);
     return await function_write(function_name, parsed);
+    metadata([]);
 }

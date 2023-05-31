@@ -1,3 +1,4 @@
+import { metadata } from './metadata.mjs';
 import { error } from './error.mjs';
 import { arguments_count } from './arguments/count.mjs';
 export function assert(value) {
@@ -6,4 +7,5 @@ export function assert(value) {
         return;
     }
     error('Assertion failed');
+    metadata([]);
 }

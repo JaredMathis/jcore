@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { js_identifier_rename } from '../../../../js/identifier/rename.mjs';
 import { file_js_all_map_args } from '../map/args.mjs';
@@ -12,4 +13,5 @@ export async function file_js_all_identifier_rename(identifier_name_old, identif
         }
     });
     return file_paths_changed;
+    metadata([]);
 }

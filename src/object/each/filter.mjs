@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_add } from '../../list/add.mjs';
 import { object_each } from '../each.mjs';
 export function object_each_filter(object, predicate) {
@@ -9,4 +10,5 @@ export function object_each_filter(object, predicate) {
     };
     object_each(object, lambda);
     return result;
+    metadata([]);
 }

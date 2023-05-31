@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { function_auto_after } from './auto/after.mjs';
 import { function_exists } from './exists.mjs';
 import { function_add } from './add.mjs';
@@ -8,4 +9,5 @@ export async function function_auto(function_name) {
     }
     await function_auto_after(function_name);
     await function_open_vs_code(function_name);
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { js_code_call_expression_statement } from '../../js/code/call/expression/statement.mjs';
 import { log } from '../../log.mjs';
 import { function_name_get } from '../name/get.mjs';
@@ -28,4 +29,5 @@ export async function function_tests_generate() {
     let is_async = true;
     await function_add_with_statements_synchronized(function_name, statements, is_async);
     await function_map(function_name_get(refactor_import_fix), function_name);
+    metadata([]);
 }

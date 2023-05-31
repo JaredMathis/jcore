@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { data_task_id } from '../data/task/id.mjs';
 import { object_property_get } from '../object/property/get.mjs';
 import { data_git_commit_message_initial } from '../data/git/commit/message/initial.mjs';
@@ -11,4 +12,5 @@ export async function git_pacp() {
     assert(task_id !== initial);
     let commit_message = task_id;
     await git_pacp_with_message(commit_message);
+    metadata([]);
 }

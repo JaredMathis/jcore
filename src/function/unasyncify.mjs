@@ -1,4 +1,4 @@
-import { log } from '../log.mjs';
+import { metadata } from '../metadata.mjs';
 import { function_delete_if_exists } from './delete/if/exists.mjs';
 import { function_suffix_async } from './suffix/async.mjs';
 import { function_name_separator } from './name/separator.mjs';
@@ -13,4 +13,5 @@ export async function function_unasyncify(function_name) {
     await function_delete_if_exists(function_name_result);
     await function_copy(function_name, function_name_result);
     await function_map(function_name_get(refactor_unasyncify), function_name_result);
+    metadata([]);
 }

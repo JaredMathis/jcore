@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { error } from '../../error.mjs';
 import { exec } from 'child_process';
 export async function command_line_check(command) {
@@ -17,4 +18,5 @@ export async function command_line_check(command) {
             resolve(result);
         });
     });
+    metadata([]);
 }

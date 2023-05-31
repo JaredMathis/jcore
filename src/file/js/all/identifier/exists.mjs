@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { list_add_if_not_exists } from '../../../../list/add/if/not/exists.mjs';
 import { list_contains } from '../../../../list/contains.mjs';
 import { js_identifier_all } from '../../../../js/identifier/all.mjs';
@@ -14,4 +15,5 @@ export async function file_js_all_identifier_exists(identifier_name) {
         }
     }
     return list_contains(result, identifier_name);
+    metadata([]);
 }
