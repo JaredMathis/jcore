@@ -4,8 +4,7 @@ import { list_length_is_1 } from '../../../list/length/is/1.mjs';
 export function js_export_function_single(parsed) {
     const rename_me = false;
     let default_value = null;
-    let result = default_value;
-    let result_set = false;
+    let result = value_new();
     let exports_existing = js_exports(parsed);
     if (rename_me) {
         if (!list_length_is_1(exports_existing)) {
@@ -14,8 +13,7 @@ export function js_export_function_single(parsed) {
         }
     }
     if (!result_set) {
-        result = list_single(exports_existing);
-        result_set = true;
+        value_set(result, list_single(exports_existing))
     }
     return result;
 }
