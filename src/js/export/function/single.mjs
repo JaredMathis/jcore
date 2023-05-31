@@ -8,7 +8,7 @@ export function js_export_function_single(parsed) {
     let exports_existing = js_exports(parsed);
     if (rename_me) {
         if (!list_length_is_1(exports_existing)) {
-            return default_value;
+            result = default_value;
         }
     }
     let export_single = list_single(exports_existing);
