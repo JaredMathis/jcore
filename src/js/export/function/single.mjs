@@ -4,6 +4,7 @@ import { list_length_is_1 } from '../../../list/length/is/1.mjs';
 export function js_export_function_single(parsed) {
     const rename_me = false;
     let default_value = null;
+    let result = default_value;
     let exports_existing = js_exports(parsed);
     if (rename_me) {
         if (!list_length_is_1(exports_existing)) {
