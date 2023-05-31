@@ -1,5 +1,4 @@
 import { refactor_import_fix } from '../../import/fix.mjs';
-import { log } from '../../../log.mjs';
 import { js_parse_statement } from '../../../js/parse/statement.mjs';
 import { js_statement_end } from '../../../js/statement/end.mjs';
 import { metadata } from '../../../metadata.mjs';
@@ -27,7 +26,6 @@ export async function refactor_functions_metadata_add() {
                 already_exists = true;
             });
         }
-        console.log('here');
         if (!already_exists) {
             let metadata_new_code = `${ js_code_call_expression_with_args(function_name_get(metadata), '[]') }${ js_statement_end() }`;
             let metadata_new = js_parse_statement(metadata_new_code);
