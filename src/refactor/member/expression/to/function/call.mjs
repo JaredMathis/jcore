@@ -1,3 +1,4 @@
+import { js_code_call_expression } from '../../../../../js/code/call/expression.mjs';
 import { js_node_property_name } from '../../../../../js/node/property/name.mjs';
 import { function_auto_after_refactors } from '../../../../../function/auto/after/refactors.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
@@ -24,7 +25,7 @@ export async function refactor_member_expression_to_function_call(args) {
         }
         let object = object_property_get(node, 'object');
         const name = function_name_get(function_name_get);
-        const code = `${ name }()`;
+        const code = js_code_call_expression(name);
         let expression = js_parse_expression(code);
         object_replace(node, expression);
         let args = object_property_get(node, 'arguments');
