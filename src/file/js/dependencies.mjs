@@ -16,7 +16,7 @@ export async function file_js_dependencies(file_path) {
         let path_relative = object_property_get(source, js_node_property_value());
         let path_full = path_join([file_path, path_relative])
         let resolved = path_resolve(path_full);
-        console.log(path_relative_file(directory_source(), resolved))
+        console.log(path_relative_file(resolved, directory_source()))
         return resolved;
     });
     console.log(mapped);
