@@ -1,3 +1,4 @@
+import { function_tests_generate } from '../function/tests/generate.mjs';
 import { list_max_or_0 } from '../list/max/or/0.mjs';
 import { function_auto } from '../function/auto.mjs';
 import { function_tests_prefix_get } from '../function/tests/prefix/get.mjs';
