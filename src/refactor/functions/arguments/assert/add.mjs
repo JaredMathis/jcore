@@ -10,6 +10,8 @@ import { error } from '../../../../error.mjs';
 import { list_first } from '../../../../list/first.mjs';
 import { equal } from '../../../../equal.mjs';
 import { function_name_get } from '../../../../function/name/get.mjs';
+import { object_property_get } from '../../../../object/property/get.mjs';
+import { list_add_beginning } from '../../../../list/add/beginning.mjs';
 export async function refactor_functions_arguments_assert_add() {
     await file_js_all_map_args(function mapper(args) {
         let {parsed, file_path} = args;
@@ -27,8 +29,10 @@ export async function refactor_functions_arguments_assert_add() {
             }
         }
         if (!exists) {
-            console.log({ fd });
             let statement_new = todo();
+            let params = object_property_get(fd, 'params');
+            list_add_beginning(params, statement_new);
+            console.log({ fd });
         }
         error();
     });
