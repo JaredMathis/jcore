@@ -1,3 +1,5 @@
+import { refactor_import_fix } from '../../import/fix.mjs';
+import { log } from '../../../log.mjs';
 import { js_parse_statement } from '../../../js/parse/statement.mjs';
 import { js_statement_end } from '../../../js/statement/end.mjs';
 import { metadata } from '../../../metadata.mjs';
