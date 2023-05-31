@@ -19,7 +19,7 @@ export function js_export_function_single_generic(parsed, or_null) {
         const export_single = list_single(exports_existing);
         const declaration = js_export_declaration_get(export_single);
         if (js_node_is_function_declaration(declaration)) {
-            value_set(result, export_single);
+            value_set(result, declaration);
         }
     }
     return value_get(result);
