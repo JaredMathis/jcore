@@ -26,13 +26,16 @@ export async function refactor_functions_arguments_assert_add() {
             return;
         }
         let exists = false;
+        function on_name_equal() {
+            exists = true;
+        }
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
             let statement_first = list_first(statements);
             if (node_is_type_call_expression(statement_first)) {
                 let name = js_call_expression_to_name(statement_first);
                 if (equal(name, function_name_get(arguments_assert))) {
-                    exists = true;
+                    on_name_equal()
                 }
             }
         }
