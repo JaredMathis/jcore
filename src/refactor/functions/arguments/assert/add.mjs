@@ -1,3 +1,4 @@
+import { js_function_delcaration_to_statements } from '../../../../js/function/delcaration/to/statements.mjs';
 import { log } from '../../../../log.mjs';
 import { js_export_function_single_or_null } from '../../../../js/export/function/single/or/null.mjs';
 import { file_js_all_map_args } from '../../../../file/js/all/map/args.mjs';
