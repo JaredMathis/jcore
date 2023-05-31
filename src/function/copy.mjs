@@ -1,4 +1,2 @@
-import { error } from '../error.mjs';
-export function function_copy() {
-    error('todo: function_copy');
+export function function_copy(function_name_to_copy, function_name_of_copy) {
 }
