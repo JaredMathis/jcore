@@ -1,3 +1,4 @@
+import { todo } from '../../../../todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_call_expression_to_name } from '../../../../js/call/expression/to/name.mjs';
 import { node_is_type_call_expression } from '../../../../node/is/type/call/expression.mjs';
@@ -12,12 +13,12 @@ import { function_name_get } from '../../../../function/name/get.mjs';
 export async function refactor_functions_arguments_assert_add() {
     await file_js_all_map_args(function mapper(args) {
         let {parsed, file_path} = args;
-        let export_single = js_export_function_single_or_null(parsed);
-        if (export_single === null) {
+        let fd = js_export_function_single_or_null(parsed);
+        if (fd === null) {
             return;
         }
         let exists = false;
-        let statements = js_function_delcaration_to_statements(export_single);
+        let statements = js_function_delcaration_to_statements(fd);
         let statement_first = list_first(statements);
         if (node_is_type_call_expression(statement_first)) {
             let name = js_call_expression_to_name(statement_first);
@@ -25,7 +26,10 @@ export async function refactor_functions_arguments_assert_add() {
                 exists = true;
             }
         }
-        console.log(statement_first);
+        if (!exists) {
+            console.log({ fd });
+            let statement_new = todo();
+        }
         error();
     });
 }
