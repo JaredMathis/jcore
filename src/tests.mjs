@@ -18,7 +18,9 @@ import { arguments_assert_test_4 } from './arguments/assert/test/4.mjs';
 import { arguments_assert_test_3 } from './arguments/assert/test/3.mjs';
 import { arguments_assert_test_2 } from './arguments/assert/test/2.mjs';
 import { arguments_assert_test_1 } from './arguments/assert/test/1.mjs';
+import { add_1_test_1 } from './add/1/test/1.mjs';
 export async function tests() {
+    await add_1_test_1();
     await arguments_assert_test_1();
     await arguments_assert_test_2();
     await arguments_assert_test_3();
