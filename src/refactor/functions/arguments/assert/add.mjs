@@ -42,7 +42,7 @@ export async function refactor_functions_arguments_assert_add() {
             list_add_beginning(params_mapped, js_keyword_arguments());
             let params_code = list_join(params_mapped, ', ');
             let statement_new = js_parse_statement(`${ function_name_get(arguments_assert) }(${ params_code })`);
-            list_add_beginning(params, statement_new);
+            list_add_beginning(statements, statement_new);
         }
     });
 }
