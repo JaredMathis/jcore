@@ -23,7 +23,8 @@ export async function refactor_member_expression_to_function_call(args) {
             return;
         }
         let object = object_property_get(node, 'object');
-        const code = `${ function_name_get(function_name_get) }()`;
+        const name = function_name_get(function_name_get);
+        const code = `${ name }()`;
         let expression = js_parse_expression(code);
         object_replace(node, expression);
         let args = object_property_get(node, 'arguments');
