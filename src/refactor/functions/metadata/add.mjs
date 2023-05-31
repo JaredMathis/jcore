@@ -1,3 +1,6 @@
+import { js_parse_statement } from '../../../js/parse/statement.mjs';
+import { js_statement_end } from '../../../js/statement/end.mjs';
+import { js_code_call_expression } from '../../../js/code/call/expression.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { function_name_get } from '../../../function/name/get.mjs';
 import { js_node_call_expression_on_name_equal } from '../../../js/node/call/expression/on/name/equal.mjs';
@@ -22,7 +25,8 @@ export async function refactor_functions_metadata_add() {
             });
         }
         if (!already_exists) {
-            let metadata_new = 
+            let metadata_new_code = `${ js_code_call_expression(function_name_get(metadata)) }${ js_statement_end() }`;
+            let metadata_new = js_parse_statement(metadata_new_code);
             list_add(statements, metadata_new);
         }
     });
