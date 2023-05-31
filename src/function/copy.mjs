@@ -7,7 +7,6 @@ export async function function_copy(function_name_to_copy, function_name_of_copy
     let parsed = await function_parse(function_name_to_copy);
     let fd = js_export_function_single(parsed);
     js_id_name_set(fd, function_name_of_copy);
-    console.log({function_name_of_copy})
     await function_add_with_declaration(function_name_of_copy, fd);
     await function_auto_after(function_name_of_copy);
 }
