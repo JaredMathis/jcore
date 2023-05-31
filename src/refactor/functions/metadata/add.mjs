@@ -26,6 +26,7 @@ export async function refactor_functions_metadata_add() {
                 already_exists = true;
             });
         }
+        if (false)
         if (!already_exists) {
             let metadata_new_code = `${ js_code_call_expression_with_args(function_name_get(metadata), '[]') }${ js_statement_end() }`;
             let metadata_new = js_parse_statement(metadata_new_code);

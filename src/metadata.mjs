@@ -1,5 +1,5 @@
 import { noop } from './noop.mjs';
 export function metadata() {
-    noop();
+    return noop();
     metadata([]);
 }
