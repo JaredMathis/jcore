@@ -10,8 +10,8 @@ export async function file_js_dependencies(file_path) {
     let imports = js_import_all(parsed);
     list_map(imports, i => {
         let source = object_property_get(i, js_node_property_source());
-        let raw = object_property_get(source, js_node_property_value());
-        return raw;
+        let value = object_property_get(source, js_node_property_value());
+        return value;
     });
     console.log(imports);
 }
