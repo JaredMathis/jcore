@@ -22,29 +22,28 @@ export async function refactor_functions_arguments_assert_add() {
     await file_js_all_map_args(async function mapper(args) {
         let {parsed, file_path} = args;
         let fd = js_export_function_single_or_null(parsed);
-        if (fd === null) {
-            return;
-        }
-        let exists = false;
-        let statements = js_function_delcaration_to_statements(fd);
-        if (!list_length_is_0(statements)) {
-            let statement_first = list_first(statements);
-            if (node_is_type_call_expression(statement_first)) {
-                let name = js_call_expression_to_name(statement_first);
-                if (equal(name, function_name_get(arguments_assert))) {
-                    exists = true;
+        if (fd !== null) {
+            let exists = false;
+            let statements = js_function_delcaration_to_statements(fd);
+            if (!list_length_is_0(statements)) {
+                let statement_first = list_first(statements);
+                if (node_is_type_call_expression(statement_first)) {
+                    let name = js_call_expression_to_name(statement_first);
+                    if (equal(name, function_name_get(arguments_assert))) {
+                        exists = true;
+                    }
                 }
             }
-        }
-        if (!exists) {
-            let params = object_property_get(fd, 'params');
-            let params_length = list_length(params);
-            let params_mapped = list_map(range(params_length), i => function_name_get(tautology));
-            list_add_beginning(params_mapped, js_keyword_arguments());
-            let params_code = list_join(params_mapped, ', ');
-            let statement_new = js_parse_statement(`${ function_name_get(arguments_assert) }(${ params_code })`);
-            list_add_beginning(statements, statement_new);
-            await refactor_import_fix(args);
+            if (!exists) {
+                let params = object_property_get(fd, 'params');
+                let params_length = list_length(params);
+                let params_mapped = list_map(range(params_length), i => function_name_get(tautology));
+                list_add_beginning(params_mapped, js_keyword_arguments());
+                let params_code = list_join(params_mapped, ', ');
+                let statement_new = js_parse_statement(`${ function_name_get(arguments_assert) }(${ params_code })`);
+                list_add_beginning(statements, statement_new);
+                await refactor_import_fix(args);
+            }
         }
     });
 }
