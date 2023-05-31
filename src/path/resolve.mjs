@@ -1,4 +1,4 @@
-import { path } from 'path';
+import  path  from 'path';
 export function path_resolve(file_path) {
-    path.resolve(file);
+    path.resolve(file_path);
 }
