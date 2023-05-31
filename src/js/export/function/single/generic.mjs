@@ -14,7 +14,8 @@ export function js_export_function_single_generic(parsed, or_null) {
         }
     }
     if (!value_set_is(result)) {
-        value_set(result, list_single(exports_existing));
+        const export_single = list_single(exports_existing);
+        value_set(result, export_single);
     }
     return value_get(result);
 }
