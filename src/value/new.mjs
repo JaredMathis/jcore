@@ -1,4 +1,6 @@
-import { error } from '../error.mjs';
-export function value_new() {
-    error('todo: value_new');
+export function value_new(default_value) {
+    return {
+        value: default_value,
+        set: false
+    };
 }
