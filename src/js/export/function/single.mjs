@@ -10,8 +10,12 @@ export function js_export_function_single(parsed) {
     if (rename_me) {
         if (!list_length_is_1(exports_existing)) {
             result = default_value;
+            result_set = true;
         }
     }
-    let export_single = list_single(exports_existing);
-    return export_single;
+    if (!result_set) {
+        result = list_single(exports_existing);
+        result_set = true;
+    }
+    return result;
 }
