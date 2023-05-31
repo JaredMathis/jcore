@@ -12,6 +12,6 @@ export function refactor_unasyncify_each(v) {
         object_replace(node, arg);
     }
     if (js_node_is_function_declaration(node)) {
-        object_property_set(fd, js_keyword_async(), false);
+        object_property_set(node, js_keyword_async(), false);
     }
 }
