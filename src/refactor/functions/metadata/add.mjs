@@ -29,8 +29,7 @@ export async function refactor_functions_metadata_add() {
         }
         console.log('here');
         if (!already_exists) {
-            let args = '[]';
-            let metadata_new_code = `${ js_code_call_expression_with_args(function_name_get(metadata), args) }${ js_statement_end() }`;
+            let metadata_new_code = `${ js_code_call_expression_with_args(function_name_get(metadata), '[]') }${ js_statement_end() }`;
             let metadata_new = js_parse_statement(metadata_new_code);
             list_add(statements, metadata_new);
             await refactor_import_fix(args);
