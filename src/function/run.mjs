@@ -9,5 +9,6 @@ export async function function_run(function_name, args) {
     let imported = await import(replaced);
     let imported_function = imported[function_name];
     let result = await imported_function(...args);
+    console.log({result});
     return result;
 }
