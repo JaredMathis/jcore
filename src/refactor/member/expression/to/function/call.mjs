@@ -1,3 +1,4 @@
+import { js_node_property_name } from '../../../../../js/node/property/name.mjs';
 import { function_auto_after_refactors } from '../../../../../function/auto/after/refactors.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
 import { js_parse_expression } from '../../../../../js/parse/expression.mjs';
@@ -17,7 +18,7 @@ export async function refactor_member_expression_to_function_call(args) {
         if (!js_node_is_identifier(property)) {
             return;
         }
-        let property_name = object_property_get(property, 'name');
+        let property_name = object_property_get(property, js_node_property_name());
         if (property_name !== 'name') {
             return;
         }
