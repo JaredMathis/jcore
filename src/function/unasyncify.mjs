@@ -9,6 +9,7 @@ import { function_copy } from './copy.mjs';
 export async function function_unasyncify(function_name) {
     let ending = `${ function_name_separator() }${ function_suffix_async() }`;
     let function_name_result = string_suffix_without(function_name, ending);
+    console.log(function_name_result)
     await function_delete_if_exists(function_name_result);
     await function_copy(function_name, function_name_result);
     await function_map(function_name_get(refactor_unasyncify), function_name_result);
