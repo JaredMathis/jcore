@@ -10,6 +10,7 @@ import { path_relative_file } from '../../path/relative/file.mjs';
 import { directory_source } from '../../directory/source.mjs';
 import { path_relative } from '../../path/relative.mjs';
 import { file_js_path_to_name } from './path/to/name.mjs';
+import { directory_current } from '../../directory/current.mjs';
 export async function file_js_dependencies(file_path) {
     let parsed = await file_js_parse(file_path);
     let imports = js_import_all(parsed);
@@ -18,8 +19,9 @@ export async function file_js_dependencies(file_path) {
         let relative_path = object_property_get(source, js_node_property_value());
         let path_full = path_join([file_path, relative_path])
         let resolved = path_resolve(path_full);
-        if (false) {
-            let relative_path2 = path_relative(directory_source(), resolved);
+        if (true) {
+            let relative_path2 = path_relative(directory_current(), resolved);
+            console.log(relative_path2)
             let function_name = file_js_path_to_name(relative_path2);
         }
         return resolved;
