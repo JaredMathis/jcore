@@ -8,7 +8,7 @@ export async function function_dependencies(function_name) {
     return list_map(d, file_path => {
         return {
             file_path,
-            function_name: file_js_path_to_name(path_relative_to_current)
+            function_name: file_js_path_to_name(file_path)
         };
     });
 }
