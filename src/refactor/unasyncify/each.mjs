@@ -14,5 +14,4 @@ export function refactor_unasyncify_each(v) {
     if (js_node_is_function_declaration(node)) {
         js_function_declaration_asyncify(node);
     }
-    console.log({ node });
 }
