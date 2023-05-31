@@ -1,9 +1,7 @@
-import { js_node_is_identifier } from '../../node/is/identifier.mjs';
-import { assert } from '../../../assert.mjs';
+import { js_id_get } from '../get.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
-export function js_id_name_get(f) {
-    let id = object_property_get(f, 'id');
-    assert(js_node_is_identifier(id));
+export function js_id_name_get(fd) {
+    let id = js_id_get(fd);
     let name = object_property_get(id, 'name');
     return name;
 }
