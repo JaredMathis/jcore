@@ -1,3 +1,4 @@
+import { refactor_metadata_missing_add } from '../../../metadata/missing/add.mjs';
 import { js_function_declaration_to_metadata_args } from '../../../../js/function/declaration/to/metadata/args.mjs';
 import { js_statement_metadata_args_get } from '../../../../js/statement/metadata/args/get.mjs';
 import { list_add_multiple } from '../../../../list/add/multiple.mjs';
@@ -17,10 +18,10 @@ export async function refactor_functions_metadata_extra_remove() {
     await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
         let statements = js_function_delcaration_to_statements(function_declaration);
-        if (list_length_is_0(statements)){
-            
+        if (list_length_is_0(statements)) {
+            if (false)
+                refactor_metadata_missing_add();
         }
-            
         if (!list_length_is_0(statements)) {
             let last_metadata_args = js_function_declaration_to_metadata_args(statements);
             let remaining = list_take(statements, subtract_1(list_length(statements)));
