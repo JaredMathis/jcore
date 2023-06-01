@@ -5,6 +5,13 @@ import { refactor_functions_to_files } from '../../../refactor/functions/to/file
 import { refactor_import_fix } from '../../../refactor/import/fix.mjs';
 export function function_auto_after_refactors() {
     arguments_assert(arguments, []);
+    let first = [
+        refactor_arguments_assert_add,
+        refactor_import_fix,
+        refactor_functions_to_files
+    ];
+    if (false)
+        list_combine;
     let result = [
         refactor_arguments_assert_add,
         refactor_import_fix,
