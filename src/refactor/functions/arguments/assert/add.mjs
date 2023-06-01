@@ -17,7 +17,7 @@ import { tautology } from '../../../../tautology.mjs';
 import { list_join } from '../../../../list/join.mjs';
 import { refactor_import_fix } from '../../../import/fix.mjs';
 export async function refactor_functions_arguments_assert_add() {
-    await file_js_all_map_args_if_function(async function logic(function_declaration, args) {
+    await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
         let exists = false;
         let statements = js_function_delcaration_to_statements(function_declaration);

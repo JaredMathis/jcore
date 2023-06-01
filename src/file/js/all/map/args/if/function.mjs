@@ -10,7 +10,7 @@ export async function file_js_all_map_args_if_function(logic) {
             return;
         }
         object_merge({function_declaration}, args);
-        await logic(function_declaration, args);
+        await logic(args);
     });
     metadata([]);
 }
