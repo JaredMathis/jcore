@@ -47,6 +47,7 @@ export async function refactor_functions_arguments_assert_add() {
                 exists = true;
             });
         }
+        console.log(exists)
         if (!exists) {
             let params = object_property_get(function_declaration, 'params');
             let params_length = list_length(params);
