@@ -1,4 +1,4 @@
-import { error } from '../error.mjs';
+import { function_copy_no_open } from './copy/no/open.mjs';
 export function function_copy() {
-    error('todo: function_copy');
+    function_copy_no_open;
 }
