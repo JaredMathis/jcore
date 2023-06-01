@@ -1,3 +1,4 @@
+import { log } from '../../../../log.mjs';
 import { git } from '../../../../git.mjs';
 import { list_add_multiple } from '../../../../list/add/multiple.mjs';
 import { metadata_arguments_assert_none } from '../../../../metadata/arguments/assert/none.mjs';
@@ -47,7 +48,7 @@ export async function refactor_functions_arguments_assert_add() {
                 exists = true;
             });
         }
-        console.log(exists)
+        console.log(exists);
         if (!exists) {
             let params = object_property_get(function_declaration, 'params');
             let params_length = list_length(params);
