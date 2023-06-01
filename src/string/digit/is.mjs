@@ -1,6 +1,6 @@
-import { error } from '../../error.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-export function string_digit_is() {
-    arguments_assert(arguments, []);
-    error('todo: string_digit_is');
+import { string_is } from '../is.mjs';
+export function string_digit_is(c) {
+    arguments_assert(arguments, [string_is]);
+    return c >= '0' && c <= '9';
 }
