@@ -1,4 +1,4 @@
-import { js_statement_if_metadata } from '../../../../js/statement/if/metadata.mjs';
+import { js_node_call_expression_statement_if_name_equal } from '../../../../js/node/call/expression/statement/if/name/equal.mjs';
 import { log } from '../../../../log.mjs';
 import { git } from '../../../../git.mjs';
 import { list_add_multiple } from '../../../../list/add/multiple.mjs';
@@ -44,7 +44,7 @@ export async function refactor_functions_arguments_assert_add() {
         let statements = js_function_delcaration_to_statements(function_declaration);
         if (!list_length_is_0(statements)) {
             let statement_first = list_first(statements);
-            js_statement_if_metadata(statement_first, function_name_get(arguments_assert), function on_name_equal() {
+            js_node_call_expression_statement_if_name_equal(statement_first, function_name_get(arguments_assert), function on_name_equal() {
                 exists = true;
             });
         }
