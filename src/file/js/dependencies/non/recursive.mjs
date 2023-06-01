@@ -17,7 +17,7 @@ export async function file_js_dependencies_non_recursive(file_path) {
         let source = object_property_get(i, js_node_property_source());
         return source
     });
-    let mapped2 = list_map(imports, source => {
+    let mapped2 = list_map(mapped, source => {
         let path_relative_to_file_path = object_property_get(source, js_node_property_value());
         let path_full = path_join([
             path_parent(file_path),
