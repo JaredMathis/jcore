@@ -15,7 +15,7 @@ export function js_call_expression_to_name(ce) {
 
 function js_call_expression_to_name_generic(ce, or_null) {
     let callee = js_node_identifer_by_name_get(ce, 'callee');
-    if (temp) {
+    if (or_null) {
         if (!js_node_is_identifier(callee)) {
             return null;
         }
