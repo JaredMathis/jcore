@@ -1,3 +1,5 @@
+import { refactor_multiple } from '../../multiple.mjs';
+import { function_auto_after_refactors_first } from '../../../function/auto/after/refactors/first.mjs';
 import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
@@ -36,6 +38,8 @@ export async function refactor_functions_to_files(args) {
     }
     let body = js_body_get(parsed);
     list_remove_all(body, function_declarations_to_export);
-    await refactor_import_fix(args);
+    function_auto_after_refactors_first;
+    let after = function_auto_after_refactors_first();
+    await refactor_multiple(args, after);
     metadata([]);
 }
