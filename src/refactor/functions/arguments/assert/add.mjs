@@ -28,7 +28,8 @@ export async function refactor_functions_arguments_assert_add() {
     comment(`Eventually this should be refactored maybe to read files and detect an attribute`);
     list_add_multiple(excludes, [
         function_name_get(metadata_arguments_assert_none),
-        function_name_get(tautology)
+        function_name_get(tautology),
+        function_name_get(git)
     ]);
     await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
