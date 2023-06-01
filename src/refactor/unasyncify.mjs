@@ -1,7 +1,4 @@
-import { list_single_item } from '../list/single/item.mjs';
-import { object_property_get } from '../object/property/get.mjs';
-import { list_find_or_null } from '../list/find/or/null.mjs';
-import { js_imports_remove_generic } from '../js/imports/remove/generic.mjs';
+import { js_import_remove_by_name } from '../js/import/remove/by/name.mjs';
 import { js_import_all_with_function_names } from '../js/import/all/with/function/names.mjs';
 import { js_identifier_rename_if } from '../js/identifier/rename/if.mjs';
 import { function_naming_suffix_async } from '../function/naming/suffix/async.mjs';
@@ -38,9 +35,6 @@ export async function refactor_unasyncify(args) {
     js_identifier_rename_if(args, name => string_ends_with(name, suffix), name => string_suffix_without(name, suffix));
     let imports = js_import_all_with_function_names(parsed);
     let function_name = js_function_declaration_to_name(function_declaration);
-    let import_to_remove = list_find_or_null(imports, i => object_property_get(i, 'name') === function_name);
-    if (import_to_remove !== null) {
-        js_imports_remove_generic(parsed, list_single_item(import_to_remove));
-    }
+    js_import_remove_by_name(parsed, imports, function_name);
     metadata([]);
 }
