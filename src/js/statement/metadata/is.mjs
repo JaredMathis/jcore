@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_statement_if_metadata } from '../if/metadata.mjs';
 export function js_statement_metadata_is(last_statement) {
     let success = false;
@@ -5,4 +6,5 @@ export function js_statement_metadata_is(last_statement) {
         success = true;
     });
     return success;
+    metadata([]);
 }

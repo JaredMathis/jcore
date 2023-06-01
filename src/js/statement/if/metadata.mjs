@@ -14,4 +14,5 @@ export function js_statement_if_metadata(statement, if_statement_metadata) {
             });
         }
     }
+    metadata([]);
 }
