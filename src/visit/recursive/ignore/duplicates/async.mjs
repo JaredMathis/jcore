@@ -1,5 +1,4 @@
 import { list_last_remove_verify } from '../../../../list/last/remove/verify.mjs';
-import { visit_recursive_async } from '../../async.mjs';
 import { list_add_exists_not } from '../../../../list/add/exists/not.mjs';
 import { list_add } from '../../../../list/add.mjs';
 import { list_contains } from '../../../../list/contains.mjs';
