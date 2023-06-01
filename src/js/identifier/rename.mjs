@@ -12,13 +12,13 @@ export function js_identifier_rename(args, identifier_name_old, identifier_name_
             object_property_set(node, 'name', name_new_get(name));
             changed = true;
         }
-        function should_rename(name) {
-            return name === identifier_name_old
-        }
-        function name_new_get(name) {
-            return identifier_name_new
-        }
     });
     return changed;
     metadata([]);
+    function should_rename(name) {
+        return name === identifier_name_old
+    }
+    function name_new_get(name) {
+        return identifier_name_new
+    }
 }
