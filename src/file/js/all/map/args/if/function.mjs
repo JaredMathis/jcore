@@ -3,7 +3,7 @@ import { js_export_function_single_or_null } from '../../../../../../js/export/f
 import { file_js_all_map_args } from '../../args.mjs';
 import { object_merge } from '../../../../../../object/merge.mjs';
 export async function file_js_all_map_args_if_function(logic) {
-    await file_js_all_map_args(async function mapper(args) {
+    await file_js_all_map_args(async function js_mapper_with_function_declaration(args) {
         let {parsed, file_path} = args;
         let function_declaration = js_export_function_single_or_null(parsed);
         if (function_declaration === null) {
