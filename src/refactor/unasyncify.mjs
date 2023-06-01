@@ -1,3 +1,4 @@
+import { function_auto_after } from '../function/auto/after.mjs';
 import { js_import_remove_if_exists } from '../js/import/remove/if/exists.mjs';
 import { js_import_all_with_function_names } from '../js/import/all/with/function/names.mjs';
 import { js_identifier_rename_if } from '../js/identifier/rename/if.mjs';
@@ -36,5 +37,6 @@ export async function refactor_unasyncify(args) {
     let imports = await js_import_all_with_function_names(parsed);
     let function_name = js_function_declaration_to_name(function_declaration);
     js_import_remove_if_exists(parsed, imports, function_name);
+    await function_auto_after(function_name_of_copy);
     metadata([]);
 }
