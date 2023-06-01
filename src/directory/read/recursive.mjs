@@ -1,6 +1,7 @@
 import { tautology } from '../../tautology.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import fs from 'fs'
+import path from 'path'
 export async function directory_read_recursive(dir, file_list) {
     arguments_assert(arguments, [
         tautology,
