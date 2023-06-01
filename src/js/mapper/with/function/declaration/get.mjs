@@ -1,18 +1,7 @@
-import { object_merge } from '../../../../../object/merge.mjs';
-import { js_export_function_single_or_null } from '../../../../export/function/single/or/null.mjs';
+import { js_mapper_with_function_declaration_or_skip } from './or/skip.mjs';
 export function js_mapper_with_function_declaration_get(mapper) {
     return async function js_mapper_with_function_declaration(args) {
         let skip_if_no_function_declaration = true;
-        let {parsed, file_path} = args;
-        let function_declaration = js_export_function_single_or_null(parsed);
-        if (skip_if_no_function_declaration) {
-            if (function_declaration === null) {
-                return;
-            }
-        }
-        if (function_declaration !== null) {
-            object_merge({ function_declaration }, args);
-        }
-        await mapper(args);
+        await js_mapper_with_function_declaration_or_skip(args, mapper, skip_if_no_function_declaration);
     };
 }
