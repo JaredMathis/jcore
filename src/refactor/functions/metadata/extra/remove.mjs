@@ -18,10 +18,11 @@ export async function refactor_functions_metadata_extra_remove() {
             let last_statement = list_last(statements);
             comment(`If this assert fails, the code needs changing to handle this circumstance`);
             assert(js_statement_metadata_is(last_statement));
-            let remaining = list_take(subtract_1(list_length(statements)));
+            let remaining = list_take(statements, subtract_1(list_length(statements)));
             for (let s of remaining) {
                 if (js_statement_metadata_is(s)) {
                     let expression = object_property_get(s, js_node_property_expression());
+                    console.log(expression)
                 }
             }
         }
