@@ -12,12 +12,14 @@ import { list_last } from '../../../../list/last.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 import { js_function_delcaration_to_statements } from '../../../../js/function/delcaration/to/statements.mjs';
 import { assert } from '../../../../assert.mjs';
+import { comment } from '../../../../comment.mjs';
 export async function refactor_functions_metadata_extra_remove() {
     await file_js_all_map_args_if_function(async function logic(fd, args) {
         let already_exists = false;
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
             let last_statement = list_last(statements);
+            comment(`If this assert fails, the code needs changing to handle this circumstance`);
             assert(js_statement_metadata_is(last_statement));
         }
         if (false)
