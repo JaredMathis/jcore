@@ -21,10 +21,13 @@ import { refactor_import_fix } from '../../../import/fix.mjs';
 import { js_function_declaration_to_name } from '../../../../js/function/declaration/to/name.mjs';
 import { comment } from '../../../../comment.mjs';
 import { list_contains } from '../../../../list/contains.mjs';
-import { list_add } from '../../../../list/add.mjs';
 export async function refactor_functions_arguments_assert_add() {
     let excludes = await function_dependencies_names(function_name_get(arguments_assert));
-    list_add(excludes, function_name_get(metadata_arguments_assert_none));
+    comment(`Eventually this should be refactored maybe to read files and detect an attribute`);
+    list_add_all(excludes, [
+        function_name_get(metadata_arguments_assert_none),
+        function_name_get(tautology)
+    ]);
     await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
         comment(`We want to skip dependencies of ${ function_name_get(arguments_assert) } or we will have recursion problems`);
