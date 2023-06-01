@@ -23,7 +23,7 @@ async function directory_read_recursive(dir, file_list) {
         const file_path = path.join(dir, file);
         const stat = await fs.stat(file_path);
         if (stat.isDirectory()) {
-            file_list = await directory_read(file_path, file_list);
+            file_list = await directory_read_recursive(file_path, file_list);
         } else {
             file_list.push(file_path);
         }
