@@ -27,7 +27,8 @@ export async function refactor_functions_metadata_extra_remove() {
             assert(js_statement_metadata_is(last_statement));
             let remaining = list_take(subtract_1(list_length(statements)));
             for (let s of statements) {
-                js_visit_nodes();
+                js_visit_nodes(s, node => js_statement_metadata_is(node), v => {
+                });
             }
         }
         if (false)
