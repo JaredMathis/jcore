@@ -13,6 +13,7 @@ import { function_name_get } from '../../../name/get.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { comment } from '../../../../comment.mjs';
 export async function function_arguments_assert_tautology_next() {
+    arguments_assert(arguments, []);
     const all = await function_name_all();
     for (let function_name of all) {
         let parsed = function_parse(function_name);
