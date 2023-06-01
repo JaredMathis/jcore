@@ -4,13 +4,13 @@ import { list_add_exists_not } from '../../list/add/exists/not.mjs';
 import { list_last_or_null } from '../../list/last/or/null.mjs';
 import { list_contains } from '../../list/contains.mjs';
 import { list_add } from '../../list/add.mjs';
-export async function visit_recursive_async(node, children_get, lambda, stack) {
+export async function visit_recursive_async(node, children_get, lambda, stack, visited) {
     let ignore_duplicates = false;
-    await visit_recursive_ignore_duplicates_async(stack, ignore_duplicates, node, lambda, children_get);
+    await visit_recursive_ignore_duplicates_async(node, children_get, lambda, stack, ignore_duplicates);
     metadata([]);
 }
 
-async function visit_recursive_ignore_duplicates_async(stack, ignore_duplicates, node, lambda, children_get, visited) {
+async function visit_recursive_ignore_duplicates_async(node, children_get, lambda, stack, visited, ignore_duplicates) {
     let parent = list_last_or_null(stack);
     if (ignore_duplicates) {
         if (list_contains(visited, node)) {
