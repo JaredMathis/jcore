@@ -27,6 +27,6 @@ export async function file_js_dependencies_non_recursive(file_path) {
         let path_relative_to_current = path_relative(directory_current(), resolved);
         return path_relative_to_current;
     });
-    return mapped;
+    return mapped2;
     metadata([]);
 }
