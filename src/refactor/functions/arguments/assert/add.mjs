@@ -56,7 +56,8 @@ export async function refactor_functions_arguments_assert_add() {
     metadata([]);
 }
 
-function refactor_arguments_assert_add_no_check(function_declaration, statements) {
+function refactor_arguments_assert_add_no_check(function_declaration) {
+    let statements = js_function_delcaration_to_statements(function_declaration);
     let params = object_property_get(function_declaration, 'params');
     let params_length = list_length(params);
     let params_mapped = list_map(range(params_length), i => function_name_get(tautology));
