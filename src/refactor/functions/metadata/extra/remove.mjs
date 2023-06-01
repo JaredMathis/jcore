@@ -12,7 +12,7 @@ import { js_function_delcaration_to_statements } from '../../../../js/function/d
 import { assert } from '../../../../assert.mjs';
 import { list_length } from '../../../../list/length.mjs';
 export async function refactor_functions_metadata_extra_remove() {
-    refactor_functions_metadata_missing_add();
+    await refactor_functions_metadata_missing_add();
     await file_js_all_map_args_if_function(async function logic(fd, args) {
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
