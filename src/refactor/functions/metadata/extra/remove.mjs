@@ -10,6 +10,7 @@ import { list_last } from '../../../../list/last.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 import { js_function_delcaration_to_statements } from '../../../../js/function/delcaration/to/statements.mjs';
 import { list_length } from '../../../../list/length.mjs';
+import { list_filter } from '../../../../list/filter.mjs';
 export async function refactor_functions_metadata_extra_remove() {
     await refactor_functions_metadata_missing_add();
     await file_js_all_map_args_if_function(async function logic(fd, args) {
@@ -18,11 +19,10 @@ export async function refactor_functions_metadata_extra_remove() {
             let last_statement = list_last(statements);
             let last_metadata_args = js_statement_metadata_args_get(last_statement);
             let remaining = list_take(statements, subtract_1(list_length(statements)));
-            for (let s of remaining) {
-                if (js_statement_metadata_is(s)) {
-                    let expression_args = js_statement_metadata_args_get(s);
-                    list_add_multiple(last_metadata_args, expression_args);
-                }
+            let removals = list_filter(remaining, js_statement_metadata_is);
+            for (let s of removals) {
+                let expression_args = js_statement_metadata_args_get(s);
+                list_add_multiple(last_metadata_args, expression_args);
             }
         }
     });
