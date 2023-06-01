@@ -1,4 +1,3 @@
-import { refactor_metadata_missing_add } from '../../../metadata/missing/add.mjs';
 import { js_function_declaration_to_metadata_args } from '../../../../js/function/declaration/to/metadata/args.mjs';
 import { js_statement_metadata_args_get } from '../../../../js/statement/metadata/args/get.mjs';
 import { list_add_multiple } from '../../../../list/add/multiple.mjs';
@@ -7,8 +6,6 @@ import { list_take } from '../../../../list/take.mjs';
 import { js_statement_metadata_is } from '../../../../js/statement/metadata/is.mjs';
 import { file_js_all_map_args_if_function } from '../../../../file/js/all/map/args/if/function.mjs';
 import { metadata } from '../../../../metadata.mjs';
-import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
-import { js_function_delcaration_to_statements } from '../../../../js/function/delcaration/to/statements.mjs';
 import { list_length } from '../../../../list/length.mjs';
 import { list_filter } from '../../../../list/filter.mjs';
 import { list_remove } from '../../../../list/remove.mjs';
