@@ -17,15 +17,15 @@ export async function file_js_dependencies_non_recursive(file_path) {
     let imports = js_import_all(parsed);
     let mapped = list_map(imports, i => {
         let source = object_property_get(i, js_node_property_source());
-        return source;
+        let path_relative_to_file_path = object_property_get(source, js_node_property_value());
+        return path_relative_to_file_path;
     });
     if (false) {
         let filtered = list_filter(mapped, m => {
             return string_starts_with;
         });
     }
-    let mapped2 = list_map(mapped, source => {
-        let path_relative_to_file_path = object_property_get(source, js_node_property_value());
+    let mapped2 = list_map(mapped, path_relative_to_file_path => {
         let path_full = path_join([
             path_parent(file_path),
             path_relative_to_file_path
