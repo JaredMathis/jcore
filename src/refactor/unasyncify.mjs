@@ -1,3 +1,5 @@
+import { js_identifier_rename_if } from '../js/identifier/rename/if.mjs';
+import { function_naming_suffix_async } from '../function/naming/suffix/async.mjs';
 import { js_parse_call_expression } from '../js/parse/call/expression.mjs';
 import { metadata_generated } from '../metadata/generated.mjs';
 import { js_function_declaration_to_metadata_args } from '../js/function/declaration/to/metadata/args.mjs';
@@ -12,6 +14,8 @@ import { comment } from '../comment.mjs';
 import { function_name_get } from '../function/name/get.mjs';
 import { list_add } from '../list/add.mjs';
 import { list_length_is_0 } from '../list/length/is/0.mjs';
+import { string_ends_with } from '../string/ends/with.mjs';
+import { string_suffix_without } from '../string/suffix/without.mjs';
 export async function refactor_unasyncify(args) {
     let {parsed, function_declaration} = args;
     comment(`To remove this assert, fix the code - right now it does not handle functions or arrows inside the exported function`);
@@ -24,5 +28,7 @@ export async function refactor_unasyncify(args) {
     comment(`If this fails, the code needs enhancing to handle more complex scenarios`);
     assert(list_length_is_0(metadata_args));
     list_add(metadata_args, metadata_function_parsed);
+    let suffix = function_naming_suffix_async();
+    js_identifier_rename_if(args, name => string_ends_with(name, suffix), name => string_suffix_without(name, suffix));
     metadata([]);
 }
