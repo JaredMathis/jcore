@@ -3,12 +3,20 @@ import { list_last_remove_verify } from '../../list/last/remove/verify.mjs';
 import { list_add_exists_not } from '../../list/add/exists/not.mjs';
 import { list_last_or_null } from '../../list/last/or/null.mjs';
 import { list_contains } from '../../list/contains.mjs';
+import { list_add } from '../../list/add.mjs';
 export async function visit_recursive_async(node, children_get, lambda, stack) {
+    let ignore_duplicates = false;
+    await visit_recursive_ignore_duplicates_async(stack, ignore_duplicates, node, lambda, children_get);
+    metadata([]);
+}
+
+async function visit_recursive_ignore_duplicates_async(stack, ignore_duplicates, node, lambda, children_get, visited) {
     let parent = list_last_or_null(stack);
-    if (false) {
-        // if (list_contains(stack, node)) {
-        //     return;
-        // }
+    if (ignore_duplicates) {
+        if (list_contains(visited, node)) {
+            return;
+        }
+        list_add(visited, node);
     }
     list_add_exists_not(stack, node);
     await lambda({
@@ -20,5 +28,4 @@ export async function visit_recursive_async(node, children_get, lambda, stack) {
         await visit_recursive_async(c, children_get, lambda, stack);
     }
     list_last_remove_verify(stack, node);
-    metadata([]);
 }
