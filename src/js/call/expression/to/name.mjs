@@ -9,7 +9,7 @@ export function js_call_expression_to_name(ce) {
     arguments_assert(arguments, [node_is_type_call_expression]);
     let temp = false;
     let callee = js_node_identifer_by_name_get(ce, 'callee');
-    if (false) {
+    if (temp) {
         if (!js_node_is_identifier(callee)) {
             return;
         }
