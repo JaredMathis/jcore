@@ -4,7 +4,6 @@ import { function_name_get } from '../../../function/name/get.mjs';
 import { js_node_call_expression_statement_if_name_equal } from '../../../js/node/call/expression/statement/if/name/equal.mjs';
 import { list_first } from '../../../list/first.mjs';
 import { js_function_delcaration_to_statements } from '../../../js/function/delcaration/to/statements.mjs';
-import { assert } from '../../../assert.mjs';
 export function refactor_arguments_assert_add(args) {
     let {function_declaration} = args;
     let statements = js_function_delcaration_to_statements(function_declaration);
