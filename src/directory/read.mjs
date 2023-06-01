@@ -9,7 +9,7 @@ export async function directory_read(dir) {
     arguments_assert(arguments, [
         tautology
     ]);
-    return await directory_read_recursive(dir, file_list);
+    return await directory_read_recursive(dir, []);
     metadata([]);
 }
 
