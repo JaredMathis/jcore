@@ -20,6 +20,7 @@ export async function refactor_functions_metadata_add() {
         if (fd === null) {
             return;
         }
+        console.log(args.file_path)
         let already_exists = false;
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
