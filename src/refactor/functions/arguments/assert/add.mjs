@@ -1,5 +1,5 @@
+import { refactor_arguments_assert_add_no_check } from '../../../arguments/assert/add/no/check.mjs';
 import { js_node_call_expression_statement_if_name_equal } from '../../../../js/node/call/expression/statement/if/name/equal.mjs';
-import { log } from '../../../../log.mjs';
 import { git } from '../../../../git.mjs';
 import { list_add_multiple } from '../../../../list/add/multiple.mjs';
 import { metadata_arguments_assert_none } from '../../../../metadata/arguments/assert/none.mjs';
@@ -7,19 +7,11 @@ import { function_dependencies_names } from '../../../../function/dependencies/n
 import { file_js_all_map_args_if_function } from '../../../../file/js/all/map/args/if/function.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
-import { js_keyword_arguments } from '../../../../js/keyword/arguments.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_function_delcaration_to_statements } from '../../../../js/function/delcaration/to/statements.mjs';
 import { list_first } from '../../../../list/first.mjs';
 import { function_name_get } from '../../../../function/name/get.mjs';
-import { object_property_get } from '../../../../object/property/get.mjs';
-import { list_add_beginning } from '../../../../list/add/beginning.mjs';
-import { js_parse_statement } from '../../../../js/parse/statement.mjs';
-import { list_length } from '../../../../list/length.mjs';
-import { list_map } from '../../../../list/map.mjs';
-import { range } from '../../../../range.mjs';
 import { tautology } from '../../../../tautology.mjs';
-import { list_join } from '../../../../list/join.mjs';
 import { refactor_import_fix } from '../../../import/fix.mjs';
 import { js_function_declaration_to_name } from '../../../../js/function/declaration/to/name.mjs';
 import { comment } from '../../../../comment.mjs';
@@ -54,20 +46,4 @@ export async function refactor_functions_arguments_assert_add() {
         }
     });
     metadata([]);
-}
-
-function refactor_arguments_assert_add_no_check(function_declaration) {
-    let statements = js_function_delcaration_to_statements(function_declaration);
-    let params = object_property_get(function_declaration, 'params');
-    let params_length = list_length(params);
-    let params_mapped = list_map(range(params_length), i => function_name_get(tautology));
-    let params_joined = list_join(params_mapped, ', ');
-    let params_code = `[${params_joined}]`;
-    let params2 = [
-        js_keyword_arguments(),
-        params_code
-    ];
-    let params_code2 = list_join(params2, ', ');
-    let statement_new = js_parse_statement(`${function_name_get(arguments_assert)}(${params_code2})`);
-    list_add_beginning(statements, statement_new);
 }
