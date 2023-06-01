@@ -17,6 +17,7 @@ export async function refactor_functions_metadata_extra_remove() {
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
             let last_statement = list_last(statements);
+            let last_args = js_statement_expression_arguments_get(last_statement);
             assert(js_statement_metadata_is(last_statement));
             let remaining = list_take(statements, subtract_1(list_length(statements)));
             for (let s of remaining) {
