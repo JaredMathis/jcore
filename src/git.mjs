@@ -1,4 +1,3 @@
-import { arguments_assert } from './arguments/assert.mjs';
 import { metadata } from './metadata.mjs';
 import { function_run_arguments } from './function/run/arguments.mjs';
 import { git_pacp } from './git/pacp.mjs';

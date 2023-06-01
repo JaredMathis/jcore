@@ -1,3 +1,4 @@
+import { git } from '../../../../git.mjs';
 import { list_add_multiple } from '../../../../list/add/multiple.mjs';
 import { metadata_arguments_assert_none } from '../../../../metadata/arguments/assert/none.mjs';
 import { function_dependencies_names } from '../../../../function/dependencies/names.mjs';
