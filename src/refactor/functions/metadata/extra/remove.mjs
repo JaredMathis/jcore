@@ -16,9 +16,11 @@ export async function refactor_functions_metadata_extra_remove() {
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
             let last_statement = list_last(statements);
+            let success = false;
             js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
-                already_exists = true;
+                success = true;
             });
+            success
         }
         if (false)
             js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
