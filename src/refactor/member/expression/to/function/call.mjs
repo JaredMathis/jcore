@@ -1,15 +1,14 @@
+import { function_auto_after_refactors_invoke } from '../../../../../function/auto/after/refactors/invoke.mjs';
 import { js_parse_call_expression } from '../../../../../js/parse/call/expression.mjs';
 import { js_node_property_arguments } from '../../../../../js/node/property/arguments.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { js_node_property_name } from '../../../../../js/node/property/name.mjs';
-import { function_auto_after_refactors } from '../../../../../function/auto/after/refactors.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_visit_nodes } from '../../../../../js/visit/nodes.mjs';
 import { js_node_is_member_expression } from '../../../../../js/node/is/member/expression.mjs';
 import { list_add } from '../../../../../list/add.mjs';
-import { refactor_multiple } from '../../../../multiple.mjs';
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
 export async function refactor_member_expression_to_function_call(args) {
     let changed = false;
@@ -33,8 +32,7 @@ export async function refactor_member_expression_to_function_call(args) {
         changed = true;
     });
     if (changed) {
-        let refactors = function_auto_after_refactors();
-        await refactor_multiple(args, refactors);
+        await function_auto_after_refactors_invoke(args);
     }
     metadata([]);
 }
