@@ -18,7 +18,7 @@ export function string_identifier_is(value) {
     }
     let list = string_to_list(value);
     if (list_length_is_0(list)) {
-        return true;
+        return false;
     }
     let first = list_first(list);
     if (!string_letter_is(first)) {
