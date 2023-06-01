@@ -25,7 +25,7 @@ export async function refactor_functions_metadata_extra_remove() {
             for (let s of remaining) {
                 if (js_statement_metadata_is(s)) {
                     let expression = object_property_get(s, js_node_property_expression());
-                    let expression_args = object_property_get(node, js_node_property_arguments());
+                    let expression_args = object_property_get(expression, js_node_property_arguments());
                     console.log({
                         expression_args,
                         f: args.file_path
