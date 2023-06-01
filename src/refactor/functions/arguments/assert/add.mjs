@@ -49,20 +49,24 @@ export async function refactor_functions_arguments_assert_add() {
             });
         }
         if (!exists) {
-            let params = object_property_get(function_declaration, 'params');
-            let params_length = list_length(params);
-            let params_mapped = list_map(range(params_length), i => function_name_get(tautology));
-            let params_joined = list_join(params_mapped, ', ');
-            let params_code = `[${ params_joined }]`;
-            let params2 = [
-                js_keyword_arguments(),
-                params_code
-            ];
-            let params_code2 = list_join(params2, ', ');
-            let statement_new = js_parse_statement(`${ function_name_get(arguments_assert) }(${ params_code2 })`);
-            list_add_beginning(statements, statement_new);
+            refactor_arguments_assert_add_no_check(function_declaration, statements);
             await refactor_import_fix(args);
         }
     });
     metadata([]);
+}
+
+function refactor_arguments_assert_add_no_check(function_declaration, statements) {
+    let params = object_property_get(function_declaration, 'params');
+    let params_length = list_length(params);
+    let params_mapped = list_map(range(params_length), i => function_name_get(tautology));
+    let params_joined = list_join(params_mapped, ', ');
+    let params_code = `[${params_joined}]`;
+    let params2 = [
+        js_keyword_arguments(),
+        params_code
+    ];
+    let params_code2 = list_join(params2, ', ');
+    let statement_new = js_parse_statement(`${function_name_get(arguments_assert)}(${params_code2})`);
+    list_add_beginning(statements, statement_new);
 }
