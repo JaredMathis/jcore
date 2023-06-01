@@ -16,7 +16,7 @@ export async function visit_recursive_ignore_duplicates_async(node, children_get
         node,
         parent
     });
-    let children = children_get(node);
+    let children = await children_get(node);
     for (let c of children) {
         await visit_recursive_ignore_duplicates_async(c, children_get, lambda, stack, visited, ignore_duplicates);
     }
