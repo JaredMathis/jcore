@@ -16,11 +16,7 @@ export async function refactor_functions_metadata_extra_remove() {
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
             let last_statement = list_last(statements);
-            let success = false;
-            js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
-                success = true;
-            });
-            success
+            let success = js_statement_metadata_is(last_statement);
         }
         if (false)
             js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
@@ -34,4 +30,12 @@ export async function refactor_functions_metadata_extra_remove() {
         }
     });
     metadata([]);
+}
+
+function js_statement_metadata_is(last_statement) {
+    let success = false;
+    js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
+        success = true;
+    });
+    return success;
 }
