@@ -8,11 +8,11 @@ export function js_identifier_rename(args, identifier_name_old, identifier_name_
     js_visit_nodes_identifier(parsed, v => {
         let node = object_property_get(v, 'node');
         let name = object_property_get(node, 'name');
-        if (predicate(name)) {
+        if (should_rename(name)) {
             object_property_set(node, 'name', name_new_get(name));
             changed = true;
         }
-        function predicate(name) {
+        function should_rename(name) {
             return name === identifier_name_old
         }
         function name_new_get(name) {
