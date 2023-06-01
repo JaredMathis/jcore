@@ -6,6 +6,6 @@ export function list_map(list, mapper) {
         tautology,
         tautology
     ]);
-    return list.map(mapper);
+    return list.map(element => mapper(element));
     metadata([]);
 }
