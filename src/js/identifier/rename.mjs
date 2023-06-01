@@ -9,7 +9,7 @@ export function js_identifier_rename(args, identifier_name_old, identifier_name_
         let node = object_property_get(v, 'node');
         let name = object_property_get(node, 'name');
         if (predicate(name)) {
-            object_property_set(node, 'name', identifier_name_new);
+            object_property_set(node, 'name', name_new_get(name));
             changed = true;
         }
         function predicate(name) {
