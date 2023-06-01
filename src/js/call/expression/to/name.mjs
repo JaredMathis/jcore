@@ -7,7 +7,7 @@ import { node_is_type_call_expression } from '../../../../node/is/type/call/expr
 import { js_node_is_identifier } from '../../../node/is/identifier.mjs';
 export function js_call_expression_to_name(ce) {
     arguments_assert(arguments, [node_is_type_call_expression]);
-    let temp = null;
+    let temp = false;
     let callee = js_node_identifer_by_name_get(ce, 'callee');
     if (false) {
         if (!js_node_is_identifier(callee)) {
