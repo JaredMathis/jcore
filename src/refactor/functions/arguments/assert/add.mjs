@@ -1,3 +1,4 @@
+import { function_dependencies_names } from '../../../../function/dependencies/names.mjs';
 import { file_js_all_map_args_if_function } from '../../../../file/js/all/map/args/if/function.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { js_node_call_expression_if_name_equal } from '../../../../js/node/call/expression/if/name/equal.mjs';
@@ -16,12 +17,9 @@ import { range } from '../../../../range.mjs';
 import { tautology } from '../../../../tautology.mjs';
 import { list_join } from '../../../../list/join.mjs';
 import { refactor_import_fix } from '../../../import/fix.mjs';
-import { function_dependencies } from '../../../../function/dependencies.mjs';
 import { js_function_declaration_to_name } from '../../../../js/function/declaration/to/name.mjs';
 export async function refactor_functions_arguments_assert_add() {
-    const arguments_assert_name = function_name_get(arguments_assert);
-    let dependencies = await function_dependencies(arguments_assert_name);
-    let dependencies_names = list_map(dependencies, 'function_name');
+    let dependencies_names = await function_dependencies_names(function_name_get(arguments_assert));
     await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
         let function_name = js_function_declaration_to_name(function_declaration);
