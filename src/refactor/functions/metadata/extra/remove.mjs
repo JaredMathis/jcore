@@ -1,3 +1,4 @@
+import { subtract_1 } from '../../../../subtract/1.mjs';
 import { list_take } from '../../../../list/take.mjs';
 import { js_statement_metadata_is } from '../../../../js/statement/metadata/is.mjs';
 import { js_statement_if_metadata } from '../../../../js/statement/if/metadata.mjs';
@@ -23,7 +24,7 @@ export async function refactor_functions_metadata_extra_remove() {
             let last_statement = list_last(statements);
             comment(`If this assert fails, the code needs changing to handle this circumstance`);
             assert(js_statement_metadata_is(last_statement));
-            list_take(list_length(statements) - 1);
+            list_take(subtract_1(list_length(statements)));
         }
         if (false)
             js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
