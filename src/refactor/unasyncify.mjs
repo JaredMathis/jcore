@@ -37,6 +37,6 @@ export async function refactor_unasyncify(args) {
     let imports = await js_import_all_with_function_names(parsed);
     let function_name = js_function_declaration_to_name(function_declaration);
     js_import_remove_if_exists(parsed, imports, function_name);
-    await function_auto_after(function_name_of_copy);
+    await function_auto_after(function_name);
     metadata([]);
 }
