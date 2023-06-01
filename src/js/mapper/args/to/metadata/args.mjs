@@ -4,7 +4,8 @@ import { list_length_is_0 } from '../../../../../list/length/is/0.mjs';
 import { js_function_delcaration_to_statements } from '../../../../function/delcaration/to/statements.mjs';
 import { js_statement_metadata_args_get } from '../../../../statement/metadata/args/get.mjs';
 import { list_last } from '../../../../../list/last.mjs';
-export async function js_mapper_args_to_metadata_args(function_declaration) {
+export async function js_mapper_args_to_metadata_args(args) {
+    let {function_declaration} = args;
     let statements = js_function_delcaration_to_statements(function_declaration);
     if (list_length_is_0(statements)) {
         await refactor_metadata_missing_add(args);

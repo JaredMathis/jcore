@@ -26,7 +26,7 @@ export async function refactor_unasyncify(args) {
     assert(!js_callable_multiple(parsed));
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     object_property_set(function_declaration, js_keyword_async(), false);
-    let metadata_args = await js_mapper_args_to_metadata_args(function_declaration);
+    let metadata_args = await js_mapper_args_to_metadata_args(args);
     let metadata_function = metadata_generated;
     let metadata_function_parsed = js_parse_call_expression(function_name_get(metadata_function));
     comment(`If this fails, the code needs enhancing to handle more complex scenarios`);
