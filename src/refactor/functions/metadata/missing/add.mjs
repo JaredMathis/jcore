@@ -11,22 +11,23 @@ import { list_last } from '../../../../list/last.mjs';
 import { list_add } from '../../../../list/add.mjs';
 import { js_code_call_expression_with_args } from '../../../../js/code/call/expression/with/args.mjs';
 export async function refactor_functions_metadata_missing_add() {
-    await file_js_all_map_args_if_function(async function refactor_metadata_missing_add(args) {
-        let {function_declaration} = args;
-        let already_exists = false;
-        let statements = js_function_delcaration_to_statements(function_declaration);
-        if (!list_length_is_0(statements)) {
-            let last_statement = list_last(statements);
-            js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
-                already_exists = true;
-            });
-        }
-        if (!already_exists) {
-            let metadata_new_code = `${ js_code_call_expression_with_args(function_name_get(metadata), '[]') }${ js_statement_end() }`;
-            let metadata_new = js_parse_statement(metadata_new_code);
-            list_add(statements, metadata_new);
-            await refactor_import_fix(args);
-        }
-    });
+    await file_js_all_map_args_if_function(refactor_metadata_missing_add);
     metadata([]);
+}
+async function refactor_metadata_missing_add(args) {
+    let {function_declaration} = args;
+    let already_exists = false;
+    let statements = js_function_delcaration_to_statements(function_declaration);
+    if (!list_length_is_0(statements)) {
+        let last_statement = list_last(statements);
+        js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
+            already_exists = true;
+        });
+    }
+    if (!already_exists) {
+        let metadata_new_code = `${ js_code_call_expression_with_args(function_name_get(metadata), '[]') }${ js_statement_end() }`;
+        let metadata_new = js_parse_statement(metadata_new_code);
+        list_add(statements, metadata_new);
+        await refactor_import_fix(args);
+    }
 }
