@@ -1,10 +1,9 @@
+import { js_parse_call_expression } from '../../../../../js/parse/call/expression.mjs';
 import { js_node_property_arguments } from '../../../../../js/node/property/arguments.mjs';
 import { metadata } from '../../../../../metadata.mjs';
-import { js_code_call_expression } from '../../../../../js/code/call/expression.mjs';
 import { js_node_property_name } from '../../../../../js/node/property/name.mjs';
 import { function_auto_after_refactors } from '../../../../../function/auto/after/refactors.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
-import { js_parse_expression } from '../../../../../js/parse/expression.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_visit_nodes } from '../../../../../js/visit/nodes.mjs';
@@ -27,8 +26,7 @@ export async function refactor_member_expression_to_function_call(args) {
         }
         let object = object_property_get(node, 'object');
         const name = function_name_get(function_name_get);
-        const code = js_code_call_expression(name);
-        let expression = js_parse_expression(code);
+        let expression = js_parse_call_expression(name);
         object_replace(node, expression);
         let node_args = object_property_get(node, js_node_property_arguments());
         list_add(node_args, object);
