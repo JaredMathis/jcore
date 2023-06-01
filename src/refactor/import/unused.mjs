@@ -21,8 +21,8 @@ export async function refactor_import_unused(args) {
     metadata([]);
 }
 
-function js_imports_remove_multiple(imports, intersection, parsed) {
-    let imports_from_intersection = list_map(intersection, import_name => list_find(imports, i => object_property_get(i, 'name') === import_name));
+function js_imports_remove_multiple(imports, removal_names, parsed) {
+    let imports_from_intersection = list_map(removal_names, removal_name => list_find(imports, i => object_property_get(i, 'name') === removal_name));
     let import_statements_to_remove = list_map(imports_from_intersection, i => object_property_get(i, 'import'));
     let body = js_body_get(parsed);
     list_remove_all(body, import_statements_to_remove);
