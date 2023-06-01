@@ -19,8 +19,7 @@ export async function refactor_functions_metadata_extra_remove() {
         let {function_declaration} = args;
         let statements = js_function_delcaration_to_statements(function_declaration);
         if (list_length_is_0(statements)) {
-            if (false)
-                refactor_metadata_missing_add();
+            await refactor_metadata_missing_add(args);
         }
         if (!list_length_is_0(statements)) {
             let last_metadata_args = js_function_declaration_to_metadata_args(statements);
