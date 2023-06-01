@@ -5,5 +5,4 @@ import { assert } from '../../../assert.mjs';
 export function add_1_test_3() {
     assert(equal(add_1(3), 4));
     metadata([]);
-    metadata([]);
 }
