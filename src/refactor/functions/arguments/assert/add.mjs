@@ -49,7 +49,7 @@ export async function refactor_functions_arguments_assert_add() {
             });
         }
         if (!exists) {
-            refactor_arguments_assert_add_no_check(function_declaration, statements);
+            refactor_arguments_assert_add_no_check(function_declaration);
             await refactor_import_fix(args);
         }
     });
