@@ -1,3 +1,5 @@
+import { log } from '../../../../log.mjs';
+import { refactor_functions_metadata_add } from '../add.mjs';
 import { js_node_property_expression } from '../../../../js/node/property/expression.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { subtract_1 } from '../../../../subtract/1.mjs';
@@ -12,17 +14,18 @@ import { assert } from '../../../../assert.mjs';
 import { comment } from '../../../../comment.mjs';
 import { list_length } from '../../../../list/length.mjs';
 export async function refactor_functions_metadata_extra_remove() {
+    refactor_functions_metadata_add();
     await file_js_all_map_args_if_function(async function logic(fd, args) {
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
             let last_statement = list_last(statements);
             comment(`If this assert fails, the code needs changing to handle this circumstance`);
+            console.log(args.file_path);
             assert(js_statement_metadata_is(last_statement));
             let remaining = list_take(statements, subtract_1(list_length(statements)));
             for (let s of remaining) {
                 if (js_statement_metadata_is(s)) {
                     let expression = object_property_get(s, js_node_property_expression());
-                    console.log(expression)
                 }
             }
         }
