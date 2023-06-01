@@ -1,4 +1,4 @@
-import { error } from '../../../../error.mjs';
-export function function_arguments_assert_tautology_next() {
-    error('todo: function_arguments_assert_tautology_next');
+import { function_name_all } from '../../../name/all.mjs';
+export async function function_arguments_assert_tautology_next() {
+    const all = await function_name_all();
 }
