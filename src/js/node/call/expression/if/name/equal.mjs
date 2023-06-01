@@ -5,8 +5,10 @@ import { node_is_type_call_expression } from '../../../../../../node/is/type/cal
 export function js_node_call_expression_if_name_equal(node, name_expected, on_name_equal) {
     if (node_is_type_call_expression(node)) {
         let name_actual = js_call_expression_to_name_or_null(node);
-        if (equal(name_actual, name_expected)) {
-            on_name_equal();
+        if (name_actual != null) {
+            if (equal(name_actual, name_expected)) {
+                on_name_equal();
+            }
         }
     }
     metadata([]);
