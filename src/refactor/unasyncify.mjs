@@ -1,4 +1,4 @@
-import { js_import_all_to_function_name } from '../js/import/all/to/function/name.mjs';
+import { js_import_all_with_function_names } from '../js/import/all/with/function/names.mjs';
 import { js_identifier_rename_if } from '../js/identifier/rename/if.mjs';
 import { function_naming_suffix_async } from '../function/naming/suffix/async.mjs';
 import { js_parse_call_expression } from '../js/parse/call/expression.mjs';
@@ -32,7 +32,7 @@ export async function refactor_unasyncify(args) {
     list_add(metadata_args, metadata_function_parsed);
     let suffix = function_naming_suffix_async();
     js_identifier_rename_if(args, name => string_ends_with(name, suffix), name => string_suffix_without(name, suffix));
-    let imports = js_import_all_to_function_name(parsed);
+    let imports = js_import_all_with_function_names(parsed);
     let function_name = js_function_declaration_to_name(function_declaration);
     metadata([]);
 }
