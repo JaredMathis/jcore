@@ -21,7 +21,7 @@ export async function refactor_unasyncify(args) {
     let metadata_args = await js_function_declaration_to_metadata_args(function_declaration);
     let metadata_function = metadata_generated;
     let metadata_function_parsed = js_parse_call_expression(function_name_get(metadata_function));
-    comment(`If this fails, the code needs enhancing to handle more complex scenarios`)
+    comment(`If this fails, the code needs enhancing to handle more complex scenarios`);
     assert(list_length_is_0(metadata_args));
     list_add(metadata_args, metadata_function_parsed);
     metadata([]);
