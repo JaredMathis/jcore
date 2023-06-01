@@ -14,9 +14,8 @@ export async function refactor_unasyncify(args) {
     comment(`To remove this assert, fix the code - right now it does not handle functions or arrows inside the exported function`);
     assert(!js_callable_multiple(parsed));
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
-    let fd = js_export_function_single(parsed);
-    object_property_set(fd, js_keyword_async(), false);
-    let statements = js_function_delcaration_to_statements(fd);
+    object_property_set(function_declaration, js_keyword_async(), false);
+    let statements = js_function_delcaration_to_statements(function_declaration);
     let last_metadata_args = js_statement_metadata_args_get(last_statement);
     metadata([]);
 }
