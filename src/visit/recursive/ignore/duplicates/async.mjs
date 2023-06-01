@@ -19,7 +19,7 @@ export async function visit_recursive_ignore_duplicates_async(node, children_get
     });
     let children = children_get(node);
     for (let c of children) {
-        await visit_recursive_async(c, children_get, lambda, stack, visited, ignore_duplicates);
+        await visit_recursive_ignore_duplicates_async(c, children_get, lambda, stack, visited, ignore_duplicates);
     }
     list_last_remove_verify(stack, node);
 }
