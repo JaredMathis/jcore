@@ -19,7 +19,8 @@ import { refactor_import_fix } from '../../../import/fix.mjs';
 import { function_dependencies } from '../../../../function/dependencies.mjs';
 import { js_function_declaration_to_name } from '../../../../js/function/declaration/to/name.mjs';
 export async function refactor_functions_arguments_assert_add() {
-    let dependencies = await function_dependencies(function_name_get(arguments_assert));
+    const arguments_assert_name = function_name_get(arguments_assert);
+    let dependencies = await function_dependencies(arguments_assert_name);
     let dependencies_names = list_map(dependencies, 'function_name');
     await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
