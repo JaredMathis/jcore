@@ -20,7 +20,7 @@ export async function refactor_functions_metadata_extra_remove() {
             assert(js_statement_metadata_is(last_statement));
             let remaining = list_take(subtract_1(list_length(statements)));
             for (let s of statements) {
-                if (js_statement_metadata_is(node)) {
+                if (js_statement_metadata_is(s)) {
                     let expression = object_property_get(s, js_node_property_expression());
                 }
             }
