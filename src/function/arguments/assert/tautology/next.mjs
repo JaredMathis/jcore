@@ -14,11 +14,7 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { comment } from '../../../../comment.mjs';
 export async function function_arguments_assert_tautology_next() {
     arguments_assert(arguments, []);
-    const all = await function_name_all();
-    for (let function_name of all) {
-        let parsed = function_parse(function_name);
-        logic(parsed);
-    }
+    await function_names_each(logic);
 
     function logic(parsed) {
         let function_declaration = js_export_function_single(parsed);
@@ -29,5 +25,13 @@ export async function function_arguments_assert_tautology_next() {
         let name_actual = js_call_expression_to_name(expression);
         comment(`If this fails then need to add arguments assert to function`);
         assert(equal(name_actual, function_name_get(arguments_assert)));
+    }
+}
+
+async function function_names_each(logic) {
+    const all = await function_name_all();
+    for (let function_name of all) {
+        let parsed = function_parse(function_name);
+        logic(parsed);
     }
 }
