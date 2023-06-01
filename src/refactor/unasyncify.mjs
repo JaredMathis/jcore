@@ -1,3 +1,5 @@
+import { js_statement_metadata_args_get } from '../js/statement/metadata/args/get.mjs';
+import { js_function_delcaration_to_statements } from '../js/function/delcaration/to/statements.mjs';
 import { metadata } from '../metadata.mjs';
 import { js_keyword_async } from '../js/keyword/async.mjs';
 import { object_property_set } from '../object/property/set.mjs';
@@ -14,5 +16,7 @@ export async function refactor_unasyncify(args) {
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     let fd = js_export_function_single(parsed);
     object_property_set(fd, js_keyword_async(), false);
+    let statements = js_function_delcaration_to_statements(fd);
+    let last_metadata_args = js_statement_metadata_args_get(last_statement);
     metadata([]);
 }
