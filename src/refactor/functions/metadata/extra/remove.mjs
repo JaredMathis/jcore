@@ -1,4 +1,3 @@
-import { log } from '../../../../log.mjs';
 import { refactor_functions_metadata_add } from '../add.mjs';
 import { js_node_property_expression } from '../../../../js/node/property/expression.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
@@ -19,8 +18,7 @@ export async function refactor_functions_metadata_extra_remove() {
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
             let last_statement = list_last(statements);
-            comment(`If this assert fails, the code needs changing to handle this circumstance`);
-            console.log(args.file_path);
+            comment(`Given we add missing earlier`);
             assert(js_statement_metadata_is(last_statement));
             let remaining = list_take(statements, subtract_1(list_length(statements)));
             for (let s of remaining) {
