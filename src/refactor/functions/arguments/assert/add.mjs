@@ -1,3 +1,4 @@
+import { metadata_arguments_assert_none } from '../../../../metadata/arguments/assert/none.mjs';
 import { function_dependencies_names } from '../../../../function/dependencies/names.mjs';
 import { file_js_all_map_args_if_function } from '../../../../file/js/all/map/args/if/function.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -18,13 +19,12 @@ import { tautology } from '../../../../tautology.mjs';
 import { list_join } from '../../../../list/join.mjs';
 import { refactor_import_fix } from '../../../import/fix.mjs';
 import { js_function_declaration_to_name } from '../../../../js/function/declaration/to/name.mjs';
-import { list_any } from '../../../../list/any.mjs';
 import { comment } from '../../../../comment.mjs';
 import { list_contains } from '../../../../list/contains.mjs';
 import { list_add } from '../../../../list/add.mjs';
 export async function refactor_functions_arguments_assert_add() {
     let excludes = await function_dependencies_names(function_name_get(arguments_assert));
-    list_add(excludes, function_name_get(metadata_arguments_assert_none2));
+    list_add(excludes, function_name_get(metadata_arguments_assert_none));
     await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
         comment(`We want to skip dependencies of ${ function_name_get(arguments_assert) } or we will have recursion problems`);
