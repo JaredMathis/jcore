@@ -9,6 +9,9 @@ export function js_call_expression_to_name(ce) {
     arguments_assert(arguments, [node_is_type_call_expression]);
     let temp = null;
     let callee = js_node_identifer_by_name_get(ce, 'callee');
+    if (false) {
+        return;
+    }
     assert(js_node_is_identifier(callee));
     let name = object_property_get(callee, 'name');
     return name;
