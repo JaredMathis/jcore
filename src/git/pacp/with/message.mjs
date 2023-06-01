@@ -1,3 +1,4 @@
+import { log } from '../../../log.mjs';
 import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
@@ -27,6 +28,11 @@ export async function git_pacp_with_message(commit_message) {
             result.inner = c_result;
             result.message = `There was probably no code to commit. If this is not true, fix the code!`;
             return result;
+        } else {
+            console.log({
+                c_result,
+                command_commit
+            });
         }
     }
     return c_result;
