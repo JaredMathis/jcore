@@ -43,8 +43,7 @@ export async function refactor_functions_arguments_assert_add() {
         let exists = false;
         let statements = js_function_delcaration_to_statements(function_declaration);
         if (!list_length_is_0(statements)) {
-            let statements2 = js_function_delcaration_to_statements(function_declaration);
-            let statement_first = list_first(statements2);
+            let statement_first = list_first(statements);
             js_node_call_expression_statement_if_name_equal(statement_first, function_name_get(arguments_assert), function on_name_equal() {
                 exists = true;
             });
