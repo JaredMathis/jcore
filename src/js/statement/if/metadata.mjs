@@ -2,7 +2,6 @@ import { metadata } from '../../../metadata.mjs';
 import { function_name_get } from '../../../function/name/get.mjs';
 import { js_node_call_expression_if_name_equal } from '../../node/call/expression/if/name/equal.mjs';
 import { node_is_type_call_expression } from '../../../node/is/type/call/expression.mjs';
-import { assert } from '../../../assert.mjs';
 import { js_node_property_expression } from '../../node/property/expression.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
 import { js_node_is_expression_statement } from '../../node/is/expression/statement.mjs';
