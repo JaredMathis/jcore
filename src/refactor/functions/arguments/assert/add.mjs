@@ -17,9 +17,7 @@ import { tautology } from '../../../../tautology.mjs';
 import { list_join } from '../../../../list/join.mjs';
 import { refactor_import_fix } from '../../../import/fix.mjs';
 export async function refactor_functions_arguments_assert_add() {
-    await file_js_all_map_args_if_function(logic);
-    metadata([]);
-    async function logic(fd, args) {
+    await file_js_all_map_args_if_function(async function logic(fd, args) {
         let exists = false;
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
@@ -38,5 +36,6 @@ export async function refactor_functions_arguments_assert_add() {
             list_add_beginning(statements, statement_new);
             await refactor_import_fix(args);
         }
-    }
+    });
+    metadata([]);
 }
