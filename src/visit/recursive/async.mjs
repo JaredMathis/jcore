@@ -12,7 +12,7 @@ export async function visit_recursive_async(node, children_get, lambda, stack) {
     });
     let children = children_get(node);
     for (let c of children) {
-        await visit_recursive(c, children_get, lambda, stack);
+        await visit_recursive_async(c, children_get, lambda, stack);
     }
     list_last_remove_verify(stack, node);
     metadata([]);
