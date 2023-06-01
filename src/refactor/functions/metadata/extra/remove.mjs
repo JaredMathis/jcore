@@ -1,3 +1,4 @@
+import { js_statement_metadata_is } from '../../../../js/statement/metadata/is.mjs';
 import { js_statement_if_metadata } from '../../../../js/statement/if/metadata.mjs';
 import { file_js_all_map_args_if_function } from '../../../../file/js/all/map/args/if/function.mjs';
 import { refactor_import_fix } from '../../../import/fix.mjs';
@@ -30,12 +31,4 @@ export async function refactor_functions_metadata_extra_remove() {
         }
     });
     metadata([]);
-}
-
-function js_statement_metadata_is(last_statement) {
-    let success = false;
-    js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
-        success = true;
-    });
-    return success;
 }
