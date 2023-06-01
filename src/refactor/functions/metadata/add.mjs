@@ -16,10 +16,9 @@ export async function refactor_functions_metadata_add() {
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
             let last_statement = list_last(statements);
-            js_statement_if_metadata(last_statement, if_statement_metadata);
-            function if_statement_metadata(last_statement, last_expression) {
+            js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
                 already_exists = true;
-            }
+            });
         }
         if (!already_exists) {
             let metadata_new_code = `${ js_code_call_expression_with_args(function_name_get(metadata), '[]') }${ js_statement_end() }`;
