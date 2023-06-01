@@ -1,4 +1,4 @@
-import { js_unparse } from '../../../../js/unparse.mjs';
+import { js_node_property_arguments } from '../../../../js/node/property/arguments.mjs';
 import { log } from '../../../../log.mjs';
 import { refactor_functions_metadata_missing_add } from '../missing/add.mjs';
 import { js_node_property_expression } from '../../../../js/node/property/expression.mjs';
@@ -25,8 +25,7 @@ export async function refactor_functions_metadata_extra_remove() {
             for (let s of remaining) {
                 if (js_statement_metadata_is(s)) {
                     let expression = object_property_get(s, js_node_property_expression());
-                    let expression_args = object_property_get(expression, 'arguments');
-
+                    let expression_args = object_property_get(node, js_node_property_arguments());
                     console.log({
                         expression_args,
                         f: args.file_path
