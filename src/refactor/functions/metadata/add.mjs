@@ -25,20 +25,19 @@ export async function refactor_functions_metadata_add() {
         if (!list_length_is_0(statements)) {
             let last_statement = list_last(statements);
             let last_expression = object_property_get(last_statement,js_node_property_expression() );
-            
-            console.log(last_expression);
             js_node_call_expression_on_name_equal(last_expression, function_name_get(metadata), function on_name_equal() {
                 already_exists = true;
             });
         }
-        console.log(already_exists);
-        if (false)
-            if (!already_exists) {
-                let metadata_new_code = `${ js_code_call_expression_with_args(function_name_get(metadata), '[]') }${ js_statement_end() }`;
-                let metadata_new = js_parse_statement(metadata_new_code);
-                list_add(statements, metadata_new);
-                await refactor_import_fix(args);
-            }
+        if (already_exists) {
+            console.log('here')
+        }
+        if (!already_exists) {
+            let metadata_new_code = `${ js_code_call_expression_with_args(function_name_get(metadata), '[]') }${ js_statement_end() }`;
+            let metadata_new = js_parse_statement(metadata_new_code);
+            list_add(statements, metadata_new);
+            await refactor_import_fix(args);
+        }
     });
     metadata([]);
 }
