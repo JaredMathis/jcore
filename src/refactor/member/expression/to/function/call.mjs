@@ -1,3 +1,4 @@
+import { js_node_property_arguments } from '../../../../../js/node/property/arguments.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { js_code_call_expression } from '../../../../../js/code/call/expression.mjs';
 import { js_node_property_name } from '../../../../../js/node/property/name.mjs';
@@ -29,7 +30,7 @@ export async function refactor_member_expression_to_function_call(args) {
         const code = js_code_call_expression(name);
         let expression = js_parse_expression(code);
         object_replace(node, expression);
-        let node_args = object_property_get(node, 'arguments');
+        let node_args = object_property_get(node, js_node_property_arguments());
         list_add(node_args, object);
         changed = true;
     });
