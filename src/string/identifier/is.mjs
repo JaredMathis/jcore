@@ -20,12 +20,17 @@ export function string_identifier_is(value) {
         return false;
     }
     for (let c of list) {
-        if (string_letter_is(c)) {
-        }
         if (false) {
+            if (!string_letter_is(c)) {
+                return false;
+            }
             if (!string_digit_is(c)) {
                 return false;
             }
+            if (!string_underscore_is(c)) {
+
+            }
+            
         }
     }
     return true;
