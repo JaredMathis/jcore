@@ -15,11 +15,7 @@ import { list_remove } from '../../../../list/remove.mjs';
 export async function refactor_functions_metadata_extra_remove() {
     await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
-        let statements = js_function_delcaration_to_statements(function_declaration);
-        if (list_length_is_0(statements)) {
-            await refactor_metadata_missing_add(args);
-        }
-        let last_metadata_args = js_function_declaration_to_metadata_args(statements);
+        let last_metadata_args = js_function_declaration_to_metadata_args(function_declaration);
         let remaining = list_take(statements, subtract_1(list_length(statements)));
         let removals = list_filter(remaining, js_statement_metadata_is);
         for (let r of removals) {
