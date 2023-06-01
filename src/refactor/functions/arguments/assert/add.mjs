@@ -1,6 +1,6 @@
 import { file_js_all_map_args_if_function } from '../../../../file/js/all/map/args/if/function.mjs';
 import { metadata } from '../../../../metadata.mjs';
-import { js_node_call_expression_on_name_equal } from '../../../../js/node/call/expression/on/name/equal.mjs';
+import { js_node_call_expression_if_name_equal } from '../../../../js/node/call/expression/if/name/equal.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 import { js_keyword_arguments } from '../../../../js/keyword/arguments.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -22,7 +22,7 @@ export async function refactor_functions_arguments_assert_add() {
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
             let statement_first = list_first(statements);
-            js_node_call_expression_on_name_equal(statement_first, function_name_get(arguments_assert), function on_name_equal() {
+            js_node_call_expression_if_name_equal(statement_first, function_name_get(arguments_assert), function on_name_equal() {
                 exists = true;
             });
         }

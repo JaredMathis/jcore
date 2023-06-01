@@ -6,7 +6,7 @@ import { js_parse_statement } from '../../../js/parse/statement.mjs';
 import { js_statement_end } from '../../../js/statement/end.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { function_name_get } from '../../../function/name/get.mjs';
-import { js_node_call_expression_on_name_equal } from '../../../js/node/call/expression/on/name/equal.mjs';
+import { js_node_call_expression_if_name_equal } from '../../../js/node/call/expression/if/name/equal.mjs';
 import { js_function_delcaration_to_statements } from '../../../js/function/delcaration/to/statements.mjs';
 import { list_length_is_0 } from '../../../list/length/is/0.mjs';
 import { list_last } from '../../../list/last.mjs';
@@ -24,7 +24,7 @@ export async function refactor_functions_metadata_add() {
             if (js_node_is_expression_statement(last_statement)) {
                 let last_expression = object_property_get(last_statement, js_node_property_expression());
                 assert(node_is_type_call_expression(last_expression));
-                js_node_call_expression_on_name_equal(last_expression, function_name_get(metadata), function on_name_equal() {
+                js_node_call_expression_if_name_equal(last_expression, function_name_get(metadata), function on_name_equal() {
                     on_statement_metadata(last_statement, last_expression);
                     function on_statement_metadata(last_statement, last_expression) {
                         already_exists = true;
