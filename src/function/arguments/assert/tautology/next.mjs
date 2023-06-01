@@ -10,7 +10,7 @@ export async function function_arguments_assert_tautology_next() {
     const all = await function_name_all();
     for (let function_name of all) {
         let parsed = function_parse(function_name);
-        let function_declaration = js_export_function_single();
+        let function_declaration = js_export_function_single(parsed);
         let statements = js_function_delcaration_to_statements(function_declaration);
         let statement_first = list_first(statements);
         js_node_call_expression_if_name_equal(statement_first, function_name_get(arguments_assert), function on_name_equal() {
