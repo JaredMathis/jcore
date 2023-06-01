@@ -20,8 +20,6 @@ export async function refactor_functions_arguments_assert_add() {
     await file_js_all_map_args_if_function(async function logic(fd, args) {
         let exists = false;
         let statements = js_function_delcaration_to_statements(fd);
-
-
         if (!list_length_is_0(statements)) {
             let statement_first = list_first(statements);
             js_node_call_expression_if_name_equal(statement_first, function_name_get(arguments_assert), function on_name_equal() {
