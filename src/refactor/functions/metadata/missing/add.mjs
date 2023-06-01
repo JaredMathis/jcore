@@ -12,6 +12,7 @@ import { list_add } from '../../../../list/add.mjs';
 import { js_code_call_expression_with_args } from '../../../../js/code/call/expression/with/args.mjs';
 export async function refactor_functions_metadata_missing_add() {
     await file_js_all_map_args_if_function(async function logic(function_declaration, args) {
+        let {function_declaration} = args;
         let already_exists = false;
         let statements = js_function_delcaration_to_statements(function_declaration);
         if (!list_length_is_0(statements)) {
