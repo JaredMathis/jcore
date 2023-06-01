@@ -1,3 +1,5 @@
+import { object_property_get } from '../object/property/get.mjs';
+import { list_find_or_null } from '../list/find/or/null.mjs';
 import { js_imports_remove_generic } from '../js/imports/remove/generic.mjs';
 import { js_import_all_with_function_names } from '../js/import/all/with/function/names.mjs';
 import { js_identifier_rename_if } from '../js/identifier/rename/if.mjs';
@@ -35,7 +37,7 @@ export async function refactor_unasyncify(args) {
     js_identifier_rename_if(args, name => string_ends_with(name, suffix), name => string_suffix_without(name, suffix));
     let imports = js_import_all_with_function_names(parsed);
     let function_name = js_function_declaration_to_name(function_declaration);
-    let imports_to_remove = 
+    let imports_to_remove = list_find_or_null(imports, i => object_property_get(i, 'name') === removal_name);
     js_imports_remove_generic(parsed, imports_to_remove);
     metadata([]);
 }
