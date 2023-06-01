@@ -14,6 +14,7 @@ import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 import { js_function_delcaration_to_statements } from '../../../../js/function/delcaration/to/statements.mjs';
 import { assert } from '../../../../assert.mjs';
 import { comment } from '../../../../comment.mjs';
+import { list_length } from '../../../../list/length.mjs';
 export async function refactor_functions_metadata_extra_remove() {
     await file_js_all_map_args_if_function(async function logic(fd, args) {
         let already_exists = false;
@@ -22,8 +23,7 @@ export async function refactor_functions_metadata_extra_remove() {
             let last_statement = list_last(statements);
             comment(`If this assert fails, the code needs changing to handle this circumstance`);
             assert(js_statement_metadata_is(last_statement));
-            if (false)
-                list_take;
+            list_take(list_length(statements) - 1);
         }
         if (false)
             js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
