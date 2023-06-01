@@ -14,5 +14,5 @@ export function visit_recursive(node, children_get, lambda, stack) {
         visit_recursive(c, children_get, lambda, stack);
     }
     list_last_remove_verify(stack, node);
-    metadata([]);
+    metadata([metadata_generated()]);
 }
