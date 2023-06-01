@@ -4,7 +4,7 @@ export async function function_names_each(logic) {
     const all = await function_name_all();
     for (let function_name of all) {
         let parsed = function_parse(function_name);
-        let result = logic(parsed);
+        let result = logic({parsed});
         if (result) {
             return;
         }

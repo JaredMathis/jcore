@@ -14,7 +14,8 @@ import { comment } from '../../../../comment.mjs';
 export async function function_arguments_assert_tautology_next() {
     arguments_assert(arguments, []);
     await function_names_each(logic);
-    function logic(parsed) {
+    function logic(args) {
+        let {parsed} = args;
         let function_declaration = js_export_function_single(parsed);
         let statements = js_function_delcaration_to_statements(function_declaration);
         let statement_first = list_first(statements);
