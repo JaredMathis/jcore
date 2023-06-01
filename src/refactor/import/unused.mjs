@@ -17,9 +17,13 @@ export async function refactor_import_unused(args) {
         return value === 2;
     });
     let intersection = list_intersection(import_name_all, twices);
+    js_imports_remove_multiple(imports, intersection, parsed);
+    metadata([]);
+}
+
+function js_imports_remove_multiple(imports, intersection, parsed) {
     let imports_from_intersection = list_map(intersection, import_name => list_find(imports, i => object_property_get(i, 'name') === import_name));
     let import_statements_to_remove = list_map(imports_from_intersection, i => object_property_get(i, 'import'));
     let body = js_body_get(parsed);
     list_remove_all(body, import_statements_to_remove);
-    metadata([]);
 }
