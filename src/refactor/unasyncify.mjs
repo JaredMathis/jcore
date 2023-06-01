@@ -1,4 +1,4 @@
-import { function_auto_after } from '../function/auto/after.mjs';
+import { function_auto_after_refactors_invoke } from '../function/auto/after/refactors/invoke.mjs';
 import { js_import_remove_if_exists } from '../js/import/remove/if/exists.mjs';
 import { js_import_all_with_function_names } from '../js/import/all/with/function/names.mjs';
 import { js_identifier_rename_if } from '../js/identifier/rename/if.mjs';
