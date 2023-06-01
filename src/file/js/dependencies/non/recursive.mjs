@@ -1,3 +1,4 @@
+import { string_starts_with } from '../../../../string/starts/with.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { directory_current } from '../../../../directory/current.mjs';
 import { path_relative } from '../../../../path/relative.mjs';
@@ -16,12 +17,12 @@ export async function file_js_dependencies_non_recursive(file_path) {
     let imports = js_import_all(parsed);
     let mapped = list_map(imports, i => {
         let source = object_property_get(i, js_node_property_source());
-        return source
+        return source;
     });
     if (false) {
         let filtered = list_filter(mapped, m => {
-            return string_starts_with
-        })
+            return string_starts_with;
+        });
     }
     let mapped2 = list_map(mapped, source => {
         let path_relative_to_file_path = object_property_get(source, js_node_property_value());
