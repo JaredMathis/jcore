@@ -7,7 +7,7 @@ export function list_find(list, predicate) {
     let filtered = list_filter(list, predicate);
     if (or_null) {
         if (list_length_is_0(filtered)) {
-            return null;
+            // return null;
         }
     }
     return list_single(filtered);
