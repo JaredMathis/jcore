@@ -14,5 +14,6 @@ export async function refactor_unasyncify(args) {
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     object_property_set(function_declaration, js_keyword_async(), false);
     let last_metadata_args = await js_function_declaration_to_metadata_args(function_declaration);
+    
     metadata([]);
 }
