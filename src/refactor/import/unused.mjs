@@ -15,6 +15,6 @@ export async function refactor_import_unused(args) {
         return value === 2;
     });
     let intersection = list_intersection(import_name_all, twices);
-    js_imports_remove_multiple(imports, intersection, parsed);
+    js_imports_remove_multiple(parsed, imports, intersection);
     metadata([]);
 }
