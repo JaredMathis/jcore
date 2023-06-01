@@ -33,7 +33,7 @@ export async function refactor_unasyncify(args) {
     list_add(metadata_args, metadata_function_parsed);
     let suffix = function_naming_suffix_async();
     js_identifier_rename_if(args, name => string_ends_with(name, suffix), name => string_suffix_without(name, suffix));
-    let imports = js_import_all_with_function_names(parsed);
+    let imports = await js_import_all_with_function_names(parsed);
     let function_name = js_function_declaration_to_name(function_declaration);
     js_import_remove_if_exists(parsed, imports, function_name);
     metadata([]);
