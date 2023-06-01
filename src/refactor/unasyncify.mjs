@@ -11,6 +11,7 @@ import { assert } from '../assert.mjs';
 import { comment } from '../comment.mjs';
 import { function_name_get } from '../function/name/get.mjs';
 import { list_add } from '../list/add.mjs';
+import { list_length_is_0 } from '../list/length/is/0.mjs';
 export async function refactor_unasyncify(args) {
     let {parsed, function_declaration} = args;
     comment(`To remove this assert, fix the code - right now it does not handle functions or arrows inside the exported function`);
@@ -20,7 +21,8 @@ export async function refactor_unasyncify(args) {
     let metadata_args = await js_function_declaration_to_metadata_args(function_declaration);
     let metadata_function = metadata_generated;
     let metadata_function_parsed = js_parse_call_expression(function_name_get(metadata_function));
+    comment(`If this fails, the code needs enhancing to handle more complex scenarios`)
+    assert(list_length_is_0(metadata_args));
     list_add(metadata_args, metadata_function_parsed);
-
     metadata([]);
 }
