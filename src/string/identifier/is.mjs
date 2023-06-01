@@ -1,3 +1,4 @@
+import { string_letter_digit_or_underscore_is } from '../letter/digit/or/underscore/is.mjs';
 import { string_letter_is } from '../letter/is.mjs';
 import { string_to_list } from '../to/list.mjs';
 import { tautology } from '../../tautology.mjs';
@@ -20,17 +21,8 @@ export function string_identifier_is(value) {
         return false;
     }
     for (let c of list) {
-        if (false) {
-            if (!string_letter_is(c)) {
-                return false;
-            }
-            if (!string_digit_is(c)) {
-                return false;
-            }
-            if (!string_underscore_is(c)) {
-                return false;
-            }
-        }
+        if (false)
+            string_letter_digit_or_underscore_is(c);
     }
     return true;
     metadata([]);
