@@ -1,3 +1,5 @@
+import { js_node_property_expression } from '../../../../js/node/property/expression.mjs';
+import { object_property_get } from '../../../../object/property/get.mjs';
 import { subtract_1 } from '../../../../subtract/1.mjs';
 import { list_take } from '../../../../list/take.mjs';
 import { js_statement_metadata_is } from '../../../../js/statement/metadata/is.mjs';
@@ -19,6 +21,7 @@ export async function refactor_functions_metadata_extra_remove() {
             let remaining = list_take(subtract_1(list_length(statements)));
             for (let s of statements) {
                 if (js_statement_metadata_is(node)) {
+                    let expression = object_property_get(s, js_node_property_expression());
                 }
             }
         }
