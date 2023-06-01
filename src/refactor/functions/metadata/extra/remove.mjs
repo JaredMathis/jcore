@@ -24,7 +24,9 @@ export async function refactor_functions_metadata_extra_remove() {
             let last_statement = list_last(statements);
             comment(`If this assert fails, the code needs changing to handle this circumstance`);
             assert(js_statement_metadata_is(last_statement));
-            list_take(subtract_1(list_length(statements)));
+            let remaining = list_take(subtract_1(list_length(statements)));
+            for (let s of statements) {
+            }
         }
         if (false)
             js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
