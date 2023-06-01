@@ -1,3 +1,4 @@
+import { list_take } from '../../../../list/take.mjs';
 import { js_statement_metadata_is } from '../../../../js/statement/metadata/is.mjs';
 import { js_statement_if_metadata } from '../../../../js/statement/if/metadata.mjs';
 import { file_js_all_map_args_if_function } from '../../../../file/js/all/map/args/if/function.mjs';
@@ -21,6 +22,8 @@ export async function refactor_functions_metadata_extra_remove() {
             let last_statement = list_last(statements);
             comment(`If this assert fails, the code needs changing to handle this circumstance`);
             assert(js_statement_metadata_is(last_statement));
+            if (false)
+                list_take;
         }
         if (false)
             js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
