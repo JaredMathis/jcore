@@ -6,6 +6,6 @@ export function list_filter(list, predicate) {
         tautology,
         tautology
     ]);
-    return list.filter(predicate);
+    return list.filter(element => predicate(element));
     metadata([]);
 }
