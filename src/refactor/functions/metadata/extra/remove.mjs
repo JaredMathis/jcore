@@ -15,6 +15,7 @@ import { list_remove } from '../../../../list/remove.mjs';
 export async function refactor_functions_metadata_extra_remove() {
     await refactor_functions_metadata_missing_add();
     await file_js_all_map_args_if_function(async function logic(fd, args) {
+        console.log(args.file_path)
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
             let last_statement = list_last(statements);
