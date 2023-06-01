@@ -1,3 +1,4 @@
+import { log } from '../../../../log.mjs';
 import { refactor_functions_metadata_missing_add } from '../missing/add.mjs';
 import { js_node_property_expression } from '../../../../js/node/property/expression.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
@@ -22,6 +23,7 @@ export async function refactor_functions_metadata_extra_remove() {
             for (let s of remaining) {
                 if (js_statement_metadata_is(s)) {
                     let expression = object_property_get(s, js_node_property_expression());
+                    console.log({ expression });
                 }
             }
         }
