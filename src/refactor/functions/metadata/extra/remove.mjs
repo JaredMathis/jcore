@@ -7,12 +7,6 @@ import { js_statement_end } from '../../../../js/statement/end.mjs';
 import { js_code_call_expression_with_args } from '../../../../js/code/call/expression/with/args.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { function_name_get } from '../../../../function/name/get.mjs';
-import { js_node_call_expression_if_name_equal } from '../../../../js/node/call/expression/if/name/equal.mjs';
-import { node_is_type_call_expression } from '../../../../node/is/type/call/expression.mjs';
-import { assert } from '../../../../assert.mjs';
-import { js_node_property_expression } from '../../../../js/node/property/expression.mjs';
-import { object_property_get } from '../../../../object/property/get.mjs';
-import { js_node_is_expression_statement } from '../../../../js/node/is/expression/statement.mjs';
 import { list_last } from '../../../../list/last.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 import { js_function_delcaration_to_statements } from '../../../../js/function/delcaration/to/statements.mjs';
@@ -22,13 +16,9 @@ export async function refactor_functions_metadata_extra_remove() {
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
             let last_statement = list_last(statements);
-            if (js_node_is_expression_statement(last_statement)) {
-                let last_expression = object_property_get(last_statement, js_node_property_expression());
-                assert(node_is_type_call_expression(last_expression));
-                js_node_call_expression_if_name_equal(last_expression, function_name_get(metadata), function on_name_equal() {
-                    already_exists = true;
-                });
-            }
+            js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
+                already_exists = true;
+            });
         }
         if (false)
             js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
