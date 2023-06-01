@@ -18,14 +18,7 @@ import { tautology } from '../../../../tautology.mjs';
 import { list_join } from '../../../../list/join.mjs';
 import { refactor_import_fix } from '../../../import/fix.mjs';
 export async function refactor_functions_arguments_assert_add() {
-    await file_js_all_map_args(async function mapper(args) {
-        let {parsed, file_path} = args;
-        let fd = js_export_function_single_or_null(parsed);
-        if (fd === null) {
-            return;
-        }
-        await logic(fd, args);
-    });
+    await file_js_all_map_args_if_function(logic);
     metadata([]);
 
     async function logic(fd, args) {
@@ -48,4 +41,15 @@ export async function refactor_functions_arguments_assert_add() {
             await refactor_import_fix(args);
         }
     }
+}
+
+async function file_js_all_map_args_if_function(logic) {
+    await file_js_all_map_args(async function mapper(args) {
+        let { parsed, file_path } = args;
+        let fd = js_export_function_single_or_null(parsed);
+        if (fd === null) {
+            return;
+        }
+        await logic(fd, args);
+    });
 }
