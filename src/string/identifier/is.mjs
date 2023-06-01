@@ -28,9 +28,8 @@ export function string_identifier_is(value) {
                 return false;
             }
             if (!string_underscore_is(c)) {
-
+                return false;
             }
-            
         }
     }
     return true;
