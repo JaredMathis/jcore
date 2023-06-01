@@ -1,3 +1,4 @@
+import { js_statement_if_metadata } from '../../../../js/statement/if/metadata.mjs';
 import { file_js_all_map_args_if_function } from '../../../../file/js/all/map/args/if/function.mjs';
 import { refactor_import_fix } from '../../../import/fix.mjs';
 import { list_add } from '../../../../list/add.mjs';
@@ -29,6 +30,10 @@ export async function refactor_functions_metadata_extra_remove() {
                 });
             }
         }
+        if (false)
+            js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
+                already_exists = true;
+            });
         if (!already_exists) {
             let metadata_new_code = `${ js_code_call_expression_with_args(function_name_get(metadata), '[]') }${ js_statement_end() }`;
             let metadata_new = js_parse_statement(metadata_new_code);
