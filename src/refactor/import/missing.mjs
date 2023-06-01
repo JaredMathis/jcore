@@ -1,3 +1,5 @@
+import { tautology } from '../../tautology.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { js_identifier_all } from '../../js/identifier/all.mjs';
 import { function_name_all } from '../../function/name/all.mjs';
@@ -12,6 +14,7 @@ import { js_import_all_to_function_name } from '../../js/import/all/to/function/
 import { js_exported_function_names } from '../../js/exported/function/names.mjs';
 import { js_body_get } from '../../js/body/get.mjs';
 export async function refactor_import_missing(args) {
+    arguments_assert(arguments, [tautology]);
     let {parsed} = args;
     let import_name_all = await js_import_all_to_function_name(parsed);
     let identifiers = js_identifier_all(parsed);

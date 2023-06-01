@@ -1,3 +1,5 @@
+import { tautology } from '../../../../tautology.mjs';
+import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { function_name_get } from '../../../name/get.mjs';
 import { file_js_all_identifier_all_rename } from '../../../../file/js/all/identifier/all/rename.mjs';
@@ -9,6 +11,10 @@ import { string_starts_with } from '../../../../string/starts/with.mjs';
 import { function_name_all } from '../../../name/all.mjs';
 import { object_property_initialize } from '../../../../object/property/initialize.mjs';
 export async function function_rename_if_starts_with(prefix_old, prefix_new) {
+    arguments_assert(arguments, [
+        tautology,
+        tautology
+    ]);
     let names = await function_name_all();
     let dictionary = {};
     for (let n_old of names) {

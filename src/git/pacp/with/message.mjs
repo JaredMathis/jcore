@@ -1,3 +1,5 @@
+import { tautology } from '../../../tautology.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { function_name_get } from '../../../function/name/get.mjs';
 import { list_remove_all_first_equals } from '../../../list/remove/all/first/equals.mjs';
@@ -7,6 +9,7 @@ import { command_line_args_skipped } from '../../../command/line/args/skipped.mj
 import { command_line_all } from '../../../command/line/all.mjs';
 import { result_empty } from '../../../result/empty.mjs';
 export async function git_pacp_with_message(commit_message) {
+    arguments_assert(arguments, [tautology]);
     let args = command_line_args_skipped();
     list_remove_all_first_equals(args, function_name_get(git));
     let args_message = list_join(args, ' ');

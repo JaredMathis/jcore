@@ -1,3 +1,5 @@
+import { tautology } from '../../../../tautology.mjs';
+import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { value_get } from '../../../../value/get.mjs';
 import { list_single } from '../../../../list/single.mjs';
@@ -9,6 +11,10 @@ import { value_new } from '../../../../value/new.mjs';
 import { js_export_declaration_get } from '../../declaration/get.mjs';
 import { js_node_is_function_declaration } from '../../../node/is/function/declaration.mjs';
 export function js_export_function_single_generic(parsed, or_null) {
+    arguments_assert(arguments, [
+        tautology,
+        tautology
+    ]);
     let result = value_new();
     let exports_existing = js_exports(parsed);
     if (or_null) {

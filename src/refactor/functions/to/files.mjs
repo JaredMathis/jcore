@@ -1,3 +1,5 @@
+import { tautology } from '../../../tautology.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { function_name_get } from '../../../function/name/get.mjs';
 import { function_add_with_declaration } from '../../../function/add/with/declaration.mjs';
@@ -14,6 +16,7 @@ import { refactor_import_fix } from '../../import/fix.mjs';
 import { js_body_get } from '../../../js/body/get.mjs';
 import { js_function_declaration_to_name } from '../../../js/function/declaration/to/name.mjs';
 export async function refactor_functions_to_files(args) {
+    arguments_assert(arguments, [tautology]);
     let {parsed} = args;
     let without_imports = js_without_imports(parsed);
     let function_declarations_to_export = list_filter(without_imports, js_node_is_function_declaration);

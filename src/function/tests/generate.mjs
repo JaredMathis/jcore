@@ -1,3 +1,4 @@
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { js_code_call_expression_statement } from '../../js/code/call/expression/statement.mjs';
 import { log } from '../../log.mjs';
@@ -16,6 +17,7 @@ import { function_name_to_path } from '../name/to/path.mjs';
 import { list_add } from '../../list/add.mjs';
 import { list_length } from '../../list/length.mjs';
 export async function function_tests_generate() {
+    arguments_assert(arguments, []);
     let function_name = 'tests';
     let file_path = function_name_to_path(function_name);
     let test_names = await function_all_tests();

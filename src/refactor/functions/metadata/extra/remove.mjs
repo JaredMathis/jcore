@@ -1,3 +1,4 @@
+import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_mapper_args_to_metadata_args } from '../../../../js/mapper/args/to/metadata/args.mjs';
 import { js_statement_metadata_args_get } from '../../../../js/statement/metadata/args/get.mjs';
 import { list_add_multiple } from '../../../../list/add/multiple.mjs';
@@ -10,6 +11,7 @@ import { list_length } from '../../../../list/length.mjs';
 import { list_filter } from '../../../../list/filter.mjs';
 import { list_remove } from '../../../../list/remove.mjs';
 export async function refactor_functions_metadata_extra_remove() {
+    arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
         let last_metadata_args = js_mapper_args_to_metadata_args(args);

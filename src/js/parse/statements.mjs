@@ -1,3 +1,5 @@
+import { tautology } from '../../tautology.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { js_node_property_declaration } from '../node/property/declaration.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
@@ -7,6 +9,7 @@ import { string_a } from '../../string/a.mjs';
 import { js_parse } from '../parse.mjs';
 import { js_function_delcaration_to_statements } from '../function/delcaration/to/statements.mjs';
 export function js_parse_statements(code) {
+    arguments_assert(arguments, [tautology]);
     let is_async = true;
     let unparsed = js_code_export_function_synchronized(string_a(), is_async, code);
     let parsed = js_parse(unparsed);

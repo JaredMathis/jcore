@@ -1,3 +1,5 @@
+import { tautology } from '../../tautology.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { object_property_initialize_if_unset } from '../../object/property/initialize/if/unset.mjs';
@@ -8,6 +10,7 @@ import { comment } from '../../comment.mjs';
 import { js_visit_nodes_identifier } from '../visit/nodes/identifier.mjs';
 comment(`This does not count "hasOwnProperty" for now`);
 export function js_identifier_counts(parsed) {
+    arguments_assert(arguments, [tautology]);
     let result = {};
     js_visit_nodes_identifier(parsed, v => {
         let node = object_property_get(v, 'node');

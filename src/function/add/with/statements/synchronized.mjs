@@ -1,3 +1,5 @@
+import { tautology } from '../../../../tautology.mjs';
+import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { function_write } from '../../../write.mjs';
 import { js_function_declaration_asyncify } from '../../../../js/function/declaration/asyncify.mjs';
@@ -6,6 +8,11 @@ import { js_exported_function_declaration_single } from '../../../../js/exported
 import { js_parse } from '../../../../js/parse.mjs';
 import { js_function_name_to_export } from '../../../../js/function/name/to/export.mjs';
 export async function function_add_with_statements_synchronized(function_name, statements, is_async) {
+    arguments_assert(arguments, [
+        tautology,
+        tautology,
+        tautology
+    ]);
     const code = js_function_name_to_export(function_name);
     let parsed = js_parse(code);
     let fd = js_exported_function_declaration_single(parsed);

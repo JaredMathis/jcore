@@ -1,6 +1,9 @@
+import { tautology } from '../../tautology.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { path_exists } from '../exists.mjs';
 export async function path_exists_not(file_path) {
+    arguments_assert(arguments, [tautology]);
     return await !await path_exists(file_path);
     metadata([]);
 }

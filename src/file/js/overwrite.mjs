@@ -1,8 +1,11 @@
+import { tautology } from '../../tautology.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { js_unparse } from '../../js/unparse.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { file_overwrite } from '../overwrite.mjs';
 export async function file_js_overwrite(args) {
+    arguments_assert(arguments, [tautology]);
     let file_path = object_property_get(args, 'file_path');
     let parsed = object_property_get(args, 'parsed');
     let unparsed = js_unparse(parsed);

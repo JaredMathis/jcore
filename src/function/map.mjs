@@ -1,9 +1,14 @@
+import { tautology } from '../tautology.mjs';
 import { metadata } from '../metadata.mjs';
 import { string_identifier_is } from '../string/identifier/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { file_js_map } from '../file/js/map.mjs';
 import { function_name_to_path } from './name/to/path.mjs';
 export async function function_map(function_name_mapper, function_name) {
+    arguments_assert(arguments, [
+        tautology,
+        tautology
+    ]);
     arguments_assert(arguments, [
         string_identifier_is,
         string_identifier_is

@@ -23,6 +23,7 @@ import { js_function_declaration_to_name } from '../../../../js/function/declara
 import { comment } from '../../../../comment.mjs';
 import { list_contains } from '../../../../list/contains.mjs';
 export async function refactor_functions_arguments_assert_add() {
+    arguments_assert(arguments, []);
     let excludes = await function_dependencies_names(function_name_get(arguments_assert));
     comment(`Eventually this should be refactored maybe to read files and detect an attribute`);
     list_add_multiple(excludes, [

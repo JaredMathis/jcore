@@ -4,6 +4,7 @@ import { integer_is } from '../../../integer/is.mjs';
 import { throws } from '../../../throws.mjs';
 import { arguments_assert } from '../../assert.mjs';
 export function arguments_assert_test_2() {
+    arguments_assert(arguments, []);
     comment('Too few predicates');
     throws(() => arguments_assert([
         1,

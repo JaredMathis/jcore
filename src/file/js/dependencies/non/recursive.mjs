@@ -1,3 +1,5 @@
+import { tautology } from '../../../../tautology.mjs';
+import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { string_starts_with } from '../../../../string/starts/with.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { directory_current } from '../../../../directory/current.mjs';
@@ -13,6 +15,7 @@ import { js_import_all } from '../../../../js/import/all.mjs';
 import { file_js_parse } from '../../parse.mjs';
 import { list_filter } from '../../../../list/filter.mjs';
 export async function file_js_dependencies_non_recursive(file_path) {
+    arguments_assert(arguments, [tautology]);
     let parsed = await file_js_parse(file_path);
     let imports = js_import_all(parsed);
     let mapped = list_map(imports, i => {

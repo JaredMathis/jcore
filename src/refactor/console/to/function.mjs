@@ -1,3 +1,5 @@
+import { tautology } from '../../../tautology.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { js_add_function_with_statements } from '../../../js/add/function/with/statements.mjs';
 import { js_without_imports } from '../../../js/without/imports.mjs';
@@ -8,6 +10,7 @@ import { js_body_get } from '../../../js/body/get.mjs';
 import { js_exports } from '../../../js/exports.mjs';
 import { comment } from '../../../comment.mjs';
 export async function refactor_console_to_function(args) {
+    arguments_assert(arguments, [tautology]);
     let {parsed, file_path} = args;
     let exports_existing = js_exports(parsed);
     if (!list_length_is_0(exports_existing)) {

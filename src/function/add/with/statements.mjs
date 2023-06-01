@@ -1,6 +1,12 @@
+import { tautology } from '../../../tautology.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { function_add_with_statements_synchronized } from './statements/synchronized.mjs';
 export async function function_add_with_statements(function_name, statements) {
+    arguments_assert(arguments, [
+        tautology,
+        tautology
+    ]);
     let is_async = false;
     return await function_add_with_statements_synchronized(function_name, statements, is_async);
     metadata([]);

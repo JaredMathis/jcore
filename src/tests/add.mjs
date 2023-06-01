@@ -1,3 +1,5 @@
+import { tautology } from '../tautology.mjs';
+import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { function_tests_generate } from '../function/tests/generate.mjs';
 import { list_max_or_0 } from '../list/max/or/0.mjs';
@@ -11,6 +13,7 @@ import { list_map } from '../list/map.mjs';
 import { list_filter } from '../list/filter.mjs';
 import { integer_parse } from '../integer/parse.mjs';
 export async function tests_add(function_name) {
+    arguments_assert(arguments, [tautology]);
     let tests_all = await function_tests_all(function_name);
     let tests_ids_all = list_map(tests_all, t => {
         return string_function_name_to_tests_id(function_name, t);

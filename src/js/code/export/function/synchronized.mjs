@@ -1,9 +1,16 @@
+import { tautology } from '../../../../tautology.mjs';
+import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { string_length } from '../../../../string/length.mjs';
 import { assert } from '../../../../assert.mjs';
 import { js_keyword_async } from '../../../keyword/async.mjs';
 import { string_empty } from '../../../../string/empty.mjs';
 export function js_code_export_function_synchronized(function_name, is_async, function_statements_code) {
+    arguments_assert(arguments, [
+        tautology,
+        tautology,
+        tautology
+    ]);
     assert(string_length(function_name) >= 1);
     let async_code = string_empty();
     if (is_async) {

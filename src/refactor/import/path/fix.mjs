@@ -1,3 +1,5 @@
+import { tautology } from '../../../tautology.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { js_node_property_source } from '../../../js/node/property/source.mjs';
 import { js_node_property_raw } from '../../../js/node/property/raw.mjs';
@@ -11,6 +13,7 @@ import { js_import_path_normalize } from '../../../js/import/path/normalize.mjs'
 import { assert } from '../../../assert.mjs';
 import { js_node_property_value } from '../../../js/node/property/value.mjs';
 export async function refactor_import_path_fix(args) {
+    arguments_assert(arguments, [tautology]);
     let {parsed, file_path} = args;
     let imports = await js_import_all_with_function_names(parsed);
     for (let iw of imports) {
