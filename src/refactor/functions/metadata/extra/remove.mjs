@@ -1,3 +1,4 @@
+import { file_js_all_map_args_if_function } from '../../../../file/js/all/map/args/if/function.mjs';
 import { refactor_import_fix } from '../../../import/fix.mjs';
 import { list_add } from '../../../../list/add.mjs';
 import { js_parse_statement } from '../../../../js/parse/statement.mjs';
@@ -14,15 +15,8 @@ import { js_node_is_expression_statement } from '../../../../js/node/is/expressi
 import { list_last } from '../../../../list/last.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 import { js_function_delcaration_to_statements } from '../../../../js/function/delcaration/to/statements.mjs';
-import { js_export_function_single_or_null } from '../../../../js/export/function/single/or/null.mjs';
-import { file_js_all_map_args } from '../../../../file/js/all/map/args.mjs';
 export async function refactor_functions_metadata_extra_remove() {
-    await file_js_all_map_args(async function mapper(args) {
-        let {parsed} = args;
-        let fd = js_export_function_single_or_null(parsed);
-        if (fd === null) {
-            return;
-        }
+    await file_js_all_map_args_if_function(async function logic(fd, args) {
         let already_exists = false;
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
