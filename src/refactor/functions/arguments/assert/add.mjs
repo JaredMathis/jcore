@@ -24,6 +24,11 @@ export async function refactor_functions_arguments_assert_add() {
         if (fd === null) {
             return;
         }
+        await logic(fd, args);
+    });
+    metadata([]);
+
+    async function logic(fd, args) {
         let exists = false;
         let statements = js_function_delcaration_to_statements(fd);
         if (!list_length_is_0(statements)) {
@@ -38,10 +43,9 @@ export async function refactor_functions_arguments_assert_add() {
             let params_mapped = list_map(range(params_length), i => function_name_get(tautology));
             list_add_beginning(params_mapped, js_keyword_arguments());
             let params_code = list_join(params_mapped, ', ');
-            let statement_new = js_parse_statement(`${ function_name_get(arguments_assert) }(${ params_code })`);
+            let statement_new = js_parse_statement(`${function_name_get(arguments_assert)}(${params_code})`);
             list_add_beginning(statements, statement_new);
             await refactor_import_fix(args);
         }
-    });
-    metadata([]);
+    }
 }
