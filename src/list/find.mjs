@@ -4,7 +4,7 @@ import { list_single } from './single.mjs';
 export function list_find(list, predicate) {
     let or_null = false;
     let filtered = list_filter(list, predicate);
-    if (false) {
+    if (or_null) {
 
     }
     return list_single(filtered);
