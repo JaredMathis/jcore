@@ -29,8 +29,8 @@ export async function refactor_member_expression_to_function_call(args) {
         const code = js_code_call_expression(name);
         let expression = js_parse_expression(code);
         object_replace(node, expression);
-        let args = object_property_get(node, 'arguments');
-        list_add(args, object);
+        let node_args = object_property_get(node, 'arguments');
+        list_add(node_args, object);
         changed = true;
     });
     if (changed) {
