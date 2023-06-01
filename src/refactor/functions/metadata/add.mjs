@@ -25,8 +25,8 @@ export async function refactor_functions_metadata_add() {
                 let last_expression = object_property_get(last_statement, js_node_property_expression());
                 assert(node_is_type_call_expression(last_expression));
                 js_node_call_expression_on_name_equal(last_expression, function_name_get(metadata), function on_name_equal() {
-                    on_statement_metadata();
-                    function on_statement_metadata() {
+                    on_statement_metadata(last_statement, last_expression);
+                    function on_statement_metadata(last_statement, last_expression) {
                         already_exists = true;
                     }
                 });
