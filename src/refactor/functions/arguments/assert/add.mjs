@@ -20,13 +20,14 @@ import { refactor_import_fix } from '../../../import/fix.mjs';
 import { js_function_declaration_to_name } from '../../../../js/function/declaration/to/name.mjs';
 import { list_any } from '../../../../list/any.mjs';
 import { comment } from '../../../../comment.mjs';
+import { list_contains } from '../../../../list/contains.mjs';
 export async function refactor_functions_arguments_assert_add() {
     let dependencies_names = await function_dependencies_names(function_name_get(arguments_assert));
     await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
         comment(`We want to skip dependencies of ${ function_name_get(arguments_assert) } or we will have recursion problems`);
         let function_name = js_function_declaration_to_name(function_declaration);
-        if (list_any(dependencies_names, function_name)) {
+        if (list_contains(dependencies_names, function_name)) {
             return;
         }
         let exists = false;
