@@ -8,7 +8,6 @@ export function js_imports_remove_multiple(parsed, imports, removal_names) {
     let import_statements_to_remove = list_map(imports_to_remove, i => object_property_get(i, 'import'));
     let body = js_body_get(parsed);
     list_remove_all(body, import_statements_to_remove);
-
     function imports_to_remove_get(imports) {
         return list_map(removal_names, removal_name => {
             return list_find(imports, i => object_property_get(i, 'name') === removal_name);
