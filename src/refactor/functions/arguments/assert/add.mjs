@@ -16,7 +16,9 @@ import { range } from '../../../../range.mjs';
 import { tautology } from '../../../../tautology.mjs';
 import { list_join } from '../../../../list/join.mjs';
 import { refactor_import_fix } from '../../../import/fix.mjs';
+import { function_dependencies } from '../../../../function/dependencies.mjs';
 export async function refactor_functions_arguments_assert_add() {
+    let dependencies = await function_dependencies(function_name_get(arguments_assert));
     await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
         let exists = false;
