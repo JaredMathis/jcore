@@ -13,8 +13,9 @@ export async function refactor_metadata_missing_add(args) {
     let {function_declaration} = args;
     let already_exists = false;
     let statements = js_function_delcaration_to_statements(function_declaration);
+    let last_statement;
     if (!list_length_is_0(statements)) {
-        let last_statement = list_last(statements);
+        last_statement = list_last(statements);
         js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
             already_exists = true;
         });
