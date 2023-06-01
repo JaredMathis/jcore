@@ -10,7 +10,7 @@ import { assert } from '../assert.mjs';
 import { comment } from '../comment.mjs';
 import { js_export_function_single } from '../js/export/function/single.mjs';
 export async function refactor_unasyncify(args) {
-    let {parsed} = args;
+    let {parsed, function_declaration} = args;
     comment(`To remove this assert, fix the code - right now it does not handle functions or arrows inside the exported function`);
     assert(!js_callable_multiple(parsed));
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
