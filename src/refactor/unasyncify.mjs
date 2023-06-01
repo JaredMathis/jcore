@@ -1,4 +1,4 @@
-import { js_code_call_expression_statement } from '../js/code/call/expression/statement.mjs';
+import { js_code_call_expression } from '../js/code/call/expression.mjs';
 import { js_function_declaration_to_metadata_args } from '../js/function/declaration/to/metadata/args.mjs';
 import { metadata } from '../metadata.mjs';
 import { js_keyword_async } from '../js/keyword/async.mjs';
@@ -15,6 +15,6 @@ export async function refactor_unasyncify(args) {
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     object_property_set(function_declaration, js_keyword_async(), false);
     let metadata_args = await js_function_declaration_to_metadata_args(function_declaration);
-    js_code_call_expression_statement();
+    js_code_call_expression();
     metadata([]);
 }
