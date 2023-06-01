@@ -1,3 +1,4 @@
+import { js_statement_metadata_is } from '../../../../statement/metadata/is.mjs';
 import { refactor_metadata_missing_add } from '../../../../../refactor/metadata/missing/add.mjs';
 import { list_length_is_0 } from '../../../../../list/length/is/0.mjs';
 import { js_function_delcaration_to_statements } from '../../../delcaration/to/statements.mjs';
