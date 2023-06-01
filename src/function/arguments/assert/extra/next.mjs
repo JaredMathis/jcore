@@ -1,3 +1,4 @@
+import { equal } from '../../../../equal.mjs';
 import { function_open_vs_code } from '../../../open/vs/code.mjs';
 import { function_name_get } from '../../../name/get.mjs';
 import { function_names_each } from '../../../names/each.mjs';
@@ -15,7 +16,7 @@ export async function function_arguments_assert_extra_next() {
         let result = [];
         js_visit_nodes(parsed, node => node_is_call_expression(node), v => {
             let {node} = v;
-            if (js_call_expression_to_name(node, function_name_get(arguments_assert))) {
+            if (equal(js_call_expression_to_name(node), function_name_get(arguments_assert))) {
                 list_add(result, node);
             }
         });
