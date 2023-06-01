@@ -5,7 +5,7 @@ import { js_identifier_rename_if } from '../js/identifier/rename/if.mjs';
 import { function_naming_suffix_async } from '../function/naming/suffix/async.mjs';
 import { js_parse_call_expression } from '../js/parse/call/expression.mjs';
 import { metadata_generated } from '../metadata/generated.mjs';
-import { js_function_declaration_to_metadata_args } from '../js/function/declaration/to/metadata/args.mjs';
+import { js_mapper_args_to_metadata_args } from '../js/mapper/args/to/metadata/args.mjs';
 import { metadata } from '../metadata.mjs';
 import { js_keyword_async } from '../js/keyword/async.mjs';
 import { object_property_set } from '../object/property/set.mjs';
@@ -26,7 +26,7 @@ export async function refactor_unasyncify(args) {
     assert(!js_callable_multiple(parsed));
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     object_property_set(function_declaration, js_keyword_async(), false);
-    let metadata_args = await js_function_declaration_to_metadata_args(function_declaration);
+    let metadata_args = await js_mapper_args_to_metadata_args(function_declaration);
     let metadata_function = metadata_generated;
     let metadata_function_parsed = js_parse_call_expression(function_name_get(metadata_function));
     comment(`If this fails, the code needs enhancing to handle more complex scenarios`);
