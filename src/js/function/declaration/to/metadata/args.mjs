@@ -9,6 +9,9 @@ export async function js_function_declaration_to_metadata_args(function_declarat
         await refactor_metadata_missing_add(args);
     }
     let last_statement = list_last(statements);
+    if (!js_statement_metadata_is(last_statement)) {
+        await refactor_metadata_missing_add(args);
+    }
     let metadata_args = js_statement_metadata_args_get(last_statement);
     return metadata_args;
 }
