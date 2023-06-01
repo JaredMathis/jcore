@@ -6,7 +6,7 @@ import { list_first } from './first.mjs';
 import { list_length_is_1 } from './length/is/1.mjs';
 export function list_single(list) {
     arguments_assert(arguments, [tautology]);
-    assert(list_length_is_1(list, 1));
+    assert(list_length_is_1(list));
     let result = list_first(list);
     return result;
     metadata([]);
