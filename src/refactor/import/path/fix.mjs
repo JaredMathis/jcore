@@ -3,7 +3,7 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { js_node_property_source } from '../../../js/node/property/source.mjs';
 import { js_node_property_raw } from '../../../js/node/property/raw.mjs';
-import { function_name_to_path } from '../../../function/name/to/path.mjs';
+import { function_name_to_file_path } from '../../../function/name/to/file/path.mjs';
 import { js_import_all_with_function_names } from '../../../js/import/all/with/function/names.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
 import { object_property_set } from '../../../object/property/set.mjs';
@@ -18,7 +18,7 @@ export async function refactor_import_path_fix(args) {
     let imports = await js_import_all_with_function_names(parsed);
     for (let iw of imports) {
         let function_name = object_property_get(iw, 'name');
-        let function_path = function_name_to_path(function_name);
+        let function_path = function_name_to_file_path(function_name);
         let relative = path_relative_file(file_path, function_path);
         let normalized = js_import_path_normalize(relative);
         let i = object_property_get(iw, 'import');

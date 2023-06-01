@@ -13,13 +13,13 @@ import { string_new_line } from '../../string/new/line.mjs';
 import { list_join } from '../../list/join.mjs';
 import { list_map } from '../../list/map.mjs';
 import { function_all_tests } from '../all/tests.mjs';
-import { function_name_to_path } from '../name/to/path.mjs';
+import { function_name_to_file_path } from '../name/to/file/path.mjs';
 import { list_add } from '../../list/add.mjs';
 import { list_length } from '../../list/length.mjs';
 export async function function_tests_generate() {
     arguments_assert(arguments, []);
     let function_name = 'tests';
-    let file_path = function_name_to_path(function_name);
+    let file_path = function_name_to_file_path(function_name);
     let test_names = await function_all_tests();
     let mapped = list_map(test_names, n => `await ${ js_code_call_expression_statement(n) }`);
     list_add(mapped, `${ function_name_get(log) }(${ list_length(mapped) } + ' tests ran successfully')`);
