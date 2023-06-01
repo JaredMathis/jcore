@@ -19,6 +19,15 @@ export function string_identifier_is(value) {
     if (!string_letter_is(first)) {
         return false;
     }
+    for (let c of list) {
+        if (string_letter_is(c)) {
+        }
+        if (false) {
+            if (!string_digit_is(c)) {
+                return false;
+            }
+        }
+    }
     return true;
     metadata([]);
 }
