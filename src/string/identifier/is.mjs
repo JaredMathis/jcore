@@ -13,6 +13,7 @@ import { string_includes } from '../includes.mjs';
 import { string_underscore } from '../underscore.mjs';
 export function string_identifier_is(value) {
     arguments_assert(arguments, [tautology]);
+    let is_identifier = true;
     if (!string_is(value)) {
         return false;
     }
@@ -20,13 +21,15 @@ export function string_identifier_is(value) {
     if (list_length_is_0(list)) {
         return false;
     }
-    let first = list_first(list);
-    if (!string_letter_is(first)) {
-        return false;
-    }
-    let last = list_last(list);
-    if (string_underscore_is(last)) {
-        return false;
+    if (is_identifier) {
+        let first = list_first(list);
+        if (!string_letter_is(first)) {
+            return false;
+        }
+        let last = list_last(list);
+        if (string_underscore_is(last)) {
+            return false;
+        }
     }
     let underscore = string_underscore();
     if (string_includes(value, `${ underscore }${ underscore }`)) {
