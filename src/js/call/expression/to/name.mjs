@@ -10,7 +10,9 @@ export function js_call_expression_to_name(ce) {
     let temp = null;
     let callee = js_node_identifer_by_name_get(ce, 'callee');
     if (false) {
-        return;
+        if (!js_node_is_identifier(callee)) {
+            return;
+        }
     }
     assert(js_node_is_identifier(callee));
     let name = object_property_get(callee, 'name');
