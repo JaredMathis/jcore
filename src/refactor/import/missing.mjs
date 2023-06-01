@@ -6,7 +6,7 @@ import { list_contains } from '../../list/contains.mjs';
 import { list_filter } from '../../list/filter.mjs';
 import { comment } from '../../comment.mjs';
 import { list_without_multiple } from '../../list/without/multiple.mjs';
-import { list_add_beginning_all } from '../../list/add/beginning/all.mjs';
+import { list_add_beginning_multiple } from '../../list/add/beginning/multiple.mjs';
 import { js_function_name_to_import } from '../../js/function/name/to/import.mjs';
 import { js_import_all_to_function_name } from '../../js/import/all/to/function/name.mjs';
 import { js_exported_function_names } from '../../js/exported/function/names.mjs';
@@ -24,6 +24,6 @@ export async function refactor_import_missing(args) {
     let without = list_without_multiple(missing, exported_function_names);
     let import_new_all = list_map(without, js_function_name_to_import);
     let body = js_body_get(parsed);
-    list_add_beginning_all(body, import_new_all);
+    list_add_beginning_multiple(body, import_new_all);
     metadata([]);
 }
