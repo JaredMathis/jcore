@@ -1,6 +1,8 @@
-import { error } from '../../../../error.mjs';
+import { log } from '../../../../log.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
-export function function_callers_arguments_assert_auto() {
+import { function_callers } from '../../../callers.mjs';
+export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, []);
-    error('todo: function_callers_arguments_assert_auto');
+    let callers = await function_callers(function_name);
+    console.log(callers);
 }
