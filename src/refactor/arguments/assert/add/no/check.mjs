@@ -18,12 +18,10 @@ export function refactor_arguments_assert_add_no_check(function_declaration, exc
         tautology,
         tautology
     ]);
-    if (false) {
-        comment(`We want to skip dependencies of ${ function_name_get(arguments_assert) } or we will have recursion problems`);
-        let function_name = js_function_declaration_to_name(function_declaration);
-        if (list_contains(excludes, function_name)) {
-            return;
-        }
+    comment(`We want to skip dependencies of ${ function_name_get(arguments_assert) } or we will have recursion problems`);
+    let function_name = js_function_declaration_to_name(function_declaration);
+    if (list_contains(excludes, function_name)) {
+        return;
     }
     let statements = js_function_delcaration_to_statements(function_declaration);
     let params = object_property_get(function_declaration, 'params');
