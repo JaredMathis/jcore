@@ -37,9 +37,9 @@ export async function function_callers_arguments_assert_auto(function_name) {
             continue;
         }
         let file_path = function_name_to_file_path(c_function_name);
-        await file_js_map_args(file_path, async args => {
-            let c_parsed = object_property_get(args, 'parsed');
-            let c_function_declaration = object_property_get(args, 'function_declaration');
+        await file_js_map_args(file_path, async c_args => {
+            let c_parsed = object_property_get(c_args, 'parsed');
+            let c_function_declaration = object_property_get(c_args, 'function_declaration');
             let c_params = object_property_get(c_function_declaration, js_node_property_params());
             if (list_length_is_0(c_params)) {
                 return true;
