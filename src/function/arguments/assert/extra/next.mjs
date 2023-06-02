@@ -16,6 +16,7 @@ import { list_contains } from '../../../../list/contains.mjs';
 import { list_filter } from '../../../../list/filter.mjs';
 export async function function_arguments_assert_extra_next() {
     arguments_assert(arguments, []);
+    let result = null;
     await function_names_each(logic);
     async function logic(args) {
         let {parsed, function_name} = args;
@@ -34,7 +35,9 @@ export async function function_arguments_assert_extra_next() {
         });
         if (list_length(result) >= 2) {
             function_open_vs_code(function_name);
+            result = function_name;
             return true;
         }
     }
+    return result;
 }
