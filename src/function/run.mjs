@@ -7,8 +7,7 @@ export async function function_run(function_name, args) {
         tautology,
         tautology
     ]);
-    let import_meta = import.meta;
-    let imported = await function_import(import_meta, function_name);
+    let imported = await function_import(import.meta, function_name);
     let imported_function = imported[function_name];
     let result = await imported_function(...args);
     return result;
