@@ -58,6 +58,9 @@ export async function function_callers_arguments_assert_auto(function_name) {
                 });
                 if (equal(predicate_name, default_name)) {
                     js_visit_nodes(c_parsed, js_node_is_assignment_expression, v => {
+                        let {node} =v; 
+                        let left = object_property_get(node, 'left');
+                        console.log({node})
                         error('handle this situation: ' + c_function_name);
                     });
                     js_visit_nodes(c_parsed, js_node_is_call_expression, v => {
