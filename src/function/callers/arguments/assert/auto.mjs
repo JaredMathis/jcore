@@ -1,3 +1,4 @@
+import { js_mapper_args_to_statement_arguments_assert_args_predicate } from '../../../../js/mapper/args/to/statement/arguments/assert/args/predicate.mjs';
 import { function_parse_to_declaration } from '../../../parse/to/declaration.mjs';
 import { js_mapper_args_to_statement_arguments_assert_args } from '../../../../js/mapper/args/to/statement/arguments/assert/args.mjs';
 import { list_index_of } from '../../../../list/index/of.mjs';
@@ -5,7 +6,6 @@ import { js_node_is_call_expression } from '../../../../js/node/is/call/expressi
 import { js_node_is_assignment_expression } from '../../../../js/node/is/assignment/expression.mjs';
 import { js_export_function_single } from '../../../../js/export/function/single.mjs';
 import { function_parse } from '../../../parse.mjs';
-import { js_node_property_elements } from '../../../../js/node/property/elements.mjs';
 import { list_each_with_index_async } from '../../../../list/each/with/index/async.mjs';
 import { arguments_assert_predicate_default } from '../../../../arguments/assert/predicate/default.mjs';
 import { js_node_property_name } from '../../../../js/node/property/name.mjs';
@@ -43,9 +43,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
             continue;
         }
         let c_params_names = list_map(c_params, p => object_property_get(p, 'name'));
-        const c_arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args(c_function_declaration);
-        let c_array_expression = list_get(c_arguments_assert_args, 1);
-        let c_args = object_property_get(c_array_expression, js_node_property_elements());
+        let c_args = await js_mapper_args_to_statement_arguments_assert_args_predicate(c_function_declaration);
         await list_each_with_index_async(c_args, async function lambda(c_arg, index) {
             comment(`If this isn't true then this code needs changing`);
             assert(js_node_is_identifier(c_arg));
