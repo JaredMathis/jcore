@@ -14,5 +14,5 @@ export function arguments_assert_test_2() {
         integer_is,
         integer_is
     ]));
-    metadata([]);
+    metadata([metadata_arguments_assert_none()]);
 }
