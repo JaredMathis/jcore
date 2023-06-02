@@ -85,7 +85,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
                     }
                 });
                 if (changed) {
-                    console.log({c_args: c_arguments_assert_args})
+                    console.log({c_arguments_assert_args})
                     await refactor_import_fix(c_arguments_assert_args);
                 }
                 return !changed;
