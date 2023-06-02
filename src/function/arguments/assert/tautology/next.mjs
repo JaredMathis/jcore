@@ -1,3 +1,4 @@
+import { js_function_delcaration_to_statement_first } from '../../../../js/function/delcaration/to/statement/first.mjs';
 import { js_identifier_counts } from '../../../../js/identifier/counts.mjs';
 import { function_open_vs_code } from '../../../open/vs/code.mjs';
 import { function_names_each } from '../../../names/each.mjs';
@@ -8,11 +9,9 @@ import { object_property_get } from '../../../../object/property/get.mjs';
 import { js_node_is_expression_statement } from '../../../../js/node/is/expression/statement.mjs';
 import { assert } from '../../../../assert.mjs';
 import { js_export_function_single } from '../../../../js/export/function/single.mjs';
-import { list_first } from '../../../../list/first.mjs';
-import { js_function_delcaration_to_statements } from '../../../../js/function/delcaration/to/statements.mjs';
 import { function_name_get } from '../../../name/get.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
-import { refactor_arguments_assert_add } from '../../../../refactor/arguments/assert/add.mjs';
+import { js_mapper_args_to_statement_arguments_assert } from '../../../../js/mapper/args/to/statement/arguments/assert.mjs';
 import { tautology } from '../../../../tautology.mjs';
 import { object_property_exists } from '../../../../object/property/exists.mjs';
 export async function function_arguments_assert_tautology_next() {
@@ -20,10 +19,9 @@ export async function function_arguments_assert_tautology_next() {
     await function_names_each(logic);
     async function logic(args) {
         let {parsed, function_name} = args;
-        await refactor_arguments_assert_add(args);
+        await js_mapper_args_to_statement_arguments_assert(args);
         let function_declaration = js_export_function_single(parsed);
-        let statements = js_function_delcaration_to_statements(function_declaration);
-        let statement_first = list_first(statements);
+        let statement_first = js_function_delcaration_to_statement_first(function_declaration);
         assert(js_node_is_expression_statement(statement_first));
         let expression = object_property_get(statement_first, js_node_property_expression());
         let name_actual = js_find_call_expressions_to_name(expression);
