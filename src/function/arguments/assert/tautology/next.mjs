@@ -15,7 +15,7 @@ import { refactor_arguments_assert_add } from '../../../../refactor/arguments/as
 export async function function_arguments_assert_tautology_next() {
     arguments_assert(arguments, []);
     await function_names_each(logic);
-    function logic(args) {
+    async function logic(args) {
         let {parsed} = args;
         await refactor_arguments_assert_add(args);
         let function_declaration = js_export_function_single(parsed);
