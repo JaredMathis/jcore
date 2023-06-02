@@ -1,4 +1,3 @@
-import { js_property_name_assignment_expression } from '../../../../js/property/name/assignment/expression.mjs';
 import { js_export_function_single } from '../../../../js/export/function/single.mjs';
 import { function_parse } from '../../../parse.mjs';
 import { js_node_property_elements } from '../../../../js/node/property/elements.mjs';
@@ -54,7 +53,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
             if (equal(predicate_name, default_name)) {
                 let arguments_assert_arg_identifier = list_get(params, index);
                 let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
-                js_visit_nodes(parsed, n => js_node_is_type(n, js_property_name_assignment_expression()), v => {
+                js_visit_nodes(parsed, n => js_node_is_assignment_expression(n), v => {
                     error('handle this situation');
                 });
                 console.log({ i: arguments_assert_arg_identifier });
@@ -68,4 +67,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
         return;
     }
     console.log(callers);
+}
+
+function js_node_is_assignment_expression(n) {
+    return js_node_is_type(n, 'AssignmentExpression');
 }
