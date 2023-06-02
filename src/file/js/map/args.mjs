@@ -10,7 +10,7 @@ export async function file_js_map_args(file_path, mapper) {
         tautology
     ]);
     let args = await file_js_path_to_mapper_args(file_path);
-    await js_mapper_with_function_declaration_generic(args, mapper, false);
+    await js_mapper_with_function_declaration_generic(args, mapper);
     await file_js_overwrite(args);
     metadata([]);
 }
