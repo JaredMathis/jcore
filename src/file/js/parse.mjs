@@ -6,6 +6,7 @@ import { file_read } from '../read.mjs';
 export async function file_js_parse(file_path) {
     arguments_assert(arguments, [tautology]);
     let unparsed = await file_read(file_path);
-    return js_parse(unparsed);
+    let result = js_parse(unparsed);
+    return result;
     metadata([]);
 }

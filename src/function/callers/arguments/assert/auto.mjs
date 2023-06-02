@@ -1,3 +1,5 @@
+import { function_map_with_args } from '../../../map/with/args.mjs';
+import { object_property_change } from '../../../../object/property/change.mjs';
 import { js_mapper_args_to_statement_arguments_assert_args_predicate } from '../../../../js/mapper/args/to/statement/arguments/assert/args/predicate.mjs';
 import { function_parse_to_declaration } from '../../../parse/to/declaration.mjs';
 import { list_index_of } from '../../../../list/index/of.mjs';
@@ -41,6 +43,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
         if (list_length_is_0(c_params)) {
             continue;
         }
+        if (false)
+            await function_map_with_args();
         let c_params_names = list_map(c_params, p => object_property_get(p, 'name'));
         let c_args = await js_mapper_args_to_statement_arguments_assert_args_predicate(c_function_declaration);
         await list_each_with_index_async(c_args, async function lambda(c_arg, index) {
@@ -67,16 +71,11 @@ export async function function_callers_arguments_assert_auto(function_name) {
                             let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
                             let arguments_assert_arg = list_get(arguments_assert_args, params_index);
                             object_property_change(c_args, index, arguments_assert_arg);
-                            return;
-                            let arguments_assert_arg_identifier = list_get(c_params, params_index);
-                            let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
                         }
                     }
                 });
             }
         });
-        let arguments_assert_statement_predicates = [];
-        console.log({ function_declaration: c_function_declaration });
         return;
     }
     console.log(callers);
