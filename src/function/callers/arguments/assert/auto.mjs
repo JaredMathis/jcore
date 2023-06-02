@@ -8,6 +8,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
     let callers = await function_callers(function_name);
     for (let c of callers) {
         let function_declaration = await function_parse_to_declaration(function_name);
+        console.log({ function_declaration });
+        return;
     }
     console.log(callers);
 }
