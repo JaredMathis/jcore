@@ -30,7 +30,7 @@ import { list_map } from '../../../../list/map.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let function_declaration = await function_parse_to_declaration(function_name);
-    let arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
+    let arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args_predicate(function_declaration);
     let callers = await function_callers(function_name);
     for (let c of callers) {
         if (equal(function_name, c)) {
