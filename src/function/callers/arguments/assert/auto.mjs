@@ -7,6 +7,7 @@ import { equal } from '../../../../equal.mjs';
 import { js_mapper_args_to_statement_arguments_assert } from '../../../../js/mapper/args/to/statement/arguments/assert.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { js_property_name_params } from '../../../../js/property/name/params.mjs';
+import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let callers = await function_callers(function_name);
@@ -15,8 +16,11 @@ export async function function_callers_arguments_assert_auto(function_name) {
             continue;
         }
         let function_declaration = await function_parse_to_declaration(c);
-        let arguments_assert_statement = await js_mapper_args_to_statement_arguments_assert({ function_declaration });
         let params = object_property_get(function_declaration, js_property_name_params())
+        if (list_length_is_0(params)) {
+            continue;
+        }
+        let arguments_assert_statement = await js_mapper_args_to_statement_arguments_assert({ function_declaration });
         console.log({ function_declaration, params });
         return;
     }
