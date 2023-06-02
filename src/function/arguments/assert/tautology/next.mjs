@@ -24,7 +24,7 @@ export async function function_arguments_assert_tautology_next() {
         assert(js_node_is_expression_statement(statement_first));
         let expression = object_property_get(statement_first, js_node_property_expression());
         let name_actual = js_call_expression_to_name(expression);
-        comment(`If this fails then need to add arguments assert to function`);
         assert(equal(name_actual, function_name_get(arguments_assert)));
+        
     }
 }

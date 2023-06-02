@@ -28,9 +28,10 @@ export async function function_arguments_assert_extra_next() {
         let matches = [];
         js_visit_nodes(parsed, node => js_node_is_call_expression(node), v => {
             let {node} = v;
-            const node_name = js_call_expression_to_name_or_null(node);
-            if (node_name !== null) {
-                if (equal(node_name, function_name_get(arguments_assert))) {
+            const name_actual = js_call_expression_to_name_or_null(node);
+            if (name_actual !== null) {
+                const name_expected = function_name_get(arguments_assert);
+                if (equal(name_actual, name_expected)) {
                     list_add(matches, node);
                 }
             }
