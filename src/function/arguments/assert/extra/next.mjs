@@ -8,11 +8,16 @@ import { node_is_call_expression } from '../../../../node/is/call/expression.mjs
 import { js_call_expression_to_name } from '../../../../js/call/expression/to/name.mjs';
 import { list_add } from '../../../../list/add.mjs';
 import { list_length } from '../../../../list/length.mjs';
+import { js_mapper_args_to_metadata_args } from '../../../../js/mapper/args/to/metadata/args.mjs';
 export async function function_arguments_assert_extra_next() {
     arguments_assert(arguments, []);
     await function_names_each(logic);
-    function logic(args) {
+    async function logic(args) {
         let {parsed, function_name} = args;
+
+        let metadata_args = await js_mapper_args_to_metadata_args(args);
+        console.log({metadata_args})
+
         let result = [];
         js_visit_nodes(parsed, node => node_is_call_expression(node), v => {
             let {node} = v;
