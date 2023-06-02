@@ -38,10 +38,12 @@ export async function function_callers_arguments_assert_auto(function_name) {
         }
         let file_path = function_name_to_file_path(c);
         await file_js_map_args(file_path, async args => {
+            console.log('here2')
             let c_parsed = object_property_get(args, 'parsed');
             let c_function_declaration = object_property_get(args, 'function_declaration');
             let c_params = object_property_get(c_function_declaration, js_node_property_params());
             if (list_length_is_0(c_params)) {
+                console.log('here3')
                 return true;
             }
             let c_params_names = list_map(c_params, p => object_property_get(p, 'name'));
@@ -70,6 +72,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
                                 let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
                                 let arguments_assert_arg = list_get(arguments_assert_args, params_index);
                                 object_property_change(c_args, index, arguments_assert_arg);
+                                console.log('here')
                             }
                         }
                     });
