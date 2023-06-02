@@ -5,6 +5,6 @@ export function list_each_with_index_async(list, lambda) {
     const r = range(list_length(list));
     for (let index of r) {
         let element = list_get(list, index);
-        lambda(element, index);
+        await lambda(element, index);
     }
 }
