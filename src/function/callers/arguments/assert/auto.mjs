@@ -1,3 +1,4 @@
+import { json_to } from '../../../../json/to.mjs';
 import { list_each_with_index } from '../../../../list/each/with/index.mjs';
 import { arguments_assert_predicate_default } from '../../../../arguments/assert/predicate/default.mjs';
 import { js_node_property_name } from '../../../../js/node/property/name.mjs';
@@ -32,14 +33,15 @@ export async function function_callers_arguments_assert_auto(function_name) {
         let arguments_assert_statement = await js_mapper_args_to_statement_arguments_assert({ function_declaration });
         let arguments_assert_call_expression = js_statement_expression_to_expression(arguments_assert_statement);
         const args = object_property_get(arguments_assert_call_expression, js_node_property_arguments());
+        console.log(json_to(args));
         list_each_with_index(args, function lambda(arg, index) {
             comment(`If this isn't true then this code needs changing`);
             assert(js_node_is_identifier(arg));
             let predicate_name = object_property_get(arg, js_node_property_name());
-            console.log({predicate_name})
+            console.log({ predicate_name });
             if (equal(predicate_name, arguments_assert_predicate_default())) {
                 let i = list_get(params, index);
-                console.log({i})
+                console.log({ i });
             }
         });
         let arguments_assert_statement_predicates = [];
