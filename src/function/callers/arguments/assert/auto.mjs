@@ -32,18 +32,17 @@ export async function function_callers_arguments_assert_auto(function_name) {
     let function_declaration = await function_parse_to_declaration(function_name);
     let arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args_predicate(function_declaration);
     let callers = await function_callers(function_name);
-    for (let c of callers) {
-        if (equal(function_name, c)) {
+    for (let c_function_name of callers) {
+        if (equal(function_name, c_function_name)) {
             continue;
         }
-        let file_path = function_name_to_file_path(c);
+        let file_path = function_name_to_file_path(c_function_name);
         await file_js_map_args(file_path, async args => {
-            console.log('here2')
             let c_parsed = object_property_get(args, 'parsed');
             let c_function_declaration = object_property_get(args, 'function_declaration');
+            let c_file_path = object_property_get(args, 'file_path');
             let c_params = object_property_get(c_function_declaration, js_node_property_params());
             if (list_length_is_0(c_params)) {
-                console.log('here3')
                 return true;
             }
             let c_params_names = list_map(c_params, p => object_property_get(p, 'name'));
@@ -59,7 +58,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
                 });
                 if (equal(predicate_name, default_name)) {
                     js_visit_nodes(c_parsed, js_node_is_assignment_expression, v => {
-                        error('handle this situation');
+                        error('handle this situation: ' + c_function_name);
                     });
                     js_visit_nodes(c_parsed, js_node_is_call_expression, v => {
                         let {node} = v;
@@ -72,7 +71,6 @@ export async function function_callers_arguments_assert_auto(function_name) {
                                 let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
                                 let arguments_assert_arg = list_get(arguments_assert_args, params_index);
                                 object_property_change(c_args, index, arguments_assert_arg);
-                                console.log('here')
                             }
                         }
                     });
