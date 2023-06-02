@@ -6,10 +6,6 @@ import { file_js_map } from '../file/js/map.mjs';
 import { function_name_to_file_path } from './name/to/file/path.mjs';
 export async function function_map(function_name_mapper, function_name) {
     arguments_assert(arguments, [
-        tautology,
-        tautology
-    ]);
-    arguments_assert(arguments, [
         string_identifier_is,
         string_identifier_is
     ]);
