@@ -11,11 +11,13 @@ import { js_function_delcaration_to_statements } from '../../../../js/function/d
 import { function_name_get } from '../../../name/get.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { comment } from '../../../../comment.mjs';
+import { refactor_arguments_assert_add } from '../../../../refactor/arguments/assert/add.mjs';
 export async function function_arguments_assert_tautology_next() {
     arguments_assert(arguments, []);
     await function_names_each(logic);
     function logic(args) {
         let {parsed} = args;
+        await refactor_arguments_assert_add(args);
         let function_declaration = js_export_function_single(parsed);
         let statements = js_function_delcaration_to_statements(function_declaration);
         let statement_first = list_first(statements);
