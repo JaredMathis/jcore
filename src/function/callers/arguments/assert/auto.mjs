@@ -61,7 +61,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
                         let {node} = v;
                         let left = object_property_get(node, js_node_property_left());
                         if (js_node_is_identifier(left)) {
-                            if (object_property_get(left, 'name') === ) {
+                            if (false)
+                            if (object_property_get(left, 'name') === a) {
 
                             }
                         }
