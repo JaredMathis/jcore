@@ -10,6 +10,8 @@ import { js_exports } from '../../../exports.mjs';
 import { value_new } from '../../../../value/new.mjs';
 import { js_export_declaration_get } from '../../declaration/get.mjs';
 import { js_node_is_function_declaration } from '../../../node/is/function/declaration.mjs';
+import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
+import { error } from '../../../../error.mjs';
 export function js_export_function_single_generic(parsed, or_null) {
     arguments_assert(arguments, [
         tautology,
@@ -20,6 +22,9 @@ export function js_export_function_single_generic(parsed, or_null) {
     if (or_null) {
         if (!list_length_is_1(exports_existing)) {
             value_set(result, null);
+        }
+        if (!list_length_is_0(exports_existing)) {
+            error(`Multiple exports? Look into this`)
         }
     }
     if (!value_set_is(result)) {
