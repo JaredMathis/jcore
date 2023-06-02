@@ -4,8 +4,6 @@ import { function_parse_to_declaration } from '../../../parse/to/declaration.mjs
 import { list_index_of } from '../../../../list/index/of.mjs';
 import { js_node_is_call_expression } from '../../../../js/node/is/call/expression.mjs';
 import { js_node_is_assignment_expression } from '../../../../js/node/is/assignment/expression.mjs';
-import { js_export_function_single } from '../../../../js/export/function/single.mjs';
-import { function_parse } from '../../../parse.mjs';
 import { list_each_with_index_async } from '../../../../list/each/with/index/async.mjs';
 import { arguments_assert_predicate_default } from '../../../../arguments/assert/predicate/default.mjs';
 import { js_node_property_name } from '../../../../js/node/property/name.mjs';
