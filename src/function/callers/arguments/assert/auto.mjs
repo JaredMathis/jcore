@@ -1,3 +1,4 @@
+import { js_visit_nodes_all } from '../../../../js/visit/nodes/all.mjs';
 import { js_node_property_elements } from '../../../../js/node/property/elements.mjs';
 import { list_each_with_index } from '../../../../list/each/with/index.mjs';
 import { arguments_assert_predicate_default } from '../../../../arguments/assert/predicate/default.mjs';
@@ -40,11 +41,16 @@ export async function function_callers_arguments_assert_auto(function_name) {
             comment(`If this isn't true then this code needs changing`);
             assert(js_node_is_identifier(arg));
             let predicate_name = object_property_get(arg, js_node_property_name());
-            let default_name =  function_name_get(arguments_assert_predicate_default())
-            console.log({ predicate_name, default_name });
-            if (equal(predicate_name,default_name)) {
+            let default_name = function_name_get(arguments_assert_predicate_default());
+            console.log({
+                predicate_name,
+                default_name
+            });
+            if (equal(predicate_name, default_name)) {
                 let arguments_assert_arg_identifier = list_get(params, index);
-                let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name')
+                let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
+                if (false)
+                    js_visit_nodes_all;
                 console.log({ i: arguments_assert_arg_identifier });
             }
         });
