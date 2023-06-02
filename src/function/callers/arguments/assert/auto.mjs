@@ -60,6 +60,11 @@ export async function function_callers_arguments_assert_auto(function_name) {
                     js_visit_nodes(c_parsed, js_node_is_assignment_expression, v => {
                         let {node} = v;
                         let left = object_property_get(node, js_node_property_left());
+                        if (js_node_is_identifier(left)) {
+                            if (object_property_get(left, 'name') === ) {
+
+                            }
+                        }
                         console.log({ node });
                         error('handle this situation: ' + c_function_name);
                     });
