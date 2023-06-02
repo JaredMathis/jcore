@@ -1,3 +1,5 @@
+import { js_export_function_single } from '../../../../js/export/function/single.mjs';
+import { function_parse } from '../../../parse.mjs';
 import { js_visit_nodes_all } from '../../../../js/visit/nodes/all.mjs';
 import { js_node_property_elements } from '../../../../js/node/property/elements.mjs';
 import { list_each_with_index } from '../../../../list/each/with/index.mjs';
@@ -5,7 +7,6 @@ import { arguments_assert_predicate_default } from '../../../../arguments/assert
 import { js_node_property_name } from '../../../../js/node/property/name.mjs';
 import { js_node_property_arguments } from '../../../../js/node/property/arguments.mjs';
 import { js_statement_expression_to_expression } from '../../../../js/statement/expression/to/expression.mjs';
-import { function_parse_to_declaration } from '../../../parse/to/declaration.mjs';
 import { log } from '../../../../log.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { function_callers } from '../../../callers.mjs';
@@ -27,7 +28,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
         if (equal(function_name, c)) {
             continue;
         }
-        let function_declaration = await function_parse_to_declaration(c);
+        let parsed = await function_parse(c);
+        let function_declaration = js_export_function_single(parsed);
         let params = object_property_get(function_declaration, js_property_name_params());
         if (list_length_is_0(params)) {
             continue;
@@ -49,8 +51,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
             if (equal(predicate_name, default_name)) {
                 let arguments_assert_arg_identifier = list_get(params, index);
                 let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
-                if (false)
-                    js_visit_nodes_all;
+                js_visit_nodes_all();
                 console.log({ i: arguments_assert_arg_identifier });
             }
         });
