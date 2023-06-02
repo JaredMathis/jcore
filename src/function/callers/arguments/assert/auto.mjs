@@ -24,6 +24,7 @@ import { list_get } from '../../../../list/get.mjs';
 import { function_name_get } from '../../../name/get.mjs';
 import { js_visit_nodes } from '../../../../js/visit/nodes.mjs';
 import { error } from '../../../../error.mjs';
+import { js_call_expression_to_name_or_null } from '../../../../js/call/expression/to/name/or/null.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let callers = await function_callers(function_name);
@@ -59,7 +60,10 @@ export async function function_callers_arguments_assert_auto(function_name) {
                 });
                 js_visit_nodes(parsed, js_node_is_call_expression, v => {
                     let {node} = v;
-                    console.log({ node });
+                    let ce_name = js_call_expression_to_name_or_null(node);
+                    if (ce_name !== null) {
+                        console.log({ ce_name });
+                    }
                 });
                 console.log({ i: arguments_assert_arg_identifier });
             }
