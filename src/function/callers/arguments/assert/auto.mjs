@@ -1,3 +1,4 @@
+import { js_mapper_args_to_statement_arguments_assert_args } from '../../../../js/mapper/args/to/statement/arguments/assert/args.mjs';
 import { list_index_of } from '../../../../list/index/of.mjs';
 import { js_node_is_call_expression } from '../../../../js/node/is/call/expression.mjs';
 import { js_node_is_assignment_expression } from '../../../../js/node/is/assignment/expression.mjs';
@@ -8,13 +9,11 @@ import { list_each_with_index } from '../../../../list/each/with/index.mjs';
 import { arguments_assert_predicate_default } from '../../../../arguments/assert/predicate/default.mjs';
 import { js_node_property_name } from '../../../../js/node/property/name.mjs';
 import { js_node_property_arguments } from '../../../../js/node/property/arguments.mjs';
-import { js_statement_expression_to_expression } from '../../../../js/statement/expression/to/expression.mjs';
 import { log } from '../../../../log.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { function_callers } from '../../../callers.mjs';
 import { string_identifier_is } from '../../../../string/identifier/is.mjs';
 import { equal } from '../../../../equal.mjs';
-import { js_mapper_args_to_statement_arguments_assert } from '../../../../js/mapper/args/to/statement/arguments/assert.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { js_node_property_params } from '../../../../js/node/property/params.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
@@ -29,7 +28,6 @@ import { js_call_expression_to_name_or_null } from '../../../../js/call/expressi
 import { list_map } from '../../../../list/map.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
-
     let callers = await function_callers(function_name);
     for (let c of callers) {
         if (equal(function_name, c)) {
@@ -65,36 +63,22 @@ export async function function_callers_arguments_assert_auto(function_name) {
                         if (equal(ce_name, function_name)) {
                             let ce_args = object_property_get(node, js_node_property_arguments());
                             let ce_arg_for_arg = list_get(ce_args, index);
-
-
-
                             let ce_arg_for_arg_name = object_property_get(ce_arg_for_arg, 'name');
                             let params_index = list_index_of(params_names, ce_arg_for_arg_name);
-
-
-                            
-
                             let arguments_assert_arg_identifier = list_get(params, params_index);
                             let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
-                            
-                            console.log({ arguments_assert_arg_identifier_name, ce_arg_for_arg });
+                            console.log({
+                                arguments_assert_arg_identifier_name,
+                                ce_arg_for_arg
+                            });
                         }
                     }
                 });
             }
         });
         let arguments_assert_statement_predicates = [];
-        console.log({
-            function_declaration,
-        });
+        console.log({ function_declaration });
         return;
     }
     console.log(callers);
-}
-
-async function js_mapper_args_to_statement_arguments_assert_args(function_declaration) {
-    let arguments_assert_statement = await js_mapper_args_to_statement_arguments_assert({ function_declaration });
-    let arguments_assert_call_expression = js_statement_expression_to_expression(arguments_assert_statement);
-    const arguments_assert_args = object_property_get(arguments_assert_call_expression, js_node_property_arguments());
-    return arguments_assert_args;
 }
