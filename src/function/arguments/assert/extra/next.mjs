@@ -26,14 +26,14 @@ export async function function_arguments_assert_extra_next() {
         if (list_contains(mapped, function_name_get(metadata_arguments_assert_none))) {
             return;
         }
-        let result = [];
+        let matches = [];
         js_visit_nodes(parsed, node => js_node_is_call_expression(node), v => {
             let {node} = v;
             if (equal(js_call_expression_to_name(node), function_name_get(arguments_assert))) {
-                list_add(result, node);
+                list_add(matches, node);
             }
         });
-        if (list_length(result) >= 2) {
+        if (list_length(matches) >= 2) {
             function_open_vs_code(function_name);
             result = function_name;
             return true;
