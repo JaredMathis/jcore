@@ -31,7 +31,7 @@ export async function refactor_functions_arguments_assert_missing_add() {
             });
         }
         if (!exists) {
-            refactor_arguments_assert_add_no_check(function_declaration);
+            refactor_arguments_assert_add_no_check(function_declaration, excludes);
             await refactor_import_fix(args);
         }
     });

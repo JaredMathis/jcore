@@ -10,7 +10,7 @@ import { list_map } from '../../../../../list/map.mjs';
 import { list_length } from '../../../../../list/length.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_function_delcaration_to_statements } from '../../../../../js/function/delcaration/to/statements.mjs';
-export function refactor_arguments_assert_add_no_check(function_declaration) {
+export function refactor_arguments_assert_add_no_check(function_declaration, excludes) {
     let statements = js_function_delcaration_to_statements(function_declaration);
     let params = object_property_get(function_declaration, 'params');
     let params_length = list_length(params);
