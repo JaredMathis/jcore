@@ -58,7 +58,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
                     error('handle this situation');
                 });
                 js_visit_nodes(parsed, js_node_is_call_expression, v => {
-                    error('handle this situation');
+                    let {node} = v;
+                    console.log({ node });
                 });
                 console.log({ i: arguments_assert_arg_identifier });
             }
