@@ -21,6 +21,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
             continue;
         }
         let arguments_assert_statement = await js_mapper_args_to_statement_arguments_assert({ function_declaration });
+        let arguments_assert_call_expression = js_statement_expression_to_expression(arguments_assert_statement);
         let arguments_assert_statement_predicates = [];
         console.log({ function_declaration, arguments_assert_statement });
         return;
