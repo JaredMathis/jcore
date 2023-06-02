@@ -14,7 +14,7 @@ export async function file_js_parse(file_path) {
 }
 
 
-export async function file_js_parse_with_file_path(file_path) {
+async function file_js_parse_with_file_path(file_path) {
     arguments_assert(arguments, [tautology]);
     let unparsed = await file_read(file_path);
     let parsed = js_parse(unparsed);
