@@ -43,7 +43,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
         const arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
         let array_expression = list_get(arguments_assert_args, 1);
         let args = object_property_get(array_expression, js_node_property_elements());
-        list_each_with_index(args, function lambda(arg, index) {
+        list_each_with_index(args, async function lambda(arg, index) {
             comment(`If this isn't true then this code needs changing`);
             assert(js_node_is_identifier(arg));
             let predicate_name = object_property_get(arg, js_node_property_name());
