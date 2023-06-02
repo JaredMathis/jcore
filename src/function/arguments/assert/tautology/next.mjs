@@ -30,7 +30,7 @@ export async function function_arguments_assert_tautology_next() {
         assert(equal(name_actual, function_name_get(arguments_assert)));
         let matches = js_call_expressions_named(expression, function_name_get(tautology));
         if (!list_length_is_0(matches)) {
-            function_open_vs_code(function_name);
+            await function_open_vs_code(function_name);
             return true;
         }
     }
