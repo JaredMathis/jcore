@@ -1,7 +1,7 @@
 import { tautology } from '../../tautology.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
-import { js_find_identifiers } from '../../js/find/identifiers.mjs';
+import { js_identifiers } from '../../js/identifiers.mjs';
 import { function_name_all } from '../../function/name/all.mjs';
 import { list_map } from '../../list/map.mjs';
 import { list_contains } from '../../list/contains.mjs';
@@ -17,7 +17,7 @@ export async function refactor_import_missing(args) {
     arguments_assert(arguments, [tautology]);
     let {parsed} = args;
     let import_name_all = await js_import_all_to_function_name(parsed);
-    let identifiers = js_find_identifiers(parsed);
+    let identifiers = js_identifiers(parsed);
     let function_names = await function_name_all();
     comment(`Identifiers that are also function names`);
     let identifier_function_names = list_filter(identifiers, i => list_contains(function_names, i));

@@ -1,4 +1,4 @@
-import { js_find_identifiers } from '../../../../js/find/identifiers.mjs';
+import { js_identifiers } from '../../../../js/identifiers.mjs';
 import { function_open_vs_code } from '../../../open/vs/code.mjs';
 import { function_names_each } from '../../../names/each.mjs';
 import { equal } from '../../../../equal.mjs';
@@ -28,7 +28,7 @@ export async function function_arguments_assert_tautology_next() {
         let expression = object_property_get(statement_first, js_node_property_expression());
         let name_actual = js_find_call_expressions_to_name(expression);
         assert(equal(name_actual, function_name_get(arguments_assert)));
-        let matches = js_find_identifiers(expression, function_name_get(tautology));
+        let matches = js_identifiers(expression, function_name_get(tautology));
         if (!list_length_is_0(matches)) {
             await function_open_vs_code(function_name);
             return true;
