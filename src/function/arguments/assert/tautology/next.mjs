@@ -14,7 +14,6 @@ import { function_name_get } from '../../../name/get.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { refactor_arguments_assert_add } from '../../../../refactor/arguments/assert/add.mjs';
 import { tautology } from '../../../../tautology.mjs';
-import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 import { object_property_exists } from '../../../../object/property/exists.mjs';
 export async function function_arguments_assert_tautology_next() {
     arguments_assert(arguments, []);
@@ -31,7 +30,7 @@ export async function function_arguments_assert_tautology_next() {
         assert(equal(name_actual, function_name_get(arguments_assert)));
         let counts = js_identifier_counts(expression);
         let property_name = function_name_get(tautology);
-        if (object_property_exists(counts,property_name)) {
+        if (object_property_exists(counts, property_name)) {
             await function_open_vs_code(function_name);
             return true;
         }
