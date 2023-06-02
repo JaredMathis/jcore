@@ -1,3 +1,4 @@
+import { js_node_is_call_expression } from '../../../../js/node/is/call/expression.mjs';
 import { js_node_is_assignment_expression } from '../../../../js/node/is/assignment/expression.mjs';
 import { js_export_function_single } from '../../../../js/export/function/single.mjs';
 import { function_parse } from '../../../parse.mjs';
@@ -54,6 +55,9 @@ export async function function_callers_arguments_assert_auto(function_name) {
                 let arguments_assert_arg_identifier = list_get(params, index);
                 let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
                 js_visit_nodes(parsed, js_node_is_assignment_expression, v => {
+                    error('handle this situation');
+                });
+                js_visit_nodes(parsed, js_node_is_call_expression, v => {
                     error('handle this situation');
                 });
                 console.log({ i: arguments_assert_arg_identifier });
