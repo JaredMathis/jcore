@@ -45,8 +45,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
                 return true;
             }
             let c_params_names = list_map(c_params, p => object_property_get(p, 'name'));
-            let c_args = await js_mapper_args_to_statement_arguments_assert_args_predicate(c_function_declaration);
-            await list_each_with_index_async(c_args, async function lambda(c_arg, index) {
+            let c_arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args_predicate(c_function_declaration);
+            await list_each_with_index_async(c_arguments_assert_args, async function lambda(c_arg, index) {
                 comment(`If this isn't true then this code needs changing`);
                 assert(js_node_is_identifier(c_arg));
                 let predicate_name = object_property_get(c_arg, js_node_property_name());
@@ -79,14 +79,14 @@ export async function function_callers_arguments_assert_auto(function_name) {
                             let ce_arg_for_arg_name = object_property_get(ce_arg_for_arg, 'name');
                             let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
                             let arguments_assert_arg = list_get(arguments_assert_args, params_index);
-                            object_property_change(c_args, index, arguments_assert_arg);
+                            object_property_change(c_arguments_assert_args, index, arguments_assert_arg);
                             changed = true;
                         }
                     }
                 });
                 if (changed) {
-                    console.log({c_args})
-                    await refactor_import_fix(c_args);
+                    console.log({c_args: c_arguments_assert_args})
+                    await refactor_import_fix(c_arguments_assert_args);
                 }
                 return !changed;
             });
