@@ -12,5 +12,6 @@ export async function function_metadata_add(function_name, metadata_name) {
         string_identifier_is
     ]);
     assert(string_starts_with(metadata_name, metadata_prefix()));
+    let args = {metadata_name}
     await function_map(function_name_get(refactor_metadata_add), function_name);
 }
