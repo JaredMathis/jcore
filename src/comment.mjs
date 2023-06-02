@@ -1,6 +1,6 @@
 import { metadata } from './metadata.mjs';
-import { arguments_count } from './arguments/count.mjs';
+import { assert_arguments_count } from './assert/arguments/count.mjs';
 export function comment(text) {
-    arguments_count(arguments, 1);
+    assert_arguments_count(arguments, 1);
     metadata([]);
 }
