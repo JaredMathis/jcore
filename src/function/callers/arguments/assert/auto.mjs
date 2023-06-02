@@ -65,9 +65,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
                             let ce_arg_for_arg = list_get(ce_args, index);
                             let ce_arg_for_arg_name = object_property_get(ce_arg_for_arg, 'name');
                             let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
-                            let arguments_assert_arg = list_get(arguments_assert_args, params_index)
-                            let arguments_assert_arg_name = object_property_get(arguments_assert_arg, 'name')
-                            console.log({ arguments_assert_arg });
+                            let arguments_assert_arg = list_get(arguments_assert_args, params_index);
+                            object_property_override(c_args, index, arguments_assert_arg);
                             return;
                             let arguments_assert_arg_identifier = list_get(c_params, params_index);
                             let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
