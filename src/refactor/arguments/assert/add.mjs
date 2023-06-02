@@ -9,7 +9,7 @@ export function refactor_arguments_assert_add(args) {
     let {function_declaration} = args;
     let statements = js_function_delcaration_to_statements(function_declaration);
     let exists = false;
-    if (!list_length_is_0(statements)){
+    if (!list_length_is_0(statements)) {
         let statement_first = list_first(statements);
         js_node_call_expression_statement_if_name_equal(statement_first, function_name_get(arguments_assert), function on_name_equal() {
             exists = true;

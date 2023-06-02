@@ -9,7 +9,7 @@ export async function function_names_each(logic) {
         let parsed = await function_parse(function_name);
         let function_declaration = js_export_function_single_or_null(parsed);
         let file_path = function_name_to_file_path(function_name);
-        comment(`mapper_args code is being duplicated here likely`)
+        comment(`mapper_args code is being duplicated here likely`);
         let result = await logic({
             parsed,
             function_name,
