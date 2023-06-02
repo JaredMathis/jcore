@@ -34,8 +34,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
         if (equal(function_name, c)) {
             continue;
         }
-        let parsed = await function_parse(c);
-        let function_declaration = js_export_function_single(parsed);
+        let c_parsed = await function_parse(c);
+        let function_declaration = js_export_function_single(c_parsed);
         let params = object_property_get(function_declaration, js_node_property_params());
         if (list_length_is_0(params)) {
             continue;
@@ -56,16 +56,19 @@ export async function function_callers_arguments_assert_auto(function_name) {
                 default_name
             });
             if (equal(predicate_name, default_name)) {
-                js_visit_nodes(parsed, js_node_is_assignment_expression, v => {
+                js_visit_nodes(c_parsed, js_node_is_assignment_expression, v => {
                     error('handle this situation');
                 });
-                js_visit_nodes(parsed, js_node_is_call_expression, v => {
+                js_visit_nodes(c_parsed, js_node_is_call_expression, v => {
                     let {node} = v;
                     let ce_name = js_call_expression_to_name_or_null(node);
                     if (ce_name !== null) {
                         if (equal(ce_name, function_name)) {
                             let ce_args = object_property_get(node, js_node_property_arguments());
                             let ce_arg_for_arg = list_get(ce_args, index);
+
+
+
                             let ce_arg_for_arg_name = object_property_get(ce_arg_for_arg, 'name');
                             let params_index = list_index_of(params_names, ce_arg_for_arg_name);
                             let arguments_assert_arg_identifier = list_get(params, params_index);
