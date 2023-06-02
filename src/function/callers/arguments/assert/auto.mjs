@@ -69,8 +69,6 @@ export async function function_callers_arguments_assert_auto(function_name) {
                                 assignment_exists = true;
                             }
                         }
-                        console.log({ node });
-                        error('handle this situation: ' + c_function_name);
                     });
                     if (assignment_exists = true) {
                         return changed;
