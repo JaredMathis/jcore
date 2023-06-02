@@ -1,3 +1,4 @@
+import { js_node_property_name } from '../../../../js/node/property/name.mjs';
 import { js_node_property_arguments } from '../../../../js/node/property/arguments.mjs';
 import { js_statement_expression_to_expression } from '../../../../js/statement/expression/to/expression.mjs';
 import { function_parse_to_declaration } from '../../../parse/to/declaration.mjs';
@@ -25,7 +26,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
         let arguments_assert_statement = await js_mapper_args_to_statement_arguments_assert({ function_declaration });
         let arguments_assert_call_expression = js_statement_expression_to_expression(arguments_assert_statement);
         for (let arg of object_property_get(arguments_assert_call_expression, js_node_property_arguments())) {
-            console.log(arg)
+            object_property_get(arg, js_node_property_name());
         }
         let arguments_assert_statement_predicates = [];
         console.log({
