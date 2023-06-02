@@ -7,6 +7,7 @@ import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { function_name_get } from '../../../../../../function/name/get.mjs';
 import { function_dependencies_names } from '../../../../../../function/dependencies/names.mjs';
 export async function refactor_functions_arguments_assert_missing_add_excludes() {
+    arguments_assert(arguments, []);
     let excludes = await function_dependencies_names(function_name_get(arguments_assert));
     comment(`Eventually this should be refactored maybe to read files and detect an attribute`);
     list_add_multiple(excludes, [
@@ -15,4 +16,5 @@ export async function refactor_functions_arguments_assert_missing_add_excludes()
         function_name_get(git)
     ]);
     return excludes;
+    refactor_functions_arguments_assert_missing_add_excludes;
 }
