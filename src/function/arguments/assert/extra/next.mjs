@@ -13,13 +13,15 @@ import { js_mapper_args_to_metadata_args } from '../../../../js/mapper/args/to/m
 import { list_map } from '../../../../list/map.mjs';
 import { js_call_expression_to_name_or_null } from '../../../../js/call/expression/to/name/or/null.mjs';
 import { list_contains } from '../../../../list/contains.mjs';
+import { list_filter } from '../../../../list/filter.mjs';
 export async function function_arguments_assert_extra_next() {
     arguments_assert(arguments, []);
     await function_names_each(logic);
     async function logic(args) {
         let {parsed, function_name} = args;
         let metadata_args = await js_mapper_args_to_metadata_args(args);
-        let mapped = list_map(metadata_args, js_call_expression_to_name_or_null);
+        let filtered = list_filter(metadata_args, js_node_is_call_expression);
+        let mapped = list_map(filtered, js_call_expression_to_name_or_null);
         if (list_contains(mapped, function_name_get(metadata_arguments_assert_none))) {
             return;
         }
