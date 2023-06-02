@@ -1,3 +1,4 @@
+import { function_open_vs_code } from '../../../open/vs/code.mjs';
 import { js_call_expressions_named } from '../../../../js/call/expressions/named.mjs';
 import { function_names_each } from '../../../names/each.mjs';
 import { equal } from '../../../../equal.mjs';
@@ -13,11 +14,12 @@ import { function_name_get } from '../../../name/get.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { refactor_arguments_assert_add } from '../../../../refactor/arguments/assert/add.mjs';
 import { tautology } from '../../../../tautology.mjs';
+import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 export async function function_arguments_assert_tautology_next() {
     arguments_assert(arguments, []);
     await function_names_each(logic);
     async function logic(args) {
-        let {parsed} = args;
+        let {parsed, function_name} = args;
         await refactor_arguments_assert_add(args);
         let function_declaration = js_export_function_single(parsed);
         let statements = js_function_delcaration_to_statements(function_declaration);
@@ -26,6 +28,10 @@ export async function function_arguments_assert_tautology_next() {
         let expression = object_property_get(statement_first, js_node_property_expression());
         let name_actual = js_call_expression_to_name(expression);
         assert(equal(name_actual, function_name_get(arguments_assert)));
-        js_call_expressions_named(expression, function_name_get(tautology));
+        let matches = js_call_expressions_named(expression, function_name_get(tautology));
+        if (!list_length_is_0(matches)) {
+            function_open_vs_code(function_name);
+            return true;
+        }
     }
 }
