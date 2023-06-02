@@ -14,7 +14,7 @@ import { js_node_is_function_declaration } from '../../../../../node/is/function
 export async function js_mapper_args_to_statement_arguments_assert(args) {
     arguments_assert(arguments, [tautology]);
     let {function_declaration} = args;
-    assert(js_node_is_function_declaration(function_declaration))
+    assert(js_node_is_function_declaration(function_declaration));
     let statements = js_function_delcaration_to_statements(function_declaration);
     let exists = false;
     if (!list_length_is_0(statements)) {
