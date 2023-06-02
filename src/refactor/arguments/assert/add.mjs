@@ -5,7 +5,8 @@ import { js_node_call_expression_statement_if_name_equal } from '../../../js/nod
 import { list_first } from '../../../list/first.mjs';
 import { js_function_delcaration_to_statements } from '../../../js/function/delcaration/to/statements.mjs';
 import { list_length_is_0 } from '../../../list/length/is/0.mjs';
-export function refactor_arguments_assert_add(args) {
+import { refactor_functions_arguments_assert_missing_add_excludes } from '../../functions/arguments/assert/missing/add/excludes.mjs';
+export async function refactor_arguments_assert_add(args) {
     let {function_declaration} = args;
     let statements = js_function_delcaration_to_statements(function_declaration);
     let exists = false;
@@ -16,6 +17,7 @@ export function refactor_arguments_assert_add(args) {
         });
     }
     if (!exists) {
-        refactor_arguments_assert_add_no_check(function_declaration);
+        let excludes = await refactor_functions_arguments_assert_missing_add_excludes()
+        refactor_arguments_assert_add_no_check(function_declaration, excludes);
     }
 }
