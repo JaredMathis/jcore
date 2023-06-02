@@ -18,6 +18,7 @@ import { assert } from '../../../../assert.mjs';
 import { js_node_is_identifier } from '../../../../js/node/is/identifier.mjs';
 import { comment } from '../../../../comment.mjs';
 import { list_get } from '../../../../list/get.mjs';
+import { function_name_get } from '../../../name/get.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let callers = await function_callers(function_name);
@@ -40,7 +41,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
             assert(js_node_is_identifier(arg));
             let predicate_name = object_property_get(arg, js_node_property_name());
             console.log({ predicate_name });
-            if (equal(predicate_name, arguments_assert_predicate_default())) {
+            if (equal(predicate_name, function_name_get(arguments_assert_predicate_default()))) {
                 let i = list_get(params, index);
                 console.log({ i });
             }
