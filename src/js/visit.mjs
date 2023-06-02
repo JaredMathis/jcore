@@ -12,11 +12,14 @@ export function js_visit(parsed, filter, lambda) {
         tautology
     ]);
     let root;
-    if (js_node_is_type(parsed, 'Program')) {
+    if (js_node_is_program(parsed)) {
         root = js_body_get(parsed);
     } else {
         root = parsed;
     }
-    visit_filter(body, node => object_properties(node), filter, lambda);
+    visit_filter(root, node => object_properties(node), filter, lambda);
     metadata([]);
+}
+function js_node_is_program(parsed) {
+    return js_node_is_type(parsed, 'Program');
 }
