@@ -34,6 +34,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
             assert(js_node_is_identifier(arg));
             let predicate_name = object_property_get(arg, js_node_property_name());
             if (equal(predicate_name, arguments_assert_predicate_default())) {
+                comment('make sure predicate_name is not assigned in this function')
             }
         }
         let arguments_assert_statement_predicates = [];
