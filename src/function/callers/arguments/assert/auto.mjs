@@ -23,6 +23,7 @@ import { list_get } from '../../../../list/get.mjs';
 import { function_name_get } from '../../../name/get.mjs';
 import { js_visit_nodes } from '../../../../js/visit/nodes.mjs';
 import { js_node_is_type } from '../../../../js/node/is/type.mjs';
+import { error } from '../../../../error.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let callers = await function_callers(function_name);
@@ -54,6 +55,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
                 let arguments_assert_arg_identifier = list_get(params, index);
                 let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
                 js_visit_nodes(parsed, n => js_node_is_type(n, js_node_is_assignment_expression()), v => {
+                    error('handle this situation')
                 });
                 console.log({ i: arguments_assert_arg_identifier });
             }
