@@ -1,3 +1,4 @@
+import { list_index_of } from '../../../../list/index/of.mjs';
 import { js_node_is_call_expression } from '../../../../js/node/is/call/expression.mjs';
 import { js_node_is_assignment_expression } from '../../../../js/node/is/assignment/expression.mjs';
 import { js_export_function_single } from '../../../../js/export/function/single.mjs';
@@ -25,6 +26,7 @@ import { function_name_get } from '../../../name/get.mjs';
 import { js_visit_nodes } from '../../../../js/visit/nodes.mjs';
 import { error } from '../../../../error.mjs';
 import { js_call_expression_to_name_or_null } from '../../../../js/call/expression/to/name/or/null.mjs';
+import { list_map } from '../../../../list/map.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let callers = await function_callers(function_name);
@@ -38,6 +40,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
         if (list_length_is_0(params)) {
             continue;
         }
+        let params_names = list_map(params, p => object_property_get(p, 'name'));
         let arguments_assert_statement = await js_mapper_args_to_statement_arguments_assert({ function_declaration });
         let arguments_assert_call_expression = js_statement_expression_to_expression(arguments_assert_statement);
         const arguments_assert_args = object_property_get(arguments_assert_call_expression, js_node_property_arguments());
@@ -63,7 +66,9 @@ export async function function_callers_arguments_assert_auto(function_name) {
                         if (equal(ce_name, function_name)) {
                             let ce_args = object_property_get(node, js_node_property_arguments());
                             let ce_arg_for_arg = list_get(ce_args, index);
-                            console.log({ ce_arg_for_arg });
+                            let ce_arg_for_arg_name = object_property_get(ce_arg_for_arg, 'name');
+                            let params_index = list_index_of(params_names, ce_arg_for_arg_name);
+                            console.log({ params_index });
                             let arguments_assert_arg_identifier = list_get(params, index);
                             let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
                         }
