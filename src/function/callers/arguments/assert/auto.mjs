@@ -88,7 +88,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
                             }
                         }
                     });
-                    return changed;
+                    return !changed;
                 }
             });
         });
