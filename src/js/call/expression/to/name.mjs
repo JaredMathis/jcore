@@ -1,4 +1,3 @@
-import { tautology } from '../../../../tautology.mjs';
 import { js_call_expression_to_name_generic } from './name/generic.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
