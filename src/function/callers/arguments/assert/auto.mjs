@@ -28,6 +28,7 @@ import { js_call_expression_to_name_or_null } from '../../../../js/call/expressi
 import { list_map } from '../../../../list/map.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
+    await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
     let callers = await function_callers(function_name);
     for (let c of callers) {
         if (equal(function_name, c)) {
@@ -56,7 +57,6 @@ export async function function_callers_arguments_assert_auto(function_name) {
                 js_visit_nodes(c_parsed, js_node_is_assignment_expression, v => {
                     error('handle this situation');
                 });
-                await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
                 js_visit_nodes(c_parsed, js_node_is_call_expression, v => {
                     let {node} = v;
                     let ce_name = js_call_expression_to_name_or_null(node);
