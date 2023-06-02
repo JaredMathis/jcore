@@ -8,10 +8,10 @@ import { object_property_get } from '../object/property/get.mjs';
 export async function function_callers(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let all = await function_name_all();
-    for (let function_name of all) {
-        let dependencies = await function_dependencies(function_name);
+    for (let a of all) {
+        let dependencies = await function_dependencies(a);
         if (list_any(dependencies, d => object_property_get(d, 'function_name') === function_name)) {
-            console.log(function_name);
+            console.log(a);
         }
     }
     return all;
