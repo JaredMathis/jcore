@@ -14,7 +14,8 @@ import { assert } from '../../../assert.mjs';
 import { js_node_property_value } from '../../../js/node/property/value.mjs';
 export async function refactor_import_path_fix(args) {
     arguments_assert(arguments, [tautology]);
-    let {parsed, file_path} = args;
+    let {parsed} = args;
+    let file_path = object_property_get(args, 'file_path');
     let imports = await js_import_all_with_function_names(parsed);
     for (let iw of imports) {
         let function_name = object_property_get(iw, 'name');
