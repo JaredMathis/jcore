@@ -42,9 +42,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
             continue;
         }
         let params_names = list_map(params, p => object_property_get(p, 'name'));
-        let arguments_assert_statement = await js_mapper_args_to_statement_arguments_assert({ function_declaration });
-        let arguments_assert_call_expression = js_statement_expression_to_expression(arguments_assert_statement);
-        const arguments_assert_args = object_property_get(arguments_assert_call_expression, js_node_property_arguments());
+        const arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
         let array_expression = list_get(arguments_assert_args, 1);
         let args = object_property_get(array_expression, js_node_property_elements());
         list_each_with_index(args, function lambda(arg, index) {
@@ -92,4 +90,11 @@ export async function function_callers_arguments_assert_auto(function_name) {
         return;
     }
     console.log(callers);
+}
+
+async function js_mapper_args_to_statement_arguments_assert_args(function_declaration) {
+    let arguments_assert_statement = await js_mapper_args_to_statement_arguments_assert({ function_declaration });
+    let arguments_assert_call_expression = js_statement_expression_to_expression(arguments_assert_statement);
+    const arguments_assert_args = object_property_get(arguments_assert_call_expression, js_node_property_arguments());
+    return arguments_assert_args;
 }
