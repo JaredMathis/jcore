@@ -58,17 +58,23 @@ export async function function_callers_arguments_assert_auto(function_name) {
                     default_name
                 });
                 if (equal(predicate_name, default_name)) {
+                    let changed = false;
+                    let assignment_exists = false;
                     js_visit_nodes(c_parsed, js_node_is_assignment_expression, v => {
                         let {node} = v;
                         let left = object_property_get(node, js_node_property_left());
                         if (js_node_is_identifier(left)) {
                             if (object_property_get(left, 'name') === predicate_name) {
                                 comment(`Value has been changed - will not assume predicate can be copied`);
+                                assignment_exists = true;
                             }
                         }
                         console.log({ node });
                         error('handle this situation: ' + c_function_name);
                     });
+                    if (assignment_exists = true) {
+                        return changed;
+                    }
                     js_visit_nodes(c_parsed, js_node_is_call_expression, v => {
                         let {node} = v;
                         let ce_name = js_call_expression_to_name_or_null(node);
@@ -80,9 +86,11 @@ export async function function_callers_arguments_assert_auto(function_name) {
                                 let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
                                 let arguments_assert_arg = list_get(arguments_assert_args, params_index);
                                 object_property_change(c_args, index, arguments_assert_arg);
+                                changed = true;
                             }
                         }
                     });
+                    return changed;
                 }
             });
         });
