@@ -62,7 +62,10 @@ export async function function_callers_arguments_assert_auto(function_name) {
                     let {node} = v;
                     let ce_name = js_call_expression_to_name_or_null(node);
                     if (ce_name !== null) {
-                        console.log({ ce_name });
+                        if (equal(ce_name, function_name)) {
+
+                            console.log({ node });
+                        }
                     }
                 });
                 console.log({ i: arguments_assert_arg_identifier });
