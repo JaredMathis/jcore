@@ -29,8 +29,8 @@ import { js_call_expression_to_name_or_null } from '../../../../js/call/expressi
 import { list_map } from '../../../../list/map.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
-    function_parse_to_declaration(function_name);
-    await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
+    let function_declaration = function_parse_to_declaration(function_name);
+    let arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
     let callers = await function_callers(function_name);
     for (let c of callers) {
         if (equal(function_name, c)) {
@@ -38,18 +38,18 @@ export async function function_callers_arguments_assert_auto(function_name) {
         }
         let c_parsed = await function_parse(c);
         let c_function_declaration = js_export_function_single(c_parsed);
-        let params = object_property_get(c_function_declaration, js_node_property_params());
-        if (list_length_is_0(params)) {
+        let c_params = object_property_get(c_function_declaration, js_node_property_params());
+        if (list_length_is_0(c_params)) {
             continue;
         }
-        let params_names = list_map(params, p => object_property_get(p, 'name'));
-        const arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args(c_function_declaration);
-        let array_expression = list_get(arguments_assert_args, 1);
-        let args = object_property_get(array_expression, js_node_property_elements());
-        await list_each_with_index_async(args, async function lambda(arg, index) {
+        let c_params_names = list_map(c_params, p => object_property_get(p, 'name'));
+        const c_arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args(c_function_declaration);
+        let c_array_expression = list_get(c_arguments_assert_args, 1);
+        let c_args = object_property_get(c_array_expression, js_node_property_elements());
+        await list_each_with_index_async(c_args, async function lambda(c_arg, index) {
             comment(`If this isn't true then this code needs changing`);
-            assert(js_node_is_identifier(arg));
-            let predicate_name = object_property_get(arg, js_node_property_name());
+            assert(js_node_is_identifier(c_arg));
+            let predicate_name = object_property_get(c_arg, js_node_property_name());
             let default_name = function_name_get(arguments_assert_predicate_default());
             console.log({
                 predicate_name,
@@ -67,13 +67,16 @@ export async function function_callers_arguments_assert_auto(function_name) {
                             let ce_args = object_property_get(node, js_node_property_arguments());
                             let ce_arg_for_arg = list_get(ce_args, index);
                             let ce_arg_for_arg_name = object_property_get(ce_arg_for_arg, 'name');
-                            let params_index = list_index_of(params_names, ce_arg_for_arg_name);
-                            let arguments_assert_arg_identifier = list_get(params, params_index);
-                            let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
+                            let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
+
                             console.log({
-                                arguments_assert_arg_identifier_name,
-                                ce_arg_for_arg
+                                arguments_assert_args,
                             });
+
+                            return;
+
+                            let arguments_assert_arg_identifier = list_get(c_params, params_index);
+                            let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
                         }
                     }
                 });
