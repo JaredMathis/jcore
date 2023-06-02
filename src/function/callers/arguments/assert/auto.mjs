@@ -26,7 +26,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
         let arguments_assert_statement_predicates = [];
         console.log({
             function_declaration,
-            arguments_assert_statement
+            arguments_assert_call_expression
         });
         return;
     }
