@@ -26,16 +26,7 @@ export async function function_arguments_assert_extra_next() {
             return;
         }
         const name_expected = function_name_get(arguments_assert);
-        let matches = [];
-        js_visit_nodes(parsed, node => js_node_is_call_expression(node), v => {
-            let {node} = v;
-            const name_actual = js_call_expression_to_name_or_null(node);
-            if (name_actual !== null) {
-                if (equal(name_actual, name_expected)) {
-                    list_add(matches, node);
-                }
-            }
-        });
+        let matches = js_call_expressions_named(parsed, name_expected);
         if (list_length(matches) >= 2) {
             function_open_vs_code(function_name);
             result = function_name;
@@ -43,4 +34,19 @@ export async function function_arguments_assert_extra_next() {
         }
     }
     return result;
+}
+
+function js_call_expressions_named(parsed, name_expected) {
+    let matches = [];
+    console.log({parsed})
+    js_visit_nodes(parsed, node => js_node_is_call_expression(node), v => {
+        let { node } = v;
+        const name_actual = js_call_expression_to_name_or_null(node);
+        if (name_actual !== null) {
+            if (equal(name_actual, name_expected)) {
+                list_add(matches, node);
+            }
+        }
+    });
+    return matches;
 }
