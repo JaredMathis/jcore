@@ -5,7 +5,7 @@ import { js_node_is_assignment_expression } from '../../../../js/node/is/assignm
 import { js_export_function_single } from '../../../../js/export/function/single.mjs';
 import { function_parse } from '../../../parse.mjs';
 import { js_node_property_elements } from '../../../../js/node/property/elements.mjs';
-import { list_each_with_index } from '../../../../list/each/with/index.mjs';
+import { list_each_with_index_async } from '../../../../list/each/with/index/async.mjs';
 import { arguments_assert_predicate_default } from '../../../../arguments/assert/predicate/default.mjs';
 import { js_node_property_name } from '../../../../js/node/property/name.mjs';
 import { js_node_property_arguments } from '../../../../js/node/property/arguments.mjs';
@@ -43,7 +43,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
         const arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
         let array_expression = list_get(arguments_assert_args, 1);
         let args = object_property_get(array_expression, js_node_property_elements());
-        list_each_with_index(args, async function lambda(arg, index) {
+        list_each_with_index_async(args, async function lambda(arg, index) {
             comment(`If this isn't true then this code needs changing`);
             assert(js_node_is_identifier(arg));
             let predicate_name = object_property_get(arg, js_node_property_name());
