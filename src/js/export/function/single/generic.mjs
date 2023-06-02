@@ -5,15 +5,15 @@ import { value_get } from '../../../../value/get.mjs';
 import { list_single } from '../../../../list/single.mjs';
 import { value_set_is } from '../../../../value/set/is.mjs';
 import { value_set } from '../../../../value/set.mjs';
-import { list_length_is_1 } from '../../../../list/length/is/1.mjs';
 import { js_exports } from '../../../exports.mjs';
 import { value_new } from '../../../../value/new.mjs';
 import { js_export_declaration_get } from '../../declaration/get.mjs';
 import { js_node_is_function_declaration } from '../../../node/is/function/declaration.mjs';
-import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 import { error } from '../../../../error.mjs';
 import { list_map } from '../../../../list/map.mjs';
 import { js_function_declaration_to_name } from '../../../function/declaration/to/name.mjs';
+import { list_length_multiple } from '../../../../list/length/multiple.mjs';
+import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 export function js_export_function_single_generic(parsed, or_null) {
     arguments_assert(arguments, [
         tautology,
@@ -22,16 +22,16 @@ export function js_export_function_single_generic(parsed, or_null) {
     let result = value_new();
     let exports_existing = js_exports(parsed);
     if (or_null) {
-        if (!list_length_is_1(exports_existing)) {
+        if (list_length_is_0(exports_existing)) {
             value_set(result, null);
         }
-        if (!list_length_is_0(exports_existing)) {
+        if (list_length_multiple(exports_existing)) {
             let names = list_map(exports_existing, e => {
                 const declaration = js_export_declaration_get(e);
                 let name = js_function_declaration_to_name(declaration);
                 return name;
-            })
-            error(`Multiple exports? Look into this: ` + names)
+            });
+            error(`Multiple exports? Look into this: ` + names);
         }
     }
     if (!value_set_is(result)) {

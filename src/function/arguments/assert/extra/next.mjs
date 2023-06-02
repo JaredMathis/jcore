@@ -1,3 +1,4 @@
+import { list_length_multiple } from '../../../../list/length/multiple.mjs';
 import { js_call_expressions_named } from '../../../../js/call/expressions/named.mjs';
 import { metadata_arguments_assert_extra_allow } from '../../../../metadata/arguments/assert/extra/allow.mjs';
 import { function_open_vs_code } from '../../../open/vs/code.mjs';
@@ -5,7 +6,6 @@ import { function_name_get } from '../../../name/get.mjs';
 import { function_names_each } from '../../../names/each.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_node_is_call_expression } from '../../../../js/node/is/call/expression.mjs';
-import { list_length } from '../../../../list/length.mjs';
 import { js_mapper_args_to_metadata_args } from '../../../../js/mapper/args/to/metadata/args.mjs';
 import { list_map } from '../../../../list/map.mjs';
 import { js_call_expression_to_name_or_null } from '../../../../js/call/expression/to/name/or/null.mjs';
@@ -25,7 +25,7 @@ export async function function_arguments_assert_extra_next() {
         }
         const name_expected = function_name_get(arguments_assert);
         let matches = js_call_expressions_named(parsed, name_expected);
-        if (list_length(matches) >= 2) {
+        if (list_length_multiple(matches)) {
             function_open_vs_code(function_name);
             result = function_name;
             return true;

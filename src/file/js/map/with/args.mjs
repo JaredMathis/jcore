@@ -9,9 +9,8 @@ export async function file_js_map_with_args(file_path, function_name_mapper, arg
         tautology,
         tautology
     ]);
-    await file_js_map_args(file_path, mapper);
-    async function mapper(mapper_args) {
+    await file_js_map_args(file_path, async function mapper(mapper_args) {
         object_merge(args, mapper_args);
         await function_run(function_name_mapper, [mapper_args]);
-    }
+    });
 }
