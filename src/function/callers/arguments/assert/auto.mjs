@@ -53,7 +53,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
             if (equal(predicate_name, default_name)) {
                 let arguments_assert_arg_identifier = list_get(params, index);
                 let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
-                js_visit_nodes(parsed, n => js_node_is_assignment_expression(n), v => {
+                js_visit_nodes(parsed, js_node_is_assignment_expression, v => {
                     error('handle this situation');
                 });
                 console.log({ i: arguments_assert_arg_identifier });
