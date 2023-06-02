@@ -1,5 +1,4 @@
 import { js_import_meta_to_file_path } from '../js/import/meta/to/file/path.mjs';
-import { log } from '../log.mjs';
 import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
@@ -13,14 +12,10 @@ export async function function_run(function_name, args) {
         tautology,
         tautology
     ]);
-    let import_meta = import.meta;
-    const __filename = js_import_meta_to_file_path(import_meta);
+    const __filename = js_import_meta_to_file_path(import.meta);
     let function_path = function_name_to_file_path(function_name);
     let concated = '../../' + directory_current() + directory_separator() + function_path;
-    console.log({
-        concated,
-        c: path_relative_file(__filename, function_path)
-    });
+    let concated2 = path_relative_file(__filename, function_path);
     let replaced = js_import_path_normalize(concated);
     let imported = await import(replaced);
     let imported_function = imported[function_name];
