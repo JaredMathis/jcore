@@ -15,7 +15,7 @@ import { string_identifier_is } from '../../../../string/identifier/is.mjs';
 import { equal } from '../../../../equal.mjs';
 import { js_mapper_args_to_statement_arguments_assert } from '../../../../js/mapper/args/to/statement/arguments/assert.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
-import { js_property_name_params } from '../../../../js/property/name/params.mjs';
+import { js_node_property_params } from '../../../../js/node/property/params.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 import { assert } from '../../../../assert.mjs';
 import { js_node_is_identifier } from '../../../../js/node/is/identifier.mjs';
@@ -34,7 +34,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
         }
         let parsed = await function_parse(c);
         let function_declaration = js_export_function_single(parsed);
-        let params = object_property_get(function_declaration, js_property_name_params());
+        let params = object_property_get(function_declaration, js_node_property_params());
         if (list_length_is_0(params)) {
             continue;
         }

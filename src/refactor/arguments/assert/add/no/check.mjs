@@ -1,4 +1,4 @@
-import { js_property_name_params } from '../../../../../js/property/name/params.mjs';
+import { js_node_property_params } from '../../../../../js/node/property/params.mjs';
 import { arguments_assert_predicate_default } from '../../../../../arguments/assert/predicate/default.mjs';
 import { list_contains } from '../../../../../list/contains.mjs';
 import { js_function_declaration_to_name } from '../../../../../js/function/declaration/to/name.mjs';
@@ -26,7 +26,7 @@ export function refactor_arguments_assert_add_no_check(function_declaration, exc
         return;
     }
     let statements = js_function_delcaration_to_statements(function_declaration);
-    let params = object_property_get(function_declaration, js_property_name_params());
+    let params = object_property_get(function_declaration, js_node_property_params());
     let params_length = list_length(params);
     let params_mapped = list_map(range(params_length), i => function_name_get(arguments_assert_predicate_default()));
     let params_joined = list_join(params_mapped, ', ');
