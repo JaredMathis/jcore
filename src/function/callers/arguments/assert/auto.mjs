@@ -1,6 +1,6 @@
+import { js_node_is_assignment_expression } from '../../../../js/node/is/assignment/expression.mjs';
 import { js_export_function_single } from '../../../../js/export/function/single.mjs';
 import { function_parse } from '../../../parse.mjs';
-import { js_visit_nodes_all } from '../../../../js/visit/nodes/all.mjs';
 import { js_node_property_elements } from '../../../../js/node/property/elements.mjs';
 import { list_each_with_index } from '../../../../list/each/with/index.mjs';
 import { arguments_assert_predicate_default } from '../../../../arguments/assert/predicate/default.mjs';
@@ -21,6 +21,8 @@ import { js_node_is_identifier } from '../../../../js/node/is/identifier.mjs';
 import { comment } from '../../../../comment.mjs';
 import { list_get } from '../../../../list/get.mjs';
 import { function_name_get } from '../../../name/get.mjs';
+import { js_visit_nodes } from '../../../../js/visit/nodes.mjs';
+import { js_node_is_type } from '../../../../js/node/is/type.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let callers = await function_callers(function_name);
@@ -51,7 +53,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
             if (equal(predicate_name, default_name)) {
                 let arguments_assert_arg_identifier = list_get(params, index);
                 let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
-                js_visit_nodes_all();
+                js_visit_nodes(parsed, n => js_node_is_type(n, js_node_is_assignment_expression()), v => {
+                });
                 console.log({ i: arguments_assert_arg_identifier });
             }
         });
