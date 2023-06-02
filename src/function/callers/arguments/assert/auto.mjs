@@ -31,7 +31,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
         for (let arg of object_property_get(arguments_assert_call_expression, js_node_property_arguments())) {
             comment(`If this isn't true then this code needs changing`);
             assert(js_node_is_identifier(arg));
-            object_property_get(arg, js_node_property_name());
+            let name = object_property_get(arg, js_node_property_name());
         }
         let arguments_assert_statement_predicates = [];
         console.log({
