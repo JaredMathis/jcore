@@ -7,7 +7,6 @@ import { directory_separator } from '../directory/separator.mjs';
 import { function_name_to_file_path } from './name/to/file/path.mjs';
 import { directory_current } from '../directory/current.mjs';
 import { js_import_path_normalize } from '../js/import/path/normalize.mjs';
-import { fileURLToPath } from 'url';
 export async function function_run(function_name, args) {
     arguments_assert(arguments, [
         tautology,
