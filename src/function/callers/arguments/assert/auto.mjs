@@ -29,6 +29,7 @@ import { js_call_expression_to_name_or_null } from '../../../../js/call/expressi
 import { list_map } from '../../../../list/map.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
+
     let callers = await function_callers(function_name);
     for (let c of callers) {
         if (equal(function_name, c)) {
@@ -74,7 +75,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
                             let arguments_assert_arg_identifier = list_get(params, params_index);
                             let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
                             
-                            console.log({ arguments_assert_arg_identifier_name });
+                            console.log({ arguments_assert_arg_identifier_name, ce_arg_for_arg });
                         }
                     }
                 });
