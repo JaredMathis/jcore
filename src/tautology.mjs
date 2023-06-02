@@ -1,6 +1,5 @@
-import { metadata_arguments_assert_extra_allow } from './metadata/arguments/assert/extra/allow.mjs';
-import { metadata } from './metadata.mjs';
+import { arguments_assert } from './arguments/assert.mjs';
 export function tautology(value) {
+    arguments_assert(arguments, [tautology]);
     return true;
-    metadata([metadata_arguments_assert_extra_allow()]);
 }
