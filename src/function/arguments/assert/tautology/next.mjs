@@ -2,7 +2,7 @@ import { js_find_identifiers } from '../../../../js/find/identifiers.mjs';
 import { function_open_vs_code } from '../../../open/vs/code.mjs';
 import { function_names_each } from '../../../names/each.mjs';
 import { equal } from '../../../../equal.mjs';
-import { js_find_call_expression_to_name } from '../../../../js/find/call/expression/to/name.mjs';
+import { js_find_call_expressions_to_name } from '../../../../js/find/call/expressions/to/name.mjs';
 import { js_node_property_expression } from '../../../../js/node/property/expression.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { js_node_is_expression_statement } from '../../../../js/node/is/expression/statement.mjs';
@@ -26,7 +26,7 @@ export async function function_arguments_assert_tautology_next() {
         let statement_first = list_first(statements);
         assert(js_node_is_expression_statement(statement_first));
         let expression = object_property_get(statement_first, js_node_property_expression());
-        let name_actual = js_find_call_expression_to_name(expression);
+        let name_actual = js_find_call_expressions_to_name(expression);
         assert(equal(name_actual, function_name_get(arguments_assert)));
         let matches = js_find_identifiers(expression, function_name_get(tautology));
         if (!list_length_is_0(matches)) {
