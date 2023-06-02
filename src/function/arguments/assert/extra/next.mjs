@@ -6,7 +6,6 @@ import { function_names_each } from '../../../names/each.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_visit_nodes } from '../../../../js/visit/nodes.mjs';
 import { js_node_is_call_expression } from '../../../../js/node/is/call/expression.mjs';
-import { js_call_expression_to_name } from '../../../../js/call/expression/to/name.mjs';
 import { list_add } from '../../../../list/add.mjs';
 import { list_length } from '../../../../list/length.mjs';
 import { js_mapper_args_to_metadata_args } from '../../../../js/mapper/args/to/metadata/args.mjs';
@@ -29,8 +28,11 @@ export async function function_arguments_assert_extra_next() {
         let matches = [];
         js_visit_nodes(parsed, node => js_node_is_call_expression(node), v => {
             let {node} = v;
-            if (equal(js_call_expression_to_name(node), function_name_get(arguments_assert))) {
-                list_add(matches, node);
+            const node_name = js_call_expression_to_name_or_null(node);
+            if (node_name !== null) {
+                if (equal(node_name, function_name_get(arguments_assert))) {
+                    list_add(matches, node);
+                }
             }
         });
         if (list_length(matches) >= 2) {
