@@ -12,7 +12,7 @@ export async function function_callers(function_name) {
     for (let a of all) {
         let dependencies = await function_dependencies(a);
         if (list_any(dependencies, d => object_property_get(d, 'function_name') === function_name)) {
-            list_add(a);
+            list_add(result, a);
         }
     }
     return result;
