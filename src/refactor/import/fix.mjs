@@ -12,6 +12,7 @@ export async function refactor_import_fix(args) {
         refactor_import_missing,
         refactor_import_path_fix
     ];
+    console.log({args})
     await refactor_multiple(args, refactors);
     metadata([]);
 }
