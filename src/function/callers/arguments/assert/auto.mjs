@@ -36,6 +36,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
             comment(`If this isn't true then this code needs changing`);
             assert(js_node_is_identifier(arg));
             let predicate_name = object_property_get(arg, js_node_property_name());
+            console.log({predicate_name})
             if (equal(predicate_name, arguments_assert_predicate_default())) {
                 let i = list_get(params, index);
                 console.log({i})
