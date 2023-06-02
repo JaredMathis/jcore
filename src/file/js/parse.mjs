@@ -4,6 +4,7 @@ import { metadata } from '../../metadata.mjs';
 import { js_parse } from '../../js/parse.mjs';
 import { file_read } from '../read.mjs';
 import { js_node_is } from '../../js/node/is.mjs';
+import { assert } from '../../assert.mjs';
 export async function file_js_parse(file_path) {
     arguments_assert(arguments, [tautology]);
     let {parsed} = await file_js_parse_with_file_path(file_path);

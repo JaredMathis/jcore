@@ -10,8 +10,8 @@ import { list_length_is_0 } from '../../../../../../list/length/is/0.mjs';
 import { refactor_functions_arguments_assert_missing_add_excludes } from '../../../../../../refactor/functions/arguments/assert/missing/add/excludes.mjs';
 export async function js_mapper_args_to_statement_arguments_assert(args) {
     arguments_assert(arguments, [tautology]);
-    let {function_declaration} = args;
-    let statements = js_function_delcaration_to_statements(function_declaration);
+    let {function_declration} = args;
+    let statements = js_function_delcaration_to_statements(function_declration);
     let exists = false;
     if (!list_length_is_0(statements)) {
         let statement_first = list_first(statements);
@@ -21,7 +21,7 @@ export async function js_mapper_args_to_statement_arguments_assert(args) {
     }
     if (!exists) {
         let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
-        refactor_arguments_assert_add_no_check(function_declaration, excludes);
+        refactor_arguments_assert_add_no_check(function_declration, excludes);
     }
-    return js_function_delcaration_to_statement_first(function_declaration);
+    return js_function_delcaration_to_statement_first(function_declration);
 }
