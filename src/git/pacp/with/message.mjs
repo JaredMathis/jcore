@@ -29,7 +29,7 @@ export async function git_pacp_with_message(commit_message) {
             result.message = `There was probably no code to commit. If this is not true, fix the code!`;
             return result;
         } else {
-            console.log({
+            log({
                 c_result,
                 command_commit
             });
