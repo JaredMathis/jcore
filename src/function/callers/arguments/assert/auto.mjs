@@ -1,3 +1,4 @@
+import { js_node_is_assignment_expression } from '../../../../js/node/is/assignment/expression.mjs';
 import { js_export_function_single } from '../../../../js/export/function/single.mjs';
 import { function_parse } from '../../../parse.mjs';
 import { js_node_property_elements } from '../../../../js/node/property/elements.mjs';
@@ -21,7 +22,6 @@ import { comment } from '../../../../comment.mjs';
 import { list_get } from '../../../../list/get.mjs';
 import { function_name_get } from '../../../name/get.mjs';
 import { js_visit_nodes } from '../../../../js/visit/nodes.mjs';
-import { js_node_is_type } from '../../../../js/node/is/type.mjs';
 import { error } from '../../../../error.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
@@ -67,8 +67,4 @@ export async function function_callers_arguments_assert_auto(function_name) {
         return;
     }
     console.log(callers);
-}
-
-function js_node_is_assignment_expression(n) {
-    return js_node_is_type(n, 'AssignmentExpression');
 }
