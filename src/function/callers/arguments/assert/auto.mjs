@@ -64,7 +64,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
                     if (ce_name !== null) {
                         if (equal(ce_name, function_name)) {
                             let ce_args = object_property_get(node, js_node_property_arguments());
-                            console.log({ node });
+                            let ce_arg_for_arg = list_get(ce_args, index);
+                            console.log({ ce_arg_for_arg });
                         }
                     }
                 });
