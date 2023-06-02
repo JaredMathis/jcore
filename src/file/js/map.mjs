@@ -7,6 +7,6 @@ export async function file_js_map(function_name_mapper, file_path) {
         tautology,
         tautology
     ]);
-    await file_js_map_with_args(file_path, function_name_mapper);
+    await file_js_map_with_args(file_path, function_name_mapper, {});
     metadata([]);
 }
