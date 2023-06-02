@@ -1,3 +1,4 @@
+import { js_statement_expression_to_expression } from '../../../../js/statement/expression/to/expression.mjs';
 import { function_parse_to_declaration } from '../../../parse/to/declaration.mjs';
 import { log } from '../../../../log.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -16,14 +17,17 @@ export async function function_callers_arguments_assert_auto(function_name) {
             continue;
         }
         let function_declaration = await function_parse_to_declaration(c);
-        let params = object_property_get(function_declaration, js_property_name_params())
+        let params = object_property_get(function_declaration, js_property_name_params());
         if (list_length_is_0(params)) {
             continue;
         }
         let arguments_assert_statement = await js_mapper_args_to_statement_arguments_assert({ function_declaration });
         let arguments_assert_call_expression = js_statement_expression_to_expression(arguments_assert_statement);
         let arguments_assert_statement_predicates = [];
-        console.log({ function_declaration, arguments_assert_statement });
+        console.log({
+            function_declaration,
+            arguments_assert_statement
+        });
         return;
     }
     console.log(callers);
