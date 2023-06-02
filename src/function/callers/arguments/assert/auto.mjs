@@ -5,5 +5,8 @@ import { string_identifier_is } from '../../../../string/identifier/is.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let callers = await function_callers(function_name);
+    for (let c of callers) {
+        
+    }
     console.log(callers);
 }
