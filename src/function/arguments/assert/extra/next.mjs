@@ -1,4 +1,4 @@
-import { metadata_arguments_assert_none } from '../../../../metadata/arguments/assert/none.mjs';
+import { metadata_arguments_assert_none_skip_rule } from '../../../../metadata/arguments/assert/none/skip/rule.mjs';
 import { equal } from '../../../../equal.mjs';
 import { function_open_vs_code } from '../../../open/vs/code.mjs';
 import { function_name_get } from '../../../name/get.mjs';
@@ -23,7 +23,7 @@ export async function function_arguments_assert_extra_next() {
         let metadata_args = await js_mapper_args_to_metadata_args(args);
         let filtered = list_filter(metadata_args, js_node_is_call_expression);
         let mapped = list_map(filtered, js_call_expression_to_name_or_null);
-        if (list_contains(mapped, function_name_get(metadata_arguments_assert_none))) {
+        if (list_contains(mapped, function_name_get(metadata_arguments_assert_none_skip_rule))) {
             return;
         }
         let matches = [];

@@ -2,7 +2,7 @@ import { refactor_arguments_assert_add_no_check } from '../../../arguments/asser
 import { js_node_call_expression_statement_if_name_equal } from '../../../../js/node/call/expression/statement/if/name/equal.mjs';
 import { git } from '../../../../git.mjs';
 import { list_add_multiple } from '../../../../list/add/multiple.mjs';
-import { metadata_arguments_assert_none } from '../../../../metadata/arguments/assert/none.mjs';
+import { metadata_arguments_assert_none_skip_rule } from '../../../../metadata/arguments/assert/none/skip/rule.mjs';
 import { function_dependencies_names } from '../../../../function/dependencies/names.mjs';
 import { file_js_all_map_args_if_function } from '../../../../file/js/all/map/args/if/function.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -21,7 +21,7 @@ export async function refactor_functions_arguments_assert_add() {
     let excludes = await function_dependencies_names(function_name_get(arguments_assert));
     comment(`Eventually this should be refactored maybe to read files and detect an attribute`);
     list_add_multiple(excludes, [
-        function_name_get(metadata_arguments_assert_none),
+        function_name_get(metadata_arguments_assert_none_skip_rule),
         function_name_get(tautology),
         function_name_get(git)
     ]);

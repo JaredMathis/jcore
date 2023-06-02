@@ -1,3 +1,4 @@
+import { metadata_arguments_assert_none_skip_rule } from '../../../metadata/arguments/assert/none/skip/rule.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { comment } from '../../../comment.mjs';
 import { integer_is } from '../../../integer/is.mjs';
@@ -10,5 +11,5 @@ export function arguments_assert_test_3() {
         integer_is,
         integer_is
     ]));
-    metadata([metadata_arguments_assert_none()]);
+    metadata([metadata_arguments_assert_none_skip_rule()]);
 }
