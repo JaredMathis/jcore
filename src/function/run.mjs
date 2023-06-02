@@ -7,6 +7,7 @@ import { directory_separator } from '../directory/separator.mjs';
 import { function_name_to_file_path } from './name/to/file/path.mjs';
 import { directory_current } from '../directory/current.mjs';
 import { js_import_path_normalize } from '../js/import/path/normalize.mjs';
+import { path_relative } from '../path/relative.mjs';
 export async function function_run(function_name, args) {
     arguments_assert(arguments, [
         tautology,
@@ -14,9 +15,12 @@ export async function function_run(function_name, args) {
     ]);
     let import_meta = import.meta;
     const __filename = js_import_meta_to_file_path(import_meta);
-    console.log(__filename);
     let function_path = function_name_to_file_path(function_name);
     let concated = '../../' + directory_current() + directory_separator() + function_path;
+    console.log({
+        concated,
+        c: path_relative(__filename, function_path)
+    });
     let replaced = js_import_path_normalize(concated);
     let imported = await import(replaced);
     let imported_function = imported[function_name];
