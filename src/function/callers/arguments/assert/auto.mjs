@@ -74,7 +74,6 @@ export async function function_callers_arguments_assert_auto(function_name) {
                         }
                     }
                 });
-                console.log({ i: arguments_assert_arg_identifier });
             }
         });
         let arguments_assert_statement_predicates = [];
