@@ -7,5 +7,5 @@ export function arguments_assert_test_4() {
     arguments_assert(arguments, []);
     comment('wrong type (string is not a number)');
     throws(() => arguments_assert([`1`], [integer_is]));
-    metadata([]);
+    metadata([metadata_arguments_assert_none()]);
 }
