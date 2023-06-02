@@ -1,3 +1,4 @@
+import { refactor_import_fix } from '../../../../refactor/import/fix.mjs';
 import { js_node_property_left } from '../../../../js/node/property/left.mjs';
 import { object_property_change } from '../../../../object/property/change.mjs';
 import { js_mapper_args_to_statement_arguments_assert_args_predicate } from '../../../../js/mapper/args/to/statement/arguments/assert/args/predicate.mjs';
@@ -9,7 +10,6 @@ import { list_each_with_index_async } from '../../../../list/each/with/index/asy
 import { arguments_assert_predicate_default } from '../../../../arguments/assert/predicate/default.mjs';
 import { js_node_property_name } from '../../../../js/node/property/name.mjs';
 import { js_node_property_arguments } from '../../../../js/node/property/arguments.mjs';
-import { log } from '../../../../log.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { function_callers } from '../../../callers.mjs';
 import { string_identifier_is } from '../../../../string/identifier/is.mjs';
@@ -51,45 +51,44 @@ export async function function_callers_arguments_assert_auto(function_name) {
                 assert(js_node_is_identifier(c_arg));
                 let predicate_name = object_property_get(c_arg, js_node_property_name());
                 let default_name = function_name_get(arguments_assert_predicate_default());
-                console.log({
-                    predicate_name,
-                    default_name
-                });
-                if (equal(predicate_name, default_name)) {
-                    let changed = false;
-                    let assignment_exists = false;
-                    js_visit_nodes(c_parsed, js_node_is_assignment_expression, v => {
-                        let {node} = v;
-                        let left = object_property_get(node, js_node_property_left());
-                        if (js_node_is_identifier(left)) {
-                            if (object_property_get(left, 'name') === predicate_name) {
-                                comment(`Value has been changed - will not assume predicate can be copied`);
-                                assignment_exists = true;
-                            }
-                        }
-                    });
-                    if (assignment_exists === true) {
-                        return changed;
-                    }
-                    js_visit_nodes(c_parsed, js_node_is_call_expression, v => {
-                        let {node} = v;
-                        let ce_name = js_call_expression_to_name_or_null(node);
-                        if (ce_name !== null) {
-                            if (equal(ce_name, function_name)) {
-                                let ce_args = object_property_get(node, js_node_property_arguments());
-                                let ce_arg_for_arg = list_get(ce_args, index);
-                                let ce_arg_for_arg_name = object_property_get(ce_arg_for_arg, 'name');
-                                let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
-                                let arguments_assert_arg = list_get(arguments_assert_args, params_index);
-                                object_property_change(c_args, index, arguments_assert_arg);
-                                changed = true;
-                            }
-                        }
-                    });
-                    return !changed;
+                if (!equal(predicate_name, default_name)) {
+                    return false;
                 }
+                let changed = false;
+                let assignment_exists = false;
+                js_visit_nodes(c_parsed, js_node_is_assignment_expression, v => {
+                    let {node} = v;
+                    let left = object_property_get(node, js_node_property_left());
+                    if (js_node_is_identifier(left)) {
+                        if (object_property_get(left, 'name') === predicate_name) {
+                            comment(`Value has been changed - will not assume predicate can be copied`);
+                            assignment_exists = true;
+                        }
+                    }
+                });
+                if (assignment_exists === true) {
+                    return changed;
+                }
+                js_visit_nodes(c_parsed, js_node_is_call_expression, v => {
+                    let {node} = v;
+                    let ce_name = js_call_expression_to_name_or_null(node);
+                    if (ce_name !== null) {
+                        if (equal(ce_name, function_name)) {
+                            let ce_args = object_property_get(node, js_node_property_arguments());
+                            let ce_arg_for_arg = list_get(ce_args, index);
+                            let ce_arg_for_arg_name = object_property_get(ce_arg_for_arg, 'name');
+                            let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
+                            let arguments_assert_arg = list_get(arguments_assert_args, params_index);
+                            object_property_change(c_args, index, arguments_assert_arg);
+                            changed = true;
+                        }
+                    }
+                });
+                if (changed) {
+                    refactor_import_fix();
+                }
+                return !changed;
             });
         });
     }
-    console.log(callers);
 }
