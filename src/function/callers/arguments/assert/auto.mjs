@@ -43,8 +43,9 @@ export async function function_callers_arguments_assert_auto(function_name) {
             let default_name =  function_name_get(arguments_assert_predicate_default())
             console.log({ predicate_name, default_name });
             if (equal(predicate_name,default_name)) {
-                let i = list_get(params, index);
-                console.log({ i });
+                let arguments_assert_arg_identifier = list_get(params, index);
+                let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name')
+                console.log({ i: arguments_assert_arg_identifier });
             }
         });
         let arguments_assert_statement_predicates = [];
