@@ -34,13 +34,13 @@ export async function function_callers_arguments_assert_auto(function_name) {
             continue;
         }
         let c_parsed = await function_parse(c);
-        let function_declaration = js_export_function_single(c_parsed);
-        let params = object_property_get(function_declaration, js_node_property_params());
+        let c_function_declaration = js_export_function_single(c_parsed);
+        let params = object_property_get(c_function_declaration, js_node_property_params());
         if (list_length_is_0(params)) {
             continue;
         }
         let params_names = list_map(params, p => object_property_get(p, 'name'));
-        const arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
+        const arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args(c_function_declaration);
         let array_expression = list_get(arguments_assert_args, 1);
         let args = object_property_get(array_expression, js_node_property_elements());
         await list_each_with_index_async(args, async function lambda(arg, index) {
@@ -56,7 +56,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
                 js_visit_nodes(c_parsed, js_node_is_assignment_expression, v => {
                     error('handle this situation');
                 });
-                await js_mapper_args_to_statement_arguments_assert_args(c_function_declaration);
+                await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
                 js_visit_nodes(c_parsed, js_node_is_call_expression, v => {
                     let {node} = v;
                     let ce_name = js_call_expression_to_name_or_null(node);
@@ -78,7 +78,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
             }
         });
         let arguments_assert_statement_predicates = [];
-        console.log({ function_declaration });
+        console.log({ function_declaration: c_function_declaration });
         return;
     }
     console.log(callers);
