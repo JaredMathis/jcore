@@ -1,4 +1,3 @@
-import { function_map_with_args } from '../../../map/with/args.mjs';
 import { object_property_change } from '../../../../object/property/change.mjs';
 import { js_mapper_args_to_statement_arguments_assert_args_predicate } from '../../../../js/mapper/args/to/statement/arguments/assert/args/predicate.mjs';
 import { function_parse_to_declaration } from '../../../parse/to/declaration.mjs';
@@ -28,6 +27,8 @@ import { js_visit_nodes } from '../../../../js/visit/nodes.mjs';
 import { error } from '../../../../error.mjs';
 import { js_call_expression_to_name_or_null } from '../../../../js/call/expression/to/name/or/null.mjs';
 import { list_map } from '../../../../list/map.mjs';
+import { file_js_map_args } from '../../../../file/js/map/args.mjs';
+import { function_name_to_file_path } from '../../../name/to/file/path.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let function_declaration = await function_parse_to_declaration(function_name);
@@ -37,14 +38,15 @@ export async function function_callers_arguments_assert_auto(function_name) {
         if (equal(function_name, c)) {
             continue;
         }
-        let c_parsed = await function_parse(c);
-        let c_function_declaration = js_export_function_single(c_parsed);
-        let c_params = object_property_get(c_function_declaration, js_node_property_params());
-        if (list_length_is_0(c_params)) {
-            continue;
-        }
-        if (false)
-            await function_map_with_args();
+        let file_path = function_name_to_file_path(c);
+        await file_js_map_args(file_path, async args => {
+            let c_parsed = object_property_get(args, 'parsed');
+            let c_function_declaration = object_property_get(args, 'function_declaration');
+            let c_params = object_property_get(c_function_declaration, js_node_property_params());
+            if (list_length_is_0(c_params)) {
+                return true;
+            }
+        });
         let c_params_names = list_map(c_params, p => object_property_get(p, 'name'));
         let c_args = await js_mapper_args_to_statement_arguments_assert_args_predicate(c_function_declaration);
         await list_each_with_index_async(c_args, async function lambda(c_arg, index) {
