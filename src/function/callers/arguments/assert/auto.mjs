@@ -31,18 +31,15 @@ export async function function_callers_arguments_assert_auto(function_name) {
         }
         let arguments_assert_statement = await js_mapper_args_to_statement_arguments_assert({ function_declaration });
         let arguments_assert_call_expression = js_statement_expression_to_expression(arguments_assert_statement);
-
         const args = object_property_get(arguments_assert_call_expression, js_node_property_arguments());
         for (let index of range(args)) {
             let element = list_index_at(index);
         }
-
         for (let arg of args) {
             comment(`If this isn't true then this code needs changing`);
             assert(js_node_is_identifier(arg));
             let predicate_name = object_property_get(arg, js_node_property_name());
             if (equal(predicate_name, arguments_assert_predicate_default())) {
-                
             }
         }
         let arguments_assert_statement_predicates = [];
