@@ -1,3 +1,4 @@
+import { refactor_arguments_assert_predicate_default } from '../../predicate/default.mjs';
 import { list_contains } from '../../../../../list/contains.mjs';
 import { js_function_declaration_to_name } from '../../../../../js/function/declaration/to/name.mjs';
 import { comment } from '../../../../../comment.mjs';
@@ -26,7 +27,7 @@ export function refactor_arguments_assert_add_no_check(function_declaration, exc
     let statements = js_function_delcaration_to_statements(function_declaration);
     let params = object_property_get(function_declaration, 'params');
     let params_length = list_length(params);
-    let params_mapped = list_map(range(params_length), i => function_name_get(tautology));
+    let params_mapped = list_map(range(params_length), i => function_name_get(refactor_arguments_assert_predicate_default()));
     let params_joined = list_join(params_mapped, ', ');
     let params_code = `[${ params_joined }]`;
     let params2 = [
