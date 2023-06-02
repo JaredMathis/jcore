@@ -1,5 +1,5 @@
+import { js_identifier_all } from '../../../../js/identifier/all.mjs';
 import { function_open_vs_code } from '../../../open/vs/code.mjs';
-import { js_call_expressions_named } from '../../../../js/call/expressions/named.mjs';
 import { function_names_each } from '../../../names/each.mjs';
 import { equal } from '../../../../equal.mjs';
 import { js_call_expression_to_name } from '../../../../js/call/expression/to/name.mjs';
@@ -28,7 +28,7 @@ export async function function_arguments_assert_tautology_next() {
         let expression = object_property_get(statement_first, js_node_property_expression());
         let name_actual = js_call_expression_to_name(expression);
         assert(equal(name_actual, function_name_get(arguments_assert)));
-        let matches = js_call_expressions_named(expression, function_name_get(tautology));
+        let matches = js_identifier_all(expression, function_name_get(tautology));
         if (!list_length_is_0(matches)) {
             await function_open_vs_code(function_name);
             return true;
