@@ -9,6 +9,8 @@ export async function file_js_dependencies(file_path) {
     let result = [];
     await visit_ignore_duplicates_async(file_path, async node => {
         let lambda = file_js_dependencies_non_recursive;
+        if (false) {
+        }
         return await lambda(node);
     }, v => {
         let {node} = v;
