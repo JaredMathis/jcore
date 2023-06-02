@@ -14,7 +14,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
         }
         let function_declaration = await function_parse_to_declaration(c);
         let arguments_assert_statement = js_mapper_args_to_statement_arguments_assert({ function_declaration });
-        console.log({ function_declaration });
+        console.log({ function_declaration, arguments_assert_statement });
         return;
     }
     console.log(callers);
