@@ -20,7 +20,7 @@ export async function function_arguments_assert_extra_next() {
     async function logic(args) {
         let {parsed, function_name} = args;
         let metadata_args = await js_mapper_args_to_metadata_args(args);
-        let filtered = list_filter(metadata_args, js_node_is_call_expression1);
+        let filtered = list_filter(metadata_args, js_node_is_call_expression);
         let mapped = list_map(filtered, js_call_expression_to_name_or_null);
         if (list_contains(mapped, function_name_get(metadata_arguments_assert_none))) {
             return;
