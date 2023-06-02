@@ -17,11 +17,6 @@ export async function refactor_functions_arguments_assert_missing_add() {
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
-        comment(`We want to skip dependencies of ${ function_name_get(arguments_assert) } or we will have recursion problems`);
-        let function_name = js_function_declaration_to_name(function_declaration);
-        if (list_contains(excludes, function_name)) {
-            return;
-        }
         let exists = false;
         let statements = js_function_delcaration_to_statements(function_declaration);
         if (!list_length_is_0(statements)) {

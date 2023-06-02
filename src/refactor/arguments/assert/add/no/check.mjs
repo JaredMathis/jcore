@@ -1,3 +1,6 @@
+import { list_contains } from '../../../../../list/contains.mjs';
+import { js_function_declaration_to_name } from '../../../../../js/function/declaration/to/name.mjs';
+import { comment } from '../../../../../comment.mjs';
 import { list_add_beginning } from '../../../../../list/add/beginning.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { js_parse_statement } from '../../../../../js/parse/statement.mjs';
@@ -11,6 +14,17 @@ import { list_length } from '../../../../../list/length.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_function_delcaration_to_statements } from '../../../../../js/function/delcaration/to/statements.mjs';
 export function refactor_arguments_assert_add_no_check(function_declaration, excludes) {
+    arguments_assert(arguments, [
+        tautology,
+        tautology
+    ]);
+    if (false) {
+        comment(`We want to skip dependencies of ${ function_name_get(arguments_assert) } or we will have recursion problems`);
+        let function_name = js_function_declaration_to_name(function_declaration);
+        if (list_contains(excludes, function_name)) {
+            return;
+        }
+    }
     let statements = js_function_delcaration_to_statements(function_declaration);
     let params = object_property_get(function_declaration, 'params');
     let params_length = list_length(params);
