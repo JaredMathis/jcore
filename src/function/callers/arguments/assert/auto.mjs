@@ -11,6 +11,9 @@ import { js_mapper_args_to_statement_arguments_assert } from '../../../../js/map
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { js_property_name_params } from '../../../../js/property/name/params.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
+import { assert } from '../../../../assert.mjs';
+import { js_node_is_identifier } from '../../../../js/node/is/identifier.mjs';
+import { comment } from '../../../../comment.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let callers = await function_callers(function_name);
@@ -26,6 +29,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
         let arguments_assert_statement = await js_mapper_args_to_statement_arguments_assert({ function_declaration });
         let arguments_assert_call_expression = js_statement_expression_to_expression(arguments_assert_statement);
         for (let arg of object_property_get(arguments_assert_call_expression, js_node_property_arguments())) {
+            comment(`If this isn't true then this code needs changing`);
+            assert(js_node_is_identifier(arg));
             object_property_get(arg, js_node_property_name());
         }
         let arguments_assert_statement_predicates = [];
