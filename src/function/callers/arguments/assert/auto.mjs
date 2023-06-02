@@ -1,3 +1,4 @@
+import { js_node_property_left } from '../../../../js/node/property/left.mjs';
 import { object_property_change } from '../../../../object/property/change.mjs';
 import { js_mapper_args_to_statement_arguments_assert_args_predicate } from '../../../../js/mapper/args/to/statement/arguments/assert/args/predicate.mjs';
 import { function_parse_to_declaration } from '../../../parse/to/declaration.mjs';
@@ -61,9 +62,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
                         let {node} = v;
                         let left = object_property_get(node, js_node_property_left());
                         if (js_node_is_identifier(left)) {
-                            if (false)
-                            if (object_property_get(left, 'name') === a) {
-
+                            if (object_property_get(left, 'name') === predicate_name) {
+                                comment(`Value has been changed - will not assume predicate can be copied`);
                             }
                         }
                         console.log({ node });
@@ -88,7 +88,4 @@ export async function function_callers_arguments_assert_auto(function_name) {
         });
     }
     console.log(callers);
-}
-function js_node_property_left() {
-    return 'left';
 }
