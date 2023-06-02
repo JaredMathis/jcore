@@ -1,4 +1,4 @@
-import { metadata_arguments_assert_none } from '../../../metadata/arguments/assert/none.mjs';
+import { metadata_arguments_assert_extra_allow } from '../../../metadata/arguments/assert/extra/allow.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { comment } from '../../../comment.mjs';
 import { integer_is } from '../../../integer/is.mjs';
@@ -11,5 +11,5 @@ export function arguments_assert_test_3() {
         integer_is,
         integer_is
     ]));
-    metadata([metadata_arguments_assert_none()]);
+    metadata([metadata_arguments_assert_extra_allow()]);
 }
