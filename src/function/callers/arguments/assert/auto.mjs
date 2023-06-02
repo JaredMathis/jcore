@@ -35,7 +35,6 @@ export async function function_callers_arguments_assert_auto(function_name) {
         const arguments_assert_args = object_property_get(arguments_assert_call_expression, js_node_property_arguments());
         let array_expression = list_get(arguments_assert_args, 1);
         let args = object_property_get(array_expression, js_node_property_elements());
-        console.log({ args });
         list_each_with_index(args, function lambda(arg, index) {
             comment(`If this isn't true then this code needs changing`);
             assert(js_node_is_identifier(arg));
