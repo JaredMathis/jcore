@@ -1,3 +1,4 @@
+import { js_call_expressions_named } from '../../../../js/call/expressions/named.mjs';
 import { function_names_each } from '../../../names/each.mjs';
 import { equal } from '../../../../equal.mjs';
 import { js_call_expression_to_name } from '../../../../js/call/expression/to/name.mjs';
@@ -10,8 +11,8 @@ import { list_first } from '../../../../list/first.mjs';
 import { js_function_delcaration_to_statements } from '../../../../js/function/delcaration/to/statements.mjs';
 import { function_name_get } from '../../../name/get.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
-import { comment } from '../../../../comment.mjs';
 import { refactor_arguments_assert_add } from '../../../../refactor/arguments/assert/add.mjs';
+import { tautology } from '../../../../tautology.mjs';
 export async function function_arguments_assert_tautology_next() {
     arguments_assert(arguments, []);
     await function_names_each(logic);
@@ -25,6 +26,6 @@ export async function function_arguments_assert_tautology_next() {
         let expression = object_property_get(statement_first, js_node_property_expression());
         let name_actual = js_call_expression_to_name(expression);
         assert(equal(name_actual, function_name_get(arguments_assert)));
-        
+        js_call_expressions_named(expression, function_name_get(tautology));
     }
 }

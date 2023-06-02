@@ -1,12 +1,10 @@
+import { js_call_expressions_named } from '../../../../js/call/expressions/named.mjs';
 import { metadata_arguments_assert_extra_allow } from '../../../../metadata/arguments/assert/extra/allow.mjs';
-import { equal } from '../../../../equal.mjs';
 import { function_open_vs_code } from '../../../open/vs/code.mjs';
 import { function_name_get } from '../../../name/get.mjs';
 import { function_names_each } from '../../../names/each.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
-import { js_visit_nodes } from '../../../../js/visit/nodes.mjs';
 import { js_node_is_call_expression } from '../../../../js/node/is/call/expression.mjs';
-import { list_add } from '../../../../list/add.mjs';
 import { list_length } from '../../../../list/length.mjs';
 import { js_mapper_args_to_metadata_args } from '../../../../js/mapper/args/to/metadata/args.mjs';
 import { list_map } from '../../../../list/map.mjs';
@@ -34,19 +32,4 @@ export async function function_arguments_assert_extra_next() {
         }
     }
     return result;
-}
-
-function js_call_expressions_named(parsed, name_expected) {
-    let matches = [];
-    console.log({parsed})
-    js_visit_nodes(parsed, node => js_node_is_call_expression(node), v => {
-        let { node } = v;
-        const name_actual = js_call_expression_to_name_or_null(node);
-        if (name_actual !== null) {
-            if (equal(name_actual, name_expected)) {
-                list_add(matches, node);
-            }
-        }
-    });
-    return matches;
 }
