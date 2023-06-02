@@ -8,9 +8,10 @@ import { function_name_to_file_path } from './name/to/file/path.mjs';
 import { file_js_dependencies_non_recursive } from '../file/js/dependencies/non/recursive.mjs';
 export async function function_dependencies(function_name) {
     arguments_assert(arguments, [tautology]);
+    let recursive = true;
     let file_path = function_name_to_file_path(function_name);
     let lambda = file_js_dependencies;
-    if (false) {
+    if (!recursive) {
         lambda = file_js_dependencies_non_recursive;
     }
     let d = await file_js_dependencies(file_path);
