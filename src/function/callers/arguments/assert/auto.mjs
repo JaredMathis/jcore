@@ -53,8 +53,6 @@ export async function function_callers_arguments_assert_auto(function_name) {
                 default_name
             });
             if (equal(predicate_name, default_name)) {
-                let arguments_assert_arg_identifier = list_get(params, index);
-                let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
                 js_visit_nodes(parsed, js_node_is_assignment_expression, v => {
                     error('handle this situation');
                 });
@@ -66,6 +64,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
                             let ce_args = object_property_get(node, js_node_property_arguments());
                             let ce_arg_for_arg = list_get(ce_args, index);
                             console.log({ ce_arg_for_arg });
+                            let arguments_assert_arg_identifier = list_get(params, index);
+                            let arguments_assert_arg_identifier_name = object_property_get(arguments_assert_arg_identifier, 'name');
                         }
                     }
                 });
