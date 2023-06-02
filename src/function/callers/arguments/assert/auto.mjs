@@ -1,6 +1,5 @@
 import { js_mapper_args_to_statement_arguments_assert_args_predicate } from '../../../../js/mapper/args/to/statement/arguments/assert/args/predicate.mjs';
 import { function_parse_to_declaration } from '../../../parse/to/declaration.mjs';
-import { js_mapper_args_to_statement_arguments_assert_args } from '../../../../js/mapper/args/to/statement/arguments/assert/args.mjs';
 import { list_index_of } from '../../../../list/index/of.mjs';
 import { js_node_is_call_expression } from '../../../../js/node/is/call/expression.mjs';
 import { js_node_is_assignment_expression } from '../../../../js/node/is/assignment/expression.mjs';
