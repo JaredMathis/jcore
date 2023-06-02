@@ -10,7 +10,8 @@ export async function function_run(function_name, args) {
         tautology,
         tautology
     ]);
-    const __filename = js_import_meta_to_file_path(import.meta);
+    let import_meta = import.meta;
+    const __filename = js_import_meta_to_file_path(import_meta);
     let function_path = function_name_to_file_path(function_name);
     let concated = path_relative_file(__filename, function_path);
     let replaced = js_import_path_normalize(concated);
