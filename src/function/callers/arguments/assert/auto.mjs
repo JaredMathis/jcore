@@ -85,7 +85,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
                     }
                 });
                 if (changed) {
-                    refactor_import_fix(c_args);
+                    console.log({c_args})
+                    await refactor_import_fix(c_args);
                 }
                 return !changed;
             });
