@@ -1,3 +1,4 @@
+import { arguments_assert_predicate_default } from '../../../../arguments/assert/predicate/default.mjs';
 import { js_node_property_name } from '../../../../js/node/property/name.mjs';
 import { js_node_property_arguments } from '../../../../js/node/property/arguments.mjs';
 import { js_statement_expression_to_expression } from '../../../../js/statement/expression/to/expression.mjs';
@@ -32,6 +33,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
             comment(`If this isn't true then this code needs changing`);
             assert(js_node_is_identifier(arg));
             let name = object_property_get(arg, js_node_property_name());
+            if (equal(name, arguments_assert_predicate_default())) {
+            }
         }
         let arguments_assert_statement_predicates = [];
         console.log({
