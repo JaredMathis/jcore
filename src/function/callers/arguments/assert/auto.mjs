@@ -63,7 +63,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
                     let ce_name = js_call_expression_to_name_or_null(node);
                     if (ce_name !== null) {
                         if (equal(ce_name, function_name)) {
-                            let ce_args = object_property_get(node, js_propert_name_arguments());
+                            let ce_args = object_property_get(node, js_property_name_arguments());
                             console.log({ node });
                         }
                     }
