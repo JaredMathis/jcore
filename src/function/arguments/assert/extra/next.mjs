@@ -25,12 +25,12 @@ export async function function_arguments_assert_extra_next() {
         if (list_contains(mapped, function_name_get(metadata_arguments_assert_extra_allow))) {
             return;
         }
+        const name_expected = function_name_get(arguments_assert);
         let matches = [];
         js_visit_nodes(parsed, node => js_node_is_call_expression(node), v => {
             let {node} = v;
             const name_actual = js_call_expression_to_name_or_null(node);
             if (name_actual !== null) {
-                const name_expected = function_name_get(arguments_assert);
                 if (equal(name_actual, name_expected)) {
                     list_add(matches, node);
                 }
