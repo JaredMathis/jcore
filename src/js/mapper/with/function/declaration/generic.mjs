@@ -5,7 +5,6 @@ import { js_export_function_single_or_null } from '../../../../export/function/s
 export async function js_mapper_with_function_declaration_generic(args, mapper) {
     arguments_assert(arguments, [
         tautology,
-        tautology,
         tautology
     ]);
     let {parsed, file_path} = args;
