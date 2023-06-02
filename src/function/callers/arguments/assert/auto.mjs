@@ -1,3 +1,4 @@
+import { function_parse_to_declaration } from '../../../parse/to/declaration.mjs';
 import { js_mapper_args_to_statement_arguments_assert_args } from '../../../../js/mapper/args/to/statement/arguments/assert/args.mjs';
 import { list_index_of } from '../../../../list/index/of.mjs';
 import { js_node_is_call_expression } from '../../../../js/node/is/call/expression.mjs';
@@ -28,6 +29,7 @@ import { js_call_expression_to_name_or_null } from '../../../../js/call/expressi
 import { list_map } from '../../../../list/map.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
+    function_parse_to_declaration(function_name);
     await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
     let callers = await function_callers(function_name);
     for (let c of callers) {
