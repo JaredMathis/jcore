@@ -32,6 +32,8 @@ export async function function_callers_arguments_assert_auto(function_name) {
     let function_declaration = await function_parse_to_declaration(function_name);
     let arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args_predicate(function_declaration);
     let callers = await function_callers(function_name);
+    console.log({callers,function_name});
+    return;
     for (let c_function_name of callers) {
         if (equal(function_name, c_function_name)) {
             continue;
@@ -90,6 +92,5 @@ export async function function_callers_arguments_assert_auto(function_name) {
                 return !changed;
             });
         });
-        console.log(callers)
     }
 }

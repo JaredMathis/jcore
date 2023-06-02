@@ -8,6 +8,7 @@ import { function_name_to_file_path } from './name/to/file/path.mjs';
 export async function function_dependencies(function_name) {
     arguments_assert(arguments, [tautology]);
     let file_path = function_name_to_file_path(function_name);
+    let lambda = file_js_dependencies;
     let d = await file_js_dependencies(file_path);
     return list_map(d, file_path => {
         return {
