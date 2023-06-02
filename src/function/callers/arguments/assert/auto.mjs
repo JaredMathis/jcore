@@ -23,7 +23,6 @@ import { comment } from '../../../../comment.mjs';
 import { list_get } from '../../../../list/get.mjs';
 import { function_name_get } from '../../../name/get.mjs';
 import { js_visit_nodes } from '../../../../js/visit/nodes.mjs';
-import { error } from '../../../../error.mjs';
 import { js_call_expression_to_name_or_null } from '../../../../js/call/expression/to/name/or/null.mjs';
 import { list_map } from '../../../../list/map.mjs';
 import { file_js_map_args } from '../../../../file/js/map/args.mjs';
@@ -41,7 +40,6 @@ export async function function_callers_arguments_assert_auto(function_name) {
         await file_js_map_args(file_path, async args => {
             let c_parsed = object_property_get(args, 'parsed');
             let c_function_declaration = object_property_get(args, 'function_declaration');
-            let c_file_path = object_property_get(args, 'file_path');
             let c_params = object_property_get(c_function_declaration, js_node_property_params());
             if (list_length_is_0(c_params)) {
                 return true;
@@ -70,7 +68,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
                             }
                         }
                     });
-                    if (assignment_exists = true) {
+                    if (assignment_exists === true) {
                         return changed;
                     }
                     js_visit_nodes(c_parsed, js_node_is_call_expression, v => {
