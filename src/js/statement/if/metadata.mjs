@@ -10,7 +10,7 @@ export function js_statement_if_metadata(statement, if_statement_metadata) {
     ]);
     let name_expected = function_name_get(metadata);
     js_node_call_expression_statement_if_name_equal(statement, name_expected, on_name_equal);
-    function on_name_equal() {
+    function on_name_equal(statement, expression) {
         if_statement_metadata(statement, expression);
     }
     metadata([]);
