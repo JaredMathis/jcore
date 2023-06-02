@@ -16,6 +16,7 @@ import { assert } from '../../../../assert.mjs';
 import { js_node_is_identifier } from '../../../../js/node/is/identifier.mjs';
 import { comment } from '../../../../comment.mjs';
 import { range } from '../../../../range.mjs';
+import { list_index_at } from '../../../../list/index/at.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let callers = await function_callers(function_name);
@@ -33,7 +34,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
 
         const args = object_property_get(arguments_assert_call_expression, js_node_property_arguments());
         for (let index of range(args)) {
-
+            let element = list_index_at(index);
         }
 
         for (let arg of args) {
