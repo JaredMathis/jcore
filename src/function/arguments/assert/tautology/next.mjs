@@ -14,10 +14,12 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_mapper_args_to_statement_arguments_assert } from '../../../../js/mapper/args/to/statement/arguments/assert.mjs';
 import { tautology } from '../../../../tautology.mjs';
 import { object_property_exists } from '../../../../object/property/exists.mjs';
+import { error } from '../../../../error.mjs';
+import { list_contains } from '../../../../list/contains.mjs';
 export async function function_arguments_assert_tautology_next() {
     arguments_assert(arguments, []);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
-    await function_names_each(logic);
+    await function_names_each(logic, function_name => !list_contains(excludes, function_name));
     async function logic(args) {
         let {parsed, function_name} = args;
         await js_mapper_args_to_statement_arguments_assert(args);
