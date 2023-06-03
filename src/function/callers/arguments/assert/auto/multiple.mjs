@@ -5,11 +5,9 @@ export async function function_callers_arguments_assert_auto_multiple() {
     arguments_assert(arguments, []);
     let result = [];
     let multiple = [
-        'directory_add',
-        'file_js_dependencies_non_recursive',
-        'path_parent_exists_ensure',
-        'path_relative_file'
-    ];
+        "directory_exists_ensure",
+        "file_rename"
+       ];
     for (let m of multiple) {
         let r = await function_callers_arguments_assert_auto(m);
         list_add_multiple(result, r);
