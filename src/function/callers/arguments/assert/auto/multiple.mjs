@@ -5,8 +5,8 @@ export async function function_callers_arguments_assert_auto_multiple() {
     arguments_assert(arguments, []);
     let result = [];
     let multiple = [
-        "file_delete",
-        "file_js_parse_with_file_path"
+        "file_js_identifiers",
+        "file_js_path_to_mapper_args"
        ];
     for (let m of multiple) {
         let r = await function_callers_arguments_assert_auto(m);
