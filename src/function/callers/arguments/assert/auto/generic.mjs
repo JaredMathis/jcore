@@ -1,3 +1,6 @@
+import { list_find_or_null } from '../../../../../list/find/or/null.mjs';
+import { tautology } from '../../../../../tautology.mjs';
+import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { list_add } from '../../../../../list/add.mjs';
 import { refactor_import_fix } from '../../../../../refactor/import/fix.mjs';
 import { list_set } from '../../../../../list/set.mjs';
@@ -25,8 +28,13 @@ import { object_property_get } from '../../../../../object/property/get.mjs';
 import { file_js_map_args } from '../../../../../file/js/map/args.mjs';
 import { function_name_to_file_path } from '../../../../name/to/file/path.mjs';
 import { equal } from '../../../../../equal.mjs';
-import { list_find_generic } from '../../../../../list/find/generic.mjs';
 export async function function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, result) {
+    arguments_assert(arguments, [
+        tautology,
+        tautology,
+        tautology,
+        tautology
+    ]);
     if (equal(function_name, c_function_name)) {
         return;
     }
@@ -70,7 +78,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                     if (equal(c_ce_name, function_name)) {
                         let ce_args = object_property_get(node, js_node_property_arguments());
                         if (false)
-                        list_find_or_null(ce_args)
+                            list_find_or_null(ce_args);
                         let ce_arg_for_arg = list_get(ce_args, c_arg_index);
                         if (js_node_is_identifier(ce_arg_for_arg)) {
                             let ce_arg_for_arg_name = object_property_get(ce_arg_for_arg, 'name');
