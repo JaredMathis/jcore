@@ -91,8 +91,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                                 continue;
                             }
                             if (ce_arg !== null) {
-                                let params_index = list_index_of(c_params_names, ce_arg_name);
-                                let arguments_assert_arg = list_get(arguments_assert_args, params_index);
+                                let arguments_assert_arg = list_get(arguments_assert_args, c_arg_index);
                                 list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
                                 console.log({c_arguments_assert_args, c_arg_index, arguments_assert_arg})
                                 changed = true;
