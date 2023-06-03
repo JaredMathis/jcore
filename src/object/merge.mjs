@@ -5,13 +5,15 @@ import { metadata } from '../metadata.mjs';
 import { object_property_get } from './property/get.mjs';
 import { object_keys } from './keys.mjs';
 import { object_property_initialize } from './property/initialize.mjs';
+import { list_filter } from '../list/filter.mjs';
 export function object_merge(from, to) {
     arguments_assert(arguments, [
         defined_is,
         tautology
     ]);
     let filter = tautology;
-    for (let property of object_keys(from)) {
+    let filtered = object_keys(from)
+    for (let property of filtered) {
         let value = object_property_get(from, property);
         object_property_initialize(to, property, value);
     }
