@@ -20,7 +20,9 @@ import { function_names_each_filter } from '../../../names/each/filter.mjs';
 export async function function_arguments_assert_tautology_next() {
     arguments_assert(arguments, []);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
-    await function_names_each_filter(logic, function_name => !list_contains(excludes, function_name));
+    await function_names_each_filter(logic, function_name => {
+        return !list_contains(excludes, function_name)
+    } );
     async function logic(args) {
         let {parsed, function_name} = args;
         await js_mapper_args_to_statement_arguments_assert(args);
