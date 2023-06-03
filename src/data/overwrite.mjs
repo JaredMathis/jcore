@@ -1,4 +1,4 @@
-import { tautology } from '../tautology.mjs';
+import { object_is } from '../object/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { file_json_overwrite } from '../file/json/overwrite.mjs';
