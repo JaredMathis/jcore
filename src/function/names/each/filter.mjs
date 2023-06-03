@@ -1,3 +1,4 @@
+import { function_is } from '../../is.mjs';
 import { comment } from '../../../comment.mjs';
 import { function_name_to_file_path } from '../../name/to/file/path.mjs';
 import { js_export_function_single } from '../../../js/export/function/single.mjs';
@@ -7,7 +8,10 @@ import { function_name_all } from '../../name/all.mjs';
 import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 export async function function_names_each_filter(logic, filter) {
-    arguments_assert(arguments, [tautology, function_is]);
+    arguments_assert(arguments, [
+        tautology,
+        function_is
+    ]);
     const all = await function_name_all();
     let filtered = list_map(all, filter);
     for (let function_name of filtered) {
