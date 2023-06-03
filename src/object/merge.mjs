@@ -8,7 +8,6 @@ export function object_merge(from, to) {
         defined_is,
         tautology
     ]);
-    let filter = tautology;
-    object_merge_filtered(from, filter, to);
+    object_merge_filtered(from, tautology, to);
     metadata([]);
 }
