@@ -1,4 +1,4 @@
-import { tautology } from '../../../../tautology.mjs';
+import { string_identifier_is } from '../../../../string/identifier/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
@@ -7,8 +7,8 @@ import { file_js_all_map_args } from '../map/args.mjs';
 import { list_add } from '../../../../list/add.mjs';
 export async function file_js_all_identifier_rename(identifier_name_old, identifier_name_new) {
     arguments_assert(arguments, [
-        tautology,
-        tautology
+        string_identifier_is,
+        string_identifier_is
     ]);
     let file_paths_changed = [];
     await file_js_all_map_args(function mapper(args) {
