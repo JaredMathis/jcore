@@ -7,7 +7,7 @@ import { function_name_all } from '../../name/all.mjs';
 import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 export async function function_names_each_filter(logic, filter) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [tautology, function_is]);
     const all = await function_name_all();
     let filtered = list_map(all, filter);
     for (let function_name of filtered) {
