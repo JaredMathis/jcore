@@ -90,7 +90,6 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                             if (!list_contains(c_params_names, ce_arg_name)) {
                                 continue;
                             }
-                            list_get(ce_args, c_arg_index);
                             if (ce_arg !== null) {
                                 let params_index = list_index_of(c_params_names, ce_arg_name);
                                 let arguments_assert_arg = list_get(arguments_assert_args, params_index);
