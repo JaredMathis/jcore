@@ -85,16 +85,12 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                                 continue;
                             }
                             const ce_arg_name = object_property_get(ce_arg, 'name');
-                            console.log({
-                                ce_arg_name,
-                            });
                             if (!equal(c_param_name, ce_arg_name)) {
                                 continue;
                             }
                             if (ce_arg !== null) {
                                 let arguments_assert_arg = list_get(arguments_assert_args, c_arg_index);
                                 list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
-                                console.log({c_arguments_assert_args, c_arg_index, arguments_assert_arg})
                                 changed = true;
                             }
                         }
