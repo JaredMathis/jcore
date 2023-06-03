@@ -2,10 +2,12 @@ import { tautology } from '../../tautology.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import fs from 'fs';
 import path from 'path';
+import { path_is } from '../../path/is.mjs';
+import { list_is } from '../../list/is.mjs';
 export async function directory_read_recursive(dir, file_list) {
     arguments_assert(arguments, [
-        tautology,
-        tautology
+        path_is,
+        list_is
     ]);
     const files = await fs.promises.readdir(dir);
     for (let file of files) {
