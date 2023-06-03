@@ -11,7 +11,7 @@ export async function function_callers_arguments_assert_auto_multiple() {
         'path_relative_file'
     ];
     for (let m of multiple) {
-        ;let r = await function_callers_arguments_assert_auto(m)
+        let r = await function_callers_arguments_assert_auto(m);
         list_add_multiple(result, r);
     }
     return result;
