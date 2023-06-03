@@ -1,3 +1,4 @@
+import { json_equals } from '../../../../../json/equals.mjs';
 import { list_each_with_index } from '../../../../../list/each/with/index.mjs';
 import { comment } from '../../../../../comment.mjs';
 import { list_add_if_not_exists } from '../../../../../list/add/if/not/exists.mjs';
@@ -26,10 +27,6 @@ import { object_property_get } from '../../../../../object/property/get.mjs';
 import { file_js_map_args } from '../../../../../file/js/map/args.mjs';
 import { function_name_to_file_path } from '../../../../name/to/file/path.mjs';
 import { equal } from '../../../../../equal.mjs';
-import { json_to } from '../../../../../json/to.mjs';
-import { object_properties } from '../../../../../object/properties.mjs';
-import { list_filter } from '../../../../../list/filter.mjs';
-import { object_merge } from '../../../../../object/merge.mjs';
 comment(`Simplify this function - I don't understand it fully to guarantee it works through logical proof`);
 export async function function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, result) {
     arguments_assert(arguments, [
@@ -91,12 +88,17 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                             }
                             if (ce_arg !== null) {
                                 let arguments_assert_arg = list_get(arguments_assert_args, ce_arg_index);
-                                let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index)
+                                let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index);
                                 let identical = json_equals(arguments_assert_arg, c_arguments_assert_arg);
                                 if (!identical) {
                                     list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
                                     changed = true;
-                                    console.log({c_arguments_assert_args, c_arg_index, arguments_assert_arg,c_arguments_assert_arg})
+                                    console.log({
+                                        c_arguments_assert_args,
+                                        c_arg_index,
+                                        arguments_assert_arg,
+                                        c_arguments_assert_arg
+                                    });
                                 }
                             }
                         });
@@ -111,23 +113,3 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         });
     });
 }
-
-function json_to_keys_exclude(value, excluded) {
-    let filtered = object_keys_without(value, excluded);
-    object_merge(filtered, {});
-}
-
-function object_keys_without(value, excluded) {
-    let all = object_properties(value);
-    let filtered = list_filter(all, v => equal_not(v, excluded));
-    return filtered;
-}
-
-function json_equals(a, b) {
-    let map = json_to;
-    return equal_by(map, a, b);
-}
-function equal_by(map, a, b) {
-    return equal(map(a), map(b));
-}
-
