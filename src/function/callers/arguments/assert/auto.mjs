@@ -85,6 +85,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
                                 if (list_contains(c_params_names, ce_arg_for_arg_name)) {
                                     let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
                                     let arguments_assert_arg = list_get(arguments_assert_args, params_index);
+                                    console.log({c_arguments_assert_args, index, arguments_assert_arg})
                                     object_property_change(c_arguments_assert_args, index, arguments_assert_arg);
                                     changed = true;
                                 }
