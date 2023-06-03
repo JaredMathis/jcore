@@ -27,8 +27,10 @@ import { js_call_expression_to_name_or_null } from '../../../../js/call/expressi
 import { list_map } from '../../../../list/map.mjs';
 import { file_js_map_args } from '../../../../file/js/map/args.mjs';
 import { function_name_to_file_path } from '../../../name/to/file/path.mjs';
+import { list_add } from '../../../../list/add.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
+    let result = [];
     let function_declaration = await function_parse_to_declaration(function_name);
     let arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args_predicate(function_declaration);
     let callers = await function_callers(function_name);
@@ -86,9 +88,11 @@ export async function function_callers_arguments_assert_auto(function_name) {
                 });
                 if (changed) {
                     await refactor_import_fix(c_args);
+                    list_add(result, c_function_name);
                 }
                 return !changed;
             });
         });
     }
+    return result;
 }
