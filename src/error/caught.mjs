@@ -1,4 +1,5 @@
-import { tautology } from '../tautology.mjs';
+import { string_empty_not_is } from '../string/empty/not/is.mjs';
+import { error_is } from './is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { function_name_get } from '../function/name/get.mjs';
@@ -9,7 +10,7 @@ export function error_caught(fn, exception, error_message) {
     arguments_assert(arguments, [
         function_is,
         error_is,
-        tautology
+        string_empty_not_is
     ]);
     log(exception);
     log(error_message);
