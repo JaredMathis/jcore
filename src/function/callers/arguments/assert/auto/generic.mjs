@@ -27,6 +27,9 @@ import { file_js_map_args } from '../../../../../file/js/map/args.mjs';
 import { function_name_to_file_path } from '../../../../name/to/file/path.mjs';
 import { equal } from '../../../../../equal.mjs';
 import { json_to } from '../../../../../json/to.mjs';
+import { object_properties } from '../../../../../object/properties.mjs';
+import { list_filter } from '../../../../../list/filter.mjs';
+import { object_merge } from '../../../../../object/merge.mjs';
 comment(`Simplify this function - I don't understand it fully to guarantee it works through logical proof`);
 export async function function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, result) {
     arguments_assert(arguments, [
@@ -107,6 +110,17 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             return !changed;
         });
     });
+}
+
+function json_to_properties_exclude(value, excluded) {
+    let filtered = object_properties_without(value, excluded);
+    object_merge(filtered, {});
+}
+
+function object_properties_without(value, excluded) {
+    let all = object_properties(value);
+    let filtered = list_filter(all, v => equal_not(v, excluded));
+    return filtered;
 }
 
 function json_equals(arguments_assert_arg, c_arguments_assert_arg) {
