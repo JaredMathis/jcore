@@ -1,4 +1,4 @@
-import { tautology } from '../../../../../tautology.mjs';
+import { defined_is } from '../../../../../defined/is.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { js_identifier_all_rename } from '../../../../../js/identifier/all/rename.mjs';
@@ -9,7 +9,7 @@ import { object_properties } from '../../../../../object/properties.mjs';
 import { object_keys } from '../../../../../object/keys.mjs';
 import { assert } from '../../../../../assert.mjs';
 export async function file_js_all_identifier_all_rename(dictionary) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [defined_is]);
     let keys = object_keys(dictionary);
     let values = object_properties(dictionary);
     const concats = [
