@@ -77,15 +77,13 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 if (c_ce_name !== null) {
                     if (equal(c_ce_name, function_name)) {
                         let ce_args = object_property_get(node, js_node_property_arguments());
-                        if (false)
-                            list_each_with_index();
-                        for (let ce_arg of ce_args) {
+                        list_each_with_index(ce_args, (ce_arg, ce_arg_index => {
                             if (!js_node_is_identifier(ce_arg)) {
-                                continue;
+                                return;
                             }
                             const ce_arg_name = object_property_get(ce_arg, 'name');
                             if (!equal(c_param_name, ce_arg_name)) {
-                                continue;
+                                return;
                             }
                             if (ce_arg !== null) {
                                 let arguments_assert_arg = list_get(arguments_assert_args, c_arg_index);
@@ -97,7 +95,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                                 });
                                 changed = true;
                             }
-                        }
+                        }));
                     }
                 }
             });
