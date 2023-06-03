@@ -5,13 +5,16 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { function_name_all } from '../name/all.mjs';
 import { comment } from '../../comment.mjs';
 import { function_name_to_file_path } from '../name/to/file/path.mjs';
+import { list_map } from '../../list/map.mjs';
 export async function function_names_each(logic) {
     arguments_assert(arguments, [tautology]);
-    let filter;
     let filter_use = false;
     const all = await function_name_all();
+    let filtered
     if (filter_use){
-
+        filtered = list_map(all, filter);
+    } else {
+        filtered = all;
     }
     for (let function_name of all) {
         let parsed = await function_parse(function_name);
