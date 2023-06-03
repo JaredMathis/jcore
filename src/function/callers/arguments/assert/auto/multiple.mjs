@@ -5,10 +5,10 @@ export async function function_callers_arguments_assert_auto_multiple() {
     arguments_assert(arguments, []);
     let result = [];
     let multiple = [
-        "file_js_all_identifier_all_rename",
-        "object_merge",
-        "object_property_all_delete"
-       ];
+        'file_js_map_with_args',
+        'object_replace',
+        'object_replace'
+    ];
     for (let m of multiple) {
         let r = await function_callers_arguments_assert_auto(m);
         list_add_multiple(result, r);
