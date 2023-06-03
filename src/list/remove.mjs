@@ -9,8 +9,6 @@ export function list_remove(list, element) {
         tautology
     ]);
     let index = list_index_of(list, element);
-    if (index >= 0) {
-        list_remove_at(list, index);
-    }
+    list_remove_at(list, index);
     metadata([]);
 }
