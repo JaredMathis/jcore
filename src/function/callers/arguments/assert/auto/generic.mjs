@@ -77,17 +77,13 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 if (c_ce_name !== null) {
                     if (equal(c_ce_name, function_name)) {
                         let ce_args = object_property_get(node, js_node_property_arguments());
-                        if (false)
-                            list_find_or_null(ce_args);
-                        let ce_arg_for_arg = list_get(ce_args, c_arg_index);
-                        if (js_node_is_identifier(ce_arg_for_arg)) {
-                            let ce_arg_for_arg_name = object_property_get(ce_arg_for_arg, 'name');
-                            if (list_contains(c_params_names, ce_arg_for_arg_name)) {
-                                let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
-                                let arguments_assert_arg = list_get(arguments_assert_args, params_index);
-                                list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
-                                changed = true;
-                            }
+                        let ce_arg_for_arg = list_find_or_null(ce_args, ce_arg =>js_node_is_identifier(ce_arg) && list_contains(c_params_names, ce_arg_for_arg_name));
+                        list_get(ce_args, c_arg_index);
+                        if (ce_arg_for_arg !== null) {
+                            let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
+                            let arguments_assert_arg = list_get(arguments_assert_args, params_index);
+                            list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
+                            changed = true;
                         }
                     }
                 }
