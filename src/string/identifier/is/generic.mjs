@@ -1,3 +1,5 @@
+import { tautology } from '../../../tautology.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { string_letter_digit_or_underscore_is } from '../../letter/digit/or/underscore/is.mjs';
 import { string_includes } from '../../includes.mjs';
 import { string_underscore } from '../../underscore.mjs';
@@ -9,6 +11,10 @@ import { list_length_is_0 } from '../../../list/length/is/0.mjs';
 import { string_to_list } from '../../to/list.mjs';
 import { string_is } from '../../is.mjs';
 export function string_identifier_is_generic(value, is_identifier) {
+    arguments_assert(arguments, [
+        tautology,
+        tautology
+    ]);
     if (!string_is(value)) {
         return false;
     }
