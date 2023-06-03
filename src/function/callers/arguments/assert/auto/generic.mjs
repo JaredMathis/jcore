@@ -111,5 +111,9 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
 
 function json_equals(arguments_assert_arg, c_arguments_assert_arg) {
     let map = json_to;
+    return equal_by(map, arguments_assert_arg, c_arguments_assert_arg);
+}
+function equal_by(map, arguments_assert_arg, c_arguments_assert_arg) {
     return equal(map(arguments_assert_arg), map(c_arguments_assert_arg));
 }
+
