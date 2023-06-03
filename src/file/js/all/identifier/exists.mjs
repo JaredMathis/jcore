@@ -1,3 +1,4 @@
+import { string_identifier_is } from '../../../../string/identifier/is.mjs';
 import { tautology } from '../../../../tautology.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -7,7 +8,7 @@ import { js_identifiers } from '../../../../js/identifiers.mjs';
 import { file_js_parse } from '../../parse.mjs';
 import { file_js_all_path } from '../path.mjs';
 if (false)
-    string_identifer_is;
+    string_identifier_is;
 export async function file_js_all_identifier_exists(identifier_name) {
     arguments_assert(arguments, [tautology]);
     let all = await file_js_all_path();
