@@ -7,10 +7,8 @@ import { list_contains } from '../../../../list/contains.mjs';
 import { js_identifiers } from '../../../../js/identifiers.mjs';
 import { file_js_parse } from '../../parse.mjs';
 import { file_js_all_path } from '../path.mjs';
-if (false)
-    string_identifier_is;
 export async function file_js_all_identifier_exists(identifier_name) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [string_identifier_is]);
     let all = await file_js_all_path();
     let result = [];
     for (let a of all) {
