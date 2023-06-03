@@ -2,6 +2,7 @@ import { js_node_property_elements } from '../../../../../../../node/property/el
 import { object_property_get } from '../../../../../../../../object/property/get.mjs';
 import { list_get } from '../../../../../../../../list/get.mjs';
 import { js_mapper_args_to_statement_arguments_assert_args } from '../args.mjs';
+import { arguments_assert } from '../../../../../../../../arguments/assert.mjs';
 export async function js_mapper_args_to_statement_arguments_assert_args_predicate(function_declaration) {
     arguments_assert(arguments, [tautology]);
     const arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
