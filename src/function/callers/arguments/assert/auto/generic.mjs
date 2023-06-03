@@ -112,22 +112,22 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
     });
 }
 
-function json_to_properties_exclude(value, excluded) {
-    let filtered = object_properties_without(value, excluded);
+function json_to_keys_exclude(value, excluded) {
+    let filtered = object_keys_without(value, excluded);
     object_merge(filtered, {});
 }
 
-function object_properties_without(value, excluded) {
+function object_keys_without(value, excluded) {
     let all = object_properties(value);
     let filtered = list_filter(all, v => equal_not(v, excluded));
     return filtered;
 }
 
-function json_equals(arguments_assert_arg, c_arguments_assert_arg) {
+function json_equals(a, b) {
     let map = json_to;
-    return equal_by(map, arguments_assert_arg, c_arguments_assert_arg);
+    return equal_by(map, a, b);
 }
-function equal_by(map, arguments_assert_arg, c_arguments_assert_arg) {
-    return equal(map(arguments_assert_arg), map(c_arguments_assert_arg));
+function equal_by(map, a, b) {
+    return equal(map(a), map(b));
 }
 
