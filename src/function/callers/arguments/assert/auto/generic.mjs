@@ -39,7 +39,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         }
         let c_params_names = list_map(c_params, p => object_property_get(p, 'name'));
         let c_arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args_predicate(c_function_declaration);
-        await list_each_with_index_async(c_arguments_assert_args, async function lambda(c_arg, index) {
+        await list_each_with_index_async(c_arguments_assert_args, async function lambda(c_arg, c_arg_index) {
             comment(`If this isn't true then this code needs changing`);
             assert(js_node_is_identifier(c_arg));
             let predicate_name = object_property_get(c_arg, js_node_property_name());
@@ -64,17 +64,17 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             }
             js_visit_nodes(c_parsed, js_node_is_call_expression, v => {
                 let {node} = v;
-                let ce_name = js_call_expression_to_name_or_null(node);
-                if (ce_name !== null) {
-                    if (equal(ce_name, function_name)) {
+                let c_ce_name = js_call_expression_to_name_or_null(node);
+                if (c_ce_name !== null) {
+                    if (equal(c_ce_name, function_name)) {
                         let ce_args = object_property_get(node, js_node_property_arguments());
-                        let ce_arg_for_arg = list_get(ce_args, index);
+                        let ce_arg_for_arg = list_get(ce_args, c_arg_index);
                         if (js_node_is_identifier(ce_arg_for_arg)) {
                             let ce_arg_for_arg_name = object_property_get(ce_arg_for_arg, 'name');
                             if (list_contains(c_params_names, ce_arg_for_arg_name)) {
                                 let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
                                 let arguments_assert_arg = list_get(arguments_assert_args, params_index);
-                                list_set(c_arguments_assert_args, index, arguments_assert_arg);
+                                list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
                                 changed = true;
                             }
                         }
