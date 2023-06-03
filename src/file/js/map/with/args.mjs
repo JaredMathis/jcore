@@ -1,3 +1,4 @@
+import { defined_is } from '../../../../defined/is.mjs';
 import { path_is } from '../../../../path/is.mjs';
 import { tautology } from '../../../../tautology.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -8,7 +9,7 @@ export async function file_js_map_with_args(file_path, function_name_mapper, arg
     arguments_assert(arguments, [
         path_is,
         tautology,
-        tautology
+        defined_is
     ]);
     await file_js_map_args(file_path, async function mapper(mapper_args) {
         object_merge(args, mapper_args);

@@ -5,8 +5,9 @@ export async function function_callers_arguments_assert_auto_multiple() {
     arguments_assert(arguments, []);
     let result = [];
     let multiple = [
-        "file_js_map_multiple",
-        "file_js_multiple_map"
+        "file_js_all_identifier_all_rename",
+        "object_merge",
+        "object_property_all_delete"
        ];
     for (let m of multiple) {
         let r = await function_callers_arguments_assert_auto(m);
