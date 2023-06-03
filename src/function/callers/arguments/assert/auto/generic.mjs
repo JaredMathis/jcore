@@ -46,14 +46,13 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         if (list_length_is_0(c_params)) {
             return true;
         }
-        let c_params_names = list_map(c_params, p => object_property_get(p, 'name'));
         let c_arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args_predicate(c_function_declaration);
         await list_each_with_index_async(c_arguments_assert_args, async function lambda(c_arg, c_arg_index) {
             comment(`If this isn't true then this code needs changing`);
             assert(js_node_is_identifier(c_arg));
-            let predicate_name = object_property_get(c_arg, js_node_property_name());
+            let c_predicate_name = object_property_get(c_arg, js_node_property_name());
             let default_name = function_name_get(arguments_assert_predicate_default());
-            if (!equal(predicate_name, default_name)) {
+            if (!equal(c_predicate_name, default_name)) {
                 return false;
             }
             let changed = false;
@@ -62,7 +61,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 let {node} = v;
                 let left = object_property_get(node, js_node_property_left());
                 if (js_node_is_identifier(left)) {
-                    if (object_property_get(left, 'name') === predicate_name) {
+                    if (object_property_get(left, 'name') === c_predicate_name) {
                         comment(`Value has been changed - will not assume predicate can be copied`);
                         assignment_exists = true;
                     }
@@ -87,7 +86,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                                 ce_arg_name,
                                 c_params_names
                             });
-                            if (!list_contains(c_params_names, ce_arg_name)) {
+                            if (!equal(c_predicate_name, ce_arg_name)) {
                                 continue;
                             }
                             if (ce_arg !== null) {
