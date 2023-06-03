@@ -21,8 +21,6 @@ export function json_equals_keys_without(a, b, values_without) {
     return equal_by(json_to, filtered_a, filtered_b);
 }
 
-function object_map_without(a, values_without) {
-    let filtered_a = object_keys_without(a, values_without);
-    object_merge_filtered(a, key => !list_contains(values_without, key), {});
-    return filtered_a;
+function object_map_without(object, values_without) {
+    return object_merge_filtered(object, key => !list_contains(values_without, key), {});
 }
