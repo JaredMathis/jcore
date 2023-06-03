@@ -1,6 +1,6 @@
-import { error } from '../error.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-export function error_is() {
-    arguments_assert(arguments, []);
-    error('todo: error_is');
+import { defined_is } from '../defined/is.mjs';
+export function error_is(e) {
+    arguments_assert(arguments, [defined_is]);
+    return e && e.stack && e.message;
 }
