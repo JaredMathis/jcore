@@ -94,7 +94,6 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                                     js_node_property_start(),
                                     js_node_property_end()
                                 ]);
-                                console.log({ identical });
                                 if (!identical) {
                                     list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
                                     changed = true;
