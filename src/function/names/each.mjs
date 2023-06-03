@@ -8,7 +8,8 @@ export async function function_names_each(logic) {
     arguments_assert(arguments, [tautology]);
     const all = await function_name_all();
     for (let function_name of all) {
-        let function_declaration = await function_parse_to_declaration(function_name);
+        let parsed = await function_parse(function_name);
+        let function_declaration = js_export_function_single(parsed);
         let file_path = function_name_to_file_path(function_name);
         comment(`mapper_args code is being duplicated here likely`);
         let result = await logic({
