@@ -1,4 +1,4 @@
-import { json_equals_keys_filtered } from './equals/keys/filtered.mjs';
+import { json_equals_keys_without } from './equals/keys/without.mjs';
 import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 export function json_equals(a, b) {
@@ -6,5 +6,5 @@ export function json_equals(a, b) {
         tautology,
         tautology
     ]);
-    return json_equals_keys_filtered(a, b);
+    return json_equals_keys_without(a, b);
 }
