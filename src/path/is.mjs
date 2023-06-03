@@ -1,6 +1,6 @@
-import { error } from '../error.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-export function path_is() {
-    arguments_assert(arguments, []);
-    error('todo: path_is');
+import { string_is } from '../string/is.mjs';
+export function path_is(value) {
+    arguments_assert(arguments, [string_is]);
+    return true;
 }
