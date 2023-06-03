@@ -10,6 +10,6 @@ export function list_set(list, index, value) {
         tautology
     ]);
     assert(index >= 0);
-    assert(index <= list_length(list, index));
+    assert(index <= list_length(list));
     list[index] = value;
 }
