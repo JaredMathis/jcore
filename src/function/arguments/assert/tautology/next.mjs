@@ -1,4 +1,3 @@
-import { log } from '../../../../log.mjs';
 import { refactor_functions_arguments_assert_missing_add_excludes } from '../../../../refactor/functions/arguments/assert/missing/add/excludes.mjs';
 import { js_statement_expression_to_expression } from '../../../../js/statement/expression/to/expression.mjs';
 import { js_function_delcaration_to_statement_first } from '../../../../js/function/delcaration/to/statement/first.mjs';
@@ -33,8 +32,11 @@ export async function function_arguments_assert_tautology_next() {
         let counts = js_identifier_counts(expression);
         let property_name = function_name_get(tautology);
         if (object_property_exists(counts, property_name)) {
-            await function_open_vs_code(function_name);
-            return true;
+            return await on_equals(function_name);
         }
+    }
+    async function on_equals(function_name) {
+        await function_open_vs_code(function_name);
+        return true;
     }
 }
