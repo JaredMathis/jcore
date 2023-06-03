@@ -1,3 +1,4 @@
+import { defined_is } from '../../../../../../defined/is.mjs';
 import { tautology } from '../../../../../../tautology.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { js_call_expression_to_name_or_null } from '../../../../../call/expression/to/name/or/null.mjs';
@@ -7,7 +8,7 @@ import { js_node_is_call_expression } from '../../../../is/call/expression.mjs';
 export function js_node_call_expression_if_name_equal(node, name_expected, on_name_equal) {
     arguments_assert(arguments, [
         tautology,
-        tautology,
+        defined_is,
         tautology
     ]);
     if (js_node_is_call_expression(node)) {

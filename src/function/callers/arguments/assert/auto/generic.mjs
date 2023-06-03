@@ -1,3 +1,4 @@
+import { defined_is } from '../../../../../defined/is.mjs';
 import { json_equals_keys_without } from '../../../../../json/equals/keys/without.mjs';
 import { list_each_with_index } from '../../../../../list/each/with/index.mjs';
 import { comment } from '../../../../../comment.mjs';
@@ -27,12 +28,11 @@ import { object_property_get } from '../../../../../object/property/get.mjs';
 import { file_js_map_args } from '../../../../../file/js/map/args.mjs';
 import { function_name_to_file_path } from '../../../../name/to/file/path.mjs';
 import { equal } from '../../../../../equal.mjs';
-import { js_node_property_type } from '../../../../../js/node/property/type.mjs';
 comment(`Simplify this function - I don't understand it fully to guarantee it works through logical proof`);
 export async function function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, result) {
     arguments_assert(arguments, [
-        tautology,
-        tautology,
+        defined_is,
+        defined_is,
         tautology,
         tautology
     ]);
