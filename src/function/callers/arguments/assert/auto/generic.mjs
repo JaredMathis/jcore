@@ -97,12 +97,6 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                                 if (!identical) {
                                     list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
                                     changed = true;
-                                    console.log({
-                                        c_arguments_assert_args,
-                                        c_arg_index,
-                                        arguments_assert_arg,
-                                        c_arguments_assert_arg
-                                    });
                                 }
                             }
                         });
