@@ -25,6 +25,7 @@ import { object_property_get } from '../../../../../object/property/get.mjs';
 import { file_js_map_args } from '../../../../../file/js/map/args.mjs';
 import { function_name_to_file_path } from '../../../../name/to/file/path.mjs';
 import { equal } from '../../../../../equal.mjs';
+import { list_find_generic } from '../../../../../list/find/generic.mjs';
 export async function function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, result) {
     if (equal(function_name, c_function_name)) {
         return;
@@ -68,6 +69,8 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 if (c_ce_name !== null) {
                     if (equal(c_ce_name, function_name)) {
                         let ce_args = object_property_get(node, js_node_property_arguments());
+                        if (false)
+                        list_find_or_null(ce_args)
                         let ce_arg_for_arg = list_get(ce_args, c_arg_index);
                         if (js_node_is_identifier(ce_arg_for_arg)) {
                             let ce_arg_for_arg_name = object_property_get(ce_arg_for_arg, 'name');
