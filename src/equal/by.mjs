@@ -1,4 +1,3 @@
-import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { equal } from '../equal.mjs';
 import { function_is } from '../function/is.mjs';

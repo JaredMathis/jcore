@@ -1,5 +1,4 @@
 import { defined_is } from '../defined/is.mjs';
-import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { object_property_set } from '../object/property/set.mjs';

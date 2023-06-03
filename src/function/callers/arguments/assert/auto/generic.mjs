@@ -1,9 +1,8 @@
 import { defined_is } from '../../../../../defined/is.mjs';
-import { json_equals_keys_without } from '../../../../../json/equals/keys/without.mjs';
+import { json_equal_keys_without } from '../../../../../json/equal/keys/without.mjs';
 import { list_each_with_index } from '../../../../../list/each/with/index.mjs';
 import { comment } from '../../../../../comment.mjs';
 import { list_add_if_not_exists } from '../../../../../list/add/if/not/exists.mjs';
-import { log } from '../../../../../log.mjs';
 import { tautology } from '../../../../../tautology.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { refactor_import_fix } from '../../../../../refactor/import/fix.mjs';
@@ -90,7 +89,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                             if (ce_arg !== null) {
                                 let arguments_assert_arg = list_get(arguments_assert_args, ce_arg_index);
                                 let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index);
-                                let identical = json_equals_keys_without(arguments_assert_arg, c_arguments_assert_arg, [
+                                let identical = json_equal_keys_without(arguments_assert_arg, c_arguments_assert_arg, [
                                     js_node_property_start(),
                                     js_node_property_end()
                                 ]);

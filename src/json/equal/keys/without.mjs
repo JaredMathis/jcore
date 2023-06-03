@@ -2,7 +2,7 @@ import { json_equals } from '../../equals.mjs';
 import { object_map_without } from '../../../object/map/without.mjs';
 import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
-export function json_equals_keys_without(a, b, values_without) {
+export function json_equal_keys_without(a, b, values_without) {
     arguments_assert(arguments, [
         tautology,
         tautology,

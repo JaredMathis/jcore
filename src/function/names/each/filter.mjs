@@ -3,7 +3,6 @@ import { comment } from '../../../comment.mjs';
 import { function_name_to_file_path } from '../../name/to/file/path.mjs';
 import { js_export_function_single } from '../../../js/export/function/single.mjs';
 import { function_parse } from '../../parse.mjs';
-import { list_map } from '../../../list/map.mjs';
 import { function_name_all } from '../../name/all.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { list_filter } from '../../../list/filter.mjs';
