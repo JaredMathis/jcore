@@ -91,8 +91,8 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                                 let arguments_assert_arg = list_get(arguments_assert_args, ce_arg_index);
                                 let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index);
                                 let identical = json_equals_keys_without(arguments_assert_arg, c_arguments_assert_arg, [
-                                    js_node_property_name(),
-                                    js_node_property_type()
+                                    js_node_property_start(),
+                                    js_node_property_end()
                                 ]);
                                 if (!identical) {
                                     list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
@@ -116,4 +116,12 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             return !changed;
         });
     });
+}
+
+function js_node_property_end() {
+    return 'end';
+}
+
+function js_node_property_start() {
+    return 'start';
 }
