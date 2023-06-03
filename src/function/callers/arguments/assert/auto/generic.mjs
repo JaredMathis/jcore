@@ -1,11 +1,10 @@
-import { list_find_or_null } from '../../../../../list/find/or/null.mjs';
+import { comment } from '../../../../../comment.mjs';
+import { list_add_if_not_exists } from '../../../../../list/add/if/not/exists.mjs';
+import { log } from '../../../../../log.mjs';
 import { tautology } from '../../../../../tautology.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
-import { list_add } from '../../../../../list/add.mjs';
 import { refactor_import_fix } from '../../../../../refactor/import/fix.mjs';
 import { list_set } from '../../../../../list/set.mjs';
-import { list_index_of } from '../../../../../list/index/of.mjs';
-import { list_contains } from '../../../../../list/contains.mjs';
 import { list_get } from '../../../../../list/get.mjs';
 import { js_node_property_arguments } from '../../../../../js/node/property/arguments.mjs';
 import { js_call_expression_to_name_or_null } from '../../../../../js/call/expression/to/name/or/null.mjs';
@@ -18,17 +17,14 @@ import { function_name_get } from '../../../../name/get.mjs';
 import { js_node_property_name } from '../../../../../js/node/property/name.mjs';
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
 import { assert } from '../../../../../assert.mjs';
-import { comment } from '../../../../../comment.mjs';
 import { list_each_with_index_async } from '../../../../../list/each/with/index/async.mjs';
 import { js_mapper_args_to_statement_arguments_assert_args_predicate } from '../../../../../js/mapper/args/to/statement/arguments/assert/args/predicate.mjs';
-import { list_map } from '../../../../../list/map.mjs';
 import { list_length_is_0 } from '../../../../../list/length/is/0.mjs';
 import { js_node_property_params } from '../../../../../js/node/property/params.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { file_js_map_args } from '../../../../../file/js/map/args.mjs';
 import { function_name_to_file_path } from '../../../../name/to/file/path.mjs';
 import { equal } from '../../../../../equal.mjs';
-import { list_add_exists_not } from '../../../../../list/add/exists/not.mjs';
 comment(`Simplify this function - I don't understand it fully to guarantee it works through logical proof`);
 export async function function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, result) {
     arguments_assert(arguments, [
@@ -91,7 +87,11 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                             if (ce_arg !== null) {
                                 let arguments_assert_arg = list_get(arguments_assert_args, c_arg_index);
                                 list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
-                                console.log({c_arguments_assert_args, c_arg_index, arguments_assert_arg})
+                                console.log({
+                                    c_arguments_assert_args,
+                                    c_arg_index,
+                                    arguments_assert_arg
+                                });
                                 changed = true;
                             }
                         }
