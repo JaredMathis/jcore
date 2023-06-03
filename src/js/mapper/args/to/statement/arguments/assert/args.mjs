@@ -3,6 +3,7 @@ import { object_property_get } from '../../../../../../../object/property/get.mj
 import { js_statement_expression_to_expression } from '../../../../../../statement/expression/to/expression.mjs';
 import { js_mapper_args_to_statement_arguments_assert } from '../assert.mjs';
 import { tautology } from '../../../../../../../tautology.mjs';
+import { arguments_assert } from '../../../../../../../arguments/assert.mjs';
 export async function js_mapper_args_to_statement_arguments_assert_args(function_declaration) {
     arguments_assert(arguments, [tautology]);
     let arguments_assert_statement = await js_mapper_args_to_statement_arguments_assert({ function_declaration });
