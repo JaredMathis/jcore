@@ -6,7 +6,7 @@ export async function function_arguments_assert_tautology_count() {
     await function_arguments_assert_tautology_generic(on_equals);
     async function on_equals(function_name) {
         count++;
-        return true;
+        return false;
     }
     return count;
 }
