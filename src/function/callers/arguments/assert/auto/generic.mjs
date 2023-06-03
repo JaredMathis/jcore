@@ -77,11 +77,13 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 if (c_ce_name !== null) {
                     if (equal(c_ce_name, function_name)) {
                         let ce_args = object_property_get(node, js_node_property_arguments());
+                        console.log({ce_args})
                         for (let ce_arg of ce_args) {
                             if (!js_node_is_identifier(ce_arg)) {
                                 continue;
                             }
                             const ce_arg_name = object_property_get(ce_arg, 'name');
+                            console.log({ce_arg_name, c_params_names})
                             if (!list_contains(c_params_names, ce_arg_name)) {
                                 continue;
                             }
