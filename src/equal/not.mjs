@@ -1,6 +1,7 @@
 import { error } from '../error.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-export function equal_not() {
-    arguments_assert(arguments, []);
-    error('todo: equal_not');
+import { defined_is } from '../defined/is.mjs';
+export function equal_not(a,b) {
+    arguments_assert(arguments, [defined_is, defined_is]);
+    return !equal(a,b);
 }
