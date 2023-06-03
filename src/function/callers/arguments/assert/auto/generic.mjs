@@ -84,7 +84,6 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                             const ce_arg_name = object_property_get(ce_arg, 'name');
                             console.log({
                                 ce_arg_name,
-                                c_params_names
                             });
                             if (!equal(c_predicate_name, ce_arg_name)) {
                                 continue;
