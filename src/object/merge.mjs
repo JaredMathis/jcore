@@ -14,7 +14,7 @@ export function object_merge(from, to) {
     let filter = tautology;
     let keys = object_keys(from)
     let filterd = list_filter(keys, filter);
-    for (let property of keys) {
+    for (let property of filterd) {
         let value = object_property_get(from, property);
         object_property_initialize(to, property, value);
     }
