@@ -28,6 +28,7 @@ import { object_property_get } from '../../../../../object/property/get.mjs';
 import { file_js_map_args } from '../../../../../file/js/map/args.mjs';
 import { function_name_to_file_path } from '../../../../name/to/file/path.mjs';
 import { equal } from '../../../../../equal.mjs';
+import { list_add_exists_not } from '../../../../../list/add/exists/not.mjs';
 comment(`Simplify this function - I don't understand it fully to guarantee it works through logical proof`);
 export async function function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, result) {
     arguments_assert(arguments, [
@@ -98,7 +99,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             });
             if (changed) {
                 await refactor_import_fix(c_args);
-                list_add(result, c_function_name);
+                list_add_if_not_exists(result, c_function_name);
             }
             return !changed;
         });
