@@ -9,4 +9,5 @@ export function object_merge_filtered(from, filter, to) {
         let value = object_property_get(from, property);
         object_property_initialize(to, property, value);
     }
+    return to;
 }
