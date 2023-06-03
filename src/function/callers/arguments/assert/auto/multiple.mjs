@@ -5,9 +5,8 @@ export async function function_callers_arguments_assert_auto_multiple() {
     arguments_assert(arguments, []);
     let result = [];
     let multiple = [
-        "file_js_all_map_args_if_function",
-        "file_js_map",
-        "function_map_with_args"
+        "file_js_map_multiple",
+        "file_js_multiple_map"
        ];
     for (let m of multiple) {
         let r = await function_callers_arguments_assert_auto(m);
