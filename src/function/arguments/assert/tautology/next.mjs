@@ -1,3 +1,5 @@
+import { log } from '../../../../log.mjs';
+import { refactor_functions_arguments_assert_missing_add_excludes } from '../../../../refactor/functions/arguments/assert/missing/add/excludes.mjs';
 import { js_statement_expression_to_expression } from '../../../../js/statement/expression/to/expression.mjs';
 import { js_function_delcaration_to_statement_first } from '../../../../js/function/delcaration/to/statement/first.mjs';
 import { js_identifier_counts } from '../../../../js/identifier/counts.mjs';
@@ -14,6 +16,7 @@ import { tautology } from '../../../../tautology.mjs';
 import { object_property_exists } from '../../../../object/property/exists.mjs';
 export async function function_arguments_assert_tautology_next() {
     arguments_assert(arguments, []);
+    let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await function_names_each(logic);
     async function logic(args) {
         let {parsed, function_name} = args;
@@ -22,6 +25,7 @@ export async function function_arguments_assert_tautology_next() {
         let statement_first = js_function_delcaration_to_statement_first(function_declaration);
         let expression = js_statement_expression_to_expression(statement_first);
         let name_actual = js_find_call_expressions_to_name(expression);
+        console.log({ function_name });
         assert(equal(name_actual, function_name_get(arguments_assert)));
         let counts = js_identifier_counts(expression);
         let property_name = function_name_get(tautology);
