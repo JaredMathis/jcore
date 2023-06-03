@@ -1,4 +1,6 @@
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { js_export_function_single } from '../../../js/export/function/single.mjs';
+import { tautology } from '../../../tautology.mjs';
 import { function_parse } from '../../parse.mjs';
 export async function function_parse_to_declaration(function_name) {
     arguments_assert(arguments, [tautology]);
