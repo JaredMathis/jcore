@@ -35,9 +35,6 @@ export async function function_callers_arguments_assert_auto(function_name) {
     let arguments_assert_args = await function_to_statement_arguments_assert_args_predicate(function_name);
     let callers = await function_callers(function_name);
     for (let c_function_name of callers) {
-        if (equal(function_name, c_function_name)) {
-            continue;
-        }
         await function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, result);
     }
     return result;
@@ -48,8 +45,13 @@ async function function_to_statement_arguments_assert_args_predicate(function_na
     return arguments_assert_args;
 }
 async function function_callers_arguments_assert_auto_single(function_name, c_function_name) {
+    let arguments_assert_args = await function_to_statement_arguments_assert_args_predicate(function_name);
+    await function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, result);
 }
 async function function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, result) {
+    if (equal(function_name, c_function_name)) {
+        return;
+    }
     let c_file_path = function_name_to_file_path(c_function_name);
     await file_js_map_args(c_file_path, async c_args => {
         let c_parsed = object_property_get(c_args, 'parsed');
