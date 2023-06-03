@@ -1,6 +1,7 @@
+import { list_set } from '../../../../list/set.mjs';
+import { log } from '../../../../log.mjs';
 import { refactor_import_fix } from '../../../../refactor/import/fix.mjs';
 import { js_node_property_left } from '../../../../js/node/property/left.mjs';
-import { object_property_change } from '../../../../object/property/change.mjs';
 import { js_mapper_args_to_statement_arguments_assert_args_predicate } from '../../../../js/mapper/args/to/statement/arguments/assert/args/predicate.mjs';
 import { function_parse_to_declaration } from '../../../parse/to/declaration.mjs';
 import { list_index_of } from '../../../../list/index/of.mjs';
@@ -28,7 +29,6 @@ import { list_map } from '../../../../list/map.mjs';
 import { file_js_map_args } from '../../../../file/js/map/args.mjs';
 import { function_name_to_file_path } from '../../../name/to/file/path.mjs';
 import { list_add } from '../../../../list/add.mjs';
-import { json_to } from '../../../../json/to.mjs';
 import { list_contains } from '../../../../list/contains.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
@@ -85,8 +85,12 @@ export async function function_callers_arguments_assert_auto(function_name) {
                                 if (list_contains(c_params_names, ce_arg_for_arg_name)) {
                                     let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
                                     let arguments_assert_arg = list_get(arguments_assert_args, params_index);
-                                    console.log({c_arguments_assert_args, index, arguments_assert_arg})
-                                    object_property_change(c_arguments_assert_args, index, arguments_assert_arg);
+                                    console.log({
+                                        c_arguments_assert_args,
+                                        index,
+                                        arguments_assert_arg
+                                    });
+                                    list_set(c_arguments_assert_args, index, arguments_assert_arg);
                                     changed = true;
                                 }
                             }
