@@ -1,3 +1,4 @@
+import { defined_is } from '../../../defined/is.mjs';
 import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
@@ -6,7 +7,7 @@ import { data_map } from '../../map.mjs';
 export async function data_key_value_set(key, value) {
     arguments_assert(arguments, [
         tautology,
-        tautology
+        defined_is
     ]);
     await data_map(map);
     function map(data) {
