@@ -117,11 +117,9 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         });
     });
 }
-
 function js_node_property_end() {
     return 'end';
 }
-
 function js_node_property_start() {
     return 'start';
 }
