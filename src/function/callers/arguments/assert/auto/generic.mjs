@@ -27,6 +27,7 @@ import { object_property_get } from '../../../../../object/property/get.mjs';
 import { file_js_map_args } from '../../../../../file/js/map/args.mjs';
 import { function_name_to_file_path } from '../../../../name/to/file/path.mjs';
 import { equal } from '../../../../../equal.mjs';
+import { js_node_property_type } from '../../../../../js/node/property/type.mjs';
 comment(`Simplify this function - I don't understand it fully to guarantee it works through logical proof`);
 export async function function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, result) {
     arguments_assert(arguments, [
@@ -89,7 +90,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                             if (ce_arg !== null) {
                                 let arguments_assert_arg = list_get(arguments_assert_args, ce_arg_index);
                                 let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index);
-                                let identical = json_equals_keys_filtered(arguments_assert_arg, c_arguments_assert_arg, [js_node_property_name()]);
+                                let identical = json_equals_keys_filtered(arguments_assert_arg, c_arguments_assert_arg, [js_node_property_name(), js_node_property_type()]);
                                 if (!identical) {
                                     list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
                                     changed = true;

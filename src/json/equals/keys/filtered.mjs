@@ -4,5 +4,6 @@ import { object_keys_without } from '../../../object/keys/without.mjs';
 export function json_equals_keys_filtered(a, b, filter) {
     let filtered_a = object_keys_without(a, filter);
     let filtered_b = object_keys_without(b, filter);
+    console.log({filtered_a,filtered_b})
     return equal_by(json_to, filtered_a, filtered_b);
 }
