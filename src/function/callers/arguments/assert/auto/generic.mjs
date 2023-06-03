@@ -81,12 +81,13 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                             if (!js_node_is_identifier(ce_arg)) {
                                 continue;
                             }
-                            if (!list_contains(c_params_names, object_property_get(ce_arg, 'name'))) {
+                            const ce_arg_name = object_property_get(ce_arg, 'name');
+                            if (!list_contains(c_params_names, ce_arg_name)) {
                                 continue;
                             }
                             list_get(ce_args, c_arg_index);
                             if (ce_arg !== null) {
-                                let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
+                                let params_index = list_index_of(c_params_names, ce_arg_name);
                                 let arguments_assert_arg = list_get(arguments_assert_args, params_index);
                                 list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
                                 changed = true;
