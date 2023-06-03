@@ -5,11 +5,10 @@ import { js_export_function_single } from '../../../js/export/function/single.mj
 import { function_parse } from '../../parse.mjs';
 import { list_map } from '../../../list/map.mjs';
 import { function_name_all } from '../../name/all.mjs';
-import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 export async function function_names_each_filter(logic, filter) {
     arguments_assert(arguments, [
-        tautology,
+        function_is,
         function_is
     ]);
     const all = await function_name_all();
