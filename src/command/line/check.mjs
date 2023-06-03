@@ -4,10 +4,8 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { error } from '../../error.mjs';
 import { exec } from 'child_process';
-if (false)
-    string_empty_not_js;
 export async function command_line_check(command) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [string_empty_not_js]);
     return await new Promise(function (resolve, reject) {
         exec(command, (error, stdout, stderr) => {
             let success = true;
