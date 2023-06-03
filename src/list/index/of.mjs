@@ -6,6 +6,7 @@ export function list_index_of(list, element) {
         tautology,
         tautology
     ]);
-    return list.indexOf(element);
+    let result = list.indexOf(element);
+    return result;
     metadata([]);
 }
