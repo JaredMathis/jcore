@@ -1,3 +1,4 @@
+import { path_is } from '../path/is.mjs';
 import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
@@ -8,7 +9,7 @@ import fs from 'fs';
 export async function file_rename(file_path_old, file_path_new) {
     arguments_assert(arguments, [
         tautology,
-        tautology
+        path_is
     ]);
     assert(await path_exists(file_path_old));
     assert(!await path_exists(file_path_new));
