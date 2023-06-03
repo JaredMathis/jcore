@@ -78,6 +78,7 @@ export async function function_callers_arguments_assert_auto(function_name) {
                         if (equal(ce_name, function_name)) {
                             let ce_args = object_property_get(node, js_node_property_arguments());
                             let ce_arg_for_arg = list_get(ce_args, index);
+                            console.log({ce_arg_for_arg})
                             let ce_arg_for_arg_name = object_property_get(ce_arg_for_arg, 'name');
                             let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
                             let arguments_assert_arg = list_get(arguments_assert_args, params_index);
