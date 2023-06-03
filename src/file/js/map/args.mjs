@@ -11,7 +11,6 @@ export async function file_js_map_args(file_path, mapper) {
     ]);
     let args = await file_js_path_to_mapper_args(file_path);
     const get_result = js_mapper_with_function_declaration_get(mapper);
-    console.log({args})
     let result = await get_result(args);
     if (result) {
         return;
