@@ -48,6 +48,8 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         }
         let c_arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args_predicate(c_function_declaration);
         await list_each_with_index_async(c_arguments_assert_args, async function lambda(c_arg, c_arg_index) {
+            let c_param = list_get(c_params, c_arg_index);
+            let c_param_name = object_property_get(c_param, js_node_property_name());
             comment(`If this isn't true then this code needs changing`);
             assert(js_node_is_identifier(c_arg));
             let c_predicate_name = object_property_get(c_arg, js_node_property_name());
@@ -85,13 +87,14 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                             console.log({
                                 ce_arg_name,
                             });
-                            if (!equal(c_predicate_name, ce_arg_name)) {
+                            if (!equal(c_param_name, ce_arg_name)) {
                                 continue;
                             }
                             if (ce_arg !== null) {
                                 let params_index = list_index_of(c_params_names, ce_arg_name);
                                 let arguments_assert_arg = list_get(arguments_assert_args, params_index);
                                 list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
+                                console.log({c_arguments_assert_args, c_arg_index, arguments_assert_arg})
                                 changed = true;
                             }
                         }
