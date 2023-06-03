@@ -9,9 +9,6 @@ import { js_function_delcaration_to_statements } from '../../../../../js/functio
 import { list_first } from '../../../../../list/first.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { refactor_import_fix } from '../../../../import/fix.mjs';
-import { js_function_declaration_to_name } from '../../../../../js/function/declaration/to/name.mjs';
-import { comment } from '../../../../../comment.mjs';
-import { list_contains } from '../../../../../list/contains.mjs';
 export async function refactor_functions_arguments_assert_missing_add() {
     arguments_assert(arguments, []);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
