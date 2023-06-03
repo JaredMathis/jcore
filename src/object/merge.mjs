@@ -1,11 +1,8 @@
+import { object_merge_filtered } from './merge/filtered.mjs';
 import { defined_is } from '../defined/is.mjs';
 import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
-import { object_property_get } from './property/get.mjs';
-import { object_keys } from './keys.mjs';
-import { object_property_initialize } from './property/initialize.mjs';
-import { list_filter } from '../list/filter.mjs';
 export function object_merge(from, to) {
     arguments_assert(arguments, [
         defined_is,
@@ -14,13 +11,4 @@ export function object_merge(from, to) {
     let filter = tautology;
     object_merge_filtered(from, filter, to);
     metadata([]);
-}
-
-function object_merge_filtered(from, filter, to) {
-    let keys = object_keys(from);
-    let filterd = list_filter(keys, filter);
-    for (let property of filterd) {
-        let value = object_property_get(from, property);
-        object_property_initialize(to, property, value);
-    }
 }
