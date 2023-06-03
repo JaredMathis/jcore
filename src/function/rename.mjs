@@ -1,5 +1,4 @@
 import { string_identifier_is } from '../string/identifier/is.mjs';
-import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { function_name_get } from './name/get.mjs';
@@ -9,7 +8,7 @@ import { file_js_all_identifier_rename } from '../file/js/all/identifier/rename.
 import { function_rename_without_all_refactor } from './rename/without/all/refactor.mjs';
 export async function function_rename(function_name_old, function_name_new) {
     arguments_assert(arguments, [
-        tautology,
+        string_identifier_is,
         string_identifier_is
     ]);
     await function_rename_without_all_refactor(function_name_old, function_name_new);
