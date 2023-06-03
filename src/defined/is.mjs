@@ -1,6 +1,5 @@
-import { error } from '../error.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-export function defined_is() {
+export function defined_is(variable) {
     arguments_assert(arguments, []);
-    error('todo: defined_is');
+    return typeof variable !== 'undefined';
 }
