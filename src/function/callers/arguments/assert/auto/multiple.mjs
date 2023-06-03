@@ -5,10 +5,8 @@ export async function function_callers_arguments_assert_auto_multiple() {
     arguments_assert(arguments, []);
     let result = [];
     let multiple = [
-        "file_exists",
-        "file_read",
-        "file_rename",
-        "path_exists_not"
+        "file_delete",
+        "file_js_parse_with_file_path"
        ];
     for (let m of multiple) {
         let r = await function_callers_arguments_assert_auto(m);
