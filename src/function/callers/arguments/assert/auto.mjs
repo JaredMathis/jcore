@@ -29,6 +29,7 @@ import { file_js_map_args } from '../../../../file/js/map/args.mjs';
 import { function_name_to_file_path } from '../../../name/to/file/path.mjs';
 import { list_add } from '../../../../list/add.mjs';
 import { json_to } from '../../../../json/to.mjs';
+import { list_contains } from '../../../../list/contains.mjs';
 export async function function_callers_arguments_assert_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let result = [];
@@ -81,10 +82,12 @@ export async function function_callers_arguments_assert_auto(function_name) {
                             let ce_arg_for_arg = list_get(ce_args, index);
                             if (js_node_is_identifier(ce_arg_for_arg)) {
                                 let ce_arg_for_arg_name = object_property_get(ce_arg_for_arg, 'name');
-                                let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
-                                let arguments_assert_arg = list_get(arguments_assert_args, params_index);
-                                object_property_change(c_arguments_assert_args, index, arguments_assert_arg);
-                                changed = true;
+                                if (list_contains(c_params_names, ce_arg_for_arg_name)) {
+                                    let params_index = list_index_of(c_params_names, ce_arg_for_arg_name);
+                                    let arguments_assert_arg = list_get(arguments_assert_args, params_index);
+                                    object_property_change(c_arguments_assert_args, index, arguments_assert_arg);
+                                    changed = true;
+                                }
                             }
                         }
                     }
