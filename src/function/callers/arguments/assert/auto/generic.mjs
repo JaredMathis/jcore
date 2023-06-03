@@ -77,7 +77,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 if (c_ce_name !== null) {
                     if (equal(c_ce_name, function_name)) {
                         let ce_args = object_property_get(node, js_node_property_arguments());
-                        list_each_with_index(ce_args, (ce_arg, ce_arg_index => {
+                        list_each_with_index(ce_args, (ce_arg, ce_arg_index) => {
                             if (!js_node_is_identifier(ce_arg)) {
                                 return;
                             }
@@ -95,7 +95,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                                 });
                                 changed = true;
                             }
-                        }));
+                        });
                     }
                 }
             });
