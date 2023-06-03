@@ -1,12 +1,14 @@
+import { string_empty_not_is } from '../string/empty/not/is.mjs';
+import { function_is } from '../function/is.mjs';
 import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { error_caught } from '../error/caught.mjs';
 export function try_catch(fn, lambda, error_message) {
     arguments_assert(arguments, [
+        function_is,
         tautology,
-        tautology,
-        tautology
+        string_empty_not_is
     ]);
     try {
         return lambda();
