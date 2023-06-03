@@ -10,6 +10,7 @@ export function object_merge(from, to) {
         defined_is,
         tautology
     ]);
+    let filter = tautology;
     for (let property of object_keys(from)) {
         let value = object_property_get(from, property);
         object_property_initialize(to, property, value);
