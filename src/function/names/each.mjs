@@ -8,14 +8,12 @@ import { function_name_to_file_path } from '../name/to/file/path.mjs';
 import { list_map } from '../../list/map.mjs';
 export async function function_names_each(logic) {
     arguments_assert(arguments, [tautology]);
-    let filter_use = false;
+    return await function_names_each_filter(logic, tautology)
+}
+async function function_names_each_filter(logic, filter) {
+    arguments_assert(arguments, [tautology]);
     const all = await function_name_all();
-    let filtered
-    if (filter_use){
-        filtered = list_map(all, filter);
-    } else {
-        filtered = all;
-    }
+    let filtered = list_map(all, filter);
     for (let function_name of all) {
         let parsed = await function_parse(function_name);
         let function_declaration = js_export_function_single(parsed);
