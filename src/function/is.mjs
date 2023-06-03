@@ -1,6 +1,6 @@
-import { error } from '../error.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-export function function_is() {
-    arguments_assert(arguments, []);
-    error('todo: function_is');
+import { tautology } from '../tautology.mjs';
+export function function_is(candidate) {
+    arguments_assert(arguments, [tautology]);
+    return typeof candidate === 'function';
 }
