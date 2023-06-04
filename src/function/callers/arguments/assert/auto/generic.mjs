@@ -34,7 +34,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         string_identifier_is,
         string_identifier_is,
         list_is,
-        tautology
+        list_is
     ]);
     if (equal(function_name, c_function_name)) {
         return;
