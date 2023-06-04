@@ -1,3 +1,4 @@
+import { js_node_is_function_declaration } from '../../../../../js/node/is/function/declaration.mjs';
 import { js_node_property_params } from '../../../../../js/node/property/params.mjs';
 import { arguments_assert_predicate_default } from '../../../../../arguments/assert/predicate/default.mjs';
 import { list_contains } from '../../../../../list/contains.mjs';
@@ -17,7 +18,7 @@ import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_function_delcaration_to_statements } from '../../../../../js/function/delcaration/to/statements.mjs';
 export function refactor_arguments_assert_add_no_check(function_declaration, excludes) {
     arguments_assert(arguments, [
-        tautology,
+        js_node_is_function_declaration,
         tautology
     ]);
     comment(`We want to skip dependencies of ${ function_name_get(arguments_assert) } or we will have recursion problems`);
