@@ -9,8 +9,9 @@ import { list_join } from '../../../list/join.mjs';
 import { command_line_args_skipped } from '../../../command/line/args/skipped.mjs';
 import { command_line_all } from '../../../command/line/all.mjs';
 import { result_empty } from '../../../result/empty.mjs';
+import { string_is } from '../../../string/is.mjs';
 export async function git_pacp_with_message(commit_message) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [string_is]);
     let args = command_line_args_skipped();
     list_remove_all_first_equals(args, function_name_get(git));
     let args_message = list_join(args, ' ');
