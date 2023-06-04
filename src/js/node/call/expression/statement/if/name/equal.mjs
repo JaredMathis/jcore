@@ -7,9 +7,10 @@ import { js_node_is_call_expression } from '../../../../../is/call/expression.mj
 import { js_node_property_expression } from '../../../../../property/expression.mjs';
 import { object_property_get } from '../../../../../../../object/property/get.mjs';
 import { js_node_is_expression_statement } from '../../../../../is/expression/statement.mjs';
+import { js_node_is } from '../../../../../is.mjs';
 export function js_node_call_expression_statement_if_name_equal(statement, name_expected, on_name_equal) {
     arguments_assert(arguments, [
-        tautology,
+        js_node_is,
         defined_is,
         function_is
     ]);
