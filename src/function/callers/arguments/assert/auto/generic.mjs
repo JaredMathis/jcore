@@ -27,11 +27,12 @@ import { object_property_get } from '../../../../../object/property/get.mjs';
 import { file_js_map_args } from '../../../../../file/js/map/args.mjs';
 import { function_name_to_file_path } from '../../../../name/to/file/path.mjs';
 import { equal } from '../../../../../equal.mjs';
+import { string_identifier_is } from '../../../../../string/identifier/is.mjs';
 comment(`Simplify this function - I don't understand it fully to guarantee it works through logical proof`);
 export async function function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, result) {
     arguments_assert(arguments, [
-        defined_is,
-        defined_is,
+        string_identifier_is,
+        string_identifier_is,
         tautology,
         tautology
     ]);
