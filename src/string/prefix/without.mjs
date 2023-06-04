@@ -1,4 +1,4 @@
-import { tautology } from '../../tautology.mjs';
+import { string_is } from '../is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { string_skip } from '../skip.mjs';
@@ -7,8 +7,8 @@ import { assert } from '../../assert.mjs';
 import { string_length } from '../length.mjs';
 export function string_prefix_without(input, prefix) {
     arguments_assert(arguments, [
-        tautology,
-        tautology
+        string_is,
+        string_is
     ]);
     assert(string_starts_with(input, prefix));
     let length = string_length(prefix);
