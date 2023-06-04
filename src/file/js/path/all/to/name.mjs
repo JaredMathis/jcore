@@ -1,4 +1,4 @@
-import { tautology } from '../../../../../tautology.mjs';
+import { list_is } from '../../../../../list/is.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { function_extension } from '../../../../../function/extension.mjs';
@@ -12,7 +12,7 @@ import { directory_source } from '../../../../../directory/source.mjs';
 import { file_path_split } from '../../../../path/split.mjs';
 import { list_map } from '../../../../../list/map.mjs';
 export function file_js_path_all_to_name(file_js_paths) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [list_is]);
     let mapped = list_map(file_js_paths, a => file_path_split(a));
     let directory_source_result = directory_source();
     let mapped2 = list_map(mapped, a => {
