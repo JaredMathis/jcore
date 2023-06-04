@@ -1,3 +1,4 @@
+import { js_mapper_args_is } from '../../../is.mjs';
 import { js_function_delcaration_to_statement_first } from '../../../../../function/delcaration/to/statement/first.mjs';
 import { tautology } from '../../../../../../tautology.mjs';
 import { refactor_arguments_assert_add_no_check } from '../../../../../../refactor/arguments/assert/add/no/check.mjs';
@@ -12,6 +13,8 @@ import { assert } from '../../../../../../assert.mjs';
 import { js_node_is_function_declaration } from '../../../../../node/is/function/declaration.mjs';
 export async function js_mapper_args_to_statement_arguments_assert(args) {
     arguments_assert(arguments, [tautology]);
+    if (false)
+        js_mapper_args_is;
     let {function_declaration} = args;
     assert(js_node_is_function_declaration(function_declaration));
     let statements = js_function_delcaration_to_statements(function_declaration);
