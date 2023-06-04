@@ -1,3 +1,4 @@
+import { list_is } from '../../../list/is.mjs';
 import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata_generated } from '../../../metadata/generated.mjs';
@@ -12,7 +13,7 @@ export function visit_recursive_ignore_duplicates(node, children_get, lambda, st
         tautology,
         tautology,
         tautology,
-        tautology,
+        list_is,
         tautology,
         tautology
     ]);

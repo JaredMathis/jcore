@@ -1,3 +1,4 @@
+import { list_is } from '../list/is.mjs';
 import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata_generated } from '../metadata/generated.mjs';
@@ -8,7 +9,7 @@ export function visit_recursive(node, children_get, lambda, stack, visited) {
         tautology,
         tautology,
         tautology,
-        tautology,
+        list_is,
         tautology
     ]);
     let ignore_duplicates = false;

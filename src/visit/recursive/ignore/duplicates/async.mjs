@@ -1,3 +1,4 @@
+import { list_is } from '../../../../list/is.mjs';
 import { tautology } from '../../../../tautology.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { list_last_remove_verify } from '../../../../list/last/remove/verify.mjs';
@@ -10,7 +11,7 @@ export async function visit_recursive_ignore_duplicates_async(node, children_get
         tautology,
         tautology,
         tautology,
-        tautology,
+        list_is,
         tautology,
         tautology
     ]);

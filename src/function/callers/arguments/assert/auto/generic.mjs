@@ -1,4 +1,4 @@
-import { defined_is } from '../../../../../defined/is.mjs';
+import { list_is } from '../../../../../list/is.mjs';
 import { json_equal_keys_without } from '../../../../../json/equal/keys/without.mjs';
 import { list_each_with_index } from '../../../../../list/each/with/index.mjs';
 import { comment } from '../../../../../comment.mjs';
@@ -33,7 +33,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
     arguments_assert(arguments, [
         string_identifier_is,
         string_identifier_is,
-        tautology,
+        list_is,
         tautology
     ]);
     if (equal(function_name, c_function_name)) {
