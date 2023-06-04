@@ -1,5 +1,5 @@
+import { js_node_is_program } from '../../node/is/program.mjs';
 import { defined_is } from '../../../defined/is.mjs';
-import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { equal } from '../../../equal.mjs';
@@ -8,7 +8,7 @@ import { js_node_is_call_expression } from '../../node/is/call/expression.mjs';
 import { js_visit_nodes } from '../../visit/nodes.mjs';
 export function js_call_expressions_named(parsed, name_expected) {
     arguments_assert(arguments, [
-        tautology,
+        js_node_is_program,
         defined_is
     ]);
     let matches = [];

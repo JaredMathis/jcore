@@ -1,5 +1,5 @@
+import { js_node_is_program } from '../../node/is/program.mjs';
 import { list_is } from '../../../list/is.mjs';
-import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { js_imports_remove_generic } from './generic.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
@@ -7,7 +7,7 @@ import { list_find } from '../../../list/find.mjs';
 import { list_map } from '../../../list/map.mjs';
 export function js_imports_remove_multiple(parsed, imports, removal_names) {
     arguments_assert(arguments, [
-        tautology,
+        js_node_is_program,
         list_is,
         list_is
     ]);

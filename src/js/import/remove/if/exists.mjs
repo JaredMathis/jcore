@@ -1,3 +1,4 @@
+import { js_node_is_program } from '../../../node/is/program.mjs';
 import { list_is } from '../../../../list/is.mjs';
 import { tautology } from '../../../../tautology.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -7,7 +8,7 @@ import { object_property_get } from '../../../../object/property/get.mjs';
 import { list_find_or_null } from '../../../../list/find/or/null.mjs';
 export function js_import_remove_if_exists(parsed, imports, function_name) {
     arguments_assert(arguments, [
-        tautology,
+        js_node_is_program,
         list_is,
         tautology
     ]);

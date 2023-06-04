@@ -1,4 +1,4 @@
-import { tautology } from '../../../../../tautology.mjs';
+import { js_node_is_program } from '../../../../node/is/program.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { list_add } from '../../../../../list/add.mjs';
@@ -15,7 +15,7 @@ import { js_import_all } from '../../../all.mjs';
 import { list_contains } from '../../../../../list/contains.mjs';
 import { js_node_property_source } from '../../../../node/property/source.mjs';
 export async function js_import_all_with_function_names(parsed) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [js_node_is_program]);
     let function_names = await function_name_all();
     let import_all = js_import_all(parsed);
     let import_name_all = [];

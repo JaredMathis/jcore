@@ -1,3 +1,4 @@
+import { js_node_is_program } from '../../../node/is/program.mjs';
 import { tautology } from '../../../../tautology.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -16,7 +17,7 @@ import { list_length_multiple } from '../../../../list/length/multiple.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 export function js_export_function_single_generic(parsed, or_null) {
     arguments_assert(arguments, [
-        tautology,
+        js_node_is_program,
         tautology
     ]);
     let result = value_new();

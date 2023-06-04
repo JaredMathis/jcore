@@ -7,7 +7,7 @@ import { visit_filter } from '../visit/filter.mjs';
 import { js_body_get } from './body/get.mjs';
 export function js_visit(parsed, filter, lambda) {
     arguments_assert(arguments, [
-        tautology,
+        js_node_is_program,
         tautology,
         tautology
     ]);
