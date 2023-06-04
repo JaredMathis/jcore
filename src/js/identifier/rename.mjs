@@ -1,11 +1,11 @@
+import { js_mapper_args_is } from '../mapper/args/is.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
-import { tautology } from '../../tautology.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { js_identifier_rename_if } from './rename/if.mjs';
 import { metadata } from '../../metadata.mjs';
 export function js_identifier_rename(args, identifier_name_old, identifier_name_new) {
     arguments_assert(arguments, [
-        tautology,
+        js_mapper_args_is,
         string_identifier_is,
         string_identifier_is
     ]);
