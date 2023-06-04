@@ -5,9 +5,10 @@ import { string_length } from '../../../../string/length.mjs';
 import { assert } from '../../../../assert.mjs';
 import { js_keyword_async } from '../../../keyword/async.mjs';
 import { string_empty } from '../../../../string/empty.mjs';
+import { string_identifier_is } from '../../../../string/identifier/is.mjs';
 export function js_code_export_function_synchronized(function_name, is_async, function_statements_code) {
     arguments_assert(arguments, [
-        tautology,
+        string_identifier_is,
         tautology,
         tautology
     ]);
