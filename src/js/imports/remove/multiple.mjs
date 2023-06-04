@@ -1,3 +1,4 @@
+import { list_is } from '../../../list/is.mjs';
 import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { js_imports_remove_generic } from './generic.mjs';
@@ -7,7 +8,7 @@ import { list_map } from '../../../list/map.mjs';
 export function js_imports_remove_multiple(parsed, imports, removal_names) {
     arguments_assert(arguments, [
         tautology,
-        tautology,
+        list_is,
         tautology
     ]);
     let imports_to_remove = list_map(removal_names, removal_name => {
