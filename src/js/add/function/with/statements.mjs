@@ -1,3 +1,4 @@
+import { string_identifier_is } from '../../../../string/identifier/is.mjs';
 import { list_is } from '../../../../list/is.mjs';
 import { tautology } from '../../../../tautology.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -10,7 +11,7 @@ import { js_body_get } from '../../../body/get.mjs';
 export function js_add_function_with_statements(parsed, function_name, statements) {
     arguments_assert(arguments, [
         tautology,
-        tautology,
+        string_identifier_is,
         list_is
     ]);
     let body = js_body_get(parsed);
