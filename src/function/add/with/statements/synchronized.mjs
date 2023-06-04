@@ -1,6 +1,6 @@
+import { boolean_is } from '../../../../boolean/is.mjs';
 import { list_is } from '../../../../list/is.mjs';
 import { string_identifier_is } from '../../../../string/identifier/is.mjs';
-import { tautology } from '../../../../tautology.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { function_write } from '../../../write.mjs';
@@ -13,7 +13,7 @@ export async function function_add_with_statements_synchronized(function_name, s
     arguments_assert(arguments, [
         string_identifier_is,
         list_is,
-        tautology
+        boolean_is
     ]);
     const code = js_function_name_to_export(function_name);
     let parsed = js_parse(code);

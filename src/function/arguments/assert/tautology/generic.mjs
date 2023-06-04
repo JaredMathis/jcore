@@ -13,8 +13,9 @@ import { js_mapper_args_to_statement_arguments_assert } from '../../../../js/map
 import { list_contains } from '../../../../list/contains.mjs';
 import { function_names_each_filter } from '../../../names/each/filter.mjs';
 import { refactor_functions_arguments_assert_missing_add_excludes } from '../../../../refactor/functions/arguments/assert/missing/add/excludes.mjs';
+import { function_is } from '../../../is.mjs';
 export async function function_arguments_assert_tautology_generic(on_equals) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [function_is]);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await function_names_each_filter(logic, function_name => {
         let result = !list_contains(excludes, function_name);
