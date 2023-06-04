@@ -6,7 +6,7 @@ import { js_node_is } from '../node/is.mjs';
 import { js_visit } from '../visit.mjs';
 export function js_visit_nodes(parsed, predicate, lambda) {
     arguments_assert(arguments, [
-        js_node_is_program,
+        js_node_is,
         tautology,
         tautology
     ]);

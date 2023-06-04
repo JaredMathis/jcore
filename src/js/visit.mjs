@@ -5,9 +5,10 @@ import { metadata } from '../metadata.mjs';
 import { object_properties } from '../object/properties.mjs';
 import { visit_filter } from '../visit/filter.mjs';
 import { js_body_get } from './body/get.mjs';
+import { js_node_is } from './node/is.mjs';
 export function js_visit(parsed, filter, lambda) {
     arguments_assert(arguments, [
-        js_node_is_program,
+        js_node_is,
         tautology,
         tautology
     ]);
