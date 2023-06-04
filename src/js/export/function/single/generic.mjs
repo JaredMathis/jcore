@@ -15,10 +15,11 @@ import { list_map } from '../../../../list/map.mjs';
 import { js_function_declaration_to_name } from '../../../function/declaration/to/name.mjs';
 import { list_length_multiple } from '../../../../list/length/multiple.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
+import { boolean_is } from '../../../../boolean/is.mjs';
 export function js_export_function_single_generic(parsed, or_null) {
     arguments_assert(arguments, [
         js_node_is_program,
-        tautology
+        boolean_is
     ]);
     let result = value_new();
     let exports_existing = js_exports(parsed);
