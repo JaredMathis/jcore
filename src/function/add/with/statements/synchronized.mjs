@@ -1,3 +1,4 @@
+import { list_is } from '../../../../list/is.mjs';
 import { string_identifier_is } from '../../../../string/identifier/is.mjs';
 import { tautology } from '../../../../tautology.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -11,7 +12,7 @@ import { js_function_name_to_export } from '../../../../js/function/name/to/expo
 export async function function_add_with_statements_synchronized(function_name, statements, is_async) {
     arguments_assert(arguments, [
         string_identifier_is,
-        tautology,
+        list_is,
         tautology
     ]);
     const code = js_function_name_to_export(function_name);

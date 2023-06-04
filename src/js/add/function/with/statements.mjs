@@ -1,3 +1,4 @@
+import { list_is } from '../../../../list/is.mjs';
 import { tautology } from '../../../../tautology.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -10,7 +11,7 @@ export function js_add_function_with_statements(parsed, function_name, statement
     arguments_assert(arguments, [
         tautology,
         tautology,
-        tautology
+        list_is
     ]);
     let body = js_body_get(parsed);
     let export_statement = js_parse_statement(js_function_name_to_export(function_name));
