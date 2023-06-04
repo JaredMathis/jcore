@@ -1,3 +1,4 @@
+import { defined_is } from '../../defined/is.mjs';
 import { tautology } from '../../tautology.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
@@ -6,7 +7,7 @@ import { js_unparse } from '../../js/unparse.mjs';
 export async function file_js_write(function_path, parsed) {
     arguments_assert(arguments, [
         tautology,
-        tautology
+        defined_is
     ]);
     let unparsed = js_unparse(parsed);
     await file_write(function_path, unparsed);
