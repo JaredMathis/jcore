@@ -7,7 +7,7 @@ export function string_prefix_replace(input, prefix_old, prefix_new) {
     arguments_assert(arguments, [
         string_is,
         string_is,
-        tautology
+        string_is
     ]);
     let prefix_without = string_prefix_without(input, prefix_old);
     return prefix_new + prefix_without;
