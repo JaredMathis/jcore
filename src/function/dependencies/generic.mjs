@@ -1,3 +1,4 @@
+import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { tautology } from '../../tautology.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { file_js_path_to_name } from '../../file/js/path/to/name.mjs';
@@ -7,7 +8,7 @@ import { file_js_dependencies } from '../../file/js/dependencies.mjs';
 import { function_name_to_file_path } from '../name/to/file/path.mjs';
 export async function function_dependencies_generic(function_name, recursive) {
     arguments_assert(arguments, [
-        tautology,
+        string_identifier_is,
         tautology
     ]);
     let file_path = function_name_to_file_path(function_name);

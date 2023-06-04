@@ -1,4 +1,4 @@
-import { tautology } from '../tautology.mjs';
+import { string_identifier_is } from '../string/identifier/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { function_auto_after } from './auto/after.mjs';
@@ -6,7 +6,7 @@ import { function_exists } from './exists.mjs';
 import { function_add } from './add.mjs';
 import { function_open_vs_code } from './open/vs/code.mjs';
 export async function function_auto(function_name) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [string_identifier_is]);
     if (!await function_exists(function_name)) {
         await function_add(function_name);
     }
