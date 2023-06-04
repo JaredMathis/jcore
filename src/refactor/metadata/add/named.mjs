@@ -1,3 +1,4 @@
+import { defined_is } from '../../../defined/is.mjs';
 import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { list_add } from '../../../list/add.mjs';
@@ -8,7 +9,7 @@ import { js_parse_call_expression } from '../../../js/parse/call/expression.mjs'
 import { js_mapper_args_to_metadata_args } from '../../../js/mapper/args/to/metadata/args.mjs';
 export async function refactor_metadata_add_named(args, metadata_function_name) {
     arguments_assert(arguments, [
-        tautology,
+        defined_is,
         tautology
     ]);
     let metadata_args = await js_mapper_args_to_metadata_args(args);

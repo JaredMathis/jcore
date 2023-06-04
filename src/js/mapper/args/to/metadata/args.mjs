@@ -1,4 +1,4 @@
-import { tautology } from '../../../../../tautology.mjs';
+import { defined_is } from '../../../../../defined/is.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { js_statement_metadata_is } from '../../../../statement/metadata/is.mjs';
 import { refactor_metadata_missing_add } from '../../../../../refactor/metadata/missing/add.mjs';
@@ -7,7 +7,7 @@ import { js_function_delcaration_to_statements } from '../../../../function/delc
 import { js_statement_metadata_args_get } from '../../../../statement/metadata/args/get.mjs';
 import { list_last } from '../../../../../list/last.mjs';
 export async function js_mapper_args_to_metadata_args(args) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [defined_is]);
     let {function_declaration} = args;
     let statements = js_function_delcaration_to_statements(function_declaration);
     let missing = false;

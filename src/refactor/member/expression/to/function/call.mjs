@@ -1,4 +1,4 @@
-import { tautology } from '../../../../../tautology.mjs';
+import { defined_is } from '../../../../../defined/is.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { function_auto_after_refactors_invoke } from '../../../../../function/auto/after/refactors/invoke.mjs';
 import { js_parse_call_expression } from '../../../../../js/parse/call/expression.mjs';
@@ -13,7 +13,7 @@ import { js_node_is_member_expression } from '../../../../../js/node/is/member/e
 import { list_add } from '../../../../../list/add.mjs';
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
 export async function refactor_member_expression_to_function_call(args) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [defined_is]);
     let changed = false;
     let {parsed} = args;
     js_visit_nodes(parsed, js_node_is_member_expression, v => {

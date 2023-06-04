@@ -1,4 +1,4 @@
-import { tautology } from '../../../tautology.mjs';
+import { defined_is } from '../../../defined/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { refactor_import_fix } from '../../import/fix.mjs';
 import { list_add } from '../../../list/add.mjs';
@@ -12,7 +12,7 @@ import { list_last } from '../../../list/last.mjs';
 import { list_length_is_0 } from '../../../list/length/is/0.mjs';
 import { js_function_delcaration_to_statements } from '../../../js/function/delcaration/to/statements.mjs';
 export async function refactor_metadata_missing_add(args) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [defined_is]);
     let {function_declaration} = args;
     let already_exists = false;
     let statements = js_function_delcaration_to_statements(function_declaration);

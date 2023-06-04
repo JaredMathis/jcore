@@ -1,6 +1,6 @@
+import { defined_is } from '../../../defined/is.mjs';
 import { refactor_multiple } from '../../multiple.mjs';
 import { function_auto_after_refactors_first } from '../../../function/auto/after/refactors/first.mjs';
-import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { function_name_get } from '../../../function/name/get.mjs';
@@ -18,7 +18,7 @@ import { refactor_import_fix } from '../../import/fix.mjs';
 import { js_body_get } from '../../../js/body/get.mjs';
 import { js_function_declaration_to_name } from '../../../js/function/declaration/to/name.mjs';
 export async function refactor_functions_to_files(args) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [defined_is]);
     let {parsed} = args;
     let without_imports = js_without_imports(parsed);
     let function_declarations_to_export = list_filter(without_imports, js_node_is_function_declaration);
