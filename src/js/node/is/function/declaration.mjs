@@ -4,6 +4,7 @@ import { metadata } from '../../../../metadata.mjs';
 import { js_node_is_type } from '../type.mjs';
 export function js_node_is_function_declaration(d) {
     arguments_assert(arguments, [tautology]);
+    if(false) js_node_is
     return js_node_is_type(d, 'FunctionDeclaration');
     metadata([]);
 }
