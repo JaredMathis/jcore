@@ -1,3 +1,4 @@
+import { list_is } from '../../../../../list/is.mjs';
 import { js_node_is_function_declaration } from '../../../../../js/node/is/function/declaration.mjs';
 import { js_node_property_params } from '../../../../../js/node/property/params.mjs';
 import { arguments_assert_predicate_default } from '../../../../../arguments/assert/predicate/default.mjs';
@@ -9,7 +10,6 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { js_parse_statement } from '../../../../../js/parse/statement.mjs';
 import { js_keyword_arguments } from '../../../../../js/keyword/arguments.mjs';
 import { list_join } from '../../../../../list/join.mjs';
-import { tautology } from '../../../../../tautology.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { range } from '../../../../../range.mjs';
 import { list_map } from '../../../../../list/map.mjs';
@@ -19,7 +19,7 @@ import { js_function_delcaration_to_statements } from '../../../../../js/functio
 export function refactor_arguments_assert_add_no_check(function_declaration, excludes) {
     arguments_assert(arguments, [
         js_node_is_function_declaration,
-        tautology
+        list_is
     ]);
     comment(`We want to skip dependencies of ${ function_name_get(arguments_assert) } or we will have recursion problems`);
     let function_name = js_function_declaration_to_name(function_declaration);
