@@ -6,10 +6,11 @@ import { range } from '../../../range.mjs';
 import { tautology } from '../../../tautology.mjs';
 import { list_is } from '../../is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
+import { function_is } from '../../../function/is.mjs';
 export function list_each_with_index(list, lambda) {
     arguments_assert(arguments, [
         list_is,
-        tautology
+        function_is
     ]);
     const r = range(list_length(list));
     for (let index of r) {
