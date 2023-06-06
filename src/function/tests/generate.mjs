@@ -29,8 +29,8 @@ export async function function_tests_generate(function_name) {
             return;
         }
         let dictionary = list_to_dictionary(names_with_endings_unqiue, async key => {
-            return await function_run(key, [])
-        })
+            return await function_run(key, []);
+        });
         console.log({ dictionary });
     });
 }
