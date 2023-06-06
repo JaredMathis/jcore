@@ -12,6 +12,8 @@ import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_map } from '../../list/map.mjs';
 import { function_run } from '../run.mjs';
+import { js_code_call_expression_with_args } from '../../js/code/call/expression/with/args.mjs';
+import { range } from '../../range.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
@@ -32,7 +34,13 @@ export async function function_tests_generate(function_name) {
         let dictionary = await list_to_dictionary(names_with_endings_unqiue, async key => {
             return await function_run(key, []);
         });
-        js_code_call_expression_with_args_code;
+        let tests_count = 10;
+        for (let i of range(tests_count)) {
+            let args = list_map(predicate_names, n => {
+                let values = dictionary[n];
+            });
+            js_code_call_expression_with_args(function_name, );
+        }
         console.log({ dictionary });
     });
 }
