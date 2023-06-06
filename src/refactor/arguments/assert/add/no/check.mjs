@@ -16,7 +16,7 @@ import { list_map } from '../../../../../list/map.mjs';
 import { list_length } from '../../../../../list/length.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_function_delcaration_to_statements } from '../../../../../js/function/delcaration/to/statements.mjs';
-import { js_code_call_expression_with_args } from '../../../../../js/code/call/expression/with/args.mjs';
+import { js_code_call_expression_with_args_code } from '../../../../../js/code/call/expression/with/args/code.mjs';
 export function refactor_arguments_assert_add_no_check(function_declaration, excludes) {
     arguments_assert(arguments, [
         js_node_is_function_declaration,
@@ -39,7 +39,7 @@ export function refactor_arguments_assert_add_no_check(function_declaration, exc
     ];
     const call_expression_function_name = function_name_get(arguments_assert);
     let params_code2 = list_join(params2, ', ');
-    const statment_code = js_code_call_expression_with_args(call_expression_function_name, params_code2);
+    const statment_code = js_code_call_expression_with_args_code(call_expression_function_name, params_code2);
     let statement_new = js_parse_statement(statment_code);
     list_add_beginning(statements, statement_new);
 }
