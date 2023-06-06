@@ -39,7 +39,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         return;
     }
     let c_file_path = function_name_to_file_path(c_function_name);
-    await file_js_map_args(c_file_path, async function (c_args) {
+    await file_js_map_args(c_file_path, async function mapper(c_args) {
         let c_parsed = object_property_get(c_args, 'parsed');
         let c_function_declaration = object_property_get(c_args, 'function_declaration');
         let c_params = object_property_get(c_function_declaration, js_node_property_params());
