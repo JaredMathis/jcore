@@ -1,12 +1,20 @@
-import { tautology } from '../tautology.mjs';
+import { list_length } from './length.mjs';
+import { equal } from '../equal.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
+import { list_is } from './is.mjs';
+import { integer_is } from '../integer/is.mjs';
+import { assert } from '../assert.mjs';
+import { list_index_valid } from './index/valid.mjs';
 export function list_slice(list, start, end) {
     arguments_assert(arguments, [
-        tautology,
-        tautology,
-        tautology
+        list_is,
+        integer_is,
+        integer_is
     ]);
+    for (let i of [start,end]) {
+        assert(list_index_valid(list, end) || equal(end, list_length(list)));
+    }
     return list.slice(start, end);
     metadata([]);
 }
