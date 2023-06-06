@@ -4,10 +4,11 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { list_first_remove } from '../../../first/remove.mjs';
 import { list_first } from '../../../first.mjs';
+import { defined_is } from '../../../../defined/is.mjs';
 export function list_remove_all_first_equals(args, value) {
     arguments_assert(arguments, [
         list_is,
-        tautology
+        defined_is
     ]);
     while (list_first(args) === value) {
         list_first_remove(args);
