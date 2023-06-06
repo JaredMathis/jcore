@@ -9,8 +9,8 @@ export function visit_filter(root, children_get, filter, lambda) {
     arguments_assert(arguments, [
         defined_is,
         function_is,
-        tautology,
-        tautology
+        function_is,
+        function_is
     ]);
     visit(root, children_get, lambda_local);
     function lambda_local(v) {
