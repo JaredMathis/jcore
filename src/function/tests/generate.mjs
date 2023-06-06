@@ -9,6 +9,8 @@ export async function function_tests_generate(function_name) {
     if (tests_count === 0) {
         return;
     }
-    function_map_args();
-    js_mapper_args_to_statement_arguments_assert_args_predicate;
+    await function_map_args(function_name, async args => {
+        let predicate = await js_mapper_args_to_statement_arguments_assert_args_predicate(args);
+        console.log(predicate)
+    });
 }
