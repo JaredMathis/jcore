@@ -16,11 +16,7 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
         string_is
     ]);
     let names = await function_name_all();
-    let dictionary = {};
-    for (let n_old of names) {
-        let n_new = await lambda(n_old)
-        object_property_initialize(dictionary, n_old, n_new);
-    }
+    let dictionary = await list_to_dictionary(names, lambda);
     async function lambda(n_old) {
         if (string_starts_with(n_old, prefix_old)) {
             let n_new = string_prefix_replace(n_old, prefix_old, prefix_new);
@@ -31,4 +27,13 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
     await file_js_all_identifier_all_rename(dictionary);
     await file_js_all_map(function_name_get(refactor_import_fix));
     metadata([]);
+}
+
+async function list_to_dictionary(names, lambda) {
+    let dictionary = {};
+    for (let n_old of names) {
+        let n_new = await lambda(n_old);
+        object_property_initialize(dictionary, n_old, n_new);
+    }
+    return dictionary;
 }
