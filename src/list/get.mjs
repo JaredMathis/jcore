@@ -8,7 +8,7 @@ import { list_is } from './is.mjs';
 export function list_get(list, index) {
     arguments_assert(arguments, [
         list_is,
-        tautology
+        integer_is
     ]);
     assert(object_property_exists(list, index));
     return list[index];
