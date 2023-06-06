@@ -19,7 +19,7 @@ export async function function_tests_generate(function_name) {
         let predicate_names = list_map(predicate, p => object_property_get(p, 'name'));
         let ending = '_test_values';
         let names_with_endings = list_map(predicate_names, n => n + ending);
-        if (list_any)
+        if (list_any(names_with_endings))
             console.log(predicate_names);
     });
 }
