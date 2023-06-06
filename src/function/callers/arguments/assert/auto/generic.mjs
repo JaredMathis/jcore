@@ -38,8 +38,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
     if (equal(function_name, c_function_name)) {
         return;
     }
-    let c_file_path = function_name_to_file_path(c_function_name);
-    await file_js_map_args(c_file_path, mapper);
+    await function_map_args(c_function_name, mapper);
     async function mapper(c_args) {
         let c_parsed = object_property_get(c_args, 'parsed');
         let c_function_declaration = object_property_get(c_args, 'function_declaration');
@@ -111,6 +110,11 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         });
     }
 }
+async function function_map_args(c_function_name, mapper) {
+    let c_file_path = function_name_to_file_path(c_function_name);
+    await file_js_map_args(c_file_path, mapper);
+}
+
 function js_node_property_end() {
     return 'end';
 }
