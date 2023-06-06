@@ -1,5 +1,5 @@
+import { function_unasyncify_generic } from '../../function/unasyncify/generic.mjs';
 import { function_naming_suffix_async } from '../../function/naming/suffix/async.mjs';
-import { error } from '../../error.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { function_name_all } from '../../function/name/all.mjs';
 import { string_ends_with } from '../../string/ends/with.mjs';

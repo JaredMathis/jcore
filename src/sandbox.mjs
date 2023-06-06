@@ -1,8 +1,9 @@
-import { arguments_assert } from './arguments/assert.mjs';
+import { metadata_generated } from './metadata/generated.mjs';
 import { metadata } from './metadata.mjs';
 import { function_name_get } from './function/name/get.mjs';
-export async function sandbox() {
+import { arguments_assert } from './arguments/assert.mjs';
+export function sandbox() {
     arguments_assert(arguments, []);
-    await function_name_get(a);
-    metadata([]);
+    function_name_get(a);
+    metadata([metadata_generated()]);
 }
