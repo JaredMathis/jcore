@@ -1,7 +1,7 @@
 import { string_identifier_is } from '../string/identifier/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
-import { function_tests_generate } from '../function/tests/generate.mjs';
+import { tests_generate } from './generate.mjs';
 import { list_max_or_0 } from '../list/max/or/0.mjs';
 import { function_auto } from '../function/auto.mjs';
 import { function_tests_prefix_get } from '../function/tests/prefix/get.mjs';
@@ -26,6 +26,6 @@ export async function tests_add(function_name) {
     let test_ids_all_number_max = add_1(max);
     let test_name = `${ function_tests_prefix_get(function_name) }${ test_ids_all_number_max }`;
     await function_auto(test_name);
-    await function_tests_generate();
+    await tests_generate();
     metadata([]);
 }

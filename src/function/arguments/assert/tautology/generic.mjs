@@ -32,7 +32,7 @@ export async function function_arguments_assert_tautology_generic(on_equals) {
         let name_actual = js_find_call_expressions_to_name(expression);
         assert(equal(name_actual, function_name_get(arguments_assert)));
         let counts = js_identifier_counts(expression);
-        todo(`Maybe this should be ${arguments_assert_todo} not ${tautology}`)
+        todo(`Maybe this should be ${ arguments_assert_todo } not ${ tautology }`);
         let property_name = function_name_get(tautology);
         if (object_property_exists(counts, property_name)) {
             return await on_equals(function_name);
