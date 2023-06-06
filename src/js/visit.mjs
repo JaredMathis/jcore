@@ -1,5 +1,5 @@
+import { function_is } from '../function/is.mjs';
 import { js_node_is_program } from './node/is/program.mjs';
-import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { object_properties } from '../object/properties.mjs';
@@ -9,8 +9,8 @@ import { js_node_is } from './node/is.mjs';
 export function js_visit(parsed, filter, lambda) {
     arguments_assert(arguments, [
         js_node_is,
-        tautology,
-        tautology
+        function_is,
+        function_is
     ]);
     let root;
     if (js_node_is_program(parsed)) {

@@ -1,5 +1,4 @@
-import { js_node_is_program } from '../../node/is/program.mjs';
-import { tautology } from '../../../tautology.mjs';
+import { function_is } from '../../../function/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { js_visit_nodes } from '../nodes.mjs';
@@ -8,7 +7,7 @@ import { js_node_is } from '../../node/is.mjs';
 export function js_visit_nodes_identifier(parsed, lambda) {
     arguments_assert(arguments, [
         js_node_is,
-        tautology
+        function_is
     ]);
     js_visit_nodes(parsed, node => js_node_is_identifier(node), lambda);
     metadata([]);
