@@ -7,7 +7,7 @@ import { error_caught } from '../error/caught.mjs';
 export function try_catch(fn, lambda, error_message) {
     arguments_assert(arguments, [
         function_is,
-        tautology,
+        function_is,
         string_empty_not_is
     ]);
     try {
