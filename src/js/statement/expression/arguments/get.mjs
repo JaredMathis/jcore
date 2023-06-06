@@ -11,3 +11,8 @@ export function js_statement_expression_arguments_get(s) {
     return expression_args;
     metadata([]);
 }
+
+function js_node_is_expression_statement(n) {
+    arguments_assert(arguments, [js_node_is]);
+    return js_node_is_type(n, 'ExpressionStatement')
+}
