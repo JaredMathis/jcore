@@ -3,10 +3,11 @@ import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { list_length } from '../../length.mjs';
+import { defined_is } from '../../../defined/is.mjs';
 export function list_length_is_value(list, value) {
     arguments_assert(arguments, [
         list_is,
-        tautology
+        defined_is
     ]);
     return list_length(list) === value;
     metadata([]);
