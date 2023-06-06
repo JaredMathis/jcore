@@ -1,3 +1,4 @@
+import { list_unique } from '../../list/unique.mjs';
 import { function_exists } from '../exists.mjs';
 import { list_any_async } from '../../list/any/async.mjs';
 import { log } from '../../log.mjs';
@@ -23,6 +24,7 @@ export async function function_tests_generate(function_name) {
         if (await list_any_async(names_with_endings, async n => !await function_exists(n))) {
             return;
         }
+        let names_with_endings_unqiue = list_unique(names_with_endings);
         console.log(predicate_names);
     });
 }
