@@ -10,6 +10,7 @@ import { function_tests_count } from './count.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_map } from '../../list/map.mjs';
+import { function_run } from '../run.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
@@ -27,6 +28,9 @@ export async function function_tests_generate(function_name) {
         if (await list_any_async(names_with_endings_unqiue, async n => !await function_exists(n))) {
             return;
         }
-        console.log({ names_with_endings_unqiue });
+        let dictionary = list_to_dictionary(names_with_endings_unqiue, async key => {
+            return await function_run(key, [])
+        })
+        console.log({ dictionary });
     });
 }
