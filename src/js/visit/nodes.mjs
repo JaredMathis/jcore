@@ -7,7 +7,7 @@ import { js_visit } from '../visit.mjs';
 export function js_visit_nodes(parsed, predicate, lambda) {
     arguments_assert(arguments, [
         js_node_is,
-        tautology,
+        function_is,
         function_is
     ]);
     js_visit(parsed, node => {
