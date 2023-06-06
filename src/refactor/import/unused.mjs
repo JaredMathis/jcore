@@ -8,8 +8,9 @@ import { list_intersection } from '../../list/intersection.mjs';
 import { list_map } from '../../list/map.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { js_import_all_with_function_names } from '../../js/import/all/with/function/names.mjs';
+import { js_mapper_args_is } from '../../js/mapper/args/is.mjs';
 export async function refactor_import_unused(args) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [js_mapper_args_is]);
     let parsed = object_property_get(args, 'parsed');
     let imports = await js_import_all_with_function_names(parsed);
     let import_name_all = list_map(imports, w => object_property_get(w, 'name'));

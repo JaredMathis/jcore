@@ -13,8 +13,9 @@ import { js_function_name_to_import } from '../../js/function/name/to/import.mjs
 import { js_import_all_to_function_name } from '../../js/import/all/to/function/name.mjs';
 import { js_exported_function_names } from '../../js/exported/function/names.mjs';
 import { js_body_get } from '../../js/body/get.mjs';
+import { js_mapper_args_is } from '../../js/mapper/args/is.mjs';
 export async function refactor_import_missing(args) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [js_mapper_args_is]);
     let {parsed} = args;
     let import_name_all = await js_import_all_to_function_name(parsed);
     let identifiers = js_identifiers(parsed);

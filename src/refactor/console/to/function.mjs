@@ -9,8 +9,9 @@ import { list_remove_all } from '../../../list/remove/all.mjs';
 import { js_body_get } from '../../../js/body/get.mjs';
 import { js_exports } from '../../../js/exports.mjs';
 import { comment } from '../../../comment.mjs';
+import { js_mapper_args_is } from '../../../js/mapper/args/is.mjs';
 export async function refactor_console_to_function(args) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [js_mapper_args_is]);
     let {parsed, file_path} = args;
     let exports_existing = js_exports(parsed);
     if (!list_length_is_0(exports_existing)) {
