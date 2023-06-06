@@ -13,7 +13,7 @@ export function list_slice(list, start, end) {
         integer_is
     ]);
     for (let i of [start,end]) {
-        assert(list_index_valid(list, end) || equal(end, list_length(list)));
+        assert(list_index_valid(list, i) || equal(i, list_length(list)));
     }
     return list.slice(start, end);
     metadata([]);
