@@ -19,7 +19,9 @@ export async function function_tests_generate(function_name) {
         let predicate_names = list_map(predicate, p => object_property_get(p, 'name'));
         let ending = '_test_values';
         let names_with_endings = list_map(predicate_names, n => n + ending);
-        if (list_any(names_with_endings))
+        if (await list_any_async(names_with_endings, async n => !(await function_exists(n)))) {
+            return;
+        }
             console.log(predicate_names);
     });
 }
