@@ -1,5 +1,4 @@
 import { path_is } from '../is.mjs';
-import { tautology } from '../../tautology.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { function_name_get } from '../../function/name/get.mjs';
@@ -10,7 +9,7 @@ comment(`For some reason ${ function_name_get(path_relative) } does not seem to 
 export function path_relative_file(file_path, function_path) {
     arguments_assert(arguments, [
         path_is,
-        tautology
+        path_is
     ]);
     let file_path_directory = path_parent(file_path);
     let relative = path_relative(file_path_directory, function_path);
