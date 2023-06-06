@@ -25,6 +25,7 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
             let n_new = string_prefix_replace(n_old, prefix_old, prefix_new);
             await function_rename_without_all_refactor(n_old, n_new);
             object_property_initialize(dictionary, n_old, n_new);
+            return n_new
         }
     }
     await file_js_all_identifier_all_rename(dictionary);
