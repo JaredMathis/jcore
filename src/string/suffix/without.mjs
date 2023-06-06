@@ -1,3 +1,4 @@
+import { string_is } from '../is.mjs';
 import { tautology } from '../../tautology.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
@@ -8,7 +9,7 @@ import { string_sub_from } from '../sub/from.mjs';
 export function string_suffix_without(input, suffix) {
     arguments_assert(arguments, [
         tautology,
-        tautology
+        string_is
     ]);
     assert(string_ends_with(suffix, suffix));
     let end = string_length(input) - string_length(suffix);
