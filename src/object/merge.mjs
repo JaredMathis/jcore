@@ -6,7 +6,7 @@ import { metadata } from '../metadata.mjs';
 export function object_merge(from, to) {
     arguments_assert(arguments, [
         defined_is,
-        tautology
+        defined_is
     ]);
     object_merge_filtered(from, tautology, to);
     metadata([]);
