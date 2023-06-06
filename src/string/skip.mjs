@@ -1,15 +1,15 @@
+import { integer_is } from '../integer/is.mjs';
 import { string_is } from './is.mjs';
-import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { string_length } from './length.mjs';
-import { string_sub_from } from './sub/from.mjs';
+import { string_sub } from './sub.mjs';
 export function string_skip(input, index_start) {
     arguments_assert(arguments, [
         string_is,
-        tautology
+        integer_is
     ]);
     let length = string_length(input);
-    return string_sub_from(input, index_start, length);
+    return string_sub(input, index_start, length);
     metadata([]);
 }
