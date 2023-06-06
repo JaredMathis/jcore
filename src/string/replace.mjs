@@ -1,11 +1,12 @@
 import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
+import { string_is } from './is.mjs';
 export function string_replace(input, from, to) {
     arguments_assert(arguments, [
-        tautology,
-        tautology,
-        tautology
+        string_is,
+        string_is,
+        string_is
     ]);
     return input.replaceAll(from, to);
     metadata([]);
