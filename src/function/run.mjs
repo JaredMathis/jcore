@@ -1,6 +1,5 @@
 import { string_identifier_is } from '../string/identifier/is.mjs';
 import { function_import } from './import.mjs';
-import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { list_is } from '../list/is.mjs';

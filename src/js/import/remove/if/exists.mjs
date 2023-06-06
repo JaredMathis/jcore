@@ -1,6 +1,5 @@
 import { js_node_is_program } from '../../../node/is/program.mjs';
 import { list_is } from '../../../../list/is.mjs';
-import { tautology } from '../../../../tautology.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { list_single_item } from '../../../../list/single/item.mjs';
 import { js_imports_remove_generic } from '../../../imports/remove/generic.mjs';

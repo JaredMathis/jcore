@@ -1,4 +1,3 @@
-import { string_is } from '../../../string/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { js_parse_expression } from '../expression.mjs';
 import { js_code_call_expression } from '../../code/call/expression.mjs';

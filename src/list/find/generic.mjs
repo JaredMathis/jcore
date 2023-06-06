@@ -1,6 +1,5 @@
 import { function_is } from '../../function/is.mjs';
 import { list_is } from '../is.mjs';
-import { tautology } from '../../tautology.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_single } from '../single.mjs';
 import { list_length_is_0 } from '../length/is/0.mjs';

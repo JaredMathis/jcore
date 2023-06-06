@@ -1,5 +1,4 @@
 import { defined_is } from '../../../../../../defined/is.mjs';
-import { tautology } from '../../../../../../tautology.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { js_call_expression_to_name_or_null } from '../../../../../call/expression/to/name/or/null.mjs';
 import { metadata } from '../../../../../../metadata.mjs';

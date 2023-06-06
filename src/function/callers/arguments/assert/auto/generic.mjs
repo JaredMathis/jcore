@@ -3,7 +3,6 @@ import { json_equal_keys_without } from '../../../../../json/equal/keys/without.
 import { list_each_with_index } from '../../../../../list/each/with/index.mjs';
 import { comment } from '../../../../../comment.mjs';
 import { list_add_if_not_exists } from '../../../../../list/add/if/not/exists.mjs';
-import { tautology } from '../../../../../tautology.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { refactor_import_fix } from '../../../../../refactor/import/fix.mjs';
 import { list_set } from '../../../../../list/set.mjs';

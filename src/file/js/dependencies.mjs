@@ -1,4 +1,3 @@
-import { tautology } from '../../tautology.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { visit_ignore_duplicates_async } from '../../visit/ignore/duplicates/async.mjs';
 import { metadata } from '../../metadata.mjs';

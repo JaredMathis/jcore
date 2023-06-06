@@ -1,4 +1,3 @@
-import { tautology } from '../../../../../tautology.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { fileURLToPath } from 'url';
 import { defined_is } from '../../../../../defined/is.mjs';

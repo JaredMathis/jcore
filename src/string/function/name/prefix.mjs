@@ -1,4 +1,3 @@
-import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { function_name_separator } from '../../../function/name/separator.mjs';

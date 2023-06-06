@@ -1,4 +1,3 @@
-import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { string_letter_digit_or_underscore_is } from '../../letter/digit/or/underscore/is.mjs';
 import { string_includes } from '../../includes.mjs';

@@ -1,6 +1,5 @@
 import { js_mapper_args_is } from '../../../is.mjs';
 import { js_function_delcaration_to_statement_first } from '../../../../../function/delcaration/to/statement/first.mjs';
-import { tautology } from '../../../../../../tautology.mjs';
 import { refactor_arguments_assert_add_no_check } from '../../../../../../refactor/arguments/assert/add/no/check.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { function_name_get } from '../../../../../../function/name/get.mjs';

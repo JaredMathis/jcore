@@ -1,6 +1,5 @@
 import { defined_is } from '../../defined/is.mjs';
 import { equal_not } from '../../equal/not.mjs';
-import { tautology } from '../../tautology.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_filter } from '../../list/filter.mjs';
 import { object_properties } from '../properties.mjs';

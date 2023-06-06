@@ -1,5 +1,4 @@
 import { js_node_is_function_declaration } from '../../../node/is/function/declaration.mjs';
-import { tautology } from '../../../../tautology.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { list_add_multiple } from '../../../../list/add/multiple.mjs';

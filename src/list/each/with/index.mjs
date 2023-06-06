@@ -3,7 +3,6 @@ import { metadata } from '../../../metadata.mjs';
 import { list_get } from '../../get.mjs';
 import { list_length } from '../../length.mjs';
 import { range } from '../../../range.mjs';
-import { tautology } from '../../../tautology.mjs';
 import { list_is } from '../../is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { function_is } from '../../../function/is.mjs';

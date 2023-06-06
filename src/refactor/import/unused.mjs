@@ -1,4 +1,3 @@
-import { tautology } from '../../tautology.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { js_imports_remove_multiple } from '../../js/imports/remove/multiple.mjs';
 import { metadata } from '../../metadata.mjs';

@@ -1,6 +1,5 @@
 import { string_empty_not_is } from '../string/empty/not/is.mjs';
 import { function_is } from '../function/is.mjs';
-import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { error_caught } from '../error/caught.mjs';

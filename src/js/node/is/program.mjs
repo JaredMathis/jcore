@@ -1,4 +1,3 @@
-import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { js_node_is_type } from './type.mjs';
 import { js_node_is } from '../is.mjs';

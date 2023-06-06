@@ -1,5 +1,4 @@
 import { function_all_tests } from '../all/tests.mjs';
-import { tautology } from '../../tautology.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { function_is } from '../is.mjs';

@@ -1,6 +1,5 @@
 import { function_is } from '../../../../../../../function/is.mjs';
 import { defined_is } from '../../../../../../../defined/is.mjs';
-import { tautology } from '../../../../../../../tautology.mjs';
 import { arguments_assert } from '../../../../../../../arguments/assert.mjs';
 import { js_node_call_expression_if_name_equal } from '../../../if/name/equal.mjs';
 import { js_node_is_call_expression } from '../../../../../is/call/expression.mjs';

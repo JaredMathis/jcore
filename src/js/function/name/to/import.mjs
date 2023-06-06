@@ -1,4 +1,3 @@
-import { tautology } from '../../../../tautology.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { js_parse_statement_module } from '../../../parse/statement/module.mjs';

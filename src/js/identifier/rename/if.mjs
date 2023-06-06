@@ -1,5 +1,4 @@
 import { js_mapper_args_is } from '../../mapper/args/is.mjs';
-import { tautology } from '../../../tautology.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { object_property_set } from '../../../object/property/set.mjs';
 import { js_visit_nodes_identifier } from '../../visit/nodes/identifier.mjs';
