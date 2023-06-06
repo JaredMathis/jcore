@@ -25,6 +25,6 @@ export async function function_tests_generate(function_name) {
             return;
         }
         let names_with_endings_unqiue = list_unique(names_with_endings);
-        console.log(predicate_names);
+        console.log(names_with_endings_unqiue);
     });
 }
