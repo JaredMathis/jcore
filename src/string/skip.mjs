@@ -1,3 +1,4 @@
+import { string_is } from './is.mjs';
 import { tautology } from '../tautology.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
@@ -5,7 +6,7 @@ import { string_length } from './length.mjs';
 import { string_sub_from } from './sub/from.mjs';
 export function string_skip(input, index_start) {
     arguments_assert(arguments, [
-        tautology,
+        string_is,
         tautology
     ]);
     let length = string_length(input);
