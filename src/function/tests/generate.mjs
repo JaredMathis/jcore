@@ -5,6 +5,7 @@ import { js_mapper_args_to_statement_arguments_assert_args_predicate } from '../
 import { function_tests_count } from './count.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
+import { list_map } from '../../list/map.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
@@ -14,6 +15,7 @@ export async function function_tests_generate(function_name) {
     await function_map_args(function_name, async args => {
         let function_declaration = object_property_get(args, 'function_declaration');
         let predicate = await js_mapper_args_to_statement_arguments_assert_args_predicate(function_declaration);
-        console.log(predicate);
+        let predicate_names = list_map(predicate, p => object_property_get(p, 'name'));
+        console.log(predicate_names);
     });
 }
