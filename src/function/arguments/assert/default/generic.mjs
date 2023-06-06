@@ -16,7 +16,7 @@ import { refactor_functions_arguments_assert_missing_add_excludes } from '../../
 import { function_is } from '../../../is.mjs';
 import { todo } from '../../../../todo.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
-export async function function_arguments_assert_tautology_generic(on_equals) {
+export async function function_arguments_assert_default_generic(on_equals) {
     arguments_assert(arguments, [function_is]);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await function_names_each_filter(logic, function_name => {

@@ -6,5 +6,4 @@ export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
     assert(tests_count === 0);
-    
 }
