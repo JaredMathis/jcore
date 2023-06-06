@@ -38,8 +38,13 @@ export function refactor_arguments_assert_add_no_check(function_declaration, exc
         params_code
     ];
     const call_expression_function_name = function_name_get(arguments_assert);
-    let params_code2 = list_join(params2, ', ');
-    const statment_code = js_code_call_expression_with_args_code(call_expression_function_name, params_code2);
+    const statment_code = js_code_call_expression_with_args(params2, call_expression_function_name);
     let statement_new = js_parse_statement(statment_code);
     list_add_beginning(statements, statement_new);
+}
+
+function js_code_call_expression_with_args(call_expression_function_name, params) {
+    let params_code2 = list_join(params, ', ');
+    const statment_code = js_code_call_expression_with_args_code(call_expression_function_name, params_code2);
+    return statment_code;
 }
