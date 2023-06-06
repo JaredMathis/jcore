@@ -14,6 +14,8 @@ import { list_contains } from '../../../../list/contains.mjs';
 import { function_names_each_filter } from '../../../names/each/filter.mjs';
 import { refactor_functions_arguments_assert_missing_add_excludes } from '../../../../refactor/functions/arguments/assert/missing/add/excludes.mjs';
 import { function_is } from '../../../is.mjs';
+import { todo } from '../../../../todo.mjs';
+import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 export async function function_arguments_assert_tautology_generic(on_equals) {
     arguments_assert(arguments, [function_is]);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
@@ -30,6 +32,7 @@ export async function function_arguments_assert_tautology_generic(on_equals) {
         let name_actual = js_find_call_expressions_to_name(expression);
         assert(equal(name_actual, function_name_get(arguments_assert)));
         let counts = js_identifier_counts(expression);
+        todo(`Maybe this should be ${arguments_assert_todo} not ${tautology}`)
         let property_name = function_name_get(tautology);
         if (object_property_exists(counts, property_name)) {
             return await on_equals(function_name);
