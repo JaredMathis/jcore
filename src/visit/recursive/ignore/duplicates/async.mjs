@@ -9,9 +9,10 @@ import { list_last_or_null } from '../../../../list/last/or/null.mjs';
 import { js_node_is } from '../../../../js/node/is.mjs';
 import { function_is } from '../../../../function/is.mjs';
 import { boolean_is } from '../../../../boolean/is.mjs';
+import { defined_is } from '../../../../defined/is.mjs';
 export async function visit_recursive_ignore_duplicates_async(node, children_get, lambda, stack, visited, ignore_duplicates) {
     arguments_assert(arguments, [
-        js_node_is,
+        defined_is,
         function_is,
         function_is,
         list_is,
