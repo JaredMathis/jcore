@@ -22,11 +22,11 @@ export async function function_tests_generate(function_name) {
         let predicate_names = list_map(predicate, p => object_property_get(p, 'name'));
         let ending = '_test_values';
         let names_with_endings = list_map(predicate_names, n => n + ending);
-        if (await list_any_async(names_with_endings, async n => !await function_exists(n))) {
-            return;
-        }
         let names_with_endings_unqiue = list_unique(names_with_endings);
         list_to_dictionary;
+        if (await list_any_async(names_with_endings_unqiue, async n => !await function_exists(n))) {
+            return;
+        }
         console.log({ names_with_endings_unqiue });
     });
 }
