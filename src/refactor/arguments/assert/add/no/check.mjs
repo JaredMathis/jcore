@@ -37,8 +37,8 @@ export function refactor_arguments_assert_add_no_check(function_declaration, exc
         js_keyword_arguments(),
         params_code
     ];
-    let params_code2 = list_join(params2, ', ');
     const call_expression_function_name = function_name_get(arguments_assert);
+    let params_code2 = list_join(params2, ', ');
     const statment_code = js_code_call_expression_with_args(call_expression_function_name, params_code2);
     let statement_new = js_parse_statement(statment_code);
     list_add_beginning(statements, statement_new);
