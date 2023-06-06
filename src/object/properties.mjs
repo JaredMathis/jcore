@@ -3,8 +3,9 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { comment } from '../comment.mjs';
 import { string_is } from '../string/is.mjs';
+import { defined_is } from '../defined/is.mjs';
 export function object_properties(object) {
-    arguments_assert(arguments, [tautology]);
+    arguments_assert(arguments, [defined_is]);
     let default_value = [];
     if (!object) {
         return default_value;
