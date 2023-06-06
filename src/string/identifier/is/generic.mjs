@@ -10,10 +10,11 @@ import { list_first } from '../../../list/first.mjs';
 import { list_length_is_0 } from '../../../list/length/is/0.mjs';
 import { string_to_list } from '../../to/list.mjs';
 import { string_is } from '../../is.mjs';
+import { boolean_is } from '../../../boolean/is.mjs';
 export function string_identifier_is_generic(value, is_identifier) {
     arguments_assert(arguments, [
         string_is,
-        tautology
+        boolean_is
     ]);
     if (!string_is(value)) {
         return false;
