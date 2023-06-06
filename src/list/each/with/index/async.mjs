@@ -4,10 +4,11 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { list_get } from '../../../get.mjs';
 import { range } from '../../../../range.mjs';
 import { list_length } from '../../../length.mjs';
+import { function_is } from '../../../../function/is.mjs';
 export async function list_each_with_index_async(list, lambda) {
     arguments_assert(arguments, [
         list_is,
-        tautology
+        function_is
     ]);
     const r = range(list_length(list));
     for (let index of r) {
