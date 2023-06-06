@@ -12,7 +12,7 @@ import { string_to_list } from '../../to/list.mjs';
 import { string_is } from '../../is.mjs';
 export function string_identifier_is_generic(value, is_identifier) {
     arguments_assert(arguments, [
-        tautology,
+        string_is,
         tautology
     ]);
     if (!string_is(value)) {
