@@ -1,3 +1,4 @@
+import { defined_is } from '../../defined/is.mjs';
 import { function_is } from '../../function/is.mjs';
 import { tautology } from '../../tautology.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -7,7 +8,7 @@ import { list_filter } from '../../list/filter.mjs';
 import { object_keys } from '../keys.mjs';
 export function object_merge_filtered(from, filter, to) {
     arguments_assert(arguments, [
-        tautology,
+        defined_is,
         function_is,
         tautology
     ]);
