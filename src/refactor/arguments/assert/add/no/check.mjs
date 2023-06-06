@@ -1,3 +1,4 @@
+import { js_code_call_expression_with_args } from '../../../../../js/code/call/expression/with/args.mjs';
 import { list_is } from '../../../../../list/is.mjs';
 import { js_node_is_function_declaration } from '../../../../../js/node/is/function/declaration.mjs';
 import { js_node_property_params } from '../../../../../js/node/property/params.mjs';
@@ -16,7 +17,6 @@ import { list_map } from '../../../../../list/map.mjs';
 import { list_length } from '../../../../../list/length.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_function_delcaration_to_statements } from '../../../../../js/function/delcaration/to/statements.mjs';
-import { js_code_call_expression_with_args_code } from '../../../../../js/code/call/expression/with/args/code.mjs';
 export function refactor_arguments_assert_add_no_check(function_declaration, excludes) {
     arguments_assert(arguments, [
         js_node_is_function_declaration,
@@ -41,10 +41,4 @@ export function refactor_arguments_assert_add_no_check(function_declaration, exc
     const statment_code = js_code_call_expression_with_args(params2, call_expression_function_name);
     let statement_new = js_parse_statement(statment_code);
     list_add_beginning(statements, statement_new);
-}
-
-function js_code_call_expression_with_args(call_expression_function_name, params) {
-    let params_code2 = list_join(params, ', ');
-    const statment_code = js_code_call_expression_with_args_code(call_expression_function_name, params_code2);
-    return statment_code;
 }
