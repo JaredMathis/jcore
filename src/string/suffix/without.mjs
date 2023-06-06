@@ -11,7 +11,7 @@ export function string_suffix_without(input, suffix) {
         tautology,
         string_is
     ]);
-    assert(string_ends_with(suffix, suffix));
+    assert(string_ends_with(input, suffix));
     let end = string_length(input) - string_length(suffix);
     return string_sub_from(input, 0, end);
     metadata([]);
