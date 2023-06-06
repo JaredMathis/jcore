@@ -1,4 +1,5 @@
-import { list_any } from '../../list/any.mjs';
+import { function_exists } from '../exists.mjs';
+import { list_any_async } from '../../list/any/async.mjs';
 import { log } from '../../log.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { function_map_args } from '../map/args.mjs';
@@ -19,9 +20,9 @@ export async function function_tests_generate(function_name) {
         let predicate_names = list_map(predicate, p => object_property_get(p, 'name'));
         let ending = '_test_values';
         let names_with_endings = list_map(predicate_names, n => n + ending);
-        if (await list_any_async(names_with_endings, async n => !(await function_exists(n)))) {
+        if (await list_any_async(names_with_endings, async n => !await function_exists(n))) {
             return;
         }
-            console.log(predicate_names);
+        console.log(predicate_names);
     });
 }
