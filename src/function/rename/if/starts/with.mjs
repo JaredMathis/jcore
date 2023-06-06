@@ -18,7 +18,7 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
     let names = await function_name_all();
     let dictionary = {};
     for (let n_old of names) {
-        await lambda(n_old)
+        let n_new = await lambda(n_old)
     }
     async function lambda(n_old) {
         if (string_starts_with(n_old, prefix_old)) {
