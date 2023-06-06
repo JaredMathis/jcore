@@ -10,7 +10,7 @@ export async function function_callers_arguments_assert_auto_recursive(root) {
     do {
         result_previous = result;
         result = await function_callers_arguments_assert_auto_multiple_list(result, []);
-        console.log({
+        log({
             result_previous,
             result
         });
