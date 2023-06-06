@@ -1,3 +1,4 @@
+import { list_to_dictionary } from '../../list/to/dictionary.mjs';
 import { list_unique } from '../../list/unique.mjs';
 import { function_exists } from '../exists.mjs';
 import { list_any_async } from '../../list/any/async.mjs';
@@ -25,6 +26,7 @@ export async function function_tests_generate(function_name) {
             return;
         }
         let names_with_endings_unqiue = list_unique(names_with_endings);
-        console.log({names_with_endings_unqiue});
+        list_to_dictionary;
+        console.log({ names_with_endings_unqiue });
     });
 }
