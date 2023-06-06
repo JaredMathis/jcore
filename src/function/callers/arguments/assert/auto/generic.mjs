@@ -1,3 +1,6 @@
+import { js_node_property_end } from '../../../../../js/node/property/end.mjs';
+import { js_node_property_start } from '../../../../../js/node/property/start.mjs';
+import { function_map_args } from '../../../../map/args.mjs';
 import { list_is } from '../../../../../list/is.mjs';
 import { json_equal_keys_without } from '../../../../../json/equal/keys/without.mjs';
 import { list_each_with_index } from '../../../../../list/each/with/index.mjs';
@@ -23,8 +26,6 @@ import { js_mapper_args_to_statement_arguments_assert_args_predicate } from '../
 import { list_length_is_0 } from '../../../../../list/length/is/0.mjs';
 import { js_node_property_params } from '../../../../../js/node/property/params.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
-import { file_js_map_args } from '../../../../../file/js/map/args.mjs';
-import { function_name_to_file_path } from '../../../../name/to/file/path.mjs';
 import { equal } from '../../../../../equal.mjs';
 import { string_identifier_is } from '../../../../../string/identifier/is.mjs';
 comment(`Simplify this function - I don't understand it fully to guarantee it works through logical proof`);
@@ -109,15 +110,4 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             return !changed;
         });
     }
-}
-async function function_map_args(function_name, mapper) {
-    let file_path = function_name_to_file_path(function_name);
-    await file_js_map_args(file_path, mapper);
-}
-
-function js_node_property_end() {
-    return 'end';
-}
-function js_node_property_start() {
-    return 'start';
 }
