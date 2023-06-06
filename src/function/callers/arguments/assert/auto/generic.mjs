@@ -110,9 +110,9 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         });
     }
 }
-async function function_map_args(c_function_name, mapper) {
-    let c_file_path = function_name_to_file_path(c_function_name);
-    await file_js_map_args(c_file_path, mapper);
+async function function_map_args(function_name, mapper) {
+    let file_path = function_name_to_file_path(function_name);
+    await file_js_map_args(file_path, mapper);
 }
 
 function js_node_property_end() {
