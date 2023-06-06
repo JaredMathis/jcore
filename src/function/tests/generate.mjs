@@ -1,3 +1,4 @@
+import { js_code_call_expression_with_args } from '../../js/code/call/expression/with/args.mjs';
 import { list_to_dictionary } from '../../list/to/dictionary.mjs';
 import { list_unique } from '../../list/unique.mjs';
 import { function_exists } from '../exists.mjs';
@@ -31,6 +32,7 @@ export async function function_tests_generate(function_name) {
         let dictionary = await list_to_dictionary(names_with_endings_unqiue, async key => {
             return await function_run(key, []);
         });
+        js_code_call_expression_with_args;
         console.log({ dictionary });
     });
 }
