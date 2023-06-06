@@ -28,7 +28,7 @@ export async function function_tests_generate(function_name) {
         if (await list_any_async(names_with_endings_unqiue, async n => !await function_exists(n))) {
             return;
         }
-        let dictionary = list_to_dictionary(names_with_endings_unqiue, async key => {
+        let dictionary = await list_to_dictionary(names_with_endings_unqiue, async key => {
             return await function_run(key, []);
         });
         console.log({ dictionary });
