@@ -1,7 +1,8 @@
-import { arguments_assert } from '../arguments/assert.mjs';
+import { metadata_generated } from '../metadata/generated.mjs';
 import { metadata } from '../metadata.mjs';
-import { list_is } from './is.mjs';
 import { function_is } from '../function/is.mjs';
+import { list_is } from './is.mjs';
+import { arguments_assert } from '../arguments/assert.mjs';
 export function list_any(list, predicate) {
     arguments_assert(arguments, [
         list_is,
@@ -13,5 +14,5 @@ export function list_any(list, predicate) {
         }
     }
     return false;
-    metadata([]);
+    metadata([metadata_generated()]);
 }
