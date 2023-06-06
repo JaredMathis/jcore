@@ -6,14 +6,17 @@ import { list_add_exists_not } from '../../../../list/add/exists/not.mjs';
 import { list_add } from '../../../../list/add.mjs';
 import { list_contains } from '../../../../list/contains.mjs';
 import { list_last_or_null } from '../../../../list/last/or/null.mjs';
+import { js_node_is } from '../../../../js/node/is.mjs';
+import { function_is } from '../../../../function/is.mjs';
+import { boolean_is } from '../../../../boolean/is.mjs';
 export async function visit_recursive_ignore_duplicates_async(node, children_get, lambda, stack, visited, ignore_duplicates) {
     arguments_assert(arguments, [
-        tautology,
-        tautology,
-        tautology,
+        js_node_is,
+        function_is,
+        function_is,
         list_is,
-        tautology,
-        tautology
+        list_is,
+        boolean_is
     ]);
     let parent = list_last_or_null(stack);
     if (ignore_duplicates) {
