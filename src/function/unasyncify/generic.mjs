@@ -1,3 +1,5 @@
+import { tautology } from '../../tautology.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { refactor_unasyncify } from '../../refactor/unasyncify.mjs';
 import { function_name_get } from '../name/get.mjs';
 import { function_map } from '../map.mjs';
