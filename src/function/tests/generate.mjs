@@ -6,11 +6,12 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
-    if (tests_count === 0) {
+    if (tests_count > 0) {
         return;
     }
     await function_map_args(function_name, async args => {
-        let predicate = await js_mapper_args_to_statement_arguments_assert_args_predicate(args);
+        let function_declaration = object_property_get(c_args, 'function_declaration');
+        let predicate = await js_mapper_args_to_statement_arguments_assert_args_predicate(function_declaration);
         console.log(predicate)
     });
 }
