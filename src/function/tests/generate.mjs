@@ -15,6 +15,7 @@ import { list_map } from '../../list/map.mjs';
 import { function_run } from '../run.mjs';
 import { js_code_call_expression_with_args } from '../../js/code/call/expression/with/args.mjs';
 import { range } from '../../range.mjs';
+import { json_to } from '../../json/to.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
@@ -41,7 +42,8 @@ export async function function_tests_generate(function_name) {
             let key = function_name_to_tests_types(n);
             let d = object_property_get(dictionary, key);
             let value = list_random_item(d)
-            return value;
+            let code = json_to(value);
+            return code;
         });
         let ce = js_code_call_expression_with_args(function_name, args);
         console.log({ ce });
