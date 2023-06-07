@@ -42,10 +42,10 @@ export async function function_tests_generate(function_name) {
             let key = function_name_to_tests_types(n);
             let d = object_property_get(dictionary, key);
             let value = list_random_item(d)
-            let code = json_to(value);
-            return code;
+            return value
         });
-        let ce = js_code_call_expression_with_args(function_name, args);
+        let args_code = list_map(args, json_to);
+        let ce = js_code_call_expression_with_args(function_name, args_code);
         console.log({ ce });
     }
 }
