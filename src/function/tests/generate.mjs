@@ -1,3 +1,4 @@
+import { js_statement_end } from '../../js/statement/end.mjs';
 import { js_keyword_let } from '../../js/keyword/let.mjs';
 import { function_name_to_tests_values } from '../name/to/tests/values.mjs';
 import { json_equal } from '../../json/equal.mjs';
@@ -19,7 +20,6 @@ import { function_run } from '../run.mjs';
 import { js_code_call_expression_with_args } from '../../js/code/call/expression/with/args.mjs';
 import { range } from '../../range.mjs';
 import { json_to } from '../../json/to.mjs';
-import { js_code_call_expression_with_args_code } from '../../js/code/call/expression/with/args/code.mjs';
 import { function_name_get } from '../name/get.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
@@ -51,10 +51,10 @@ export async function function_tests_generate(function_name) {
                 let value = list_random_item(d);
                 return value;
             });
-            let actual;
+            let expected;
             let has_error = false;
             try {
-                actual = await function_run(function_name, args);
+                expected = await function_run(function_name, args);
             } catch (e) {
                 has_error = true;
             }
@@ -65,13 +65,15 @@ export async function function_tests_generate(function_name) {
             let ce_function = js_code_call_expression_with_args(function_name, args_code);
             let keyword_let = js_keyword_let();
             let identifier_expected = 'expected';
-
             let identifier_actual = 'actual';
-            let statement = `${ keyword_let } ${ identifier_actual } = ${ ce_function };`;
-            js_code_call_expression_with_args(function_name_get(json_equal), [identifier_actual, identifier_expected]);
+            let statement = `${ keyword_let } ${ identifier_actual } = ${ ce_function }${ js_statement_end() }`;
+            js_code_call_expression_with_args(function_name_get(json_equal), [
+                identifier_actual,
+                identifier_expected
+            ]);
             console.log({
                 ce_function,
-                actual,
+                actual: expected,
                 has_error
             });
             break;
