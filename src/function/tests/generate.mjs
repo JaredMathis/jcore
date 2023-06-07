@@ -111,7 +111,7 @@ export async function function_tests_generate(function_name) {
                 refactor_metadata_generated_add_function,
                 refactor_import_fix
             ]
-            let names = function_name_get(refactors, function_name_get)
+            let names = list_map(refactors, function_name_get)
             await function_map_multiple(names, test_name);
             break;
         }
