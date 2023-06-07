@@ -6,6 +6,7 @@ export function integer_is_test_values() {
         -1,
         0,
         1,
-        2
+        2,
+        3
     ];
 }
