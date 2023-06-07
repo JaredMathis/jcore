@@ -48,7 +48,8 @@ export async function function_tests_generate(function_name) {
     });
     let tries = 100;
     let count = 10;
-    let count_error = 2;
+    let count_error_max = 2;
+    let count_error = 0;
     for (let i of range(count)) {
         for (let j of range(tries)) {
             let args = list_map(predicate_names, n => {
@@ -65,7 +66,10 @@ export async function function_tests_generate(function_name) {
                 has_error = true;
             }
             if (has_error) {
-                continue;
+                count_error++;
+                if (count_error > count_error_max) {
+                    continue;
+                }
             }
             let args_code = list_map(args, json_to);
             let ce_function = js_code_call_expression_with_args(function_name, args_code);
