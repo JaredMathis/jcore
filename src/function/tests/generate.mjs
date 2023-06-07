@@ -26,6 +26,8 @@ import { js_keyword_async } from '../../js/keyword/async.mjs';
 import { comment } from '../../comment.mjs';
 import { js_code_call_expression_with_args_code } from '../../js/code/call/expression/with/args/code.mjs';
 import { throws } from '../../throws.mjs';
+import { string_function_tests_sub } from '../../string/function/tests/sub.mjs';
+import { function_name_separator } from '../name/separator.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
@@ -53,6 +55,7 @@ export async function function_tests_generate(function_name) {
     let count_error_max = 2;
     let count_error = 0;
     for (let i of range(count)) {
+        let test_name = function_name + string_function_tests_sub() + 'generated' + function_name_separator() + (i + 1)
         for (let j of range(tries)) {
             let args = list_map(predicate_names, n => {
                 let key = function_name_to_tests_values(n);
