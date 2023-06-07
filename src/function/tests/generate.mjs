@@ -78,34 +78,29 @@ export async function function_tests_generate(function_name) {
             }
             let args_code = list_map(args, json_to);
             let ce_function = js_code_call_expression_with_args(function_name, args_code);
+            let statements;
             let statement_assert;
             if (has_error) {
                 let ce_throws = js_code_call_expression_with_args_code(function_name_get(throws), 
                     `() => ${ce_function}`
                 );
                 statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_throws);
-                console.log({
-                    has_error,
-                    statement_assert
-                });
-                continue;
+                statements = [statement_assert]
+            } else {
+                let identifier_expected = 'expected';
+                let statement_expected = js_statement_assignment(identifier_expected, json_to(expected));
+                let identifier_actual = 'actual';
+                let statement_function = js_statement_assignment(identifier_actual, ce_function);
+                let ce_equal = js_code_call_expression_with_args(function_name_get(json_equal), [
+                    identifier_actual,
+                    identifier_expected
+                ]);
+                statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_equal);
+                statements = [statement_expected,
+                    statement_function,
+                    statement_assert]
             }
             
-            let identifier_expected = 'expected';
-            let statement_expected = js_statement_assignment(identifier_expected, json_to(expected));
-            let identifier_actual = 'actual';
-            let statement_function = js_statement_assignment(identifier_actual, ce_function);
-            let ce_equal = js_code_call_expression_with_args(function_name_get(json_equal), [
-                identifier_actual,
-                identifier_expected
-            ]);
-            statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_equal);
-            console.log({
-                has_error,
-                statement_expected,
-                statement_function,
-                statement_assert
-            });
             break;
         }
     }
