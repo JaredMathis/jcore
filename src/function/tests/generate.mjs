@@ -20,6 +20,9 @@ import { js_code_call_expression_with_args } from '../../js/code/call/expression
 import { range } from '../../range.mjs';
 import { json_to } from '../../json/to.mjs';
 import { function_name_get } from '../name/get.mjs';
+import { assert } from '../../assert.mjs';
+import { js_keyword_async } from '../../js/keyword/async.mjs';
+import { comment } from '../../comment.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
@@ -28,6 +31,8 @@ export async function function_tests_generate(function_name) {
     }
     let parsed = await function_parse(function_name);
     let fd = js_exported_function_declaration_single(parsed);
+    comment(`To generate code for an async function this code needs changing`)
+    assert(!object_property_get(fd, js_keyword_async()))
     let predicate = await js_mapper_args_to_statement_arguments_assert_args_predicate(fd);
     let predicate_names = list_map(predicate, p => object_property_get(p, 'name'));
     let names_with_endings = list_map(predicate_names, n => {
@@ -63,16 +68,21 @@ export async function function_tests_generate(function_name) {
             let args_code = list_map(args, json_to);
             let ce_function = js_code_call_expression_with_args(function_name, args_code);
             let identifier_expected = 'expected';
+            let statement_expected = js_statement_assignment(identifier_expected, json_to(expected));
             let identifier_actual = 'actual';
-            let statement = js_statement_assignment(identifier_actual, ce_function);
-            js_code_call_expression_with_args(function_name_get(json_equal), [
+            let statement_function = js_statement_assignment(identifier_actual, ce_function);
+            let ce_equal = js_code_call_expression_with_args(function_name_get(json_equal), [
                 identifier_actual,
                 identifier_expected
             ]);
+            let ce_assert = js_code_call_expression_with_args(function_name_get(assert), [
+                ce_equal
+            ]);
+            let statement_assert = js_statement_assignment(identifier_are_equal, ce_assert)
             console.log({
-                ce_function,
-                actual: expected,
-                has_error
+                statement_expected,
+                statement_function,
+                statement_assert
             });
             break;
         }
