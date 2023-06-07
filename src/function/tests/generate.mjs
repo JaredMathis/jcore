@@ -60,6 +60,7 @@ export async function function_tests_generate(function_name) {
     let count = 10;
     let count_error_max = 2;
     let count_error = 0;
+    log(function_name)
     for (let i of range(count)) {
         let test_name = function_name + string_function_tests_sub() + 'generated' + function_name_separator() + (i + 1);
         for (let j of range(tries)) {
