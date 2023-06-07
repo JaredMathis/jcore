@@ -36,7 +36,7 @@ export async function function_tests_generate(function_name) {
     let dictionary = await list_to_dictionary(names_with_endings_unqiue, async key => {
         return await function_run(key, []);
     });
-    let count = 10;
+    let count = 20;
     for (let i of range(count)) {
         let args = list_map(predicate_names, n => { 
             let key = function_name_to_tests_values(n);
