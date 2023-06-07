@@ -40,7 +40,8 @@ export async function function_tests_generate(function_name) {
         let args = list_map(predicate_names, n => { 
             let key = function_name_to_tests_types(n);
             let d = object_property_get(dictionary, key);
-            return list_random_item(d)
+            let value = list_random_item(d)
+            return value;
         });
         let ce = js_code_call_expression_with_args(function_name, args);
         console.log({ ce });
