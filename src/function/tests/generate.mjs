@@ -32,7 +32,6 @@ import { string_function_tests_sub } from '../../string/function/tests/sub.mjs';
 import { function_name_separator } from '../name/separator.mjs';
 import { function_add_with_statements_synchronized } from '../add/with/statements/synchronized.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
-import { refactor_import_fix } from '../../refactor/import/fix.mjs';
 import { tests } from '../../tests.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
@@ -110,7 +109,7 @@ export async function function_tests_generate(function_name) {
             await function_add_with_statements_synchronized(test_name, statements, false);
             let refactors = [
                 refactor_metadata_generated_add_function,
-                refactor_import_fix
+                refactor_auto
             ];
             let names = list_map(refactors, function_name_get);
             await function_map_multiple(names, test_name);
