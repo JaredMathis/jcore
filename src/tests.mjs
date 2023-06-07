@@ -1,6 +1,16 @@
-import { arguments_assert } from './arguments/assert.mjs';
-import { metadata } from './metadata.mjs';
 import { log } from './log.mjs';
+import { string_sub_test_generated_9 } from './string/sub/test/generated/9.mjs';
+import { string_sub_test_generated_8 } from './string/sub/test/generated/8.mjs';
+import { string_sub_test_generated_7 } from './string/sub/test/generated/7.mjs';
+import { string_sub_test_generated_6 } from './string/sub/test/generated/6.mjs';
+import { string_sub_test_generated_5 } from './string/sub/test/generated/5.mjs';
+import { string_sub_test_generated_4 } from './string/sub/test/generated/4.mjs';
+import { string_sub_test_generated_3 } from './string/sub/test/generated/3.mjs';
+import { string_sub_test_generated_2 } from './string/sub/test/generated/2.mjs';
+import { string_sub_test_generated_10 } from './string/sub/test/generated/10.mjs';
+import { string_sub_test_generated_1 } from './string/sub/test/generated/1.mjs';
+import { string_is_test_values } from './string/is/test/values.mjs';
+import { integer_is_test_values } from './integer/is/test/values.mjs';
 import { error_test_3 } from './error/test/3.mjs';
 import { error_test_2 } from './error/test/2.mjs';
 import { error_test_1 } from './error/test/1.mjs';
@@ -28,7 +38,6 @@ import { add_1_test_3 } from './add/1/test/3.mjs';
 import { add_1_test_2 } from './add/1/test/2.mjs';
 import { add_1_test_1 } from './add/1/test/1.mjs';
 export async function tests() {
-    arguments_assert(arguments, []);
     await add_1_test_1();
     await add_1_test_2();
     await add_1_test_3();
@@ -55,6 +64,17 @@ export async function tests() {
     await error_test_1();
     await error_test_2();
     await error_test_3();
-    log(26 + ' tests ran successfully');
-    metadata([]);
+    await integer_is_test_values();
+    await string_is_test_values();
+    await string_sub_test_generated_1();
+    await string_sub_test_generated_10();
+    await string_sub_test_generated_2();
+    await string_sub_test_generated_3();
+    await string_sub_test_generated_4();
+    await string_sub_test_generated_5();
+    await string_sub_test_generated_6();
+    await string_sub_test_generated_7();
+    await string_sub_test_generated_8();
+    await string_sub_test_generated_9();
+    log(38 + ' tests ran successfully');
 }
