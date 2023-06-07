@@ -1,16 +1,6 @@
-import { function_auto_after } from '../../auto/after.mjs';
-import { function_map_multiple } from '../../map/multiple.mjs';
-import { refactor_metadata_generated_add_function } from '../../../refactor/metadata/generated/add/function.mjs';
-import { function_add_with_statements_synchronized } from '../../add/with/statements/synchronized.mjs';
-import { js_parse_statement } from '../../../js/parse/statement.mjs';
-import { json_equal } from '../../../json/equal.mjs';
-import { js_statement_assignment } from '../../../js/statement/assignment.mjs';
-import { error } from '../../../error.mjs';
-import { js_code_call_expression_statement_with_args_code } from '../../../js/code/call/expression/statement/with/args/code.mjs';
-import { throws } from '../../../throws.mjs';
-import { function_name_get } from '../../name/get.mjs';
-import { js_code_call_expression_with_args_code } from '../../../js/code/call/expression/with/args/code.mjs';
-import { js_code_call_expression_with_args } from '../../../js/code/call/expression/with/args.mjs';
+import { function_tests_generate_generic_each } from './generic/each.mjs';
+import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { list_contains } from '../../../list/contains.mjs';
 import { json_to } from '../../../json/to.mjs';
@@ -35,6 +25,7 @@ import { js_exported_function_declaration_single } from '../../../js/exported/fu
 import { function_parse } from '../../parse.mjs';
 import { function_tests_count } from '../count.mjs';
 export async function function_tests_generate_generic(function_name) {
+    arguments_assert(arguments, [arguments_assert_todo]);
     let tests_count = await function_tests_count(function_name);
     if (tests_count > 0) {
         return;
@@ -84,57 +75,4 @@ export async function function_tests_generate_generic(function_name) {
             break;
         }
     }
-}
-
-async function function_tests_generate_generic_each(function_name, test_name, args, on_has_error) {
-    let expected;
-    let has_error = false;
-    try {
-        expected = await function_run(function_name, args);
-    } catch (e) {
-        has_error = true;
-    }
-    if (has_error) {
-        if (on_has_error()) {
-            return;
-        }
-    }
-    let args_code = list_map(args, json_to);
-    let ce_function = js_code_call_expression_with_args(function_name, args_code);
-    let statements_code;
-    let statement_assert;
-    if (has_error) {
-        let ce_throws = js_code_call_expression_with_args_code(function_name_get(throws), `() => ${ce_function}`);
-        statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_throws);
-        statements_code = [statement_assert];
-        log({
-            args,
-            error: true
-        });
-    } else {
-        let identifier_expected = 'expected';
-        let statement_expected = js_statement_assignment(identifier_expected, json_to(expected));
-        let identifier_actual = 'actual';
-        let statement_function = js_statement_assignment(identifier_actual, ce_function);
-        let ce_equal = js_code_call_expression_with_args(function_name_get(json_equal), [
-            identifier_actual,
-            identifier_expected
-        ]);
-        statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_equal);
-        statements_code = [
-            statement_expected,
-            statement_function,
-            statement_assert
-        ];
-        log({
-            args,
-            expected
-        });
-    }
-    let statements = list_map(statements_code, js_parse_statement);
-    await function_add_with_statements_synchronized(test_name, statements, false);
-    let refactors = [refactor_metadata_generated_add_function];
-    let names = list_map(refactors, function_name_get);
-    await function_map_multiple(names, test_name);
-    await function_auto_after(test_name);
 }
