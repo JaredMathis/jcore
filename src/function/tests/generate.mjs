@@ -36,7 +36,8 @@ export async function function_tests_generate(function_name) {
     let dictionary = await list_to_dictionary(names_with_endings_unqiue, async key => {
         return await function_run(key, []);
     });
-    let tries = 100;
+    let tries = 1
+    00;
     let count = 10;
     for (let i of range(count)) {
         for (let j of range(tries)) {
