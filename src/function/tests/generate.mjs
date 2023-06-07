@@ -1,3 +1,4 @@
+import { function_map_multiple } from '../map/multiple.mjs';
 import { refactor_metadata_generated_add_function } from '../../refactor/metadata/generated/add/function.mjs';
 import { js_code_call_expression_statement_with_args_code } from '../../js/code/call/expression/statement/with/args/code.mjs';
 import { js_statement_assignment } from '../../js/statement/assignment.mjs';
@@ -30,7 +31,6 @@ import { string_function_tests_sub } from '../../string/function/tests/sub.mjs';
 import { function_name_separator } from '../name/separator.mjs';
 import { function_add_with_statements_synchronized } from '../add/with/statements/synchronized.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
-import { function_map } from '../map.mjs';
 import { refactor_import_fix } from '../../refactor/import/fix.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
@@ -106,12 +106,11 @@ export async function function_tests_generate(function_name) {
             }
             let statements = list_map(statements_code, js_parse_statement);
             await function_add_with_statements_synchronized(test_name, statements, false);
-            
             let refactors = [
                 refactor_metadata_generated_add_function,
                 refactor_import_fix
-            ]
-            let names = list_map(refactors, function_name_get)
+            ];
+            let names = list_map(refactors, function_name_get);
             await function_map_multiple(names, test_name);
             break;
         }
