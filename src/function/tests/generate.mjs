@@ -24,6 +24,8 @@ import { function_name_get } from '../name/get.mjs';
 import { assert } from '../../assert.mjs';
 import { js_keyword_async } from '../../js/keyword/async.mjs';
 import { comment } from '../../comment.mjs';
+import { js_code_call_expression_with_args_code } from '../../js/code/call/expression/with/args/code.mjs';
+import { throws } from '../../throws.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
@@ -75,7 +77,9 @@ export async function function_tests_generate(function_name) {
             let ce_function = js_code_call_expression_with_args(function_name, args_code);
             let statement_assert;
             if (has_error) {
-                
+                let ce_throws = js_code_call_expression_with_args_code(function_name_get(throws), [
+                    `() => ${ce_function}`
+                ]);
                 statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_throws);
                 continue;
             }
