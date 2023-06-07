@@ -21,9 +21,9 @@ export async function function_tests_generate(function_name) {
     if (tests_count > 0) {
         return;
     }
-    let parsed = function_parse(function_name);
+    let parsed = await function_parse(function_name);
     let fd = js_exported_function_declaration_single(parsed);
-    let predicate = await js_mapper_args_to_statement_arguments_assert_args_predicate(function_declaration);
+    let predicate = await js_mapper_args_to_statement_arguments_assert_args_predicate(fd);
     let predicate_names = list_map(predicate, p => object_property_get(p, 'name'));
     let ending = '_test_values';
     let names_with_endings = list_map(predicate_names, n => n + ending);
