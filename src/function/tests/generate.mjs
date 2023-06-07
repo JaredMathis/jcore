@@ -41,7 +41,7 @@ import { list_contains } from '../../list/contains.mjs';
 import { list_add } from '../../list/add.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
-    function_tests_generate_generic(function_name);
+    await function_tests_generate_generic(function_name);
     await tests_generate();
     comment(`NodeJS will not re-import ${tests} after we re-generate it so we must run through command line`)
     let cl_result = await command_line(`node run.mjs ${function_name_get(tests)}`);
