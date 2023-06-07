@@ -53,7 +53,7 @@ export async function function_tests_generate(function_name) {
         }
         let args_code = list_map(args, json_to);
         let ce = js_code_call_expression_with_args(function_name, args_code);
-        console.log({ ce, actual });
+        console.log({ ce, actual, has_error });
     }
 }
 
