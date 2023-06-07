@@ -75,6 +75,7 @@ export async function function_tests_generate_generic(function_name) {
                 continue;
             }
             list_add(args_so_far, args_json);
+            
             let expected;
             let has_error = false;
             try {
@@ -130,3 +131,5 @@ export async function function_tests_generate_generic(function_name) {
         }
     }
 }
+
+async function function_tests_generate_generic_each() {}
