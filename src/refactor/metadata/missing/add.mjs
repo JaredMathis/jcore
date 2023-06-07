@@ -23,7 +23,8 @@ export async function refactor_metadata_missing_add(args) {
         });
     }
     if (!already_exists) {
-        let metadata_new_code = `${ js_code_call_expression_with_args_code(function_name_get(metadata), '[]') }${ js_statement_end() }`;
+        const name = function_name_get(metadata);
+        let metadata_new_code = `${ js_code_call_expression_with_args_code(name, '[]') }${ js_statement_end() }`;
         let metadata_new = js_parse_statement(metadata_new_code);
         list_add(statements, metadata_new);
         await refactor_import_fix(args);
