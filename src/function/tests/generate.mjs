@@ -105,7 +105,7 @@ export async function function_tests_generate(function_name) {
             }
             let statements = list_map(statements_code, js_parse_statement);
             await function_add_with_statements_synchronized(test_name, statements, false);
-            function_map(function_name_get(refactor_metadata_generated_add_function), test_name);
+            await function_map(function_name_get(refactor_metadata_generated_add_function), test_name);
             break;
         }
     }

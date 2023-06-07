@@ -15,5 +15,6 @@ export function throws(lambda) {
     if (!errored) {
         error(`Expecting throw`);
     }
+    return errored;
     metadata([]);
 }
