@@ -1,12 +1,11 @@
+import { refactor_metadata_generated_add_function } from './metadata/generated/add/function.mjs';
 import { defined_is } from '../defined/is.mjs';
-import { refactor_metadata_add_function } from './metadata/add/function.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { function_auto_after_refactors_invoke } from '../function/auto/after/refactors/invoke.mjs';
 import { js_import_remove_if_exists } from '../js/import/remove/if/exists.mjs';
 import { js_import_all_with_function_names } from '../js/import/all/with/function/names.mjs';
 import { js_identifier_rename_if } from '../js/identifier/rename/if.mjs';
 import { function_naming_suffix_async } from '../function/naming/suffix/async.mjs';
-import { metadata_generated } from '../metadata/generated.mjs';
 import { metadata } from '../metadata.mjs';
 import { js_keyword_async } from '../js/keyword/async.mjs';
 import { object_property_set } from '../object/property/set.mjs';
@@ -33,8 +32,4 @@ export async function refactor_unasyncify(args) {
     js_import_remove_if_exists(parsed, imports, function_name);
     await function_auto_after_refactors_invoke(args);
     metadata([]);
-}
-
-async function refactor_metadata_generated_add_function(args) {
-    await refactor_metadata_add_function(args, metadata_generated);
 }
