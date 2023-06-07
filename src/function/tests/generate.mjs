@@ -35,10 +35,10 @@ export async function function_tests_generate(function_name) {
         return;
     }
     let parsed = await function_parse(function_name);
-    let fd = js_exported_function_declaration_single(parsed);
+    let function_declaration = js_exported_function_declaration_single(parsed);
     comment(`To generate code for an async function this code needs changing`);
-    assert(!object_property_get(fd, js_keyword_async()));
-    let predicate = await js_mapper_args_to_statement_arguments_assert_args_predicate(fd);
+    assert(!object_property_get(function_declaration, js_keyword_async()));
+    let predicate = await js_mapper_args_to_statement_arguments_assert_args_predicate(function_declaration);
     let predicate_names = list_map(predicate, p => object_property_get(p, 'name'));
     let names_with_endings = list_map(predicate_names, n => {
         return function_name_to_tests_values(n);
@@ -100,7 +100,7 @@ export async function function_tests_generate(function_name) {
                     statement_function,
                     statement_assert]
             }
-            
+            await refactor_metadata_generated_add_function(args);
             break;
         }
     }
