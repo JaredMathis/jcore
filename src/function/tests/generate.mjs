@@ -65,8 +65,10 @@ export async function function_tests_generate(function_name) {
             let ce_function = js_code_call_expression_with_args(function_name, args_code);
             let keyword_let = js_keyword_let();
             let identifier_expected = 'expected';
-            let statement = `${ keyword_let } ${ identifier_expected } = ${ ce_function };`;
-            js_code_call_expression_with_args_code(function_name_get(json_equal));
+
+            let identifier_actual = 'actual';
+            let statement = `${ keyword_let } ${ identifier_actual } = ${ ce_function };`;
+            js_code_call_expression_with_args(function_name_get(json_equal), [identifier_actual, identifier_expected]);
             console.log({
                 ce_function,
                 actual,
