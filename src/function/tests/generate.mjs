@@ -47,7 +47,7 @@ export async function function_tests_generate(function_name) {
         let actual = await function_run(function_name, args);
         let args_code = list_map(args, json_to);
         let ce = js_code_call_expression_with_args(function_name, args_code);
-        console.log({ ce, acutal });
+        console.log({ ce, actual });
     }
 }
 
