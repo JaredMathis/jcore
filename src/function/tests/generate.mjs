@@ -45,7 +45,12 @@ export async function function_tests_generate(function_name) {
             return value
         });
         let actual;
-        actual = await function_run(function_name, args);
+        let has_error = false;
+        try {
+            actual = await function_run(function_name, args);
+        } catch (e) {
+            has_error = true;
+        }
         let args_code = list_map(args, json_to);
         let ce = js_code_call_expression_with_args(function_name, args_code);
         console.log({ ce, actual });
