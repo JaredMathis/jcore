@@ -1,3 +1,5 @@
+import { command_line } from '../../command/line.mjs';
+import { error } from '../../error.mjs';
 import { function_auto_after } from '../auto/after.mjs';
 import { tests_generate } from '../../tests/generate.mjs';
 import { function_map_multiple } from '../map/multiple.mjs';
@@ -60,7 +62,7 @@ export async function function_tests_generate(function_name) {
     let count = 10;
     let count_error_max = 2;
     let count_error = 0;
-    log(function_name)
+    log(function_name);
     for (let i of range(count)) {
         let test_name = function_name + string_function_tests_sub() + 'generated' + function_name_separator() + (i + 1);
         for (let j of range(tries)) {
@@ -91,7 +93,10 @@ export async function function_tests_generate(function_name) {
                 let ce_throws = js_code_call_expression_with_args_code(function_name_get(throws), `() => ${ ce_function }`);
                 statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_throws);
                 statements_code = [statement_assert];
-                log({args, error:true})
+                log({
+                    args,
+                    error: true
+                });
             } else {
                 let identifier_expected = 'expected';
                 let statement_expected = js_statement_assignment(identifier_expected, json_to(expected));
@@ -107,7 +112,10 @@ export async function function_tests_generate(function_name) {
                     statement_function,
                     statement_assert
                 ];
-                log({args, expected})
+                log({
+                    args,
+                    expected
+                });
             }
             let statements = list_map(statements_code, js_parse_statement);
             await function_add_with_statements_synchronized(test_name, statements, false);
@@ -119,4 +127,5 @@ export async function function_tests_generate(function_name) {
         }
     }
     await tests_generate();
+    command_line();
 }
