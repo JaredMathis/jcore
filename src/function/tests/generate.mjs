@@ -116,5 +116,5 @@ export async function function_tests_generate(function_name) {
         }
     }
     await tests_generate();
-    await await tests();
+    await function_run(function_name_get(tests), []);
 }
