@@ -1,3 +1,5 @@
+import { function_tests_generate_after } from '../../after.mjs';
+import { function_tests_generate_generic } from '../../generic.mjs';
 import { string_starts_with } from '../../../../../string/starts/with.mjs';
 import { function_name_all } from '../../../../name/all.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
@@ -10,4 +12,5 @@ export async function function_tests_generate_if_starts_with(prefix) {
     for (let function_name of starts_with) {
         await function_tests_generate_generic(function_name);
     }
+    await function_tests_generate_after();
 }
