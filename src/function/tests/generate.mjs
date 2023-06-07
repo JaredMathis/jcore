@@ -36,6 +36,7 @@ import { function_name_separator } from '../name/separator.mjs';
 import { function_add_with_statements_synchronized } from '../add/with/statements/synchronized.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
 import { log } from '../../log.mjs';
+import { tests } from '../../tests.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
@@ -127,5 +128,6 @@ export async function function_tests_generate(function_name) {
         }
     }
     await tests_generate();
-    command_line();
+    comment(`NodeJS will not re-import ${tests} after we re-generate it so we must run through command line`)
+    await command_line(`node run.mjs ${function_name_get(tests)}`);
 }
