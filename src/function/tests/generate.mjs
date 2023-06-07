@@ -1,5 +1,4 @@
-import { js_statement_end } from '../../js/statement/end.mjs';
-import { js_keyword_let } from '../../js/keyword/let.mjs';
+import { js_statement_assignment } from '../../js/statement/assignment.mjs';
 import { function_name_to_tests_values } from '../name/to/tests/values.mjs';
 import { json_equal } from '../../json/equal.mjs';
 import { list_random_item } from '../../list/random/item.mjs';
@@ -78,9 +77,4 @@ export async function function_tests_generate(function_name) {
             break;
         }
     }
-}
-
-function js_statement_assignment(identifier_actual, ce_function) {
-    let keyword_let = js_keyword_let();
-    let statement = `${keyword_let} ${identifier_actual} = ${ce_function}${js_statement_end()}`;
 }
