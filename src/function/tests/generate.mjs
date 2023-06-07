@@ -38,6 +38,7 @@ import { js_parse_statement } from '../../js/parse/statement.mjs';
 import { log } from '../../log.mjs';
 import { tests } from '../../tests.mjs';
 import { list_contains } from '../../list/contains.mjs';
+import { list_add } from '../../list/add.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
@@ -79,6 +80,7 @@ export async function function_tests_generate(function_name) {
             if (list_contains(args_so_far, args_json)) {
                 continue;
             }
+            list_add(args_so_far, args_json);
             let expected;
             let has_error = false;
             try {
