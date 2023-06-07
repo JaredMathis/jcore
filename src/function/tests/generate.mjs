@@ -130,5 +130,6 @@ export async function function_tests_generate(function_name) {
     await tests_generate();
     comment(`NodeJS will not re-import ${tests} after we re-generate it so we must run through command line`)
     let cl_result = await command_line(`node run.mjs ${function_name_get(tests)}`);
-    console.log(cl_result)
+    let stdout = object_property_get(cl_result, 'stdout');
+    console.log(stdout)
 }
