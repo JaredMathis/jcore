@@ -5,5 +5,4 @@ import { arguments_assert } from './arguments/assert.mjs';
 export function sandbox() {
     arguments_assert(arguments, []);
     function_name_get(a);
-    metadata([metadata_generated()]);
 }
