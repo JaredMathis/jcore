@@ -25,7 +25,7 @@ export async function refactor_unasyncify(args) {
     assert(!js_callable_multiple(parsed));
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     object_property_set(function_declaration, js_keyword_async(), false);
-    await refactor_metadata_add_function(args, metadata_generated);
+    await refactor_metadata_generated_add_function(args);
     let suffix = function_naming_suffix_async();
     js_identifier_rename_if(args, name => string_ends_with(name, suffix), name => string_suffix_without(name, suffix));
     let imports = await js_import_all_with_function_names(parsed);
@@ -33,4 +33,8 @@ export async function refactor_unasyncify(args) {
     js_import_remove_if_exists(parsed, imports, function_name);
     await function_auto_after_refactors_invoke(args);
     metadata([]);
+}
+
+async function refactor_metadata_generated_add_function(args) {
+    await refactor_metadata_add_function(args, metadata_generated);
 }
