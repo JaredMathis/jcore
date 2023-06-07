@@ -10,6 +10,6 @@ export async function sandbox() {
     for (let i of range(10)) {
         let s = `${ i }`;
         let test_name = await tests_name_next(function_name);
-        function_tests_generate_generic_each();
+        await function_tests_generate_generic_each(function_name, test_name, [s]);
     }
 }
