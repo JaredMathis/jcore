@@ -9,8 +9,12 @@ export async function function_auto_after(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let refactors = function_auto_after_refactors();
     let refactors_names = list_map(refactors, function_name_get)
+    await function_map_multiple(refactors_names, function_name);
+    metadata([]);
+}
+
+async function function_map_multiple(refactors_names, function_name) {
     for (let n of refactors_names) {
         await function_map(n, function_name);
     }
-    metadata([]);
 }
