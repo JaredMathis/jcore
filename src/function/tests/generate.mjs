@@ -14,6 +14,9 @@ import { list_map } from '../../list/map.mjs';
 import { function_run } from '../run.mjs';
 import { js_code_call_expression_with_args } from '../../js/code/call/expression/with/args.mjs';
 import { range } from '../../range.mjs';
+import { list_length } from '../../list/length.mjs';
+import { number_is } from '../../number/is.mjs';
+import { list_get } from '../../list/get.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
@@ -38,9 +41,28 @@ export async function function_tests_generate(function_name) {
         for (let i of range(tests_count)) {
             let args = list_map(predicate_names, n => {
                 let values = dictionary[n];
+                let value = list_element_random(values);
+                return value;
             });
             js_code_call_expression_with_args(function_name, );
         }
         console.log({ dictionary });
     });
+}
+
+function list_element_random(values) {
+    let random = random_get();
+    let length = list_length(values);
+    let index = integer_floor(random * length);
+    let value = list_get(values, index);
+    return value;
+}
+
+function integer_floor(n) {
+    arguments_assert(arguments, [number_is])
+    return Math.floor(n);
+}
+
+function random_get() {
+    return Math.random();
 }
