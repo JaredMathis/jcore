@@ -34,7 +34,6 @@ import { function_map } from '../map.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
-    console.log({tests_count})
     if (tests_count > 0) {
         return;
     }
@@ -60,7 +59,6 @@ export async function function_tests_generate(function_name) {
     let count_error = 0;
     for (let i of range(count)) {
         let test_name = function_name + string_function_tests_sub() + 'generated' + function_name_separator() + (i + 1);
-        console.log(test_name)
         for (let j of range(tries)) {
             let args = list_map(predicate_names, n => {
                 let key = function_name_to_tests_values(n);
@@ -108,7 +106,6 @@ export async function function_tests_generate(function_name) {
             let statements = list_map(statements_code, js_parse_statement);
             await function_add_with_statements_synchronized(test_name, statements, false);
             function_map(function_name_get(refactor_metadata_generated_add_function), test_name);
-            console.log('here')
             break;
         }
     }
