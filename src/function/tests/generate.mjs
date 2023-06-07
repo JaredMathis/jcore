@@ -39,18 +39,14 @@ export async function function_tests_generate(function_name) {
         });
         let tests_count = 10;
         for (let i of range(tests_count)) {
-            let args = list_map(predicate_names, n => {
-                let values = dictionary[n];
-                let value = list_element_random(values);
-                return value;
-            });
-            js_code_call_expression_with_args(function_name, );
+            let args = list_map(predicate_names, n => list_random_item(dictionary[n]));
+            js_code_call_expression_with_args(function_name, args);
         }
         console.log({ dictionary });
     });
 }
 
-function list_element_random(values) {
+function list_random_item(values) {
     let random = random_get();
     let length = list_length(values);
     let index = integer_floor(random * length);
