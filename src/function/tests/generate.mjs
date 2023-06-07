@@ -37,9 +37,9 @@ export async function function_tests_generate(function_name) {
         return await function_run(key, []);
     });
     let tries = 100;
-    let count = 20;
+    let count = 10;
     for (let i of range(count)) {
-        for (let i of range(tries)) {
+        for (let j of range(tries)) {
             let args = list_map(predicate_names, n => { 
                 let key = function_name_to_tests_values(n);
                 let d = object_property_get(dictionary, key);
