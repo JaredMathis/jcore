@@ -1,5 +1,5 @@
+import { string_identifier_sub_is } from '../../../../string/identifier/sub/is.mjs';
 import { list_to_dictionary } from '../../../../list/to/dictionary.mjs';
-import { string_is } from '../../../../string/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { function_name_get } from '../../../name/get.mjs';
@@ -12,8 +12,8 @@ import { string_starts_with } from '../../../../string/starts/with.mjs';
 import { function_name_all } from '../../../name/all.mjs';
 export async function function_rename_if_starts_with(prefix_old, prefix_new) {
     arguments_assert(arguments, [
-        string_is,
-        string_is
+        string_identifier_sub_is,
+        string_identifier_sub_is
     ]);
     let names = await function_name_all();
     let dictionary = await list_to_dictionary(names, key_to_value);
