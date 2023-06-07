@@ -108,11 +108,11 @@ export async function function_tests_generate(function_name) {
             let statements = list_map(statements_code, js_parse_statement);
             await function_add_with_statements_synchronized(test_name, statements, false);
             let refactors = [
-                refactor_metadata_generated_add_function,
-                refactor_auto
+                refactor_metadata_generated_add_function
             ];
             let names = list_map(refactors, function_name_get);
             await function_map_multiple(names, test_name);
+            await function_auto_after(test_name)
             break;
         }
     }
