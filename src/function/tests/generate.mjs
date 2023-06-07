@@ -33,6 +33,7 @@ import { string_function_tests_sub } from '../../string/function/tests/sub.mjs';
 import { function_name_separator } from '../name/separator.mjs';
 import { function_add_with_statements_synchronized } from '../add/with/statements/synchronized.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
+import { log } from '../../log.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
@@ -89,6 +90,7 @@ export async function function_tests_generate(function_name) {
                 let ce_throws = js_code_call_expression_with_args_code(function_name_get(throws), `() => ${ ce_function }`);
                 statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_throws);
                 statements_code = [statement_assert];
+                log({args, error:true})
             } else {
                 let identifier_expected = 'expected';
                 let statement_expected = js_statement_assignment(identifier_expected, json_to(expected));
@@ -104,6 +106,7 @@ export async function function_tests_generate(function_name) {
                     statement_function,
                     statement_assert
                 ];
+                log({args, expected})
             }
             let statements = list_map(statements_code, js_parse_statement);
             await function_add_with_statements_synchronized(test_name, statements, false);
