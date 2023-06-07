@@ -1,3 +1,4 @@
+import { refactor_metadata_generated_add_function } from '../../refactor/metadata/generated/add/function.mjs';
 import { js_code_call_expression_statement_with_args_code } from '../../js/code/call/expression/statement/with/args/code.mjs';
 import { js_statement_assignment } from '../../js/statement/assignment.mjs';
 import { function_name_to_tests_values } from '../name/to/tests/values.mjs';
@@ -9,7 +10,6 @@ import { list_to_dictionary } from '../../list/to/dictionary.mjs';
 import { list_unique } from '../../list/unique.mjs';
 import { function_exists } from '../exists.mjs';
 import { list_any_async } from '../../list/any/async.mjs';
-import { log } from '../../log.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { js_mapper_args_to_statement_arguments_assert_args_predicate } from '../../js/mapper/args/to/statement/arguments/assert/args/predicate.mjs';
 import { function_tests_count } from './count.mjs';
@@ -57,7 +57,7 @@ export async function function_tests_generate(function_name) {
     let count_error_max = 2;
     let count_error = 0;
     for (let i of range(count)) {
-        let test_name = function_name + string_function_tests_sub() + 'generated' + function_name_separator() + (i + 1)
+        let test_name = function_name + string_function_tests_sub() + 'generated' + function_name_separator() + (i + 1);
         for (let j of range(tries)) {
             let args = list_map(predicate_names, n => {
                 let key = function_name_to_tests_values(n);
@@ -83,11 +83,9 @@ export async function function_tests_generate(function_name) {
             let statements_code;
             let statement_assert;
             if (has_error) {
-                let ce_throws = js_code_call_expression_with_args_code(function_name_get(throws), 
-                    `() => ${ce_function}`
-                );
+                let ce_throws = js_code_call_expression_with_args_code(function_name_get(throws), `() => ${ ce_function }`);
                 statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_throws);
-                statements_code = [statement_assert]
+                statements_code = [statement_assert];
             } else {
                 let identifier_expected = 'expected';
                 let statement_expected = js_statement_assignment(identifier_expected, json_to(expected));
@@ -98,9 +96,11 @@ export async function function_tests_generate(function_name) {
                     identifier_expected
                 ]);
                 statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_equal);
-                statements_code = [statement_expected,
+                statements_code = [
+                    statement_expected,
                     statement_function,
-                    statement_assert]
+                    statement_assert
+                ];
             }
             let statements = list_map(statements_code, js_parse_statement);
             await function_add_with_statements_synchronized(test_name, statements, false);
