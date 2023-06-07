@@ -63,9 +63,9 @@ export async function function_tests_generate(function_name) {
             }
             let args_code = list_map(args, json_to);
             let ce_function = js_code_call_expression_with_args(function_name, args_code);
-            let keyword_let = js_keyword_let();
             let identifier_expected = 'expected';
             let identifier_actual = 'actual';
+            let keyword_let = js_keyword_let();
             let statement = `${ keyword_let } ${ identifier_actual } = ${ ce_function }${ js_statement_end() }`;
             js_code_call_expression_with_args(function_name_get(json_equal), [
                 identifier_actual,
