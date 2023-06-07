@@ -75,10 +75,8 @@ export async function function_tests_generate(function_name) {
                 identifier_actual,
                 identifier_expected
             ]);
-            let ce_assert = js_code_call_expression_with_args(function_name_get(assert), [
-                ce_equal
-            ]);
-            let statement_assert = js_statement_assignment(identifier_are_equal, ce_assert)
+            let statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_equal);
+            
             console.log({
                 statement_expected,
                 statement_function,
