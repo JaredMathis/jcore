@@ -48,6 +48,7 @@ export async function function_tests_generate(function_name) {
     });
     let tries = 100;
     let count = 10;
+    let count_error = 2;
     for (let i of range(count)) {
         for (let j of range(tries)) {
             let args = list_map(predicate_names, n => {
