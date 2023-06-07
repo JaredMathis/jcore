@@ -18,6 +18,7 @@ export function list_slice(list, start, end) {
         ]) {
         assert(list_index_valid(list, i) || equal(i, list_length(list)));
     }
+    assert(start <= end);
     return list.slice(start, end);
     metadata([]);
 }
