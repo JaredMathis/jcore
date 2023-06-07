@@ -76,7 +76,7 @@ export async function function_tests_generate(function_name) {
             let statement_assert;
             if (has_error) {
                 
-                statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_equal);
+                statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_throws);
                 continue;
             }
             
