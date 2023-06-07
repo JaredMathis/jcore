@@ -27,7 +27,7 @@ export async function function_tests_generate(function_name) {
     let predicate = await js_mapper_args_to_statement_arguments_assert_args_predicate(fd);
     let predicate_names = list_map(predicate, p => object_property_get(p, 'name'));
     let names_with_endings = list_map(predicate_names, n => {
-        return function_name_to_tests_types(n);
+        return function_name_to_tests_values(n);
     });
     let names_with_endings_unqiue = list_unique(names_with_endings);
     if (await list_any_async(names_with_endings_unqiue, async n => !await function_exists(n))) {
@@ -39,7 +39,7 @@ export async function function_tests_generate(function_name) {
     let count = 10;
     for (let i of range(count)) {
         let args = list_map(predicate_names, n => { 
-            let key = function_name_to_tests_types(n);
+            let key = function_name_to_tests_values(n);
             let d = object_property_get(dictionary, key);
             let value = list_random_item(d)
             return value
@@ -57,7 +57,7 @@ export async function function_tests_generate(function_name) {
     }
 }
 
-function function_name_to_tests_types(n) {
+function function_name_to_tests_values(n) {
     let ending = '_test_values';
     return n + ending;
 }
