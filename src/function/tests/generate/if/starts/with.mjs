@@ -7,4 +7,7 @@ export async function function_tests_generate_if_starts_with(prefix) {
     arguments_assert(arguments, [string_identifier_sub_is]);
     let names = await function_name_all();
     let starts_with = list_filter(names, n => string_starts_with(n, prefix));
+    for (let function_name of starts_with) {
+        await function_tests_generate_generic(function_name);
+    }
 }
