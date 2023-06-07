@@ -8,8 +8,9 @@ import { range } from './range.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     let function_name = function_name_get(string_digit_is);
-    for (let i of range(10)) {
-        let s = `${ i }`;
+    for (let i of range(12)) {
+        let adjusted = i - 1;
+        let s = `${ adjusted }`;
         let test_name = await tests_name_next(function_name);
         await function_tests_generate_generic_each(function_name, test_name, [s]);
     }
