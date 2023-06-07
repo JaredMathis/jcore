@@ -37,7 +37,7 @@ export async function function_tests_generate(function_name) {
     let count = 10;
     for (let i of range(count)) {
         let args = list_map(predicate_names, n => list_random_item(dictionary[n]));
-        js_code_call_expression_with_args(function_name, args);
+        let ce = js_code_call_expression_with_args(function_name, args);
+        console.log({ ce });
     }
-    console.log({ dictionary });
 }
