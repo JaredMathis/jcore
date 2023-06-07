@@ -36,24 +36,31 @@ export async function function_tests_generate(function_name) {
     let dictionary = await list_to_dictionary(names_with_endings_unqiue, async key => {
         return await function_run(key, []);
     });
+    let tries = 100;
     let count = 20;
     for (let i of range(count)) {
-        let args = list_map(predicate_names, n => { 
-            let key = function_name_to_tests_values(n);
-            let d = object_property_get(dictionary, key);
-            let value = list_random_item(d)
-            return value
-        });
-        let actual;
-        let has_error = false;
-        try {
-            actual = await function_run(function_name, args);
-        } catch (e) {
-            has_error = true;
+        for (let i of range(tries)) {
+            let args = list_map(predicate_names, n => { 
+                let key = function_name_to_tests_values(n);
+                let d = object_property_get(dictionary, key);
+                let value = list_random_item(d)
+                return value
+            });
+            let actual;
+            let has_error = false;
+            try {
+                actual = await function_run(function_name, args);
+            } catch (e) {
+                has_error = true;
+            }
+            if (has_error) {
+                continue;
+            }
+            let args_code = list_map(args, json_to);
+            let ce = js_code_call_expression_with_args(function_name, args_code);
+            console.log({ ce, actual, has_error });
+            break;
         }
-        let args_code = list_map(args, json_to);
-        let ce = js_code_call_expression_with_args(function_name, args_code);
-        console.log({ ce, actual, has_error });
     }
 }
 
