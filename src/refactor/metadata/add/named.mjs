@@ -7,9 +7,10 @@ import { comment } from '../../../comment.mjs';
 import { js_parse_call_expression } from '../../../js/parse/call/expression.mjs';
 import { js_mapper_args_to_metadata_args } from '../../../js/mapper/args/to/metadata/args.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
+import { js_mapper_args_is } from '../../../js/mapper/args/is.mjs';
 export async function refactor_metadata_add_named(args, metadata_function_name) {
     arguments_assert(arguments, [
-        defined_is,
+        js_mapper_args_is,
         string_identifier_is
     ]);
     let metadata_args = await js_mapper_args_to_metadata_args(args);
