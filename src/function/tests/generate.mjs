@@ -1,3 +1,6 @@
+import { js_keyword_let } from '../../js/keyword/let.mjs';
+import { function_name_to_tests_values } from '../name/to/tests/values.mjs';
+import { json_equal } from '../../json/equal.mjs';
 import { list_random_item } from '../../list/random/item.mjs';
 import { js_exported_function_declaration_single } from '../../js/exported/function/declaration/single.mjs';
 import { function_parse } from '../parse.mjs';
@@ -16,6 +19,8 @@ import { function_run } from '../run.mjs';
 import { js_code_call_expression_with_args } from '../../js/code/call/expression/with/args.mjs';
 import { range } from '../../range.mjs';
 import { json_to } from '../../json/to.mjs';
+import { js_code_call_expression_with_args_code } from '../../js/code/call/expression/with/args/code.mjs';
+import { function_name_get } from '../name/get.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
@@ -36,16 +41,15 @@ export async function function_tests_generate(function_name) {
     let dictionary = await list_to_dictionary(names_with_endings_unqiue, async key => {
         return await function_run(key, []);
     });
-    let tries = 1
-    00;
+    let tries = 100;
     let count = 10;
     for (let i of range(count)) {
         for (let j of range(tries)) {
-            let args = list_map(predicate_names, n => { 
+            let args = list_map(predicate_names, n => {
                 let key = function_name_to_tests_values(n);
                 let d = object_property_get(dictionary, key);
-                let value = list_random_item(d)
-                return value
+                let value = list_random_item(d);
+                return value;
             });
             let actual;
             let has_error = false;
@@ -58,14 +62,17 @@ export async function function_tests_generate(function_name) {
                 continue;
             }
             let args_code = list_map(args, json_to);
-            let ce = js_code_call_expression_with_args(function_name, args_code);
-            console.log({ ce, actual, has_error });
+            let ce_function = js_code_call_expression_with_args(function_name, args_code);
+            let keyword_let = js_keyword_let();
+            let identifier_expected = 'expected';
+            let statement = `${ keyword_let } ${ identifier_expected } = ${ ce_function };`;
+            js_code_call_expression_with_args_code(function_name_get(json_equal));
+            console.log({
+                ce_function,
+                actual,
+                has_error
+            });
             break;
         }
     }
-}
-
-function function_name_to_tests_values(n) {
-    let ending = '_test_values';
-    return n + ending;
 }
