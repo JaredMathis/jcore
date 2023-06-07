@@ -28,6 +28,7 @@ import { js_code_call_expression_with_args_code } from '../../js/code/call/expre
 import { throws } from '../../throws.mjs';
 import { string_function_tests_sub } from '../../string/function/tests/sub.mjs';
 import { function_name_separator } from '../name/separator.mjs';
+import { function_add_with_statements_synchronized } from '../add/with/statements/synchronized.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
@@ -100,6 +101,7 @@ export async function function_tests_generate(function_name) {
                     statement_function,
                     statement_assert]
             }
+            await function_add_with_statements_synchronized(test_name, statements, false);
             await refactor_metadata_generated_add_function(args);
             break;
         }
