@@ -75,14 +75,18 @@ export async function function_tests_generate_generic(function_name) {
                 continue;
             }
             list_add(args_so_far, args_json);
-            
-            count_error = await function_tests_generate_generic(function_name, args, count_error, count_error_max, test_name);
+            await function_tests_generate_generic_each(function_name, test_name, args, () => {
+                count_error++;
+                if (count_error > count_error_max) {
+                    return true;
+                }
+            });
             break;
         }
     }
 }
 
-async function function_tests_generate_generic(function_name, args, count_error, count_error_max, test_name) {
+async function function_tests_generate_generic_each(function_name, test_name, args, on_has_error) {
     let expected;
     let has_error = false;
     try {
@@ -91,9 +95,8 @@ async function function_tests_generate_generic(function_name, args, count_error,
         has_error = true;
     }
     if (has_error) {
-        count_error++;
-        if (count_error > count_error_max) {
-            // continue;
+        if (on_has_error()) {
+            return;
         }
     }
     let args_code = list_map(args, json_to);
@@ -134,7 +137,4 @@ async function function_tests_generate_generic(function_name, args, count_error,
     let names = list_map(refactors, function_name_get);
     await function_map_multiple(names, test_name);
     await function_auto_after(test_name);
-    return count_error;
 }
-
-async function function_tests_generate_generic_each() {}
