@@ -37,6 +37,7 @@ import { function_add_with_statements_synchronized } from '../add/with/statement
 import { js_parse_statement } from '../../js/parse/statement.mjs';
 import { log } from '../../log.mjs';
 import { tests } from '../../tests.mjs';
+import { list_contains } from '../../list/contains.mjs';
 export async function function_tests_generate(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests_count = await function_tests_count(function_name);
@@ -59,6 +60,7 @@ export async function function_tests_generate(function_name) {
     let dictionary = await list_to_dictionary(names_with_endings_unqiue, async key => {
         return await function_run(key, []);
     });
+    let args_so_far = [];
     let tries = 100;
     let count = 10;
     let count_error_max = 2;
@@ -73,6 +75,10 @@ export async function function_tests_generate(function_name) {
                 let value = list_random_item(d);
                 return value;
             });
+            let args_json = json_to(args);
+            if (list_contains(args_so_far, args_json)) {
+                continue;
+            }
             let expected;
             let has_error = false;
             try {
