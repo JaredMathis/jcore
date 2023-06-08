@@ -1,4 +1,4 @@
-import { path_join } from '../../path/join.mjs';
+import { directory_read_recursive_generic } from './recursive/generic.mjs';
 import { list_add } from '../../list/add.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import fs from 'fs';
@@ -11,28 +11,10 @@ export async function directory_read_recursive(dir, path_list) {
         list_is
     ]);
     return await directory_read_recursive_generic(dir, on_directory, path_list, on_file);
-
     async function on_directory(path_list, file_path) {
         await directory_read_recursive(file_path, path_list);
     }
     async function on_file(path_list, file_path) {
         list_add(path_list, file_path);
     }
-}
-
-async function directory_read_recursive_generic(dir, on_directory, path_list, on_file) {
-    const files = await fs.promises.readdir(dir);
-    for (let file of files) {
-        const file_path = path_join([
-            dir,
-            file
-        ]);
-        const stat = await fs.promises.stat(file_path);
-        if (stat.isDirectory()) {
-            await on_directory(path_list, file_path);
-        } else {
-            await on_file(path_list, file_path);
-        }
-    }
-    return path_list;
 }
