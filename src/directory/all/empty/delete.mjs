@@ -14,7 +14,8 @@ export async function directory_all_empty_delete() {
         for (let directory_path of result) {
             let file_paths = await directory_read_paths(directory_path);
             let count = list_length(file_paths);
-            if (equal(count, 0)) {
+            const is_empty = equal(count, 0);
+            if (is_empty) {
                 await file_delete(directory_path);
                 changed = true;
             }
