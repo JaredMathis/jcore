@@ -35,5 +35,10 @@ export async function function_rename_without_all_refactor(function_name_old, fu
         assert(!await function_exists(to));
     }
     await function_rename_file_path(function_name_old, function_name_new);
+    for (let r of tests_renames) {
+        let from = object_property_get(r, 'from');
+        let to = object_property_get(r, 'to');
+        await function_rename_file_path(from, to);
+    }
     metadata([]);
 }
