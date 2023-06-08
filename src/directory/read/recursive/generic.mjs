@@ -8,7 +8,7 @@ export async function directory_read_recursive_generic(dir, path_list, on_direct
         ]);
         const stat = await fs.promises.stat(file_path);
         if (stat.isDirectory()) {
-            await directory_read_recursive_generic(dir, path_list, on_directory, on_file);
+            await directory_read_recursive_generic(file_path, path_list, on_directory, on_file);
             await on_directory(path_list, file_path);
         } else {
             await on_file(path_list, file_path);
