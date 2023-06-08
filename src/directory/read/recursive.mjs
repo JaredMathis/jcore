@@ -29,6 +29,6 @@ export async function directory_read_recursive(dir, file_list) {
         await directory_read_recursive(file_path, file_list);
     }
     async function on_file(file_list, file_path) {
-
+        list_add(file_list, file_path);
     }
 }
