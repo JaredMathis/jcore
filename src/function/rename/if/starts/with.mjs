@@ -20,7 +20,7 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
     let dictionary = await list_to_dictionary_async(names_filtered, key_to_value);
     async function key_to_value(n_old) {
         let n_new = string_prefix_replace(n_old, prefix_old, prefix_new);
-        await function_rename_without_all_refactor(n_old, n_new);
+        let tests_renames = await function_rename_without_all_refactor(n_old, n_new);
         return n_new;
     }
     let file_paths_changed = await file_js_all_identifier_multiple_rename(dictionary);
