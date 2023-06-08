@@ -1,3 +1,4 @@
+import { log } from './log.mjs';
 import { string_letter_is } from './string/letter/is.mjs';
 import { function_tests_generate_after } from './function/tests/generate/after.mjs';
 import { function_tests_generate_generic_each } from './function/tests/generate/generic/each.mjs';
@@ -14,6 +15,7 @@ export async function sandbox() {
     ];
     for (let f of functions) {
         let function_name = function_name_get(f);
+        log(function_name);
         let inputs_string = `1,2,3,_,d,b,c`;
         let inputs = string_split(inputs_string, ',');
         for (let i of inputs) {
