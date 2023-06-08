@@ -25,6 +25,7 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
         object_merge(tests_renames, dictionary_tests);
         return n_new;
     }
+    object_merge(dictionary_tests, dictionary);
     let file_paths_changed = await file_js_all_identifier_multiple_rename(dictionary);
     await function_rename_after(file_paths_changed);
     metadata([]);
