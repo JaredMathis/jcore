@@ -1,3 +1,4 @@
+import { directory_is } from '../../is.mjs';
 import { directory_read_paths } from '../paths.mjs';
 import { function_is } from '../../../function/is.mjs';
 import fs from 'fs';
@@ -13,8 +14,7 @@ export async function directory_read_recursive_generic(dir, path_list, on_direct
     ]);
     let file_paths = await directory_read_paths(dir);
     for (let file_path of file_paths) {
-        const stat = await fs.promises.stat(file_path);
-        const is_directory = stat.isDirectory();
+        const is_directory = await directory_is(file_path);
         if (is_directory) {
             await directory_read_recursive_generic(file_path, path_list, on_directory, on_file);
             await on_directory(path_list, file_path);
