@@ -4,7 +4,7 @@ import { metadata } from '../../../../../../metadata.mjs';
 import { json_equal } from '../../../../../../json/equal.mjs';
 import { assert } from '../../../../../../assert.mjs';
 import { string_index_of_try } from '../../../try.mjs';
-export function string_index_of_test_generated_3() {
+export function string_index_of_try_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = 0;
     let actual = string_index_of_try('aa', 'aa');
