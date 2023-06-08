@@ -8,7 +8,7 @@ import { list_all_combine } from '../../../../../list/all/combine.mjs';
 import { object_properties } from '../../../../../object/properties.mjs';
 import { object_keys } from '../../../../../object/keys.mjs';
 import { assert } from '../../../../../assert.mjs';
-export async function file_js_all_identifier_all_rename(dictionary) {
+export async function file_js_all_identifier_multiple_rename(dictionary) {
     arguments_assert(arguments, [defined_is]);
     let keys = object_keys(dictionary);
     let values = object_properties(dictionary);
