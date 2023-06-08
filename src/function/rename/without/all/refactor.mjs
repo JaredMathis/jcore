@@ -23,7 +23,12 @@ export async function function_rename_without_all_refactor(function_name_old, fu
     let tests_prefix_old = function_tests_prefix_get(function_name_old);
     let tests_old = list_filter(all, a => string_starts_with(a, tests_prefix_old));
     let tests_prefix_new = function_tests_prefix_get(function_name_new);
-    let tests_new = list_map(tests_old, t => string_prefix_replace(tests_prefix_old, tests_prefix_new));
+    let tests_new = list_map(tests_old, t => {
+        return {
+            from: t,
+            to: string_prefix_replace(t, tests_prefix_old, tests_prefix_new)
+        };
+    });
     for (let t of tests_new) {
         assert(!await function_exists(t));
     }
