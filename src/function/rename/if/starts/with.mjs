@@ -24,7 +24,7 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
             return n_new;
         }
     }
-    await file_js_all_identifier_multiple_rename(dictionary);
+    let file_paths_changed = await file_js_all_identifier_multiple_rename(dictionary);
     await file_js_all_map(function_name_get(refactor_import_fix));
     metadata([]);
 }
