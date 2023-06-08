@@ -20,10 +20,10 @@ export async function function_rename_without_all_refactor(function_name_old, fu
     assert(!await function_exists(function_name_new));
     assert(!await file_js_all_identifier_exists(function_name_new));
     let all = await function_name_all();
-    let function_name_tests_prefix_old = function_tests_prefix_get(function_name_old);
-    let tests_old = list_filter(all, a => string_starts_with(a, function_name_tests_prefix_old));
-    let function_name_tests_prefix_new = function_tests_prefix_get(function_name_new);
-    let tests_new = list_map(tests_old, t => string_prefix_replace());
+    let tests_prefix_old = function_tests_prefix_get(function_name_old);
+    let tests_old = list_filter(all, a => string_starts_with(a, tests_prefix_old));
+    let tests_prefix_new = function_tests_prefix_get(function_name_new);
+    let tests_new = list_map(tests_old, t => string_prefix_replace(tests_prefix_old, tests_prefix_new));
     for (let t of tests_new) {
         assert(!await function_exists(t));
     }
