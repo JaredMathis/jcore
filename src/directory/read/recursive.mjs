@@ -12,8 +12,6 @@ export async function directory_read_recursive(dir, path_list) {
         list_is
     ]);
     return await directory_read_recursive_generic(dir, path_list, noop, on_file);
-    async function on_directory(path_list, file_path) {
-    }
     async function on_file(path_list, file_path) {
         list_add(path_list, file_path);
     }
