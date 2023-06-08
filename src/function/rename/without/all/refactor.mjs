@@ -1,4 +1,4 @@
-import { list_to_dictionary_async } from '../../../../list/to/dictionary/async.mjs';
+import { list_to_dictionary } from '../../../../list/to/dictionary.mjs';
 import { string_starts_with } from '../../../../string/starts/with.mjs';
 import { list_filter } from '../../../../list/filter.mjs';
 import { function_tests_prefix_get } from '../../../tests/prefix/get.mjs';
@@ -25,7 +25,7 @@ export async function function_rename_without_all_refactor(function_name_old, fu
     let tests_prefix_old = function_tests_prefix_get(function_name_old);
     let tests_old = list_filter(all, a => string_starts_with(a, tests_prefix_old));
     let tests_prefix_new = function_tests_prefix_get(function_name_new);
-    list_to_dictionary_async;
+    list_to_dictionary;
     let tests_renames = list_map(tests_old, t => {
         return {
             from: t,
