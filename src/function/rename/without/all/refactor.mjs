@@ -1,3 +1,4 @@
+import { function_tests_prefix_get } from '../../../tests/prefix/get.mjs';
 import { string_identifier_is } from '../../../../string/identifier/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -11,6 +12,7 @@ export async function function_rename_without_all_refactor(function_name_old, fu
         string_identifier_is,
         string_identifier_is
     ]);
+    let function_name_old_tests_prefix = function_tests_prefix_get(function_name_old);
     assert(await function_exists(function_name_old));
     assert(!await function_exists(function_name_new));
     assert(!await file_js_all_identifier_exists(function_name_new));
