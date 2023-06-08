@@ -1,3 +1,4 @@
+import { list_add_property } from '../../../../../list/add/property.mjs';
 import { defined_is } from '../../../../../defined/is.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../metadata.mjs';
@@ -18,8 +19,13 @@ export async function file_js_all_identifier_multiple_rename(dictionary) {
     ];
     let concat = list_all_combine(concats);
     assert(list_unique_is(concat));
+    let file_paths_changed = [];
     await file_js_all_map_args(function mapper(args) {
-        js_identifier_multiple_rename(dictionary, args);
+        let changed = js_identifier_multiple_rename(dictionary, args);
+        if (changed) {
+            list_add_property(file_paths_changed, args, 'file_path');
+        }
     });
+    return file_paths_changed;
     metadata([]);
 }
