@@ -142,6 +142,12 @@ import { string_function_tests_name_is_test_generated_4 } from './string/functio
 import { string_function_tests_name_is_test_generated_3 } from './string/function/tests/name/is/test/generated/3.mjs';
 import { string_function_tests_name_is_test_generated_2 } from './string/function/tests/name/is/test/generated/2.mjs';
 import { string_function_tests_name_is_test_generated_1 } from './string/function/tests/name/is/test/generated/1.mjs';
+import { string_function_tests_name_is_test_6 } from './string/function/tests/name/is/test/6.mjs';
+import { string_function_tests_name_is_test_5 } from './string/function/tests/name/is/test/5.mjs';
+import { string_function_tests_name_is_test_4 } from './string/function/tests/name/is/test/4.mjs';
+import { string_function_tests_name_is_test_3 } from './string/function/tests/name/is/test/3.mjs';
+import { string_function_tests_name_is_test_2 } from './string/function/tests/name/is/test/2.mjs';
+import { string_function_tests_name_is_test_1 } from './string/function/tests/name/is/test/1.mjs';
 import { string_ends_with_test_generated_9 } from './string/ends/with/test/generated/9.mjs';
 import { string_ends_with_test_generated_8 } from './string/ends/with/test/generated/8.mjs';
 import { string_ends_with_test_generated_7 } from './string/ends/with/test/generated/7.mjs';
@@ -263,6 +269,12 @@ export async function tests() {
     await string_ends_with_test_generated_7();
     await string_ends_with_test_generated_8();
     await string_ends_with_test_generated_9();
+    await string_function_tests_name_is_test_1();
+    await string_function_tests_name_is_test_2();
+    await string_function_tests_name_is_test_3();
+    await string_function_tests_name_is_test_4();
+    await string_function_tests_name_is_test_5();
+    await string_function_tests_name_is_test_6();
     await string_function_tests_name_is_test_generated_1();
     await string_function_tests_name_is_test_generated_2();
     await string_function_tests_name_is_test_generated_3();
@@ -406,5 +418,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(203 + ' tests ran successfully');
+    log(209 + ' tests ran successfully');
 }
