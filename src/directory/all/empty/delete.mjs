@@ -1,5 +1,4 @@
 import { file_delete } from '../../../file/delete.mjs';
-import { log } from '../../../log.mjs';
 import { equal } from '../../../equal.mjs';
 import { list_length } from '../../../list/length.mjs';
 import { directory_read_paths } from '../../read/paths.mjs';
@@ -13,8 +12,7 @@ export async function directory_all_empty_delete() {
         let file_paths = await directory_read_paths(directory_path);
         let count = list_length(file_paths);
         if (equal(count, 0)) {
-            await file_delete();
-            console.log(directory_path);
+            await file_delete(directory_path);
         }
     }
 }
