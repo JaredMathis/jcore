@@ -10,7 +10,7 @@ export async function sandbox() {
     arguments_assert(arguments, []);
     let function_name = function_name_get(string_function_tests_name_is);
     let s = string_function_tests_sub();
-    let inputs = `_,${ s }`;
+    let inputs = `_,a,${ s },a${s},a${s}1`;
     for (let i of range(12)) {
         let adjusted = i - 1;
         let s = `${ adjusted }`;
