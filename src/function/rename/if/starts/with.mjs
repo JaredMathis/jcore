@@ -1,11 +1,9 @@
+import { file_js_multiple_import_fix } from '../../../../file/js/multiple/import/fix.mjs';
 import { string_identifier_sub_is } from '../../../../string/identifier/sub/is.mjs';
 import { list_to_dictionary } from '../../../../list/to/dictionary.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
-import { function_name_get } from '../../../name/get.mjs';
 import { file_js_all_identifier_multiple_rename } from '../../../../file/js/all/identifier/multiple/rename.mjs';
-import { refactor_import_fix } from '../../../../refactor/import/fix.mjs';
-import { file_js_all_map } from '../../../../file/js/all/map.mjs';
 import { function_rename_without_all_refactor } from '../../without/all/refactor.mjs';
 import { string_prefix_replace } from '../../../../string/prefix/replace.mjs';
 import { string_starts_with } from '../../../../string/starts/with.mjs';
@@ -25,6 +23,6 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
         }
     }
     let file_paths_changed = await file_js_all_identifier_multiple_rename(dictionary);
-    await file_js_all_map(function_name_get(refactor_import_fix));
+    await file_js_multiple_import_fix(file_paths_changed);
     metadata([]);
 }
