@@ -10,9 +10,10 @@ import { metadata } from '../../../../metadata.mjs';
 import { file_js_all_identifier_exists } from '../../../../file/js/all/identifier/exists.mjs';
 import { function_exists } from '../../../exists.mjs';
 import { assert } from '../../../../assert.mjs';
-import { list_map } from '../../../../list/map.mjs';
 import { string_prefix_replace } from '../../../../string/prefix/replace.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
+import { object_keys } from '../../../../object/keys.mjs';
+import { object_properties } from '../../../../object/properties.mjs';
 export async function function_rename_without_all_refactor(function_name_old, function_name_new) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -25,22 +26,15 @@ export async function function_rename_without_all_refactor(function_name_old, fu
     let tests_prefix_old = function_tests_prefix_get(function_name_old);
     let tests_old = list_filter(all, a => string_starts_with(a, tests_prefix_old));
     let tests_prefix_new = function_tests_prefix_get(function_name_new);
-    list_to_dictionary(tests_old, t => string_prefix_replace(t, tests_prefix_old, tests_prefix_new));
-    let tests_renames = list_map(tests_old, t => {
-        return {
-            from: t,
-            to: string_prefix_replace(t, tests_prefix_old, tests_prefix_new)
-        };
-    });
-    for (let r of tests_renames) {
-        let to = object_property_get(r, 'to');
+    let tests_renames = list_to_dictionary(tests_old, t => string_prefix_replace(t, tests_prefix_old, tests_prefix_new));
+    for (let to of object_properties(tests_renames)) {
         assert(!await function_exists(to));
     }
     await function_rename_file_path(function_name_old, function_name_new);
-    for (let r of tests_renames) {
-        let from = object_property_get(r, 'from');
-        let to = object_property_get(r, 'to');
+    for (let from of object_keys(tests_renames)) {
+        let to = object_property_get(tests_renames, from);
         await function_rename_file_path(from, to);
     }
+    return tests_renames;
     metadata([]);
 }
