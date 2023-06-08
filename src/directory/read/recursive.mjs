@@ -16,9 +16,7 @@ export async function directory_read_recursive(dir, file_list) {
         if (stat.isDirectory()) {
             file_list = await directory_read_recursive(file_path, file_list);
         } else {
-            file_list.push(file_path);
-            if (false)
-                list_add(file_list, file_path);
+            list_add(file_list, file_path);
         }
     }
     return file_list;
