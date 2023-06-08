@@ -13,11 +13,11 @@ export async function directory_read_recursive_generic(dir, path_list, on_direct
         function_is
     ]);
     const files = await fs.promises.readdir(dir);
-    let mapped = list_map(files, file => path_join([
+    let file_paths = list_map(files, file => path_join([
         dir,
         file
     ]));
-    for (let file_path of mapped) {
+    for (let file_path of file_paths) {
         const stat = await fs.promises.stat(file_path);
         if (stat.isDirectory()) {
             await directory_read_recursive_generic(file_path, path_list, on_directory, on_file);
