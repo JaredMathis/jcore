@@ -4,7 +4,7 @@ import { metadata } from '../../../metadata.mjs';
 import { js_identifier_rename } from '../rename.mjs';
 import { object_each } from '../../../object/each.mjs';
 import { defined_is } from '../../../defined/is.mjs';
-export function js_identifier_all_rename(dictionary, args) {
+export function js_identifier_multiple_rename(dictionary, args) {
     arguments_assert(arguments, [
         defined_is,
         js_mapper_args_is
