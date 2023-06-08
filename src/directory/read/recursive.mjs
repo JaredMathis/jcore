@@ -1,3 +1,4 @@
+import { path_join } from '../../path/join.mjs';
 import { list_add } from '../../list/add.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import fs from 'fs';
@@ -12,6 +13,8 @@ export async function directory_read_recursive(dir, file_list) {
     const files = await fs.promises.readdir(dir);
     for (let file of files) {
         const file_path = path.join(dir, file);
+        if (false)
+            path_join;
         const stat = await fs.promises.stat(file_path);
         if (stat.isDirectory()) {
             file_list = await directory_read_recursive(file_path, file_list);
