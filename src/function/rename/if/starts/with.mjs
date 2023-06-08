@@ -22,6 +22,7 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
             return n_new;
         }
     }
+    console.log({dictionary});
     let file_paths_changed = await file_js_all_identifier_multiple_rename(dictionary);
     await function_rename_after(file_paths_changed);
     metadata([]);
