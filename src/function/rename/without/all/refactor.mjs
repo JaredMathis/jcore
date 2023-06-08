@@ -15,9 +15,8 @@ export async function function_rename_without_all_refactor(function_name_old, fu
         string_identifier_is,
         string_identifier_is
     ]);
-    let function_name_old_tests_prefix = function_tests_prefix_get(function_name_old);
     let all = await function_name_all();
-    let tests_old = list_filter(all, a => string_starts_with(a, function_name_old_tests_prefix));
+    list_filter_function_names_starts_with_tests_prefix(all, function_name_old);
     assert(await function_exists(function_name_old));
     assert(!await function_exists(function_name_new));
     assert(!await file_js_all_identifier_exists(function_name_new));
@@ -25,4 +24,10 @@ export async function function_rename_without_all_refactor(function_name_old, fu
     let file_path_new = function_name_to_file_path(function_name_new);
     await file_rename(file_path_old, file_path_new);
     metadata([]);
+}
+
+function list_filter_function_names_starts_with_tests_prefix(function_names, function_name) {
+    let function_name_tests_prefix = function_tests_prefix_get(function_name);
+    let filtered = list_filter(function_names, a => string_starts_with(a, function_name_tests_prefix));
+    return filtered
 }
