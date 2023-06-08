@@ -10,7 +10,7 @@ export async function sandbox() {
     arguments_assert(arguments, []);
     let function_name = function_name_get(string_function_tests_name_is);
     let s = string_function_tests_sub();
-    let inputs_string = `_,a,${ s },a${ s },a${ s }1`;
+    let inputs_string = `_,a,${ s },a${ s },a${ s }1,${ s }1`;
     let inputs = string_split(inputs_string, ',');
     for (let i of inputs) {
         let test_name = await tests_name_next(function_name);
