@@ -1,7 +1,6 @@
-import { tests_generate } from '../../../../tests/generate.mjs';
 import { function_rename_after } from '../../after.mjs';
 import { string_identifier_sub_is } from '../../../../string/identifier/sub/is.mjs';
-import { list_to_dictionary } from '../../../../list/to/dictionary.mjs';
+import { list_to_dictionary_async } from '../../../../list/to/dictionary/async.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { file_js_all_identifier_multiple_rename } from '../../../../file/js/all/identifier/multiple/rename.mjs';
@@ -15,7 +14,7 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
         string_identifier_sub_is
     ]);
     let names = await function_name_all();
-    let dictionary = await list_to_dictionary(names, key_to_value);
+    let dictionary = await list_to_dictionary_async(names, key_to_value);
     async function key_to_value(n_old) {
         if (string_starts_with(n_old, prefix_old)) {
             let n_new = string_prefix_replace(n_old, prefix_old, prefix_new);

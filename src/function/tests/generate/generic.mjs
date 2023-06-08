@@ -10,7 +10,7 @@ import { string_function_tests_sub } from '../../../string/function/tests/sub.mj
 import { range } from '../../../range.mjs';
 import { log } from '../../../log.mjs';
 import { function_run } from '../../run.mjs';
-import { list_to_dictionary } from '../../../list/to/dictionary.mjs';
+import { list_to_dictionary_async } from '../../../list/to/dictionary/async.mjs';
 import { function_exists } from '../../exists.mjs';
 import { list_any_async } from '../../../list/any/async.mjs';
 import { list_unique } from '../../../list/unique.mjs';
@@ -43,7 +43,7 @@ export async function function_tests_generate_generic(function_name) {
     if (await list_any_async(names_with_endings_unqiue, async n => !await function_exists(n))) {
         return;
     }
-    let dictionary = await list_to_dictionary(names_with_endings_unqiue, async key => {
+    let dictionary = await list_to_dictionary_async(names_with_endings_unqiue, async key => {
         return await function_run(key, []);
     });
     let args_so_far = [];
