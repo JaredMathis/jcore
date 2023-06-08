@@ -22,7 +22,7 @@ export async function function_rename_without_all_refactor(function_name_old, fu
     let tests_old = list_filter_function_names_starts_with_tests_prefix(all, function_name_old);
     let tests_new = list_filter_function_names_starts_with_tests_prefix(all, function_name_new);
     for (let t of tests_new) {
-
+        assert(!await function_exists(function_name_new));
     }
 
     let file_path_old = function_name_to_file_path(function_name_old);
