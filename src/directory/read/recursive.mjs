@@ -24,4 +24,11 @@ export async function directory_read_recursive(dir, file_list) {
         }
     }
     return file_list;
+
+    async function on_directory() {
+
+    }
+    async function on_file() {
+
+    }
 }
