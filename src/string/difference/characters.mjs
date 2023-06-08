@@ -7,5 +7,9 @@ export function string_difference_characters(string_old, string_new) {
         string_is,
         string_is
     ]);
-    return Diff.diffChars(string_old, string_new)
+    let p = Diff.diffChars(string_old, string_new);
+    return {
+        d: p,
+        applied:Diff.applyPatch(string_old, p),
+    }
 }
