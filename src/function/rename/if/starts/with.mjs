@@ -16,6 +16,7 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
     ]);
     let names = await function_name_all();
     let names_filtered = list_filter(names, n => string_starts_with(n, prefix_old));
+    let dictionary_tests = {};
     let dictionary = await list_to_dictionary_async(names_filtered, key_to_value);
     async function key_to_value(n_old) {
         let n_new = string_prefix_replace(n_old, prefix_old, prefix_new);
