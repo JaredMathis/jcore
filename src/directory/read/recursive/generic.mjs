@@ -1,14 +1,19 @@
+import { function_is } from '../../../function/is.mjs';
 import fs from 'fs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
+import { list_is } from '../../../list/is.mjs';
+import { path_is } from '../../../path/is.mjs';
 import { path_join } from '../../../path/join.mjs';
 export async function directory_read_recursive_generic(dir, path_list, on_directory, on_file) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
-        arguments_assert_todo,
+        path_is,
+        list_is,
         arguments_assert_todo,
         arguments_assert_todo
     ]);
+    if (false)
+        function_is;
     const files = await fs.promises.readdir(dir);
     for (let file of files) {
         const file_path = path_join([
