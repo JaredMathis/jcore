@@ -25,8 +25,12 @@ export async function function_rename_without_all_refactor(function_name_old, fu
         assert(!await function_exists(t));
     }
 
+    await function_rename_file_path(function_name_old, function_name_new);
+    metadata([]);
+}
+
+async function function_rename_file_path(function_name_old, function_name_new) {
     let file_path_old = function_name_to_file_path(function_name_old);
     let file_path_new = function_name_to_file_path(function_name_new);
     await file_rename(file_path_old, file_path_new);
-    metadata([]);
 }
