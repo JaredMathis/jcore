@@ -18,9 +18,9 @@ export async function directory_read_recursive(dir, file_list) {
         ]);
         const stat = await fs.promises.stat(file_path);
         if (stat.isDirectory()) {
-            await directory_read_recursive(file_path, file_list);
+            await on_directory(file_list, file_path);
         } else {
-            list_add(file_list, file_path);
+            await on_file(file_list, file_path);
         }
     }
     return file_list;
