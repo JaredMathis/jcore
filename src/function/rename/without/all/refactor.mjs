@@ -1,3 +1,4 @@
+import { function_tests_prefix_get } from '../../../tests/prefix/get.mjs';
 import { function_rename_file_path } from '../../file/path.mjs';
 import { list_filter_function_names_starts_with_tests_prefix } from '../../../../list/filter/function/names/starts/with/tests/prefix.mjs';
 import { function_name_all } from '../../../name/all.mjs';
@@ -17,6 +18,7 @@ export async function function_rename_without_all_refactor(function_name_old, fu
     assert(!await file_js_all_identifier_exists(function_name_new));
     let all = await function_name_all();
     let tests_old = list_filter_function_names_starts_with_tests_prefix(all, function_name_old);
+    let function_name_tests_prefix_new = function_tests_prefix_get(function_name_new);
     let tests_new = list_filter_function_names_starts_with_tests_prefix(all, function_name_new);
     for (let t of tests_new) {
         assert(!await function_exists(t));
