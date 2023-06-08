@@ -8,21 +8,20 @@ import { function_rename_without_all_refactor } from '../../without/all/refactor
 import { string_prefix_replace } from '../../../../string/prefix/replace.mjs';
 import { string_starts_with } from '../../../../string/starts/with.mjs';
 import { function_name_all } from '../../../name/all.mjs';
+import { list_filter } from '../../../../list/filter.mjs';
 export async function function_rename_if_starts_with(prefix_old, prefix_new) {
     arguments_assert(arguments, [
         string_identifier_sub_is,
         string_identifier_sub_is
     ]);
     let names = await function_name_all();
-    let dictionary = await list_to_dictionary_async(names, key_to_value);
+    let names_filtered = list_filter(names, n => string_starts_with(n, prefix_old));
+    let dictionary = await list_to_dictionary_async(names_filtered, key_to_value);
     async function key_to_value(n_old) {
-        if (string_starts_with(n_old, prefix_old)) {
-            let n_new = string_prefix_replace(n_old, prefix_old, prefix_new);
-            await function_rename_without_all_refactor(n_old, n_new);
-            return n_new;
-        }
+        let n_new = string_prefix_replace(n_old, prefix_old, prefix_new);
+        await function_rename_without_all_refactor(n_old, n_new);
+        return n_new;
     }
-    console.log({dictionary});
     let file_paths_changed = await file_js_all_identifier_multiple_rename(dictionary);
     await function_rename_after(file_paths_changed);
     metadata([]);
