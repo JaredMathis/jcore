@@ -9,8 +9,12 @@ export function js_identifier_all_rename(dictionary, args) {
         defined_is,
         js_mapper_args_is
     ]);
+    let changed = false;
     object_each(dictionary, (to, from) => {
-        js_identifier_rename(args, from, to);
+        if (js_identifier_rename(args, from, to)) {
+            changed = true;
+        }
     });
+    return changed;
     metadata([]);
 }
