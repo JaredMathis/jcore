@@ -10,7 +10,7 @@ export async function directory_read_recursive(dir, path_list) {
         path_is,
         list_is
     ]);
-    return await directory_read_recursive_generic(dir, on_directory, path_list, on_file);
+    return await directory_read_recursive_generic(dir, path_list, on_directory, on_file);
     async function on_directory(path_list, file_path) {
         await directory_read_recursive(file_path, path_list);
     }

@@ -1,5 +1,5 @@
 import { path_join } from '../../../path/join.mjs';
-export async function directory_read_recursive_generic(dir, on_directory, path_list, on_file) {
+export async function directory_read_recursive_generic(dir, path_list, on_directory, on_file) {
     const files = await fs.promises.readdir(dir);
     for (let file of files) {
         const file_path = path_join([
