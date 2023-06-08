@@ -1,13 +1,17 @@
-import { string_letter_digit_or_underscore_is } from './string/letter/digit/or/underscore/is.mjs';
+import { string_letter_is } from './string/letter/is.mjs';
 import { function_tests_generate_after } from './function/tests/generate/after.mjs';
 import { function_tests_generate_generic_each } from './function/tests/generate/generic/each.mjs';
 import { tests_name_next } from './tests/name/next.mjs';
 import { function_name_get } from './function/name/get.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { string_split } from './string/split.mjs';
+import { string_underscore_is } from './string/underscore/is.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
-    let functions = [string_letter_digit_or_underscore_is];
+    let functions = [
+        string_letter_is,
+        string_underscore_is
+    ];
     for (let f of functions) {
         let function_name = function_name_get(f);
         let inputs_string = `1,2,3,_,d,b,c`;
