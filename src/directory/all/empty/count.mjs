@@ -1,6 +1,13 @@
-import { error } from '../../../error.mjs';
+import { list_filter_async } from '../../../list/filter/async.mjs';
+import { directory_current_to_source } from '../../current/to/source.mjs';
+import { directory_read_directories } from '../../read/directories.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
-export function directory_all_empty_count() {
+import { directory_empty_is } from '../../empty/is.mjs';
+import { list_length } from '../../../list/length.mjs';
+export async function directory_all_empty_count() {
     arguments_assert(arguments, []);
-    error('todo: directory_all_empty_count');
+    let directories = await directory_read_directories(directory_current_to_source());
+    let empties = await list_filter_async(directories, directory_empty_is);
+    let count = list_length(empties);
+    return count;
 }
