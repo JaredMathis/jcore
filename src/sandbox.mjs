@@ -10,7 +10,7 @@ export async function sandbox() {
     let functions = [string_letter_digit_or_underscore_is];
     for (let f of functions) {
         let function_name = function_name_get(f);
-        let inputs_string = `_,me,me_myself,me_,_me,1,1me,me1,me_1,my_self_and_i`;
+        let inputs_string = `1,2,3,_,d,b,c`;
         let inputs = string_split(inputs_string, ',');
         for (let i of inputs) {
             let test_name = await tests_name_next(function_name);
