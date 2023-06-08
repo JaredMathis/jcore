@@ -1,7 +1,6 @@
 import { directory_is } from '../../is.mjs';
 import { directory_read_paths } from '../paths.mjs';
 import { function_is } from '../../../function/is.mjs';
-import fs from 'fs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { list_is } from '../../../list/is.mjs';
 import { path_is } from '../../../path/is.mjs';
