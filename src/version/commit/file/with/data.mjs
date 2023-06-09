@@ -6,13 +6,13 @@ import { guid_generate } from '../../../../guid/generate.mjs';
 import { path_is } from '../../../../path/is.mjs';
 import { string_identifier_is } from '../../../../string/identifier/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
-import { version_file_difference } from '../../difference.mjs';
+import { version_file_difference } from '../../../file/difference.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { version_property_path } from '../../../property/path.mjs';
 import { assert } from '../../../../assert.mjs';
 import { file_exists } from '../../../../file/exists.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
-export async function version_file_commit_with_data(repository_name, file_path, data) {
+export async function version_commit_file_with_data(repository_name, file_path, data) {
     arguments_assert(arguments, [
         string_identifier_is,
         path_is,
