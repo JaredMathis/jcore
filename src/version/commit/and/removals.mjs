@@ -1,3 +1,4 @@
+import { log } from '../../../log.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { version_write_all } from '../../write/all.mjs';
