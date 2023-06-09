@@ -11,6 +11,7 @@ import { result_empty } from '../../../result/empty.mjs';
 import { string_is } from '../../../string/is.mjs';
 import { boolean_is } from '../../../boolean/is.mjs';
 import { list_add_beginning } from '../../../list/add/beginning.mjs';
+import { list_add } from '../../../list/add.mjs';
 export async function git_pacp_with_message(commit_message, sync) {
     arguments_assert(arguments, [string_is, boolean_is]);
     let args = command_line_args_skipped();
@@ -20,12 +21,11 @@ export async function git_pacp_with_message(commit_message, sync) {
     let commands;
     if (sync) {
         commands = [
-            
             `git add *`,
             command_commit,
-            `git push`
         ];
-        list_add_beginning(commands, `git pull`)
+        list_add_beginning(commands, `git pull`);
+        list_add(commands, `git push`)
     }
     let c_result = await command_line_all(commands);
     if (!c_result.success) {
