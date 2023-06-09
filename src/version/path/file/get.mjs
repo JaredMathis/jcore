@@ -1,13 +1,20 @@
+import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { file_extension_json } from '../../../file/extension/json.mjs';
 import { path_join } from '../../../path/join.mjs';
 import { version_directory_root } from '../../directory/root.mjs';
 export function version_path_file_get(repository_name, file_path, version) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
+    let repository_files_directory_name = 'files';
     let repository_container_folder_name = version_directory_root();
     let repository_directory = path_join([
         repository_container_folder_name,
         repository_name
     ]);
-    let repository_files_directory_name = 'files';
     let repository_file_path = path_join([
         repository_directory,
         repository_files_directory_name,
