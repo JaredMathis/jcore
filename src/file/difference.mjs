@@ -39,8 +39,10 @@ export async function file_difference(repository_name, commit_id, file_path) {
         repository_container_folder_name,
         repository_name
     ]);
+    let repository_files_directory_name = 'files';
     let repository_file_path = path_join([
         repository_directory,
+        repository_files_directory_name,
         file_path
     ]);
     let initial_file_name = `initial${ file_extension_json() }`;
@@ -50,7 +52,6 @@ export async function file_difference(repository_name, commit_id, file_path) {
     ]);
     let file_path_contents = await file_read(file_path);
     if (!await file_exists(repository_file_path_initial)) {
-        let now = new Date().getTime();
         await file_json_overwrite(repository_file_path_initial, {
             contents: file_path_contents,
             commit_id
