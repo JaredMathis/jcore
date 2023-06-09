@@ -62,7 +62,9 @@ export async function version_commit_file_with_data(repository_name, file_path, 
     await directory_exists_ensure(repository_sub_path);
     let existing_commits = await directory_read(repository_sub_path);
     if (!list_length_is_0(existing_commits)) {
-        
+        let unparsed = list_map(existing_commits, c => string_suffix_without(c, file_extension_json()));
+        let parsed = list_map(unparsed, integer_parse)
+        version = list_max(parsed);
     }
     let version = 1;
     let commit_path = path_join([
