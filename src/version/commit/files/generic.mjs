@@ -1,7 +1,8 @@
-import { file_delete } from '../../../file/delete.mjs';
-import { file_json_overwrite } from '../../../file/json/overwrite.mjs';
-import { file_exists } from '../../../file/exists.mjs';
-import { assert } from '../../../assert.mjs';
+import { version_write_all } from '../../write/all.mjs';
+import { version_property_contents } from '../../property/contents.mjs';
+import { version_property_file_path } from '../../property/file/path.mjs';
+import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { path_join } from '../../../path/join.mjs';
 import { add_1 } from '../../../add/1.mjs';
 import { list_max } from '../../../list/max.mjs';
@@ -21,6 +22,12 @@ import { object_property_get } from '../../../object/property/get.mjs';
 import { version_property_hunks } from '../../property/hunks.mjs';
 import { git_ignore_filter } from '../../../git/ignore/filter.mjs';
 export async function version_commit_files_generic(repository_name, file_paths, data, difference_get) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     let filtered = await git_ignore_filter(file_paths);
     let property_hunks = version_property_hunks();
     let property_file_path = version_property_file_path();
@@ -77,36 +84,4 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         await version_write_all(writes);
     }
     return writes;
-}
-
-function version_property_contents() {
-    return 'contents';
-}
-
-function version_property_file_path() {
-    return 'file_path';
-}
-
-async function version_write_all(writes) {
-    let property_file_path = version_property_file_path();
-    let property_contents = version_property_contents();
-    for (let w of writes) {
-        const file_path = object_property_get(w, property_file_path);
-        assert(!await file_exists(file_path));
-    }
-    try {
-        for (let w of writes) {
-            const file_path = object_property_get(w, property_file_path);
-            const contents = object_property_get(w, property_contents);
-            await file_json_overwrite(file_path, contents);
-        }
-    } catch (e) {
-        for (let w of writes) {
-            const file_path = object_property_get(w, property_file_path);
-            if (await file_exists(file_path)) {
-                file_delete(file_path);
-            }
-        }
-        throw e;
-    }
 }
