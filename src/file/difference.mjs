@@ -9,4 +9,5 @@ export async function file_difference(repository_name, file_path) {
     ]);
     let repository_container_folder_name = 'tc';
     await directory_exists_ensure(repository_container_folder_name);
+    let gitignore_file_path = '.gitignore';
 }
