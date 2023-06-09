@@ -41,11 +41,11 @@ export async function file_difference(repository_name, file_path) {
     let property_contents = 'hunks';
     let version = 1;
     while (true) {
-        let repository_file_path_initial = version_path(repository_name, file_path, version);
-        if (!await file_exists(repository_file_path_initial)) {
+        let version_path_value = version_path(repository_name, file_path, version);
+        if (!await file_exists(version_path_value)) {
             break;
         }
-        let before_object = file_json_read(repository_file_path_initial);
+        let before_object = file_json_read(version_path_value);
         let hunks = object_property_get(before_object, property_contents);
         list_add(list_hunks, hunks);
         version++;
