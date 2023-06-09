@@ -1,3 +1,4 @@
+import { guid_is } from '../guid/is.mjs';
 import { file_json_overwrite } from './json/overwrite.mjs';
 import { file_extension_json } from './extension/json.mjs';
 import { list_join } from '../list/join.mjs';
@@ -16,9 +17,10 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { string_split } from '../string/split.mjs';
 import { file_overwrite } from './overwrite.mjs';
 import { path_join } from '../path/join.mjs';
-export async function file_difference(repository_name, file_path) {
+export async function file_difference(repository_name, commit_id, file_path) {
     arguments_assert(arguments, [
         string_identifier_is,
+        guid_is,
         path_is
     ]);
     let repository_container_folder_name = 'tc';
