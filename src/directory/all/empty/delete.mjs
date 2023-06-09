@@ -15,5 +15,5 @@ export async function directory_all_empty_delete() {
         }
         await directory_delete_if_empty_recursive(directory_path);
     }
-    assert(equal(directory_all_empty_count(), 0));
+    assert(equal(await directory_all_empty_count(), 0));
 }
