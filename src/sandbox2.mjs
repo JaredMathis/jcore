@@ -9,6 +9,5 @@ export async function sandbox2() {
 
 
     let differences = await version_commit_files_difference(repository_name, file_paths, data);
-
-    let removals = await version_commit_files_all_removals(repository_name);
+    let removals = await version_commit_files_all_removals_generic(file_paths, repository_name);
 }
