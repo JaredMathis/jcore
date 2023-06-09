@@ -18,6 +18,7 @@ import { function_is } from '../../../function/is.mjs';
 import { directory_separator } from '../../../directory/separator.mjs';
 import { add_1 } from '../../../add/1.mjs';
 import { version_path_file_get } from '../../path/file/get.mjs';
+import { path_exists } from '../../../path/exists.mjs';
 export async function version_file_difference_generic(repository_name, file_path, contents_new_get) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -28,6 +29,9 @@ export async function version_file_difference_generic(repository_name, file_path
     let contents_new = await contents_new_get(file_path);
     let hunks_new = string_difference_get(contents_old, contents_new);
     let repository_file_directory_path = version_path_file_directory(repository_name, file_path);
+    if (await path_exists(repository_file_directory_path)) {
+
+    }
     let paths = await directory_read(repository_file_directory_path);
     let mapped = list_map(paths, file_path => {
         let without_prefix = string_prefix_without(file_path, repository_file_directory_path + directory_separator());
