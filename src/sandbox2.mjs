@@ -25,5 +25,5 @@ export async function sandbox2() {
     let files_committed = list_filter(mapped, m1 => list_all(mapped, m2 => implies(string_starts_with(m2, m1), equal(m1, m2))));
     let files_current = await directory_read(dc);
     let files_current_filtered = await git_ignore_filter(files_current);
-    console.log(files_current_filtered);
+    console.log(files_current_filtered, files_committed);
 }
