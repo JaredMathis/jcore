@@ -13,5 +13,4 @@ export function list_all(list, predicate) {
         }
     }
     return true;
-    error('todo: list_all');
 }
