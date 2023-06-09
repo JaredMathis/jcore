@@ -3,7 +3,7 @@ import { git_pacp_generic } from './pacp/generic.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 export async function git_pacp() {
     arguments_assert(arguments, []);
-    let sync = false;
+    let sync = true;
     await git_pacp_generic(sync);
     metadata([]);
 }
