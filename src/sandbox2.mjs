@@ -34,7 +34,8 @@ export async function sandbox2() {
     let files_current_filtered = await git_ignore_filter(files_current);
     let mapped2 = list_map(files_current_filtered, f => directory_current_with_separator() + f);
     let removals = list_without_multiple(files_committed, mapped2);
-    await version_commit_files_generic(repository_name, removals, version_commit_data(todo, arguments), async (repository_name, file_path) => {
+    const commit_data = version_commit_data(todo, arguments);
+    await version_commit_files_generic(repository_name, removals, commit_data, async (repository_name, file_path) => {
         return await version_file_difference_generic(repository_name, file_path, () => string_empty());
     });
     console.log(removals);
