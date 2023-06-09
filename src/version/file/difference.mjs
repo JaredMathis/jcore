@@ -26,6 +26,7 @@ export async function version_file_difference(repository_name, file_path) {
         string_identifier_is,
         path_is
     ]);
+    let gitignore_line_to_add = version_path_root();
     let gitignore_file_path = '.gitignore';
     if (!await file_exists(gitignore_file_path)) {
         await file_write(gitignore_file_path, string_empty());
@@ -33,7 +34,7 @@ export async function version_file_difference(repository_name, file_path) {
     let gitignore_contents = await file_read(gitignore_file_path);
     let gitignore_lines = string_split(gitignore_contents, string_new_line());
     let mapped = list_map(gitignore_lines, string_trim);
-    list_add_if_not_exists(mapped, version_path_root());
+    list_add_if_not_exists(mapped, gitignore_line_to_add);
     let gitignore_contents_new = list_join(mapped, string_new_line());
     await file_overwrite(gitignore_file_path, gitignore_contents_new);
     let list_hunks = [];
