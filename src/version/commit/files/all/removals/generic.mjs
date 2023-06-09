@@ -18,10 +18,12 @@ import { directory_current } from '../../../../../directory/current.mjs';
 import { directory_read_directories } from '../../../../../directory/read/directories.mjs';
 import { version_path_files_get } from '../../../../path/files/get.mjs';
 import { git_ignore_filter } from '../../../../../git/ignore/filter.mjs';
+import { list_is } from '../../../../../list/is.mjs';
+import { string_identifier_is } from '../../../../../string/identifier/is.mjs';
 export async function version_commit_files_all_removals_generic(file_paths, repository_name) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
-        arguments_assert_todo
+        list_is,
+        string_identifier_is
     ]);
     let files_current_filtered = await git_ignore_filter(file_paths);
     let repository_files_path = version_path_files_get(repository_name);
