@@ -1,6 +1,5 @@
 import { list_max_or_0 } from '../../../list/max/or/0.mjs';
 import { version_property_hunks } from '../../property/hunks.mjs';
-import { log } from '../../../log.mjs';
 import { version_path_file_directory } from '../../path/file/directory.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { version_property_path } from '../../property/path.mjs';
