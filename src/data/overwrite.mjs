@@ -6,6 +6,6 @@ import { data_path } from './path.mjs';
 export async function data_overwrite(data) {
     arguments_assert(arguments, [object_is]);
     let file_path = data_path();
-    await file_json_overwrite(data, file_path);
+    await file_json_overwrite(file_path, data);
     metadata([]);
 }
