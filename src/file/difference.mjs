@@ -1,3 +1,4 @@
+import { file_read } from './read.mjs';
 import { string_empty } from '../string/empty.mjs';
 import { file_write } from './write.mjs';
 import { file_exists } from './exists.mjs';
@@ -16,4 +17,5 @@ export async function file_difference(repository_name, file_path) {
     if (!await file_exists(gitignore_file_path)) {
         await file_write(gitignore_file_path, string_empty());
     }
+    let gitignore_contents = await file_read(gitignore_file_path);
 }
