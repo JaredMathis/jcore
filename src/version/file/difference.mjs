@@ -1,6 +1,6 @@
 import { version_property_path } from '../property/path.mjs';
 import { version_property_hunks } from '../property/hunks.mjs';
-import { version_path_get } from '../path/get.mjs';
+import { version_path_file_get } from '../path/file/get.mjs';
 import { version_directory_root } from '../directory/root.mjs';
 import { list_join } from '../../list/join.mjs';
 import { list_add_if_not_exists } from '../../list/add/if/not/exists.mjs';
@@ -40,7 +40,7 @@ export async function version_file_difference(repository_name, file_path) {
     let version = 1;
     let version_path;
     while (true) {
-        version_path = version_path_get(repository_name, file_path, version);
+        version_path = version_path_file_get(repository_name, file_path, version);
         if (!await file_exists(version_path)) {
             break;
         }

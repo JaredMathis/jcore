@@ -49,8 +49,9 @@ export async function version_commit_file_with_data(repository_name, file_path, 
         parts,
         data
     };
+    todo;
     let commit_write = {
-        [property_file_path]: difference_path,
+        [property_file_path]: commit_path,
         [property_contents]: commit
     };
     list_add(writes, commit_write);
