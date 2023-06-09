@@ -1,13 +1,11 @@
+import { directory_read_current } from '../../../../directory/read/current.mjs';
 import { version_commit_files_all_removals_generic } from './removals/generic.mjs';
 import { version_write_all } from '../../../write/all.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
-import { directory_read } from '../../../../directory/read.mjs';
-import { directory_current } from '../../../../directory/current.mjs';
 export async function version_commit_files_all_removals(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let directory_path = directory_current();
-    let file_paths = await directory_read(directory_path);
+    let file_paths = await directory_read_current();
     let writes = await version_commit_files_all_removals_generic(file_paths, repository_name);
     await version_write_all(writes);
     return writes;
