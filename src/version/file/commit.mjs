@@ -17,7 +17,7 @@ export async function version_file_commit(repository_name, file_path, data) {
     ]);
     let property_file_path = 'file_path';
     let property_contents = 'contents';
-    let writes = []
+    let writes = [];
     let parts = [];
     let difference = await version_file_difference(repository_name, file_path);
     let difference_path = object_property_get(difference, version_property_path());
@@ -46,11 +46,11 @@ export async function version_file_commit(repository_name, file_path, data) {
     list_add(writes, commit_write);
     for (let w of writes) {
         const file_path = object_property_get(w, property_file_path);
-        assert(!await file_exists(file_path))
+        assert(!await file_exists(file_path));
     }
     for (let w of writes) {
         const file_path = object_property_get(w, property_file_path);
         const contents = object_property_get(w, property_contents);
-        await json_overwrite(file_path, contents)
+        await json_overwrite(file_path, contents);
     }
 }
