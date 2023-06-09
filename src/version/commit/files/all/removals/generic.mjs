@@ -22,8 +22,8 @@ import { string_identifier_is } from '../../../../../string/identifier/is.mjs';
 import { object_is } from '../../../../../object/is.mjs';
 export async function version_commit_files_all_removals_generic(repository_name, file_paths, commit_data) {
     arguments_assert(arguments, [
-        list_is,
         string_identifier_is,
+        list_is,
         object_is
     ]);
     let files_current_filtered = await git_ignore_filter(file_paths);
