@@ -8,10 +8,10 @@ export function list_all(list, predicate) {
         function_is
     ]);
     for (let a of list) {
-        if (predicate(a)) {
-            return true;
+        if (!predicate(a)) {
+            return false;
         }
     }
-    return false;
+    return true;
     error('todo: list_all');
 }
