@@ -1,3 +1,5 @@
+import { version_property_path } from '../property/path.mjs';
+import { version_property_hunks } from '../property/hunks.mjs';
 import { version_path_get } from '../path/get.mjs';
 import { version_directory_root } from '../directory/root.mjs';
 import { list_join } from '../../list/join.mjs';
@@ -34,7 +36,7 @@ export async function version_file_difference(repository_name, file_path) {
     let gitignore_contents_new = list_join(mapped, string_new_line());
     await file_overwrite(gitignore_file_path, gitignore_contents_new);
     let list_hunks = [];
-    let property_hunks = 'hunks';
+    let property_hunks = version_property_hunks();
     let version = 1;
     let version_path;
     while (true) {
@@ -53,8 +55,9 @@ export async function version_file_difference(repository_name, file_path) {
     }
     let contents_new = await file_read(file_path);
     let hunks_new = string_difference_get(contents_old, contents_new);
+    let property_version_path = version_property_path();
     return {
-        version_path,
+        [property_version_path]: version_path,
         [property_hunks]: hunks_new
     };
 }
