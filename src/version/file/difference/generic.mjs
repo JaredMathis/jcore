@@ -29,16 +29,18 @@ export async function version_file_difference_generic(repository_name, file_path
     let contents_new = await contents_new_get(file_path);
     let hunks_new = string_difference_get(contents_old, contents_new);
     let repository_file_directory_path = version_path_file_directory(repository_name, file_path);
+    let mapped;
     if (await path_exists(repository_file_directory_path)) {
-
+        let paths = await directory_read(repository_file_directory_path);
+        mapped = list_map(paths, file_path => {
+            let without_prefix = string_prefix_without(file_path, repository_file_directory_path + directory_separator());
+            let without_suffix = string_suffix_without(without_prefix, file_extension_json());
+            let version = integer_parse(without_suffix);
+            return version;
+        });
+    } else {
+        mapped = [];
     }
-    let paths = await directory_read(repository_file_directory_path);
-    let mapped = list_map(paths, file_path => {
-        let without_prefix = string_prefix_without(file_path, repository_file_directory_path + directory_separator());
-        let without_suffix = string_suffix_without(without_prefix, file_extension_json());
-        let version = integer_parse(without_suffix);
-        return version;
-    });
     let max = list_max_or_0(mapped);
     let version = add_1(max);
     let version_path = version_path_file_get(repository_name, file_path, version);
