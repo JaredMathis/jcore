@@ -37,7 +37,7 @@ export async function version_file_difference_generic(repository_name, file_path
         return version;
     });
     let max = list_max_or_0(mapped);
-    let version = add_1(max, 1);
+    let version = add_1(max);
     let version_path = version_path_file_get(repository_name, file_path, version);
     let property_version_path = version_property_path();
     let property_hunks = version_property_hunks();
