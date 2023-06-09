@@ -8,6 +8,5 @@ export async function version_file_difference(repository_name, file_path) {
         string_identifier_is,
         path_is
     ]);
-    let lambda = file_read;
-    return await version_file_difference_generic(repository_name, file_path, lambda);
+    return await version_file_difference_generic(repository_name, file_path, file_read);
 }
