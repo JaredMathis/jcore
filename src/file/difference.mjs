@@ -45,7 +45,7 @@ export async function file_difference(repository_name, file_path) {
         repository_files_directory_name,
         file_path
     ]);
-    let initial_file_name = `initial${ file_extension_json() }`;
+    let initial_file_name = `1${ file_extension_json() }`;
     let repository_file_path_initial = path_join([
         repository_file_path,
         initial_file_name
@@ -59,5 +59,5 @@ export async function file_difference(repository_name, file_path) {
         });
         return;
     }
-    return mapped;
+    return part_id;
 }
