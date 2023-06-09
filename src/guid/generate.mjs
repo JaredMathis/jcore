@@ -1,6 +1,6 @@
-import { error } from '../error.mjs';
+import uuid from 'uuid';
 import { arguments_assert } from '../arguments/assert.mjs';
 export function guid_generate() {
     arguments_assert(arguments, []);
-    error('todo: guid_generate');
+    return uuid.v4();
 }
