@@ -1,7 +1,7 @@
 import { version_property_path } from '../property/path.mjs';
 import { version_property_hunks } from '../property/hunks.mjs';
 import { version_path_file_get } from '../path/file/get.mjs';
-import { version_directory_root } from '../directory/root.mjs';
+import { version_path_root } from '../path/root.mjs';
 import { list_join } from '../../list/join.mjs';
 import { list_add_if_not_exists } from '../../list/add/if/not/exists.mjs';
 import { string_trim } from '../../string/trim.mjs';
@@ -32,7 +32,7 @@ export async function version_file_difference(repository_name, file_path) {
     let gitignore_contents = await file_read(gitignore_file_path);
     let gitignore_lines = string_split(gitignore_contents, string_new_line());
     let mapped = list_map(gitignore_lines, string_trim);
-    list_add_if_not_exists(mapped, version_directory_root());
+    list_add_if_not_exists(mapped, version_path_root());
     let gitignore_contents_new = list_join(mapped, string_new_line());
     await file_overwrite(gitignore_file_path, gitignore_contents_new);
     let list_hunks = [];
