@@ -1,17 +1,20 @@
-import { object_property_get } from '../../object/property/get.mjs';
-import { list_single } from '../../list/single.mjs';
+import { object_merge } from '../../object/merge.mjs';
 import { string_is } from '../is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-export function string_difference_apply(string_old, string_new) {
+import { list_is } from '../../list/is.mjs';
+import * as Diff from 'diff';
+export function string_difference_apply(string_old, hunks) {
     arguments_assert(arguments, [
         string_is,
-        string_is
+        list_is
     ]);
-    let file_name = '';
-    let header = '';
-    let patch = Diff.createPatch(file_name, string_old, string_new, header, header);
-    let structured = Diff.parsePatch(patch);
-    let first = list_single(structured);
-    let hunks = object_property_get(first, 'hunks');
-    return hunks;
+    let patch = {
+        'oldFileName': '',
+        'oldHeader': '',
+        'newFileName': '',
+        'newHeader': ''
+    };
+    object_merge({ hunks }, patch);
+    let string_new = Diff.applyPatch(string_old, patch);
+    return string_new;
 }
