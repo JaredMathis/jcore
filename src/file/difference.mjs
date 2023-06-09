@@ -53,7 +53,7 @@ export async function file_difference(repository_name, commit_id, file_path) {
         let now = new Date().getTime();
         await file_json_overwrite(repository_file_path_initial, {
             contents: file_path_contents,
-            now
+            commit_id
         });
         return;
     }
