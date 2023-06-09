@@ -13,19 +13,21 @@ import { boolean_is } from '../../../boolean/is.mjs';
 import { list_add_beginning } from '../../../list/add/beginning.mjs';
 import { list_add } from '../../../list/add.mjs';
 export async function git_pacp_with_message(commit_message, sync) {
-    arguments_assert(arguments, [string_is, boolean_is]);
+    arguments_assert(arguments, [
+        string_is,
+        boolean_is
+    ]);
     let args = command_line_args_skipped();
     list_remove_all_first_equals(args, function_name_get(git));
     let args_message = list_join(args, ' ');
     const command_commit = `git commit -m "${ commit_message } ${ args_message }"`;
-    let commands;
+    let commands = [
+        `git add *`,
+        command_commit
+    ];
     if (sync) {
-        commands = [
-            `git add *`,
-            command_commit,
-        ];
         list_add_beginning(commands, `git pull`);
-        list_add(commands, `git push`)
+        list_add(commands, `git push`);
     }
     let c_result = await command_line_all(commands);
     if (!c_result.success) {
