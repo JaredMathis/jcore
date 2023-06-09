@@ -1,5 +1,4 @@
 import { version_commit_files_all_removals } from './version/commit/files/all/removals.mjs';
-import { log } from './log.mjs';
 import { version_commit_files_all } from './version/commit/files/all.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 export async function sandbox2() {
