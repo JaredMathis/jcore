@@ -1,3 +1,4 @@
+import { list_add } from '../../list/add.mjs';
 import { guid_generate } from '../../guid/generate.mjs';
 import { path_is } from '../../path/is.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
@@ -11,10 +12,12 @@ export async function file_difference_commit(repository_name, file_path) {
     let when = new Date().getTime();
     let commit_id = guid_generate();
     let parts = [];
+    let difference = await version_file_difference(repository_name, file_path);
+    let part_id = guid_generate();
+    list_add(parts, part_id);
     let commit = {
         commit_id,
         when,
         parts
     };
-    let difference = await version_file_difference(repository_name, file_path);
 }
