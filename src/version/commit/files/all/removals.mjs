@@ -19,8 +19,8 @@ import { directory_read_directories } from '../../../../directory/read/directori
 import { version_path_files_get } from '../../../path/files/get.mjs';
 export async function version_commit_files_all_removals(repository_name) {
     let directory_path = directory_current();
-    let files_current = await directory_read(directory_path);
-    let files_current_filtered = await git_ignore_filter(files_current);
+    let file_paths = await directory_read(directory_path);
+    let files_current_filtered = await git_ignore_filter(file_paths);
     let repository_files_path = version_path_files_get(repository_name);
     let paths = await directory_read_directories(repository_files_path);
     let dc = directory_current();
