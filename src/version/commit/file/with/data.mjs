@@ -1,3 +1,4 @@
+import { add_1 } from '../../../../add/1.mjs';
 import { list_max } from '../../../../list/max.mjs';
 import { integer_parse } from '../../../../integer/parse.mjs';
 import { string_suffix_without } from '../../../../string/suffix/without.mjs';
@@ -70,7 +71,7 @@ export async function version_commit_file_with_data(repository_name, file_path, 
         let unparsed = list_map(existing_commits, c => string_suffix_without(c, file_extension_json()));
         let parsed = list_map(unparsed, integer_parse);
         let max = list_max(parsed);
-        version = number_add_1(max);
+        version = add_1(max);
     }
     let commit_path = path_join([
         repository_sub_path,
