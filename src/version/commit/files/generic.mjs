@@ -76,6 +76,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         list_add(writes, commit_write);
         await version_write_all(writes);
     }
+    return writes;
 }
 
 function version_property_contents() {
