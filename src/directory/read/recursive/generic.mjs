@@ -1,5 +1,5 @@
 import { directory_is } from '../../is.mjs';
-import { directory_read_paths } from '../paths.mjs';
+import { directory_read_non_recursive } from '../non/recursive.mjs';
 import { function_is } from '../../../function/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { list_is } from '../../../list/is.mjs';
@@ -11,7 +11,7 @@ export async function directory_read_recursive_generic(dir, path_list, on_direct
         function_is,
         function_is
     ]);
-    let file_paths = await directory_read_paths(dir);
+    let file_paths = await directory_read_non_recursive(dir);
     for (let file_path of file_paths) {
         const is_directory = await directory_is(file_path);
         if (is_directory) {
