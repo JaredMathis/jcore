@@ -1,6 +1,6 @@
-import { error } from '../error.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-export function string_trim() {
-    arguments_assert(arguments, []);
-    error('todo: string_trim');
+import { string_is } from './is.mjs';
+export function string_trim(input) {
+    arguments_assert(arguments, [string_is]);
+    return input.trim();
 }
