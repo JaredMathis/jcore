@@ -21,4 +21,6 @@ export async function file_difference(repository_name, file_path) {
     }
     let gitignore_contents = await file_read(gitignore_file_path);
     let gitignore_lines = string_split(gitignore_contents, string_new_line());
+    let mapped = list_map(gitignore_lines, string_trim)
+    return gitignore_lines
 }
