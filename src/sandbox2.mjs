@@ -18,6 +18,7 @@ import { equal } from './equal.mjs';
 import { directory_read } from './directory/read.mjs';
 import { version_commit_data } from './version/commit/data.mjs';
 import { todo } from './todo.mjs';
+import { string_difference_get } from './string/difference/get.mjs';
 export async function sandbox2() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
@@ -32,7 +33,8 @@ export async function sandbox2() {
     let files_current_filtered = await git_ignore_filter(files_current);
     let mapped2 = list_map(files_current_filtered, f => directory_current_with_separator() + f);
     let removals = list_without_multiple(files_committed, mapped2);
-    await version_commit_files_generic(repository_name, removals, version_commit_data(todo, arguments), async () => {
+    await version_commit_files_generic(repository_name, removals, version_commit_data(todo, arguments), async (repository_name, file_path) => {
+        return string_difference_get();
     });
     console.log(removals);
 }

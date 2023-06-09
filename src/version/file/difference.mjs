@@ -19,6 +19,21 @@ export async function version_file_difference(repository_name, file_path) {
         string_identifier_is,
         path_is
     ]);
+    let contents_old = await version_file_contents(repository_name, file_path)
+    let contents_new = await file_read(file_path);
+    let hunks_new = string_difference_get(contents_old, contents_new);
+    let property_version_path = version_property_path();
+    return {
+        [property_version_path]: version_path,
+        [property_hunks]: hunks_new
+    };
+}
+
+async function version_file_contents(repository_name, file_path) {
+    arguments_assert(arguments, [
+        string_identifier_is,
+        path_is
+    ]);
     let gitignore_line_to_add = version_path_root();
     await git_ignore_add(gitignore_line_to_add);
     let list_hunks = [];
@@ -39,11 +54,5 @@ export async function version_file_difference(repository_name, file_path) {
     for (let hunks of list_hunks) {
         contents_old = string_difference_apply(contents_old, hunks);
     }
-    let contents_new = await file_read(file_path);
-    let hunks_new = string_difference_get(contents_old, contents_new);
-    let property_version_path = version_property_path();
-    return {
-        [property_version_path]: version_path,
-        [property_hunks]: hunks_new
-    };
+    return contents_old
 }
