@@ -1,3 +1,4 @@
+import { file_json_overwrite } from './json/overwrite.mjs';
 import { file_extension_json } from './extension/json.mjs';
 import { list_join } from '../list/join.mjs';
 import { list_add_if_not_exists } from '../list/add/if/not/exists.mjs';
@@ -47,7 +48,7 @@ export async function file_difference(repository_name, file_path) {
     ]);
     let file_path_contents = await file_read(file_path);
     if (!await file_exists(repository_file_path_initial)) {
-        await file_json_write(repository_file_path_initial, file_path_contents);
+        await file_json_overwrite(repository_file_path_initial, file_path_contents);
         return;
     }
     return mapped;
