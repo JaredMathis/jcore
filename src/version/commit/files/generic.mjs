@@ -23,8 +23,8 @@ import { git_ignore_filter } from '../../../git/ignore/filter.mjs';
 export async function version_commit_files_generic(repository_name, file_paths, data, difference_get) {
     let filtered = await git_ignore_filter(file_paths);
     let property_hunks = version_property_hunks();
-    let property_file_path = 'file_path';
-    let property_contents = 'contents';
+    let property_file_path = version_property_file_path();
+    let property_contents = version_property_contents();
     let writes = [];
     let parts = [];
     for (let file_path of filtered) {
@@ -74,11 +74,21 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             [property_contents]: commit
         };
         list_add(writes, commit_write);
-        await newFunction(writes, property_file_path, property_contents);
+        await version_write_all(writes);
     }
 }
 
-async function newFunction(writes, property_file_path, property_contents) {
+function version_property_contents() {
+    return 'contents';
+}
+
+function version_property_file_path() {
+    return 'file_path';
+}
+
+async function version_write_all(writes) {
+    let property_file_path = version_property_file_path();
+    let property_contents = version_property_contents();
     for (let w of writes) {
         const file_path = object_property_get(w, property_file_path);
         assert(!await file_exists(file_path));
