@@ -58,7 +58,7 @@ export async function file_difference(repository_name, file_path) {
 
     }
     await file_json_overwrite(repository_file_path_initial, {
-        contents: file_path_contents,
+        [property_contents]: file_path_contents,
         part_id
     });
     return part_id;
