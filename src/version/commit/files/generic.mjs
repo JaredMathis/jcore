@@ -74,24 +74,28 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             [property_contents]: commit
         };
         list_add(writes, commit_write);
+        await newFunction(writes, property_file_path, property_contents);
+    }
+}
+
+async function newFunction(writes, property_file_path, property_contents) {
+    for (let w of writes) {
+        const file_path = object_property_get(w, property_file_path);
+        assert(!await file_exists(file_path));
+    }
+    try {
         for (let w of writes) {
             const file_path = object_property_get(w, property_file_path);
-            assert(!await file_exists(file_path));
+            const contents = object_property_get(w, property_contents);
+            await file_json_overwrite(file_path, contents);
         }
-        try {
-            for (let w of writes) {
-                const file_path = object_property_get(w, property_file_path);
-                const contents = object_property_get(w, property_contents);
-                await file_json_overwrite(file_path, contents);
+    } catch (e) {
+        for (let w of writes) {
+            const file_path = object_property_get(w, property_file_path);
+            if (await file_exists(file_path)) {
+                file_delete(file_path);
             }
-        } catch (e) {
-            for (let w of writes) {
-                const file_path = object_property_get(w, property_file_path);
-                if (await file_exists(file_path)) {
-                    file_delete(file_path);
-                }
-            }
-            throw e;
         }
+        throw e;
     }
 }
