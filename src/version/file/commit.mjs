@@ -14,6 +14,7 @@ export async function version_file_commit(repository_name, file_path, data) {
         object_is
     ]);
     let property_file_path = 'file_path';
+    let property_contents = 'contents';
     let writes = []
     let parts = [];
     let difference = await version_file_difference(repository_name, file_path);
@@ -22,7 +23,7 @@ export async function version_file_commit(repository_name, file_path, data) {
     list_add(parts, part_id);
     let difference_write = {
         [property_file_path]: difference_path,
-        contents: {
+        [property_contents]: {
             part_id,
             hunks
         }
@@ -38,7 +39,7 @@ export async function version_file_commit(repository_name, file_path, data) {
     };
     let commit_write = {
         [property_file_path]: difference_path,
-        contents: commit
+        [property_contents]: commit
     };
     list_add(writes, commit_write);
     for (let w of writes) {
