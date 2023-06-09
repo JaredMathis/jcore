@@ -23,6 +23,7 @@ export async function file_difference(repository_name, file_path) {
         await file_write(gitignore_file_path, string_empty());
     }
     let gitignore_contents = await file_read(gitignore_file_path);
+    file_map;
     let gitignore_lines = string_split(gitignore_contents, string_new_line());
     let mapped = list_map(gitignore_lines, string_trim);
     list_add_if_not_exists(mapped, repository_container_folder_name);
