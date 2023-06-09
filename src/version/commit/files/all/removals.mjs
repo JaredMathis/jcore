@@ -2,8 +2,6 @@ import { version_commit_files_all_removals_generic } from './removals/generic.mj
 import { version_write_all } from '../../../write/all.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
-import { string_empty } from '../../../../string/empty.mjs';
-import { version_file_difference_generic } from '../../../file/difference/generic.mjs';
 import { directory_read } from '../../../../directory/read.mjs';
 import { directory_current } from '../../../../directory/current.mjs';
 export async function version_commit_files_all_removals(repository_name) {
