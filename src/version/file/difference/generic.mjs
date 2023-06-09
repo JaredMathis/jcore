@@ -1,3 +1,5 @@
+import { version_property_hunks } from '../../property/hunks.mjs';
+import { log } from '../../../log.mjs';
 import { version_path_file_directory } from '../../path/file/directory.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { version_property_path } from '../../property/path.mjs';
@@ -5,7 +7,6 @@ import { string_difference_get } from '../../../string/difference/get.mjs';
 import { version_file_contents } from '../contents.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
 import { path_is } from '../../../path/is.mjs';
-import { string_is } from '../../../string/is.mjs';
 import { directory_read } from '../../../directory/read.mjs';
 import { list_map } from '../../../list/map.mjs';
 import { string_prefix_without } from '../../../string/prefix/without.mjs';
@@ -30,7 +31,7 @@ export async function version_file_difference_generic(repository_name, file_path
     let mapped = list_map(paths, file_path => {
         let without_prefix = string_prefix_without(file_path, repository_file_directory_path + directory_separator());
         let without_suffix = string_suffix_without(without_prefix, file_extension_json());
-        console.log({without_suffix})
+        console.log({ without_suffix });
         let version = integer_parse(without_suffix);
         return {
             file_path,
@@ -40,6 +41,7 @@ export async function version_file_difference_generic(repository_name, file_path
     let max = list_max_generic(mapped, m => object_property_get(m, 'version'));
     let version_path = object_property_get(max, 'file_path');
     let property_version_path = version_property_path();
+    let property_hunks = version_property_hunks();
     return {
         [property_version_path]: version_path,
         [property_hunks]: hunks_new
