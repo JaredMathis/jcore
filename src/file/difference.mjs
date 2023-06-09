@@ -40,8 +40,9 @@ export async function file_difference(repository_name, file_path) {
     let list_hunks = [];
     let property_contents = 'hunks';
     let version = 1;
+    let version_path_value;
     while (true) {
-        let version_path_value = version_path(repository_name, file_path, version);
+        version_path_value = version_path(repository_name, file_path, version);
         if (!await file_exists(version_path_value)) {
             break;
         }
