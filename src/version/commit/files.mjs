@@ -10,6 +10,7 @@ export async function version_commit_files(repository_name, file_paths, data) {
         list_is,
         object_is
     ]);
+    console.log('a')
     let writes = await version_commit_files_difference(repository_name, file_paths, data);
     await version_write_all(writes);
 }

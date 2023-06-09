@@ -54,6 +54,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             list_add(writes, difference_write);
         }
     }
+    console.log('sz')
     if (!list_length_is_0(writes)) {
         let when = new Date().toISOString();
         let commit_id = guid_generate();
@@ -65,7 +66,9 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         };
         let repository_commits_directory_name = 'commits';
         let repository_sub_path = version_path_sub_get(repository_name, repository_commits_directory_name);
+        console.log('z')
         await directory_exists_ensure(repository_sub_path);
+        console.log('zz')
         let existing_commits = await directory_read(repository_sub_path);
         let version = 1;
         if (!list_length_is_0(existing_commits)) {
