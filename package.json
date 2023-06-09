@@ -2,6 +2,7 @@
   "dependencies": {
     "acorn": "^8.8.2",
     "diff": "^5.1.0",
-    "escodegen": "^2.0.0"
+    "escodegen": "^2.0.0",
+    "uuid": "^9.0.0"
   }
 }
