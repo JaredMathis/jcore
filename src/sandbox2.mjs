@@ -1,3 +1,4 @@
+import { implies } from './implies.mjs';
 import { string_prefix_without } from './string/prefix/without.mjs';
 import { list_map } from './list/map.mjs';
 import { directory_read_directories } from './directory/read/directories.mjs';
@@ -18,6 +19,6 @@ export async function sandbox2() {
     let repository_files_path = version_path_files_get(repository_name);
     let paths = await directory_read_directories(repository_files_path);
     let mapped = list_map(paths, p => directory_current() + string_prefix_without(p, repository_files_path));
-    let filtered = list_filter(mapped, m1 => list_all(mapped, m2 => implies(string_starts_with(m2, m1), equal(m2, m1))))
+    let filtered = list_filter(mapped, m1 => list_all(mapped, m2 => implies(string_starts_with(m2, m1), equal(m2, m1))));
     console.log(filtered);
 }
