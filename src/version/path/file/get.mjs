@@ -16,10 +16,10 @@ export function version_path_file_get(repository_name, file_path, version) {
         repository_files_path,
         file_path
     ]);
-    let initial_file_name = `${ version }${ file_extension_json() }`;
+    let file_name = `${ version }${ file_extension_json() }`;
     let repository_file_path_initial = path_join([
         repository_file_path,
-        initial_file_name
+        file_name
     ]);
     return repository_file_path_initial;
 }
