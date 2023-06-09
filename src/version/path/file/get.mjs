@@ -22,8 +22,7 @@ export function version_path_file_get(repository_name, file_path, version) {
         repository_files_directory_name,
     ]);
     let repository_file_path = path_join([
-        repository_directory,
-        repository_files_directory_name,
+        repository_sub_path,
         file_path
     ]);
     let initial_file_name = `${ version }${ file_extension_json() }`;
