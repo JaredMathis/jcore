@@ -37,20 +37,22 @@ export async function version_commit_files_with_data(repository_name, file_paths
     let property_contents = 'contents';
     let writes = [];
     let parts = [];
-    let difference = await version_file_difference(repository_name, file_paths);
-    let hunks = object_property_get(difference, property_hunks);
-    if (!list_length_is_0(hunks)) {
-        let difference_path = object_property_get(difference, version_property_path());
-        let part_id = guid_generate();
-        list_add(parts, part_id);
-        let difference_write = {
-            [property_file_path]: difference_path,
-            [property_contents]: {
-                part_id,
-                hunks
-            }
-        };
-        list_add(writes, difference_write);
+    for (let file_path of file_paths) {
+        let difference = await version_file_difference(repository_name, file_path);
+        let hunks = object_property_get(difference, property_hunks);
+        if (!list_length_is_0(hunks)) {
+            let difference_path = object_property_get(difference, version_property_path());
+            let part_id = guid_generate();
+            list_add(parts, part_id);
+            let difference_write = {
+                [property_file_path]: difference_path,
+                [property_contents]: {
+                    part_id,
+                    hunks
+                }
+            };
+            list_add(writes, difference_write);
+        }
     }
     if (list_length_is_0(writes)) {
         console.log('nothing to commit');
