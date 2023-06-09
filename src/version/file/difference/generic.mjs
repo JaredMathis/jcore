@@ -13,6 +13,8 @@ import { string_prefix_without } from '../../../string/prefix/without.mjs';
 import { string_suffix_without } from '../../../string/suffix/without.mjs';
 import { file_extension_json } from '../../../file/extension/json.mjs';
 import { integer_parse } from '../../../integer/parse.mjs';
+import { list_max_generic } from '../../../list/max/generic.mjs';
+import { object_property_get } from '../../../object/property/get.mjs';
 export async function version_file_difference_generic(repository_name, file_path, contents_new_get) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -34,7 +36,8 @@ export async function version_file_difference_generic(repository_name, file_path
             version,
         }
     });
-    list_max_or_0(mapped3)
+    let max = list_max_generic(mapped, m => object_property_get(m, 'version'))
+    let version_path = object_property_get(max, 'file_path')
     return {
         [property_version_path]: version_path,
         [property_hunks]: hunks_new
