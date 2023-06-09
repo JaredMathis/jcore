@@ -17,6 +17,7 @@ import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 import { directory_read } from '../../../../directory/read.mjs';
 import { path_join } from '../../../../path/join.mjs';
 import { file_extension_json } from '../../../../file/extension/json.mjs';
+import { directory_exists_ensure } from '../../../../directory/exists/ensure.mjs';
 export async function version_commit_file_with_data(repository_name, file_path, data) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -44,7 +45,7 @@ export async function version_commit_file_with_data(repository_name, file_path, 
         list_add(writes, difference_write);
     }
     if (list_length_is_0(writes)) {
-        console.log('nothing to commit')
+        console.log('nothing to commit');
         return;
     }
     let when = new Date().getTime();
@@ -57,6 +58,7 @@ export async function version_commit_file_with_data(repository_name, file_path, 
     };
     let repository_commits_directory_name = 'commits';
     let repository_sub_path = version_path_sub_get(repository_name, repository_commits_directory_name);
+    await directory_exists_ensure(repository_sub_path);
     let existing_commits = await directory_read(repository_sub_path);
     console.log({ existing_commits });
     assert(list_length_is_0(existing_commits));
