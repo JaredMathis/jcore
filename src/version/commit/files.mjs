@@ -1,3 +1,4 @@
+import { version_write_all } from '../write/all.mjs';
 import { version_commit_files_generic } from './files/generic.mjs';
 import { object_is } from '../../object/is.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
