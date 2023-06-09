@@ -12,7 +12,7 @@ export async function version_file_difference(repository_name, file_path) {
     ]);
     let lambda = file_read;
     let contents_old = await version_file_contents(repository_name, file_path);
-    let contents_new = await file_read(file_path);
+    let contents_new = await lambda(file_path);
     let hunks_new = string_difference_get(contents_old, contents_new);
     let property_version_path = version_property_path();
     return {
