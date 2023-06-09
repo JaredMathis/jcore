@@ -47,7 +47,7 @@ export async function file_difference(repository_name, file_path) {
     ]);
     let file_path_contents = await file_read(file_path);
     if (!await file_exists(repository_file_path_initial)) {
-        await file_write(repository_file_path_initial, file_path_contents);
+        await file_json_write(repository_file_path_initial, file_path_contents);
         return;
     }
     return mapped;
