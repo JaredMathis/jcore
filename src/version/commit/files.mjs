@@ -56,56 +56,54 @@ export async function version_commit_files(repository_name, file_paths, data) {
             list_add(writes, difference_write);
         }
     }
-    if (list_length_is_0(writes)) {
-        console.log('nothing to commit');
-        return;
-    }
-    let when = new Date().toISOString();
-    let commit_id = guid_generate();
-    let commit = {
-        commit_id,
-        when,
-        parts,
-        data
-    };
-    let repository_commits_directory_name = 'commits';
-    let repository_sub_path = version_path_sub_get(repository_name, repository_commits_directory_name);
-    await directory_exists_ensure(repository_sub_path);
-    let existing_commits = await directory_read(repository_sub_path);
-    let version = 1;
-    if (!list_length_is_0(existing_commits)) {
-        let names = list_map(existing_commits, path_parse_base);
-        let unparsed = list_map(names, c => string_suffix_without(c, file_extension_json()));
-        let parsed = list_map(unparsed, integer_parse);
-        let max = list_max(parsed);
-        version = add_1(max);
-    }
-    let commit_path = path_join([
-        repository_sub_path,
-        `${ version }${ file_extension_json() }`
-    ]);
-    let commit_write = {
-        [property_file_path]: commit_path,
-        [property_contents]: commit
-    };
-    list_add(writes, commit_write);
-    for (let w of writes) {
-        const file_path = object_property_get(w, property_file_path);
-        assert(!await file_exists(file_path));
-    }
-    try {
-        for (let w of writes) {
-            const file_path = object_property_get(w, property_file_path);
-            const contents = object_property_get(w, property_contents);
-            await file_json_overwrite(file_path, contents);
+    if (!list_length_is_0(writes)) {
+        let when = new Date().toISOString();
+        let commit_id = guid_generate();
+        let commit = {
+            commit_id,
+            when,
+            parts,
+            data
+        };
+        let repository_commits_directory_name = 'commits';
+        let repository_sub_path = version_path_sub_get(repository_name, repository_commits_directory_name);
+        await directory_exists_ensure(repository_sub_path);
+        let existing_commits = await directory_read(repository_sub_path);
+        let version = 1;
+        if (!list_length_is_0(existing_commits)) {
+            let names = list_map(existing_commits, path_parse_base);
+            let unparsed = list_map(names, c => string_suffix_without(c, file_extension_json()));
+            let parsed = list_map(unparsed, integer_parse);
+            let max = list_max(parsed);
+            version = add_1(max);
         }
-    } catch (e) {
+        let commit_path = path_join([
+            repository_sub_path,
+            `${ version }${ file_extension_json() }`
+        ]);
+        let commit_write = {
+            [property_file_path]: commit_path,
+            [property_contents]: commit
+        };
+        list_add(writes, commit_write);
         for (let w of writes) {
             const file_path = object_property_get(w, property_file_path);
-            if (await file_exists(file_path)) {
-                file_delete(file_path);
+            assert(!await file_exists(file_path));
+        }
+        try {
+            for (let w of writes) {
+                const file_path = object_property_get(w, property_file_path);
+                const contents = object_property_get(w, property_contents);
+                await file_json_overwrite(file_path, contents);
             }
+        } catch (e) {
+            for (let w of writes) {
+                const file_path = object_property_get(w, property_file_path);
+                if (await file_exists(file_path)) {
+                    file_delete(file_path);
+                }
+            }
+            throw e;
         }
-        throw e;
     }
 }
