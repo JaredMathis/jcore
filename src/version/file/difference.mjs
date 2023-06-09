@@ -1,3 +1,4 @@
+import { json_from } from '../../json/from.mjs';
 import { version_property_path } from '../property/path.mjs';
 import { version_property_hunks } from '../property/hunks.mjs';
 import { version_path_file_get } from '../path/file/get.mjs';
@@ -44,7 +45,8 @@ export async function version_file_difference(repository_name, file_path) {
         if (!await file_exists(version_path)) {
             break;
         }
-        let before_object = file_json_read(version_path);
+        let before_json = file_read(version_path);
+        let before_object = json_from(before_json);
         let hunks = object_property_get(before_object, property_hunks);
         list_add(list_hunks, hunks);
         version++;
