@@ -11,6 +11,7 @@ import { object_property_get } from '../../object/property/get.mjs';
 import { version_property_path } from '../property/path.mjs';
 import { assert } from '../../assert.mjs';
 import { file_exists } from '../../file/exists.mjs';
+import { list_length_is_0 } from '../../list/length/is/0.mjs';
 export async function version_file_commit(repository_name, file_path, data) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -23,17 +24,20 @@ export async function version_file_commit(repository_name, file_path, data) {
     let writes = [];
     let parts = [];
     let difference = await version_file_difference(repository_name, file_path);
-    let difference_path = object_property_get(difference, version_property_path());
-    let part_id = guid_generate();
-    list_add(parts, part_id);
-    let difference_write = {
-        [property_file_path]: difference_path,
-        [property_contents]: {
-            part_id,
-            hunks
-        }
-    };
-    list_add(writes, difference_write);
+    let hunks = object_property_get(difference, property_hunks);
+    if (!list_length_is_0(hunks)) {
+        let difference_path = object_property_get(difference, version_property_path());
+        let part_id = guid_generate();
+        list_add(parts, part_id);
+        let difference_write = {
+            [property_file_path]: difference_path,
+            [property_contents]: {
+                part_id,
+                hunks
+            }
+        };
+        list_add(writes, difference_write);
+    }
     let when = new Date().getTime();
     let commit_id = guid_generate();
     let commit = {
