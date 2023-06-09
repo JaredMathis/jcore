@@ -14,6 +14,6 @@ export async function file_difference(repository_name, file_path) {
     await directory_exists_ensure(repository_container_folder_name);
     let gitignore_file_path = '.gitignore';
     if (!await file_exists(gitignore_file_path)) {
-        file_write(gitignore_file_path, string_empty());
+        await file_write(gitignore_file_path, string_empty());
     }
 }
