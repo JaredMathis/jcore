@@ -1,3 +1,6 @@
+import { git_ignore_path } from './path.mjs';
+import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { file_overwrite } from '../../file/overwrite.mjs';
 import { list_join } from '../../list/join.mjs';
 import { list_add_if_not_exists } from '../../list/add/if/not/exists.mjs';
@@ -10,7 +13,8 @@ import { string_empty } from '../../string/empty.mjs';
 import { file_write } from '../../file/write.mjs';
 import { file_exists } from '../../file/exists.mjs';
 export async function git_ignore_add(gitignore_line_to_add) {
-    let gitignore_file_path = '.gitignore';
+    arguments_assert(arguments, [arguments_assert_todo]);
+    let gitignore_file_path = git_ignore_path();
     if (!await file_exists(gitignore_file_path)) {
         await file_write(gitignore_file_path, string_empty());
     }
