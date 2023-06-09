@@ -12,7 +12,7 @@ export async function git_ignore_filter(file_paths) {
     let filter = list_combine(gil, list_single_item('.git'));
     let filtered = list_filter(file_paths, f => {
         let with_slash = f + directory_separator();
-        return list_any(gil, g => string_starts_with(f, with_slash) || equals(f, g));
+        return list_any(filter, g => string_starts_with(f, with_slash) || equals(f, g));
     });
     return filtered;
 }
