@@ -4,12 +4,17 @@ import { version_commit_files_all_removals_generic } from './version/commit/file
 import { version_commit_files_difference } from './version/commit/files/difference.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { list_multiple_combine } from './list/multiple/combine.mjs';
+import { file_json_overwrite } from './file/json/overwrite.mjs';
 export async function sandbox2() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
     let file_paths = await directory_read_current();
     let differences = await version_commit_files_difference(repository_name, file_paths, data);
     let removals = await version_commit_files_all_removals_generic(repository_name, file_paths);
+    await file_json_overwrite('out.txt', {
+        removals,
+        differences
+    });
     let writes = list_multiple_combine([
         differences,
         removals
