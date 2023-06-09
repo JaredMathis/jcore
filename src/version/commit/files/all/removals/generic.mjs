@@ -19,10 +19,12 @@ import { version_path_files_get } from '../../../../path/files/get.mjs';
 import { git_ignore_filter } from '../../../../../git/ignore/filter.mjs';
 import { list_is } from '../../../../../list/is.mjs';
 import { string_identifier_is } from '../../../../../string/identifier/is.mjs';
-export async function version_commit_files_all_removals_generic(repository_name, file_paths) {
+import { object_is } from '../../../../../object/is.mjs';
+export async function version_commit_files_all_removals_generic(repository_name, file_paths, commit_data) {
     arguments_assert(arguments, [
         list_is,
-        string_identifier_is
+        string_identifier_is,
+        object_is
     ]);
     let files_current_filtered = await git_ignore_filter(file_paths);
     let repository_files_path = version_path_files_get(repository_name);
@@ -32,7 +34,6 @@ export async function version_commit_files_all_removals_generic(repository_name,
     let files_committed = list_filter(mapped, m1 => list_all(mapped, m2 => implies(string_starts_with(m2, m1), equal(m1, m2))));
     let mapped2 = list_map(files_current_filtered, f => directory_current_with_separator() + f);
     let removals = list_without_multiple(files_committed, mapped2);
-    const commit_data = version_commit_data(version_commit_files_all_removals, arguments);
     let writes = await version_commit_files_generic(repository_name, removals, commit_data, difference_get);
     return writes;
     async function difference_get(repository_name, file_path) {
