@@ -18,10 +18,10 @@ import { directory_current } from '../../../../directory/current.mjs';
 import { directory_read_directories } from '../../../../directory/read/directories.mjs';
 import { version_path_files_get } from '../../../path/files/get.mjs';
 export async function version_commit_files_all_removals(repository_name) {
-    let repository_files_path = version_path_files_get(repository_name);
-    let paths = await directory_read_directories(repository_files_path);
     let dc = directory_current();
     let files_current = await directory_read(dc);
+    let repository_files_path = version_path_files_get(repository_name);
+    let paths = await directory_read_directories(repository_files_path);
     let mapped = list_map(paths, p => dc + string_prefix_without(p, repository_files_path));
     let files_committed = list_filter(mapped, m1 => list_all(mapped, m2 => implies(string_starts_with(m2, m1), equal(m1, m2))));
     let files_current_filtered = await git_ignore_filter(files_current);
