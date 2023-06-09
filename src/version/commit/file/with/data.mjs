@@ -44,6 +44,7 @@ export async function version_commit_file_with_data(repository_name, file_path, 
         list_add(writes, difference_write);
     }
     if (list_length_is_0(writes)) {
+        console.log('nothing to commit')
         return;
     }
     let when = new Date().getTime();
