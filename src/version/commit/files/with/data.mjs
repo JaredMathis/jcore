@@ -25,7 +25,7 @@ import { directory_read } from '../../../../directory/read.mjs';
 import { path_join } from '../../../../path/join.mjs';
 import { file_extension_json } from '../../../../file/extension/json.mjs';
 import { directory_exists_ensure } from '../../../../directory/exists/ensure.mjs';
-export async function version_commit_file_with_data(repository_name, file_path, data) {
+export async function version_commit_files_with_data(repository_name, file_paths, data) {
     arguments_assert(arguments, [
         string_identifier_is,
         path_is,
@@ -36,7 +36,7 @@ export async function version_commit_file_with_data(repository_name, file_path, 
     let property_contents = 'contents';
     let writes = [];
     let parts = [];
-    let difference = await version_file_difference(repository_name, file_path);
+    let difference = await version_file_difference(repository_name, file_paths);
     let hunks = object_property_get(difference, property_hunks);
     if (!list_length_is_0(hunks)) {
         let difference_path = object_property_get(difference, version_property_path());
