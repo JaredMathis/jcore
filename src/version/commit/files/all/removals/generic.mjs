@@ -20,6 +20,7 @@ import { git_ignore_filter } from '../../../../../git/ignore/filter.mjs';
 import { list_is } from '../../../../../list/is.mjs';
 import { string_identifier_is } from '../../../../../string/identifier/is.mjs';
 import { object_is } from '../../../../../object/is.mjs';
+import { path_exists } from '../../../../../path/exists.mjs';
 export async function version_commit_files_all_removals_generic(repository_name, file_paths, commit_data) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -29,7 +30,11 @@ export async function version_commit_files_all_removals_generic(repository_name,
     let files_current_filtered = await git_ignore_filter(file_paths);
     let repository_files_path = version_path_files_get(repository_name);
     let paths;
-    paths = await directory_read_directories(repository_files_path);
+    if (await path_exists(repository_files_path)) {
+        paths = await directory_read_directories(repository_files_path);
+    } else {
+        paths = [];
+    }
     let dc = directory_current();
     let mapped = list_map(paths, p => dc + string_prefix_without(p, repository_files_path));
     let files_committed = list_filter(mapped, m1 => list_all(mapped, m2 => implies(string_starts_with(m2, m1), equal(m1, m2))));
