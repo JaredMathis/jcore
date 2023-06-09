@@ -1,3 +1,4 @@
+import { version_path_sub_get } from '../../../path/sub/get.mjs';
 import { version_property_hunks } from '../../../property/hunks.mjs';
 import { file_delete } from '../../../../file/delete.mjs';
 import { object_is } from '../../../../object/is.mjs';
@@ -49,7 +50,8 @@ export async function version_commit_file_with_data(repository_name, file_path, 
         parts,
         data
     };
-    todo;
+    let repository_commits_directory_name = 'commits';
+    let repository_sub_path = version_path_sub_get(repository_name, repository_commits_directory_name);
     let commit_write = {
         [property_file_path]: commit_path,
         [property_contents]: commit
