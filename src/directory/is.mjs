@@ -1,4 +1,4 @@
-import fs from 'fs' 
+import fs from 'fs';
 export async function directory_is(file_path) {
     const stat = await fs.promises.stat(file_path);
     const is_directory = stat.isDirectory();
