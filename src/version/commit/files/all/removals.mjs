@@ -1,7 +1,9 @@
+import { version_write_all } from '../../../write/all.mjs';
+import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { string_empty } from '../../../../string/empty.mjs';
 import { version_file_difference_generic } from '../../../file/difference/generic.mjs';
 import { version_commit_files_generic } from '../generic.mjs';
-import { todo } from '../../../../todo.mjs';
 import { version_commit_data } from '../../data.mjs';
 import { list_without_multiple } from '../../../../list/without/multiple.mjs';
 import { directory_current_with_separator } from '../../../../directory/current/with/separator.mjs';
@@ -18,6 +20,7 @@ import { directory_current } from '../../../../directory/current.mjs';
 import { directory_read_directories } from '../../../../directory/read/directories.mjs';
 import { version_path_files_get } from '../../../path/files/get.mjs';
 export async function version_commit_files_all_removals(repository_name) {
+    arguments_assert(arguments, [arguments_assert_todo]);
     let directory_path = directory_current();
     let file_paths = await directory_read(directory_path);
     let files_current_filtered = await git_ignore_filter(file_paths);
@@ -30,6 +33,7 @@ export async function version_commit_files_all_removals(repository_name) {
     let removals = list_without_multiple(files_committed, mapped2);
     const commit_data = version_commit_data(version_commit_files_all_removals, arguments);
     let writes = await version_commit_files_generic(repository_name, removals, commit_data, difference_get);
+    await version_write_all(writes);
     async function difference_get(repository_name, file_path) {
         return await version_file_difference_generic(repository_name, file_path, contents_new_get);
     }
