@@ -1,3 +1,4 @@
+import { equal } from '../../equal.mjs';
 import { list_multiple_combine } from '../../list/multiple/combine.mjs';
 import { list_single_item } from '../../list/single/item.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
@@ -16,7 +17,7 @@ export async function git_ignore_filter(file_paths) {
     ]);
     let filtered = list_filter(file_paths, f => {
         let with_slash = f + directory_separator();
-        return list_any(filter, g => string_starts_with(f, with_slash) || equals(f, g));
+        return list_any(filter, g => string_starts_with(f, with_slash) || equal(f, g));
     });
     return filtered;
 }
