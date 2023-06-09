@@ -7,6 +7,7 @@ import fs from 'fs';
 export async function file_read(file_path) {
     arguments_assert(arguments, [path_is]);
     assert(await path_exists(file_path));
-    return await fs.promises.readFile(file_path, 'utf8');
+    let result = await fs.promises.readFile(file_path, 'utf8');
+    return result;
     metadata([]);
 }
