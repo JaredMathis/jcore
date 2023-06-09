@@ -29,6 +29,6 @@ export async function file_difference(repository_name, file_path) {
     let mapped = list_map(gitignore_lines, string_trim);
     list_add_if_not_exists(mapped, repository_container_folder_name);
     let gitignore_contents_new = list_join(mapped, string_new_line());
-    file_overwrite(gitignore_file_path);
+    await file_overwrite(gitignore_file_path, gitignore_contents_new);
     return mapped;
 }
