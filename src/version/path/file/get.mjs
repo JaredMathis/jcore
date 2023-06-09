@@ -11,15 +11,20 @@ export function version_path_file_get(repository_name, file_path, version) {
         path_is,
         integer_is
     ]);
-    let repository_files_path = version_path_files_get(repository_name);
-    let repository_file_path = path_join([
-        repository_files_path,
-        file_path
-    ]);
+    let repository_file_path = version_path_file_directory(repository_name, file_path);
     let file_name = `${ version }${ file_extension_json() }`;
     let repository_file_path_initial = path_join([
         repository_file_path,
         file_name
     ]);
     return repository_file_path_initial;
+}
+
+function version_path_file_directory(repository_name, file_path) {
+    let repository_files_path = version_path_files_get(repository_name);
+    let repository_file_path = path_join([
+        repository_files_path,
+        file_path
+    ]);
+    return repository_file_path;
 }
