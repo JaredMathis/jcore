@@ -14,5 +14,5 @@ export async function file_difference_commit(repository_name, file_path) {
         commit_id,
         when
     };
-    await version_file_difference(repository_name, commit_id, file_path);
+    await version_file_difference(repository_name, file_path);
 }
