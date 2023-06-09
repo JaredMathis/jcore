@@ -20,6 +20,7 @@ import { guid_generate } from '../guid/generate.mjs';
 import { object_property_get } from '../object/property/get.mjs';
 import { list_add } from '../list/add.mjs';
 import { string_difference_apply } from '../string/difference/apply.mjs';
+import { string_difference_get } from '../string/difference/get.mjs';
 export async function file_difference(repository_name, file_path) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -36,9 +37,8 @@ export async function file_difference(repository_name, file_path) {
     let gitignore_contents_new = list_join(mapped, string_new_line());
     await file_overwrite(gitignore_file_path, gitignore_contents_new);
     let part_id = guid_generate();
-    let file_path_contents = await file_read(file_path);
     let list_hunks = [];
-    let property_contents = 'hunks';
+    let property_hunks = 'hunks';
     let version = 1;
     let version_path_value;
     while (true) {
@@ -47,18 +47,21 @@ export async function file_difference(repository_name, file_path) {
             break;
         }
         let before_object = file_json_read(version_path_value);
-        let hunks = object_property_get(before_object, property_contents);
+        let hunks = object_property_get(before_object, property_hunks);
         list_add(list_hunks, hunks);
         version++;
     }
 
-    let current = string_empty();
+    let contents_old = string_empty();
     for (let hunks of list_hunks) {
-        current = string_difference_apply(current, hunks)
+        contents_old = string_difference_apply(contents_old, hunks)
     }
 
-    await file_json_overwrite(repository_file_path_initial, {
-        [property_contents]: file_path_contents,
+    let contents_new = await file_read(file_path);
+    let hunks_new = string_difference_get(contents_old, contents_new)
+
+    await file_json_overwrite(version_path_value, {
+        [property_hunks]: hunks_new,
         part_id
     });
     return part_id;
