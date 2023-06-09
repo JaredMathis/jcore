@@ -4,7 +4,7 @@ import { metadata } from '../metadata.mjs';
 import { number_is } from '../number/is.mjs';
 import { assert } from '../assert.mjs';
 import { list_first } from './first.mjs';
-import { identity } from 'lodash';
+import { identity } from '../identity.mjs';
 export function list_max(list) {
     arguments_assert(arguments, [list_is]);
     let lambda = identity;
