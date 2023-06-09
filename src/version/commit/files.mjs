@@ -33,6 +33,10 @@ export async function version_commit_files(repository_name, file_paths, data) {
         object_is
     ]);
     let lambda = version_file_difference;
+    await version_commit_files_generic(repository_name, file_paths, data, lambda);
+}
+
+async function version_commit_files_generic(repository_name, file_paths, data, lambda) {
     let filtered = await git_ignore_filter(file_paths);
     let property_hunks = version_property_hunks();
     let property_file_path = 'file_path';
@@ -79,7 +83,7 @@ export async function version_commit_files(repository_name, file_paths, data) {
         }
         let commit_path = path_join([
             repository_sub_path,
-            `${ version }${ file_extension_json() }`
+            `${version}${file_extension_json()}`
         ]);
         let commit_write = {
             [property_file_path]: commit_path,
