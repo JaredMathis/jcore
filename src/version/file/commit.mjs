@@ -1,3 +1,4 @@
+import { version_property_hunks } from '../property/hunks.mjs';
 import { file_delete } from '../../file/delete.mjs';
 import { object_is } from '../../object/is.mjs';
 import { list_add } from '../../list/add.mjs';
@@ -16,6 +17,7 @@ export async function version_file_commit(repository_name, file_path, data) {
         path_is,
         object_is
     ]);
+    let property_hunks = version_property_hunks();
     let property_file_path = 'file_path';
     let property_contents = 'contents';
     let writes = [];
