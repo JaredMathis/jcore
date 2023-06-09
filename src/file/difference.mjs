@@ -17,6 +17,7 @@ import { string_split } from '../string/split.mjs';
 import { file_overwrite } from './overwrite.mjs';
 import { path_join } from '../path/join.mjs';
 import { guid_generate } from '../guid/generate.mjs';
+import { object_property_get } from '../object/property/get.mjs';
 export async function file_difference(repository_name, file_path) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -51,11 +52,11 @@ export async function file_difference(repository_name, file_path) {
     ]);
     let part_id = guid_generate();
     let file_path_contents = await file_read(file_path);
-    let before;
+    let before_contents;
     let property_contents = 'contents';
     if (await file_exists(repository_file_path_initial)) {
         let before_object = file_json_read(repository_file_path_initial);
-
+        before_contents = object_property_get(before_object, property_contents);
     }
     await file_json_overwrite(repository_file_path_initial, {
         [property_contents]: file_path_contents,
