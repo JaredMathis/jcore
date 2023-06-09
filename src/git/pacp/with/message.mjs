@@ -1,4 +1,4 @@
-import { git_commands_sync_add } from '../../commands/sync/add.mjs';
+import { git_commands_sync_add_run } from '../../commands/sync/add/run.mjs';
 import { log } from '../../../log.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
@@ -7,7 +7,6 @@ import { list_remove_all_first_equals } from '../../../list/remove/all/first/equ
 import { git } from '../../../git.mjs';
 import { list_join } from '../../../list/join.mjs';
 import { command_line_args_skipped } from '../../../command/line/args/skipped.mjs';
-import { command_line_all } from '../../../command/line/all.mjs';
 import { result_empty } from '../../../result/empty.mjs';
 import { string_is } from '../../../string/is.mjs';
 import { boolean_is } from '../../../boolean/is.mjs';
@@ -24,10 +23,7 @@ export async function git_pacp_with_message(commit_message, sync) {
         `git add *`,
         command_commit
     ];
-    if (sync) {
-        git_commands_sync_add(commands);
-    }
-    let c_result = await command_line_all(commands);
+    let c_result = await git_commands_sync_add_run(sync, commands);
     if (!c_result.success) {
         if (c_result.command === command_commit) {
             let result = result_empty();
