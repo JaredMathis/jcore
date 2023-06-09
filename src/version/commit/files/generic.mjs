@@ -24,7 +24,7 @@ import { string_identifier_is } from '../../../string/identifier/is.mjs';
 import { list_is } from '../../../list/is.mjs';
 import { object_is } from '../../../object/is.mjs';
 import { function_is } from '../../../function/is.mjs';
-export async function version_commit_files_generic(repository_name, file_paths, data, difference_get) {
+export async function version_commit_files_generic(repository_name, file_paths, commit_data, difference_get) {
     arguments_assert(arguments, [
         string_identifier_is,
         list_is,
@@ -61,7 +61,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             commit_id,
             when,
             parts,
-            data
+            data: commit_data
         };
         let repository_commits_directory_name = 'commits';
         let repository_sub_path = version_path_sub_get(repository_name, repository_commits_directory_name);

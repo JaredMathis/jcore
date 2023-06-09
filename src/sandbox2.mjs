@@ -9,8 +9,8 @@ export async function sandbox2() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
     let file_paths = await directory_read_current();
-    let differences = await version_commit_files_difference(repository_name, file_paths, data);
     const commit_data = version_commit_data(version_commit_files_all_removals, arguments);
+    let differences = await version_commit_files_difference(repository_name, file_paths, commit_data);
     let removals = await version_commit_files_all_removals_generic(repository_name, file_paths, commit_data);
     await file_json_overwrite('out.txt', {
         removals,
