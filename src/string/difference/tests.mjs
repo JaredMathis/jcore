@@ -1,6 +1,10 @@
 import { error } from '../../error.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-export function string_difference_tests() {
-    arguments_assert(arguments, []);
+import { string_is } from '../is.mjs';
+export function string_difference_tests(string_old, string_new) {
+    arguments_assert(arguments, [
+        string_is,
+        string_is
+    ]);
     error('todo: string_difference_tests');
 }
