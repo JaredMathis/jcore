@@ -7,7 +7,8 @@ export function string_difference_characters(string_old, string_new) {
         string_is,
         string_is
     ]);
-    let p = Diff.createPatch(fileName, string_old, string_new, '', '');
+    let file_name = '';
+    let p = Diff.createPatch(file_name, string_old, string_new, '', '');
     return {
         d: p,
         applied:Diff.applyPatch(string_old, p),
