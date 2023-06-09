@@ -1,3 +1,7 @@
+import { list_max } from '../../../../list/max.mjs';
+import { integer_parse } from '../../../../integer/parse.mjs';
+import { string_suffix_without } from '../../../../string/suffix/without.mjs';
+import { list_map } from '../../../../list/map.mjs';
 import { file_json_overwrite } from '../../../../file/json/overwrite.mjs';
 import { log } from '../../../../log.mjs';
 import { version_path_sub_get } from '../../../path/sub/get.mjs';
@@ -63,7 +67,7 @@ export async function version_commit_file_with_data(repository_name, file_path, 
     let existing_commits = await directory_read(repository_sub_path);
     if (!list_length_is_0(existing_commits)) {
         let unparsed = list_map(existing_commits, c => string_suffix_without(c, file_extension_json()));
-        let parsed = list_map(unparsed, integer_parse)
+        let parsed = list_map(unparsed, integer_parse);
         version = list_max(parsed);
     }
     let version = 1;
