@@ -31,12 +31,13 @@ export async function version_commit_files(repository_name, file_paths, data) {
         list_is,
         object_is
     ]);
+    let filtered = await git_ignore_filter(file_paths);
     let property_hunks = version_property_hunks();
     let property_file_path = 'file_path';
     let property_contents = 'contents';
     let writes = [];
     let parts = [];
-    for (let file_path of file_paths) {
+    for (let file_path of filtered) {
         let difference = await version_file_difference(repository_name, file_path);
         let hunks = object_property_get(difference, property_hunks);
         if (!list_length_is_0(hunks)) {
