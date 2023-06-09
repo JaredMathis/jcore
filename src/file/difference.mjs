@@ -1,4 +1,3 @@
-import { guid_is } from '../guid/is.mjs';
 import { file_json_overwrite } from './json/overwrite.mjs';
 import { file_extension_json } from './extension/json.mjs';
 import { list_join } from '../list/join.mjs';
@@ -54,7 +53,7 @@ export async function file_difference(repository_name, file_path) {
     let file_path_contents = await file_read(file_path);
     let before;
     if (await file_exists(repository_file_path_initial)) {
-        let before_object = file_json_read(repository_file_path_initial)
+        let before_object = file_json_read(repository_file_path_initial);
     }
     await file_json_overwrite(repository_file_path_initial, {
         contents: file_path_contents,
