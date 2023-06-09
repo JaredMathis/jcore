@@ -32,7 +32,6 @@ export async function version_file_difference_generic(repository_name, file_path
     let mapped = list_map(paths, file_path => {
         let without_prefix = string_prefix_without(file_path, repository_file_directory_path + directory_separator());
         let without_suffix = string_suffix_without(without_prefix, file_extension_json());
-        console.log({ without_suffix });
         let version = integer_parse(without_suffix);
         return version;
     });
