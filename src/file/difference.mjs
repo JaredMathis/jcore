@@ -13,6 +13,7 @@ import { string_identifier_is } from '../string/identifier/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { string_split } from '../string/split.mjs';
 import { file_overwrite } from './overwrite.mjs';
+import { path_join } from '../path/join.mjs';
 export async function file_difference(repository_name, file_path) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -30,5 +31,18 @@ export async function file_difference(repository_name, file_path) {
     list_add_if_not_exists(mapped, repository_container_folder_name);
     let gitignore_contents_new = list_join(mapped, string_new_line());
     await file_overwrite(gitignore_file_path, gitignore_contents_new);
+    let repository_directory = path_join([
+        repository_container_folder_name,
+        repository_name
+    ]);
+    let repository_file_path = path_join([
+        repository_directory,
+        file_path
+    ]);
+    let initial_file_name = 'initial.txt';
+    let repository_file_path_initial = path_join([
+        repository_file_path,
+        initial_file_name
+    ]);
     return mapped;
 }
