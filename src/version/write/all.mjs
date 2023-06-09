@@ -22,7 +22,7 @@ export async function version_write_all(writes) {
         for (let w of writes) {
             const file_path = object_property_get(w, property_file_path);
             if (await file_exists(file_path)) {
-                file_delete(file_path);
+                await file_delete(file_path);
             }
         }
         throw e;
