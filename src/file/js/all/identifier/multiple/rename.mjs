@@ -5,7 +5,7 @@ import { metadata } from '../../../../../metadata.mjs';
 import { js_identifier_multiple_rename } from '../../../../../js/identifier/multiple/rename.mjs';
 import { file_js_all_map_args } from '../../map/args.mjs';
 import { list_unique_is } from '../../../../../list/unique/is.mjs';
-import { list_all_combine } from '../../../../../list/all/combine.mjs';
+import { list_multiple_combine } from '../../../../../list/multiple/combine.mjs';
 import { object_properties } from '../../../../../object/properties.mjs';
 import { object_keys } from '../../../../../object/keys.mjs';
 import { assert } from '../../../../../assert.mjs';
@@ -17,7 +17,7 @@ export async function file_js_all_identifier_multiple_rename(dictionary) {
         keys,
         values
     ];
-    let concat = list_all_combine(concats);
+    let concat = list_multiple_combine(concats);
     assert(list_unique_is(concat));
     let file_paths_changed = [];
     await file_js_all_map_args(function mapper(args) {
