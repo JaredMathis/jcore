@@ -17,6 +17,7 @@ export async function sandbox2() {
         await version_commit_files_all(repository_name);
     let repository_files_path = version_path_files_get(repository_name);
     let paths = await directory_read_directories(repository_files_path);
-    let mapped = list_map(paths, p => directory_current() + string_prefix_without(p, repository_files_path));
+    let dc = directory_current();
+    let mapped = list_map(paths, p => dc + string_prefix_without(p, repository_files_path));
     let files_committed = list_filter(mapped, m1 => list_all(mapped, m2 => implies(string_starts_with(m2, m1), equal(m1, m2))));
 }
