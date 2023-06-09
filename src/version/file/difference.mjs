@@ -1,24 +1,24 @@
-import { version_path_get } from '../version/path/get.mjs';
-import { version_directory_root } from '../version/directory/root.mjs';
-import { list_join } from '../list/join.mjs';
-import { list_add_if_not_exists } from '../list/add/if/not/exists.mjs';
-import { string_trim } from '../string/trim.mjs';
-import { list_map } from '../list/map.mjs';
-import { string_new_line } from '../string/new/line.mjs';
-import { file_read } from './read.mjs';
-import { string_empty } from '../string/empty.mjs';
-import { file_write } from './write.mjs';
-import { file_exists } from './exists.mjs';
-import { path_is } from '../path/is.mjs';
-import { string_identifier_is } from '../string/identifier/is.mjs';
-import { arguments_assert } from '../arguments/assert.mjs';
-import { string_split } from '../string/split.mjs';
-import { file_overwrite } from './overwrite.mjs';
-import { object_property_get } from '../object/property/get.mjs';
-import { list_add } from '../list/add.mjs';
-import { string_difference_apply } from '../string/difference/apply.mjs';
-import { string_difference_get } from '../string/difference/get.mjs';
-export async function file_difference(repository_name, file_path) {
+import { version_path_get } from '../path/get.mjs';
+import { version_directory_root } from '../directory/root.mjs';
+import { list_join } from '../../list/join.mjs';
+import { list_add_if_not_exists } from '../../list/add/if/not/exists.mjs';
+import { string_trim } from '../../string/trim.mjs';
+import { list_map } from '../../list/map.mjs';
+import { string_new_line } from '../../string/new/line.mjs';
+import { file_read } from '../../file/read.mjs';
+import { string_empty } from '../../string/empty.mjs';
+import { file_write } from '../../file/write.mjs';
+import { file_exists } from '../../file/exists.mjs';
+import { path_is } from '../../path/is.mjs';
+import { string_identifier_is } from '../../string/identifier/is.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
+import { string_split } from '../../string/split.mjs';
+import { file_overwrite } from '../../file/overwrite.mjs';
+import { object_property_get } from '../../object/property/get.mjs';
+import { list_add } from '../../list/add.mjs';
+import { string_difference_apply } from '../../string/difference/apply.mjs';
+import { string_difference_get } from '../../string/difference/get.mjs';
+export async function version_file_difference(repository_name, file_path) {
     arguments_assert(arguments, [
         string_identifier_is,
         path_is

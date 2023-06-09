@@ -2,7 +2,7 @@ import { guid_generate } from '../../guid/generate.mjs';
 import { path_is } from '../../path/is.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-import { file_difference } from '../difference.mjs';
+import { version_file_difference } from '../../version/file/difference.mjs';
 export async function file_difference_commit(repository_name, file_path) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -14,5 +14,5 @@ export async function file_difference_commit(repository_name, file_path) {
         commit_id,
         when
     };
-    await file_difference(repository_name, commit_id, file_path);
+    await version_file_difference(repository_name, commit_id, file_path);
 }
