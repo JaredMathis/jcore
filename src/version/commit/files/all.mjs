@@ -10,5 +10,5 @@ export async function version_commit_files_all(repository_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let directory_path = directory_current();
     let file_paths = await directory_read(directory_path);
-    await version_commit_files(repository_name, filtered, version_commit_data(todo, arguments));
+    await version_commit_files(repository_name, file_paths, version_commit_data(todo, arguments));
 }

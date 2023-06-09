@@ -1,3 +1,4 @@
+import { git_ignore_filter } from '../../git/ignore/filter.mjs';
 import { path_parse_base } from '../../path/parse/base.mjs';
 import { add_1 } from '../../add/1.mjs';
 import { list_max } from '../../list/max.mjs';
