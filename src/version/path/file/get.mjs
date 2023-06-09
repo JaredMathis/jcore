@@ -1,5 +1,4 @@
-import { version_path_files } from '../files.mjs';
-import { version_path_sub_get } from '../sub/get.mjs';
+import { version_path_files_get } from '../files/get.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { file_extension_json } from '../../../file/extension/json.mjs';
 import { path_join } from '../../../path/join.mjs';
@@ -12,8 +11,7 @@ export function version_path_file_get(repository_name, file_path, version) {
         path_is,
         integer_is
     ]);
-    let repository_files_directory_name = version_path_files();
-    let repository_sub_path = version_path_sub_get(repository_name, repository_files_directory_name);
+    let repository_sub_path = version_path_files_get(repository_name);
     let repository_file_path = path_join([
         repository_sub_path,
         file_path
