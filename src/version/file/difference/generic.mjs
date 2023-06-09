@@ -14,11 +14,12 @@ import { file_extension_json } from '../../../file/extension/json.mjs';
 import { integer_parse } from '../../../integer/parse.mjs';
 import { list_max_generic } from '../../../list/max/generic.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
+import { function_is } from '../../../function/is.mjs';
 export async function version_file_difference_generic(repository_name, file_path, contents_new_get) {
     arguments_assert(arguments, [
         string_identifier_is,
         path_is,
-        string_is
+        function_is
     ]);
     let contents_old = await version_file_contents(repository_name, file_path);
     let contents_new = await contents_new_get(file_path);
