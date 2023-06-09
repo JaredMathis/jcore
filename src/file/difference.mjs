@@ -39,13 +39,13 @@ export async function file_difference(repository_name, file_path) {
     let list_hunks = [];
     let property_hunks = 'hunks';
     let version = 1;
-    let version_path_value;
+    let version_path;
     while (true) {
-        version_path_value = version_path_get(repository_name, file_path, version);
-        if (!await file_exists(version_path_value)) {
+        version_path = version_path_get(repository_name, file_path, version);
+        if (!await file_exists(version_path)) {
             break;
         }
-        let before_object = file_json_read(version_path_value);
+        let before_object = file_json_read(version_path);
         let hunks = object_property_get(before_object, property_hunks);
         list_add(list_hunks, hunks);
         version++;
@@ -56,7 +56,7 @@ export async function file_difference(repository_name, file_path) {
     }
     let contents_new = await file_read(file_path);
     let hunks_new = string_difference_get(contents_old, contents_new);
-    await file_json_overwrite(version_path_value, {
+    await file_json_overwrite(version_path, {
         [property_hunks]: hunks_new,
         part_id
     });
