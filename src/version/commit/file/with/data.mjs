@@ -1,3 +1,4 @@
+import { path_parse } from '../../../../path/parse.mjs';
 import { add_1 } from '../../../../add/1.mjs';
 import { list_max } from '../../../../list/max.mjs';
 import { integer_parse } from '../../../../integer/parse.mjs';
@@ -68,6 +69,8 @@ export async function version_commit_file_with_data(repository_name, file_path, 
     let existing_commits = await directory_read(repository_sub_path);
     let version = 1;
     if (!list_length_is_0(existing_commits)) {
+        let existing_commit_file_names = path_parse(existing_commits);
+        console.log({ existing_commit_file_names });
         let unparsed = list_map(existing_commits, c => string_suffix_without(c, file_extension_json()));
         let parsed = list_map(unparsed, integer_parse);
         let max = list_max(parsed);
