@@ -1,4 +1,4 @@
-import { version_path } from '../version/path.mjs';
+import { version_path_get } from '../version/path/get.mjs';
 import { version_directory_root } from '../version/directory/root.mjs';
 import { file_json_overwrite } from './json/overwrite.mjs';
 import { list_join } from '../list/join.mjs';
@@ -41,7 +41,7 @@ export async function file_difference(repository_name, file_path) {
     let version = 1;
     let version_path_value;
     while (true) {
-        version_path_value = version_path(repository_name, file_path, version);
+        version_path_value = version_path_get(repository_name, file_path, version);
         if (!await file_exists(version_path_value)) {
             break;
         }
@@ -60,5 +60,5 @@ export async function file_difference(repository_name, file_path) {
         [property_hunks]: hunks_new,
         part_id
     });
-    return part_id;
+    return { part_id };
 }

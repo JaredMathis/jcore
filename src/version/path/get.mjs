@@ -1,7 +1,7 @@
-import { file_extension_json } from '../file/extension/json.mjs';
-import { path_join } from '../path/join.mjs';
-import { version_directory_root } from './directory/root.mjs';
-export function version_path(repository_name, file_path, version) {
+import { file_extension_json } from '../../file/extension/json.mjs';
+import { path_join } from '../../path/join.mjs';
+import { version_directory_root } from '../directory/root.mjs';
+export function version_path_get(repository_name, file_path, version) {
     let repository_container_folder_name = version_directory_root();
     let repository_directory = path_join([
         repository_container_folder_name,
