@@ -1,3 +1,4 @@
+import { file_extension_json } from './extension/json.mjs';
 import { list_join } from '../list/join.mjs';
 import { list_add_if_not_exists } from '../list/add/if/not/exists.mjs';
 import { string_trim } from '../string/trim.mjs';
@@ -39,7 +40,7 @@ export async function file_difference(repository_name, file_path) {
         repository_directory,
         file_path
     ]);
-    let initial_file_name = 'initial.txt';
+    let initial_file_name = `initial${ file_extension_json() }`;
     let repository_file_path_initial = path_join([
         repository_file_path,
         initial_file_name
