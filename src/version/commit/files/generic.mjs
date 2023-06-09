@@ -31,6 +31,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         object_is,
         function_is
     ]);
+
     let filtered = await git_ignore_filter(file_paths);
     let property_hunks = version_property_hunks();
     let property_file_path = version_property_file_path();
@@ -38,7 +39,16 @@ export async function version_commit_files_generic(repository_name, file_paths, 
     let writes = [];
     let parts = [];
     for (let file_path of filtered) {
-        let difference = await difference_get(repository_name, file_path);
+        let difference;
+        try {
+
+            console.log('aAA B')
+            difference = await difference_get(repository_name, file_path);
+            console.log('aAA A')
+        } catch (e) {
+            console.log(e)
+            throw e;
+        }
         let hunks = object_property_get(difference, property_hunks);
         if (!list_length_is_0(hunks)) {
             let difference_path = object_property_get(difference, version_property_path());
