@@ -2,8 +2,8 @@ import { guid_generate } from '../../guid/generate.mjs';
 import { path_is } from '../../path/is.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-import { version_file_difference } from '../../version/file/difference.mjs';
-export async function file_difference_commit(repository_name, file_path) {
+import { version_file_difference } from './difference.mjs';
+export async function version_file_commit(repository_name, file_path) {
     arguments_assert(arguments, [
         string_identifier_is,
         path_is
