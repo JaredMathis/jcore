@@ -49,7 +49,7 @@ export async function version_commit_file_with_data(repository_name, file_path, 
         console.log('nothing to commit');
         return;
     }
-    let when = new Date().getTime();
+    let when = new Date().toISOString();
     let commit_id = guid_generate();
     let commit = {
         commit_id,
