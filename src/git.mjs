@@ -1,9 +1,9 @@
 import { metadata } from './metadata.mjs';
 import { function_run_arguments } from './function/run/arguments.mjs';
-import { git_pacp } from './git/pacp.mjs';
+import { git_ac } from './git/ac.mjs';
 export async function git() {
     let result = await function_run_arguments(arguments);
-    await git_pacp();
+    await git_ac();
     return result;
     metadata([]);
 }
