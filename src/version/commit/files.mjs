@@ -1,32 +1,31 @@
-import { path_parse_base } from '../../../../path/parse/base.mjs';
-import { add_1 } from '../../../../add/1.mjs';
-import { list_max } from '../../../../list/max.mjs';
-import { integer_parse } from '../../../../integer/parse.mjs';
-import { string_suffix_without } from '../../../../string/suffix/without.mjs';
-import { list_map } from '../../../../list/map.mjs';
-import { file_json_overwrite } from '../../../../file/json/overwrite.mjs';
-import { log } from '../../../../log.mjs';
-import { version_path_sub_get } from '../../../path/sub/get.mjs';
-import { version_property_hunks } from '../../../property/hunks.mjs';
-import { file_delete } from '../../../../file/delete.mjs';
-import { object_is } from '../../../../object/is.mjs';
-import { list_add } from '../../../../list/add.mjs';
-import { guid_generate } from '../../../../guid/generate.mjs';
-import { path_is } from '../../../../path/is.mjs';
-import { string_identifier_is } from '../../../../string/identifier/is.mjs';
-import { arguments_assert } from '../../../../arguments/assert.mjs';
-import { version_file_difference } from '../../../file/difference.mjs';
-import { object_property_get } from '../../../../object/property/get.mjs';
-import { version_property_path } from '../../../property/path.mjs';
-import { assert } from '../../../../assert.mjs';
-import { file_exists } from '../../../../file/exists.mjs';
-import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
-import { directory_read } from '../../../../directory/read.mjs';
-import { path_join } from '../../../../path/join.mjs';
-import { file_extension_json } from '../../../../file/extension/json.mjs';
-import { directory_exists_ensure } from '../../../../directory/exists/ensure.mjs';
-import { list_is } from '../../../../list/is.mjs';
-export async function version_commit_files_with_data(repository_name, file_paths, data) {
+import { path_parse_base } from '../../path/parse/base.mjs';
+import { add_1 } from '../../add/1.mjs';
+import { list_max } from '../../list/max.mjs';
+import { integer_parse } from '../../integer/parse.mjs';
+import { string_suffix_without } from '../../string/suffix/without.mjs';
+import { list_map } from '../../list/map.mjs';
+import { file_json_overwrite } from '../../file/json/overwrite.mjs';
+import { log } from '../../log.mjs';
+import { version_path_sub_get } from '../path/sub/get.mjs';
+import { version_property_hunks } from '../property/hunks.mjs';
+import { file_delete } from '../../file/delete.mjs';
+import { object_is } from '../../object/is.mjs';
+import { list_add } from '../../list/add.mjs';
+import { guid_generate } from '../../guid/generate.mjs';
+import { string_identifier_is } from '../../string/identifier/is.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
+import { version_file_difference } from '../file/difference.mjs';
+import { object_property_get } from '../../object/property/get.mjs';
+import { version_property_path } from '../property/path.mjs';
+import { assert } from '../../assert.mjs';
+import { file_exists } from '../../file/exists.mjs';
+import { list_length_is_0 } from '../../list/length/is/0.mjs';
+import { directory_read } from '../../directory/read.mjs';
+import { path_join } from '../../path/join.mjs';
+import { file_extension_json } from '../../file/extension/json.mjs';
+import { directory_exists_ensure } from '../../directory/exists/ensure.mjs';
+import { list_is } from '../../list/is.mjs';
+export async function version_commit_files(repository_name, file_paths, data) {
     arguments_assert(arguments, [
         string_identifier_is,
         list_is,
