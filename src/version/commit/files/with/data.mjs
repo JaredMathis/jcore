@@ -25,10 +25,11 @@ import { directory_read } from '../../../../directory/read.mjs';
 import { path_join } from '../../../../path/join.mjs';
 import { file_extension_json } from '../../../../file/extension/json.mjs';
 import { directory_exists_ensure } from '../../../../directory/exists/ensure.mjs';
+import { list_is } from '../../../../list/is.mjs';
 export async function version_commit_files_with_data(repository_name, file_paths, data) {
     arguments_assert(arguments, [
         string_identifier_is,
-        path_is,
+        list_is,
         object_is
     ]);
     let property_hunks = version_property_hunks();
