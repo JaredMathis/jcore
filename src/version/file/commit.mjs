@@ -13,8 +13,7 @@ export async function version_file_commit(repository_name, file_path, data) {
         path_is,
         object_is
     ]);
-    let when = new Date().getTime();
-    let commit_id = guid_generate();
+    let writes = []
     let parts = [];
     let difference = await version_file_difference(repository_name, file_path);
     let difference_path = object_property_get(difference, version_property_path());
@@ -27,6 +26,9 @@ export async function version_file_commit(repository_name, file_path, data) {
             hunks
         }
     };
+    list_add(writes, difference_write);
+    let when = new Date().getTime();
+    let commit_id = guid_generate();
     let commit = {
         commit_id,
         when,
@@ -37,4 +39,5 @@ export async function version_file_commit(repository_name, file_path, data) {
         file_path: difference_path,
         contents: commit
     };
+    list_add(writes, commit_write);
 }
