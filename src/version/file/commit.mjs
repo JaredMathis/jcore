@@ -7,6 +7,8 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { version_file_difference } from './difference.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { version_property_path } from '../property/path.mjs';
+import { assert } from '../../assert.mjs';
+import { file_exists } from '../../file/exists.mjs';
 export async function version_file_commit(repository_name, file_path, data) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -43,6 +45,7 @@ export async function version_file_commit(repository_name, file_path, data) {
     };
     list_add(writes, commit_write);
     for (let w of writes) {
-
+        const file_path = object_property_get(w, property_file_path);
+        assert(!await file_exists(file_path))
     }
 }
