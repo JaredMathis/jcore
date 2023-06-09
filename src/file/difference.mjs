@@ -1,3 +1,4 @@
+import { list_add_if_not_exists } from '../list/add/if/not/exists.mjs';
 import { string_trim } from '../string/trim.mjs';
 import { list_map } from '../list/map.mjs';
 import { string_new_line } from '../string/new/line.mjs';
@@ -24,5 +25,6 @@ export async function file_difference(repository_name, file_path) {
     let gitignore_contents = await file_read(gitignore_file_path);
     let gitignore_lines = string_split(gitignore_contents, string_new_line());
     let mapped = list_map(gitignore_lines, string_trim);
-    return gitignore_lines;
+    list_add_if_not_exists(mapped, repository_container_folder_name);
+    return mapped;
 }
