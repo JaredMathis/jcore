@@ -35,8 +35,8 @@ export async function sandbox2() {
     let mapped2 = list_map(files_current_filtered, f => directory_current_with_separator() + f);
     let removals = list_without_multiple(files_committed, mapped2);
     const commit_data = version_commit_data(todo, arguments);
-    await version_commit_files_generic(repository_name, removals, commit_data, version_commit_files_generic_lambda);
-    async function version_commit_files_generic_lambda(repository_name, file_path) {
+    await version_commit_files_generic(repository_name, removals, commit_data, difference_get);
+    async function difference_get(repository_name, file_path) {
         return await version_file_difference_generic(repository_name, file_path, () => string_empty());
     }
     console.log(removals);
