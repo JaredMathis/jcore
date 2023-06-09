@@ -10,6 +10,9 @@ export async function file_difference_commit(repository_name, file_path) {
     ]);
     let when = new Date().getTime();
     let commit_id = guid_generate();
-    let commit = { commit_id, when };
+    let commit = {
+        commit_id,
+        when
+    };
     await file_difference(repository_name, commit_id, file_path);
 }

@@ -52,12 +52,13 @@ export async function file_difference(repository_name, file_path) {
     ]);
     let part_id = guid_generate();
     let file_path_contents = await file_read(file_path);
-    if (!await file_exists(repository_file_path_initial)) {
-        await file_json_overwrite(repository_file_path_initial, {
-            contents: file_path_contents,
-            part_id
-        });
-        return;
+    let before;
+    if (await file_exists(repository_file_path_initial)) {
+        let before_object = file_json_read(repository_file_path_initial)
     }
+    await file_json_overwrite(repository_file_path_initial, {
+        contents: file_path_contents,
+        part_id
+    });
     return part_id;
 }
