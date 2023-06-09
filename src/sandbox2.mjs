@@ -1,3 +1,4 @@
+import { log } from './log.mjs';
 import { version_path_files_get } from './version/path/files/get.mjs';
 import { version_commit_files_all } from './version/commit/files/all.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
@@ -8,5 +9,6 @@ export async function sandbox2() {
     if (false)
         await version_commit_files_all(repository_name);
     let repository_files_path = version_path_files_get(repository_name);
-    directory_read_paths();
+    let paths = await directory_read_paths(repository_files_path);
+    console.log(paths);
 }
