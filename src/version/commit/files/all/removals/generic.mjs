@@ -1,6 +1,5 @@
 import { string_empty } from '../../../../../string/empty.mjs';
 import { version_file_difference_generic } from '../../../../file/difference/generic.mjs';
-import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { version_commit_files_generic } from '../../generic.mjs';
 import { version_commit_files_all_removals } from '../removals.mjs';
