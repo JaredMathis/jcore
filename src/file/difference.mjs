@@ -1,3 +1,5 @@
+import { string_trim } from '../string/trim.mjs';
+import { list_map } from '../list/map.mjs';
 import { string_new_line } from '../string/new/line.mjs';
 import { file_read } from './read.mjs';
 import { string_empty } from '../string/empty.mjs';
@@ -21,6 +23,6 @@ export async function file_difference(repository_name, file_path) {
     }
     let gitignore_contents = await file_read(gitignore_file_path);
     let gitignore_lines = string_split(gitignore_contents, string_new_line());
-    let mapped = list_map(gitignore_lines, string_trim)
-    return gitignore_lines
+    let mapped = list_map(gitignore_lines, string_trim);
+    return gitignore_lines;
 }
