@@ -48,7 +48,11 @@ export async function file_difference(repository_name, file_path) {
     ]);
     let file_path_contents = await file_read(file_path);
     if (!await file_exists(repository_file_path_initial)) {
-        await file_json_overwrite(repository_file_path_initial, file_path_contents);
+        let now = new Date().getTime();
+        await file_json_overwrite(repository_file_path_initial, {
+            contents: file_path_contents,
+            now,
+        });
         return;
     }
     return mapped;
