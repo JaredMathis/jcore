@@ -8,9 +8,10 @@ import { identity } from '../identity.mjs';
 export function list_max(list) {
     arguments_assert(arguments, [list_is]);
     let lambda = identity;
-    let max = list_first(list);
+    let max = lambda(list_first(list));
     assert(number_is(max));
-    for (let n of list) {
+    for (let element of list) {
+        let n = lambda(element);
         assert(number_is(n));
         if (n > max) {
             max = n;
