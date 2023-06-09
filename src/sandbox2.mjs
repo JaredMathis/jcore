@@ -1,3 +1,4 @@
+import { list_without_multiple } from './list/without/multiple.mjs';
 import { directory_current_with_separator } from './directory/current/with/separator.mjs';
 import { log } from './log.mjs';
 import { git_ignore_filter } from './git/ignore/filter.mjs';
@@ -27,5 +28,6 @@ export async function sandbox2() {
     let files_current = await directory_read(dc);
     let files_current_filtered = await git_ignore_filter(files_current);
     let mapped2 = list_map(files_current_filtered, f => directory_current_with_separator() + f);
-    console.log(files_current_filtered, files_committed);
+    let removals = list_without_multiple(mapped2, files_committed);
+    console.log(removals);
 }
