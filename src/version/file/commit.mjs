@@ -1,3 +1,4 @@
+import { file_delete } from '../../file/delete.mjs';
 import { object_is } from '../../object/is.mjs';
 import { list_add } from '../../list/add.mjs';
 import { guid_generate } from '../../guid/generate.mjs';
@@ -48,9 +49,18 @@ export async function version_file_commit(repository_name, file_path, data) {
         const file_path = object_property_get(w, property_file_path);
         assert(!await file_exists(file_path));
     }
-    for (let w of writes) {
-        const file_path = object_property_get(w, property_file_path);
-        const contents = object_property_get(w, property_contents);
-        await json_overwrite(file_path, contents);
+    try {
+        for (let w of writes) {
+            const file_path = object_property_get(w, property_file_path);
+            const contents = object_property_get(w, property_contents);
+            await json_overwrite(file_path, contents);
+        }
+    } catch (e) {
+        for (let w of writes) {
+            const file_path = object_property_get(w, property_file_path);
+            if (await file_exists(file_path)) {
+                file_delete(file_path);
+            }
+        }
     }
 }
