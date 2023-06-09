@@ -8,6 +8,6 @@ export async function sandbox2() {
     arguments_assert(arguments, []);
     let directory_path = directory_current();
     let file_paths = await directory_read(directory_path);
-        const repository_name = 'a';
-        await version_commit_files_with_data(repository_name,file_paths, version_commit_data(todo, arguments));
+    const repository_name = 'a';
+    await version_commit_files_with_data(repository_name, file_paths, version_commit_data(todo, arguments));
 }
