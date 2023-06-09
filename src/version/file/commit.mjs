@@ -38,6 +38,9 @@ export async function version_file_commit(repository_name, file_path, data) {
         };
         list_add(writes, difference_write);
     }
+    if (list_length_is_0(writes)) {
+        return;
+    }
     let when = new Date().getTime();
     let commit_id = guid_generate();
     let commit = {
