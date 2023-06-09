@@ -8,5 +8,4 @@ export async function sandbox2() {
     if (false)
         await version_commit_files_all(repository_name);
     let removals = await version_commit_files_all_removals(repository_name);
-    console.log(removals);
 }
