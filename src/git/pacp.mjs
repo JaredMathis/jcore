@@ -8,7 +8,7 @@ import { data_get } from '../data/get.mjs';
 import { assert } from '../assert.mjs';
 export async function git_pacp() {
     arguments_assert(arguments, []);
-    let sync = false;
+    let sync = true;
     let data = await data_get();
     let task_id = object_property_get(data, data_task_id());
     let initial = data_git_commit_message_initial();

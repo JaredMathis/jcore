@@ -17,12 +17,14 @@ export async function git_pacp_with_message(commit_message, sync) {
     let args_message = list_join(args, ' ');
     const command_commit = `git commit -m "${ commit_message } ${ args_message }"`;
     let commands;
-    commands = [
-        `git pull`,
-        `git add *`,
-        command_commit,
-        `git push`
-    ];
+    if (sync) {
+        commands = [
+            `git pull`,
+            `git add *`,
+            command_commit,
+            `git push`
+        ];
+    }
     let c_result = await command_line_all(commands);
     if (!c_result.success) {
         if (c_result.command === command_commit) {
