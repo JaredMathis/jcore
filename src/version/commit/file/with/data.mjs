@@ -13,6 +13,9 @@ import { version_property_path } from '../../../property/path.mjs';
 import { assert } from '../../../../assert.mjs';
 import { file_exists } from '../../../../file/exists.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
+import { directory_read } from '../../../../directory/read.mjs';
+import { path_join } from '../../../../path/join.mjs';
+import { file_extension_json } from '../../../../file/extension/json.mjs';
 export async function version_commit_file_with_data(repository_name, file_path, data) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -52,6 +55,11 @@ export async function version_commit_file_with_data(repository_name, file_path, 
     };
     let repository_commits_directory_name = 'commits';
     let repository_sub_path = version_path_sub_get(repository_name, repository_commits_directory_name);
+    let existing_commits = await directory_read(repository_sub_path);
+    console.log({existing_commits})
+    assert(list_length_is_0(existing_commits))
+    let version = 1
+    let commit_path = path_join([repository_sub_path, `${version}${file_extension_json()}`])
     let commit_write = {
         [property_file_path]: commit_path,
         [property_contents]: commit
