@@ -17,6 +17,10 @@ export function version_path_file_get(repository_name, file_path, version) {
         repository_container_folder_name,
         repository_name
     ]);
+    let repository_sub_path = path_join([
+        repository_directory,
+        repository_files_directory_name,
+    ]);
     let repository_file_path = path_join([
         repository_directory,
         repository_files_directory_name,
