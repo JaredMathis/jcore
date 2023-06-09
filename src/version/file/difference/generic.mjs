@@ -1,4 +1,3 @@
-import { list_max_or_0 } from '../../../list/max/or/0.mjs';
 import { version_path_file_directory } from '../../path/file/directory.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { version_property_path } from '../../property/path.mjs';
@@ -27,17 +26,17 @@ export async function version_file_difference_generic(repository_name, file_path
     let property_version_path = version_property_path();
     let repository_file_directory_path = version_path_file_directory(repository_name, file_path);
     let paths = await directory_read(repository_file_directory_path);
-    let mapped = list_map(paths, file_path => { 
+    let mapped = list_map(paths, file_path => {
         let without_prefix = string_prefix_without(file_path, repository_file_directory_path);
         let without_suffix = string_suffix_without(without_prefix, file_extension_json());
         let version = integer_parse(without_suffix);
         return {
             file_path,
-            version,
-        }
+            version
+        };
     });
-    let max = list_max_generic(mapped, m => object_property_get(m, 'version'))
-    let version_path = object_property_get(max, 'file_path')
+    let max = list_max_generic(mapped, m => object_property_get(m, 'version'));
+    let version_path = object_property_get(max, 'file_path');
     return {
         [property_version_path]: version_path,
         [property_hunks]: hunks_new
