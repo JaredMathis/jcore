@@ -6,8 +6,8 @@ import { file_overwrite } from '../overwrite.mjs';
 import { object_is } from '../../object/is.mjs';
 export async function file_json_overwrite(file_path, data) {
     arguments_assert(arguments, [
-        object_is,
-        path_is
+        path_is,
+        object_is
     ]);
     let json = json_to(data);
     await file_overwrite(file_path, json);
