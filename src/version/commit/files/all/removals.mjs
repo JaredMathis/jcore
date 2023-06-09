@@ -40,5 +40,5 @@ export async function version_commit_files_all_removals(repository_name) {
     function contents_new_get() {
         return string_empty();
     }
-    return removals;
+    return writes;
 }

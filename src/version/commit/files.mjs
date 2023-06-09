@@ -11,7 +11,6 @@ export async function version_commit_files(repository_name, file_paths, data) {
         list_is,
         object_is
     ]);
-    let lambda = version_file_difference;
-    let writes = await version_commit_files_generic(repository_name, file_paths, data, lambda);
+    let writes = await version_commit_files_generic(repository_name, file_paths, data, version_file_difference);
     await version_write_all(writes);
 }
