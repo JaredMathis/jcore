@@ -19,7 +19,7 @@ import { version_path_files_get } from '../../../../path/files/get.mjs';
 import { git_ignore_filter } from '../../../../../git/ignore/filter.mjs';
 import { list_is } from '../../../../../list/is.mjs';
 import { string_identifier_is } from '../../../../../string/identifier/is.mjs';
-export async function version_commit_files_all_removals_generic(file_paths, repository_name) {
+export async function version_commit_files_all_removals_generic(repository_name, file_paths) {
     arguments_assert(arguments, [
         list_is,
         string_identifier_is
