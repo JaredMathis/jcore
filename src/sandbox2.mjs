@@ -37,7 +37,10 @@ export async function sandbox2() {
     const commit_data = version_commit_data(todo, arguments);
     await version_commit_files_generic(repository_name, removals, commit_data, difference_get);
     async function difference_get(repository_name, file_path) {
-        return await version_file_difference_generic(repository_name, file_path, () => string_empty());
+        return await version_file_difference_generic(repository_name, file_path, contents_new_get);
+    }
+    function contents_new_get() {
+        return string_empty();
     }
     console.log(removals);
 }
