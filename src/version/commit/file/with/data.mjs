@@ -89,5 +89,6 @@ export async function version_commit_file_with_data(repository_name, file_path, 
                 file_delete(file_path);
             }
         }
+        throw e;
     }
 }
