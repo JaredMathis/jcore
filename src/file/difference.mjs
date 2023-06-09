@@ -1,3 +1,4 @@
+import { string_new_line } from '../string/new/line.mjs';
 import { file_read } from './read.mjs';
 import { string_empty } from '../string/empty.mjs';
 import { file_write } from './write.mjs';
@@ -19,5 +20,5 @@ export async function file_difference(repository_name, file_path) {
         await file_write(gitignore_file_path, string_empty());
     }
     let gitignore_contents = await file_read(gitignore_file_path);
-    let gitignore_lines = string_split(gitignore_contents, string_newline());
+    let gitignore_lines = string_split(gitignore_contents, string_new_line());
 }
