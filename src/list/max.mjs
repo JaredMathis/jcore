@@ -4,8 +4,10 @@ import { metadata } from '../metadata.mjs';
 import { number_is } from '../number/is.mjs';
 import { assert } from '../assert.mjs';
 import { list_first } from './first.mjs';
+import { identity } from 'lodash';
 export function list_max(list) {
     arguments_assert(arguments, [list_is]);
+    let lambda = identity;
     let max = list_first(list);
     assert(number_is(max));
     for (let n of list) {

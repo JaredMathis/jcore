@@ -25,10 +25,16 @@ export async function version_file_difference_generic(repository_name, file_path
     let property_version_path = version_property_path();
     let repository_file_directory_path = version_path_file_directory(repository_name, file_path);
     let paths = await directory_read(repository_file_directory_path);
-    let mapped = list_map(paths, p => string_prefix_without(p, repository_file_directory_path));
-    let mapped2 = list_map(mapped, m => string_suffix_without(m, file_extension_json()));
-    let mapped3 = list_map(mapped2, integer_parse);
-    list_max_or_0;
+    let mapped = list_map(paths, file_path => { 
+        let without_prefix = string_prefix_without(file_path, repository_file_directory_path);
+        let without_suffix = string_suffix_without(without_prefix, file_extension_json());
+        let version = integer_parse(without_suffix);
+        return {
+            file_path,
+            version,
+        }
+    });
+    list_max_or_0(mapped3)
     return {
         [property_version_path]: version_path,
         [property_hunks]: hunks_new
