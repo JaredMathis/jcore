@@ -1,3 +1,4 @@
+import { file_json_overwrite } from '../../../../file/json/overwrite.mjs';
 import { log } from '../../../../log.mjs';
 import { version_path_sub_get } from '../../../path/sub/get.mjs';
 import { version_property_hunks } from '../../../property/hunks.mjs';
@@ -80,7 +81,7 @@ export async function version_commit_file_with_data(repository_name, file_path, 
         for (let w of writes) {
             const file_path = object_property_get(w, property_file_path);
             const contents = object_property_get(w, property_contents);
-            await json_overwrite(file_path, contents);
+            await file_json_overwrite(file_path, contents);
         }
     } catch (e) {
         for (let w of writes) {
