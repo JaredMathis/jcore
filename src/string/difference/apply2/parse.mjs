@@ -27,6 +27,10 @@ export function string_difference_apply2_parse(hunk) {
     let position_string = string_sub(hunk, 0, valid_min);
     let position = integer_parse(position_string);
     const valid_min_add_1 = add_1(valid_min);
-    let operation = string_sub(hunk, valid_min, valid_min_add_1)
-    return { position, operation };
+    let operation = string_sub(hunk, valid_min, valid_min_add_1);
+    let s = string_sub_start;
+    return {
+        position,
+        operation
+    };
 }
