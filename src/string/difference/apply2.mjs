@@ -38,6 +38,7 @@ export function string_difference_apply2(string_old, hunks) {
     for (let m of removals) {
         let position = object_property_get(m, string_difference_property_position());
         let removed = object_property_get(m, string_difference_property_removed());
+        console.log({value, position, removed})
         let lr = string_left_right(value, position, add(position, removed));
         let left = object_property_get(lr, string_left_right_property_left());
         let right = object_property_get(lr, string_left_right_property_right());
