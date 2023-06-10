@@ -38,34 +38,14 @@ export function string_difference_apply2(string_old, hunks) {
     for (let m of removals) {
         let position = object_property_get(m, string_difference_property_position());
         let operation = object_property_get(m, string_difference_property_operation());
-        if (equal(operation, string_difference_removed())) {
             let removed = object_property_get(m, string_difference_property_removed());
             let lr = string_left_right(value, position, add(position, removed));
             let left = object_property_get(lr, string_left_right_property_left());
             let right = object_property_get(lr, string_left_right_property_right());
             value = `${ left }${ right }`;
-        } else if (equal(operation, string_difference_added())) {
-            let added = object_property_get(m, string_difference_property_added());
-            error();
-        } else {
-            error();
-        }
     }
     for (let m of addeds) {
-        let position = object_property_get(m, string_difference_property_position());
-        let operation = object_property_get(m, string_difference_property_operation());
-        if (equal(operation, string_difference_removed())) {
-            let removed = object_property_get(m, string_difference_property_removed());
-            let lr = string_left_right(value, position, add(position, removed));
-            let left = object_property_get(lr, string_left_right_property_left());
-            let right = object_property_get(lr, string_left_right_property_right());
-            value = `${ left }${ right }`;
-        } else if (equal(operation, string_difference_added())) {
-            let added = object_property_get(m, string_difference_property_added());
-            error();
-        } else {
-            error();
-        }
+        error();
     }
     return value;
 }
