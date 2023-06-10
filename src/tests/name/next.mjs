@@ -1,5 +1,4 @@
 import { string_function_tests_sub } from '../../string/function/tests/sub.mjs';
-import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { function_tests_prefix_get } from '../../function/tests/prefix/get.mjs';
 import { add_1 } from '../../add/1.mjs';
@@ -10,8 +9,9 @@ import { list_filter } from '../../list/filter.mjs';
 import { string_function_name_to_tests_id } from '../../string/function/name/to/tests/id.mjs';
 import { list_map } from '../../list/map.mjs';
 import { function_name_all } from '../../function/name/all.mjs';
+import { string_identifier_is } from '../../string/identifier/is.mjs';
 export async function tests_name_next(function_name) {
-    arguments_assert(arguments, [arguments_assert_todo]);
+    arguments_assert(arguments, [string_identifier_is]);
     let functions_all = await function_name_all(function_name);
     let tests_all = list_map(functions_all, f => stsring_starts_with(f, function_name + string_function_tests_sub()));
     let tests_ids_all = list_map(tests_all, t => {
