@@ -1,14 +1,7 @@
-import { string_left_right } from './string/left/right.mjs';
-import { string_sub_max_property_right_index } from './string/sub/max/property/right/index.mjs';
-import { string_sub_max_property_left_index } from './string/sub/max/property/left/index.mjs';
-import { string_sub_max_property_offset } from './string/sub/max/property/offset.mjs';
-import { string_sub_max } from './string/sub/max.mjs';
+import { string_difference_get2 } from './string/difference/get2.mjs';
 import { log } from './log.mjs';
-import { string_empty_is } from './string/empty/is.mjs';
 import { version_commit_and_removals } from './version/commit/and/removals.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
-import { object_property_get } from './object/property/get.mjs';
-import { list_single_item } from './list/single/item.mjs';
 export async function sandbox2() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
@@ -17,22 +10,5 @@ export async function sandbox2() {
     let left = '';
     let right = 'b';
     let result = string_difference_get2(left, right);
-    console.log({
-        result
-    });
-}
-
-function string_difference_get2(left, right) {
-    let max = string_sub_max(left, right);
-    let offset = object_property_get(max, string_sub_max_property_offset());
-    let left_index = object_property_get(max, string_sub_max_property_left_index());
-    let right_index = object_property_get(max, string_sub_max_property_right_index());
-    if (offset === 0) {
-        if (string_empty_is(left)) {
-            return list_single_item('+' + right);
-        }
-    }
-    let left_lr = string_left_right(left, left_index, offset);
-    let right_lr = string_left_right(right, right_index, offset);
-    return { left_lr, right_lr };
+    console.log({ result });
 }
