@@ -39,10 +39,13 @@ export async function sandbox2() {
     await tests_generate();
     function random_input() {
         let result = '';
-        for (let index of range(10)) {
+        for (let index of range(random_between(8, 10))) {
             let c = random_get() > 0.5 ? 'a' : 'b';
             result = result + c;
         }
         return result;
     }
+}
+function random_between(lower, upper) {
+
 }
