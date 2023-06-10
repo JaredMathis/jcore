@@ -3,7 +3,7 @@ import { version_property_hunks } from '../../property/hunks.mjs';
 import { version_path_file_directory } from '../../path/file/directory.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { version_property_path } from '../../property/path.mjs';
-import { string_difference_get } from '../../../string/difference/get.mjs';
+import { string_difference_get_external } from '../../../string/difference/get/external.mjs';
 import { version_file_contents } from '../contents.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
 import { path_is } from '../../../path/is.mjs';
@@ -26,7 +26,7 @@ export async function version_file_difference_generic(repository_name, file_path
     ]);
     let contents_old = await version_file_contents(repository_name, file_path);
     let contents_new = await contents_new_get(file_path);
-    let hunks_new = string_difference_get(contents_old, contents_new);
+    let hunks_new = string_difference_get_external(contents_old, contents_new);
     let repository_file_directory_path = version_path_file_directory(repository_name, file_path);
     let mapped;
     if (await path_exists(repository_file_directory_path)) {

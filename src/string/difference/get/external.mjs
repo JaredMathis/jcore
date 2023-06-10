@@ -1,9 +1,9 @@
-import { list_single } from '../../list/single.mjs';
-import { arguments_assert } from '../../arguments/assert.mjs';
-import { string_is } from '../is.mjs';
+import { list_single } from '../../../list/single.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
+import { string_is } from '../../is.mjs';
 import * as Diff from 'diff';
-import { object_property_get } from '../../object/property/get.mjs';
-export function string_difference_get(string_old, string_new) {
+import { object_property_get } from '../../../object/property/get.mjs';
+export function string_difference_get_external(string_old, string_new) {
     arguments_assert(arguments, [
         string_is,
         string_is
