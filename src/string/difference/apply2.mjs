@@ -32,7 +32,7 @@ export function string_difference_apply2(string_old, hunks) {
         let text = object_property_get(m, string_difference_property_text());
         if (equal(operation, string_difference_removed())) {
             for (let i = position; i < position + string_length(text); i++) {
-                value_i = string_get(i);
+                value_i = string_get(value, i);
                 assert(equal());
             }
         } else if (equal(operation, string_difference_added())) {
