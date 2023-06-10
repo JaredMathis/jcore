@@ -35,11 +35,11 @@ export function string_difference_get2_recursive(left, right, left_offset, right
     let right_index = object_property_get(max, string_sub_max_property_right_index());
     if (offset === 0) {
         if (string_empty_not_is(left)) {
-            const position = left_index + right_offset;
+            const position = left_index + left_offset;
             list_add(result, position + '-' + left);
         }
         if (string_empty_not_is(right)) {
-            const position = right_index + left_offset;
+            const position = right_index + right_offset;
             list_add(result, position + '+' + right);
         }
         return result;

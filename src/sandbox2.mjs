@@ -1,3 +1,4 @@
+import { tests_generate } from './tests/generate.mjs';
 import { tests } from './tests.mjs';
 import { function_tests_generate_generic_each } from './function/tests/generate/generic/each.mjs';
 import { tests_name_next } from './tests/name/next.mjs';
@@ -25,4 +26,5 @@ export async function sandbox2() {
     let function_name = function_name_get(fn);
     let test_name = await tests_name_next(function_name);
     await function_tests_generate_generic_each(function_name, test_name, args);
+    await tests_generate();
 }
