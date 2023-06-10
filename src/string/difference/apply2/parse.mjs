@@ -25,4 +25,5 @@ export function string_difference_apply2_parse(hunk) {
     let valid_min = list_min(valid);
     let position_string = string_sub(hunk, 0, valid_min);
     let position = integer_parse(position_string);
+    return { position };
 }
