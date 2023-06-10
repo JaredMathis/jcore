@@ -1,7 +1,7 @@
 import { string_get } from '../get.mjs';
 import { string_difference_added } from './added.mjs';
 import { string_difference_removed } from './removed.mjs';
-import { string_difference_property_text } from './property/text.mjs';
+import { string_difference_property_added } from './property/added.mjs';
 import { string_difference_property_position } from './property/position.mjs';
 import { string_difference_property_operation } from './property/operation.mjs';
 import { string_difference_apply2_parse } from './apply2/parse.mjs';
@@ -30,7 +30,7 @@ export function string_difference_apply2(string_old, hunks) {
     for (let m of mapped) {
         let position = object_property_get(m, string_difference_property_position());
         let operation = object_property_get(m, string_difference_property_operation());
-        let text = object_property_get(m, string_difference_property_text());
+        let text = object_property_get(m, string_difference_property_added());
         if (equal(operation, string_difference_removed())) {
             for (let i of range(string_length(text))) {
                 let text_i = string_get(text, i);

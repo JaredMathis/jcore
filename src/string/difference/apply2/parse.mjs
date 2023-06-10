@@ -1,4 +1,4 @@
-import { string_difference_property_text } from '../property/text.mjs';
+import { string_difference_property_added } from '../property/added.mjs';
 import { string_difference_property_operation } from '../property/operation.mjs';
 import { string_difference_property_position } from '../property/position.mjs';
 import { string_sub } from '../../sub.mjs';
@@ -39,7 +39,7 @@ export function string_difference_apply2_parse(hunk) {
     const result = {
         [string_difference_property_position()]: position,
         [string_difference_property_operation()]: operation,
-        [string_difference_property_text()]: text
+        [string_difference_property_added()]: text
     };
     return result;
 }
