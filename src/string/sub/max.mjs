@@ -4,8 +4,8 @@ import { string_sub_max_property_offset } from './max/property/offset.mjs';
 import { string_sub_max_starting_at } from './max/starting/at.mjs';
 export function string_sub_max(left, right) {
     let offset_max = 0;
-    let left_index_max;
-    let right_index_max;
+    let left_index_max = 0;
+    let right_index_max = 0;
     for (let left_index = 0; left_index < left.length; left_index++) {
         for (let right_index = 0; right_index < right.length; right_index++) {
             let offset = string_sub_max_starting_at(left, right, left_index, right_index);
