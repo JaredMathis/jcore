@@ -20,7 +20,8 @@ export async function sandbox2() {
     let left_index = object_property_get(max, string_sub_max_property_left_index());
     let right_index = object_property_get(max, string_sub_max_property_right_index());
     if (offset === 0) {
-        if (string_empty_is()) {
+        if (string_empty_is(left)) {
+            return '+' + right;
         }
     }
     let left_lr = string_left_right(left, left_index, offset);
