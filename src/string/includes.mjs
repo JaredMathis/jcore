@@ -7,6 +7,7 @@ export function string_includes(input, search) {
         string_is,
         string_is
     ]);
-    return string_index_of_try(input, search) >= 0;
+    const index_try = string_index_of_try(input, search);
+    return index_try >= 0;
     metadata([]);
 }
