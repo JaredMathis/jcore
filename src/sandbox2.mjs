@@ -19,18 +19,18 @@ export async function sandbox2() {
     const repository_name = 'a';
     if (false)
         await version_commit_and_removals(repository_name);
+    let fn1 = string_difference_get2;
+    let fn2 = string_difference_apply2;
     let pairs = [];
     for (let i of range(10)) {
         let left = random_input();
         let right = random_input();
-        let fn1 = string_difference_get2;
         let args1 = [
             left,
             right
         ];
         let result1 = fn1(...args1);
         console.log({ result1 });
-        let fn2 = string_difference_apply2;
         let args2 = [
             left,
             result1
@@ -42,7 +42,6 @@ export async function sandbox2() {
             args2
         });
     }
-    return;
     for (let pair of pairs) {
         let {args1, args2} = pair;
         await function_tests_generate_next(fn1, args1);
