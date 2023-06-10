@@ -7,6 +7,7 @@ import { string_difference_added } from '../added.mjs';
 import { list_all } from '../../../list/all.mjs';
 import { error } from '../../../error.mjs';
 import { list_filter } from '../../../list/filter.mjs';
+import { list_length_is_0 } from '../../../list/length/is/0.mjs';
 export function string_difference_apply2_parse(hunk) {
     arguments_assert(arguments, [string_is]);
     let index_removed = string_index_of_try(hunk, string_difference_removed());
@@ -16,7 +17,7 @@ export function string_difference_apply2_parse(hunk) {
         index_added
     ];
     let valid = list_filter(indexes, string_index_of_try_valid);
-    if (list_all(indexes, i => !string_index_of_try_valid(i))) {
+    if (list_length_is_0(valid)) {
         error();
     }
 }
