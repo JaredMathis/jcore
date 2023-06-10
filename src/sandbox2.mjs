@@ -11,12 +11,16 @@ export async function sandbox2() {
         await version_commit_and_removals(repository_name);
     let left = 'abba';
     let right = 'abbba';
+    string_sub_max(left, right);
+}
+
+function string_sub_max(left, right) {
     let offset_max = 0;
     let left_index_max;
     let right_index_max;
     for (let left_index = 0; left_index < left.length; left_index++) {
         for (let right_index = 0; right_index < right.length; right_index++) {
-            let offset = string_sub_max_starting_at(left, right, left_index, right_index)
+            let offset = string_sub_max_starting_at(left, right, left_index, right_index);
             if (offset > offset_max) {
                 offset_max = offset;
                 left_index_max = left_index;
@@ -24,7 +28,13 @@ export async function sandbox2() {
             }
         }
     }
-    console.log(offset_max, string_sub(left, left_index_max, left_index_max + offset_max))
+    console.log(offset_max, string_sub(left, left_index_max, left_index_max + offset_max));
+    let result = {
+        offset: offset_max,
+        left_index: left_index_max,
+        right_index: right_index_max,
+    };
+    return result;
 }
 
 function string_sub_max_starting_at(left, right, left_index, right_index) {
