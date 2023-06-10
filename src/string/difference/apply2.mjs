@@ -1,3 +1,5 @@
+import { list_sort } from '../../list/sort.mjs';
+import { list_filter_property } from '../../list/filter/property.mjs';
 import { string_left_right_property_right } from '../left/right/property/right.mjs';
 import { string_left_right_property_left } from '../left/right/property/left.mjs';
 import { string_left_right } from '../left/right.mjs';
@@ -17,7 +19,6 @@ import { object_property_get } from '../../object/property/get.mjs';
 import { equal } from '../../equal.mjs';
 import { string_difference_property_removed } from './property/removed.mjs';
 import { add } from '../../add.mjs';
-import { list_filter } from '../../list/filter.mjs';
 import { assert } from '../../assert.mjs';
 import { list_length } from '../../list/length.mjs';
 export function string_difference_apply2(string_old, hunks) {
@@ -29,12 +30,10 @@ export function string_difference_apply2(string_old, hunks) {
         return string_old;
     }
     let mapped = list_map(hunks, string_difference_apply2_parse);
-
     let removals = list_filter_property(mapped, string_difference_property_operation(), string_difference_removed());
+    list_sort(removals);
     let addeds = list_filter_property(mapped, string_difference_property_operation(), string_difference_added());
-
-    assert(equal(list_length(mapped), add(list_length(removals), list_length(addeds))))
-
+    assert(equal(list_length(mapped), add(list_length(removals), list_length(addeds))));
     let value = string_old;
     for (let m of removals) {
         let position = object_property_get(m, string_difference_property_position());
@@ -69,8 +68,4 @@ export function string_difference_apply2(string_old, hunks) {
         }
     }
     return value;
-}
-
-function list_filter_property(mapped, property_name, property_value) {
-    return list_filter(mapped, m => equal(object_property_get(m, property_name), property_value));
 }
