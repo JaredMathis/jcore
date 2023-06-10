@@ -1,3 +1,5 @@
+import { string_difference_added } from '../added.mjs';
+import { string_difference_removed } from '../removed.mjs';
 import { list_add_multiple } from '../../../list/add/multiple.mjs';
 import { string_left_right_property_right } from '../../left/right/property/right.mjs';
 import { string_left_right_property_left } from '../../left/right/property/left.mjs';
@@ -22,10 +24,12 @@ export function string_difference_get2_recursive(left, right, left_offset, right
         integer_is
     ]);
     if (false)
-    console.log({
-        left,
-        right, left_offset, right_offset
-    });
+        console.log({
+            left,
+            right,
+            left_offset,
+            right_offset
+        });
     let result = [];
     if (equal(left, right)) {
         return result;
@@ -37,11 +41,11 @@ export function string_difference_get2_recursive(left, right, left_offset, right
     if (offset === 0) {
         if (string_empty_not_is(left)) {
             const position = left_index + left_offset;
-            list_add(result, position + '-' + left);
+            list_add(result, position + string_difference_removed() + left);
         }
         if (string_empty_not_is(right)) {
             const position = right_index + right_offset;
-            list_add(result, position + '+' + right);
+            list_add(result, position + string_difference_added() + right);
         }
         return result;
     }
