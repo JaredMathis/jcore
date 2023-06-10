@@ -24,13 +24,6 @@ export function string_difference_get2_recursive(left, right, left_offset, right
         integer_is,
         integer_is
     ]);
-    if (false)
-        console.log({
-            left,
-            right,
-            left_offset,
-            right_offset
-        });
     let result = [];
     if (equal(left, right)) {
         return result;
