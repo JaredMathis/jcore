@@ -6,7 +6,11 @@ import { string_sub_max_property_left_index } from '../sub/max/property/left/ind
 import { string_sub_max_property_offset } from '../sub/max/property/offset.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { string_sub_max } from '../sub/max.mjs';
+import { equal } from '../../equal.mjs';
 export function string_difference_get2(left, right) {
+    if (equal(left, right)) {
+        return [];
+    }
     let max = string_sub_max(left, right);
     let offset = object_property_get(max, string_sub_max_property_offset());
     let left_index = object_property_get(max, string_sub_max_property_left_index());
