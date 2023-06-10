@@ -10,6 +10,7 @@ export function list_max_generic(list, value_get) {
         assert(number_is(n));
         if (n > max) {
             result = element;
+            max = n;
         }
     }
     return result;
