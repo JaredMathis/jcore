@@ -1,3 +1,5 @@
+import { string_difference_added } from './added.mjs';
+import { string_difference_removed } from './removed.mjs';
 import { string_difference_property_text } from './property/text.mjs';
 import { string_difference_property_position } from './property/position.mjs';
 import { string_difference_property_operation } from './property/operation.mjs';
@@ -10,6 +12,7 @@ import { error } from '../../error.mjs';
 import { json_to } from '../../json/to.mjs';
 import { list_map } from '../../list/map.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
+import { equal } from '../../equal.mjs';
 export function string_difference_apply2(string_old, hunks) {
     arguments_assert(arguments, [
         string_is,
@@ -24,6 +27,11 @@ export function string_difference_apply2(string_old, hunks) {
         let position = object_property_get(m, string_difference_property_position());
         let operation = object_property_get(m, string_difference_property_operation());
         let text = object_property_get(m, string_difference_property_text());
+        if (equal(operation, string_difference_removed())) {
+        } else if (equal(operation, string_difference_added())) {
+        } else {
+            error();
+        }
     }
     error(json_to({
         string_old,
