@@ -13,18 +13,21 @@ import { string_left_right_property_left } from '../left/right/property/left.mjs
 import { string_is } from '../is.mjs';
 import { list_add } from '../../list/add.mjs';
 import { list_add_multiple } from '../../list/add/multiple.mjs';
+import { integer_is } from '../../integer/is.mjs';
 export function string_difference_get2(left, right) {
     arguments_assert(arguments, [
         string_is,
         string_is
     ]);
-    return string_difference_get2_recursive(left, right);
+    return string_difference_get2_recursive(left, right, 0, 0);
 }
 
-function string_difference_get2_recursive(left, right) {
+function string_difference_get2_recursive(left, right, left_offset, right_offset) {
     arguments_assert(arguments, [
         string_is,
-        string_is
+        string_is,
+        integer_is,
+        integer_is
     ]);
     
     console.log({
@@ -54,9 +57,9 @@ function string_difference_get2_recursive(left, right) {
     let right_lr = string_left_right(right, right_index, offset);
     let right_left = object_property_get(right_lr, string_left_right_property_left());
     let right_right = object_property_get(right_lr, string_left_right_property_right());
-    let left_result = string_difference_get2(left_left, right_left);
+    let left_result = string_difference_get2_recursive(left_left, right_left, left_offset, right_offset);
     list_add_multiple(result, left_result)
-    let right_result = string_difference_get2(left_right, right_right);
+    let right_result = string_difference_get2_recursive(left_right, right_right, left_offset, right_offset);
     list_add_multiple(result, right_result)
     return result;
 }
