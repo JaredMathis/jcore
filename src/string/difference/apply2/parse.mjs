@@ -34,8 +34,15 @@ export function string_difference_apply2_parse(hunk) {
     let position = integer_parse(position_string);
     const valid_min_add_1 = add_1(valid_min);
     let operation = string_sub(hunk, valid_min, valid_min_add_1);
-    assert(list_contains(operations, operation));
     let after = string_sub(hunk, valid_min_add_1, string_length(hunk));
+    if (equal(operation, string_difference_removed())) {
+        
+    } else if (equal(operation, string_difference_added())) {
+        error();
+    } else {
+        error();
+    }
+
     const result = {
         [string_difference_property_position()]: position,
         [string_difference_property_operation()]: operation,
