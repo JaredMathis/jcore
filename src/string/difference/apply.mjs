@@ -21,7 +21,7 @@ import { string_difference_property_removed } from './property/removed.mjs';
 import { add } from '../../add.mjs';
 import { assert } from '../../assert.mjs';
 import { list_length } from '../../list/length.mjs';
-export function string_difference_apply2(string_old, hunks) {
+export function string_difference_apply(string_old, hunks) {
     arguments_assert(arguments, [
         string_is,
         list_is

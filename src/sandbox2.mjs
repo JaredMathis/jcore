@@ -8,7 +8,7 @@ import { string_difference_get } from './string/difference/get.mjs';
 import { log } from './log.mjs';
 import { version_commit_and_removals } from './version/commit/and/removals.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
-import { string_difference_apply2 } from './string/difference/apply2.mjs';
+import { string_difference_apply } from './string/difference/apply.mjs';
 import { assert } from './assert.mjs';
 import { equal } from './equal.mjs';
 import { range } from './range.mjs';
@@ -20,7 +20,7 @@ export async function sandbox2() {
     if (false)
         await version_commit_and_removals(repository_name);
     let fn1 = string_difference_get;
-    let fn2 = string_difference_apply2;
+    let fn2 = string_difference_apply;
     let pairs = [];
     for (let i of range(10)) {
         let left = random_input();
