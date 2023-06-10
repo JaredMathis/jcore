@@ -17,6 +17,7 @@ import { equal } from '../../equal.mjs';
 import { string_length } from '../length.mjs';
 import { assert } from '../../assert.mjs';
 import { range } from '../../range.mjs';
+import { string_difference_property_removed } from './property/removed.mjs';
 export function string_difference_apply2(string_old, hunks) {
     arguments_assert(arguments, [
         string_is,
@@ -31,6 +32,7 @@ export function string_difference_apply2(string_old, hunks) {
         let position = object_property_get(m, string_difference_property_position());
         let operation = object_property_get(m, string_difference_property_operation());
         if (equal(operation, string_difference_removed())) {
+            let removed = object_property_get(m, string_difference_property_removed());
             for (let i of range(string_length(text))) {
                 let text_i = string_get(text, i);
                 let value_i = string_get(value, position + i);
