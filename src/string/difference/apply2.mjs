@@ -1,4 +1,3 @@
-import { list_sort } from '../../list/sort.mjs';
 import { list_filter_property } from '../../list/filter/property.mjs';
 import { string_left_right_property_right } from '../left/right/property/right.mjs';
 import { string_left_right_property_left } from '../left/right/property/left.mjs';
