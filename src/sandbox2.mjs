@@ -32,8 +32,12 @@ export async function sandbox2() {
     let result2 = fn2(...args2);
     assert(equal(right, result2));
     await tests();
+    await function_tests_generate_next(fn1, args1);
+    await tests_generate();
+}
+
+async function function_tests_generate_next(fn1, args1) {
     let function_name = function_name_get(fn1);
     let test_name = await tests_name_next(function_name);
     await function_tests_generate_generic_each(function_name, test_name, args1);
-    await tests_generate();
 }
