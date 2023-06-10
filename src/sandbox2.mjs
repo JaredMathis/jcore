@@ -50,7 +50,8 @@ export async function sandbox2() {
         let result = '';
         for (let index of range(random_between(8, 16))) {
             let c = random_get() > 0.5 ? 'a' : 'b';
-            result = result + c;
+            let m = string_multiply(c, random_between(1, 3));
+            result = result + m;
         }
         return result;
     }
