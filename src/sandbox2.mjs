@@ -11,6 +11,7 @@ import { string_difference_apply2 } from './string/difference/apply2.mjs';
 import { assert } from './assert.mjs';
 import { equal } from './equal.mjs';
 import { range } from './range.mjs';
+import { list_add } from './list/add.mjs';
 export async function sandbox2() {
     arguments_assert(arguments, []);
     await tests();
@@ -36,10 +37,14 @@ export async function sandbox2() {
         ];
         let result2 = fn2(...args2);
         assert(equal(right, result2));
+        list_add(pairs, {args1, args2})
     }
     return;
-    await function_tests_generate_next(fn1, args1);
-    await function_tests_generate_next(fn2, args2);
+    for (let pair of pairs) {
+        let {args1, args2} = pair;
+        await function_tests_generate_next(fn1, args1);
+        await function_tests_generate_next(fn2, args2);
+    }
     await tests_generate();
     function random_input() {
         let result = '';
