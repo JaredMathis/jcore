@@ -15,6 +15,9 @@ export function string_difference_get2(left, right) {
         if (string_empty_is(left)) {
             return list_single_item('+' + right);
         }
+        if (string_empty_is(right)) {
+            return list_single_item('-' + left);
+        }
     }
     let left_lr = string_left_right(left, left_index, offset);
     let right_lr = string_left_right(right, right_index, offset);
