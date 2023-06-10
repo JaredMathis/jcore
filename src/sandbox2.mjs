@@ -17,12 +17,7 @@ export async function sandbox2() {
     const repository_name = 'a';
     if (false)
         await version_commit_and_removals(repository_name);
-    for (let i of range(10)) {
-        console.log(random_between(1, 2));
-    }
-    console.log(random_input());
-    return;
-    let left = 'zfz';
+    let left = random_input();
     let right = 'abcdefabcde';
     let fn1 = string_difference_get2;
     let args1 = [
@@ -43,7 +38,7 @@ export async function sandbox2() {
     await tests_generate();
     function random_input() {
         let result = '';
-        for (let index of range(random_between(8, 10))) {
+        for (let index of range(random_between(8, 16))) {
             let c = random_get() > 0.5 ? 'a' : 'b';
             result = result + c;
         }
