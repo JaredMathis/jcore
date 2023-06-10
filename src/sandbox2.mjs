@@ -1,3 +1,4 @@
+import { tests } from './tests.mjs';
 import { function_tests_generate_generic_each } from './function/tests/generate/generic/each.mjs';
 import { tests_name_next } from './tests/name/next.mjs';
 import { string_difference_get2 } from './string/difference/get2.mjs';
@@ -19,7 +20,8 @@ export async function sandbox2() {
     ];
     let result = fn(...args);
     console.log({ result });
-    return
+    await tests();
+    return;
     let function_name = function_name_get(fn);
     let test_name = await tests_name_next(function_name);
     await function_tests_generate_generic_each(function_name, test_name, args);
