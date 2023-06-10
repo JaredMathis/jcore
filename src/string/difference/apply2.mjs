@@ -1,3 +1,5 @@
+import { string_difference_property_text } from './property/text.mjs';
+import { string_difference_property_position } from './property/position.mjs';
 import { string_difference_property_operation } from './property/operation.mjs';
 import { string_difference_apply2_parse } from './apply2/parse.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -19,7 +21,9 @@ export function string_difference_apply2(string_old, hunks) {
     let mapped = list_map(hunks, string_difference_apply2_parse);
     let value = string_old;
     for (let m of mapped) {
+        let position = object_property_get(m, string_difference_property_position());
         let operation = object_property_get(m, string_difference_property_operation());
+        let text = object_property_get(m, string_difference_property_text());
     }
     error(json_to({
         string_old,
