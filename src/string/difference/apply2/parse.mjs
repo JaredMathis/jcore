@@ -12,14 +12,11 @@ import { list_length_is_0 } from '../../../list/length/is/0.mjs';
 import { integer_parse } from '../../../integer/parse.mjs';
 import { add_1 } from '../../../add/1.mjs';
 import { string_length } from '../../length.mjs';
+import { list_map } from '../../../list/map.mjs';
 export function string_difference_apply2_parse(hunk) {
     arguments_assert(arguments, [string_is]);
-    let index_removed = string_index_of_try(hunk, string_difference_removed());
-    let index_added = string_index_of_try(hunk, string_difference_added());
-    let indexes = [
-        index_removed,
-        index_added
-    ];
+    let operations = [string_difference_removed(), string_difference_added()]
+    let indexes = list_map(operations, o => string_index_of_try(hunk, o));
     let valid = list_filter(indexes, string_index_of_try_valid);
     if (list_length_is_0(valid)) {
         error();
