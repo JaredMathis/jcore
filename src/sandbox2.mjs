@@ -19,7 +19,6 @@ export async function sandbox2() {
     ];
     let result = fn(...args);
     console.log({ result });
-    return
     let function_name = function_name_get(fn);
     let test_name = await tests_name_next(function_name);
     await function_tests_generate_generic_each(function_name, test_name, args);
