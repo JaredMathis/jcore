@@ -1,3 +1,4 @@
+import { string_index_of_try_valid } from './index/of/try/valid.mjs';
 import { string_is } from './is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
@@ -8,6 +9,6 @@ export function string_includes(input, search) {
         string_is
     ]);
     const index_try = string_index_of_try(input, search);
-    return index_try >= 0;
+    return string_index_of_try_valid(index_try);
     metadata([]);
 }
