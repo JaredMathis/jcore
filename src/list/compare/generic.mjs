@@ -1,14 +1,15 @@
-import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { number_is } from '../../number/is.mjs';
 import { assert } from '../../assert.mjs';
 import { list_first } from '../first.mjs';
 import { value_get } from '../../value/get.mjs';
+import { list_is } from '../is.mjs';
+import { function_is } from '../../function/is.mjs';
 export function list_compare_generic(list, value_get, compare) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
-        arguments_assert_todo,
-        arguments_assert_todo
+        list_is,
+        function_is,
+        function_is
     ]);
     let result = list_first(list);
     let found = value_get(result);
