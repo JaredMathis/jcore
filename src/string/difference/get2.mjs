@@ -18,6 +18,15 @@ export function string_difference_get2(left, right) {
         string_is,
         string_is
     ]);
+    return string_difference_get2_recursive(left, right);
+}
+
+function string_difference_get2_recursive(left, right) {
+    arguments_assert(arguments, [
+        string_is,
+        string_is
+    ]);
+    
     console.log({
         left,
         right
