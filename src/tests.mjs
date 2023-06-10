@@ -239,6 +239,7 @@ import { string_difference_get2_test_5 } from './string/difference/get2/test/5.m
 import { string_difference_get2_test_4 } from './string/difference/get2/test/4.mjs';
 import { string_difference_get2_test_3 } from './string/difference/get2/test/3.mjs';
 import { string_difference_get2_test_2 } from './string/difference/get2/test/2.mjs';
+import { string_difference_get2_test_13 } from './string/difference/get2/test/13.mjs';
 import { string_difference_get2_test_12 } from './string/difference/get2/test/12.mjs';
 import { string_difference_get2_test_11 } from './string/difference/get2/test/11.mjs';
 import { string_difference_get2_test_10 } from './string/difference/get2/test/10.mjs';
@@ -253,6 +254,7 @@ import { string_difference_get_test_generated_3 } from './string/difference/get/
 import { string_difference_get_test_generated_2 } from './string/difference/get/test/generated/2.mjs';
 import { string_difference_get_test_generated_10 } from './string/difference/get/test/generated/10.mjs';
 import { string_difference_get_test_generated_1 } from './string/difference/get/test/generated/1.mjs';
+import { string_difference_apply2_test_5 } from './string/difference/apply2/test/5.mjs';
 import { string_difference_apply2_test_4 } from './string/difference/apply2/test/4.mjs';
 import { string_difference_apply2_test_3 } from './string/difference/apply2/test/3.mjs';
 import { string_difference_apply2_test_2 } from './string/difference/apply2/test/2.mjs';
@@ -326,6 +328,7 @@ export async function tests() {
     await string_difference_apply2_test_2();
     await string_difference_apply2_test_3();
     await string_difference_apply2_test_4();
+    await string_difference_apply2_test_5();
     await string_difference_get_test_generated_1();
     await string_difference_get_test_generated_10();
     await string_difference_get_test_generated_2();
@@ -340,6 +343,7 @@ export async function tests() {
     await string_difference_get2_test_10();
     await string_difference_get2_test_11();
     await string_difference_get2_test_12();
+    await string_difference_get2_test_13();
     await string_difference_get2_test_2();
     await string_difference_get2_test_3();
     await string_difference_get2_test_4();
@@ -580,5 +584,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(290 + ' tests ran successfully');
+    log(292 + ' tests ran successfully');
 }
