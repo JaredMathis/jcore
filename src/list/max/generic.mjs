@@ -9,7 +9,7 @@ export function list_max_generic(list, value_get) {
     for (let element of list) {
         let n = value_get(element);
         assert(number_is(n));
-        if (n > max) {
+        if (compare(n, max)) {
             result = element;
             max = n;
         }
