@@ -48,6 +48,5 @@ export function string_difference_apply2_parse(hunk) {
     } else {
         error();
     }
-
     return result;
 }
