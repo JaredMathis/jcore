@@ -4,7 +4,7 @@ import { metadata } from '../../../../../../metadata.mjs';
 import { json_equal } from '../../../../../../json/equal.mjs';
 import { assert } from '../../../../../../assert.mjs';
 import { string_difference_get_external } from '../../../external.mjs';
-export function string_difference_get_test_generated_3() {
+export function string_difference_get_external_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = [];
     let actual = string_difference_get_external('aa', 'aa');
