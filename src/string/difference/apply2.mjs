@@ -33,8 +33,9 @@ export function string_difference_apply2(string_old, hunks) {
     list_sort_property_generic(removals, string_difference_property_position(), true);
     let addeds = list_filter_property(mapped, string_difference_property_operation(), string_difference_added());
     assert(equal(list_length(mapped), add(list_length(removals), list_length(addeds))));
+    list_sort_property_generic(addeds, string_difference_property_position(), false);
     let value = string_old;
-    console.log({string_old, removals})
+    console.log({string_old, removals, addeds})
     for (let m of removals) {
         let position = object_property_get(m, string_difference_property_position());
         let removed = object_property_get(m, string_difference_property_removed());
@@ -42,11 +43,16 @@ export function string_difference_apply2(string_old, hunks) {
         let left = object_property_get(lr, string_left_right_property_left());
         let right = object_property_get(lr, string_left_right_property_right());
         let value_new = `${ left }${ right }`;
-        console.log({value, value_new});
         value = value_new
     }
     for (let m of addeds) {
-        error();
+        let position = object_property_get(m, string_difference_property_position());
+        let added = object_property_get(m, string_difference_property_added());
+        let lr = string_left_right(value, position, 0);
+        let left = object_property_get(lr, string_left_right_property_left());
+        let right = object_property_get(lr, string_left_right_property_right());
+        let value_new = `${ left }${added}${ right }`;
+        value = value_new
     }
     return value;
 }
