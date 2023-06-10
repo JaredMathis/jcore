@@ -1,3 +1,5 @@
+import { string_difference_property_removed } from '../property/removed.mjs';
+import { equal } from '../../../equal.mjs';
 import { string_difference_property_added } from '../property/added.mjs';
 import { string_difference_property_operation } from '../property/operation.mjs';
 import { string_difference_property_position } from '../property/position.mjs';
@@ -16,8 +18,6 @@ import { integer_parse } from '../../../integer/parse.mjs';
 import { add_1 } from '../../../add/1.mjs';
 import { string_length } from '../../length.mjs';
 import { list_map } from '../../../list/map.mjs';
-import { assert } from '../../../assert.mjs';
-import { list_contains } from '../../../list/contains.mjs';
 import { object_property_initialize } from '../../../object/property/initialize.mjs';
 export function string_difference_apply2_parse(hunk) {
     arguments_assert(arguments, [string_is]);
@@ -38,19 +38,15 @@ export function string_difference_apply2_parse(hunk) {
     let after = string_sub(hunk, valid_min_add_1, string_length(hunk));
     const result = {
         [string_difference_property_position()]: position,
-        [string_difference_property_operation()]: operation,
+        [string_difference_property_operation()]: operation
     };
     if (equal(operation, string_difference_removed())) {
         let count = integer_parse(after);
-        object_property_initialize(result, string_difference_property_removed(), count)
+        object_property_initialize(result, string_difference_property_removed(), count);
     } else if (equal(operation, string_difference_added())) {
-        object_property_initialize(result, string_difference_property_added(), after)
+        object_property_initialize(result, string_difference_property_added(), after);
     } else {
         error();
     }
     return result;
-}
-
-function string_difference_property_removed() {
-    return 'removed';
 }
