@@ -17,6 +17,6 @@ export function string_difference_apply2(string_old, hunks) {
     let mapped = list_map(hunks, string_difference_apply2_parse);
     error(json_to({
         string_old,
-        hunks
+        mapped
     }));
 }
