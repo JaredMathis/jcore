@@ -1,6 +1,16 @@
-import { error } from '../error.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-export function string_multiply() {
-    arguments_assert(arguments, []);
-    error('todo: string_multiply');
+import { string_is } from './is.mjs';
+import { integer_is } from '../integer/is.mjs';
+import { string_empty } from './empty.mjs';
+import { range } from '../range.mjs';
+export function string_multiply(s, times) {
+    arguments_assert(arguments, [
+        string_is,
+        integer_is
+    ]);
+    let result = string_empty();
+    for (let i of range(times)) {
+        result += s;
+    }
+    return result;
 }
