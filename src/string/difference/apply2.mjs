@@ -12,7 +12,6 @@ import { string_is } from '../is.mjs';
 import { list_is } from '../../list/is.mjs';
 import { list_length_is_0 } from '../../list/length/is/0.mjs';
 import { error } from '../../error.mjs';
-import { json_to } from '../../json/to.mjs';
 import { list_map } from '../../list/map.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { equal } from '../../equal.mjs';
@@ -44,8 +43,5 @@ export function string_difference_apply2(string_old, hunks) {
             error();
         }
     }
-    error(json_to({
-        string_old,
-        mapped
-    }));
+    return value;
 }
