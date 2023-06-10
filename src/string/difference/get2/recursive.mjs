@@ -35,16 +35,12 @@ export function string_difference_get2_recursive(left, right, left_offset, right
     let right_index = object_property_get(max, string_sub_max_property_right_index());
     if (offset === 0) {
         if (string_empty_not_is(right)) {
-            list_add(result, {
-                position: right_index + left_offset,
-                change: '+' + right
-            });
+            const position = right_index + left_offset;
+            list_add(result, position + '+' + right);
         }
         if (string_empty_not_is(left)) {
-            list_add(result, {
-                position: left_index + right_offset,
-                change: '-' + left
-            });
+            const position = left_index + right_offset;
+            list_add(result, position + '-' + left);
         }
         return result;
     }
