@@ -231,6 +231,12 @@ import { string_difference_tests_test_generated_3 } from './string/difference/te
 import { string_difference_tests_test_generated_2 } from './string/difference/tests/test/generated/2.mjs';
 import { string_difference_tests_test_generated_10 } from './string/difference/tests/test/generated/10.mjs';
 import { string_difference_tests_test_generated_1 } from './string/difference/tests/test/generated/1.mjs';
+import { string_difference_get2_test_6 } from './string/difference/get2/test/6.mjs';
+import { string_difference_get2_test_5 } from './string/difference/get2/test/5.mjs';
+import { string_difference_get2_test_4 } from './string/difference/get2/test/4.mjs';
+import { string_difference_get2_test_3 } from './string/difference/get2/test/3.mjs';
+import { string_difference_get2_test_2 } from './string/difference/get2/test/2.mjs';
+import { string_difference_get2_test_1 } from './string/difference/get2/test/1.mjs';
 import { string_difference_get_test_generated_9 } from './string/difference/get/test/generated/9.mjs';
 import { string_difference_get_test_generated_8 } from './string/difference/get/test/generated/8.mjs';
 import { string_difference_get_test_generated_7 } from './string/difference/get/test/generated/7.mjs';
@@ -241,6 +247,12 @@ import { string_difference_get_test_generated_3 } from './string/difference/get/
 import { string_difference_get_test_generated_2 } from './string/difference/get/test/generated/2.mjs';
 import { string_difference_get_test_generated_10 } from './string/difference/get/test/generated/10.mjs';
 import { string_difference_get_test_generated_1 } from './string/difference/get/test/generated/1.mjs';
+import { string_difference_apply2_test_6 } from './string/difference/apply2/test/6.mjs';
+import { string_difference_apply2_test_5 } from './string/difference/apply2/test/5.mjs';
+import { string_difference_apply2_test_4 } from './string/difference/apply2/test/4.mjs';
+import { string_difference_apply2_test_3 } from './string/difference/apply2/test/3.mjs';
+import { string_difference_apply2_test_2 } from './string/difference/apply2/test/2.mjs';
+import { string_difference_apply2_test_1 } from './string/difference/apply2/test/1.mjs';
 import { string_a_test_generated_1 } from './string/a/test/generated/1.mjs';
 import { integer_is_test_values } from './integer/is/test/values.mjs';
 import { error_test_3 } from './error/test/3.mjs';
@@ -298,6 +310,12 @@ export async function tests() {
     await error_test_3();
     await integer_is_test_values();
     await string_a_test_generated_1();
+    await string_difference_apply2_test_1();
+    await string_difference_apply2_test_2();
+    await string_difference_apply2_test_3();
+    await string_difference_apply2_test_4();
+    await string_difference_apply2_test_5();
+    await string_difference_apply2_test_6();
     await string_difference_get_test_generated_1();
     await string_difference_get_test_generated_10();
     await string_difference_get_test_generated_2();
@@ -308,6 +326,12 @@ export async function tests() {
     await string_difference_get_test_generated_7();
     await string_difference_get_test_generated_8();
     await string_difference_get_test_generated_9();
+    await string_difference_get2_test_1();
+    await string_difference_get2_test_2();
+    await string_difference_get2_test_3();
+    await string_difference_get2_test_4();
+    await string_difference_get2_test_5();
+    await string_difference_get2_test_6();
     await string_difference_tests_test_generated_1();
     await string_difference_tests_test_generated_10();
     await string_difference_tests_test_generated_2();
@@ -540,5 +564,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(270 + ' tests ran successfully');
+    log(282 + ' tests ran successfully');
 }
