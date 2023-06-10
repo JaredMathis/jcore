@@ -18,7 +18,6 @@ export async function tests_name_next(function_name) {
     let test_ids_all_number = list_map(tests_ids_all_numeric, integer_parse);
     let max = list_max_or_0(test_ids_all_number);
     let test_ids_all_number_max = add_1(max);
-    console.log({test_ids_all_number_max, max, test_ids_all_number})
     let test_name = `${ function_tests_prefix_get(function_name) }${ test_ids_all_number_max }`;
     return test_name;
 }
