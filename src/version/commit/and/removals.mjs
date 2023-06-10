@@ -14,6 +14,7 @@ export async function version_commit_and_removals(repository_name) {
     let file_paths = await directory_read_current();
     let differences = await version_commit_files_difference(repository_name, file_paths, commit_data);
     let removals = await version_commit_files_all_removals_generic(repository_name, file_paths, commit_data);
+    console.log('here')
     await file_json_overwrite('out.txt', {
         removals,
         differences
