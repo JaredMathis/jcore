@@ -32,10 +32,10 @@ export function string_difference_get2(left, right) {
     let right_index = object_property_get(max, string_sub_max_property_right_index());
     if (offset === 0) {
         if (string_empty_not_is(right)) {
-            list_add(result, { change: '+' + right });
+            list_add(result, { position: right_index, change: '+' + right });
         }
         if (string_empty_not_is(left)) {
-            list_add(result, { change: '-' + left });
+            list_add(result, { position: left_index, change: '-' + left });
         }
         return result;
     }
