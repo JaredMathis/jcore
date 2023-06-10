@@ -10,6 +10,7 @@ import { error } from '../../../error.mjs';
 import { list_filter } from '../../../list/filter.mjs';
 import { list_length_is_0 } from '../../../list/length/is/0.mjs';
 import { integer_parse } from '../../../integer/parse.mjs';
+import { add_1 } from '../../../add/1.mjs';
 export function string_difference_apply2_parse(hunk) {
     arguments_assert(arguments, [string_is]);
     let index_removed = string_index_of_try(hunk, string_difference_removed());
@@ -25,5 +26,6 @@ export function string_difference_apply2_parse(hunk) {
     let valid_min = list_min(valid);
     let position_string = string_sub(hunk, 0, valid_min);
     let position = integer_parse(position_string);
-    return { position };
+    let operation = string_sub(hunk, valid_min, add_1(valid_min))
+    return { position, operation };
 }
