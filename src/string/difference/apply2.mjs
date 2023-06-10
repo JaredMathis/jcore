@@ -1,3 +1,5 @@
+import { string_left_right_property_right } from '../left/right/property/right.mjs';
+import { string_left_right_property_left } from '../left/right/property/left.mjs';
 import { string_left_right } from '../left/right.mjs';
 import { string_difference_added } from './added.mjs';
 import { string_difference_removed } from './removed.mjs';
@@ -32,6 +34,8 @@ export function string_difference_apply2(string_old, hunks) {
         if (equal(operation, string_difference_removed())) {
             let removed = object_property_get(m, string_difference_property_removed());
             let lr = string_left_right(value, position, add(position, removed));
+            let left = object_property_get(lr, string_left_right_property_left());
+            let right = object_property_get(lr, string_left_right_property_right());
         } else if (equal(operation, string_difference_added())) {
             let added = object_property_get(m, string_difference_property_added());
             error();
