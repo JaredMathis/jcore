@@ -6,8 +6,8 @@ import { assert } from '../../../../assert.mjs';
 import { string_difference_get2 } from '../../get2.mjs';
 export function string_difference_get2_test_1() {
     arguments_assert(arguments, []);
-    let expected = ['+b'];
-    let actual = string_difference_get2('', 'b');
+    let expected = [];
+    let actual = string_difference_get2('', '');
     assert(json_equal(actual, expected));
     metadata([metadata_generated()]);
 }
