@@ -31,11 +31,15 @@ function string_sub_max(left, right) {
     }
     console.log(offset_max, string_sub(left, left_index_max, left_index_max + offset_max));
     let result = {
-        'offset': offset_max,
-        'left_index': left_index_max,
-        'right_index': right_index_max,
+        [string_sub_max_property_offset()]: offset_max,
+        ['left_index']: left_index_max,
+        ['right_index']: right_index_max,
     };
     return result;
+}
+
+function string_sub_max_property_offset() {
+    return 'offset';
 }
 
 function string_sub_max_starting_at(left, right, left_index, right_index) {
