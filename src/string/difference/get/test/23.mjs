@@ -4,7 +4,7 @@ import { metadata } from '../../../../metadata.mjs';
 import { json_equal } from '../../../../json/equal.mjs';
 import { assert } from '../../../../assert.mjs';
 import { string_difference_get } from '../../get.mjs';
-export function string_difference_get2_test_23() {
+export function string_difference_get_test_23() {
     arguments_assert(arguments, []);
     let expected = [
         '0-2',
