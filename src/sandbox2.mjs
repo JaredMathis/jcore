@@ -14,6 +14,7 @@ export async function sandbox2() {
             let i2 = i;
             let j2 = j;
             for (let offset = 0; i2 + offset < string_length(left) && j2 + offset < string_length(right); offset++) {
+                let i2_offset = string_get(i2 + offset)
             }
         }
     }
