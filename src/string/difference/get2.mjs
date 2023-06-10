@@ -36,6 +36,7 @@ export function string_difference_get2(left, right) {
         if (string_empty_not_is(left)) {
             list_add(result, '-' + left);
         }
+        return result;
     }
     let left_lr = string_left_right(left, left_index, offset);
     let left_left = object_property_get(left_lr, string_left_right_property_left());
