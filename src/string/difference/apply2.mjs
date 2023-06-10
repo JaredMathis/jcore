@@ -21,6 +21,7 @@ import { add } from '../../add.mjs';
 import { assert } from '../../assert.mjs';
 import { list_length } from '../../list/length.mjs';
 import { list_sort_generic } from '../../list/sort/generic.mjs';
+import { reverse } from 'lodash';
 export function string_difference_apply2(string_old, hunks) {
     arguments_assert(arguments, [
         string_is,
@@ -31,8 +32,7 @@ export function string_difference_apply2(string_old, hunks) {
     }
     let mapped = list_map(hunks, string_difference_apply2_parse);
     let removals = list_filter_property(mapped, string_difference_property_operation(), string_difference_removed());
-    let sort_property = string_difference_property_position();
-    list_sort_generic(removals, r => object_property_get(r, sort_property), true);
+    list_sort_property_generic(removals, string_difference_property_position(), true);
     let addeds = list_filter_property(mapped, string_difference_property_operation(), string_difference_added());
     assert(equal(list_length(mapped), add(list_length(removals), list_length(addeds))));
     let value = string_old;
@@ -69,4 +69,8 @@ export function string_difference_apply2(string_old, hunks) {
         }
     }
     return value;
+}
+
+function list_sort_property_generic(removals, sort_property, reverse) {
+    list_sort_generic(removals, r => object_property_get(r, sort_property), reverse);
 }
