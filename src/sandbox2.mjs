@@ -21,7 +21,7 @@ export async function sandbox2() {
     let right_index = object_property_get(max, string_sub_max_property_right_index());
     if (offset === 0) {
         if (string_empty_is(left)) {
-            return '+' + right;
+            return ['+' + right];
         }
     }
     let left_lr = string_left_right(left, left_index, offset);
