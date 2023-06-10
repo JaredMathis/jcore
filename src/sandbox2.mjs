@@ -4,7 +4,7 @@ import { random_get } from './random/get.mjs';
 import { function_tests_generate_next } from './function/tests/generate/next.mjs';
 import { tests_generate } from './tests/generate.mjs';
 import { tests } from './tests.mjs';
-import { string_difference_get2 } from './string/difference/get2.mjs';
+import { string_difference_get } from './string/difference/get.mjs';
 import { log } from './log.mjs';
 import { version_commit_and_removals } from './version/commit/and/removals.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
@@ -19,7 +19,7 @@ export async function sandbox2() {
     const repository_name = 'a';
     if (false)
         await version_commit_and_removals(repository_name);
-    let fn1 = string_difference_get2;
+    let fn1 = string_difference_get;
     let fn2 = string_difference_apply2;
     let pairs = [];
     for (let i of range(10)) {

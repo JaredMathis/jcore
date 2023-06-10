@@ -3,11 +3,11 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { json_equal } from '../../../../json/equal.mjs';
 import { assert } from '../../../../assert.mjs';
-import { string_difference_get2 } from '../../get2.mjs';
+import { string_difference_get } from '../../get.mjs';
 export function string_difference_get2_test_5() {
     arguments_assert(arguments, []);
     let expected = [];
-    let actual = string_difference_get2(' abc', ' abc');
+    let actual = string_difference_get(' abc', ' abc');
     assert(json_equal(actual, expected));
     metadata([metadata_generated()]);
 }
