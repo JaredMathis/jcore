@@ -5,7 +5,17 @@ import { tests } from './tests.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 export async function sandbox3() {
     arguments_assert(arguments, []);
+    let values = [
+        '0+',
+        '1-',
+        '2+a',
+        '3-bc',
+        '10+def',
+        '123-abcde'
+    ];
     await tests();
-    await function_tests_generate_next(string_difference_apply2_parse, args1);
+    for (let v of values) {
+        await function_tests_generate_next(string_difference_apply2_parse, [v]);
+    }
     await tests_generate();
 }
