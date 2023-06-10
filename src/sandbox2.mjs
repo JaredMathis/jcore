@@ -31,5 +31,6 @@ export async function sandbox2() {
     assert(equal(right, result2));
     await tests();
     await function_tests_generate_next(fn1, args1);
+    await function_tests_generate_next(fn2, args2);
     await tests_generate();
 }
