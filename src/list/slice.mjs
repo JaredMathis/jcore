@@ -12,6 +12,7 @@ export function list_slice(list, start, end) {
         integer_is,
         integer_is
     ]);
+    console.log({start,end,list})
     for (let i of [
             start,
             end
