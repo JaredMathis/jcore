@@ -21,7 +21,6 @@ import { add } from '../../add.mjs';
 import { assert } from '../../assert.mjs';
 import { list_length } from '../../list/length.mjs';
 import { list_sort_generic } from '../../list/sort/generic.mjs';
-import { reverse } from 'lodash';
 export function string_difference_apply2(string_old, hunks) {
     arguments_assert(arguments, [
         string_is,
