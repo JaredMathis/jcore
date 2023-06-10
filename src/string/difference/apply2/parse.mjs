@@ -35,6 +35,11 @@ export function string_difference_apply2_parse(hunk) {
     const valid_min_add_1 = add_1(valid_min);
     let operation = string_sub(hunk, valid_min, valid_min_add_1);
     let after = string_sub(hunk, valid_min_add_1, string_length(hunk));
+    const result = {
+        [string_difference_property_position()]: position,
+        [string_difference_property_operation()]: operation,
+        [string_difference_property_added()]: text
+    };
     if (equal(operation, string_difference_removed())) {
         
     } else if (equal(operation, string_difference_added())) {
@@ -43,10 +48,5 @@ export function string_difference_apply2_parse(hunk) {
         error();
     }
 
-    const result = {
-        [string_difference_property_position()]: position,
-        [string_difference_property_operation()]: operation,
-        [string_difference_property_added()]: text
-    };
     return result;
 }
