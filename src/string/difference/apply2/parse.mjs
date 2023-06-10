@@ -21,4 +21,5 @@ export function string_difference_apply2_parse(hunk) {
         error();
     }
     let valid_min = list_min(valid);
+    let position_string = string_take();
 }
