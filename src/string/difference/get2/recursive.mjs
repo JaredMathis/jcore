@@ -56,7 +56,7 @@ export function string_difference_get2_recursive(left, right, left_offset, right
     let right_right = object_property_get(right_lr, string_left_right_property_right());
     let left_result = string_difference_get2_recursive(left_left, right_left, left_offset, right_offset);
     list_add_multiple(result, left_result);
-    let right_result = string_difference_get2_recursive(left_right, right_right, left_offset + offset, right_offset + offset);
+    let right_result = string_difference_get2_recursive(left_right, right_right, left_offset + offset + left_index, right_offset + offset + right_index);
     list_add_multiple(result, right_result);
     return result;
 }
