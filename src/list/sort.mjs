@@ -1,7 +1,7 @@
 import { subtract } from '../subtract.mjs';
-import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
+import { list_is } from './is.mjs';
 export function list_sort(removals) {
-    arguments_assert(arguments, [arguments_assert_todo]);
+    arguments_assert(arguments, [list_is]);
     removals.sort((a, b) => subtract(a, b));
 }
