@@ -1,12 +1,10 @@
+import { function_tests_generate_next } from './function/tests/generate/next.mjs';
 import { tests_generate } from './tests/generate.mjs';
 import { tests } from './tests.mjs';
-import { function_tests_generate_generic_each } from './function/tests/generate/generic/each.mjs';
-import { tests_name_next } from './tests/name/next.mjs';
 import { string_difference_get2 } from './string/difference/get2.mjs';
 import { log } from './log.mjs';
 import { version_commit_and_removals } from './version/commit/and/removals.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
-import { function_name_get } from './function/name/get.mjs';
 import { string_difference_apply2 } from './string/difference/apply2.mjs';
 import { assert } from './assert.mjs';
 import { equal } from './equal.mjs';
@@ -34,10 +32,4 @@ export async function sandbox2() {
     await tests();
     await function_tests_generate_next(fn1, args1);
     await tests_generate();
-}
-
-async function function_tests_generate_next(fn1, args1) {
-    let function_name = function_name_get(fn1);
-    let test_name = await tests_name_next(function_name);
-    await function_tests_generate_generic_each(function_name, test_name, args1);
 }
