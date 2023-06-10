@@ -19,6 +19,8 @@ import { add_1 } from '../../../add/1.mjs';
 import { string_length } from '../../length.mjs';
 import { list_map } from '../../../list/map.mjs';
 import { object_property_initialize } from '../../../object/property/initialize.mjs';
+import { assert } from '../../../assert.mjs';
+import { string_length_is_0 } from '../../length/is/0.mjs';
 export function string_difference_apply2_parse(hunk) {
     arguments_assert(arguments, [string_is]);
     let operations = [
@@ -42,8 +44,10 @@ export function string_difference_apply2_parse(hunk) {
     };
     if (equal(operation, string_difference_removed())) {
         let count = integer_parse(after);
+        assert(count >= 1);
         object_property_initialize(result, string_difference_property_removed(), count);
     } else if (equal(operation, string_difference_added())) {
+        assert(!string_length_is_0(after))
         object_property_initialize(result, string_difference_property_added(), after);
     } else {
         error();

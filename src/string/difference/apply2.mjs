@@ -33,11 +33,7 @@ export function string_difference_apply2(string_old, hunks) {
         let operation = object_property_get(m, string_difference_property_operation());
         if (equal(operation, string_difference_removed())) {
             let removed = object_property_get(m, string_difference_property_removed());
-            for (let i of range(string_length(text))) {
-                let text_i = string_get(text, i);
-                let value_i = string_get(value, position + i);
-                assert(equal());
-            }
+            
         } else if (equal(operation, string_difference_added())) {
             let added = object_property_get(m, string_difference_property_added());
             error();
