@@ -13,11 +13,10 @@ import { string_sub_max_property_offset } from '../../sub/max/property/offset.mj
 import { object_property_get } from '../../../object/property/get.mjs';
 import { string_sub_max } from '../../sub/max.mjs';
 import { equal } from '../../../equal.mjs';
-import { log } from '../../../log.mjs';
 import { integer_is } from '../../../integer/is.mjs';
 import { string_is } from '../../is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
-export function string_difference_get2_recursive(left, right, left_offset, right_offset) {
+export function string_difference_get_recursive(left, right, left_offset, right_offset) {
     arguments_assert(arguments, [
         string_is,
         string_is,
@@ -49,9 +48,9 @@ export function string_difference_get2_recursive(left, right, left_offset, right
     let right_lr = string_left_right(right, right_index, offset);
     let right_left = object_property_get(right_lr, string_left_right_property_left());
     let right_right = object_property_get(right_lr, string_left_right_property_right());
-    let left_result = string_difference_get2_recursive(left_left, right_left, left_offset, right_offset);
+    let left_result = string_difference_get_recursive(left_left, right_left, left_offset, right_offset);
     list_add_multiple(result, left_result);
-    let right_result = string_difference_get2_recursive(left_right, right_right, left_offset + offset + left_index, right_offset + offset + right_index);
+    let right_result = string_difference_get_recursive(left_right, right_right, left_offset + offset + left_index, right_offset + offset + right_index);
     list_add_multiple(result, right_result);
     return result;
 }
