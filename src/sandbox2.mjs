@@ -11,7 +11,7 @@ export async function sandbox2() {
     if (false)
         await version_commit_and_removals(repository_name);
     let left = 'a';
-    let right = 'b';
+    let right = 'bb';
     let fn = string_difference_get2;
     let args = [
         left,
@@ -19,7 +19,7 @@ export async function sandbox2() {
     ];
     let result = fn(...args);
     console.log({ result });
-    // return;
+    return;
     let function_name = function_name_get(fn);
     let test_name = await tests_name_next(function_name);
     await function_tests_generate_generic_each(function_name, test_name, args);
