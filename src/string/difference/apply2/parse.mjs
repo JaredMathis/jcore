@@ -1,3 +1,6 @@
+import { string_difference_property_text } from '../property/text.mjs';
+import { string_difference_property_operation } from '../property/operation.mjs';
+import { string_difference_property_position } from '../property/position.mjs';
 import { string_sub } from '../../sub.mjs';
 import { list_min } from '../../../list/min.mjs';
 import { string_index_of_try_valid } from '../../index/of/try/valid.mjs';
@@ -17,7 +20,10 @@ import { assert } from '../../../assert.mjs';
 import { list_contains } from '../../../list/contains.mjs';
 export function string_difference_apply2_parse(hunk) {
     arguments_assert(arguments, [string_is]);
-    let operations = [string_difference_removed(), string_difference_added()]
+    let operations = [
+        string_difference_removed(),
+        string_difference_added()
+    ];
     let indexes = list_map(operations, o => string_index_of_try(hunk, o));
     let valid = list_filter(indexes, string_index_of_try_valid);
     if (list_length_is_0(valid)) {
@@ -28,11 +34,11 @@ export function string_difference_apply2_parse(hunk) {
     let position = integer_parse(position_string);
     const valid_min_add_1 = add_1(valid_min);
     let operation = string_sub(hunk, valid_min, valid_min_add_1);
-    assert(list_contains(operations, operation))
+    assert(list_contains(operations, operation));
     let text = string_sub(hunk, valid_min_add_1, string_length(hunk));
     return {
-        position,
-        operation,
-        text
+        [string_difference_property_position()]: position,
+        [string_difference_property_operation()]: operation,
+        [string_difference_property_text()]: text
     };
 }
