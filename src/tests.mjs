@@ -253,6 +253,12 @@ import { string_difference_apply2_test_4 } from './string/difference/apply2/test
 import { string_difference_apply2_test_3 } from './string/difference/apply2/test/3.mjs';
 import { string_difference_apply2_test_2 } from './string/difference/apply2/test/2.mjs';
 import { string_difference_apply2_test_1 } from './string/difference/apply2/test/1.mjs';
+import { string_difference_apply2_parse_test_6 } from './string/difference/apply2/parse/test/6.mjs';
+import { string_difference_apply2_parse_test_5 } from './string/difference/apply2/parse/test/5.mjs';
+import { string_difference_apply2_parse_test_4 } from './string/difference/apply2/parse/test/4.mjs';
+import { string_difference_apply2_parse_test_3 } from './string/difference/apply2/parse/test/3.mjs';
+import { string_difference_apply2_parse_test_2 } from './string/difference/apply2/parse/test/2.mjs';
+import { string_difference_apply2_parse_test_1 } from './string/difference/apply2/parse/test/1.mjs';
 import { string_a_test_generated_1 } from './string/a/test/generated/1.mjs';
 import { integer_is_test_values } from './integer/is/test/values.mjs';
 import { error_test_3 } from './error/test/3.mjs';
@@ -310,6 +316,12 @@ export async function tests() {
     await error_test_3();
     await integer_is_test_values();
     await string_a_test_generated_1();
+    await string_difference_apply2_parse_test_1();
+    await string_difference_apply2_parse_test_2();
+    await string_difference_apply2_parse_test_3();
+    await string_difference_apply2_parse_test_4();
+    await string_difference_apply2_parse_test_5();
+    await string_difference_apply2_parse_test_6();
     await string_difference_apply2_test_1();
     await string_difference_apply2_test_2();
     await string_difference_apply2_test_3();
@@ -564,5 +576,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(282 + ' tests ran successfully');
+    log(288 + ' tests ran successfully');
 }
