@@ -17,11 +17,16 @@ export async function sandbox2() {
     let offset = object_property_get(max, string_sub_max_property_offset())
     let left_index = object_property_get(max, string_sub_max_property_left_index())
     let right_index = object_property_get(max, string_sub_max_property_right_index())
-    let left_left = string_sub(left, 0, left_index);
-    let left_right = string_skip(left, left_index + offset);
+    let { left_left, left_right } = string_left_right(left, left_index, offset);
     let right_left = string_sub(right, 0, right_index);
     let right_right = string_skip(right, right_index + offset);
     console.log({left_left, left_right, right_left, right_right})
+}
+
+function string_left_right(s, left_index, offset) {
+    let left_left = string_sub(s, 0, left_index);
+    let left_right = string_skip(s, left_index + offset);
+    return { left_left, left_right };
 }
 
 function string_sub_max(left, right) {
