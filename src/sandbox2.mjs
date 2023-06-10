@@ -11,15 +11,16 @@ export async function sandbox2() {
         await version_commit_and_removals(repository_name);
     let left = 'abba';
     let right = 'abbba';
+    let offset_max = 0;
     for (let left_index = 0; left_index < left.length; left_index++) {
         for (let right_index = 0; right_index < right.length; right_index++) {
-            let offset = a(left, right, left_index, right_index)
+            let offset = string_sub_max_starting_at(left, right, left_index, right_index)
             console.log(offset, string_sub(left, left_index, left_index + offset))
         }
     }
 }
 
-function a(left, right, left_index, right_index) {
+function string_sub_max_starting_at(left, right, left_index, right_index) {
     let left_walker = left_index;
     let right_walker = right_index;
     let offset;
