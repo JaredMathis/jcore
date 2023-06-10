@@ -8,6 +8,6 @@ export function list_max_generic(list, value_get) {
         list_is,
         function_is
     ]);
-    let compare = (a, b) => a > b;
+    let compare = (current, found) => current > found;
     return list_compare_generic(list, value_get, compare);
 }
