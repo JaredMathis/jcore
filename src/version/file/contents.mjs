@@ -1,4 +1,4 @@
-import { string_difference_apply } from '../../string/difference/apply.mjs';
+import { string_difference_apply_external } from '../../string/difference/apply/external.mjs';
 import { string_empty } from '../../string/empty.mjs';
 import { list_add } from '../../list/add.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
@@ -34,7 +34,7 @@ export async function version_file_contents(repository_name, file_path) {
     }
     let contents_old = string_empty();
     for (let hunks of list_hunks) {
-        contents_old = string_difference_apply(contents_old, hunks);
+        contents_old = string_difference_apply_external(contents_old, hunks);
     }
     return contents_old;
 }
