@@ -6,5 +6,5 @@ import { identity } from '../identity.mjs';
 export function list_sort(list) {
     arguments_assert(arguments, [list_is]);
     let value_get = identity;
-    list_sort_generic(list, value_get);
+    list_sort_generic(list, value_get, false);
 }
