@@ -21,7 +21,7 @@ import { list_map } from '../../../list/map.mjs';
 import { object_property_initialize } from '../../../object/property/initialize.mjs';
 import { assert } from '../../../assert.mjs';
 import { string_length_is_0 } from '../../length/is/0.mjs';
-export function string_difference_apply2_parse(hunk) {
+export function string_difference_apply_parse(hunk) {
     arguments_assert(arguments, [string_is]);
     let operations = [
         string_difference_removed(),

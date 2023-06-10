@@ -9,7 +9,7 @@ import { string_difference_added } from './added.mjs';
 import { string_difference_removed } from './removed.mjs';
 import { string_difference_property_position } from './property/position.mjs';
 import { string_difference_property_operation } from './property/operation.mjs';
-import { string_difference_apply2_parse } from './apply2/parse.mjs';
+import { string_difference_apply_parse } from './apply/parse.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { string_is } from '../is.mjs';
 import { list_is } from '../../list/is.mjs';
@@ -29,7 +29,7 @@ export function string_difference_apply(string_old, hunks) {
     if (list_length_is_0(hunks)) {
         return string_old;
     }
-    let mapped = list_map(hunks, string_difference_apply2_parse);
+    let mapped = list_map(hunks, string_difference_apply_parse);
     let removals = list_filter_property(mapped, string_difference_property_operation(), string_difference_removed());
     list_sort_property_generic(removals, string_difference_property_position(), true);
     let addeds = list_filter_property(mapped, string_difference_property_operation(), string_difference_added());

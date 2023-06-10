@@ -264,10 +264,6 @@ import { string_difference_get_external_test_generated_3 } from './string/differ
 import { string_difference_get_external_test_generated_2 } from './string/difference/get/external/test/generated/2.mjs';
 import { string_difference_get_external_test_generated_10 } from './string/difference/get/external/test/generated/10.mjs';
 import { string_difference_get_external_test_generated_1 } from './string/difference/get/external/test/generated/1.mjs';
-import { string_difference_apply2_parse_test_4 } from './string/difference/apply2/parse/test/4.mjs';
-import { string_difference_apply2_parse_test_3 } from './string/difference/apply2/parse/test/3.mjs';
-import { string_difference_apply2_parse_test_2 } from './string/difference/apply2/parse/test/2.mjs';
-import { string_difference_apply2_parse_test_1 } from './string/difference/apply2/parse/test/1.mjs';
 import { string_difference_apply_test_9 } from './string/difference/apply/test/9.mjs';
 import { string_difference_apply_test_8 } from './string/difference/apply/test/8.mjs';
 import { string_difference_apply_test_7 } from './string/difference/apply/test/7.mjs';
@@ -278,6 +274,10 @@ import { string_difference_apply_test_3 } from './string/difference/apply/test/3
 import { string_difference_apply_test_2 } from './string/difference/apply/test/2.mjs';
 import { string_difference_apply_test_10 } from './string/difference/apply/test/10.mjs';
 import { string_difference_apply_test_1 } from './string/difference/apply/test/1.mjs';
+import { string_difference_apply_parse_test_4 } from './string/difference/apply/parse/test/4.mjs';
+import { string_difference_apply_parse_test_3 } from './string/difference/apply/parse/test/3.mjs';
+import { string_difference_apply_parse_test_2 } from './string/difference/apply/parse/test/2.mjs';
+import { string_difference_apply_parse_test_1 } from './string/difference/apply/parse/test/1.mjs';
 import { string_a_test_generated_1 } from './string/a/test/generated/1.mjs';
 import { integer_is_test_values } from './integer/is/test/values.mjs';
 import { error_test_3 } from './error/test/3.mjs';
@@ -335,6 +335,10 @@ export async function tests() {
     await error_test_3();
     await integer_is_test_values();
     await string_a_test_generated_1();
+    await string_difference_apply_parse_test_1();
+    await string_difference_apply_parse_test_2();
+    await string_difference_apply_parse_test_3();
+    await string_difference_apply_parse_test_4();
     await string_difference_apply_test_1();
     await string_difference_apply_test_10();
     await string_difference_apply_test_2();
@@ -345,10 +349,6 @@ export async function tests() {
     await string_difference_apply_test_7();
     await string_difference_apply_test_8();
     await string_difference_apply_test_9();
-    await string_difference_apply2_parse_test_1();
-    await string_difference_apply2_parse_test_2();
-    await string_difference_apply2_parse_test_3();
-    await string_difference_apply2_parse_test_4();
     await string_difference_get_external_test_generated_1();
     await string_difference_get_external_test_generated_10();
     await string_difference_get_external_test_generated_2();
