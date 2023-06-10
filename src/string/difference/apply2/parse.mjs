@@ -18,6 +18,7 @@ import { string_length } from '../../length.mjs';
 import { list_map } from '../../../list/map.mjs';
 import { assert } from '../../../assert.mjs';
 import { list_contains } from '../../../list/contains.mjs';
+import { object_property_initialize } from '../../../object/property/initialize.mjs';
 export function string_difference_apply2_parse(hunk) {
     arguments_assert(arguments, [string_is]);
     let operations = [
@@ -38,12 +39,11 @@ export function string_difference_apply2_parse(hunk) {
     const result = {
         [string_difference_property_position()]: position,
         [string_difference_property_operation()]: operation,
-        [string_difference_property_added()]: text
     };
     if (equal(operation, string_difference_removed())) {
-        
-    } else if (equal(operation, string_difference_added())) {
         error();
+    } else if (equal(operation, string_difference_added())) {
+        object_property_initialize(result, string_difference_property_added(), text)
     } else {
         error();
     }
