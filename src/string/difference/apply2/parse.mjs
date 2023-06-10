@@ -26,6 +26,7 @@ export function string_difference_apply2_parse(hunk) {
     let valid_min = list_min(valid);
     let position_string = string_sub(hunk, 0, valid_min);
     let position = integer_parse(position_string);
-    let operation = string_sub(hunk, valid_min, add_1(valid_min))
+    const valid_min_add_1 = add_1(valid_min);
+    let operation = string_sub(hunk, valid_min, valid_min_add_1)
     return { position, operation };
 }
