@@ -22,9 +22,9 @@ export async function sandbox2() {
                 left_index_max = left_index;
                 right_index_max = right_index;
             }
-            console.log(offset, string_sub(left, left_index, left_index + offset))
         }
     }
+    console.log(offset_max, string_sub(left, left_index_max, left_index_max + offset_max))
 }
 
 function string_sub_max_starting_at(left, right, left_index, right_index) {
