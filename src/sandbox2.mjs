@@ -17,7 +17,8 @@ export async function sandbox2() {
     let left_index = object_property_get(max, string_sub_max_property_left_index())
     let right_index = object_property_get(max, string_sub_max_property_right_index())
     let left_left = string_sub(left, 0, left_index);
-    console.log({left_left})
+    let left_right = string_sub(left, left_index, left_index + offset);
+    console.log({left_left, left_right})
 }
 
 function string_sub_max(left, right) {
