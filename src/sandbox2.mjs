@@ -3,6 +3,7 @@ import { version_commit_and_removals } from './version/commit/and/removals.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { string_length } from './string/length.mjs';
 import { equal } from './equal.mjs';
+import { string_sub } from './string/sub.mjs';
 export async function sandbox2() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
@@ -22,7 +23,7 @@ export async function sandbox2() {
                     break;
                 }
             }
-            console.log(offset)
+            console.log(offset, string_sub(left, left_index, left_index + offset))
         }
     }
 }
