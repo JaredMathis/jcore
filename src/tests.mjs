@@ -231,6 +231,7 @@ import { string_difference_tests_test_generated_3 } from './string/difference/te
 import { string_difference_tests_test_generated_2 } from './string/difference/tests/test/generated/2.mjs';
 import { string_difference_tests_test_generated_10 } from './string/difference/tests/test/generated/10.mjs';
 import { string_difference_tests_test_generated_1 } from './string/difference/tests/test/generated/1.mjs';
+import { string_difference_get2_test_4 } from './string/difference/get2/test/4.mjs';
 import { string_difference_get2_test_3 } from './string/difference/get2/test/3.mjs';
 import { string_difference_get2_test_2 } from './string/difference/get2/test/2.mjs';
 import { string_difference_get2_test_1 } from './string/difference/get2/test/1.mjs';
@@ -314,6 +315,7 @@ export async function tests() {
     await string_difference_get2_test_1();
     await string_difference_get2_test_2();
     await string_difference_get2_test_3();
+    await string_difference_get2_test_4();
     await string_difference_tests_test_generated_1();
     await string_difference_tests_test_generated_10();
     await string_difference_tests_test_generated_2();
@@ -546,5 +548,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(273 + ' tests ran successfully');
+    log(274 + ' tests ran successfully');
 }
