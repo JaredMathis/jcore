@@ -1,3 +1,4 @@
+import { string_difference_apply2_parse } from './apply2/parse.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { string_is } from '../is.mjs';
 import { list_is } from '../../list/is.mjs';
@@ -11,7 +12,11 @@ export function string_difference_apply2(string_old, hunks) {
         list_is
     ]);
     if (list_length_is_0(hunks)) {
-        return string_old
+        return string_old;
     }
-    error(json_to({string_old, hunks}))
+    let mapped = list_map(hunks, string_difference_apply2_parse);
+    error(json_to({
+        string_old,
+        hunks
+    }));
 }
