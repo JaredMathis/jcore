@@ -42,11 +42,15 @@ export function string_difference_apply2_parse(hunk) {
     };
     if (equal(operation, string_difference_removed())) {
         let count = integer_parse(after);
-        object_property_initialize(result, 'removed', count)
+        object_property_initialize(result, string_difference_property_removed(), count)
     } else if (equal(operation, string_difference_added())) {
         object_property_initialize(result, string_difference_property_added(), after)
     } else {
         error();
     }
     return result;
+}
+
+function string_difference_property_removed() {
+    return 'removed';
 }
