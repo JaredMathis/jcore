@@ -1,3 +1,6 @@
+import { string_difference_property_added } from './property/added.mjs';
+import { value_new } from '../../value/new.mjs';
+import { log } from '../../log.mjs';
 import { list_sort_property_generic } from '../../list/sort/property/generic.mjs';
 import { list_filter_property } from '../../list/filter/property.mjs';
 import { string_left_right_property_right } from '../left/right/property/right.mjs';
@@ -12,7 +15,6 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { string_is } from '../is.mjs';
 import { list_is } from '../../list/is.mjs';
 import { list_length_is_0 } from '../../list/length/is/0.mjs';
-import { error } from '../../error.mjs';
 import { list_map } from '../../list/map.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { equal } from '../../equal.mjs';
@@ -35,7 +37,11 @@ export function string_difference_apply2(string_old, hunks) {
     assert(equal(list_length(mapped), add(list_length(removals), list_length(addeds))));
     list_sort_property_generic(addeds, string_difference_property_position(), false);
     let value = string_old;
-    console.log({string_old, removals, addeds})
+    console.log({
+        string_old,
+        removals,
+        addeds
+    });
     for (let m of removals) {
         let position = object_property_get(m, string_difference_property_position());
         let removed = object_property_get(m, string_difference_property_removed());
@@ -43,7 +49,7 @@ export function string_difference_apply2(string_old, hunks) {
         let left = object_property_get(lr, string_left_right_property_left());
         let right = object_property_get(lr, string_left_right_property_right());
         let value_new = `${ left }${ right }`;
-        value = value_new
+        value = value_new;
     }
     for (let m of addeds) {
         let position = object_property_get(m, string_difference_property_position());
@@ -51,8 +57,8 @@ export function string_difference_apply2(string_old, hunks) {
         let lr = string_left_right(value, position, 0);
         let left = object_property_get(lr, string_left_right_property_left());
         let right = object_property_get(lr, string_left_right_property_right());
-        let value_new = `${ left }${added}${ right }`;
-        value = value_new
+        let value_new = `${ left }${ added }${ right }`;
+        value = value_new;
     }
     return value;
 }
