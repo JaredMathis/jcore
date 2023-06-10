@@ -17,6 +17,7 @@ import { object_property_get } from '../../object/property/get.mjs';
 import { equal } from '../../equal.mjs';
 import { string_difference_property_removed } from './property/removed.mjs';
 import { add } from '../../add.mjs';
+import { list_filter } from '../../list/filter.mjs';
 export function string_difference_apply2(string_old, hunks) {
     arguments_assert(arguments, [
         string_is,
@@ -26,6 +27,9 @@ export function string_difference_apply2(string_old, hunks) {
         return string_old;
     }
     let mapped = list_map(hunks, string_difference_apply2_parse);
+
+    let removals = list_filter(mapped, m => equal(object_property_get(m, string_difference_property_operation())), string_difference_removed());
+
     let value = string_old;
     for (let m of mapped) {
         let position = object_property_get(m, string_difference_property_position());

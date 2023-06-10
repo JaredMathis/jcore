@@ -10,11 +10,12 @@ import { assert } from './assert.mjs';
 import { equal } from './equal.mjs';
 export async function sandbox2() {
     arguments_assert(arguments, []);
+    await tests();
     const repository_name = 'a';
     if (false)
         await version_commit_and_removals(repository_name);
-    let left = 'abcdefabcde';
-    let right = '';
+    let left = 'zfz';
+    let right = 'abcdefabcde';
     let fn1 = string_difference_get2;
     let args1 = [
         left,
@@ -29,7 +30,6 @@ export async function sandbox2() {
     ];
     let result2 = fn2(...args2);
     assert(equal(right, result2));
-    await tests();
     await function_tests_generate_next(fn1, args1);
     await function_tests_generate_next(fn2, args2);
     await tests_generate();
