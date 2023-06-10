@@ -11,7 +11,7 @@ export async function sandbox2() {
     const repository_name = 'a';
     if (false)
         await version_commit_and_removals(repository_name);
-    let left = 'dabba';
+    let left = 'dabbzzz';
     let right = 'cabbba';
     let max = string_sub_max(left, right);
     let offset = object_property_get(max, string_sub_max_property_offset())
