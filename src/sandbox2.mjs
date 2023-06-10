@@ -32,10 +32,18 @@ function string_sub_max(left, right) {
     console.log(offset_max, string_sub(left, left_index_max, left_index_max + offset_max));
     let result = {
         [string_sub_max_property_offset()]: offset_max,
-        ['left_index']: left_index_max,
-        ['right_index']: right_index_max,
+        [string_sub_max_property_left_index()]: left_index_max,
+        [string_sub_max_property_right_index()]: right_index_max,
     };
     return result;
+}
+
+function string_sub_max_property_right_index() {
+    return 'right_index';
+}
+
+function string_sub_max_property_left_index() {
+    return 'left_index';
 }
 
 function string_sub_max_property_offset() {
