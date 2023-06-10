@@ -1,4 +1,4 @@
-import { string_get } from '../get.mjs';
+import { string_left_right } from '../left/right.mjs';
 import { string_difference_added } from './added.mjs';
 import { string_difference_removed } from './removed.mjs';
 import { string_difference_property_added } from './property/added.mjs';
@@ -14,11 +14,7 @@ import { json_to } from '../../json/to.mjs';
 import { list_map } from '../../list/map.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { equal } from '../../equal.mjs';
-import { string_length } from '../length.mjs';
-import { assert } from '../../assert.mjs';
-import { range } from '../../range.mjs';
 import { string_difference_property_removed } from './property/removed.mjs';
-import { string_sub } from '../sub.mjs';
 import { add } from '../../add.mjs';
 export function string_difference_apply2(string_old, hunks) {
     arguments_assert(arguments, [
@@ -35,8 +31,7 @@ export function string_difference_apply2(string_old, hunks) {
         let operation = object_property_get(m, string_difference_property_operation());
         if (equal(operation, string_difference_removed())) {
             let removed = object_property_get(m, string_difference_property_removed());
-            let left = string_sub(value, 0, position);
-            let right = string_sub(value, add(position, removed), )
+            let lr = string_left_right(value, position, add(position, removed));
         } else if (equal(operation, string_difference_added())) {
             let added = object_property_get(m, string_difference_property_added());
             error();
