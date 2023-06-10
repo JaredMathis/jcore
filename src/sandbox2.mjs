@@ -1,3 +1,4 @@
+import { string_multiply } from './string/multiply.mjs';
 import { random_between } from './random/between.mjs';
 import { random_get } from './random/get.mjs';
 import { function_tests_generate_next } from './function/tests/generate/next.mjs';
@@ -18,7 +19,6 @@ export async function sandbox2() {
     const repository_name = 'a';
     if (false)
         await version_commit_and_removals(repository_name);
-    
     let pairs = [];
     for (let i of range(10)) {
         let left = random_input();
@@ -37,7 +37,10 @@ export async function sandbox2() {
         ];
         let result2 = fn2(...args2);
         assert(equal(right, result2));
-        list_add(pairs, {args1, args2})
+        list_add(pairs, {
+            args1,
+            args2
+        });
     }
     return;
     for (let pair of pairs) {
