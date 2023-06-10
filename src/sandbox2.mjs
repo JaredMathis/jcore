@@ -17,8 +17,8 @@ export async function sandbox2() {
     arguments_assert(arguments, []);
     await tests();
     const repository_name = 'a';
-    if (false)
-        await version_commit_and_removals(repository_name);
+    await version_commit_and_removals(repository_name);
+    return;
     let fn1 = string_difference_get;
     let fn2 = string_difference_apply;
     let pairs = [];
