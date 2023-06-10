@@ -8,6 +8,7 @@ import { string_empty_is } from './string/empty/is.mjs';
 import { version_commit_and_removals } from './version/commit/and/removals.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { object_property_get } from './object/property/get.mjs';
+import { list_single_item } from './list/single/item.mjs';
 export async function sandbox2() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
@@ -21,7 +22,7 @@ export async function sandbox2() {
     let right_index = object_property_get(max, string_sub_max_property_right_index());
     if (offset === 0) {
         if (string_empty_is(left)) {
-            return ['+' + right];
+            return list_single_item('+' + right);
         }
     }
     let left_lr = string_left_right(left, left_index, offset);
