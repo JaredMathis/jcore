@@ -11,7 +11,7 @@ export async function sandbox2() {
     if (false)
         await version_commit_and_removals(repository_name);
     let left = 'aa';
-    let right = 'aba';
+    let right = 'abca';
     let fn = string_difference_get2;
     let args = [
         left,
