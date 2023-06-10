@@ -8,8 +8,10 @@ import { version_commit_files_all_removals_generic } from '../files/all/removals
 import { version_commit_files_difference } from '../files/difference.mjs';
 import { directory_read_current } from '../../../directory/read/current.mjs';
 import { version_commit_data } from '../data.mjs';
+import { string_identifier_is } from '../../../string/identifier/is.mjs';
 export async function version_commit_and_removals(repository_name) {
-    arguments_assert(arguments, [arguments_assert_todo]);
+    arguments_assert(arguments, [string_identifier_is]);
+    console.log('here2')
     const commit_data = version_commit_data(version_commit_and_removals, arguments);
     let file_paths = await directory_read_current();
     let differences = await version_commit_files_difference(repository_name, file_paths, commit_data);
