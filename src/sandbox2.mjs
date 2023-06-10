@@ -11,7 +11,7 @@ export async function sandbox2() {
         await version_commit_and_removals(repository_name);
     let left = 'abba';
     let right = 'abbba';
-    string_sub_max(left, right);
+    let max = string_sub_max(left, right);
 }
 
 function string_sub_max(left, right) {
