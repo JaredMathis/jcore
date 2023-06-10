@@ -4,13 +4,14 @@ import { arguments_assert } from './arguments/assert.mjs';
 import { string_length } from './string/length.mjs';
 import { equal } from './equal.mjs';
 import { string_sub } from './string/sub.mjs';
+import { object_property_get } from './object/property/get.mjs';
 export async function sandbox2() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
     if (false)
         await version_commit_and_removals(repository_name);
-    let left = 'abba';
-    let right = 'abbba';
+    let left = 'dabba';
+    let right = 'cabbba';
     let max = string_sub_max(left, right);
 }
 
@@ -30,9 +31,9 @@ function string_sub_max(left, right) {
     }
     console.log(offset_max, string_sub(left, left_index_max, left_index_max + offset_max));
     let result = {
-        offset: offset_max,
-        left_index: left_index_max,
-        right_index: right_index_max,
+        'offset': offset_max,
+        'left_index': left_index_max,
+        'right_index': right_index_max,
     };
     return result;
 }
