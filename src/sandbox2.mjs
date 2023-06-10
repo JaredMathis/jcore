@@ -16,6 +16,14 @@ export async function sandbox2() {
         await version_commit_and_removals(repository_name);
     let left = '';
     let right = 'b';
+    let { left_lr, right_lr } = string_difference_get2(left, right);
+    console.log({
+        left_lr,
+        right_lr
+    });
+}
+
+function string_difference_get2(left, right) {
     let max = string_sub_max(left, right);
     let offset = object_property_get(max, string_sub_max_property_offset());
     let left_index = object_property_get(max, string_sub_max_property_left_index());
@@ -27,8 +35,5 @@ export async function sandbox2() {
     }
     let left_lr = string_left_right(left, left_index, offset);
     let right_lr = string_left_right(right, right_index, offset);
-    console.log({
-        left_lr,
-        right_lr
-    });
+    return { left_lr, right_lr };
 }
