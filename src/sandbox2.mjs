@@ -13,6 +13,9 @@ export async function sandbox2() {
     let left = 'dabba';
     let right = 'cabbba';
     let max = string_sub_max(left, right);
+    let offset = object_property_get(max, string_sub_max_property_offset())
+    let left_index = object_property_get(max, string_sub_max_property_left_index())
+    let right_index = object_property_get(max, string_sub_max_property_right_index())
 }
 
 function string_sub_max(left, right) {
