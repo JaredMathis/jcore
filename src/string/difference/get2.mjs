@@ -1,5 +1,4 @@
 import { string_left_right_property_right } from '../left/right/property/right.mjs';
-import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { string_left_right } from '../left/right.mjs';
 import { list_single_item } from '../../list/single/item.mjs';
@@ -11,10 +10,11 @@ import { object_property_get } from '../../object/property/get.mjs';
 import { string_sub_max } from '../sub/max.mjs';
 import { equal } from '../../equal.mjs';
 import { string_left_right_property_left } from '../left/right/property/left.mjs';
+import { string_is } from '../is.mjs';
 export function string_difference_get2(left, right) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
-        arguments_assert_todo
+        string_is,
+        string_is
     ]);
     if (equal(left, right)) {
         return [];
