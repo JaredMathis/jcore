@@ -47,5 +47,7 @@ export async function sandbox2() {
     }
 }
 function random_between(lower, upper) {
-
+    assert(lower < upper);
+    let difference = upper - lower;
+    return difference * random_get() + lower;
 }
