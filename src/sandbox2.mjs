@@ -25,7 +25,15 @@ export async function sandbox2() {
 function string_left_right(s, index, offset) {
     let left = string_sub(s, 0, index);
     let right = string_skip(s, index + offset);
-    return { ['left']: left, ['right']: right };
+    return { [string_left_right_property_left()]: left, [string_left_right_property_right()]: right };
+}
+
+function string_left_right_property_right() {
+    return 'right';
+}
+
+function string_left_right_property_left() {
+    return 'left';
 }
 
 function string_sub_max(left, right) {
