@@ -22,7 +22,7 @@ export async function sandbox2() {
                     break;
                 }
             }
-            let s = offset;
+            console.log(offset)
         }
     }
 }
