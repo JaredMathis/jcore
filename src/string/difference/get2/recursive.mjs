@@ -36,13 +36,13 @@ export function string_difference_get2_recursive(left, right, left_offset, right
     if (offset === 0) {
         if (string_empty_not_is(right)) {
             list_add(result, {
-                position: right_index,
+                position: right_index + left_offset,
                 change: '+' + right
             });
         }
         if (string_empty_not_is(left)) {
             list_add(result, {
-                position: left_index,
+                position: left_index + right_offset,
                 change: '-' + left
             });
         }
