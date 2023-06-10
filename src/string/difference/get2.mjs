@@ -12,6 +12,7 @@ import { equal } from '../../equal.mjs';
 import { string_left_right_property_left } from '../left/right/property/left.mjs';
 import { string_is } from '../is.mjs';
 import { list_add } from '../../list/add.mjs';
+import { list_add_multiple } from '../../list/add/multiple.mjs';
 export function string_difference_get2(left, right) {
     arguments_assert(arguments, [
         string_is,
@@ -45,6 +46,8 @@ export function string_difference_get2(left, right) {
     let right_left = object_property_get(right_lr, string_left_right_property_left());
     let right_right = object_property_get(right_lr, string_left_right_property_right());
     let left_result = string_difference_get2(left_left, right_left);
+    list_add_multiple(result, left_result)
     let right_result = string_difference_get2(left_right, right_right);
+    list_add_multiple(result, right_result)
     return result;
 }
