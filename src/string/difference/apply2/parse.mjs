@@ -41,7 +41,7 @@ export function string_difference_apply2_parse(hunk) {
         [string_difference_property_operation()]: operation,
     };
     if (equal(operation, string_difference_removed())) {
-        object_property_initialize(result, string_difference_property_added(), after)
+        object_property_initialize(result, 'removed', after)
     } else if (equal(operation, string_difference_added())) {
         object_property_initialize(result, string_difference_property_added(), after)
     } else {
