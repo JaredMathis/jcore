@@ -12,7 +12,7 @@ import { function_name_all } from '../../function/name/all.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
 export async function tests_name_next(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
-    let functions_all = await function_name_all(function_name);
+    let functions_all = await function_name_all();
     let tests_all = list_map(functions_all, f => stsring_starts_with(f, function_name + string_function_tests_sub()));
     let tests_ids_all = list_map(tests_all, t => {
         return string_function_name_to_tests_id(function_name, t);
