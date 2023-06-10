@@ -1,3 +1,4 @@
+import { string_length } from '../../length.mjs';
 import { string_difference_added } from '../added.mjs';
 import { string_difference_removed } from '../removed.mjs';
 import { list_add_multiple } from '../../../list/add/multiple.mjs';
@@ -41,7 +42,7 @@ export function string_difference_get2_recursive(left, right, left_offset, right
     if (offset === 0) {
         if (string_empty_not_is(left)) {
             const position = left_index + left_offset;
-            list_add(result, position + string_difference_removed() + left);
+            list_add(result, position + string_difference_removed() + string_length(left));
         }
         if (string_empty_not_is(right)) {
             const position = right_index + right_offset;
