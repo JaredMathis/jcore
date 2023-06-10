@@ -34,9 +34,11 @@ export function string_difference_get2(left, right) {
     let left_lr = string_left_right(left, left_index, offset);
     let left_left = object_property_get(left_lr, string_left_right_property_left());
     let left_right = object_property_get(left_lr, string_left_right_property_right());
+    let left_result = string_difference_get2(left_left, left_right);
     let right_lr = string_left_right(right, right_index, offset);
     let right_left = object_property_get(right_lr, string_left_right_property_left());
     let right_right = object_property_get(right_lr, string_left_right_property_right());
+    let right_result = string_difference_get2(right_left, right_right);
     return {
         left_lr,
         right_lr
