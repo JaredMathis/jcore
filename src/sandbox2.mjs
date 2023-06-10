@@ -10,17 +10,19 @@ export async function sandbox2() {
         await version_commit_and_removals(repository_name);
     let left = 'abba';
     let right = 'abbba';
-    for (let i = 0; i < left.length; i++) {
-        for (let j = 0; j < right.length; j++) {
-            let i2 = i;
-            let j2 = j;
-            for (let offset = 0; i2 + offset < left.length && j2 + offset < right.length; offset++) {
-                let i2_offset = left[i2 + offset];
-                let j2_offset = right[j2 + offset];
-                if (!i2_offset, j2_offset)) {
-
+    for (let left_index = 0; left_index < left.length; left_index++) {
+        for (let right_index = 0; right_index < right.length; right_index++) {
+            let left_walker = left_index;
+            let right_walker = right_index;
+            let offset;
+            for (offset = 0; left_walker + offset < left.length && right_walker + offset < right.length; offset++) {
+                let left_offset = left[left_walker + offset];
+                let right_offset = right[right_walker + offset];
+                if (left_offset !== right_offset) {
+                    break;
                 }
             }
+            let s = offset;
         }
     }
 }
