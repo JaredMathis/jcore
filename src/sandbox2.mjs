@@ -5,6 +5,7 @@ import { string_length } from './string/length.mjs';
 import { equal } from './equal.mjs';
 import { string_sub } from './string/sub.mjs';
 import { object_property_get } from './object/property/get.mjs';
+import { string_skip } from './string/skip.mjs';
 export async function sandbox2() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
@@ -17,7 +18,7 @@ export async function sandbox2() {
     let left_index = object_property_get(max, string_sub_max_property_left_index())
     let right_index = object_property_get(max, string_sub_max_property_right_index())
     let left_left = string_sub(left, 0, left_index);
-    let left_right = string_sub(left, left_index, left_index + offset);
+    let left_right = string_skip(left, left_index + offset);
     console.log({left_left, left_right})
 }
 
