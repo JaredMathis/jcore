@@ -12,9 +12,14 @@ export async function sandbox2() {
     let left = 'abba';
     let right = 'abbba';
     let offset_max = 0;
+    let left_index_max;
+    let right_index_max;
     for (let left_index = 0; left_index < left.length; left_index++) {
         for (let right_index = 0; right_index < right.length; right_index++) {
             let offset = string_sub_max_starting_at(left, right, left_index, right_index)
+            if (offset > offset_max) {
+                offset_max = offset;
+            }
             console.log(offset, string_sub(left, left_index, left_index + offset))
         }
     }
