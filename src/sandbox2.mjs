@@ -11,17 +11,14 @@ export async function sandbox2() {
     const repository_name = 'a';
     if (false)
         await version_commit_and_removals(repository_name);
-    let left = 'a';
+    let left = '';
     let right = 'b';
     let max = string_sub_max(left, right);
     let offset = object_property_get(max, string_sub_max_property_offset())
     let left_index = object_property_get(max, string_sub_max_property_left_index())
     let right_index = object_property_get(max, string_sub_max_property_right_index())
     if (offset === 0) {
-        return {
-            left,
-            right
-        }
+        return ''
     }
     let left_lr = string_left_right(left, left_index, offset);
     let right_lr = string_left_right(right, right_index, offset);
