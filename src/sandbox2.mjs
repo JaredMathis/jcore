@@ -1,3 +1,4 @@
+import { random_between } from './random/between.mjs';
 import { random_get } from './random/get.mjs';
 import { function_tests_generate_next } from './function/tests/generate/next.mjs';
 import { tests_generate } from './tests/generate.mjs';
@@ -16,6 +17,9 @@ export async function sandbox2() {
     const repository_name = 'a';
     if (false)
         await version_commit_and_removals(repository_name);
+    for (let i of range(10)) {
+        console.log(random_between(1, 2));
+    }
     console.log(random_input());
     return;
     let left = 'zfz';
@@ -45,9 +49,4 @@ export async function sandbox2() {
         }
         return result;
     }
-}
-function random_between(lower, upper) {
-    assert(lower < upper);
-    let difference = upper - lower;
-    return difference * random_get() + lower;
 }
