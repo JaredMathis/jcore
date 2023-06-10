@@ -5,6 +5,7 @@ import { tests } from './tests.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 export async function sandbox3() {
     arguments_assert(arguments, []);
+    return;
     let values = [
         '2+a',
         '3-2',
