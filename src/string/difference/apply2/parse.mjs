@@ -43,7 +43,7 @@ export function string_difference_apply2_parse(hunk) {
     if (equal(operation, string_difference_removed())) {
         error();
     } else if (equal(operation, string_difference_added())) {
-        object_property_initialize(result, string_difference_property_added(), text)
+        object_property_initialize(result, string_difference_property_added(), after)
     } else {
         error();
     }
