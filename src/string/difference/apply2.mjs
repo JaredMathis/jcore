@@ -18,6 +18,8 @@ import { equal } from '../../equal.mjs';
 import { string_difference_property_removed } from './property/removed.mjs';
 import { add } from '../../add.mjs';
 import { list_filter } from '../../list/filter.mjs';
+import { assert } from '../../assert.mjs';
+import { list_length } from '../../list/length.mjs';
 export function string_difference_apply2(string_old, hunks) {
     arguments_assert(arguments, [
         string_is,
@@ -28,10 +30,29 @@ export function string_difference_apply2(string_old, hunks) {
     }
     let mapped = list_map(hunks, string_difference_apply2_parse);
 
-    let removals = list_filter(mapped, m => equal(object_property_get(m, string_difference_property_operation())), string_difference_removed());
+    let removals = list_filter_property(mapped, string_difference_property_operation(), string_difference_removed());
+    let addeds = list_filter_property(mapped, string_difference_property_operation(), string_difference_added());
+
+    assert(equal(list_length(mapped), add(list_length(removals), list_length(addeds))))
 
     let value = string_old;
-    for (let m of mapped) {
+    for (let m of removals) {
+        let position = object_property_get(m, string_difference_property_position());
+        let operation = object_property_get(m, string_difference_property_operation());
+        if (equal(operation, string_difference_removed())) {
+            let removed = object_property_get(m, string_difference_property_removed());
+            let lr = string_left_right(value, position, add(position, removed));
+            let left = object_property_get(lr, string_left_right_property_left());
+            let right = object_property_get(lr, string_left_right_property_right());
+            value = `${ left }${ right }`;
+        } else if (equal(operation, string_difference_added())) {
+            let added = object_property_get(m, string_difference_property_added());
+            error();
+        } else {
+            error();
+        }
+    }
+    for (let m of addeds) {
         let position = object_property_get(m, string_difference_property_position());
         let operation = object_property_get(m, string_difference_property_operation());
         if (equal(operation, string_difference_removed())) {
@@ -48,4 +69,8 @@ export function string_difference_apply2(string_old, hunks) {
         }
     }
     return value;
+}
+
+function list_filter_property(mapped, property_name, property_value) {
+    return list_filter(mapped, m => equal(object_property_get(m, property_name), property_value));
 }
