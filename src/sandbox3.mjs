@@ -7,9 +7,9 @@ export async function sandbox3() {
     arguments_assert(arguments, []);
     let values = [
         '2+a',
-        '3-bc',
+        '3-2',
         '10+def',
-        '123-abcde'
+        '123-5'
     ];
     await tests();
     for (let v of values) {
