@@ -36,9 +36,10 @@ export function string_difference_apply2_parse(hunk) {
     let operation = string_sub(hunk, valid_min, valid_min_add_1);
     assert(list_contains(operations, operation));
     let text = string_sub(hunk, valid_min_add_1, string_length(hunk));
-    return {
+    const result = {
         [string_difference_property_position()]: position,
         [string_difference_property_operation()]: operation,
         [string_difference_property_text()]: text
     };
+    return result;
 }
