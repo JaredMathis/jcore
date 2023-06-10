@@ -1,6 +1,5 @@
 import { string_difference_property_added } from './property/added.mjs';
 import { value_new } from '../../value/new.mjs';
-import { log } from '../../log.mjs';
 import { list_sort_property_generic } from '../../list/sort/property/generic.mjs';
 import { list_filter_property } from '../../list/filter/property.mjs';
 import { string_left_right_property_right } from '../left/right/property/right.mjs';
@@ -37,11 +36,6 @@ export function string_difference_apply2(string_old, hunks) {
     assert(equal(list_length(mapped), add(list_length(removals), list_length(addeds))));
     list_sort_property_generic(addeds, string_difference_property_position(), false);
     let value = string_old;
-    console.log({
-        string_old,
-        removals,
-        addeds
-    });
     for (let m of removals) {
         let position = object_property_get(m, string_difference_property_position());
         let removed = object_property_get(m, string_difference_property_removed());
