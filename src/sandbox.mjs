@@ -1,3 +1,4 @@
+import { database_reference_get } from './database/reference/get.mjs';
 import { list_each_with_index } from './list/each/with/index.mjs';
 import { database_create } from './database/create.mjs';
 import { database_reference_update_property } from './database/reference/update/property.mjs';
@@ -55,9 +56,10 @@ export async function sandbox() {
     let document_path_info = `info`;
     let info_refererence = database_reference(db, database_collection_name, document_path_info);
     await db.runTransaction(async transaction => {
-        await database_reference_set_if_not_exists(transaction, info_refererence, {[property_commit_latest]:0});
+        await database_reference_set_if_not_exists(transaction, info_refererence, { [property_commit_latest]: 0 });
     });
     await db.runTransaction(async transaction => {
+        const info = database_reference_get(transaction, info_refererence);
         let repository_files_path = version_path_files_get(repository_name);
         let files = await directory_read_json(repository_files_path);
         let repository_commits_path = version_path_commits_get(repository_name);
@@ -76,7 +78,7 @@ export async function sandbox() {
                 }
             }
             let document_path_commit = `${ property_commit }${ fns }${ commit_id }`;
-            database_create(db, transaction, database_collection_name, document_path_commit, {value:commit_files});
+            database_create(db, transaction, database_collection_name, document_path_commit, { value: commit_files });
             if (equal(index, list_last_index(commits))) {
                 database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_id);
             }
