@@ -69,9 +69,10 @@ export async function sandbox() {
                 let document_path_commit = `commit${ fns }${ commit_id }`;
                 let document_path_info = `info`;
                 let info_refererence = database_reference(transaction, database_collection_name, document_path_info);
+                let value = {};
                 const info = await transaction.get(info_refererence);
                 if (!info.exists()) {
-                    database_reference_set(info, {});
+                    database_reference_set(info, value);
                 }
                 let property_name = 'population';
                 const data = database_reference_data(info);
