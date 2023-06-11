@@ -1,3 +1,4 @@
+import { version_commits_path_to_integer } from './version/commits/path/to/integer.mjs';
 import { directory_property_file_path } from './directory/property/file/path.mjs';
 import { version_property_part_id } from './version/property/part/id.mjs';
 import { version_property_parts } from './version/property/parts.mjs';
@@ -43,6 +44,7 @@ export async function sandbox() {
     let contents = await directory_read_json(repository_commits_path);
     for (let commit of contents) {
         let commit_path = object_property_get(commit, directory_property_file_path());
+        let commit_id = version_commits_path_to_integer(list_single_item(commit_path));
         let commit_json = object_property_get(commit, directory_property_json());
         let commit_parts = object_property_get(commit_json, version_property_parts());
         let commit_files = list_single_item(commit_json);
