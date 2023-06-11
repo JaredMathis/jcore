@@ -1,3 +1,4 @@
+import { database_set } from './database/set.mjs';
 import { version_differences } from './version/differences.mjs';
 import { string_difference_apply_parse } from './string/difference/apply/parse.mjs';
 import { string_multiply } from './string/multiply.mjs';
@@ -23,16 +24,14 @@ import { arguments_assert } from './arguments/assert.mjs';
 import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
 import { initializeApp } from 'firebase-admin/app';
-import { getFirestore }from 'firebase-admin/firestore';
+import { getFirestore } from 'firebase-admin/firestore';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
-    initializeApp({ projectId: 'truthcode' });
-    const db = getFirestore();
     const collection_path = 'cities';
     const document_path = 'new-city-id';
     const document_data = { message: 'test' };
-    await db.collection(collection_path).doc(document_path).set(document_data);
+    const db = await database_set(collection_path, document_path, document_data);
     return;
     await db.collection('cities').doc('new-city-id').delete();
     return;
