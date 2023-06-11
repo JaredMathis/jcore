@@ -11,4 +11,5 @@ export async function directory_read_json(repository_files_path) {
         let json = json_from(contents);
         object_property_initialize(f, directory_property_json(), json);
     }
+    return files_contents;
 }
