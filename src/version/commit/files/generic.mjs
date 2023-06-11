@@ -70,9 +70,9 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             let names = list_map(existing_commits, path_parse_base);
             let unparsed = list_map(names, c => string_suffix_without(c, file_extension_json()));
             let parsed = list_map(unparsed, integer_parse);
-            let max = list_max_or_0(parsed);
-            version = add_1(max);
         }
+        let max = list_max_or_0(parsed);
+        version = add_1(max);
         let commit_path = path_join([
             repository_sub_path,
             `${ version }${ file_extension_json() }`
