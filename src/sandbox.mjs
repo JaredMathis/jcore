@@ -67,7 +67,7 @@ export async function sandbox() {
     await database_transaction(db, async transaction => {
         console.log('here4')
         const property_commit_latest_data = `${ database_collection_name }${ fns }${ property_commit_latest }`;
-        let property_commit_latest_data_value = data_key_value_get(property_commit_latest_data);
+        let property_commit_latest_data_value = await data_key_value_get(property_commit_latest_data);
         const info = await database_reference_get(transaction, info_refererence);
         let info_data = database_reference_data(info);
         let property_commit_latest_value = object_property_get(info_data, property_commit_latest);
