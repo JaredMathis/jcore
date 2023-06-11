@@ -43,8 +43,8 @@ export async function sandbox() {
         let commit_parts = object_property_get(commit_json, version_property_parts());
         for (let file of files) {
             let file_json = object_property_get(file, directory_property_json());
+            console.log({ file_json });
         }
-        console.log({ commit_parts });
     }
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
