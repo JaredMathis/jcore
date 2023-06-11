@@ -1,5 +1,6 @@
+import { list_each_with_index_async } from './list/each/with/index/async.mjs';
+import { database_reference_data } from './database/reference/data.mjs';
 import { database_reference_get } from './database/reference/get.mjs';
-import { list_each_with_index } from './list/each/with/index.mjs';
 import { database_create } from './database/create.mjs';
 import { database_reference_update_property } from './database/reference/update/property.mjs';
 import { database_reference_set_if_not_exists } from './database/reference/set/if/not/exists.mjs';
@@ -67,12 +68,12 @@ export async function sandbox() {
         let files = await directory_read_json(repository_files_path);
         let repository_commits_path = version_path_commits_get(repository_name);
         let commits = await directory_read_json(repository_commits_path);
-        list_each_with_index(commits, (commit, index) => {
+        await list_each_with_index_async(commits, async (commit, index) => {
             let commit_path = object_property_get(commit, directory_property_file_path());
             let commit_id = version_commits_path_to_integer(list_single_item(commit_path));
             if (commit_id < property_commit_latest_value) {
                 return;
-            } 
+            }
             let commit_json = object_property_get(commit, directory_property_json());
             let commit_parts = object_property_get(commit_json, version_property_parts());
             let commit_files = list_single_item(commit_json);
@@ -87,7 +88,7 @@ export async function sandbox() {
             database_create(db, transaction, database_collection_name, document_path_commit, { value: commit_files });
             if (equal(index, list_last_index(commits))) {
                 database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_id);
-                await data_key_value_set(`${database_collection_name}${fns}${property_commit_latest}`, commit_id);
+                await data_key_value_set(`${ database_collection_name }${ fns }${ property_commit_latest }`, commit_id);
             }
         });
     });
