@@ -26,12 +26,13 @@ import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
+    let outputs = version_path_outputs();
     const repository_name = 'a';
     let file_paths = await directory_read_current();
     let filtered = await git_ignore_filter(file_paths);
     for (let file_path of filtered) {
         console.log(file_path)
-        let contents_old = await version_file_contents(repository_name, file_path);
+        let contents = await version_file_contents(repository_name, file_path);
     }
     return;
     await version_commit_and_removals(repository_name);
@@ -104,4 +105,8 @@ export async function sandbox() {
         await function_tests_generate_after();
     }
     return;
+}
+
+function version_path_outputs() {
+    return 'outputs';
 }
