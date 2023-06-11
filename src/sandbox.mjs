@@ -32,9 +32,12 @@ export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
     let repository_files_path = version_path_files_get(repository_name);
-    let file_contents = await directory_read_contents(repository_files_path);
+    let files_contents = await directory_read_contents(repository_files_path);
     let repository_commits_path = version_path_commits_get(repository_name);
-    let commit_contents = await directory_read_contents(repository_commits_path);
+    let commits_contents = await directory_read_contents(repository_commits_path);
+    for (let commit of commits_contents) {
+        let commit;
+    }
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
     console.log({ file_size_max });
