@@ -76,7 +76,7 @@ export async function sandbox() {
             }
             let property_commit = 'commit';
             let document_path_commit = `${ property_commit }${ fns }${ commit_id }`;
-            database_create(db, transaction, database_collection_name, document_path_commit, commit_files);
+            database_create(db, transaction, database_collection_name, document_path_commit, {value:commit_files});
             if (equal(index, list_last_index(contents))) {
                 let property_commit_latest = `${ property_commit }${ fns }latest`;
                 database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_id);
