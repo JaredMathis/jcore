@@ -1,9 +1,8 @@
-import { file_extension_json } from '../file/extension/json.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
+import { file_name_json } from '../file/name/json.mjs';
 export function data_path() {
     arguments_assert(arguments, []);
-    let extension = file_extension_json();
-    return `./data${ extension }`;
+    return `./${ file_name_json(`data`) }`;
     metadata([]);
 }
