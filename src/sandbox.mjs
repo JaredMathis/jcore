@@ -1,3 +1,4 @@
+import { directory_property_json } from './directory/property/json.mjs';
 import { directory_read_json } from './directory/read/json.mjs';
 import { version_path_files_get } from './version/path/files/get.mjs';
 import { version_path_commits_get } from './version/path/commits/get.mjs';
@@ -29,7 +30,6 @@ import { arguments_assert } from './arguments/assert.mjs';
 import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
 import { object_property_get } from './object/property/get.mjs';
-import { directory_property_contents } from './directory/property/contents.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
@@ -38,7 +38,7 @@ export async function sandbox() {
     let repository_commits_path = version_path_commits_get(repository_name);
     let commits_contents = await directory_read_json(repository_commits_path);
     for (let commit of commits_contents) {
-        let commit_contents = object_property_get(commit, directory_property_contents());
+        let commit_json = object_property_get(commit, directory_property_json());
     }
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
