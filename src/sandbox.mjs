@@ -1,3 +1,4 @@
+import { directory_property_json } from './directory/property/json.mjs';
 import { version_path_files_get } from './version/path/files/get.mjs';
 import { version_path_commits_get } from './version/path/commits/get.mjs';
 import { version_repository_file_size_max } from './version/repository/file/size/max.mjs';
@@ -40,7 +41,7 @@ export async function sandbox() {
     for (let f of files_contents) {
         let contents = object_property_get(f, directory_property_contents());
         let json = json_from(contents);
-        object_property_initialize(f, 'json', json);
+        object_property_initialize(f, directory_property_json(), json);
     }
     let repository_commits_path = version_path_commits_get(repository_name);
     let commits_contents = await directory_read_contents(repository_commits_path);
