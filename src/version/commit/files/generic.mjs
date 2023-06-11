@@ -40,7 +40,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             let difference_path = object_property_get(difference, version_property_path());
             let part_id = guid_generate();
             list_add(parts, part_id);
-            console.log({difference_path})
+            console.log({file_path})
             let difference_write = {
                 [property_file_path]: difference_path,
                 [property_contents]: {
