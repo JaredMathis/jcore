@@ -1,8 +1,4 @@
-import { version_file_contents } from './version/file/contents.mjs';
-import { todo } from './todo.mjs';
-import { directory_read_current } from './directory/read/current.mjs';
-import { version_removals } from './version/removals.mjs';
-import { version_output_generic } from './version/output/generic.mjs';
+import { version_differences } from './version/differences.mjs';
 import { string_difference_apply_parse } from './string/difference/apply/parse.mjs';
 import { string_multiply } from './string/multiply.mjs';
 import { random_get } from './random/get.mjs';
@@ -26,32 +22,10 @@ import { function_name_get } from './function/name/get.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
-import { file_read } from './file/read.mjs';
-import { list_length_is_0 } from './list/length/is/0.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
-    let file_paths = await directory_read_current();
-    let differences = [];
-    await version_output_generic(repository_name, file_paths, lambda);
-    async function lambda(file_path, contents) {
-        let existing = await file_read(file_path);
-        todo(contents, existing, file_path);
-    }
-    let removals = await version_removals(repository_name, file_paths);
-    for (let r of removals) {
-        let contents = await version_file_contents(repository_name, r);
-        todo(contents, '', r);
-    }
-    function todo(contents, existing, file_path) {
-        let hunks = string_difference_get(contents, existing);
-        if (!list_length_is_0(hunks)) {
-            list_add(differences, {
-                file_path,
-                hunks
-            });
-        }
-    }
+    let differences = await version_differences(repository_name);
     console.log(differences);
     return;
     await version_commit_and_removals(repository_name);
