@@ -69,7 +69,7 @@ export async function sandbox() {
         const property_commit_latest_data = `${ database_collection_name }${ fns }${ property_commit_latest }`;
         let property_commit_latest_data_value = data_key_value_get(property_commit_latest_data);
         const info = await database_reference_get(transaction, info_refererence);
-        let info_data = database_reference_data(transaction, info);
+        let info_data = database_reference_data(info);
         let property_commit_latest_value = object_property_get(info_data, property_commit_latest);
         comment('if this fails then local code is out of sync with server');
         assert(equal(property_commit_latest_data_value, property_commit_latest_value))

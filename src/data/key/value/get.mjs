@@ -4,10 +4,9 @@ import { defined_is } from '../../../defined/is.mjs';
 import { string_is } from '../../../string/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
-export async function data_key_value_get(key, value) {
+export async function data_key_value_get(key) {
     arguments_assert(arguments, [
         string_is,
-        defined_is
     ]);
     let data = await data_get();
     return object_property_get(data, key);
