@@ -36,30 +36,38 @@ import { string_underscore_is } from './string/underscore/is.mjs';
 import { object_property_get } from './object/property/get.mjs';
 import { list_contains } from './list/contains.mjs';
 import { list_single_item } from './list/single/item.mjs';
+import { runTransaction } from 'firebase/firestore';
 export async function sandbox() {
     arguments_assert(arguments, []);
     let repository_name = version_repository_default();
-    let fns = function_name_separator();
-    let database_collection_name = `repository${ fns }${ repository_name }`;
-    let repository_files_path = version_path_files_get(repository_name);
-    let files = await directory_read_json(repository_files_path);
-    let repository_commits_path = version_path_commits_get(repository_name);
-    let contents = await directory_read_json(repository_commits_path);
-    for (let commit of contents) {
-        let commit_path = object_property_get(commit, directory_property_file_path());
-        let commit_id = version_commits_path_to_integer(list_single_item(commit_path));
-        let commit_json = object_property_get(commit, directory_property_json());
-        let commit_parts = object_property_get(commit_json, version_property_parts());
-        let commit_files = list_single_item(commit_json);
-        for (let file of files) {
-            let file_json = object_property_get(file, directory_property_json());
-            let part_id = object_property_get(file_json, version_property_part_id());
-            if (list_contains(commit_parts, part_id)) {
-                list_add(commit_files, file_json);
+    try {
+        await runTransaction(db, async transaction => {
+            let fns = function_name_separator();
+            let database_collection_name = `repository${ fns }${ repository_name }`;
+            let repository_files_path = version_path_files_get(repository_name);
+            let files = await directory_read_json(repository_files_path);
+            let repository_commits_path = version_path_commits_get(repository_name);
+            let contents = await directory_read_json(repository_commits_path);
+            for (let commit of contents) {
+                let commit_path = object_property_get(commit, directory_property_file_path());
+                let commit_id = version_commits_path_to_integer(list_single_item(commit_path));
+                let commit_json = object_property_get(commit, directory_property_json());
+                let commit_parts = object_property_get(commit_json, version_property_parts());
+                let commit_files = list_single_item(commit_json);
+                for (let file of files) {
+                    let file_json = object_property_get(file, directory_property_json());
+                    let part_id = object_property_get(file_json, version_property_part_id());
+                    if (list_contains(commit_parts, part_id)) {
+                        list_add(commit_files, file_json);
+                    }
+                }
+                let document_path_commit = `commit${ fns }${ commit_id }`;
+                database_set(database_collection_name_commits, document_path_commit, commit_files);
             }
-        }
-        let document_path_commit = `commit${ fns }${ commit_id }`;
-        database_set(database_collection_name_commits, document_path_commit, commit_files);
+        });
+        console.log('Transaction successfully committed!');
+    } catch (e) {
+        console.log('Transaction failed: ', e);
     }
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
