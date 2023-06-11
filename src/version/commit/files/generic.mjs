@@ -54,7 +54,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         let commit = {
             commit_id,
             when,
-            ['parts']: parts,
+            [version_property_parts()]: parts,
             data: commit_data
         };
         let parsed = await version_commits_get(repository_name);
@@ -72,4 +72,8 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         list_add(writes, commit_write);
     }
     return writes;
+}
+
+function version_property_parts() {
+    return 'parts';
 }
