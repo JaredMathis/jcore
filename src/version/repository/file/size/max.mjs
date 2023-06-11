@@ -17,7 +17,10 @@ export async function version_repository_file_size_max(repository_name) {
     let property_file_path = version_property_file_path();
     let mapped = await list_map_async(file_paths, async file_path => {
         let contents = await file_read(file_path);
-        return { [property_contents]: contents };
+        return {
+            [property_contents]: contents,
+            [property_file_path]: file_path
+        };
     });
     let list_contents = list_map_property(mapped, property_contents);
     let file_sizes = list_map(list_contents, string_byte_size);
