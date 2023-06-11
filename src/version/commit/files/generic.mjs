@@ -44,6 +44,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             let difference_write = {
                 [property_file_path]: difference_path,
                 [property_contents]: {
+                    [version_property_file_path()]: file_path,
                     [version_property_part_id()]: part_id,
                     hunks
                 }
