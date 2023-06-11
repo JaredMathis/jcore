@@ -14,8 +14,5 @@ export async function directory_read_contents(repository_directory) {
             [property_file_path]: file_path
         };
     });
-    return {
-        mapped,
-        property_contents
-    };
+    return mapped;
 }
