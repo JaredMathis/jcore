@@ -1,12 +1,13 @@
-import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { version_file_contents } from '../file/contents.mjs';
 import { git_ignore_filter } from '../../git/ignore/filter.mjs';
 import { directory_read_current } from '../../directory/read/current.mjs';
+import { string_identifier_is } from '../../string/identifier/is.mjs';
+import { function_is } from '../../function/is.mjs';
 export async function version_output_generic(repository_name, lambda) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
-        arguments_assert_todo
+        string_identifier_is,
+        function_is
     ]);
     let file_paths = await directory_read_current();
     let filtered = await git_ignore_filter(file_paths);
