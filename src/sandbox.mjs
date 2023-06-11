@@ -60,6 +60,7 @@ export async function sandbox() {
     });
     await db.runTransaction(async transaction => {
         const info = database_reference_get(transaction, info_refererence);
+        let info_data = database_reference_data(transaction, info);
         let repository_files_path = version_path_files_get(repository_name);
         let files = await directory_read_json(repository_files_path);
         let repository_commits_path = version_path_commits_get(repository_name);
