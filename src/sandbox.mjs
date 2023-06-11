@@ -31,11 +31,11 @@ import { file_overwrite } from './file/overwrite.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
+    let directory_output_name = 'b';
     let file_paths = await directory_read_current();
     let filtered = await git_ignore_filter(file_paths);
     let repository_sub_path = version_path_sub_get(repository_name, version_path_outputs());
     for (let file_path of filtered) {
-        console.log(file_path);
         let contents = await version_file_contents(repository_name, file_path);
         let file_path_output = path_join([
             repository_sub_path,
