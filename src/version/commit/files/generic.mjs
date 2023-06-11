@@ -1,3 +1,4 @@
+import { file_name_json } from '../../../file/name/json.mjs';
 import { version_commits_get } from '../../commits/get.mjs';
 import { version_path_commits_get } from '../../path/commits/get.mjs';
 import { version_property_contents } from '../../property/contents.mjs';
@@ -5,7 +6,6 @@ import { version_property_file_path } from '../../property/file/path.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { path_join } from '../../../path/join.mjs';
 import { add_1 } from '../../../add/1.mjs';
-import { file_extension_json } from '../../../file/extension/json.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { guid_generate } from '../../../guid/generate.mjs';
 import { version_property_path } from '../../property/path.mjs';
@@ -63,7 +63,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         let repository_sub_path = version_path_commits_get(repository_name);
         let commit_path = path_join([
             repository_sub_path,
-            `${ version }${ file_extension_json() }`
+            file_name_json(version)
         ]);
         let commit_write = {
             [property_file_path]: commit_path,
