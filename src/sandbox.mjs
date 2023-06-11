@@ -59,13 +59,16 @@ export async function sandbox() {
     let property_commit_latest = `${ property_commit }${ fns }latest`;
     let document_path_info = `info`;
     let info_refererence = database_reference(db, database_collection_name, document_path_info);
+    console.log('here')
     await database_transaction(db, async transaction => {
         await database_reference_set_if_not_exists(transaction, info_refererence, { [property_commit_latest]: 0 });
     });
+    console.log('here2')
     await database_transaction(db, async transaction => {
+        console.log('here4')
         const property_commit_latest_data = `${ database_collection_name }${ fns }${ property_commit_latest }`;
         let property_commit_latest_data_value = data_key_value_get(property_commit_latest_data);
-        const info = database_reference_get(transaction, info_refererence);
+        const info = await database_reference_get(transaction, info_refererence);
         let info_data = database_reference_data(transaction, info);
         let property_commit_latest_value = object_property_get(info_data, property_commit_latest);
         comment('if this fails then local code is out of sync with server');
@@ -74,6 +77,7 @@ export async function sandbox() {
         let files = await directory_read_json(repository_files_path);
         let repository_commits_path = version_path_commits_get(repository_name);
         let commits = await directory_read_json(repository_commits_path);
+        console.log('here5')
         await list_each_with_index_async(commits, async (commit, index) => {
             let commit_path = object_property_get(commit, directory_property_file_path());
             let commit_id = version_commits_path_to_integer(list_single_item(commit_path));
@@ -98,6 +102,7 @@ export async function sandbox() {
             }
         });
     });
+    console.log('here3')
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
     console.log({ file_size_max });
