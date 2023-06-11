@@ -50,6 +50,8 @@ export async function sandbox() {
     let db = database_firestore_get();
     let fns = function_name_separator();
     let database_collection_name = `repository${ fns }${ repository_name }`;
+    let property_commit = 'commit';
+    let property_commit_latest = `${ property_commit }${ fns }latest`;
     let document_path_info = `info`;
     let info_refererence = database_reference(db, database_collection_name, document_path_info);
     await database_reference_set_if_not_exists(info_refererence, {});
@@ -71,11 +73,9 @@ export async function sandbox() {
                     list_add(commit_files, file_json);
                 }
             }
-            let property_commit = 'commit';
             let document_path_commit = `${ property_commit }${ fns }${ commit_id }`;
             database_create(db, transaction, database_collection_name, document_path_commit, {value:commit_files});
             if (equal(index, list_last_index(commits))) {
-                let property_commit_latest = `${ property_commit }${ fns }latest`;
                 database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_id);
             }
         });
