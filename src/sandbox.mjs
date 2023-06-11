@@ -74,7 +74,8 @@ export async function sandbox() {
                     database_reference_set(info, {});
                 }
                 let property_name = 'population';
-                const newPopulation = database_reference_data(info).population + 1;
+                const previous = database_reference_data(info).population;
+                const newPopulation = previous + 1;
                 transaction.update(sfDocRef, { population: newPopulation });
                 database_set(transaction, database_collection_name, document_path_commit, commit_files);
             }
