@@ -12,10 +12,11 @@ export async function version_repository_file_size_max(repository_name) {
     let repository_directory = version_path_repository(repository_name);
     let file_paths = await directory_read(repository_directory);
     let property_contents = 'contents';
-    let list_contents = await list_map_async(file_paths, async file_path => {
+    let mapped = await list_map_async(file_paths, async file_path => {
         let contents = await file_read(file_path);
-        return contents;
+        return { [property_contents]: contents };
     });
+    let list_contents = list_map_property(mapped, property_contents);
     let file_sizes = list_map(list_contents, string_byte_size);
     let file_size_max = list_max(file_sizes);
     return file_size_max;
