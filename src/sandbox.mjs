@@ -1,3 +1,4 @@
+import { version_repository_default } from './version/repository/default.mjs';
 import { database_set } from './database/set.mjs';
 import { version_differences } from './version/differences.mjs';
 import { string_difference_apply_parse } from './string/difference/apply/parse.mjs';
@@ -25,7 +26,7 @@ import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
-    const repository_name = 'a';
+    const repository_name = version_repository_default();
     const collection_path = 'cities';
     const document_path = 'new-city-id';
     const document_data = { message: 'test' };
