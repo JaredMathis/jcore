@@ -74,7 +74,8 @@ export async function sandbox() {
                     database_reference_set(info, {});
                 }
                 let property_name = 'population';
-                const previous = database_reference_data(info).population;
+                const data = database_reference_data(info);
+                const previous = data.population;
                 const next = previous + 1;
                 transaction.update(info, { [property_name]: next });
                 database_set(transaction, database_collection_name, document_path_commit, commit_files);
