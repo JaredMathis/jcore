@@ -1,3 +1,4 @@
+import { version_property_part_id } from '../../property/part/id.mjs';
 import { version_property_parts } from '../../property/parts.mjs';
 import { file_name_json } from '../../../file/name/json.mjs';
 import { version_commits_get } from '../../commits/get.mjs';
@@ -42,7 +43,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             let difference_write = {
                 [property_file_path]: difference_path,
                 [property_contents]: {
-                    [version_property_part_id()]:part_id,
+                    [version_property_part_id()]: part_id,
                     hunks
                 }
             };
@@ -73,8 +74,4 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         list_add(writes, commit_write);
     }
     return writes;
-}
-
-function version_property_part_id() {
-    return 'part_id';
 }
