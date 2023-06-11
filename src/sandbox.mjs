@@ -1,4 +1,4 @@
-import { version_path_commits_get } from './version/path/commits/get.mjs';
+import { version_commits_get } from './version/commits/get.mjs';
 import { version_repository_file_size_max } from './version/repository/file/size/max.mjs';
 import { version_repository_default } from './version/repository/default.mjs';
 import { database_set } from './database/set.mjs';
@@ -29,7 +29,7 @@ import { string_underscore_is } from './string/underscore/is.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
-    let commits = version_path_commits_get(repository_name);
+    let parsed = await version_commits_get(repository_name);
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
     console.log({ file_size_max });
