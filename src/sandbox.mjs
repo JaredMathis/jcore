@@ -35,12 +35,16 @@ export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
     let repository_files_path = version_path_files_get(repository_name);
-    let files_contents = await directory_read_json(repository_files_path);
+    let files = await directory_read_json(repository_files_path);
     let repository_commits_path = version_path_commits_get(repository_name);
-    let commits_contents = await directory_read_json(repository_commits_path);
-    for (let commit of commits_contents) {
+    let contents = await directory_read_json(repository_commits_path);
+    for (let commit of contents) {
         let commit_json = object_property_get(commit, directory_property_json());
         let commit_parts = object_property_get(commit_json, version_property_parts());
+
+        for (let file of files) {
+
+        }
         console.log({ commit_parts });
     }
     return;
