@@ -1,4 +1,4 @@
-import { version_path_commits } from '../../path/commits.mjs';
+import { version_path_commits_get } from '../../path/commits/get.mjs';
 import { version_property_contents } from '../../property/contents.mjs';
 import { version_property_file_path } from '../../property/file/path.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -12,7 +12,6 @@ import { path_parse_base } from '../../../path/parse/base.mjs';
 import { list_map } from '../../../list/map.mjs';
 import { directory_read } from '../../../directory/read.mjs';
 import { directory_exists_ensure } from '../../../directory/exists/ensure.mjs';
-import { version_path_sub_get } from '../../path/sub/get.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { guid_generate } from '../../../guid/generate.mjs';
 import { version_property_path } from '../../property/path.mjs';
@@ -63,8 +62,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             parts,
             data: commit_data
         };
-        let repository_commits_directory_name = version_path_commits();
-        let repository_sub_path = version_path_sub_get(repository_name, repository_commits_directory_name);
+        let repository_sub_path = version_path_commits_get(repository_name);
         await directory_exists_ensure(repository_sub_path);
         let existing_commits = await directory_read(repository_sub_path);
         let version = 1;
