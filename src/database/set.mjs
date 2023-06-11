@@ -8,5 +8,6 @@ export async function database_set(db_or_transaction, collection_path, document_
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    await database_reference(db_or_transaction, collection_path, document_path).set(document_data);
+    const reference = database_reference(db_or_transaction, collection_path, document_path);
+    await reference.set(document_data);
 }

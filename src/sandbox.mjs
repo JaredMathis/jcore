@@ -38,6 +38,7 @@ import { list_contains } from './list/contains.mjs';
 import { list_single_item } from './list/single/item.mjs';
 import { runTransaction } from 'firebase/firestore';
 import { database_firestore_get } from './database/firestore/get.mjs';
+import { database_reference } from './database/reference.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     let repository_name = version_repository_default();
@@ -65,7 +66,8 @@ export async function sandbox() {
                 }
                 let document_path_commit = `commit${ fns }${ commit_id }`;
                 let document_path_info = `info`;
-                const info = await transaction.get(sfDocRef);
+                let info_refererence = database_reference(transaction, database_collection_name,document_path_info )
+                const info = await transaction.get(info_refererence);
                 if (!info.exists()) {
                   throw "Document does not exist!";
                 }
