@@ -1,4 +1,4 @@
-import { version_write_all } from '../../write/all.mjs';
+import { version_path_commits } from '../../path/commits.mjs';
 import { version_property_contents } from '../../property/contents.mjs';
 import { version_property_file_path } from '../../property/file/path.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -63,7 +63,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             parts,
             data: commit_data
         };
-        let repository_commits_directory_name = 'commits';
+        let repository_commits_directory_name = version_path_commits();
         let repository_sub_path = version_path_sub_get(repository_name, repository_commits_directory_name);
         await directory_exists_ensure(repository_sub_path);
         let existing_commits = await directory_read(repository_sub_path);
