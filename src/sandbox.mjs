@@ -1,3 +1,4 @@
+import { todo } from './todo.mjs';
 import { directory_read_current } from './directory/read/current.mjs';
 import { version_removals } from './version/removals.mjs';
 import { version_output_generic } from './version/output/generic.mjs';
@@ -34,6 +35,15 @@ export async function sandbox() {
     await version_output_generic(repository_name, file_paths, lambda);
     async function lambda(file_path, contents) {
         let existing = await file_read(file_path);
+        todo(contents, existing, file_path);
+    }
+    let removals = await version_removals(repository_name, file_paths);
+    list_map_async(removals, r => lambda(r));
+    console.log({
+        differences,
+        removals
+    });
+    function todo(contents, existing, file_path) {
         let hunks = string_difference_get(contents, existing);
         if (!list_length_is_0(hunks)) {
             list_add(differences, {
@@ -42,11 +52,6 @@ export async function sandbox() {
             });
         }
     }
-    let removals = await version_removals(repository_name, file_paths);
-    console.log({
-        differences,
-        removals
-    });
     return;
     await version_commit_and_removals(repository_name);
     return;
