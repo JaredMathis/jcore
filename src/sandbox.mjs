@@ -27,6 +27,7 @@ import { arguments_assert } from './arguments/assert.mjs';
 import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
 import { path_join } from './path/join.mjs';
+import { file_overwrite } from './file/overwrite.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
@@ -40,6 +41,7 @@ export async function sandbox() {
             repository_sub_path,
             file_path
         ]);
+        await file_overwrite(file_path_output, contents);
     }
     return;
     await version_commit_and_removals(repository_name);
