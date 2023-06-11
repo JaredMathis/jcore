@@ -47,44 +47,39 @@ import { list_last_index } from './list/last/index.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     let repository_name = version_repository_default();
-    try {
-        let db = database_firestore_get();
-        let fns = function_name_separator();
-        let database_collection_name = `repository${ fns }${ repository_name }`;
-        let document_path_info = `info`;
-        let info_refererence = database_reference(transaction, database_collection_name, document_path_info);
-        const info = await database_reference_set_if_not_exists(db, info_refererence, {});
-        await runTransaction(db, async transaction => {
-            let repository_files_path = version_path_files_get(repository_name);
-            let files = await directory_read_json(repository_files_path);
-            let repository_commits_path = version_path_commits_get(repository_name);
-            let contents = await directory_read_json(repository_commits_path);
-            list_each_with_index(contents, (commit, index) => {
-                let commit_path = object_property_get(commit, directory_property_file_path());
-                let commit_id = version_commits_path_to_integer(list_single_item(commit_path));
-                let commit_json = object_property_get(commit, directory_property_json());
-                let commit_parts = object_property_get(commit_json, version_property_parts());
-                let commit_files = list_single_item(commit_json);
-                for (let file of files) {
-                    let file_json = object_property_get(file, directory_property_json());
-                    let part_id = object_property_get(file_json, version_property_part_id());
-                    if (list_contains(commit_parts, part_id)) {
-                        list_add(commit_files, file_json);
-                    }
+    let db = database_firestore_get();
+    let fns = function_name_separator();
+    let database_collection_name = `repository${ fns }${ repository_name }`;
+    let document_path_info = `info`;
+    let info_refererence = database_reference(transaction, database_collection_name, document_path_info);
+    const info = await database_reference_set_if_not_exists(db, info_refererence, {});
+    await runTransaction(db, async transaction => {
+        let repository_files_path = version_path_files_get(repository_name);
+        let files = await directory_read_json(repository_files_path);
+        let repository_commits_path = version_path_commits_get(repository_name);
+        let contents = await directory_read_json(repository_commits_path);
+        list_each_with_index(contents, (commit, index) => {
+            let commit_path = object_property_get(commit, directory_property_file_path());
+            let commit_id = version_commits_path_to_integer(list_single_item(commit_path));
+            let commit_json = object_property_get(commit, directory_property_json());
+            let commit_parts = object_property_get(commit_json, version_property_parts());
+            let commit_files = list_single_item(commit_json);
+            for (let file of files) {
+                let file_json = object_property_get(file, directory_property_json());
+                let part_id = object_property_get(file_json, version_property_part_id());
+                if (list_contains(commit_parts, part_id)) {
+                    list_add(commit_files, file_json);
                 }
-                let property_commit = 'commit';
-                let document_path_commit = `${ property_commit }${ fns }${ commit_id }`;
-                database_create(transaction, database_collection_name, document_path_commit, commit_files);
-                if (equal(index, list_last_index(contents))) {
-                    let property_commit_latest = `${ property_commit }${ fns }latest`;
-                    database_reference_update_property(transaction, info, property_commit_latest, commit_id);
-                }
-            });
+            }
+            let property_commit = 'commit';
+            let document_path_commit = `${ property_commit }${ fns }${ commit_id }`;
+            database_create(transaction, database_collection_name, document_path_commit, commit_files);
+            if (equal(index, list_last_index(contents))) {
+                let property_commit_latest = `${ property_commit }${ fns }latest`;
+                database_reference_update_property(transaction, info, property_commit_latest, commit_id);
+            }
         });
-        console.log('Transaction successfully committed!');
-    } catch (e) {
-        console.log('Transaction failed: ', e);
-    }
+    });
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
     console.log({ file_size_max });
