@@ -1,3 +1,4 @@
+import { version_property_parts } from '../../property/parts.mjs';
 import { file_name_json } from '../../../file/name/json.mjs';
 import { version_commits_get } from '../../commits/get.mjs';
 import { version_path_commits_get } from '../../path/commits/get.mjs';
@@ -72,8 +73,4 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         list_add(writes, commit_write);
     }
     return writes;
-}
-
-function version_property_parts() {
-    return 'parts';
 }
