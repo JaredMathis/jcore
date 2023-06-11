@@ -48,6 +48,7 @@ import { database_firestore_get } from './database/firestore/get.mjs';
 import { database_reference } from './database/reference.mjs';
 import { list_last_index } from './list/last/index.mjs';
 import { data_key_value_set } from './data/key/value/set.mjs';
+import { comment } from './comment.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     let repository_name = version_repository_default();
@@ -67,6 +68,8 @@ export async function sandbox() {
         const info = database_reference_get(transaction, info_refererence);
         let info_data = database_reference_data(transaction, info);
         let property_commit_latest_value = object_property_get(info_data, property_commit_latest);
+        comment('if this fails then local code is out of sync with server');
+        assert(equal(property_commit_latest_data_value, property_commit_latest_value))
         let repository_files_path = version_path_files_get(repository_name);
         let files = await directory_read_json(repository_files_path);
         let repository_commits_path = version_path_commits_get(repository_name);
