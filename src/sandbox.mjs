@@ -1,3 +1,4 @@
+import { directory_property_file_path } from './directory/property/file/path.mjs';
 import { version_property_part_id } from './version/property/part/id.mjs';
 import { version_property_parts } from './version/property/parts.mjs';
 import { directory_property_json } from './directory/property/json.mjs';
@@ -21,7 +22,6 @@ import { range } from './range.mjs';
 import { string_difference_apply } from './string/difference/apply.mjs';
 import { string_difference_get } from './string/difference/get.mjs';
 import { tests } from './tests.mjs';
-import { version_commit_and_removals } from './version/commit/and/removals.mjs';
 import { log } from './log.mjs';
 import { string_letter_is } from './string/letter/is.mjs';
 import { function_tests_generate_after } from './function/tests/generate/after.mjs';
@@ -36,12 +36,13 @@ import { list_contains } from './list/contains.mjs';
 import { list_single_item } from './list/single/item.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
-    let repository_name = version_repository_default()
+    let repository_name = version_repository_default();
     let repository_files_path = version_path_files_get(repository_name);
     let files = await directory_read_json(repository_files_path);
     let repository_commits_path = version_path_commits_get(repository_name);
     let contents = await directory_read_json(repository_commits_path);
     for (let commit of contents) {
+        let commit_path = object_property_get(commit, directory_property_file_path());
         let commit_json = object_property_get(commit, directory_property_json());
         let commit_parts = object_property_get(commit_json, version_property_parts());
         let commit_files = list_single_item(commit_json);
@@ -52,7 +53,7 @@ export async function sandbox() {
                 list_add(commit_files, file_json);
             }
         }
-        console.log({commit_files})
+        console.log({ commit_path });
     }
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
