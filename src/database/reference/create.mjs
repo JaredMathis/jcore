@@ -5,5 +5,5 @@ export function database_reference_create(reference, document_data) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    return reference.set(document_data);
+    return reference.create(document_data);
 }
