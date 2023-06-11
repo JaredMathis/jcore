@@ -53,53 +53,7 @@ import { comment } from './comment.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     let repository_name = version_repository_default();
-    let db = database_firestore_get();
-    let fns = function_name_separator();
-    let database_collection_name = `repository${ fns }${ repository_name }`;
-    let property_commit = 'commit';
-    let property_commit_latest = `${ property_commit }${ fns }latest`;
-    let document_path_info = `info`;
-    let info_refererence = database_reference(db, database_collection_name, document_path_info);
-    await database_transaction(db, async transaction => {
-        await database_reference_set_if_not_exists(transaction, info_refererence, { [property_commit_latest]: 0 });
-    });
-    await database_transaction(db, async transaction => {
-        const property_commit_latest_data = `${ database_collection_name }${ fns }${ property_commit_latest }`;
-        let property_commit_latest_data_value = await data_key_value_get(property_commit_latest_data);
-        const info = await database_reference_get(transaction, info_refererence);
-        let info_data = database_reference_data(info);
-        let property_commit_latest_value = object_property_get(info_data, property_commit_latest);
-        comment('if this fails then local code is out of sync with server');
-        assert(equal(property_commit_latest_data_value, property_commit_latest_value));
-        let repository_files_path = version_path_files_get(repository_name);
-        let files = await directory_read_json(repository_files_path);
-        let repository_commits_path = version_path_commits_get(repository_name);
-        let commits = await directory_read_json(repository_commits_path);
-        let last_index = list_last_index(commits);
-        await list_each_with_index_async(commits, async (commit, index) => {
-            let commit_path = object_property_get(commit, directory_property_file_path());
-            let commit_id = list_single(version_commits_path_to_integer(list_single_item(commit_path)));
-            if (commit_id <= property_commit_latest_value) {
-                return;
-            }
-            let commit_json = object_property_get(commit, directory_property_json());
-            let commit_parts = object_property_get(commit_json, version_property_parts());
-            let commit_files = list_single_item(commit_json);
-            for (let file of files) {
-                let file_json = object_property_get(file, directory_property_json());
-                let part_id = object_property_get(file_json, version_property_part_id());
-                if (list_contains(commit_parts, part_id)) {
-                    list_add(commit_files, file_json);
-                }
-            }
-            let document_path_commit = `${ property_commit }${ fns }${ commit_id }`;
-            database_create(db, transaction, database_collection_name, document_path_commit, { value: commit_files });
-            if (equal(index, last_index)) {
-                database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_id);
-                await data_key_value_set(property_commit_latest_data, commit_id);
-            }
-        });
-    });
+    await newFunction(repository_name);
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
     console.log({ file_size_max });
@@ -181,4 +135,54 @@ export async function sandbox() {
         await function_tests_generate_after();
     }
     return;
+}
+
+async function newFunction(repository_name) {
+    let db = database_firestore_get();
+    let fns = function_name_separator();
+    let database_collection_name = `repository${fns}${repository_name}`;
+    let property_commit = 'commit';
+    let property_commit_latest = `${property_commit}${fns}latest`;
+    let document_path_info = `info`;
+    let info_refererence = database_reference(db, database_collection_name, document_path_info);
+    await database_transaction(db, async (transaction) => {
+        await database_reference_set_if_not_exists(transaction, info_refererence, { [property_commit_latest]: 0 });
+    });
+    await database_transaction(db, async (transaction) => {
+        const property_commit_latest_data = `${database_collection_name}${fns}${property_commit_latest}`;
+        let property_commit_latest_data_value = await data_key_value_get(property_commit_latest_data);
+        const info = await database_reference_get(transaction, info_refererence);
+        let info_data = database_reference_data(info);
+        let property_commit_latest_value = object_property_get(info_data, property_commit_latest);
+        comment('if this fails then local code is out of sync with server');
+        assert(equal(property_commit_latest_data_value, property_commit_latest_value));
+        let repository_files_path = version_path_files_get(repository_name);
+        let files = await directory_read_json(repository_files_path);
+        let repository_commits_path = version_path_commits_get(repository_name);
+        let commits = await directory_read_json(repository_commits_path);
+        let last_index = list_last_index(commits);
+        await list_each_with_index_async(commits, async (commit, index) => {
+            let commit_path = object_property_get(commit, directory_property_file_path());
+            let commit_id = list_single(version_commits_path_to_integer(list_single_item(commit_path)));
+            if (commit_id <= property_commit_latest_value) {
+                return;
+            }
+            let commit_json = object_property_get(commit, directory_property_json());
+            let commit_parts = object_property_get(commit_json, version_property_parts());
+            let commit_files = list_single_item(commit_json);
+            for (let file of files) {
+                let file_json = object_property_get(file, directory_property_json());
+                let part_id = object_property_get(file_json, version_property_part_id());
+                if (list_contains(commit_parts, part_id)) {
+                    list_add(commit_files, file_json);
+                }
+            }
+            let document_path_commit = `${property_commit}${fns}${commit_id}`;
+            database_create(db, transaction, database_collection_name, document_path_commit, { value: commit_files });
+            if (equal(index, last_index)) {
+                database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_id);
+                await data_key_value_set(property_commit_latest_data, commit_id);
+            }
+        });
+    });
 }
