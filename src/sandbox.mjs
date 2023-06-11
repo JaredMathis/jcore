@@ -35,9 +35,9 @@ export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
     let repository_files_path = version_path_files_get(repository_name);
-    let parsed = await version_commits_get(repository_name);
+    let commits = await version_commits_get(repository_name);
     let repository_commits_path = version_path_commits_get(repository_name);
-    for (let commit of parsed) {
+    for (let commit of commits) {
         let commit_path = path_join([
             repository_commits_path,
             file_name_json(commit)
