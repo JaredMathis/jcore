@@ -53,11 +53,14 @@ export async function sandbox() {
     let document_path_info = `info`;
     let info_refererence = database_reference(db, database_collection_name, document_path_info);
     await database_reference_set_if_not_exists(info_refererence, {});
-    await runTransaction(db, async transaction => {
+    console.log('here2')
+    await db.runTransaction(async transaction => {
+        console.log('here3')
         let repository_files_path = version_path_files_get(repository_name);
         let files = await directory_read_json(repository_files_path);
         let repository_commits_path = version_path_commits_get(repository_name);
         let contents = await directory_read_json(repository_commits_path);
+        console.log('here1')
         list_each_with_index(contents, (commit, index) => {
             let commit_path = object_property_get(commit, directory_property_file_path());
             let commit_id = version_commits_path_to_integer(list_single_item(commit_path));
@@ -73,12 +76,13 @@ export async function sandbox() {
             }
             let property_commit = 'commit';
             let document_path_commit = `${ property_commit }${ fns }${ commit_id }`;
-            database_create(transaction, database_collection_name, document_path_commit, commit_files);
+            database_create(db, transaction, database_collection_name, document_path_commit, commit_files);
             if (equal(index, list_last_index(contents))) {
                 let property_commit_latest = `${ property_commit }${ fns }latest`;
                 database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_id);
             }
         });
+        console.log('here')
     });
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
