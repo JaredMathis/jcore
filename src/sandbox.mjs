@@ -27,6 +27,8 @@ import { string_underscore_is } from './string/underscore/is.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
+    await version_commit_and_removals(repository_name);
+    return;
     const collection_path = 'cities';
     const document_path = 'new-city-id';
     const document_data = { message: 'test' };
@@ -34,8 +36,6 @@ export async function sandbox() {
     return;
     let differences = await version_differences(repository_name);
     console.log(differences);
-    return;
-    await version_commit_and_removals(repository_name);
     return;
     await tests();
     let fn1 = string_difference_get;
