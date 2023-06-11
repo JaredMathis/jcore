@@ -1,3 +1,4 @@
+import { directory_read_current } from './directory/read/current.mjs';
 import { version_removals } from './version/removals.mjs';
 import { version_output_generic } from './version/output/generic.mjs';
 import { string_difference_apply_parse } from './string/difference/apply/parse.mjs';
