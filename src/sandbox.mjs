@@ -1,3 +1,4 @@
+import { data_key_value_get } from './data/key/value/get.mjs';
 import { database_transaction } from './database/transaction.mjs';
 import { list_each_with_index_async } from './list/each/with/index/async.mjs';
 import { database_reference_data } from './database/reference/data.mjs';
@@ -61,7 +62,8 @@ export async function sandbox() {
         await database_reference_set_if_not_exists(transaction, info_refererence, { [property_commit_latest]: 0 });
     });
     await database_transaction(db, async transaction => {
-        const property_commit_latest_data = `${database_collection_name}${fns}${property_commit_latest}`;
+        const property_commit_latest_data = `${ database_collection_name }${ fns }${ property_commit_latest }`;
+        let property_commit_latest_data_value = data_key_value_get(property_commit_latest_data);
         const info = database_reference_get(transaction, info_refererence);
         let info_data = database_reference_data(transaction, info);
         let property_commit_latest_value = object_property_get(info_data, property_commit_latest);
