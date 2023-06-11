@@ -38,6 +38,7 @@ import { list_single_item } from './list/single/item.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     let repository_name = version_repository_default();
+    let prefix = `repository_${ repository_name }_`;
     let database_collection_name_info = `repository_${ repository_name }_info`;
     let database_collection_name_commits = `repository_${ repository_name }_commits`;
     let repository_files_path = version_path_files_get(repository_name);
