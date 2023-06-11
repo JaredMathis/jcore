@@ -1,3 +1,4 @@
+import { list_each_with_index } from './list/each/with/index.mjs';
 import { database_create } from './database/create.mjs';
 import { database_reference_update_property } from './database/reference/update/property.mjs';
 import { database_reference_set_if_not_exists } from './database/reference/set/if/not/exists.mjs';
@@ -42,6 +43,7 @@ import { list_single_item } from './list/single/item.mjs';
 import { runTransaction } from 'firebase/firestore';
 import { database_firestore_get } from './database/firestore/get.mjs';
 import { database_reference } from './database/reference.mjs';
+import { list_last_index } from './list/last/index.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     let repository_name = version_repository_default();
@@ -57,7 +59,7 @@ export async function sandbox() {
             let files = await directory_read_json(repository_files_path);
             let repository_commits_path = version_path_commits_get(repository_name);
             let contents = await directory_read_json(repository_commits_path);
-            for (let commit of contents) {
+            list_each_with_index(contents, (commit, index) => {
                 let commit_path = object_property_get(commit, directory_property_file_path());
                 let commit_id = version_commits_path_to_integer(list_single_item(commit_path));
                 let commit_json = object_property_get(commit, directory_property_json());
@@ -71,11 +73,13 @@ export async function sandbox() {
                     }
                 }
                 let property_commit = 'commit';
-                let property_commit_latest = `${ property_commit }${ fns }latest`;
-                database_reference_update_property(transaction, info, property_commit_latest, commit_id);
                 let document_path_commit = `${ property_commit }${ fns }${ commit_id }`;
                 database_create(transaction, database_collection_name, document_path_commit, commit_files);
-            }
+                if (equal(index, list_last_index(contents))) {
+                    let property_commit_latest = `${ property_commit }${ fns }latest`;
+                    database_reference_update_property(transaction, info, property_commit_latest, commit_id);
+                }
+            });
         });
         console.log('Transaction successfully committed!');
     } catch (e) {
