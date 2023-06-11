@@ -5,5 +5,4 @@ export async function database_reference_set_if_not_exists(info_refererence, val
     if (!info.exists) {
         await database_reference_set(info_refererence, value);
     }
-    return info;
 }
