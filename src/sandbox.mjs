@@ -1,3 +1,4 @@
+import { version_path_files_get } from './version/path/files/get.mjs';
 import { version_path_commits_get } from './version/path/commits/get.mjs';
 import { version_commits_get } from './version/commits/get.mjs';
 import { version_repository_file_size_max } from './version/repository/file/size/max.mjs';
@@ -33,11 +34,12 @@ import { file_read } from './file/read.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
+    let repository_files_path = version_path_files_get(repository_name);
     let parsed = await version_commits_get(repository_name);
-    let repository_sub_path = version_path_commits_get(repository_name);
+    let repository_commits_path = version_path_commits_get(repository_name);
     for (let commit of parsed) {
         let commit_path = path_join([
-            repository_sub_path,
+            repository_commits_path,
             file_name_json(commit)
         ]);
         let contents = await file_read(commit_path);
