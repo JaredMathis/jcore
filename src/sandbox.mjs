@@ -30,7 +30,7 @@ export async function sandbox() {
     initializeApp({ projectId: 'truthcode' });
     const db = getFirestore();
     let result = await db.collection('cities').doc('new-city-id').get();
-    console.log({result})
+    console.log({d:result.data()})
     return;
     await db.collection('cities').doc('new-city-id').set({message:'test'});
     return;
