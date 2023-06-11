@@ -26,6 +26,7 @@ import { function_name_get } from './function/name/get.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
+import { path_join } from './path/join.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
@@ -35,6 +36,10 @@ export async function sandbox() {
     for (let file_path of filtered) {
         console.log(file_path);
         let contents = await version_file_contents(repository_name, file_path);
+        let file_path_output = path_join([
+            repository_sub_path,
+            file_path
+        ]);
     }
     return;
     await version_commit_and_removals(repository_name);
