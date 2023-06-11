@@ -72,6 +72,7 @@ export async function sandbox() {
         let info_data = database_reference_data(info);
         let property_commit_latest_value = object_property_get(info_data, property_commit_latest);
         comment('if this fails then local code is out of sync with server');
+        console.log({property_commit_latest_data_value, property_commit_latest_value})
         assert(equal(property_commit_latest_data_value, property_commit_latest_value))
         let repository_files_path = version_path_files_get(repository_name);
         let files = await directory_read_json(repository_files_path);
