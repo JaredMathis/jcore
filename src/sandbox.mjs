@@ -43,7 +43,6 @@ import { string_underscore_is } from './string/underscore/is.mjs';
 import { object_property_get } from './object/property/get.mjs';
 import { list_contains } from './list/contains.mjs';
 import { list_single_item } from './list/single/item.mjs';
-import { runTransaction } from 'firebase/firestore';
 import { database_firestore_get } from './database/firestore/get.mjs';
 import { database_reference } from './database/reference.mjs';
 import { list_last_index } from './list/last/index.mjs';
