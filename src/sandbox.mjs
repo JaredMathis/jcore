@@ -28,6 +28,7 @@ import { string_underscore_is } from './string/underscore/is.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
+    return;
     let file_size_max = await version_repository_file_size_max(repository_name);
     console.log({ file_size_max });
     return;
