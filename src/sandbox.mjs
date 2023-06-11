@@ -88,7 +88,8 @@ export async function sandbox() {
             database_create(db, transaction, database_collection_name, document_path_commit, { value: commit_files });
             if (equal(index, list_last_index(commits))) {
                 database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_id);
-                await data_key_value_set(`${ database_collection_name }${ fns }${ property_commit_latest }`, commit_id);
+                const property_commit_latest_data = `${database_collection_name}${fns}${property_commit_latest}`;
+                await data_key_value_set(property_commit_latest_data, commit_id);
             }
         });
     });
