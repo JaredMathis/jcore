@@ -4,7 +4,6 @@ import { version_property_file_path } from '../../property/file/path.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { path_join } from '../../../path/join.mjs';
 import { add_1 } from '../../../add/1.mjs';
-import { list_max } from '../../../list/max.mjs';
 import { integer_parse } from '../../../integer/parse.mjs';
 import { file_extension_json } from '../../../file/extension/json.mjs';
 import { string_suffix_without } from '../../../string/suffix/without.mjs';
@@ -23,6 +22,7 @@ import { string_identifier_is } from '../../../string/identifier/is.mjs';
 import { list_is } from '../../../list/is.mjs';
 import { object_is } from '../../../object/is.mjs';
 import { function_is } from '../../../function/is.mjs';
+import { list_max_or_0 } from '../../../list/max/or/0.mjs';
 export async function version_commit_files_generic(repository_name, file_paths, commit_data, difference_get) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -70,7 +70,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             let names = list_map(existing_commits, path_parse_base);
             let unparsed = list_map(names, c => string_suffix_without(c, file_extension_json()));
             let parsed = list_map(unparsed, integer_parse);
-            let max = list_max(parsed);
+            let max = list_max_or_0(parsed);
             version = add_1(max);
         }
         let commit_path = path_join([
