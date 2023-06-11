@@ -1,3 +1,4 @@
+import { version_property_part_id } from './version/property/part/id.mjs';
 import { version_property_parts } from './version/property/parts.mjs';
 import { directory_property_json } from './directory/property/json.mjs';
 import { directory_read_json } from './directory/read/json.mjs';
@@ -44,7 +45,6 @@ export async function sandbox() {
         for (let file of files) {
             let file_json = object_property_get(file, directory_property_json());
             let part_id = object_property_get(file, version_property_part_id());
-            
             console.log({ part_id });
         }
     }
