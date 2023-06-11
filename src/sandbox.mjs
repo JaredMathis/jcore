@@ -29,7 +29,10 @@ export async function sandbox() {
     const repository_name = 'a';
     initializeApp({ projectId: 'truthcode' });
     const db = getFirestore();
-    await db.collection('cities').doc('new-city-id').set({message:'test'});
+    const collection_path = 'cities';
+    const document_path = 'new-city-id';
+    const document_data = { message: 'test' };
+    await db.collection(collection_path).doc(document_path).set(document_data);
     return;
     await db.collection('cities').doc('new-city-id').delete();
     return;
