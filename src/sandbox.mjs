@@ -22,9 +22,12 @@ import { function_name_get } from './function/name/get.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
+import { initializeApp } from 'firebase-admin/app';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
+    initializeApp({ projectId: 'truthcode' });
+    return;
     let differences = await version_differences(repository_name);
     console.log(differences);
     return;
