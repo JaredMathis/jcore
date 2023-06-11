@@ -1,3 +1,4 @@
+import { function_name_separator } from './function/name/separator.mjs';
 import { version_commits_path_to_integer } from './version/commits/path/to/integer.mjs';
 import { directory_property_file_path } from './directory/property/file/path.mjs';
 import { version_property_part_id } from './version/property/part/id.mjs';
@@ -38,9 +39,10 @@ import { list_single_item } from './list/single/item.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     let repository_name = version_repository_default();
-    let prefix = `repository_${ repository_name }_`;
-    let database_collection_name_info = `repository_${ repository_name }_info`;
-    let database_collection_name_commits = `repository_${ repository_name }_commits`;
+    let fns = function_name_separator();
+    let prefix = `repository${ fns }${ repository_name }${ fns }`;
+    let database_collection_name_info = `${ prefix }info`;
+    let database_collection_name_commits = `${ prefix }commits`;
     let repository_files_path = version_path_files_get(repository_name);
     let files = await directory_read_json(repository_files_path);
     let repository_commits_path = version_path_commits_get(repository_name);
