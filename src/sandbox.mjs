@@ -29,6 +29,7 @@ export async function sandbox() {
     const repository_name = 'a';
     initializeApp({ projectId: 'truthcode' });
     const db = getFirestore();
+    await db.collection('cities').doc('new-city-id').set({message:'test'});
     return;
     let differences = await version_differences(repository_name);
     console.log(differences);
