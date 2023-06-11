@@ -9,6 +9,6 @@ export async function database_create(db, transaction, collection_path, document
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    const reference = database_reference(db_or_transaction, collection_path, document_path);
+    const reference = database_reference(db, collection_path, document_path);
     await database_reference_create(reference, document_data);
 }
