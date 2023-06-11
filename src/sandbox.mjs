@@ -1,3 +1,4 @@
+import { version_removals } from './version/removals.mjs';
 import { version_output_generic } from './version/output/generic.mjs';
 import { string_difference_apply_parse } from './string/difference/apply/parse.mjs';
 import { string_multiply } from './string/multiply.mjs';
@@ -39,7 +40,11 @@ export async function sandbox() {
             });
         }
     }
-    console.log(differences)
+    let removals = await version_removals(repository_name, file_paths);
+    console.log({
+        differences,
+        removals
+    });
     return;
     await version_commit_and_removals(repository_name);
     return;
