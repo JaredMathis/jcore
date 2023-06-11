@@ -37,8 +37,8 @@ import { list_contains } from './list/contains.mjs';
 import { list_single_item } from './list/single/item.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
-    let database_collection_name = 'commits';
     let repository_name = version_repository_default();
+    let database_collection_name_commits = `repository_${ repository_name }_commits`;
     let repository_files_path = version_path_files_get(repository_name);
     let files = await directory_read_json(repository_files_path);
     let repository_commits_path = version_path_commits_get(repository_name);
@@ -56,7 +56,7 @@ export async function sandbox() {
                 list_add(commit_files, file_json);
             }
         }
-        database_set(database_collection_name, commit_id, commit_files);
+        database_set(database_collection_name_commits, commit_id, commit_files);
     }
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
