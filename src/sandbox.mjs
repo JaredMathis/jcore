@@ -1,5 +1,4 @@
 import { database_reference_set_if_not_exists } from './database/reference/set/if/not/exists.mjs';
-import { database_reference_data } from './database/reference/data.mjs';
 import { function_name_separator } from './function/name/separator.mjs';
 import { version_commits_path_to_integer } from './version/commits/path/to/integer.mjs';
 import { directory_property_file_path } from './directory/property/file/path.mjs';
@@ -69,9 +68,9 @@ export async function sandbox() {
                         list_add(commit_files, file_json);
                     }
                 }
-                let document_path_commit = `commit${ fns }${ commit_id }`;
-                let property_name = `commit${ fns }latest`;
-                const data = database_reference_data(info);
+                let property_commit = 'commit';
+                let document_path_commit = `${ property_commit }${ fns }${ commit_id }`;
+                let property_name = `${ property_commit }${ fns }latest`;
                 transaction.update(info, { [property_name]: commit_id });
                 database_set(transaction, database_collection_name, document_path_commit, commit_files);
             }
