@@ -1,4 +1,4 @@
-import { database_reference_get } from './database/reference/get.mjs';
+import { database_reference_set_if_not_exists } from './database/reference/set/if/not/exists.mjs';
 import { database_reference_data } from './database/reference/data.mjs';
 import { function_name_separator } from './function/name/separator.mjs';
 import { version_commits_path_to_integer } from './version/commits/path/to/integer.mjs';
@@ -41,7 +41,6 @@ import { list_single_item } from './list/single/item.mjs';
 import { runTransaction } from 'firebase/firestore';
 import { database_firestore_get } from './database/firestore/get.mjs';
 import { database_reference } from './database/reference.mjs';
-import { database_reference_set } from './database/reference/set.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     let repository_name = version_repository_default();
@@ -71,10 +70,7 @@ export async function sandbox() {
                 let document_path_info = `info`;
                 let info_refererence = database_reference(transaction, database_collection_name, document_path_info);
                 let value = {};
-                const info = await database_reference_get(transaction, info_refererence);
-                if (!info.exists()) {
-                    database_reference_set(info, value);
-                }
+                const info = await database_reference_set_if_not_exists(transaction, info_refererence, value);
                 let property_name = 'population';
                 const data = database_reference_data(info);
                 const previous = object_property_get(data, property_name);
