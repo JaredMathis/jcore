@@ -1,4 +1,8 @@
-import { version_output } from './version/output.mjs';
+import { file_overwrite } from './file/overwrite.mjs';
+import { path_join } from './path/join.mjs';
+import { version_output_generic } from './version/output/generic.mjs';
+import { version_path_outputs } from './version/path/outputs.mjs';
+import { version_path_sub_get } from './version/path/sub/get.mjs';
 import { string_difference_apply_parse } from './string/difference/apply/parse.mjs';
 import { string_multiply } from './string/multiply.mjs';
 import { random_get } from './random/get.mjs';
@@ -26,7 +30,16 @@ export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
     let directory_output_name = 'b';
-    await version_output(repository_name, directory_output_name);
+    let repository_sub_path = version_path_sub_get(repository_name, version_path_outputs());
+    await version_output_generic(repository_name, lambda);
+    async function lambda(file_path, contents) {
+        let file_path_output = path_join([
+            repository_sub_path,
+            directory_output_name,
+            file_path
+        ]);
+        await file_overwrite(file_path_output, contents);
+    }
     return;
     await version_commit_and_removals(repository_name);
     return;
