@@ -26,7 +26,7 @@ export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
     let directory_output_name = 'b';
-    await version_output(repository_name);
+    await version_output(repository_name, directory_output_name);
     return;
     await version_commit_and_removals(repository_name);
     return;
