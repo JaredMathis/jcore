@@ -1,8 +1,4 @@
-import { version_path_outputs } from './version/path/outputs.mjs';
-import { version_path_sub_get } from './version/path/sub/get.mjs';
-import { version_file_contents } from './version/file/contents.mjs';
-import { git_ignore_filter } from './git/ignore/filter.mjs';
-import { directory_read_current } from './directory/read/current.mjs';
+import { version_output } from './version/output.mjs';
 import { string_difference_apply_parse } from './string/difference/apply/parse.mjs';
 import { string_multiply } from './string/multiply.mjs';
 import { random_get } from './random/get.mjs';
@@ -26,23 +22,11 @@ import { function_name_get } from './function/name/get.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
-import { path_join } from './path/join.mjs';
-import { file_overwrite } from './file/overwrite.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
     let directory_output_name = 'b';
-    let file_paths = await directory_read_current();
-    let filtered = await git_ignore_filter(file_paths);
-    let repository_sub_path = version_path_sub_get(repository_name, version_path_outputs());
-    for (let file_path of filtered) {
-        let contents = await version_file_contents(repository_name, file_path);
-        let file_path_output = path_join([
-            repository_sub_path,
-            file_path
-        ]);
-        await file_overwrite(file_path_output, contents);
-    }
+    await version_output(repository_name);
     return;
     await version_commit_and_removals(repository_name);
     return;
