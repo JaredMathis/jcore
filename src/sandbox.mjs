@@ -1,3 +1,4 @@
+import { version_property_parts } from './version/property/parts.mjs';
 import { directory_property_json } from './directory/property/json.mjs';
 import { directory_read_json } from './directory/read/json.mjs';
 import { version_path_files_get } from './version/path/files/get.mjs';
