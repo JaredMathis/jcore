@@ -1,3 +1,4 @@
+import { version_path_repository } from './version/path/repository.mjs';
 import { version_repository_default } from './version/repository/default.mjs';
 import { database_set } from './database/set.mjs';
 import { version_differences } from './version/differences.mjs';
@@ -26,8 +27,10 @@ import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
-    return;
     const repository_name = version_repository_default();
+    let repository_directory = version_path_repository(repository_name);
+    console.log({ repository_directory });
+    return;
     await version_commit_and_removals(repository_name);
     return;
     const collection_path = 'cities';
