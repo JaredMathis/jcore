@@ -70,11 +70,9 @@ export async function sandbox() {
                     }
                 }
                 let document_path_commit = `commit${ fns }${ commit_id }`;
-                let property_name = 'population';
+                let property_name = `commit${ fns }latest`;
                 const data = database_reference_data(info);
-                const previous = object_property_get(data, property_name);
-                const next = previous + 1;
-                transaction.update(info, { [property_name]: next });
+                transaction.update(info, { [property_name]: commit_id });
                 database_set(transaction, database_collection_name, document_path_commit, commit_files);
             }
         });
