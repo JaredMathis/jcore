@@ -64,7 +64,8 @@ export async function sandbox() {
                     }
                 }
                 let document_path_commit = `commit${ fns }${ commit_id }`;
-                database_set(database_collection_name_commits, document_path_commit, commit_files);
+                let document_path_info = `info`;
+                database_set(database_collection_name, document_path_commit, commit_files);
             }
         });
         console.log('Transaction successfully committed!');
