@@ -46,6 +46,7 @@ export async function sandbox() {
     let repository_name = version_repository_default();
     try {
         let db = database_firestore_get();
+        const info = await database_reference_set_if_not_exists(db, info_refererence, value);
         await runTransaction(db, async transaction => {
             let fns = function_name_separator();
             let database_collection_name = `repository${ fns }${ repository_name }`;
@@ -70,7 +71,6 @@ export async function sandbox() {
                 let document_path_info = `info`;
                 let info_refererence = database_reference(transaction, database_collection_name, document_path_info);
                 let value = {};
-                const info = await database_reference_set_if_not_exists(transaction, info_refererence, value);
                 let property_name = 'population';
                 const data = database_reference_data(info);
                 const previous = object_property_get(data, property_name);
