@@ -40,9 +40,7 @@ export async function sandbox() {
     arguments_assert(arguments, []);
     let repository_name = version_repository_default();
     let fns = function_name_separator();
-    let prefix = `repository${ fns }${ repository_name }${ fns }`;
-    let database_collection_name_info = `${ prefix }info`;
-    let database_collection_name_commits = `${ prefix }commits`;
+    let database_collection_name = `repository${ fns }${ repository_name }`;
     let repository_files_path = version_path_files_get(repository_name);
     let files = await directory_read_json(repository_files_path);
     let repository_commits_path = version_path_commits_get(repository_name);
