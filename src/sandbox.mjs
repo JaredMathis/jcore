@@ -30,17 +30,18 @@ import { string_underscore_is } from './string/underscore/is.mjs';
 import { directory_read_contents } from './directory/read/contents.mjs';
 import { object_property_get } from './object/property/get.mjs';
 import { directory_property_contents } from './directory/property/contents.mjs';
-import { list_map } from './list/map.mjs';
 import { json_from } from './json/from.mjs';
+import { object_property_initialize } from './object/property/initialize.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
     let repository_files_path = version_path_files_get(repository_name);
     let files_contents = await directory_read_contents(repository_files_path);
-    let files_json = list_map(files_contents, f => {
+    for (let f of files_contents) {
         let contents = object_property_get(f, directory_property_contents());
         let json = json_from(contents);
-    });
+        object_property_initialize(f, 'json', json);
+    }
     let repository_commits_path = version_path_commits_get(repository_name);
     let commits_contents = await directory_read_contents(repository_commits_path);
     for (let commit of commits_contents) {
