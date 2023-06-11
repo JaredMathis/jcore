@@ -1,7 +1,6 @@
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { version_file_contents } from '../file/contents.mjs';
 import { git_ignore_filter } from '../../git/ignore/filter.mjs';
-import { directory_read_current } from '../../directory/read/current.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { function_is } from '../../function/is.mjs';
 import { list_is } from '../../list/is.mjs';
