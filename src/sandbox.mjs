@@ -28,8 +28,9 @@ import { list_length_is_0 } from './list/length/is/0.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
+    let file_paths = await directory_read_current();
     let differences = [];
-    await version_output_generic(repository_name, lambda);
+    await version_output_generic(repository_name, file_paths, lambda);
     async function lambda(file_path, contents) {
         let existing = await file_read(file_path);
         let hunks = string_difference_get(contents, existing);
