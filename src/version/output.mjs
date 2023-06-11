@@ -17,6 +17,9 @@ export async function version_output(repository_name, directory_output_name) {
     let repository_sub_path = version_path_sub_get(repository_name, version_path_outputs());
     for (let file_path of filtered) {
         let contents = await version_file_contents(repository_name, file_path);
+        await lambda(file_path, contents);
+    }
+    async function lambda(file_path, contents) {
         let file_path_output = path_join([
             repository_sub_path,
             directory_output_name,
