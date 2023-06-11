@@ -85,7 +85,7 @@ export async function sandbox() {
         let last_index = list_last_index(commits);
         await list_each_with_index_async(commits, async (commit, index) => {
             let commit_path = object_property_get(commit, directory_property_file_path());
-            let commit_id = version_commits_path_to_integer(list_single_item(commit_path));
+            let commit_id = list_single(version_commits_path_to_integer(list_single_item(commit_path)));
             if (commit_id <= property_commit_latest_value) {
                 return;
             }
