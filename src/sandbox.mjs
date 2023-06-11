@@ -53,6 +53,7 @@ export async function sandbox() {
     let document_path_info = `info`;
     let info_refererence = database_reference(db, database_collection_name, document_path_info);
     const info = await database_reference_set_if_not_exists(db, info_refererence, {});
+    return;
     await runTransaction(db, async transaction => {
         let repository_files_path = version_path_files_get(repository_name);
         let files = await directory_read_json(repository_files_path);
