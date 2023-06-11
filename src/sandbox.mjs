@@ -1,3 +1,5 @@
+import { version_file_contents } from './version/file/contents.mjs';
+import { list_map_async } from './list/map/async.mjs';
 import { todo } from './todo.mjs';
 import { directory_read_current } from './directory/read/current.mjs';
 import { version_removals } from './version/removals.mjs';
@@ -38,10 +40,9 @@ export async function sandbox() {
         todo(contents, existing, file_path);
     }
     let removals = await version_removals(repository_name, file_paths);
-    list_map_async(removals, r => lambda(r));
-    console.log({
-        differences,
-        removals
+    list_map_async(removals, async r => {
+        let contents = await version_file_contents(repository_name, r);
+        todo(contents, '', r);
     });
     function todo(contents, existing, file_path) {
         let hunks = string_difference_get(contents, existing);
