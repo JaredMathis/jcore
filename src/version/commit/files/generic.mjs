@@ -62,7 +62,6 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             parts,
             data: commit_data
         };
-        let version = 1;
         let repository_sub_path = version_path_commits_get(repository_name);
         await directory_exists_ensure(repository_sub_path);
         let existing_commits = await directory_read(repository_sub_path);
@@ -75,7 +74,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             parsed = list_map(unparsed, integer_parse);
         }
         let max = list_max_or_0(parsed);
-        version = add_1(max);
+        let version = add_1(max);
         let commit_path = path_join([
             repository_sub_path,
             `${ version }${ file_extension_json() }`
