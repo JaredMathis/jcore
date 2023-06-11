@@ -1,8 +1,4 @@
-import { file_overwrite } from './file/overwrite.mjs';
-import { path_join } from './path/join.mjs';
 import { version_output_generic } from './version/output/generic.mjs';
-import { version_path_outputs } from './version/path/outputs.mjs';
-import { version_path_sub_get } from './version/path/sub/get.mjs';
 import { string_difference_apply_parse } from './string/difference/apply/parse.mjs';
 import { string_multiply } from './string/multiply.mjs';
 import { random_get } from './random/get.mjs';
@@ -26,19 +22,22 @@ import { function_name_get } from './function/name/get.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
+import { file_read } from './file/read.mjs';
+import { list_length_is_0 } from './list/length/is/0.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = 'a';
-    let directory_output_name = 'b';
-    let repository_sub_path = version_path_sub_get(repository_name, version_path_outputs());
+    let differences = [];
     await version_output_generic(repository_name, lambda);
     async function lambda(file_path, contents) {
-        let file_path_output = path_join([
-            repository_sub_path,
-            directory_output_name,
-            file_path
-        ]);
-        await file_overwrite(file_path_output, contents);
+        let existing = await file_read(file_path);
+        let hunks = string_difference_get(contents, existing);
+        if (!list_length_is_0(hunks)) {
+            list_add(differences, {
+                file_path,
+                hunks
+            });
+        }
     }
     return;
     await version_commit_and_removals(repository_name);
