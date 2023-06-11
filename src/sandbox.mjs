@@ -1,3 +1,4 @@
+import { database_reference_data } from './database/reference/data.mjs';
 import { function_name_separator } from './function/name/separator.mjs';
 import { version_commits_path_to_integer } from './version/commits/path/to/integer.mjs';
 import { directory_property_file_path } from './directory/property/file/path.mjs';
@@ -73,7 +74,7 @@ export async function sandbox() {
                     database_reference_set(info, {});
                 }
                 let property_name = 'population';
-                const newPopulation = info.data().population + 1;
+                const newPopulation = database_reference_data(info).population + 1;
                 transaction.update(sfDocRef, { population: newPopulation });
                 database_set(transaction, database_collection_name, document_path_commit, commit_files);
             }
