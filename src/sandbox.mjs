@@ -1,3 +1,4 @@
+import { database_reference_get } from './database/reference/get.mjs';
 import { database_reference_data } from './database/reference/data.mjs';
 import { function_name_separator } from './function/name/separator.mjs';
 import { version_commits_path_to_integer } from './version/commits/path/to/integer.mjs';
@@ -70,7 +71,7 @@ export async function sandbox() {
                 let document_path_info = `info`;
                 let info_refererence = database_reference(transaction, database_collection_name, document_path_info);
                 let value = {};
-                const info = await transaction.get(info_refererence);
+                const info = await database_reference_get(transaction, info_refererence);
                 if (!info.exists()) {
                     database_reference_set(info, value);
                 }
