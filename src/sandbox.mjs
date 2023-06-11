@@ -32,9 +32,12 @@ import { arguments_assert } from './arguments/assert.mjs';
 import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
 import { object_property_get } from './object/property/get.mjs';
+import { list_contains } from './list/contains.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
+    await version_commit_and_removals(repository_name);
+    return;
     let repository_files_path = version_path_files_get(repository_name);
     let files = await directory_read_json(repository_files_path);
     let repository_commits_path = version_path_commits_get(repository_name);
@@ -42,17 +45,19 @@ export async function sandbox() {
     for (let commit of contents) {
         let commit_json = object_property_get(commit, directory_property_json());
         let commit_parts = object_property_get(commit_json, version_property_parts());
+        let commit_files = []
         for (let file of files) {
             let file_json = object_property_get(file, directory_property_json());
             let part_id = object_property_get(file_json, version_property_part_id());
-            console.log({ part_id });
+            if (list_contains(commit_parts, part_id)) {
+                list_add(commit_files, file_json)
+            }
         }
     }
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
     console.log({ file_size_max });
     return;
-    await version_commit_and_removals(repository_name);
     return;
     const collection_path = 'cities';
     const document_path = 'new-city-id';
