@@ -40,7 +40,7 @@ export async function sandbox() {
         todo(contents, existing, file_path);
     }
     let removals = await version_removals(repository_name, file_paths);
-    list_map_async(removals, async r => {
+    await list_map_async(removals, async r => {
         let contents = await version_file_contents(repository_name, r);
         todo(contents, '', r);
     });
