@@ -28,6 +28,7 @@ import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
 import { directory_read } from './directory/read.mjs';
 import { file_read } from './file/read.mjs';
+import { list_max } from './list/max.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
@@ -37,7 +38,8 @@ export async function sandbox() {
         let contents = await file_read(file_path);
         return string_size_bytes(contents);
     });
-    console.log({ file_paths });
+    let file_size_max = list_max(file_sizes);
+    console.log({ file_size_max });
     return;
     await version_commit_and_removals(repository_name);
     return;
