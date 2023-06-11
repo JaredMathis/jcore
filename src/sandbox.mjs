@@ -41,9 +41,8 @@ export async function sandbox() {
     for (let commit of contents) {
         let commit_json = object_property_get(commit, directory_property_json());
         let commit_parts = object_property_get(commit_json, version_property_parts());
-
         for (let file of files) {
-
+            let file_json = object_property_get(file, directory_property_json());
         }
         console.log({ commit_parts });
     }
