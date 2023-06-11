@@ -56,7 +56,7 @@ export async function sandbox() {
                 list_add(commit_files, file_json);
             }
         }
-        database_set(database_collection_name);
+        database_set(database_collection_name, commit_id, commit_files);
     }
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
