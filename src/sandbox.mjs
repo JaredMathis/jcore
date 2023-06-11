@@ -55,7 +55,7 @@ export async function sandbox() {
                 list_add(commit_files, file_json);
             }
         }
-        console.log({ commit_path });
+        console.log({ commit_id });
     }
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
