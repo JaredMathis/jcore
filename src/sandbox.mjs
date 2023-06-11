@@ -65,6 +65,13 @@ export async function sandbox() {
                 }
                 let document_path_commit = `commit${ fns }${ commit_id }`;
                 let document_path_info = `info`;
+                const info = await transaction.get(sfDocRef);
+                if (!info.exists()) {
+                  throw "Document does not exist!";
+                }
+                const newPopulation = info.data().population + 1;
+                transaction.update(sfDocRef, { population: newPopulation });
+
                 database_set(transaction, database_collection_name, document_path_commit, commit_files);
             }
         });

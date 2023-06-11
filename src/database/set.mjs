@@ -1,3 +1,4 @@
+import { database_reference } from './reference.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 export async function database_set(db_or_transaction, collection_path, document_path, document_data) {
@@ -7,5 +8,5 @@ export async function database_set(db_or_transaction, collection_path, document_
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    await db_or_transaction.collection(collection_path).doc(document_path).set(document_data);
+    await database_reference(db_or_transaction, collection_path, document_path).set(document_data);
 }
