@@ -28,16 +28,15 @@ import { function_name_get } from './function/name/get.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
-import { directory_read_contents } from './directory/read/contents.mjs';
 import { object_property_get } from './object/property/get.mjs';
 import { directory_property_contents } from './directory/property/contents.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
     let repository_files_path = version_path_files_get(repository_name);
-    await directory_read_json(repository_files_path);
+    let files_contents = await directory_read_json(repository_files_path);
     let repository_commits_path = version_path_commits_get(repository_name);
-    let commits_contents = await directory_read_contents(repository_commits_path);
+    let commits_contents = await directory_read_json(repository_commits_path);
     for (let commit of commits_contents) {
         let commit_contents = object_property_get(commit, directory_property_contents());
     }
