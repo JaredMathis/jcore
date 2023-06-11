@@ -1,3 +1,5 @@
+import { version_path_outputs } from './version/path/outputs.mjs';
+import { version_path_sub_get } from './version/path/sub/get.mjs';
 import { version_file_contents } from './version/file/contents.mjs';
 import { git_ignore_filter } from './git/ignore/filter.mjs';
 import { directory_read_current } from './directory/read/current.mjs';
@@ -26,12 +28,12 @@ import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
-    let outputs = version_path_outputs();
     const repository_name = 'a';
     let file_paths = await directory_read_current();
     let filtered = await git_ignore_filter(file_paths);
+    let repository_sub_path = version_path_sub_get(repository_name, version_path_outputs());
     for (let file_path of filtered) {
-        console.log(file_path)
+        console.log(file_path);
         let contents = await version_file_contents(repository_name, file_path);
     }
     return;
@@ -105,8 +107,4 @@ export async function sandbox() {
         await function_tests_generate_after();
     }
     return;
-}
-
-function version_path_outputs() {
-    return 'outputs';
 }
