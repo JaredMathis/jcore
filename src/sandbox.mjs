@@ -25,11 +25,13 @@ import { function_name_get } from './function/name/get.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
+import { directory_read } from './directory/read.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
     let repository_directory = version_path_repository(repository_name);
-    console.log({ repository_directory });
+    let file_paths = await directory_read(repository_directory);
+    console.log({ file_paths });
     return;
     await version_commit_and_removals(repository_name);
     return;
