@@ -29,9 +29,7 @@ export async function sandbox() {
     const collection_path = 'cities';
     const document_path = 'new-city-id';
     const document_data = { message: 'test' };
-    const db = await database_set(collection_path, document_path, document_data);
-    return;
-    await db.collection('cities').doc('new-city-id').delete();
+    await database_set(collection_path, document_path, document_data);
     return;
     let differences = await version_differences(repository_name);
     console.log(differences);
