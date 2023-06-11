@@ -3,6 +3,7 @@
     "acorn": "^8.8.2",
     "diff": "^5.1.0",
     "escodegen": "^2.0.0",
+    "firebase": "^9.22.2",
     "firebase-admin": "^11.9.0",
     "uuid": "^9.0.0"
   }
