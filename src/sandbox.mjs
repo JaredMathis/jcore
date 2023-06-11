@@ -1,3 +1,4 @@
+import { database_reference_update_property } from './database/reference/update/property.mjs';
 import { database_reference_set_if_not_exists } from './database/reference/set/if/not/exists.mjs';
 import { function_name_separator } from './function/name/separator.mjs';
 import { version_commits_path_to_integer } from './version/commits/path/to/integer.mjs';
@@ -71,7 +72,7 @@ export async function sandbox() {
                 let property_commit = 'commit';
                 let document_path_commit = `${ property_commit }${ fns }${ commit_id }`;
                 let property_name = `${ property_commit }${ fns }latest`;
-                transaction.update(info, { [property_name]: commit_id });
+                database_reference_update_property(transaction, info, property_name, commit_id);
                 database_set(transaction, database_collection_name, document_path_commit, commit_files);
             }
         });
