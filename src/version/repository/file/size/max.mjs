@@ -11,7 +11,9 @@ export async function version_repository_file_size_max(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let repository_directory = version_path_repository(repository_name);
     let file_paths = await directory_read(repository_directory);
-    let list_contents = await list_map_async(file_paths, file_read);
+    let list_contents = await list_map_async(file_paths, async file_path => {
+        return await file_read(file_path);
+    });
     let file_sizes = list_map(list_contents, string_byte_size);
     let file_size_max = list_max(file_sizes);
     return file_size_max;
