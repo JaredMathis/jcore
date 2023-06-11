@@ -1,6 +1,4 @@
-import { string_byte_size } from './string/byte/size.mjs';
-import { list_map_async } from './list/map/async.mjs';
-import { version_path_repository } from './version/path/repository.mjs';
+import { version_repository_file_size_max } from './version/repository/file/size/max.mjs';
 import { version_repository_default } from './version/repository/default.mjs';
 import { database_set } from './database/set.mjs';
 import { version_differences } from './version/differences.mjs';
@@ -27,19 +25,10 @@ import { function_name_get } from './function/name/get.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
-import { directory_read } from './directory/read.mjs';
-import { file_read } from './file/read.mjs';
-import { list_max } from './list/max.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
-    let repository_directory = version_path_repository(repository_name);
-    let file_paths = await directory_read(repository_directory);
-    let file_sizes = await list_map_async(file_paths, async file_path => {
-        let contents = await file_read(file_path);
-        return string_byte_size(contents);
-    });
-    let file_size_max = list_max(file_sizes);
+    let file_size_max = await version_repository_file_size_max(repository_name);
     console.log({ file_size_max });
     return;
     await version_commit_and_removals(repository_name);
