@@ -69,6 +69,9 @@ export async function sandbox() {
         list_each_with_index(commits, (commit, index) => {
             let commit_path = object_property_get(commit, directory_property_file_path());
             let commit_id = version_commits_path_to_integer(list_single_item(commit_path));
+            if (commit_id < property_commit_latest_value) {
+                return;
+            } 
             let commit_json = object_property_get(commit, directory_property_json());
             let commit_parts = object_property_get(commit_json, version_property_parts());
             let commit_files = list_single_item(commit_json);
