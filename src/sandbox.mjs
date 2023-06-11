@@ -31,17 +31,20 @@ import { string_underscore_is } from './string/underscore/is.mjs';
 import { path_join } from './path/join.mjs';
 import { file_name_json } from './file/name/json.mjs';
 import { file_read } from './file/read.mjs';
+import { directory_read } from './directory/read.mjs';
+import { list_map } from './list/map.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     const repository_name = version_repository_default();
     let repository_files_path = version_path_files_get(repository_name);
+    let files = await directory_read(repository_files_path);
     let commits = await version_commits_get(repository_name);
     let repository_commits_path = version_path_commits_get(repository_name);
-    for (let commit of commits) {
-        let commit_path = path_join([
-            repository_commits_path,
-            file_name_json(commit)
-        ]);
+    let commit_paths = list_map(commits, c => path_join([
+        repository_commits_path,
+        file_name_json(commit)
+    ]));
+    for (let commit of commit_paths) {
         let contents = await file_read(commit_path);
         console.log(contents);
     }
