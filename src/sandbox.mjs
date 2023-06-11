@@ -55,7 +55,7 @@ export async function sandbox() {
     let document_path_info = `info`;
     let info_refererence = database_reference(db, database_collection_name, document_path_info);
     await db.runTransaction(async transaction => {
-        await database_reference_set_if_not_exists(transaction, info_refererence, {});
+        await database_reference_set_if_not_exists(transaction, info_refererence, {[property_commit_latest]:0});
     });
     await db.runTransaction(async transaction => {
         let repository_files_path = version_path_files_get(repository_name);
