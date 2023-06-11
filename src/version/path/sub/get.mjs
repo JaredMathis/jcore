@@ -1,11 +1,13 @@
+import { version_path_repository } from '../repository.mjs';
+import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { path_join } from '../../../path/join.mjs';
-import { version_path_root } from '../root.mjs';
 export function version_path_sub_get(repository_name, repository_files_directory_name) {
-    let repository_container_folder_name = version_path_root();
-    let repository_directory = path_join([
-        repository_container_folder_name,
-        repository_name
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo
     ]);
+    let repository_directory = version_path_repository(repository_name);
     let repository_sub_path = path_join([
         repository_directory,
         repository_files_directory_name
