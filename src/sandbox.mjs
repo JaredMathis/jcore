@@ -39,6 +39,7 @@ export async function sandbox() {
             });
         }
     }
+    console.log(differences)
     return;
     await version_commit_and_removals(repository_name);
     return;
