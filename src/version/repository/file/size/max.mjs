@@ -1,4 +1,4 @@
-import { directory_property_file_path } from '../../../../directory/property/file/path.mjs';
+import { directory_read_contents } from '../../../../directory/read/contents.mjs';
 import { directory_property_contents } from '../../../../directory/property/contents.mjs';
 import { list_map_property } from '../../../../list/map/property.mjs';
 import { list_map } from '../../../../list/map.mjs';
@@ -6,23 +6,12 @@ import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { list_max } from '../../../../list/max.mjs';
 import { string_byte_size } from '../../../../string/byte/size.mjs';
-import { file_read } from '../../../../file/read.mjs';
-import { list_map_async } from '../../../../list/map/async.mjs';
-import { directory_read } from '../../../../directory/read.mjs';
 import { version_path_repository } from '../../../path/repository.mjs';
 export async function version_repository_file_size_max(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let repository_directory = version_path_repository(repository_name);
-    let file_paths = await directory_read(repository_directory);
+    let mapped = await directory_read_contents(repository_directory);
     let property_contents = directory_property_contents();
-    let property_file_path = directory_property_file_path();
-    let mapped = await list_map_async(file_paths, async file_path => {
-        let contents = await file_read(file_path);
-        return {
-            [property_contents]: contents,
-            [property_file_path]: file_path
-        };
-    });
     let list_contents = list_map_property(mapped, property_contents);
     let file_sizes = list_map(list_contents, string_byte_size);
     let file_size_max = list_max(file_sizes);
