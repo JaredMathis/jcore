@@ -1,3 +1,4 @@
+import { string_byte_size } from './string/byte/size.mjs';
 import { list_map_async } from './list/map/async.mjs';
 import { version_path_repository } from './version/path/repository.mjs';
 import { version_repository_default } from './version/repository/default.mjs';
@@ -36,7 +37,7 @@ export async function sandbox() {
     let file_paths = await directory_read(repository_directory);
     let file_sizes = await list_map_async(file_paths, async file_path => {
         let contents = await file_read(file_path);
-        return string_size_bytes(contents);
+        return string_byte_size(contents);
     });
     let file_size_max = list_max(file_sizes);
     console.log({ file_size_max });
