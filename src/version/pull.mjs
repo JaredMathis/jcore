@@ -7,6 +7,8 @@ import { version_collection_repository } from './collection/repository.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { object_property_get } from '../object/property/get.mjs';
+import { range } from '../range.mjs';
+import { add_1 } from '../add/1.mjs';
 export async function version_pull(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let db = database_firestore_get();
@@ -16,5 +18,8 @@ export async function version_pull(repository_name) {
     await database_transaction(db, async transaction => {
         let info_data = await database_reference_get(transaction, info_refererence);
         let commit_latest_value = object_property_get(info_data, property_commit_latest);
+        for (let i of range(commit_latest_value)) {
+            let commit_id = add_1(i);
+        }
     });
 }
