@@ -5,7 +5,12 @@ import { string_suffix_without } from '../../string/suffix/without.mjs';
 import { string_add } from '../../string/add.mjs';
 export function function_rename_suffix(function_name_old, suffix_old, suffix_new) {
     arguments_assert(arguments, [string_identifier_is]);
-    let suffix_without = string_suffix_without(function_name_old, suffix_old);
-    let function_name_new = string_add(suffix_without, suffix_new);
+    string_suffix_replace(function_name_old, suffix_old, suffix_new);
     error('todo: function_rename_prefix');
+}
+
+function string_suffix_replace(string_old, suffix_old, suffix_new) {
+    let suffix_without = string_suffix_without(string_old, suffix_old);
+    let string_new = string_add(suffix_without, suffix_new);
+    return string_new;
 }
