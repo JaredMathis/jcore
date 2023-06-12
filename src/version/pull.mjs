@@ -17,8 +17,8 @@ import { object_property_get } from '../object/property/get.mjs';
 import { range } from '../range.mjs';
 import { add_1 } from '../add/1.mjs';
 import { file_write } from '../file/write.mjs';
-import { assert } from '../assert.mjs';
 import { list_single } from '../list/single.mjs';
+import { list_remove_all } from '../list/remove/all.mjs';
 export async function version_pull(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let db = database_firestore_get();
@@ -37,6 +37,7 @@ export async function version_pull(repository_name) {
             let commit_value = database_value_get(commit_data);
             const property_commit_id = version_property_commit_id();
             let commits = list_filter_property_exists(commit_value, property_commit_id);
+            list_remove_all;
             let commit = list_single(commits);
             let commit_path = version_path_commit(repository_name, commit_version);
             await file_write(commit_path, commit);
