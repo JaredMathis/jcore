@@ -20,6 +20,7 @@ export async function version_pull(repository_name) {
         let commit_latest_value = object_property_get(info_data, property_commit_latest);
         for (let i of range(commit_latest_value)) {
             let commit_id = add_1(i);
+
         }
     });
 }

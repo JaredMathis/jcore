@@ -41,7 +41,6 @@ export async function version_push(repository_name) {
     let db = database_firestore_get();
     let database_collection_name = version_collection_repository(repository_name);
     let fns = function_name_separator();
-    let property_commit = version_property_commit();
     let property_commit_latest = version_property_commit_latest();
     let info_refererence = database_document_info_reference(db, database_collection_name);
     await database_transaction(db, async transaction => {
@@ -76,7 +75,7 @@ export async function version_push(repository_name) {
                     list_add(commit_files, file_json);
                 }
             }
-            let document_path_commit = `${ property_commit }${ fns }${ commit_id }`;
+            let document_path_commit = `${ version_property_commit() }${ function_name_separator() }${ commit_id }`;
             database_create(db, transaction, database_collection_name, document_path_commit, database_value(commit_files));
             if (equal(index, last_index)) {
                 database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_id);
