@@ -4,12 +4,15 @@ import { function_name_get } from '../name/get.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { string_is } from '../../string/is.mjs';
-export async function function_properties_expand(function_name, identifier, property_names) {
+export async function function_properties_expand(function_name, identifier, properties_unparsed) {
     arguments_assert(arguments, [
         string_identifier_is,
         string_identifier_is,
         string_is
     ]);
-    let split = string_identifier_multiple_parse(property_names);
-    await function_map_with_args(function_name_get(refactor_properties_expand), function_name);
+    let properties = string_identifier_multiple_parse(properties_unparsed);
+    await function_map_with_args(function_name_get(refactor_properties_expand), function_name, {
+        identifier,
+        properties
+    });
 }
