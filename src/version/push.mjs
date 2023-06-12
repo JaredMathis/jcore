@@ -81,10 +81,8 @@ export async function version_push(repository_name) {
                 await data_key_value_set(property_commit_latest_data, commit_id);
             }
         });
-        if (false) {
-            let latest_files = await version_push_latest(repository_name);
-            let latest_refererence = database_reference(db, database_collection_name, commit_latest);
-            await database_reference_set(transaction, latest_refererence, database_value(latest_files));
-        }
+        let latest_files = await version_push_latest(repository_name);
+        let latest_refererence = database_reference(db, database_collection_name, commit_latest);
+        await database_reference_set(transaction, latest_refererence, database_value(latest_files));
     });
 }
