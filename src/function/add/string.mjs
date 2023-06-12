@@ -1,7 +1,6 @@
-import { function_add } from '../add.mjs';
-import { error } from '../../error.mjs';
+import { function_add_with_statement } from './with/statement.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-export function function_add_string() {
+export async function function_add_string() {
     arguments_assert(arguments, []);
-    function_add();
+    return await function_add_with_statement(function_name, error_statement_code);
 }
