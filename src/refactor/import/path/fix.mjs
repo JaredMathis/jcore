@@ -1,3 +1,4 @@
+import { js_code_expression_string } from '../../../js/code/expression/string.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { js_node_property_source } from '../../../js/node/property/source.mjs';
@@ -26,7 +27,7 @@ export async function refactor_import_path_fix(args) {
         let source = object_property_get(i, js_node_property_source());
         object_property_set(source, js_node_property_value(), normalized);
         assert(!string_includes(normalized, '\''));
-        let raw = `'${ normalized }'`;
+        let raw = js_code_expression_string(normalized);
         object_property_set(source, js_node_property_raw(), raw);
     }
     metadata([]);
