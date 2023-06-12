@@ -1,3 +1,4 @@
+import { object_keys_each_filter } from '../object/keys/each/filter.mjs';
 import { string_identifier_sub_multiple_parse } from '../string/identifier/sub/multiple/parse.mjs';
 import { function_name_all_tests_not } from './name/all/tests/not.mjs';
 import { list_single } from '../list/single.mjs';
@@ -17,6 +18,7 @@ export async function function_search(query) {
         return list_all(parts, p => string_includes(a, p));
     });
     let dictionary = list_to_dictionary(function_names, key => function_name_to_file_path(key));
+    object_keys_each_filter();
     if (list_length_is_1(function_names)) {
         return list_single(function_names);
     }
