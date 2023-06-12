@@ -28,7 +28,8 @@ export function refactor_output_to_object(args) {
     let return_single = list_single(returns);
     let statements = js_function_declaration_to_statements(function_declaration);
     assert(list_contains(statements, return_single));
-    let object = js_parse_statement(`${ js_keyword_return() } ${ `{ ${ string_a() } }` }${ js_statement_end() }`);
+    const return_expression = `{ ${ string_a() } }`;
+    let object = js_parse_statement(`${ js_keyword_return() } ${ return_expression }${ js_statement_end() }`);
     let arg = object_property_get(object, js_node_property_argument());
     let properties = object_property_get(arg, js_node_property_properties());
     console.log({ properties });
