@@ -1,10 +1,13 @@
 import { string_identifier_parts_from } from '../../string/identifier/parts/from.mjs';
 import { function_rename_generic } from './generic.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-export async function function_rename_part() {
-    arguments_assert(arguments, []);
+import { list_contains } from '../../list/contains.mjs';
+import { string_identifier_is } from '../../string/identifier/is.mjs';
+export async function function_rename_part(part) {
+    arguments_assert(arguments, [string_identifier_is]);
     function predicate_should_rename(n) {
         let parts = string_identifier_parts_from(n);
+        return list_contains(parts, part);
     }
     await function_rename_generic(predicate_should_rename, function_name_new_get);
     function function_name_new_get(n_old) {
