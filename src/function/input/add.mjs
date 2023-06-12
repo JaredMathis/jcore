@@ -8,8 +8,5 @@ export async function function_input_add(function_name, input_name) {
         string_identifier_is,
         string_identifier_is
     ]);
-    await function_map_with_args(function_name_get(refactor_string_replace), function_name, {
-        string_value,
-        replacement_function_name
-    });
+    await function_map_with_args(function_name_get(refactor_string_replace), function_name, { input_name });
 }
