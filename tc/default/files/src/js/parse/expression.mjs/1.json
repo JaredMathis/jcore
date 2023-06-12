@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\parse\\expression.mjs",
+ "part_id": "bf0df22b-8236-4f15-bc32-dd0543a9c699",
+ "hunks": [
+  "0+import { string_is } from '../../string/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { js_node_property_expression } from '../node/property/expression.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { object_property_get } from '../../object/property/get.mjs';\nimport { js_parse_statement } from './statement.mjs';\nexport function js_parse_expression(code) {\n    arguments_assert(arguments, [string_is]);\n    let s = js_parse_statement(code);\n    let expression = object_property_get(s, js_node_property_expression());\n    return expression;\n    metadata([]);\n}"
+ ]
+}

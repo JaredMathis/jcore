@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\path\\relative\\file.mjs",
+ "part_id": "a7a30699-3639-4989-9c26-a92f8e8afcda",
+ "hunks": [
+  "0+import { path_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { function_name_get } from '../../function/name/get.mjs';\nimport { comment } from '../../comment.mjs';\nimport { path_parent } from '../parent.mjs';\nimport { path_relative } from '../relative.mjs';\ncomment(`For some reason ${ function_name_get(path_relative) } does not seem to work when the two paths are both files. This fixes it. At least for the purposes of determining a JavaScript import path`);\nexport function path_relative_file(file_path, function_path) {\n    arguments_assert(arguments, [\n        path_is,\n        path_is\n    ]);\n    let file_path_directory = path_parent(file_path);\n    let relative = path_relative(file_path_directory, function_path);\n    return relative;\n    metadata([]);\n}"
+ ]
+}

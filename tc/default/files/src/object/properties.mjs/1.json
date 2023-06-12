@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\object\\properties.mjs",
+ "part_id": "5f760ef5-38d7-42e6-ae6e-8943dcf98281",
+ "hunks": [
+  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { comment } from '../comment.mjs';\nimport { string_is } from '../string/is.mjs';\nimport { defined_is } from '../defined/is.mjs';\nexport function object_properties(object) {\n    arguments_assert(arguments, [defined_is]);\n    let default_value = [];\n    if (!object) {\n        return default_value;\n    }\n    comment(`Strings infinitely recurse here - maybe there's other edge cases too besides strings`);\n    if (string_is(object)) {\n        return default_value;\n    }\n    return Object.values(object);\n    metadata([]);\n}"
+ ]
+}

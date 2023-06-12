@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\code\\export\\function.mjs",
+ "part_id": "4b81dea6-c82d-4270-b569-ff58cee79bea",
+ "hunks": [
+  "0+import { string_is } from '../../../string/is.mjs';\nimport { string_identifier_is } from '../../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { js_code_export_function_synchronized } from './function/synchronized.mjs';\nexport function js_code_export_function(function_name, function_statements_code) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        string_is\n    ]);\n    let is_async = false;\n    return js_code_export_function_synchronized(function_name, is_async, function_statements_code);\n    metadata([]);\n}"
+ ]
+}

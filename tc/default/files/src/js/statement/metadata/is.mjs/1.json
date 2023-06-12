@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\statement\\metadata\\is.mjs",
+ "part_id": "983c91ae-798f-4ba9-a8ba-0d221b64e5d8",
+ "hunks": [
+  "0+import { js_node_is } from '../../node/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { js_statement_if_metadata } from '../if/metadata.mjs';\nexport function js_statement_metadata_is(statement) {\n    arguments_assert(arguments, [js_node_is]);\n    let success = false;\n    js_statement_if_metadata(statement, function if_statement_metadata(last_statement, last_expression) {\n        success = true;\n    });\n    return success;\n    metadata([]);\n}"
+ ]
+}

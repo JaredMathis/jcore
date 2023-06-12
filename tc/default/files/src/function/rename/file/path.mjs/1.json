@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\rename\\file\\path.mjs",
+ "part_id": "29eaddf1-7046-44da-8e3e-e03a2f4a8ac6",
+ "hunks": [
+  "0+import { file_rename } from '../../../file/rename.mjs';\nimport { function_name_to_file_path } from '../../name/to/file/path.mjs';\nexport async function function_rename_file_path(function_name_old, function_name_new) {\n    let file_path_old = function_name_to_file_path(function_name_old);\n    let file_path_new = function_name_to_file_path(function_name_new);\n    await file_rename(file_path_old, file_path_new);\n}"
+ ]
+}

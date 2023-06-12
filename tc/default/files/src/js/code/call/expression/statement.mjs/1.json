@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\code\\call\\expression\\statement.mjs",
+ "part_id": "5f8f5dcd-b955-4653-bc9c-68b703c1cc3b",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { js_statement_end } from '../../../statement/end.mjs';\nimport { js_code_call_expression } from '../expression.mjs';\nimport { js_node_is_call_expression } from '../../../node/is/call/expression.mjs';\nimport { string_is } from '../../../../string/is.mjs';\nexport function js_code_call_expression_statement(callee) {\n    arguments_assert(arguments, [string_is]);\n    return `${ js_code_call_expression(callee) }${ js_statement_end() }`;\n    metadata([]);\n}"
+ ]
+}

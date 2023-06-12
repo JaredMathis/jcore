@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\equal\\not.mjs",
+ "part_id": "7541350a-8c58-4485-a507-6c8794a7c801",
+ "hunks": [
+  "0+import { equal } from '../equal.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { defined_is } from '../defined/is.mjs';\nexport function equal_not(a, b) {\n    arguments_assert(arguments, [\n        defined_is,\n        defined_is\n    ]);\n    return !equal(a, b);\n}"
+ ]
+}

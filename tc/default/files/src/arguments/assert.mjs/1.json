@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\arguments\\assert.mjs",
+ "part_id": "a14755d3-883a-4337-b401-c553cd8e2707",
+ "hunks": [
+  "0+import { metadata } from '../metadata.mjs';\nimport { assert } from '../assert.mjs';\nimport { assert_arguments_count } from '../assert/arguments/count.mjs';\nimport { list_is } from '../list/is.mjs';\nimport { range } from '../range.mjs';\nimport { error } from '../error.mjs';\nimport { log } from '../log.mjs';\nexport function arguments_assert(args, predicates) {\n    assert_arguments_count(arguments, 2);\n    assert(list_is(predicates));\n    assert_arguments_count(args, predicates.length);\n    for (let i of range(predicates.length)) {\n        const value = args[i];\n        if (!predicates[i](value)) {\n            log({\n                i,\n                value\n            });\n            error();\n        }\n    }\n    metadata([]);\n}"
+ ]
+}

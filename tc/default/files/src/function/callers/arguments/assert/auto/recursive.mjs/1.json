@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\callers\\arguments\\assert\\auto\\recursive.mjs",
+ "part_id": "09da0958-a273-414a-ad73-4870b07f220a",
+ "hunks": [
+  "0+import { log } from '../../../../../log.mjs';\nimport { function_callers_arguments_assert_auto_multiple_list } from './multiple/list.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { json_equal } from '../../../../../json/equal.mjs';\nimport { string_identifier_is } from '../../../../../string/identifier/is.mjs';\nexport async function function_callers_arguments_assert_auto_recursive(root) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let result = [root];\n    let result_previous;\n    do {\n        result_previous = result;\n        result = await function_callers_arguments_assert_auto_multiple_list(result, []);\n        log({\n            result_previous,\n            result\n        });\n    } while (!json_equal(result, result_previous));\n}"
+ ]
+}

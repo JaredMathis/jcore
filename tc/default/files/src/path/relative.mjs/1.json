@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\path\\relative.mjs",
+ "part_id": "5135f07a-7ca7-4ab7-847c-8a1523d75ad0",
+ "hunks": [
+  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport path from 'path';\nimport { path_is } from './is.mjs';\nexport function path_relative(from, to) {\n    arguments_assert(arguments, [\n        path_is,\n        path_is\n    ]);\n    return path.relative(from, to);\n    metadata([]);\n}"
+ ]
+}

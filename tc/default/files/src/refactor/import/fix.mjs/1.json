@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\refactor\\import\\fix.mjs",
+ "part_id": "df418f6b-d486-4ef0-93b4-f32f6eca0492",
+ "hunks": [
+  "0+import { defined_is } from '../../defined/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { refactor_multiple } from '../multiple.mjs';\nimport { refactor_import_missing } from './missing.mjs';\nimport { refactor_import_unused } from './unused.mjs';\nimport { refactor_import_path_fix } from './path/fix.mjs';\nexport async function refactor_import_fix(args) {\n    arguments_assert(arguments, [defined_is]);\n    let refactors = [\n        refactor_import_unused,\n        refactor_import_missing,\n        refactor_import_path_fix\n    ];\n    await refactor_multiple(args, refactors);\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\call\\expressions\\named.mjs",
+ "part_id": "b5186934-6c84-4979-b934-a1335db54701",
+ "hunks": [
+  "0+import { js_node_is_program } from '../../node/is/program.mjs';\nimport { defined_is } from '../../../defined/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { list_add } from '../../../list/add.mjs';\nimport { equal } from '../../../equal.mjs';\nimport { js_call_expression_to_name_or_null } from '../expression/to/name/or/null.mjs';\nimport { js_node_is_call_expression } from '../../node/is/call/expression.mjs';\nimport { js_visit_nodes } from '../../visit/nodes.mjs';\nexport function js_call_expressions_named(parsed, name_expected) {\n    arguments_assert(arguments, [\n        js_node_is_program,\n        defined_is\n    ]);\n    let matches = [];\n    js_visit_nodes(parsed, node => js_node_is_call_expression(node), v => {\n        let {node} = v;\n        const name_actual = js_call_expression_to_name_or_null(node);\n        if (name_actual !== null) {\n            if (equal(name_actual, name_expected)) {\n                list_add(matches, node);\n            }\n        }\n    });\n    return matches;\n}"
+ ]
+}

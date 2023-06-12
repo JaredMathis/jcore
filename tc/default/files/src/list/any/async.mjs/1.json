@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\any\\async.mjs",
+ "part_id": "75f93589-89de-449b-ae65-961a9a4c414a",
+ "hunks": [
+  "0+import { metadata } from '../../metadata.mjs';\nimport { function_is } from '../../function/is.mjs';\nimport { list_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nexport async function list_any_async(list, predicate) {\n    arguments_assert(arguments, [\n        list_is,\n        function_is\n    ]);\n    for (let a of list) {\n        if (await predicate(a)) {\n            return true;\n        }\n    }\n    return false;\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\version\\differences.mjs",
+ "part_id": "a4d33e81-18a2-41c0-928a-e45d969e4e23",
+ "hunks": [
+  "0+import { list_add } from '../list/add.mjs';\nimport { list_length_is_0 } from '../list/length/is/0.mjs';\nimport { string_difference_get } from '../string/difference/get.mjs';\nimport { version_file_contents } from './file/contents.mjs';\nimport { version_removals } from './removals.mjs';\nimport { todo } from '../todo.mjs';\nimport { file_read } from '../file/read.mjs';\nimport { version_output_generic } from './output/generic.mjs';\nimport { directory_read_current } from '../directory/read/current.mjs';\nexport async function version_differences(repository_name) {\n    let file_paths = await directory_read_current();\n    let differences = [];\n    await version_output_generic(repository_name, file_paths, lambda);\n    async function lambda(file_path, contents) {\n        let existing = await file_read(file_path);\n        todo(contents, existing, file_path);\n    }\n    let removals = await version_removals(repository_name, file_paths);\n    for (let r of removals) {\n        let contents = await version_file_contents(repository_name, r);\n        todo(contents, '', r);\n    }\n    function todo(contents, existing, file_path) {\n        let hunks = string_difference_get(contents, existing);\n        if (!list_length_is_0(hunks)) {\n            list_add(differences, {\n                file_path,\n                hunks\n            });\n        }\n    }\n    return differences;\n}"
+ ]
+}

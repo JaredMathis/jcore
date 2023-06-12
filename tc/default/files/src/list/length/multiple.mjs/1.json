@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\length\\multiple.mjs",
+ "part_id": "4155e246-3ec5-4a22-8fdc-ed391aea13c8",
+ "hunks": [
+  "0+import { list_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { list_length } from '../length.mjs';\nexport function list_length_multiple(matches) {\n    arguments_assert(arguments, [list_is]);\n    return list_length(matches) >= 2;\n}"
+ ]
+}

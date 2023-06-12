@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\export\\function\\single\\or\\null.mjs",
+ "part_id": "1c15d54b-360d-4792-80d1-a21a29827940",
+ "hunks": [
+  "0+import { js_node_is_program } from '../../../../node/is/program.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { js_export_function_single_generic } from '../generic.mjs';\nexport function js_export_function_single_or_null(parsed) {\n    arguments_assert(arguments, [js_node_is_program]);\n    const or_null = true;\n    return js_export_function_single_generic(parsed, or_null);\n    metadata([]);\n}"
+ ]
+}

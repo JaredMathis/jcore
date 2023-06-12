@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\sort\\generic.mjs",
+ "part_id": "b4dc5ea7-b0c3-4255-a7fd-2799af1b4649",
+ "hunks": [
+  "0+import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { subtract } from '../../subtract.mjs';\nimport { value_get } from '../../value/get.mjs';\nimport { list_is } from '../is.mjs';\nimport { function_is } from '../../function/is.mjs';\nimport { boolean_is } from '../../boolean/is.mjs';\nexport function list_sort_generic(list, value_get, reverse) {\n    arguments_assert(arguments, [\n        list_is,\n        function_is,\n        boolean_is\n    ]);\n    list.sort((a, b) => subtract(value_get(a), value_get(b)));\n    if (reverse) {\n        list.reverse();\n    }\n}"
+ ]
+}

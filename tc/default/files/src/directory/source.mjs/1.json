@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\directory\\source.mjs",
+ "part_id": "bb32e482-6a8f-40df-b7c6-dbe4edead6e0",
+ "hunks": [
+  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nexport function directory_source() {\n    arguments_assert(arguments, []);\n    let result = 'src';\n    return result;\n    metadata([]);\n}"
+ ]
+}

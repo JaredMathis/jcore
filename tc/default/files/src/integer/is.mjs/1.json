@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\integer\\is.mjs",
+ "part_id": "94d2bfa1-4411-46b7-b159-f352cf5176ad",
+ "hunks": [
+  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { todo } from '../todo.mjs';\nimport { defined_is } from '../defined/is.mjs';\nexport function integer_is(candidate) {\n    arguments_assert(arguments, [defined_is]);\n    todo(`Maybe revisit after learning about JS number nuance - what about Infinity, NaN, etc.`);\n    return Number.isFinite(candidate);\n    metadata([]);\n}"
+ ]
+}

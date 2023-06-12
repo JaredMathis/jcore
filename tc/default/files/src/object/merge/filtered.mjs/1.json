@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\object\\merge\\filtered.mjs",
+ "part_id": "7504cdd5-9258-46a6-8552-1e59cad95685",
+ "hunks": [
+  "0+import { defined_is } from '../../defined/is.mjs';\nimport { function_is } from '../../function/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { object_property_initialize } from '../property/initialize.mjs';\nimport { object_property_get } from '../property/get.mjs';\nimport { list_filter } from '../../list/filter.mjs';\nimport { object_keys } from '../keys.mjs';\nexport function object_merge_filtered(from, filter, to) {\n    arguments_assert(arguments, [\n        defined_is,\n        function_is,\n        defined_is\n    ]);\n    let keys = object_keys(from);\n    let filterd = list_filter(keys, filter);\n    for (let property of filterd) {\n        let value = object_property_get(from, property);\n        object_property_initialize(to, property, value);\n    }\n    return to;\n}"
+ ]
+}

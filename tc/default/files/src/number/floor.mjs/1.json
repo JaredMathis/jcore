@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\number\\floor.mjs",
+ "part_id": "aca7ea1e-2877-4374-a80f-5014544c6f3d",
+ "hunks": [
+  "0+import { number_is } from './is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nexport function number_floor(n) {\n    arguments_assert(arguments, [number_is]);\n    return Math.floor(n);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\object\\property\\change.mjs",
+ "part_id": "5f7e211e-0b55-4dc5-9efa-a83984451b8b",
+ "hunks": [
+  "0+import { string_is } from '../../string/is.mjs';\nimport { defined_is } from '../../defined/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { object_property_set } from './set.mjs';\nimport { object_property_exists } from './exists.mjs';\nexport function object_property_change(f, property_name, value) {\n    arguments_assert(arguments, [\n        defined_is,\n        string_is,\n        defined_is\n    ]);\n    object_property_exists(f, property_name);\n    object_property_set(f, property_name, value);\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\file\\js\\map\\with\\args.mjs",
+ "part_id": "d55f7bcf-4ce8-401b-97d4-8df2200599f8",
+ "hunks": [
+  "0+import { string_identifier_is } from '../../../../string/identifier/is.mjs';\nimport { defined_is } from '../../../../defined/is.mjs';\nimport { path_is } from '../../../../path/is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { function_run } from '../../../../function/run.mjs';\nimport { file_js_map_args } from '../args.mjs';\nimport { object_merge } from '../../../../object/merge.mjs';\nexport async function file_js_map_with_args(file_path, function_name_mapper, args) {\n    arguments_assert(arguments, [\n        path_is,\n        string_identifier_is,\n        defined_is\n    ]);\n    await file_js_map_args(file_path, async function mapper(mapper_args) {\n        object_merge(args, mapper_args);\n        await function_run(function_name_mapper, [mapper_args]);\n    });\n}"
+ ]
+}

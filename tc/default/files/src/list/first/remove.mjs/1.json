@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\first\\remove.mjs",
+ "part_id": "b96129d7-a680-42dd-b56e-d92dec71a77e",
+ "hunks": [
+  "0+import { list_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { list_remove_at } from '../remove/at.mjs';\nimport { list_first_index } from './index.mjs';\nexport function list_first_remove(list) {\n    arguments_assert(arguments, [list_is]);\n    list_remove_at(list, list_first_index());\n    metadata([]);\n}"
+ ]
+}

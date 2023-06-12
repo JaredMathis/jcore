@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\file\\js\\all\\map\\args\\if\\function.mjs",
+ "part_id": "2b7e921b-74e0-48f5-bb57-e19f8491e9ae",
+ "hunks": [
+  "0+import { function_is } from '../../../../../../function/is.mjs';\nimport { arguments_assert } from '../../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../../metadata.mjs';\nimport { file_js_all_map_args } from '../../args.mjs';\nexport async function file_js_all_map_args_if_function(logic) {\n    arguments_assert(arguments, [function_is]);\n    await file_js_all_map_args(logic);\n    metadata([]);\n}"
+ ]
+}

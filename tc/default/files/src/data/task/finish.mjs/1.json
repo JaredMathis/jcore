@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\data\\task\\finish.mjs",
+ "part_id": "3453a4b4-ce48-44f8-b05e-a87e70a873a6",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { function_name_get } from '../../function/name/get.mjs';\nimport { data_task_id_remove } from './id/remove.mjs';\nimport { data_task_id_get } from './id/get.mjs';\nimport { todo } from '../../todo.mjs';\nimport { file_js_all_map } from '../../file/js/all/map.mjs';\nimport { refactor_import_fix } from '../../refactor/import/fix.mjs';\nimport { git_pacp_with_message } from '../../git/pacp/with/message.mjs';\nimport { assert } from '../../assert.mjs';\nexport async function data_task_finish() {\n    arguments_assert(arguments, []);\n    todo(`Validate the task id is valid i.e. #123 not asdf`);\n    let task_id = await data_task_id_get();\n    if (false) {\n        await file_js_all_map(function_name_get(refactor_import_fix));\n    }\n    let result = await git_pacp_with_message(`closes ${ task_id }`);\n    assert(result.success);\n    await data_task_id_remove();\n    metadata([]);\n}"
+ ]
+}

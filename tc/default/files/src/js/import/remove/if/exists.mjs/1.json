@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\import\\remove\\if\\exists.mjs",
+ "part_id": "786e763d-17b7-4e24-bf11-9a8d2b89a97e",
+ "hunks": [
+  "0+import { js_node_is_program } from '../../../node/is/program.mjs';\nimport { list_is } from '../../../../list/is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { list_single_item } from '../../../../list/single/item.mjs';\nimport { js_imports_remove_generic } from '../../../imports/remove/generic.mjs';\nimport { object_property_get } from '../../../../object/property/get.mjs';\nimport { list_find_or_null } from '../../../../list/find/or/null.mjs';\nimport { string_identifier_is } from '../../../../string/identifier/is.mjs';\nexport function js_import_remove_if_exists(parsed, imports, function_name) {\n    arguments_assert(arguments, [\n        js_node_is_program,\n        list_is,\n        string_identifier_is\n    ]);\n    let import_to_remove = list_find_or_null(imports, i => object_property_get(i, 'name') === function_name);\n    if (import_to_remove !== null) {\n        js_imports_remove_generic(parsed, list_single_item(import_to_remove));\n    }\n}"
+ ]
+}

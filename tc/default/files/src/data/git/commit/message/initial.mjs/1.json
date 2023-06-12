@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\data\\git\\commit\\message\\initial.mjs",
+ "part_id": "05bd5b95-f993-4cd0-92c0-e868f6f777c7",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nexport function data_git_commit_message_initial() {\n    arguments_assert(arguments, []);\n    return '';\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\difference\\apply\\parse\\test\\3.mjs",
+ "part_id": "a86bfe79-8382-4db8-bcc9-ee42366a537a",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { json_equal } from '../../../../../json/equal.mjs';\nimport { assert } from '../../../../../assert.mjs';\nimport { string_difference_apply_parse } from '../../parse.mjs';\nexport function string_difference_apply_parse_test_3() {\n    arguments_assert(arguments, []);\n    let expected = {\n        'position': 10,\n        'operation': '+',\n        'text': 'def'\n    };\n    let actual = string_difference_apply_parse('10+def');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
+ ]
+}

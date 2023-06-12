@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\node\\is\\member\\expression.mjs",
+ "part_id": "aee2de59-3bff-4153-acf0-be45c5c712fc",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { js_node_is_type } from '../type.mjs';\nimport { js_node_is } from '../../is.mjs';\nexport function js_node_is_member_expression(n) {\n    arguments_assert(arguments, [js_node_is]);\n    return js_node_is_type(n, 'MemberExpression');\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\is.mjs",
+ "part_id": "defd9f9f-3e4f-4878-8e92-5a836b8aff73",
+ "hunks": [
+  "0+import { metadata } from '../metadata.mjs';\nexport function list_is(candidate) {\n    return Array.isArray(candidate);\n    metadata([]);\n}"
+ ]
+}

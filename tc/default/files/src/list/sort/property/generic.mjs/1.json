@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\sort\\property\\generic.mjs",
+ "part_id": "0eba43cd-f23b-448d-a679-c4bcf5809c38",
+ "hunks": [
+  "0+import { object_property_get } from '../../../object/property/get.mjs';\nimport { list_sort_generic } from '../generic.mjs';\nexport function list_sort_property_generic(removals, sort_property, reverse) {\n    list_sort_generic(removals, r => object_property_get(r, sort_property), reverse);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\number\\nan\\is\\not.mjs",
+ "part_id": "f05e17e2-38ea-4d8a-a803-4487b081a395",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { defined_is } from '../../../defined/is.mjs';\nexport function number_nan_is_not(result) {\n    arguments_assert(arguments, [defined_is]);\n    return !isNaN(result);\n    metadata([]);\n}"
+ ]
+}

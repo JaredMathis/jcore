@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\sub\\max\\property\\right\\index.mjs",
+ "part_id": "2bb4317a-0f5c-456c-9faa-bf6fb6a24cef",
+ "hunks": [
+  "0+export function string_sub_max_property_right_index() {\n    return 'right_index';\n}"
+ ]
+}

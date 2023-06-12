@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\identifier\\counts.mjs",
+ "part_id": "97a9f68a-095c-47dd-ad86-ec48e46be76a",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { object_property_get } from '../../object/property/get.mjs';\nimport { object_property_initialize_if_unset } from '../../object/property/initialize/if/unset.mjs';\nimport { object_property_set } from '../../object/property/set.mjs';\nimport { list_contains } from '../../list/contains.mjs';\nimport { add_1 } from '../../add/1.mjs';\nimport { comment } from '../../comment.mjs';\nimport { js_visit_nodes_identifier } from '../visit/nodes/identifier.mjs';\nimport { js_node_is } from '../node/is.mjs';\ncomment(`This does not count \"hasOwnProperty\" for now`);\nexport function js_identifier_counts(parsed) {\n    arguments_assert(arguments, [js_node_is]);\n    let result = {};\n    js_visit_nodes_identifier(parsed, v => {\n        let node = object_property_get(v, 'node');\n        let invalid_names = ['hasOwnProperty'];\n        let r = object_property_get(node, 'name');\n        if (!list_contains(invalid_names, r)) {\n            object_property_initialize_if_unset(result, r, 0);\n            let previous = object_property_get(result, r);\n            object_property_set(result, r, add_1(previous));\n        }\n    });\n    return result;\n    metadata([]);\n}"
+ ]
+}

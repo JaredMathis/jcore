@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\version\\path\\commits\\get.mjs",
+ "part_id": "c1c58d59-b01d-47f1-a039-b803bf656a60",
+ "hunks": [
+  "0+import { version_path_sub_get } from '../sub/get.mjs';\nimport { version_path_commits } from '../commits.mjs';\nexport function version_path_commits_get(repository_name) {\n    let repository_commits_directory_name = version_path_commits();\n    let repository_sub_path = version_path_sub_get(repository_name, repository_commits_directory_name);\n    return repository_sub_path;\n}"
+ ]
+}

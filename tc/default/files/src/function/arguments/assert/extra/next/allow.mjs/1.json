@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\arguments\\assert\\extra\\next\\allow.mjs",
+ "part_id": "52939bcf-2379-4323-841f-ce7892e8acb1",
+ "hunks": [
+  "0+import { string_prefix_without } from '../../../../../string/prefix/without.mjs';\nimport { metadata_arguments_assert_extra_allow } from '../../../../../metadata/arguments/assert/extra/allow.mjs';\nimport { function_arguments_assert_extra_next } from '../next.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { function_metadata_add } from '../../../../metadata/add.mjs';\nimport { metadata_prefix } from '../../../../../metadata/prefix.mjs';\nimport { function_name_get } from '../../../../name/get.mjs';\nexport async function function_arguments_assert_extra_next_allow() {\n    arguments_assert(arguments, []);\n    let next_function_name = await function_arguments_assert_extra_next();\n    let metadata_name = function_name_get(metadata_arguments_assert_extra_allow);\n    let without_prefix = string_prefix_without(metadata_name, metadata_prefix());\n    await function_metadata_add(next_function_name, without_prefix);\n}"
+ ]
+}

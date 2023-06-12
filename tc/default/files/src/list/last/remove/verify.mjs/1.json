@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\last\\remove\\verify.mjs",
+ "part_id": "af30ec14-e094-4662-a5c0-09b5032dd3c2",
+ "hunks": [
+  "0+import { list_is } from '../../is.mjs';\nimport { defined_is } from '../../../defined/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { equal } from '../../../equal.mjs';\nimport { assert } from '../../../assert.mjs';\nimport { list_last_remove } from '../remove.mjs';\nexport function list_last_remove_verify(list, last_expected) {\n    arguments_assert(arguments, [\n        list_is,\n        defined_is\n    ]);\n    let last_actual = list_last_remove(list);\n    assert(equal(last_expected, last_actual));\n    metadata([]);\n}"
+ ]
+}

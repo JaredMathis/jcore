@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\version\\path\\file\\directory.mjs",
+ "part_id": "bf41be08-92b8-4e6d-8fb8-1f11bae7ea20",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { path_join } from '../../../path/join.mjs';\nimport { version_path_files_get } from '../files/get.mjs';\nimport { string_identifier_is } from '../../../string/identifier/is.mjs';\nimport { path_is } from '../../../path/is.mjs';\nexport function version_path_file_directory(repository_name, file_path) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        path_is\n    ]);\n    let repository_files_path = version_path_files_get(repository_name);\n    let repository_file_path = path_join([\n        repository_files_path,\n        file_path\n    ]);\n    return repository_file_path;\n}"
+ ]
+}

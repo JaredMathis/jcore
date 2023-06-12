@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\assert\\test\\3.mjs",
+ "part_id": "42892a45-7b52-4f42-8216-4f46acbe0a52",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { assert } from '../../assert.mjs';\nimport { throws } from '../../throws.mjs';\nexport function assert_test_3() {\n    arguments_assert(arguments, []);\n    throws(() => assert(undefined));\n    metadata([]);\n}"
+ ]
+}

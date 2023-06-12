@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\skip\\test\\generated\\2.mjs",
+ "part_id": "0fe944ab-abd6-4461-8e43-6d72125ddcdb",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { string_skip } from '../../../skip.mjs';\nimport { throws } from '../../../../throws.mjs';\nimport { assert } from '../../../../assert.mjs';\nexport function string_skip_test_generated_2() {\n    arguments_assert(arguments, []);\n    assert(throws(() => string_skip('b', 2)));\n    metadata([metadata_generated()]);\n}"
+ ]
+}

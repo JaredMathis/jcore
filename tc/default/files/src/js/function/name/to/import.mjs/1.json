@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\function\\name\\to\\import.mjs",
+ "part_id": "b0239317-5d0f-4abf-9818-5434ffed0cea",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { js_parse_statement_module } from '../../../parse/statement/module.mjs';\nimport { function_extension } from '../../../../function/extension.mjs';\nimport { string_identifier_is } from '../../../../string/identifier/is.mjs';\nexport function js_function_name_to_import(m) {\n    arguments_assert(arguments, [string_identifier_is]);\n    const code = `import {${ m }} from './${ m }${ function_extension() }'`;\n    let statement = js_parse_statement_module(code);\n    return statement;\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\map.mjs",
+ "part_id": "04d09002-aa35-4514-81f0-8c03320bd4e0",
+ "hunks": [
+  "0+import { metadata_generated } from '../metadata/generated.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { list_add } from './add.mjs';\nimport { function_is } from '../function/is.mjs';\nimport { list_is } from './is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nexport function list_map(list, mapper) {\n    arguments_assert(arguments, [\n        list_is,\n        function_is\n    ]);\n    let result = [];\n    for (let element of list) {\n        let mapped = mapper(element);\n        list_add(result, mapped);\n    }\n    return result;\n    metadata([metadata_generated()]);\n}"
+ ]
+}

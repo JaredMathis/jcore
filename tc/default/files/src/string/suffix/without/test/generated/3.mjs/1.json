@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\suffix\\without\\test\\generated\\3.mjs",
+ "part_id": "9fbb32f8-5591-4552-bbef-6e11683d022c",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { string_suffix_without } from '../../../without.mjs';\nimport { throws } from '../../../../../throws.mjs';\nimport { assert } from '../../../../../assert.mjs';\nexport function string_suffix_without_test_generated_3() {\n    arguments_assert(arguments, []);\n    assert(throws(() => string_suffix_without('a', 'b')));\n    metadata([metadata_generated()]);\n}"
+ ]
+}

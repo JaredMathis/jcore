@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\difference\\get\\external.mjs",
+ "part_id": "c279fca0-3acf-4c7f-87d9-04b8cd096e10",
+ "hunks": [
+  "0+import { list_single } from '../../../list/single.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { string_is } from '../../is.mjs';\nimport * as Diff from 'diff';\nimport { object_property_get } from '../../../object/property/get.mjs';\nexport function string_difference_get_external(string_old, string_new) {\n    arguments_assert(arguments, [\n        string_is,\n        string_is\n    ]);\n    let file_name = '';\n    let header = '';\n    let patch = Diff.createPatch(file_name, string_old, string_new, header, header);\n    let structured = Diff.parsePatch(patch);\n    let first = list_single(structured);\n    let hunks = object_property_get(first, 'hunks');\n    return hunks;\n}"
+ ]
+}

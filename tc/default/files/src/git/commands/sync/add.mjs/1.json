@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\git\\commands\\sync\\add.mjs",
+ "part_id": "82ac7364-33da-4536-8d21-c1fdbf107273",
+ "hunks": [
+  "0+import { list_add } from '../../../list/add.mjs';\nimport { list_add_beginning } from '../../../list/add/beginning.mjs';\nexport function git_commands_sync_add(commands) {\n    list_add_beginning(commands, `git pull`);\n    list_add(commands, `git push`);\n}"
+ ]
+}

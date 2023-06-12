@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\json\\to\\keys\\exclude.mjs",
+ "part_id": "29abd983-3ca4-44f9-9872-739e8560a74c",
+ "hunks": [
+  "0+import { defined_is } from '../../../defined/is.mjs';\nimport { list_is } from '../../../list/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { object_merge_filtered } from '../../../object/merge/filtered.mjs';\nimport { list_contains } from '../../../list/contains.mjs';\nexport function json_to_keys_exclude(value, excluded) {\n    arguments_assert(arguments, [\n        defined_is,\n        list_is\n    ]);\n    object_merge_filtered(value, key => !list_contains(excluded, key), {});\n}"
+ ]
+}

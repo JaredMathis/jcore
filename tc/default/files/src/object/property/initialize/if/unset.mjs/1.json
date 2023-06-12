@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\object\\property\\initialize\\if\\unset.mjs",
+ "part_id": "076b658d-10c9-40d9-8c5f-b0fe7531fdba",
+ "hunks": [
+  "0+import { string_is } from '../../../../string/is.mjs';\nimport { defined_is } from '../../../../defined/is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { object_property_exists } from '../../exists.mjs';\nimport { object_property_initialize } from '../../initialize.mjs';\nexport function object_property_initialize_if_unset(object, property_name, initial_value) {\n    arguments_assert(arguments, [\n        defined_is,\n        string_is,\n        defined_is\n    ]);\n    if (object_property_exists(object, property_name)) {\n        return;\n    }\n    object_property_initialize(object, property_name, initial_value);\n    metadata([]);\n}"
+ ]
+}

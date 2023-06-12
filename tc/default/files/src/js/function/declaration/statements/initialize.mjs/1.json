@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\function\\declaration\\statements\\initialize.mjs",
+ "part_id": "f5f81d4d-44e8-4fb8-a541-fe2b5b2d93f7",
+ "hunks": [
+  "0+import { js_node_is_function_declaration } from '../../../node/is/function/declaration.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { list_add_multiple } from '../../../../list/add/multiple.mjs';\nimport { list_length_is_0 } from '../../../../list/length/is/0.mjs';\nimport { assert } from '../../../../assert.mjs';\nimport { js_function_delcaration_to_statements } from '../../delcaration/to/statements.mjs';\nimport { list_is } from '../../../../list/is.mjs';\nexport function js_function_declaration_statements_initialize(fd, function_body_statements_new) {\n    arguments_assert(arguments, [\n        js_node_is_function_declaration,\n        list_is\n    ]);\n    let function_body_statements_old = js_function_delcaration_to_statements(fd);\n    assert(list_length_is_0(function_body_statements_old));\n    list_add_multiple(function_body_statements_old, function_body_statements_new);\n    metadata([]);\n}"
+ ]
+}

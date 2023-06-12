@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\contains.mjs",
+ "part_id": "fb9c312d-474d-4d0a-a8fd-9101aca82b13",
+ "hunks": [
+  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { list_is } from './is.mjs';\nimport { defined_is } from '../defined/is.mjs';\nexport function list_contains(list, element) {\n    arguments_assert(arguments, [\n        list_is,\n        defined_is\n    ]);\n    return list.includes(element);\n    metadata([]);\n}"
+ ]
+}

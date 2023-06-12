@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\to\\statement\\arguments\\assert\\args\\predicate.mjs",
+ "part_id": "672df4f8-6650-4546-b472-780f5f24b2d4",
+ "hunks": [
+  "0+import { string_identifier_is } from '../../../../../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../../../../../arguments/assert.mjs';\nimport { js_mapper_args_to_statement_arguments_assert_args_predicate } from '../../../../../../js/mapper/args/to/statement/arguments/assert/args/predicate.mjs';\nimport { function_to_declaration } from '../../../../declaration.mjs';\nexport async function function_to_statement_arguments_assert_args_predicate(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let function_declaration = await function_to_declaration(function_name);\n    let arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args_predicate(function_declaration);\n    return arguments_assert_args;\n}"
+ ]
+}

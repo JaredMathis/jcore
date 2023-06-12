@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\throws.mjs",
+ "part_id": "6abff33b-7391-4b96-afbd-8403aa84a882",
+ "hunks": [
+  "0+import { arguments_assert } from './arguments/assert.mjs';\nimport { metadata } from './metadata.mjs';\nimport { assert_arguments_count } from './assert/arguments/count.mjs';\nimport { error } from './error.mjs';\nimport { function_is } from './function/is.mjs';\nexport function throws(lambda) {\n    arguments_assert(arguments, [function_is]);\n    assert_arguments_count(arguments, 1);\n    let errored = false;\n    try {\n        lambda();\n    } catch (e) {\n        errored = true;\n    }\n    if (!errored) {\n        error(`Expecting throw`);\n    }\n    return errored;\n    metadata([]);\n}"
+ ]
+}

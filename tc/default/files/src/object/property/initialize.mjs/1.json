@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\object\\property\\initialize.mjs",
+ "part_id": "b87c7ce7-0414-40d5-bdf9-2d96d48d5f3f",
+ "hunks": [
+  "0+import { string_is } from '../../string/is.mjs';\nimport { defined_is } from '../../defined/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { object_property_set } from './set.mjs';\nimport { object_property_exists } from './exists.mjs';\nimport { assert } from '../../assert.mjs';\nexport function object_property_initialize(object, property_name, initial_value) {\n    arguments_assert(arguments, [\n        defined_is,\n        string_is,\n        defined_is\n    ]);\n    assert(!object_property_exists(object, property_name));\n    object_property_set(object, property_name, initial_value);\n    metadata([]);\n}"
+ ]
+}

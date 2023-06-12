@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\data\\map.mjs",
+ "part_id": "f3f7a496-6bc7-4515-8cea-55bab2a5196f",
+ "hunks": [
+  "0+import { function_is } from '../function/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { data_overwrite } from './overwrite.mjs';\nimport { data_get } from './get.mjs';\nexport async function data_map(map) {\n    arguments_assert(arguments, [function_is]);\n    let data = await data_get();\n    map(data);\n    await data_overwrite(data);\n    metadata([]);\n}"
+ ]
+}

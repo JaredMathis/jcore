@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\names\\each.mjs",
+ "part_id": "74b8093d-8cf8-417f-baa3-26d28c5ef63a",
+ "hunks": [
+  "0+import { function_is } from '../is.mjs';\nimport { function_names_each_filter } from './each/filter.mjs';\nimport { tautology } from '../../tautology.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nexport async function function_names_each(logic) {\n    arguments_assert(arguments, [function_is]);\n    return await function_names_each_filter(logic, tautology);\n}"
+ ]
+}

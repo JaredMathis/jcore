@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\visit\\ignore\\duplicates.mjs",
+ "part_id": "12c308cf-4d99-44a0-8e1f-3c18791fa3f3",
+ "hunks": [
+  "0+import { metadata_generated } from '../../metadata/generated.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { visit_recursive_ignore_duplicates } from '../recursive/ignore/duplicates.mjs';\nimport { function_is } from '../../function/is.mjs';\nimport { defined_is } from '../../defined/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nexport function visit_ignore_duplicates(node, children_get, lambda) {\n    arguments_assert(arguments, [\n        defined_is,\n        function_is,\n        function_is\n    ]);\n    let ignore_duplicates = true;\n    visit_recursive_ignore_duplicates(node, children_get, lambda, [], [], ignore_duplicates);\n    metadata([metadata_generated()]);\n}"
+ ]
+}

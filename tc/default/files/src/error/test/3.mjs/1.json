@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\error\\test\\3.mjs",
+ "part_id": "3ce94e3e-8113-4b10-9681-9c72ce2ccb47",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { error } from '../../error.mjs';\nimport { throws } from '../../throws.mjs';\nexport function error_test_3() {\n    arguments_assert(arguments, []);\n    throws(() => error('message', 'second argument'));\n    metadata([]);\n}"
+ ]
+}

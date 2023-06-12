@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\last\\index.mjs",
+ "part_id": "d07d5cc0-f98a-4ef9-b8ee-77f12fdc3020",
+ "hunks": [
+  "0+import { list_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { subtract_1 } from '../../subtract/1.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { list_length } from '../length.mjs';\nexport function list_last_index(list) {\n    arguments_assert(arguments, [list_is]);\n    const l = list_length(list);\n    return subtract_1(l);\n    metadata([]);\n}"
+ ]
+}

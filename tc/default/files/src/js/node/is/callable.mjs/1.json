@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\node\\is\\callable.mjs",
+ "part_id": "365d5352-c60a-45a6-a5d7-23899a85a563",
+ "hunks": [
+  "0+import { js_node_is } from '../is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { js_node_is_function_declaration } from './function/declaration.mjs';\nimport { js_node_is_arrow_function_expression } from './arrow/function/expression.mjs';\nexport function js_node_is_callable(node) {\n    arguments_assert(arguments, [js_node_is]);\n    return js_node_is_arrow_function_expression(node) || js_node_is_function_declaration(node);\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\arguments\\assert\\default\\next.mjs",
+ "part_id": "c1b8c264-0198-4166-bc5e-f9622bd084fb",
+ "hunks": [
+  "0+import { function_arguments_assert_default_generic } from './generic.mjs';\nimport { function_open_vs_code } from '../../../open/vs/code.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nexport async function function_arguments_assert_default_next() {\n    arguments_assert(arguments, []);\n    await function_arguments_assert_default_generic(on_equals);\n    async function on_equals(function_name) {\n        await function_open_vs_code(function_name);\n        return true;\n    }\n}"
+ ]
+}

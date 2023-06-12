@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\letter\\is.mjs",
+ "part_id": "28613f17-00dc-4828-ba7e-4d1ccf336dde",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { string_is } from '../is.mjs';\nexport function string_letter_is(first) {\n    arguments_assert(arguments, [string_is]);\n    return first.toUpperCase() != first.toLowerCase();\n}"
+ ]
+}

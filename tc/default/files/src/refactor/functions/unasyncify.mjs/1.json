@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\refactor\\functions\\unasyncify.mjs",
+ "part_id": "d4b8f2d0-a003-4be5-a831-35e7e335889d",
+ "hunks": [
+  "0+import { function_unasyncify_generic } from '../../function/unasyncify/generic.mjs';\nimport { function_naming_suffix_async } from '../../function/naming/suffix/async.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { function_name_all } from '../../function/name/all.mjs';\nimport { string_ends_with } from '../../string/ends/with.mjs';\nexport async function refactor_functions_unasyncify() {\n    arguments_assert(arguments, []);\n    let ending = function_naming_suffix_async();\n    let all = await function_name_all();\n    for (let function_name of all) {\n        if (!string_ends_with(function_name, ending)) {\n            continue;\n        }\n        await function_unasyncify_generic(function_name, ending);\n    }\n}"
+ ]
+}

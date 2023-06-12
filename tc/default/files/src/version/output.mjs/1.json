@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\version\\output.mjs",
+ "part_id": "a56bb4f3-2571-44f2-a20f-11842d98ad1b",
+ "hunks": [
+  "0+import { version_path_outputs } from './path/outputs.mjs';\nimport { version_path_sub_get } from './path/sub/get.mjs';\nimport { directory_read_current } from '../directory/read/current.mjs';\nimport { version_output_generic } from './output/generic.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { file_overwrite } from '../file/overwrite.mjs';\nimport { path_join } from '../path/join.mjs';\nimport { string_identifier_is } from '../string/identifier/is.mjs';\nexport async function version_output(repository_name, directory_output_name) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        string_identifier_is\n    ]);\n    let file_paths = await directory_read_current();\n    let repository_sub_path = version_path_sub_get(repository_name, version_path_outputs());\n    await version_output_generic(repository_name, file_paths, lambda);\n    async function lambda(file_path, contents) {\n        let file_path_output = path_join([\n            repository_sub_path,\n            directory_output_name,\n            file_path\n        ]);\n        await file_overwrite(file_path_output, contents);\n    }\n}"
+ ]
+}

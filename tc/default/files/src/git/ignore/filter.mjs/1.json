@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\git\\ignore\\filter.mjs",
+ "part_id": "53286b13-26ab-4f80-99a6-05d5fc8ef314",
+ "hunks": [
+  "0+import { list_all } from '../../list/all.mjs';\nimport { equal } from '../../equal.mjs';\nimport { list_multiple_combine } from '../../list/multiple/combine.mjs';\nimport { list_single_item } from '../../list/single/item.mjs';\nimport { arguments_assert_todo } from '../../arguments/assert/todo.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { string_starts_with } from '../../string/starts/with.mjs';\nimport { directory_separator } from '../../directory/separator.mjs';\nimport { list_filter } from '../../list/filter.mjs';\nimport { git_ignore_lines } from './lines.mjs';\nexport async function git_ignore_filter(file_paths) {\n    arguments_assert(arguments, [arguments_assert_todo]);\n    let gil = await git_ignore_lines();\n    let filter = list_multiple_combine([\n        gil,\n        list_single_item('.git')\n    ]);\n    let filtered = list_filter(file_paths, f => {\n        return list_all(filter, g => !string_starts_with(f, g + directory_separator()) && !equal(f, g));\n    });\n    return filtered;\n}"
+ ]
+}

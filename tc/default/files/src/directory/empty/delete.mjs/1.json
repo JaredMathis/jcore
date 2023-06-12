@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\directory\\empty\\delete.mjs",
+ "part_id": "f22cd40a-e95a-4d4c-b0db-e7e8463c25d7",
+ "hunks": [
+  "0+import { directory_empty_is } from './is.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { assert } from '../../assert.mjs';\nimport { path_is } from '../../path/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport fs from 'fs';\nimport { path_exists } from '../../path/exists.mjs';\nexport async function directory_empty_delete(directory_path) {\n    arguments_assert(arguments, [path_is]);\n    assert(await path_exists(directory_path));\n    assert(await directory_empty_is(directory_path));\n    await fs.promises.rmdir(directory_path);\n    metadata([]);\n}"
+ ]
+}

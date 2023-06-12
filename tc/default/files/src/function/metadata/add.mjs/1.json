@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\metadata\\add.mjs",
+ "part_id": "b91fde97-0604-42d9-b5d0-c38b6d7dca13",
+ "hunks": [
+  "0+import { function_map_with_args } from '../map/with/args.mjs';\nimport { refactor_metadata_add } from '../../refactor/metadata/add.mjs';\nimport { function_name_get } from '../name/get.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { string_identifier_is } from '../../string/identifier/is.mjs';\nexport async function function_metadata_add(function_name, metadata_name) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        string_identifier_is\n    ]);\n    await function_map_with_args(function_name_get(refactor_metadata_add), function_name, { metadata_name });\n}"
+ ]
+}

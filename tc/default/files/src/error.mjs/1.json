@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\error.mjs",
+ "part_id": "208a3f9a-e91f-4b4e-bba6-92cfc92bec7a",
+ "hunks": [
+  "0+import { metadata } from './metadata.mjs';\nimport { function_name_get } from './function/name/get.mjs';\nimport { assert_arguments_count } from './assert/arguments/count.mjs';\nimport { comment } from './comment.mjs';\nexport function error(message) {\n    comment(function_name_get(assert_arguments_count) + ' calls error, so do not check args length here');\n    throw new Error(message);\n    metadata([]);\n}"
+ ]
+}

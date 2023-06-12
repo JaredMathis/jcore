@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\node\\property\\left.mjs",
+ "part_id": "54883284-824d-4281-90b6-ec63744b6659",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nexport function js_node_property_left() {\n    arguments_assert(arguments, []);\n    return 'left';\n}"
+ ]
+}

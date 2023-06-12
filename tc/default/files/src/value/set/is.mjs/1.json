@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\value\\set\\is.mjs",
+ "part_id": "888245b1-ceb7-4fd2-8652-263c2e2b45fd",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { object_property_get } from '../../object/property/get.mjs';\nimport { defined_is } from '../../defined/is.mjs';\nexport function value_set_is(value_object) {\n    arguments_assert(arguments, [defined_is]);\n    let set = object_property_get(value_object, 'set');\n    return set;\n    metadata([]);\n}"
+ ]
+}

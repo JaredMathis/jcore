@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\export\\single.mjs",
+ "part_id": "a3f69bf2-477a-4055-8803-f4db804b9500",
+ "hunks": [
+  "0+import { js_node_is_program } from '../node/is/program.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { list_single } from '../../list/single.mjs';\nimport { js_exports } from '../exports.mjs';\nexport function js_export_single(parsed) {\n    arguments_assert(arguments, [js_node_is_program]);\n    let exports = js_exports(parsed);\n    let export_single = list_single(exports);\n    return export_single;\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\assert.mjs",
+ "part_id": "f97261f7-a393-4f83-aabc-3fee0f003a39",
+ "hunks": [
+  "0+import { metadata } from './metadata.mjs';\nimport { error } from './error.mjs';\nimport { assert_arguments_count } from './assert/arguments/count.mjs';\nexport function assert(value) {\n    assert_arguments_count(arguments, 1);\n    if (value === true) {\n        return;\n    }\n    error('Assertion failed');\n    metadata([]);\n}"
+ ]
+}

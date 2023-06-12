@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\number\\is.mjs",
+ "part_id": "75254983-20c6-4beb-a568-0dbf40aed3fa",
+ "hunks": [
+  "0+import { assert_arguments_count } from '../assert/arguments/count.mjs';\nimport { metadata } from '../metadata.mjs';\nexport function number_is(value) {\n    assert_arguments_count(arguments, 1);\n    return typeof value === 'number';\n    metadata([]);\n}"
+ ]
+}

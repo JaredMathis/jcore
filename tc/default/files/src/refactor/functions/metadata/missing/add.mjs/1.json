@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\refactor\\functions\\metadata\\missing\\add.mjs",
+ "part_id": "3b9ae5ec-b35d-4dcb-a5b3-2f13657472b1",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { refactor_metadata_missing_add } from '../../../metadata/missing/add.mjs';\nimport { file_js_all_map_args_if_function } from '../../../../file/js/all/map/args/if/function.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nexport async function refactor_functions_metadata_missing_add() {\n    arguments_assert(arguments, []);\n    await file_js_all_map_args_if_function(refactor_metadata_missing_add);\n    metadata([]);\n}"
+ ]
+}

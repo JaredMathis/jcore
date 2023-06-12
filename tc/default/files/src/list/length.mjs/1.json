@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\length.mjs",
+ "part_id": "1c17af7e-eca3-4ea4-94c3-4d0d551f2ec9",
+ "hunks": [
+  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { list_is } from './is.mjs';\nexport function list_length(list) {\n    arguments_assert(arguments, [list_is]);\n    return list.length;\n    metadata([]);\n}"
+ ]
+}

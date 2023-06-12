@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\trim.mjs",
+ "part_id": "80141426-b0bc-44e0-b8b3-4bebb0dd95dd",
+ "hunks": [
+  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { string_is } from './is.mjs';\nexport function string_trim(input) {\n    arguments_assert(arguments, [string_is]);\n    return input.trim();\n}"
+ ]
+}

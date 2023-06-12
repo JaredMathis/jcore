@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\file\\json\\overwrite.mjs",
+ "part_id": "60f8e31c-e7e3-48de-924e-51777552521f",
+ "hunks": [
+  "0+import { path_is } from '../../path/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { json_to } from '../../json/to.mjs';\nimport { file_overwrite } from '../overwrite.mjs';\nimport { object_is } from '../../object/is.mjs';\nexport async function file_json_overwrite(file_path, data) {\n    arguments_assert(arguments, [\n        path_is,\n        object_is\n    ]);\n    let json = json_to(data);\n    await file_overwrite(file_path, json);\n    metadata([]);\n}"
+ ]
+}

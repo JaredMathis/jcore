@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\parse\\statements.mjs",
+ "part_id": "375370e3-469d-4612-8c59-c6be6d968fbf",
+ "hunks": [
+  "0+import { string_is } from '../../string/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { js_node_property_declaration } from '../node/property/declaration.mjs';\nimport { object_property_get } from '../../object/property/get.mjs';\nimport { js_code_export_function_synchronized } from '../code/export/function/synchronized.mjs';\nimport { js_export_single } from '../export/single.mjs';\nimport { string_a } from '../../string/a.mjs';\nimport { js_parse } from '../parse.mjs';\nimport { js_function_delcaration_to_statements } from '../function/delcaration/to/statements.mjs';\nexport function js_parse_statements(code) {\n    arguments_assert(arguments, [string_is]);\n    let is_async = true;\n    let unparsed = js_code_export_function_synchronized(string_a(), is_async, code);\n    let parsed = js_parse(unparsed);\n    let export_single = js_export_single(parsed);\n    let fd = object_property_get(export_single, js_node_property_declaration());\n    let statements = js_function_delcaration_to_statements(fd);\n    return statements;\n    metadata([]);\n}"
+ ]
+}

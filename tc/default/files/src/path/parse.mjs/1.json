@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\path\\parse.mjs",
+ "part_id": "3a95edcc-c878-437b-bf4f-d87fc698de6b",
+ "hunks": [
+  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport path from 'path';\nimport { path_is } from './is.mjs';\nexport function path_parse(input) {\n    arguments_assert(arguments, [path_is]);\n    return path.parse(input);\n}"
+ ]
+}

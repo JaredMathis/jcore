@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\intersection.mjs",
+ "part_id": "c2459fad-ee1c-4ccf-8c8a-d139e5d939b5",
+ "hunks": [
+  "0+import { list_is } from './is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { list_contains } from './contains.mjs';\nimport { list_filter } from './filter.mjs';\nexport function list_intersection(left, right) {\n    arguments_assert(arguments, [\n        list_is,\n        list_is\n    ]);\n    return list_filter(left, l => list_contains(right, l));\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\ends\\with.mjs",
+ "part_id": "4bded0f9-0e61-4c96-9388-f47f0d7c8da3",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { string_is } from '../is.mjs';\nexport function string_ends_with(input, suffix) {\n    arguments_assert(arguments, [\n        string_is,\n        string_is\n    ]);\n    return input.endsWith(suffix);\n    metadata([]);\n}"
+ ]
+}

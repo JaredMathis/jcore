@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\directory\\exists\\ensure.mjs",
+ "part_id": "cc83f8b3-c6ad-4aac-af0a-09aa81bea9d3",
+ "hunks": [
+  "0+import { path_is } from '../../path/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { path_exists } from '../../path/exists.mjs';\nimport { directory_add } from '../add.mjs';\nexport async function directory_exists_ensure(directory_path) {\n    arguments_assert(arguments, [path_is]);\n    if (await path_exists(directory_path)) {\n        return;\n    }\n    await directory_add(directory_path);\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\version\\commit\\files\\all.mjs",
+ "part_id": "14ffa04c-0c81-4e75-9d9d-f7bfa2d19ca3",
+ "hunks": [
+  "0+import { directory_read_current } from '../../../directory/read/current.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { version_commit_data } from '../data.mjs';\nimport { version_commit_files } from '../files.mjs';\nimport { string_identifier_is } from '../../../string/identifier/is.mjs';\nexport async function version_commit_files_all(repository_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let file_paths = await directory_read_current();\n    await version_commit_files(repository_name, file_paths, version_commit_data(version_commit_files_all, arguments));\n}"
+ ]
+}

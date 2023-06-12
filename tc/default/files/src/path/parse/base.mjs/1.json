@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\path\\parse\\base.mjs",
+ "part_id": "242e128e-379a-4686-88a8-f765dade4b18",
+ "hunks": [
+  "0+import { error } from '../../error.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { path_is } from '../is.mjs';\nimport { path_parse } from '../parse.mjs';\nimport { object_property_get } from '../../object/property/get.mjs';\nexport function path_parse_base(file_path) {\n    arguments_assert(arguments, [path_is]);\n    let parsed = path_parse(file_path);\n    return object_property_get(parsed, 'base');\n}"
+ ]
+}

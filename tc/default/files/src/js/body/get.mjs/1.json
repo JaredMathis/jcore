@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\body\\get.mjs",
+ "part_id": "0600d7b1-be06-49c0-93e8-92e53f676363",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { object_property_get } from '../../object/property/get.mjs';\nimport { js_node_is_program } from '../node/is/program.mjs';\nexport function js_body_get(parsed) {\n    arguments_assert(arguments, [js_node_is_program]);\n    return object_property_get(parsed, 'body');\n    metadata([]);\n}"
+ ]
+}

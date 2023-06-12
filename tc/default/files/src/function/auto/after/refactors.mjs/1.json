@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\auto\\after\\refactors.mjs",
+ "part_id": "559f3f92-a09e-468d-aa6f-6cf95ecaee88",
+ "hunks": [
+  "0+import { function_auto_after_refactors_first } from './refactors/first.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { refactor_functions_to_files } from '../../../refactor/functions/to/files.mjs';\nimport { list_multiple_combine } from '../../../list/multiple/combine.mjs';\nexport function function_auto_after_refactors() {\n    arguments_assert(arguments, []);\n    let first = function_auto_after_refactors_first();\n    let second = [refactor_functions_to_files];\n    return list_multiple_combine([\n        first,\n        second\n    ]);\n    metadata([]);\n}"
+ ]
+}

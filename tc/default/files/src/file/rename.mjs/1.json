@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\file\\rename.mjs",
+ "part_id": "70d9d1ce-87fe-4277-805b-077629d0d0be",
+ "hunks": [
+  "0+import { path_is } from '../path/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { path_parent_exists_ensure } from '../path/parent/exists/ensure.mjs';\nimport { assert } from '../assert.mjs';\nimport { path_exists } from '../path/exists.mjs';\nimport fs from 'fs';\nexport async function file_rename(file_path_old, file_path_new) {\n    arguments_assert(arguments, [\n        path_is,\n        path_is\n    ]);\n    assert(await path_exists(file_path_old));\n    assert(!await path_exists(file_path_new));\n    await path_parent_exists_ensure(file_path_new);\n    await fs.promises.rename(file_path_old, file_path_new);\n    metadata([]);\n}"
+ ]
+}

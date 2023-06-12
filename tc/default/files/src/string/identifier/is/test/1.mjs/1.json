@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\identifier\\is\\test\\1.mjs",
+ "part_id": "1d4a920b-2fe6-4a7f-b3b3-5371116725b8",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { json_equal } from '../../../../json/equal.mjs';\nimport { assert } from '../../../../assert.mjs';\nimport { string_identifier_is } from '../../is.mjs';\nexport function string_identifier_is_test_1() {\n    arguments_assert(arguments, []);\n    let expected = false;\n    let actual = string_identifier_is('_');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
+ ]
+}

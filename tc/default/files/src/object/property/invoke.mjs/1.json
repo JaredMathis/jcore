@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\object\\property\\invoke.mjs",
+ "part_id": "f6c04ac4-3d4e-406d-82f1-c40a7f46acb9",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { object_property_exists } from './exists.mjs';\nimport { object_property_get } from './get.mjs';\nimport { defined_is } from '../../defined/is.mjs';\nimport { string_is } from '../../string/is.mjs';\nexport function object_property_invoke(default_value, object, property_name) {\n    arguments_assert(arguments, [\n        defined_is,\n        defined_is,\n        string_is\n    ]);\n    let result = default_value;\n    if (object_property_exists(object, property_name)) {\n        result = object_property_get(object, property_name)();\n    }\n    return result;\n    metadata([]);\n}"
+ ]
+}

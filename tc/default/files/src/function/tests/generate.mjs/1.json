@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\tests\\generate.mjs",
+ "part_id": "a13af6f3-c9ca-4edd-973a-936414b7841d",
+ "hunks": [
+  "0+import { function_tests_generate_after } from './generate/after.mjs';\nimport { function_tests_generate_generic } from './generate/generic.mjs';\nimport { string_identifier_is } from '../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nexport async function function_tests_generate(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    await function_tests_generate_generic(function_name);\n    await function_tests_generate_after();\n}"
+ ]
+}

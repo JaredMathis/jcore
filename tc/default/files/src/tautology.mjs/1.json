@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\tautology.mjs",
+ "part_id": "8b1c6ee0-6b85-4ba4-8cbb-fecf8085efe2",
+ "hunks": [
+  "0+export function tautology(value) {\n    return true;\n}"
+ ]
+}

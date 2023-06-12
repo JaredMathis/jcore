@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\refactor\\functions\\arguments\\assert\\missing\\add\\excludes.mjs",
+ "part_id": "e8abf836-7b62-45f4-abf9-c943c78410de",
+ "hunks": [
+  "0+import { git } from '../../../../../../git.mjs';\nimport { metadata_arguments_assert_extra_allow } from '../../../../../../metadata/arguments/assert/extra/allow.mjs';\nimport { list_add_multiple } from '../../../../../../list/add/multiple.mjs';\nimport { comment } from '../../../../../../comment.mjs';\nimport { arguments_assert } from '../../../../../../arguments/assert.mjs';\nimport { function_name_get } from '../../../../../../function/name/get.mjs';\nimport { function_dependencies_names } from '../../../../../../function/dependencies/names.mjs';\nimport { arguments_assert_predicate_default } from '../../../../../../arguments/assert/predicate/default.mjs';\nexport async function refactor_functions_arguments_assert_missing_add_excludes() {\n    arguments_assert(arguments, []);\n    let excludes = await function_dependencies_names(function_name_get(arguments_assert));\n    comment(`Eventually this should be refactored maybe to read files and detect an attribute`);\n    list_add_multiple(excludes, [\n        function_name_get(metadata_arguments_assert_extra_allow),\n        function_name_get(arguments_assert_predicate_default()),\n        function_name_get(git)\n    ]);\n    return excludes;\n}"
+ ]
+}

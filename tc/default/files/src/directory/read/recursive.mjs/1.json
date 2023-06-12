@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\directory\\read\\recursive.mjs",
+ "part_id": "8ff8a460-2e6a-46ba-a068-f942a0a5a7ee",
+ "hunks": [
+  "0+import { directory_read_recursive_generic } from './recursive/generic.mjs';\nimport { list_add } from '../../list/add.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport fs from 'fs';\nimport path from 'path';\nimport { path_is } from '../../path/is.mjs';\nimport { list_is } from '../../list/is.mjs';\nimport { noop } from '../../noop.mjs';\nexport async function directory_read_recursive(dir, path_list) {\n    arguments_assert(arguments, [\n        path_is,\n        list_is\n    ]);\n    return await directory_read_recursive_generic(dir, path_list, noop, on_file);\n    async function on_file(path_list, file_path) {\n        list_add(path_list, file_path);\n    }\n}"
+ ]
+}

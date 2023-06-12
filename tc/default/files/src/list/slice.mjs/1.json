@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\slice.mjs",
+ "part_id": "5a4c79c2-6350-44a7-9285-381e09ffe9df",
+ "hunks": [
+  "0+import { list_length } from './length.mjs';\nimport { equal } from '../equal.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { list_is } from './is.mjs';\nimport { integer_is } from '../integer/is.mjs';\nimport { assert } from '../assert.mjs';\nimport { list_index_valid } from './index/valid.mjs';\nexport function list_slice(list, start, end) {\n    arguments_assert(arguments, [\n        list_is,\n        integer_is,\n        integer_is\n    ]);\n    for (let i of [\n            start,\n            end\n        ]) {\n        assert(list_index_valid(list, i) || equal(i, list_length(list)));\n    }\n    assert(start <= end);\n    return list.slice(start, end);\n    metadata([]);\n}"
+ ]
+}

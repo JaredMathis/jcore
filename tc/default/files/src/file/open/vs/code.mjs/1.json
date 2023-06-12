@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\file\\open\\vs\\code.mjs",
+ "part_id": "a6493e9f-b311-4168-99b2-9badb72ead1b",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { command_line } from '../../../command/line.mjs';\nimport { path_is } from '../../../path/is.mjs';\nexport async function file_open_vs_code(function_path) {\n    arguments_assert(arguments, [path_is]);\n    await command_line(`code ${ function_path }`);\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\unasyncify.mjs",
+ "part_id": "7ef1a2ad-eb3b-412b-942b-4fb6264bab29",
+ "hunks": [
+  "0+import { function_unasyncify_generic } from './unasyncify/generic.mjs';\nimport { string_identifier_is } from '../string/identifier/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { function_naming_suffix_async } from './naming/suffix/async.mjs';\nimport { metadata } from '../metadata.mjs';\nexport async function function_unasyncify(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let ending = function_naming_suffix_async();\n    await function_unasyncify_generic(function_name, ending);\n    metadata([]);\n}"
+ ]
+}

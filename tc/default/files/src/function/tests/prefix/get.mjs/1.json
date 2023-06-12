@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\tests\\prefix\\get.mjs",
+ "part_id": "f33d1353-8b1b-4ef8-ac4f-e1fa4547709e",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { string_function_tests_sub } from '../../../string/function/tests/sub.mjs';\nimport { string_identifier_is } from '../../../string/identifier/is.mjs';\nexport function function_tests_prefix_get(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    return `${ function_name }${ string_function_tests_sub() }`;\n    metadata([]);\n}"
+ ]
+}

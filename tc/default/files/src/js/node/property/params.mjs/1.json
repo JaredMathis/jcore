@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\node\\property\\params.mjs",
+ "part_id": "b0631497-7671-4a0e-8d14-8f03d5d0bcd3",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nexport function js_node_property_params() {\n    arguments_assert(arguments, []);\n    return 'params';\n}"
+ ]
+}

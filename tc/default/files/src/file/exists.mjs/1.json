@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\file\\exists.mjs",
+ "part_id": "f806c0c9-c327-4e2b-8ec2-37f3a1d0cdf3",
+ "hunks": [
+  "0+import { file_is } from './is.mjs';\nimport { path_is } from '../path/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { path_exists } from '../path/exists.mjs';\nimport { assert } from '../assert.mjs';\nexport async function file_exists(file_path) {\n    arguments_assert(arguments, [path_is]);\n    if (!await path_exists(file_path)) {\n        return false;\n    }\n    assert(await file_is(file_path));\n    return true;\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\byte\\size.mjs",
+ "part_id": "346d96fb-72ff-443b-a9b3-d00dab2fe751",
+ "hunks": [
+  "0+export function string_byte_size(s) {\n    return new Blob([s]).size;\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\version\\property\\hunks.mjs",
+ "part_id": "7d403cc2-f094-4b65-b9bb-6dab104a8d81",
+ "hunks": [
+  "0+export function version_property_hunks() {\n    return 'hunks';\n}"
+ ]
+}

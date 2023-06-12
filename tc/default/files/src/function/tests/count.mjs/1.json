@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\tests\\count.mjs",
+ "part_id": "ce989767-8cab-4438-982a-62fec0cc3f1b",
+ "hunks": [
+  "0+import { string_identifier_is } from '../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { tests } from '../../tests.mjs';\nimport { list_length } from '../../list/length.mjs';\nimport { function_tests_all } from './all.mjs';\nexport async function function_tests_count(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let tests = await function_tests_all(function_name);\n    return list_length(tests);\n    metadata([]);\n}"
+ ]
+}

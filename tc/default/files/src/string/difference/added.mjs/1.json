@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\difference\\added.mjs",
+ "part_id": "957ac49e-caf7-48c1-b5fa-b871428782d8",
+ "hunks": [
+  "0+export function string_difference_added() {\n    return '+';\n}"
+ ]
+}

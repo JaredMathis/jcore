@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\arguments\\assert\\test\\2.mjs",
+ "part_id": "218d4a64-afc5-4951-b05a-b61bf4bbccf9",
+ "hunks": [
+  "0+import { metadata_arguments_assert_extra_allow } from '../../../metadata/arguments/assert/extra/allow.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { comment } from '../../../comment.mjs';\nimport { integer_is } from '../../../integer/is.mjs';\nimport { throws } from '../../../throws.mjs';\nimport { arguments_assert } from '../../assert.mjs';\nexport function arguments_assert_test_2() {\n    arguments_assert(arguments, []);\n    comment('Too few predicates');\n    throws(() => arguments_assert([\n        1,\n        2,\n        3\n    ], [\n        integer_is,\n        integer_is\n    ]));\n    metadata([metadata_arguments_assert_extra_allow()]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\database\\reference\\data.mjs",
+ "part_id": "bb2864d2-3b02-43bc-ba17-b9b9ffffbd23",
+ "hunks": [
+  "0+export function database_reference_data(info) {\n    return info.data();\n}"
+ ]
+}

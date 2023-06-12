@@ -1,0 +1,7 @@
+{
+ "file_path": ".gitignore",
+ "part_id": "42b07299-9dd5-4f53-bac7-b9938c4258f0",
+ "hunks": [
+  "0+node_modules\ndata.json\ntc\nout.txt"
+ ]
+}

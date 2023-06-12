@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\map\\async.mjs",
+ "part_id": "827d3900-79db-4e52-9a0a-2498788b8e05",
+ "hunks": [
+  "0+import { metadata } from '../../metadata.mjs';\nimport { function_is } from '../../function/is.mjs';\nimport { list_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { list_add } from '../add.mjs';\nexport async function list_map_async(list, mapper) {\n    arguments_assert(arguments, [\n        list_is,\n        function_is\n    ]);\n    let result = [];\n    for (let element of list) {\n        let mapped = await mapper(element);\n        list_add(result, mapped);\n    }\n    return result;\n    metadata([]);\n}"
+ ]
+}

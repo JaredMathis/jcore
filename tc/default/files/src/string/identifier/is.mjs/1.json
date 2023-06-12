@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\identifier\\is.mjs",
+ "part_id": "48b38153-8256-4f3d-b55e-64d5469a93bb",
+ "hunks": [
+  "0+import { string_is } from '../is.mjs';\nimport { string_identifier_is_generic } from './is/generic.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nexport function string_identifier_is(value) {\n    arguments_assert(arguments, [string_is]);\n    let is_identifier = true;\n    return string_identifier_is_generic(value, is_identifier);\n    metadata([]);\n}"
+ ]
+}

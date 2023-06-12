@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\suffix\\without.mjs",
+ "part_id": "3338804e-0add-4c93-9396-d1b6d34c5e3a",
+ "hunks": [
+  "0+import { string_take } from '../take.mjs';\nimport { string_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { assert } from '../../assert.mjs';\nimport { string_ends_with } from '../ends/with.mjs';\nimport { string_length } from '../length.mjs';\nexport function string_suffix_without(input, suffix) {\n    arguments_assert(arguments, [\n        string_is,\n        string_is\n    ]);\n    assert(string_ends_with(input, suffix));\n    let end = string_length(input) - string_length(suffix);\n    return string_take(input, end);\n    metadata([]);\n}"
+ ]
+}

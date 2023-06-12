@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\min.mjs",
+ "part_id": "44e60010-310a-477e-a130-d9292bb8d3ac",
+ "hunks": [
+  "0+import { metadata } from '../metadata.mjs';\nimport { identity } from '../identity.mjs';\nimport { list_compare_generic } from './compare/generic.mjs';\nimport { list_is } from './is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nexport function list_min(list) {\n    arguments_assert(arguments, [list_is]);\n    let compare = (current, found) => current < found;\n    return list_compare_generic(list, identity, compare);\n    metadata([]);\n}"
+ ]
+}

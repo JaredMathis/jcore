@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\starts\\with\\test\\generated\\4.mjs",
+ "part_id": "220d9e5c-7d8b-4393-9c3d-3d3a011e655c",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { json_equal } from '../../../../../json/equal.mjs';\nimport { assert } from '../../../../../assert.mjs';\nimport { string_starts_with } from '../../../with.mjs';\nexport function string_starts_with_test_generated_4() {\n    arguments_assert(arguments, []);\n    let expected = false;\n    let actual = string_starts_with('aab', 'b');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
+ ]
+}

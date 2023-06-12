@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\node\\property\\start.mjs",
+ "part_id": "e022efd7-70d2-44be-a7fe-8e0b626daec6",
+ "hunks": [
+  "0+export function js_node_property_start() {\n    return 'start';\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\add\\1\\test\\2.mjs",
+ "part_id": "c366f6b6-b673-4f4f-931f-deba00da164c",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { add_1 } from '../../1.mjs';\nimport { equal } from '../../../equal.mjs';\nimport { assert } from '../../../assert.mjs';\nexport function add_1_test_2() {\n    arguments_assert(arguments, []);\n    assert(equal(add_1(2), 3));\n    metadata([]);\n}"
+ ]
+}

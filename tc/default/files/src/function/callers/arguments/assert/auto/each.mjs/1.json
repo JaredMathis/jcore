@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\callers\\arguments\\assert\\auto\\each.mjs",
+ "part_id": "42accb03-78e1-45f6-9127-76a9ef47c5ab",
+ "hunks": [
+  "0+import { string_identifier_is } from '../../../../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { function_callers_arguments_assert_auto_generic } from './generic.mjs';\nimport { function_to_statement_arguments_assert_args_predicate } from '../../../../to/statement/arguments/assert/args/predicate.mjs';\nexport async function function_callers_arguments_assert_auto_each(function_name, c_function_name) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        string_identifier_is\n    ]);\n    let arguments_assert_args = await function_to_statement_arguments_assert_args_predicate(function_name);\n    await function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, []);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\difference\\apply\\external.mjs",
+ "part_id": "75a70f91-0b22-4026-a754-c2d81ce25fa4",
+ "hunks": [
+  "0+import { object_merge } from '../../../object/merge.mjs';\nimport { string_is } from '../../is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { list_is } from '../../../list/is.mjs';\nimport * as Diff from 'diff';\nexport function string_difference_apply_external(string_old, hunks) {\n    arguments_assert(arguments, [\n        string_is,\n        list_is\n    ]);\n    let patch = {\n        'oldFileName': '',\n        'oldHeader': '',\n        'newFileName': '',\n        'newHeader': ''\n    };\n    object_merge({ hunks }, patch);\n    let string_new = Diff.applyPatch(string_old, patch);\n    return string_new;\n}"
+ ]
+}

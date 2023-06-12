@@ -1,0 +1,31 @@
+{
+ "removals": [],
+ "differences": [
+  {
+   "file_path": "tc\\a\\files\\src\\version\\commit\\and\\removals.mjs\\2.json",
+   "contents": {
+    "part_id": "797039ee-aac7-414a-8ba0-9caebabd67c7",
+    "hunks": [
+     "894-25",
+     "1266-24"
+    ]
+   }
+  },
+  {
+   "file_path": "tc\\a\\commits\\2.json",
+   "contents": {
+    "commit_id": "8f497671-c7ef-4d02-8455-0043bc3d5bbc",
+    "when": "2023-06-10T23:46:10.871Z",
+    "parts": [
+     "797039ee-aac7-414a-8ba0-9caebabd67c7"
+    ],
+    "data": {
+     "command": "version_commit_and_removals",
+     "args": [
+      "a"
+     ]
+    }
+   }
+  }
+ ]
+}

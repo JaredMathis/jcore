@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\run.mjs",
+ "part_id": "508b50c7-8bc5-4ee7-ba96-68995f4f006c",
+ "hunks": [
+  "0+import { arguments_assert } from './arguments/assert.mjs';\nimport { metadata } from './metadata.mjs';\nimport { log } from './log.mjs';\nimport { function_run_arguments } from './function/run/arguments.mjs';\nimport { command_line_args_skipped } from './command/line/args/skipped.mjs';\nimport { json_to } from './json/to.mjs';\nexport async function run() {\n    arguments_assert(arguments, []);\n    let skipped = command_line_args_skipped();\n    let result = await function_run_arguments(skipped);\n    log(`Run result: ${ result ? json_to(result) : result }`);\n    metadata([]);\n}"
+ ]
+}

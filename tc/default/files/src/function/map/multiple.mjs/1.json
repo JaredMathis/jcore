@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\map\\multiple.mjs",
+ "part_id": "4e5006e5-f92b-4e79-92f7-8e4140794e2f",
+ "hunks": [
+  "0+import { function_map } from '../map.mjs';\nexport async function function_map_multiple(refactors_names, function_name) {\n    for (let n of refactors_names) {\n        await function_map(n, function_name);\n    }\n}"
+ ]
+}

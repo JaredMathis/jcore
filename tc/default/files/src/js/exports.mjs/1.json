@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\exports.mjs",
+ "part_id": "d37c1cf7-6f8b-424d-8f68-c58989b9a7ae",
+ "hunks": [
+  "0+import { js_node_is_program } from './node/is/program.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { js_node_is_export_named_declaration } from './node/is/export/named/declaration.mjs';\nimport { list_filter } from '../list/filter.mjs';\nimport { js_body_get } from './body/get.mjs';\nexport function js_exports(parsed) {\n    arguments_assert(arguments, [js_node_is_program]);\n    let body = js_body_get(parsed);\n    let exports = list_filter(body, b => js_node_is_export_named_declaration(b));\n    return exports;\n    metadata([]);\n}"
+ ]
+}

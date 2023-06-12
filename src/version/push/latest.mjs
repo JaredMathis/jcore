@@ -4,6 +4,7 @@ export async function version_push_latest(repository_name) {
     let latest_files = [];
     let file_paths = await version_files_paths(repository_name);
     await version_file_contents_each(repository_name, file_paths, async (file_path, contents) => {
+        console.log({contents})
     });
     return latest_files;
 }

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\database\\create.mjs",
+ "part_id": "7b239962-cdd3-4abd-b781-a7bf10423ef1",
+ "hunks": [
+  "0+import { database_reference } from './reference.mjs';\nimport { arguments_assert_todo } from '../arguments/assert/todo.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { database_reference_create } from './reference/create.mjs';\nexport async function database_create(db, transaction, collection_path, document_path, document_data) {\n    arguments_assert(arguments, [\n        arguments_assert_todo,\n        arguments_assert_todo,\n        arguments_assert_todo,\n        arguments_assert_todo,\n        arguments_assert_todo\n    ]);\n    const reference = database_reference(db, collection_path, document_path);\n    await database_reference_create(transaction, reference, document_data);\n}"
+ ]
+}

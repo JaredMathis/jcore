@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\version\\commit\\files\\all\\removals\\generic.mjs",
+ "part_id": "a03b2e16-d63d-4607-a46f-2a661ad1087f",
+ "hunks": [
+  "0+import { version_removals } from '../../../../removals.mjs';\nimport { string_empty } from '../../../../../string/empty.mjs';\nimport { version_file_difference_generic } from '../../../../file/difference/generic.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { version_commit_files_generic } from '../../generic.mjs';\nimport { list_is } from '../../../../../list/is.mjs';\nimport { string_identifier_is } from '../../../../../string/identifier/is.mjs';\nimport { object_is } from '../../../../../object/is.mjs';\nexport async function version_commit_files_all_removals_generic(repository_name, file_paths, commit_data) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        list_is,\n        object_is\n    ]);\n    let removals = await version_removals(repository_name, file_paths);\n    let writes = await version_commit_files_generic(repository_name, removals, commit_data, difference_get);\n    return writes;\n    async function difference_get(repository_name, file_path) {\n        return await version_file_difference_generic(repository_name, file_path, contents_new_get);\n    }\n    function contents_new_get() {\n        return string_empty();\n    }\n}"
+ ]
+}

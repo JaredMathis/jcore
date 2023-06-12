@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\letter\\digit\\or\\underscore\\is.mjs",
+ "part_id": "ea5e7653-7019-41f7-926e-7f390dacad97",
+ "hunks": [
+  "0+import { string_is } from '../../../../is.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { string_underscore_is } from '../../../../underscore/is.mjs';\nimport { string_digit_is } from '../../../../digit/is.mjs';\nimport { string_letter_is } from '../../../is.mjs';\nimport { string_length_is_1 } from '../../../../length/is/1.mjs';\nexport function string_letter_digit_or_underscore_is(c) {\n    arguments_assert(arguments, [string_is]);\n    if (!string_length_is_1(c)) {\n        return false;\n    }\n    if (string_letter_is(c)) {\n        return true;\n    }\n    if (string_digit_is(c)) {\n        return true;\n    }\n    if (string_underscore_is(c)) {\n        return true;\n    }\n    return false;\n}"
+ ]
+}

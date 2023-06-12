@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\version\\commits\\path\\to\\integer.mjs",
+ "part_id": "f8ae3ca5-6e0c-4b91-b0f5-ea6d5069a28a",
+ "hunks": [
+  "0+import { integer_parse } from '../../../../integer/parse.mjs';\nimport { file_extension_json } from '../../../../file/extension/json.mjs';\nimport { string_suffix_without } from '../../../../string/suffix/without.mjs';\nimport { path_parse_base } from '../../../../path/parse/base.mjs';\nimport { list_map } from '../../../../list/map.mjs';\nexport function version_commits_path_to_integer(existing_commits) {\n    let names = list_map(existing_commits, path_parse_base);\n    let unparsed = list_map(names, c => string_suffix_without(c, file_extension_json()));\n    let parsed = list_map(unparsed, integer_parse);\n    return parsed;\n}"
+ ]
+}

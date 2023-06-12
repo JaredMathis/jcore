@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\index\\of.mjs",
+ "part_id": "41305af4-df7c-4622-9a99-6b7f8f997b60",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { assert } from '../../assert.mjs';\nimport { list_is } from '../is.mjs';\nimport { defined_is } from '../../defined/is.mjs';\nexport function list_index_of(list, element) {\n    arguments_assert(arguments, [\n        list_is,\n        defined_is\n    ]);\n    let result = list.indexOf(element);\n    assert(result >= 0);\n    return result;\n    metadata([]);\n}"
+ ]
+}

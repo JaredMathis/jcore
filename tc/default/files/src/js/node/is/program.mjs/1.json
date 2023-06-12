@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\node\\is\\program.mjs",
+ "part_id": "9f52b8b0-f7c6-45ce-afbf-fccbca8bb302",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { js_node_is_type } from './type.mjs';\nimport { js_node_is } from '../is.mjs';\nexport function js_node_is_program(parsed) {\n    arguments_assert(arguments, [js_node_is]);\n    return js_node_is_type(parsed, 'Program');\n}"
+ ]
+}

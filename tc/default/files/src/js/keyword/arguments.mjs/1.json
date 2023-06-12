@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\keyword\\arguments.mjs",
+ "part_id": "4f77b09e-97f1-4231-8ab7-f682443b2673",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nexport function js_keyword_arguments() {\n    arguments_assert(arguments, []);\n    return 'arguments';\n    metadata([]);\n}"
+ ]
+}

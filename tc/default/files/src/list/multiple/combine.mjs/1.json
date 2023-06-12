@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\multiple\\combine.mjs",
+ "part_id": "0e2215c6-f43e-414c-aaab-d834ad8f5c21",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { list_add_multiple } from '../add/multiple.mjs';\nimport { list_is } from '../is.mjs';\nexport function list_multiple_combine(concats) {\n    arguments_assert(arguments, [list_is]);\n    let concat = [];\n    for (let list of concats) {\n        list_add_multiple(concat, list);\n    }\n    return concat;\n    metadata([]);\n}"
+ ]
+}

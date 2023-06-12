@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\single.mjs",
+ "part_id": "aeca33b4-1874-479f-9e31-e5397f8bc59b",
+ "hunks": [
+  "0+import { list_is } from './is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { assert } from '../assert.mjs';\nimport { list_first } from './first.mjs';\nimport { list_length_is_1 } from './length/is/1.mjs';\nexport function list_single(list) {\n    arguments_assert(arguments, [list_is]);\n    assert(list_length_is_1(list));\n    let result = list_first(list);\n    return result;\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\git.mjs",
+ "part_id": "6c5246f7-1840-44e4-828b-fe0667196f21",
+ "hunks": [
+  "0+import { metadata } from './metadata.mjs';\nimport { function_run_arguments } from './function/run/arguments.mjs';\nimport { git_ac } from './git/ac.mjs';\nexport async function git() {\n    let result = await function_run_arguments(arguments);\n    await git_ac();\n    return result;\n    metadata([]);\n}"
+ ]
+}

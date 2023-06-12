@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\skip\\first.mjs",
+ "part_id": "7451c17f-b353-43b0-96d5-0089e4080e15",
+ "hunks": [
+  "0+import { list_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { list_skip } from '../skip.mjs';\nexport function list_skip_first(list) {\n    arguments_assert(arguments, [list_is]);\n    return list_skip(list, 1);\n    metadata([]);\n}"
+ ]
+}

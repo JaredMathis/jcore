@@ -1,0 +1,7 @@
+{
+ "file_path": "README.md",
+ "part_id": "2a6d2c07-557c-4515-a857-80b8b4474ba2",
+ "hunks": [
+  "0+# jcore\r\n\r\nTo add a function: `node run.mjs function_add my_new_function`\r\n\r\nOutput (in `src/my/new/function.mjs`):\r\n```\r\nexport function my_new_function() {\r\n    \r\n}\r\n```\r\n\r\n---\r\n\r\nTo add missing imports: `node run.mjs file_js_map refactor_import_missing file/path/to/missing/imports.mjs`\r\n\r\nBefore (in `file/path/to/missing/imports.mjs`):\r\n```\r\narray_contains();\r\n```\r\n\r\nAfter (in `file/path/to/missing/imports.mjs`):\r\n```\r\nimport array_contains from './array_contains.mjs';\r\narray_contains();\r\n```\r\nNote: the path is incorrect\r\n\r\n---\r\n\r\nTo format all whitespace in all `mjs` files: `node run.mjs file_js_all_map identity`\r\n\r\n---\r\n\r\nTo set the current git issue to #1234: `node run.mjs data_task_id_set_hash 1234`\r\n\r\nTo commit to git: `node run.mjs git_pacp` (Will git pull, then add all files, then commit, then push)\r\n\r\nTo run a function then commit to git: `node run.mjs git my_function my_arg1 my_arg2`\r\n\r\nTo complete the task in git (requires uncommitted changes): `node run.mjs data_task_finish`\r\n\r\n---\r\n\r\nTo remove unused imports from all files: `node run.mjs git file_js_all_map refactor_import_extra run.mjs`\r\n"
+ ]
+}

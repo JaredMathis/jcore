@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\each\\with\\index.mjs",
+ "part_id": "e8fc91d7-c966-4625-98cc-a44ac2635a73",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../metadata/generated.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { list_get } from '../../get.mjs';\nimport { list_length } from '../../length.mjs';\nimport { range } from '../../../range.mjs';\nimport { list_is } from '../../is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { function_is } from '../../../function/is.mjs';\nexport function list_each_with_index(list, lambda) {\n    arguments_assert(arguments, [\n        list_is,\n        function_is\n    ]);\n    const r = range(list_length(list));\n    for (let index of r) {\n        let element = list_get(list, index);\n        lambda(element, index);\n    }\n    metadata([metadata_generated()]);\n}"
+ ]
+}

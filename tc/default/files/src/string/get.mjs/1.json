@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\get.mjs",
+ "part_id": "22b78668-a398-489e-ad42-40475c04a4a9",
+ "hunks": [
+  "0+import { object_property_exists } from '../object/property/exists.mjs';\nimport { assert } from '../assert.mjs';\nimport { integer_is } from '../integer/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { string_is } from './is.mjs';\nexport function string_get(s, index) {\n    arguments_assert(arguments, [\n        string_is,\n        integer_is\n    ]);\n    assert(object_property_exists(s, index));\n    return s[index];\n}"
+ ]
+}

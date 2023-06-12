@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\code\\call\\expression.mjs",
+ "part_id": "b7aec044-96a1-47a4-a9e1-b4c9620bd872",
+ "hunks": [
+  "0+import { string_is } from '../../../string/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { js_code_call_expression_with_args_code } from './expression/with/args/code.mjs';\nexport function js_code_call_expression(name) {\n    arguments_assert(arguments, [string_is]);\n    let args = ``;\n    return js_code_call_expression_with_args_code(name, args);\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\node\\is\\await\\expression.mjs",
+ "part_id": "084a8797-5653-4387-98fd-549e5ec0b364",
+ "hunks": [
+  "0+import { js_node_is } from '../../is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { js_node_is_type } from '../type.mjs';\nexport function js_node_is_await_expression(node) {\n    arguments_assert(arguments, [js_node_is]);\n    return js_node_is_type(node, 'AwaitExpression');\n    metadata([]);\n}"
+ ]
+}

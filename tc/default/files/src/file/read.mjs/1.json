@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\file\\read.mjs",
+ "part_id": "04bf662b-caea-4345-b010-1cca13c93662",
+ "hunks": [
+  "0+import { path_is } from '../path/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { assert } from '../assert.mjs';\nimport { path_exists } from '../path/exists.mjs';\nimport fs from 'fs';\nexport async function file_read(file_path) {\n    arguments_assert(arguments, [path_is]);\n    assert(await path_exists(file_path));\n    let result = await fs.promises.readFile(file_path, 'utf8');\n    return result;\n    metadata([]);\n}"
+ ]
+}

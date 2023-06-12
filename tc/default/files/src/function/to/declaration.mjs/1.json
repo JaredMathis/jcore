@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\to\\declaration.mjs",
+ "part_id": "b76cd14b-6e75-46c6-b5a6-b64482f3b596",
+ "hunks": [
+  "0+import { string_identifier_is } from '../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { js_export_function_single } from '../../js/export/function/single.mjs';\nimport { function_parse } from '../parse.mjs';\nexport async function function_to_declaration(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let parsed = await function_parse(function_name);\n    let fd = js_export_function_single(parsed);\n    return fd;\n}"
+ ]
+}

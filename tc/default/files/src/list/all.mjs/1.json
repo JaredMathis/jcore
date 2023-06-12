@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\all.mjs",
+ "part_id": "c19e29a2-5e68-492b-b9b1-ae5fe61898d9",
+ "hunks": [
+  "0+import { function_is } from '../function/is.mjs';\nimport { list_is } from './is.mjs';\nimport { error } from '../error.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nexport function list_all(list, predicate) {\n    arguments_assert(arguments, [\n        list_is,\n        function_is\n    ]);\n    for (let a of list) {\n        if (!predicate(a)) {\n            return false;\n        }\n    }\n    return true;\n}"
+ ]
+}

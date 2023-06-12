@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\object\\property\\exists.mjs",
+ "part_id": "1f48d454-01e8-4965-85db-5fc20edaa233",
+ "hunks": [
+  "0+import { metadata } from '../../metadata.mjs';\nexport function object_property_exists(object, property_name) {\n    return object.hasOwnProperty(property_name);\n    metadata([]);\n}"
+ ]
+}

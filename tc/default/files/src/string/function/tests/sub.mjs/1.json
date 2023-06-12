@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\function\\tests\\sub.mjs",
+ "part_id": "d2a25bb9-329c-4875-ae83-5c89c703a94d",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { function_name_separator } from '../../../function/name/separator.mjs';\nexport function string_function_tests_sub() {\n    arguments_assert(arguments, []);\n    let fns = function_name_separator();\n    return `${ fns }test${ fns }`;\n    metadata([]);\n}"
+ ]
+}

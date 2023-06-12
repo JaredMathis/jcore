@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\version\\commit\\file.mjs",
+ "part_id": "fff0aaf9-226a-4cf8-b658-95cd7a6a4ab5",
+ "hunks": [
+  "0+import { list_single_item } from '../../list/single/item.mjs';\nimport { version_commit_data } from './data.mjs';\nimport { path_is } from '../../path/is.mjs';\nimport { string_identifier_is } from '../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { version_commit_files } from './files.mjs';\nexport async function version_commit_file(repository_name, file_path) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        path_is\n    ]);\n    await version_commit_files(repository_name, list_single_item(file_path), version_commit_data(version_commit_file, arguments));\n}"
+ ]
+}

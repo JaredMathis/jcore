@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\imports\\remove\\generic.mjs",
+ "part_id": "a447e649-0713-498a-a24d-f9267395de19",
+ "hunks": [
+  "0+import { js_node_is_program } from '../../node/is/program.mjs';\nimport { list_is } from '../../../list/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { list_remove_all } from '../../../list/remove/all.mjs';\nimport { js_body_get } from '../../body/get.mjs';\nimport { object_property_get } from '../../../object/property/get.mjs';\nimport { list_map } from '../../../list/map.mjs';\nexport function js_imports_remove_generic(parsed, imports_to_remove) {\n    arguments_assert(arguments, [\n        js_node_is_program,\n        list_is\n    ]);\n    let import_statements_to_remove = list_map(imports_to_remove, i => object_property_get(i, 'import'));\n    let body = js_body_get(parsed);\n    list_remove_all(body, import_statements_to_remove);\n}"
+ ]
+}

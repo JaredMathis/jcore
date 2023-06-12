@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\noop.mjs",
+ "part_id": "129301d4-78ed-4234-8ab3-8cf1fe010cff",
+ "hunks": [
+  "0+import { metadata } from './metadata.mjs';\nexport function noop() {\n    return;\n    metadata([]);\n}"
+ ]
+}

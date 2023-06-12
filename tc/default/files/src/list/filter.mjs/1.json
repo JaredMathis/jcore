@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\filter.mjs",
+ "part_id": "e87dd26b-5b8d-47bc-b949-2d642d681050",
+ "hunks": [
+  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { list_is } from './is.mjs';\nimport { function_is } from '../function/is.mjs';\nexport function list_filter(list, predicate) {\n    arguments_assert(arguments, [\n        list_is,\n        function_is\n    ]);\n    return list.filter(element => predicate(element));\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\directory\\read\\recursive\\generic.mjs",
+ "part_id": "360e99eb-8374-46a8-a2b4-73ac4ee4dc98",
+ "hunks": [
+  "0+import { directory_is } from '../../is.mjs';\nimport { directory_read_non_recursive } from '../non/recursive.mjs';\nimport { function_is } from '../../../function/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { list_is } from '../../../list/is.mjs';\nimport { path_is } from '../../../path/is.mjs';\nexport async function directory_read_recursive_generic(dir, path_list, on_directory, on_file) {\n    arguments_assert(arguments, [\n        path_is,\n        list_is,\n        function_is,\n        function_is\n    ]);\n    let file_paths = await directory_read_non_recursive(dir);\n    for (let file_path of file_paths) {\n        const is_directory = await directory_is(file_path);\n        if (is_directory) {\n            await directory_read_recursive_generic(file_path, path_list, on_directory, on_file);\n            await on_directory(path_list, file_path);\n        } else {\n            await on_file(path_list, file_path);\n        }\n    }\n    return path_list;\n}"
+ ]
+}

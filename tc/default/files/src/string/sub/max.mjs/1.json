@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\sub\\max.mjs",
+ "part_id": "04f095c5-4ad6-4cf1-a11a-8c64584c2178",
+ "hunks": [
+  "0+import { string_sub_max_property_right_index } from './max/property/right/index.mjs';\nimport { string_sub_max_property_left_index } from './max/property/left/index.mjs';\nimport { string_sub_max_property_offset } from './max/property/offset.mjs';\nimport { string_sub_max_starting_at } from './max/starting/at.mjs';\nexport function string_sub_max(left, right) {\n    let offset_max = 0;\n    let left_index_max = 0;\n    let right_index_max = 0;\n    for (let left_index = 0; left_index < left.length; left_index++) {\n        for (let right_index = 0; right_index < right.length; right_index++) {\n            let offset = string_sub_max_starting_at(left, right, left_index, right_index);\n            if (offset > offset_max) {\n                offset_max = offset;\n                left_index_max = left_index;\n                right_index_max = right_index;\n            }\n        }\n    }\n    let result = {\n        [string_sub_max_property_offset()]: offset_max,\n        [string_sub_max_property_left_index()]: left_index_max,\n        [string_sub_max_property_right_index()]: right_index_max\n    };\n    return result;\n}"
+ ]
+}

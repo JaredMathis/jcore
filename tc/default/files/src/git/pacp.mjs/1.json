@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\git\\pacp.mjs",
+ "part_id": "9b1e0d77-b0fd-437d-81ad-fbf15aea9d6e",
+ "hunks": [
+  "0+import { metadata } from '../metadata.mjs';\nimport { git_pacp_generic } from './pacp/generic.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nexport async function git_pacp() {\n    arguments_assert(arguments, []);\n    let sync = true;\n    await git_pacp_generic(sync);\n    metadata([]);\n}"
+ ]
+}

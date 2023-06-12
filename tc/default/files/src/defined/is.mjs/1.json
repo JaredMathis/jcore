@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\defined\\is.mjs",
+ "part_id": "697bd441-2809-4f61-a065-71137e9fabdd",
+ "hunks": [
+  "0+import { arguments_assert_todo } from '../arguments/assert/todo.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nexport function defined_is(variable) {\n    arguments_assert(arguments, [arguments_assert_todo]);\n    return typeof variable !== 'undefined';\n}"
+ ]
+}

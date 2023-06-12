@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\callers.mjs",
+ "part_id": "59fcf671-8d8d-47c4-8a6b-9526c1919791",
+ "hunks": [
+  "0+import { function_dependencies_non_recursive } from './dependencies/non/recursive.mjs';\nimport { list_any } from '../list/any.mjs';\nimport { function_name_all } from './name/all.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { string_identifier_is } from '../string/identifier/is.mjs';\nimport { object_property_get } from '../object/property/get.mjs';\nimport { list_add } from '../list/add.mjs';\nexport async function function_callers(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let result = [];\n    let candidates = await function_name_all();\n    for (let c of candidates) {\n        let dependencies = await function_dependencies_non_recursive(c);\n        if (list_any(dependencies, d => object_property_get(d, 'function_name') === function_name)) {\n            list_add(result, c);\n        }\n    }\n    return result;\n}"
+ ]
+}

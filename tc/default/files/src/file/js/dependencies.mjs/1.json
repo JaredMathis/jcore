@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\file\\js\\dependencies.mjs",
+ "part_id": "2c8343d7-e518-4dc1-87cf-6570428c8f55",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { visit_ignore_duplicates_async } from '../../visit/ignore/duplicates/async.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { file_js_dependencies_non_recursive } from './dependencies/non/recursive.mjs';\nimport { list_add } from '../../list/add.mjs';\nimport { path_is } from '../../path/is.mjs';\nexport async function file_js_dependencies(file_path) {\n    arguments_assert(arguments, [path_is]);\n    let result = [];\n    await visit_ignore_duplicates_async(file_path, async node => {\n        return await file_js_dependencies_non_recursive(node);\n    }, v => {\n        let {node} = v;\n        list_add(result, node);\n    });\n    return result;\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\map\\property.mjs",
+ "part_id": "81556477-a772-4268-b37b-e38e63fd43a4",
+ "hunks": [
+  "0+import { object_property_get } from '../../object/property/get.mjs';\nimport { list_map } from '../map.mjs';\nexport function list_map_property(list, property_name) {\n    return list_map(list, element => object_property_get(element, property_name));\n}"
+ ]
+}

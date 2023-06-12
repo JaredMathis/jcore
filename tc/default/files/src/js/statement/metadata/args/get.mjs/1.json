@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\statement\\metadata\\args\\get.mjs",
+ "part_id": "e3580ae8-7ba8-4422-a023-f41e2c9bd4ea",
+ "hunks": [
+  "0+import { js_node_is } from '../../../node/is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { js_node_property_elements } from '../../../node/property/elements.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { list_single } from '../../../../list/single.mjs';\nimport { js_statement_expression_arguments_get } from '../../expression/arguments/get.mjs';\nimport { js_statement_metadata_is } from '../is.mjs';\nimport { assert } from '../../../../assert.mjs';\nimport { object_property_get } from '../../../../object/property/get.mjs';\nexport function js_statement_metadata_args_get(statement) {\n    arguments_assert(arguments, [js_node_is]);\n    assert(js_statement_metadata_is(statement));\n    let last_args = js_statement_expression_arguments_get(statement);\n    let array = list_single(last_args);\n    let metadata_args = object_property_get(array, js_node_property_elements());\n    return metadata_args;\n    metadata([]);\n}"
+ ]
+}

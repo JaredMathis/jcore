@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\callers\\arguments\\assert\\auto\\multiple\\list.mjs",
+ "part_id": "b42f45e1-b404-4761-a7a3-476bade67433",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../../../../arguments/assert.mjs';\nimport { list_add_multiple } from '../../../../../../list/add/multiple.mjs';\nimport { list_is } from '../../../../../../list/is.mjs';\nimport { function_callers_arguments_assert_auto } from '../../auto.mjs';\nexport async function function_callers_arguments_assert_auto_multiple_list(multiple, result) {\n    arguments_assert(arguments, [\n        list_is,\n        list_is\n    ]);\n    for (let m of multiple) {\n        let r = await function_callers_arguments_assert_auto(m);\n        list_add_multiple(result, r);\n    }\n    return result;\n}"
+ ]
+}

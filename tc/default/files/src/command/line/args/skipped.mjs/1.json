@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\command\\line\\args\\skipped.mjs",
+ "part_id": "de9d4b04-44db-4c33-8451-2846fce0c8f8",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { list_skip } from '../../../list/skip.mjs';\nimport { list_to } from '../../../list/to.mjs';\nexport function command_line_args_skipped() {\n    arguments_assert(arguments, []);\n    let args_command_line = list_to(process.argv);\n    let skipped = list_skip(args_command_line, 2);\n    return skipped;\n    metadata([]);\n}"
+ ]
+}

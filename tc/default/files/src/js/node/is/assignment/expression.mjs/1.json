@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\node\\is\\assignment\\expression.mjs",
+ "part_id": "ea9694db-3c41-4498-b83a-9a17d312a450",
+ "hunks": [
+  "0+import { js_node_is } from '../../is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { js_node_is_type } from '../type.mjs';\nexport function js_node_is_assignment_expression(n) {\n    arguments_assert(arguments, [js_node_is]);\n    return js_node_is_type(n, 'AssignmentExpression');\n}"
+ ]
+}

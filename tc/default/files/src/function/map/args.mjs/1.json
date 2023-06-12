@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\map\\args.mjs",
+ "part_id": "c2f7994d-6e91-4fa6-931b-b0569a896d46",
+ "hunks": [
+  "0+import { file_js_map_args } from '../../file/js/map/args.mjs';\nimport { function_name_to_file_path } from '../name/to/file/path.mjs';\nexport async function function_map_args(function_name, mapper) {\n    let file_path = function_name_to_file_path(function_name);\n    await file_js_map_args(file_path, mapper);\n}"
+ ]
+}

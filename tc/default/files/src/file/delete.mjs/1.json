@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\file\\delete.mjs",
+ "part_id": "09eb6890-6f93-43e1-9c8e-7fef903978c6",
+ "hunks": [
+  "0+import { path_is } from '../path/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { file_exists } from './exists.mjs';\nimport { assert } from '../assert.mjs';\nimport fs from 'fs';\nexport async function file_delete(file_path) {\n    arguments_assert(arguments, [path_is]);\n    assert(await file_exists(file_path));\n    await fs.promises.rm(file_path);\n    metadata([]);\n}"
+ ]
+}

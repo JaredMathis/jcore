@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\file\\js\\overwrite.mjs",
+ "part_id": "f2f6c2fe-d6d7-4485-bb28-fbf07b4e2272",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { js_unparse } from '../../js/unparse.mjs';\nimport { object_property_get } from '../../object/property/get.mjs';\nimport { file_overwrite } from '../overwrite.mjs';\nimport { defined_is } from '../../defined/is.mjs';\nexport async function file_js_overwrite(args) {\n    arguments_assert(arguments, [defined_is]);\n    let file_path = object_property_get(args, 'file_path');\n    let parsed = object_property_get(args, 'parsed');\n    let unparsed = js_unparse(parsed);\n    await file_overwrite(file_path, unparsed);\n    metadata([]);\n}"
+ ]
+}

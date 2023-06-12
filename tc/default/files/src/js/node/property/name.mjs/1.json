@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\node\\property\\name.mjs",
+ "part_id": "ba99f2f7-5c09-4259-a469-24ff69bc2b1c",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nexport function js_node_property_name() {\n    arguments_assert(arguments, []);\n    return 'name';\n    metadata([]);\n}"
+ ]
+}

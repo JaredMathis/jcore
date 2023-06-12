@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\database\\set.mjs",
+ "part_id": "9880deda-3a21-4a05-9d90-930bad636d10",
+ "hunks": [
+  "0+\nimport { initializeApp } from 'firebase-admin/app';\nimport { getFirestore } from 'firebase-admin/firestore';\nexport async function database_set(collection_path, document_path, document_data) {\n    initializeApp({ projectId: 'truthcode' });\n    const db = getFirestore();\n    await db.collection(collection_path).doc(document_path).set(document_data);\n}"
+ ]
+}

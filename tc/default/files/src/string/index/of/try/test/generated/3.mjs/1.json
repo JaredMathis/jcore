@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\index\\of\\try\\test\\generated\\3.mjs",
+ "part_id": "4c6a773d-cceb-4b08-a286-5869d6811536",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../../metadata.mjs';\nimport { json_equal } from '../../../../../../json/equal.mjs';\nimport { assert } from '../../../../../../assert.mjs';\nimport { string_index_of_try } from '../../../try.mjs';\nexport function string_index_of_try_test_generated_3() {\n    arguments_assert(arguments, []);\n    let expected = 0;\n    let actual = string_index_of_try('aa', 'aa');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
+ ]
+}

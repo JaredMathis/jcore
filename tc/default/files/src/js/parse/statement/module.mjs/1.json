@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\parse\\statement\\module.mjs",
+ "part_id": "b7e7d5dc-e19f-4006-a49d-ca704ea6e273",
+ "hunks": [
+  "0+import { string_is } from '../../../string/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { comment } from '../../../comment.mjs';\nimport { list_single } from '../../../list/single.mjs';\nimport { js_body_get } from '../../body/get.mjs';\nimport { js_parse } from '../../parse.mjs';\ncomment(`Javascript doesn't allow import .. inside a function. Therefore we must able to parse code at the module level`);\nexport function js_parse_statement_module(code) {\n    arguments_assert(arguments, [string_is]);\n    let parsed = js_parse(code);\n    let statements = js_body_get(parsed);\n    let statement = list_single(statements);\n    return statement;\n    metadata([]);\n}"
+ ]
+}

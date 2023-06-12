@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\path\\exists.mjs",
+ "part_id": "1795ff01-ba45-4c1e-b381-8f846a0c7e4f",
+ "hunks": [
+  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport fs from 'fs';\nimport { path_is } from './is.mjs';\nexport function path_exists(file_path) {\n    arguments_assert(arguments, [path_is]);\n    return fs.promises.access(file_path, fs.constants.F_OK).then(() => true).catch(() => false);\n    metadata([]);\n}"
+ ]
+}

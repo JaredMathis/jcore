@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\node\\is\\call\\expression.mjs",
+ "part_id": "7af01bb8-8784-499d-bbc6-f37704d050e6",
+ "hunks": [
+  "0+import { js_node_is } from '../../is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { js_node_is_type } from '../type.mjs';\nexport function js_node_is_call_expression(node) {\n    arguments_assert(arguments, [js_node_is]);\n    return js_node_is_type(node, 'CallExpression');\n    metadata([]);\n}"
+ ]
+}

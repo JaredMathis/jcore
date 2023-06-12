@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\object\\keys.mjs",
+ "part_id": "01d6dbe6-2fd7-473a-85cf-f50a34ddc323",
+ "hunks": [
+  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { defined_is } from '../defined/is.mjs';\nexport function object_keys(object) {\n    arguments_assert(arguments, [defined_is]);\n    return Object.keys(object);\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\json\\equal.mjs",
+ "part_id": "4d0c4ef2-7478-41a7-9902-9ee90434aa04",
+ "hunks": [
+  "0+import { defined_is } from '../defined/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { json_to } from './to.mjs';\nimport { equal_by } from '../equal/by.mjs';\nexport function json_equal(a, b) {\n    arguments_assert(arguments, [\n        defined_is,\n        defined_is\n    ]);\n    return equal_by(json_to, a, b);\n}"
+ ]
+}

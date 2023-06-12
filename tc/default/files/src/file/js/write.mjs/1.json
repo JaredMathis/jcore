@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\file\\js\\write.mjs",
+ "part_id": "ad0f2ca8-5582-4b82-a853-35c133ed5017",
+ "hunks": [
+  "0+import { path_is } from '../../path/is.mjs';\nimport { defined_is } from '../../defined/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { file_write } from '../write.mjs';\nimport { js_unparse } from '../../js/unparse.mjs';\nexport async function file_js_write(function_path, parsed) {\n    arguments_assert(arguments, [\n        path_is,\n        defined_is\n    ]);\n    let unparsed = js_unparse(parsed);\n    await file_write(function_path, unparsed);\n    metadata([]);\n}"
+ ]
+}

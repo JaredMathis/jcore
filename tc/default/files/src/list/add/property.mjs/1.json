@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\add\\property.mjs",
+ "part_id": "7fa47316-fb5a-4f8f-8cf4-08b339e464b6",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { list_add } from '../add.mjs';\nimport { object_property_get } from '../../object/property/get.mjs';\nimport { list_is } from '../is.mjs';\nimport { defined_is } from '../../defined/is.mjs';\nimport { string_is } from '../../string/is.mjs';\nexport function list_add_property(list, object, property_name) {\n    arguments_assert(arguments, [\n        list_is,\n        defined_is,\n        string_is\n    ]);\n    let property_value = object_property_get(object, property_name);\n    list_add(list, property_value);\n}"
+ ]
+}

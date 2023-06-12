@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\implies.mjs",
+ "part_id": "a31f7388-329c-404d-a49e-394294478cac",
+ "hunks": [
+  "0+import { error } from './error.mjs';\nimport { arguments_assert } from './arguments/assert.mjs';\nimport { boolean_is } from './boolean/is.mjs';\nexport function implies(b1, b2) {\n    arguments_assert(arguments, [\n        boolean_is,\n        boolean_is\n    ]);\n    return !b1 || b2;\n}"
+ ]
+}

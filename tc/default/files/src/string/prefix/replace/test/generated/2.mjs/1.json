@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\prefix\\replace\\test\\generated\\2.mjs",
+ "part_id": "58628689-85ba-45c0-845d-7c6d3450a01c",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { string_prefix_replace } from '../../../replace.mjs';\nimport { throws } from '../../../../../throws.mjs';\nimport { assert } from '../../../../../assert.mjs';\nexport function string_prefix_replace_test_generated_2() {\n    arguments_assert(arguments, []);\n    assert(throws(() => string_prefix_replace('aa', 'b', 'b')));\n    metadata([metadata_generated()]);\n}"
+ ]
+}

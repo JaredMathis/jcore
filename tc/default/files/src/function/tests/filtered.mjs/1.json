@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\tests\\filtered.mjs",
+ "part_id": "e3ce6c46-ffde-4bac-8e8f-133e1c019a89",
+ "hunks": [
+  "0+import { function_all_tests } from '../all/tests.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { function_is } from '../is.mjs';\nexport async function function_tests_filtered(filter) {\n    arguments_assert(arguments, [function_is]);\n    let all = await function_all_tests();\n    let filtered = filter(all);\n    return filtered;\n    metadata([]);\n}"
+ ]
+}

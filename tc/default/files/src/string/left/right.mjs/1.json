@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\left\\right.mjs",
+ "part_id": "73c0a0b1-0eb5-4a4b-8132-d7eb432cd74d",
+ "hunks": [
+  "0+import { string_take } from '../take.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { string_left_right_property_right } from './right/property/right.mjs';\nimport { string_left_right_property_left } from './right/property/left.mjs';\nimport { string_skip } from '../skip.mjs';\nimport { string_is } from '../is.mjs';\nimport { integer_is } from '../../integer/is.mjs';\nexport function string_left_right(s, index, offset) {\n    arguments_assert(arguments, [\n        string_is,\n        integer_is,\n        integer_is\n    ]);\n    let left = string_take(s, index);\n    let right = string_skip(s, index + offset);\n    return {\n        [string_left_right_property_left()]: left,\n        [string_left_right_property_right()]: right\n    };\n}"
+ ]
+}

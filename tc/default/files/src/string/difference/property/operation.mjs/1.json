@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\difference\\property\\operation.mjs",
+ "part_id": "310df519-f905-404f-b5cd-0185c495036b",
+ "hunks": [
+  "0+export function string_difference_property_operation() {\n    return 'operation';\n}"
+ ]
+}

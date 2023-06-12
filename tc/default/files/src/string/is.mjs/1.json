@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\is.mjs",
+ "part_id": "b515b3b9-6d26-40b5-b365-903011ad41bb",
+ "hunks": [
+  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { defined_is } from '../defined/is.mjs';\nexport function string_is(value) {\n    arguments_assert(arguments, [defined_is]);\n    return typeof value === 'string';\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\letter\\digit\\or\\underscore\\is\\test\\6.mjs",
+ "part_id": "91a9915b-a165-4989-8881-4ac64edf57bd",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../../../metadata.mjs';\nimport { json_equal } from '../../../../../../../json/equal.mjs';\nimport { assert } from '../../../../../../../assert.mjs';\nimport { string_letter_digit_or_underscore_is } from '../../is.mjs';\nexport function string_letter_digit_or_underscore_is_test_6() {\n    arguments_assert(arguments, []);\n    let expected = true;\n    let actual = string_letter_digit_or_underscore_is('b');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
+ ]
+}

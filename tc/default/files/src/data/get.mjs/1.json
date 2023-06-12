@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\data\\get.mjs",
+ "part_id": "345c75c1-6d7e-4729-a5ed-fb24d7ec5c8b",
+ "hunks": [
+  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { json_from } from '../json/from.mjs';\nimport { json_to } from '../json/to.mjs';\nimport { path_exists_not } from '../path/exists/not.mjs';\nimport { file_read } from '../file/read.mjs';\nimport { file_write } from '../file/write.mjs';\nimport { data_path } from './path.mjs';\nexport async function data_get() {\n    arguments_assert(arguments, []);\n    const file_path = data_path();\n    let default_value = {};\n    if (await path_exists_not(file_path)) {\n        let default_json = json_to(default_value);\n        await file_write(file_path, default_json);\n    }\n    let json = await file_read(file_path);\n    let data = json_from(json);\n    return data;\n    metadata([]);\n}"
+ ]
+}

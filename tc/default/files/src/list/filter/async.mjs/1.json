@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\filter\\async.mjs",
+ "part_id": "d8838a4d-f76b-4354-92c0-9cb11e4e0688",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { list_add } from '../add.mjs';\nimport { list_is } from '../is.mjs';\nimport { function_is } from '../../function/is.mjs';\nexport async function list_filter_async(array, filter) {\n    arguments_assert(arguments, [\n        list_is,\n        function_is\n    ]);\n    let result = [];\n    for (let a of array) {\n        if (await filter(a)) {\n            list_add(result, a);\n        }\n    }\n    return result;\n    metadata([]);\n}"
+ ]
+}

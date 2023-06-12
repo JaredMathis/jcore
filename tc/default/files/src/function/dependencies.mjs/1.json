@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\dependencies.mjs",
+ "part_id": "09b3efb5-8f59-4014-8378-a086ec90df53",
+ "hunks": [
+  "0+import { string_identifier_is } from '../string/identifier/is.mjs';\nimport { function_dependencies_generic } from './dependencies/generic.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nexport async function function_dependencies(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let recursive = true;\n    return await function_dependencies_generic(function_name, recursive);\n    metadata([]);\n}"
+ ]
+}

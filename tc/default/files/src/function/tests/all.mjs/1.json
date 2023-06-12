@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\tests\\all.mjs",
+ "part_id": "b2b052b3-472d-4280-9653-e4b0a82b6b42",
+ "hunks": [
+  "0+import { string_identifier_is } from '../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { string_function_name_prefix_starts_with } from '../../string/function/name/prefix/starts/with.mjs';\nimport { function_tests_filtered } from './filtered.mjs';\nimport { list_filter } from '../../list/filter.mjs';\nexport async function function_tests_all(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    return await function_tests_filtered(filter);\n    function filter(all) {\n        return list_filter(all, a => string_function_name_prefix_starts_with(a, function_name));\n    }\n    metadata([]);\n}"
+ ]
+}

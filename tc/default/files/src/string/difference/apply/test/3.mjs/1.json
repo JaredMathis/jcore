@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\difference\\apply\\test\\3.mjs",
+ "part_id": "b383e5b2-a2b6-4dc5-8010-4d1c91c3a883",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { json_equal } from '../../../../json/equal.mjs';\nimport { assert } from '../../../../assert.mjs';\nimport { string_difference_apply } from '../../apply.mjs';\nexport function string_difference_apply_test_3() {\n    arguments_assert(arguments, []);\n    let expected = 'bbbbaaaaabbaaaa';\n    let actual = string_difference_apply('aaaabbbaabbbbbabbbbbbaaabbaaaa', [\n        '0-4',\n        '0+b',\n        '9-12'\n    ]);\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
+ ]
+}

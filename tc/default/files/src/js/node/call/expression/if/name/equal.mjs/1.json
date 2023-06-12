@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\node\\call\\expression\\if\\name\\equal.mjs",
+ "part_id": "c2c2169f-aec8-4f91-9c6c-b83e56d3606b",
+ "hunks": [
+  "0+import { defined_is } from '../../../../../../defined/is.mjs';\nimport { arguments_assert } from '../../../../../../arguments/assert.mjs';\nimport { js_call_expression_to_name_or_null } from '../../../../../call/expression/to/name/or/null.mjs';\nimport { metadata } from '../../../../../../metadata.mjs';\nimport { equal } from '../../../../../../equal.mjs';\nimport { js_node_is_call_expression } from '../../../../is/call/expression.mjs';\nimport { js_node_is } from '../../../../is.mjs';\nimport { function_is } from '../../../../../../function/is.mjs';\nexport function js_node_call_expression_if_name_equal(node, name_expected, on_name_equal) {\n    arguments_assert(arguments, [\n        js_node_is,\n        defined_is,\n        function_is\n    ]);\n    if (js_node_is_call_expression(node)) {\n        let name_actual = js_call_expression_to_name_or_null(node);\n        if (name_actual != null) {\n            if (equal(name_actual, name_expected)) {\n                on_name_equal();\n            }\n        }\n    }\n    metadata([]);\n}"
+ ]
+}

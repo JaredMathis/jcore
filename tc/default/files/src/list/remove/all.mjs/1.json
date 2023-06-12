@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\remove\\all.mjs",
+ "part_id": "f93be728-8b75-472e-96fe-99c6d2fd22d5",
+ "hunks": [
+  "0+import { list_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { list_remove } from '../remove.mjs';\nexport function list_remove_all(list, values) {\n    arguments_assert(arguments, [\n        list_is,\n        list_is\n    ]);\n    for (let v of values) {\n        list_remove(list, v);\n    }\n    metadata([]);\n}"
+ ]
+}

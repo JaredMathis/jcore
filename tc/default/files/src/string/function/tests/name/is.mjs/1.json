@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\function\\tests\\name\\is.mjs",
+ "part_id": "c7d7207e-e5a5-4f87-bacb-87637392cacb",
+ "hunks": [
+  "0+import { string_is } from '../../../is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { string_includes } from '../../../includes.mjs';\nimport { string_function_tests_sub } from '../sub.mjs';\nimport { string_identifier_is } from '../../../identifier/is.mjs';\nexport function string_function_tests_name_is(a) {\n    arguments_assert(arguments, [string_is]);\n    return string_identifier_is(a) && string_includes(a, string_function_tests_sub());\n    metadata([]);\n}"
+ ]
+}

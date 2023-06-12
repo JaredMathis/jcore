@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\version\\commit\\files\\difference.mjs",
+ "part_id": "a3dc1f9f-0d74-4bb1-8ad6-a155f3cbf281",
+ "hunks": [
+  "0+import { version_file_difference } from '../../file/difference.mjs';\nimport { version_commit_files_generic } from './generic.mjs';\nexport async function version_commit_files_difference(repository_name, file_paths, commit_data) {\n    return await version_commit_files_generic(repository_name, file_paths, commit_data, version_file_difference);\n}"
+ ]
+}

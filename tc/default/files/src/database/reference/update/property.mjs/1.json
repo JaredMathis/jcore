@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\database\\reference\\update\\property.mjs",
+ "part_id": "ca65e5b2-9161-4cd9-9f87-64ab4f0007e5",
+ "hunks": [
+  "0+export function database_reference_update_property(transaction, reference, property_name, property_value) {\n    transaction.update(reference, { [property_name]: property_value });\n}"
+ ]
+}

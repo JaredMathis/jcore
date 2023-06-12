@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\directory\\current\\with\\separator.mjs",
+ "part_id": "01ccc2fd-27cc-48af-af7e-b19b05d1edcd",
+ "hunks": [
+  "0+import { directory_separator } from '../../separator.mjs';\nimport { directory_current } from '../../current.mjs';\nexport function directory_current_with_separator() {\n    return `${ directory_current() }${ directory_separator() }`;\n}"
+ ]
+}

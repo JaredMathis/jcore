@@ -1,0 +1,7 @@
+{
+ "file_path": "package.json",
+ "part_id": "5f2df860-b87d-47f5-be89-5d584f7691b7",
+ "hunks": [
+  "0+{\n  \"dependencies\": {\n    \"acorn\": \"^8.8.2\",\n    \"diff\": \"^5.1.0\",\n    \"escodegen\": \"^2.0.0\",\n    \"firebase-admin\": \"^11.9.0\",\n    \"uuid\": \"^9.0.0\"\n  }\n}\n"
+ ]
+}

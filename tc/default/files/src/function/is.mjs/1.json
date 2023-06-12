@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\is.mjs",
+ "part_id": "ff14c4ef-c098-42de-8199-f836301d2a38",
+ "hunks": [
+  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { defined_is } from '../defined/is.mjs';\nexport function function_is(candidate) {\n    arguments_assert(arguments, [defined_is]);\n    return typeof candidate === 'function';\n}"
+ ]
+}

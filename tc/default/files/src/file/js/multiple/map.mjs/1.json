@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\file\\js\\multiple\\map.mjs",
+ "part_id": "2b87babf-096a-413e-bb80-e131052344fa",
+ "hunks": [
+  "0+import { string_identifier_is } from '../../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { list_is } from '../../../list/is.mjs';\nimport { file_js_map } from '../map.mjs';\nexport async function file_js_multiple_map(function_name_mapper, multiple) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        list_is\n    ]);\n    for (let m of multiple) {\n        await file_js_map(function_name_mapper, m);\n    }\n    metadata([]);\n}"
+ ]
+}

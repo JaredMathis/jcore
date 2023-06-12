@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\unique\\is.mjs",
+ "part_id": "640e648b-de09-4b69-a085-bf53262b0f9e",
+ "hunks": [
+  "0+import { list_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { list_unique } from '../unique.mjs';\nimport { list_length_equal } from '../length/equal.mjs';\nexport function list_unique_is(list) {\n    arguments_assert(arguments, [list_is]);\n    let u = list_unique(list);\n    return list_length_equal(u, list);\n    metadata([]);\n}"
+ ]
+}

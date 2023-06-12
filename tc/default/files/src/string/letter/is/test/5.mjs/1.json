@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\letter\\is\\test\\5.mjs",
+ "part_id": "bc35e69a-a085-4f61-b089-5508c12b9358",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { json_equal } from '../../../../json/equal.mjs';\nimport { assert } from '../../../../assert.mjs';\nimport { string_letter_is } from '../../is.mjs';\nexport function string_letter_is_test_5() {\n    arguments_assert(arguments, []);\n    let expected = true;\n    let actual = string_letter_is('d');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\function\\dependencies\\generic.mjs",
+ "part_id": "f48bbca1-93dc-43da-b814-df6fa476d409",
+ "hunks": [
+  "0+import { string_identifier_is } from '../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { file_js_path_to_name } from '../../file/js/path/to/name.mjs';\nimport { list_map } from '../../list/map.mjs';\nimport { file_js_dependencies_non_recursive } from '../../file/js/dependencies/non/recursive.mjs';\nimport { file_js_dependencies } from '../../file/js/dependencies.mjs';\nimport { function_name_to_file_path } from '../name/to/file/path.mjs';\nimport { boolean_is } from '../../boolean/is.mjs';\nexport async function function_dependencies_generic(function_name, recursive) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        boolean_is\n    ]);\n    let file_path = function_name_to_file_path(function_name);\n    let lambda = file_js_dependencies;\n    if (!recursive) {\n        lambda = file_js_dependencies_non_recursive;\n    }\n    let d = await file_js_dependencies(file_path);\n    return list_map(d, file_path => {\n        return {\n            file_path,\n            function_name: file_js_path_to_name(file_path)\n        };\n    });\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\assert\\arguments\\count.mjs",
+ "part_id": "836efff2-417c-4354-99cd-95aaa2c9f606",
+ "hunks": [
+  "0+import { metadata } from '../../metadata.mjs';\nimport { error } from '../../error.mjs';\nexport function assert_arguments_count(args, expected_count) {\n    let actual_count = args.length;\n    if (actual_count !== expected_count) {\n        error(`Expected argument count ${ expected_count }; received: ${ actual_count }`);\n    }\n    metadata([]);\n}"
+ ]
+}

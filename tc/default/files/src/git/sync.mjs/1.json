@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\git\\sync.mjs",
+ "part_id": "bf7091c3-b797-4bc6-b09b-b56435081ba4",
+ "hunks": [
+  "0+import { git_commands_sync_add_run } from './commands/sync/add/run.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nexport async function git_sync() {\n    arguments_assert(arguments, []);\n    let c_result = await git_commands_sync_add_run(true, []);\n    return c_result;\n}"
+ ]
+}

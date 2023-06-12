@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\database\\reference\\set\\if\\not\\exists.mjs",
+ "part_id": "1e75fbd4-f679-4689-8ef1-1ed8f0675b0c",
+ "hunks": [
+  "0+import { database_reference_set } from '../../../set.mjs';\nimport { database_reference_get } from '../../../get.mjs';\nexport async function database_reference_set_if_not_exists(transaction, info_refererence, value) {\n    const info = await database_reference_get(transaction, info_refererence);\n    if (!info.exists) {\n        await database_reference_set(transaction, info_refererence, value);\n    }\n}"
+ ]
+}

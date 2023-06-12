@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\command\\line\\try.mjs",
+ "part_id": "e2b7e032-d5a7-4c93-b9e8-755063d9a137",
+ "hunks": [
+  "0+import { string_empty_not_is } from '../../string/empty/not/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { command_line } from '../line.mjs';\nexport async function command_line_try(command_text) {\n    arguments_assert(arguments, [string_empty_not_is]);\n    await command_line(command_text);\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\node\\is\\import\\specifier.mjs",
+ "part_id": "aabeb202-6c2d-4c77-8d5d-be0962db8626",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { js_node_is_type } from '../type.mjs';\nimport { js_node_is } from '../../is.mjs';\nexport function js_node_is_import_specifier(i) {\n    arguments_assert(arguments, [js_node_is]);\n    return js_node_is_type(i, 'ImportSpecifier');\n    metadata([]);\n}"
+ ]
+}

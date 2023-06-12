@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\data\\key\\value\\set.mjs",
+ "part_id": "e381af34-209f-47f5-90e6-13484e0bc2ec",
+ "hunks": [
+  "0+import { string_is } from '../../../string/is.mjs';\nimport { defined_is } from '../../../defined/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { object_property_set } from '../../../object/property/set.mjs';\nimport { data_map } from '../../map.mjs';\nexport async function data_key_value_set(key, value) {\n    arguments_assert(arguments, [\n        string_is,\n        defined_is\n    ]);\n    await data_map(map);\n    function map(data) {\n        object_property_set(data, key, value);\n    }\n    metadata([]);\n}"
+ ]
+}

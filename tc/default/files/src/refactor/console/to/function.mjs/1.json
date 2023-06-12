@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\refactor\\console\\to\\function.mjs",
+ "part_id": "a7ce1b76-be6d-4264-a107-7d94e8cdaf79",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { js_add_function_with_statements } from '../../../js/add/function/with/statements.mjs';\nimport { js_without_imports } from '../../../js/without/imports.mjs';\nimport { file_js_path_to_name } from '../../../file/js/path/to/name.mjs';\nimport { list_length_is_0 } from '../../../list/length/is/0.mjs';\nimport { list_remove_all } from '../../../list/remove/all.mjs';\nimport { js_body_get } from '../../../js/body/get.mjs';\nimport { js_exports } from '../../../js/exports.mjs';\nimport { comment } from '../../../comment.mjs';\nimport { js_mapper_args_is } from '../../../js/mapper/args/is.mjs';\nexport async function refactor_console_to_function(args) {\n    arguments_assert(arguments, [js_mapper_args_is]);\n    let {parsed, file_path} = args;\n    let exports_existing = js_exports(parsed);\n    if (!list_length_is_0(exports_existing)) {\n        return;\n    }\n    let body = js_body_get(parsed);\n    let statements = js_without_imports(parsed);\n    if (list_length_is_0(statements)) {\n        comment(`no code to refactor`);\n        return;\n    }\n    list_remove_all(body, statements);\n    let function_name = file_js_path_to_name(file_path);\n    js_add_function_with_statements(parsed, function_name, statements);\n    metadata([]);\n}"
+ ]
+}

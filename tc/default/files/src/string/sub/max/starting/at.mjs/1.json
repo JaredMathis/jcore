@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\sub\\max\\starting\\at.mjs",
+ "part_id": "42bdf519-4438-4716-ab13-2eb4ebf67f48",
+ "hunks": [
+  "0+export function string_sub_max_starting_at(left, right, left_index, right_index) {\n    let left_walker = left_index;\n    let right_walker = right_index;\n    let offset;\n    for (offset = 0; left_walker + offset < left.length && right_walker + offset < right.length; offset++) {\n        let left_offset = left[left_walker + offset];\n        let right_offset = right[right_walker + offset];\n        if (left_offset !== right_offset) {\n            break;\n        }\n    }\n    return offset;\n}"
+ ]
+}

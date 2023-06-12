@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\add\\1.mjs",
+ "part_id": "4911b428-31d5-47e4-aaa9-4017f0327528",
+ "hunks": [
+  "0+import { number_is } from '../number/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { add } from '../add.mjs';\nexport function add_1(value) {\n    arguments_assert(arguments, [number_is]);\n    return add(value, 1);\n    metadata([]);\n}"
+ ]
+}

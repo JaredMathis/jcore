@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\list\\length\\is\\value.mjs",
+ "part_id": "e5acf737-5e93-43bf-bf52-b4250e5c4963",
+ "hunks": [
+  "0+import { list_is } from '../../is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { list_length } from '../../length.mjs';\nimport { defined_is } from '../../../defined/is.mjs';\nexport function list_length_is_value(list, value) {\n    arguments_assert(arguments, [\n        list_is,\n        defined_is\n    ]);\n    return list_length(list) === value;\n    metadata([]);\n}"
+ ]
+}

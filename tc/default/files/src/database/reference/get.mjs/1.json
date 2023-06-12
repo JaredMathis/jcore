@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\database\\reference\\get.mjs",
+ "part_id": "fa46e837-8b95-4547-91a4-3b06294192d2",
+ "hunks": [
+  "0+import { object_keys } from \"../../object/keys.mjs\";\n\nexport async function database_reference_get(transaction, info_refererence) {\n    return await transaction.get(info_refererence);\n}"
+ ]
+}

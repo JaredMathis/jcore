@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\sub\\test\\generated\\2.mjs",
+ "part_id": "62ef55a3-0e8d-42af-9fcc-92756421c297",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { string_sub } from '../../../sub.mjs';\nimport { throws } from '../../../../throws.mjs';\nimport { assert } from '../../../../assert.mjs';\nexport function string_sub_test_generated_2() {\n    arguments_assert(arguments, []);\n    assert(throws(() => string_sub('aab', -2, -1)));\n    metadata([metadata_generated()]);\n}"
+ ]
+}

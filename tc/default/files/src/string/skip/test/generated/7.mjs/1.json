@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\skip\\test\\generated\\7.mjs",
+ "part_id": "37fa1c97-137c-4764-928b-67fb7c076836",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { json_equal } from '../../../../json/equal.mjs';\nimport { assert } from '../../../../assert.mjs';\nimport { string_skip } from '../../../skip.mjs';\nexport function string_skip_test_generated_7() {\n    arguments_assert(arguments, []);\n    let expected = 'aab';\n    let actual = string_skip('aab', 0);\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
+ ]
+}

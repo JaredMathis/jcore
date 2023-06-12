@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\git\\ignore\\path.mjs",
+ "part_id": "df296e85-7f1a-4341-b650-85f0a64417b1",
+ "hunks": [
+  "0+export function git_ignore_path() {\n    return '.gitignore';\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\export\\declaration\\get.mjs",
+ "part_id": "b2a0c48d-a3d7-47fc-9242-c30ca2149d4e",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { js_node_property_declaration } from '../../node/property/declaration.mjs';\nimport { object_property_get } from '../../../object/property/get.mjs';\nimport { js_node_is } from '../../node/is.mjs';\nexport function js_export_declaration_get(e) {\n    arguments_assert(arguments, [js_node_is]);\n    let d = object_property_get(e, js_node_property_declaration());\n    return d;\n    metadata([]);\n}"
+ ]
+}

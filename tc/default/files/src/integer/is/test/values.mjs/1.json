@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\integer\\is\\test\\values.mjs",
+ "part_id": "2cba1fed-184a-43fe-9d6c-bd0250289d38",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nexport function integer_is_test_values() {\n    arguments_assert(arguments, []);\n    return [\n        -2,\n        -1,\n        0,\n        1,\n        2,\n        3\n    ];\n}"
+ ]
+}

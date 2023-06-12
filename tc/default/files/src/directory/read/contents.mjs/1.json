@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\directory\\read\\contents.mjs",
+ "part_id": "b9f4398d-1853-404a-8ef9-136693e59e04",
+ "hunks": [
+  "0+import { file_read } from '../../file/read.mjs';\nimport { list_map_async } from '../../list/map/async.mjs';\nimport { directory_property_file_path } from '../property/file/path.mjs';\nimport { directory_property_contents } from '../property/contents.mjs';\nimport { directory_read } from '../read.mjs';\nexport async function directory_read_contents(repository_directory) {\n    let file_paths = await directory_read(repository_directory);\n    let property_contents = directory_property_contents();\n    let property_file_path = directory_property_file_path();\n    let mapped = await list_map_async(file_paths, async file_path => {\n        let contents = await file_read(file_path);\n        return {\n            [property_contents]: contents,\n            [property_file_path]: file_path\n        };\n    });\n    return mapped;\n}"
+ ]
+}

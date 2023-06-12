@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\prefix\\replace.mjs",
+ "part_id": "d4f7b800-dc6a-4c1c-999a-89af31c0a955",
+ "hunks": [
+  "0+import { string_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { string_prefix_without } from './without.mjs';\nexport function string_prefix_replace(input, prefix_old, prefix_new) {\n    arguments_assert(arguments, [\n        string_is,\n        string_is,\n        string_is\n    ]);\n    let prefix_without = string_prefix_without(input, prefix_old);\n    return prefix_new + prefix_without;\n    metadata([]);\n}"
+ ]
+}

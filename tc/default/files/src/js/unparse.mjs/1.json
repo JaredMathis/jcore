@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\unparse.mjs",
+ "part_id": "f8a8ef86-41f9-4662-b0f6-09274d4dd252",
+ "hunks": [
+  "0+import { defined_is } from '../defined/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { json_to } from '../json/to.mjs';\nimport { js_parse } from './parse.mjs';\nimport { try_catch } from '../try/catch.mjs';\nimport escodegen from 'escodegen';\nexport function js_unparse(parsed) {\n    arguments_assert(arguments, [defined_is]);\n    return try_catch(js_parse, lambda, json_to(parsed));\n    function lambda() {\n        return escodegen.generate(parsed);\n    }\n    metadata([]);\n}"
+ ]
+}

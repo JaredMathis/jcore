@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\code\\call\\expression\\statement\\with\\args\\code.mjs",
+ "part_id": "86a886ae-5aa1-4f12-83d0-481a1982d442",
+ "hunks": [
+  "0+import { js_statement_end } from '../../../../../../statement/end.mjs';\nimport { js_code_call_expression_with_args_code } from '../../../with/args/code.mjs';\nexport function js_code_call_expression_statement_with_args_code(name, call_args) {\n    return `${ js_code_call_expression_with_args_code(name, call_args) }${ js_statement_end() }`;\n}"
+ ]
+}

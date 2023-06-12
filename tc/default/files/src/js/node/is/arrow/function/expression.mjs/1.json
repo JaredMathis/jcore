@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\node\\is\\arrow\\function\\expression.mjs",
+ "part_id": "ff9640c5-bba6-4b52-945a-886bde8a95f5",
+ "hunks": [
+  "0+import { js_node_is } from '../../../is.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { js_node_is_type } from '../../type.mjs';\nexport function js_node_is_arrow_function_expression(node) {\n    arguments_assert(arguments, [js_node_is]);\n    return js_node_is_type(node, 'ArrowFunctionExpression');\n    metadata([]);\n}"
+ ]
+}

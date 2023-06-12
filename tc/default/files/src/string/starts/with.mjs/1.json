@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\starts\\with.mjs",
+ "part_id": "af68926a-490b-4734-996d-f862393064b2",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { string_is } from '../is.mjs';\nexport function string_starts_with(input, search) {\n    arguments_assert(arguments, [\n        string_is,\n        string_is\n    ]);\n    return input.startsWith(search);\n    metadata([]);\n}"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\node\\is.mjs",
+ "part_id": "8934cd31-da0d-4ed4-8047-249fd1e77b93",
+ "hunks": [
+  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { object_property_exists } from '../../object/property/exists.mjs';\nimport { defined_is } from '../../defined/is.mjs';\nexport function js_node_is(candidate) {\n    arguments_assert(arguments, [defined_is]);\n    if (!candidate) {\n        return false;\n    }\n    return object_property_exists(candidate, 'type');\n    metadata([]);\n}"
+ ]
+}

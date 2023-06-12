@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\refactor\\metadata\\add.mjs",
+ "part_id": "e182a759-954a-4b58-9db0-a7ebc8040ccf",
+ "hunks": [
+  "0+import { defined_is } from '../../defined/is.mjs';\nimport { metadata_prefix } from '../../metadata/prefix.mjs';\nimport { string_starts_with } from '../../string/starts/with.mjs';\nimport { assert } from '../../assert.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { object_property_get } from '../../object/property/get.mjs';\nimport { refactor_metadata_add_named } from './add/named.mjs';\nexport async function refactor_metadata_add(args) {\n    arguments_assert(arguments, [defined_is]);\n    let name = object_property_get(args, 'metadata_name');\n    assert(!string_starts_with(name, metadata_prefix()));\n    let prefixed = `${ metadata_prefix() }${ name }`;\n    await refactor_metadata_add_named(args, prefixed);\n}"
+ ]
+}

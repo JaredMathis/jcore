@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\data\\task\\id\\remove.mjs",
+ "part_id": "93a9f9d2-32b4-4ed2-b014-dac1ea90c04a",
+ "hunks": [
+  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { object_property_remove } from '../../../object/property/remove.mjs';\nimport { data_task_id } from '../id.mjs';\nimport { data_get } from '../../get.mjs';\nimport { data_overwrite } from '../../overwrite.mjs';\nexport async function data_task_id_remove() {\n    arguments_assert(arguments, []);\n    let data = await data_get();\n    object_property_remove(data, data_task_id());\n    await data_overwrite(data);\n    metadata([]);\n}"
+ ]
+}

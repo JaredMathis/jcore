@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\split.mjs",
+ "part_id": "f5b69c8c-e91d-4673-acd3-c5e5610a4447",
+ "hunks": [
+  "0+import { metadata } from '../metadata.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { string_is } from './is.mjs';\nexport function string_split(input, separator) {\n    arguments_assert(arguments, [\n        string_is,\n        string_is\n    ]);\n    return input.split(separator);\n    metadata([]);\n}"
+ ]
+}

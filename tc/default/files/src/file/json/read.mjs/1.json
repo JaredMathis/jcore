@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\file\\json\\read.mjs",
+ "part_id": "36bd5e2f-2fb1-4885-bd9f-50917b17a012",
+ "hunks": [
+  "0+import { json_from } from '../../json/from.mjs';\nimport { file_read } from '../read.mjs';\nexport async function file_json_read(file_path) {\n    let json = await file_read(file_path);\n    let result = json_from(json);\n    return result;\n}"
+ ]
+}

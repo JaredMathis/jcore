@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\difference\\property\\removed.mjs",
+ "part_id": "09ce527f-c9fa-4259-bd7e-b4b5dbc8b68b",
+ "hunks": [
+  "0+export function string_difference_property_removed() {\n    return 'removed';\n}"
+ ]
+}

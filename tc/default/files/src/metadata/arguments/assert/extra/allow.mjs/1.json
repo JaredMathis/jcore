@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\metadata\\arguments\\assert\\extra\\allow.mjs",
+ "part_id": "3c6a8df7-9eed-472a-9145-d8d044d80127",
+ "hunks": [
+  "0+export function metadata_arguments_assert_extra_allow() {\n}"
+ ]
+}

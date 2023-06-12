@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\random\\between.mjs",
+ "part_id": "a99a3666-9fc4-4095-9e07-cd82ddadccdc",
+ "hunks": [
+  "0+import { random_get } from './get.mjs';\nimport { number_floor } from '../number/floor.mjs';\nimport { assert } from '../assert.mjs';\nexport function random_between(lower, upper) {\n    assert(lower < upper);\n    let difference = upper - lower + 1;\n    return number_floor(difference * random_get()) + lower;\n}"
+ ]
+}

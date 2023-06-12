@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\ends\\with\\test\\generated\\8.mjs",
+ "part_id": "838b99ef-7e84-49a3-87d6-9d84c6588126",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { json_equal } from '../../../../../json/equal.mjs';\nimport { assert } from '../../../../../assert.mjs';\nimport { string_ends_with } from '../../../with.mjs';\nexport function string_ends_with_test_generated_8() {\n    arguments_assert(arguments, []);\n    let expected = true;\n    let actual = string_ends_with('a', '');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
+ ]
+}

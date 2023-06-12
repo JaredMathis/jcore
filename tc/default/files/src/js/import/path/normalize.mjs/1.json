@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\import\\path\\normalize.mjs",
+ "part_id": "a385a1ec-2626-4028-9838-3da207441776",
+ "hunks": [
+  "0+import { path_is } from '../../../path/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { comment } from '../../../comment.mjs';\nimport { directory_current } from '../../../directory/current.mjs';\nimport { directory_separator } from '../../../directory/separator.mjs';\nimport { string_replace } from '../../../string/replace.mjs';\nimport { string_starts_with } from '../../../string/starts/with.mjs';\nimport { js_directory_separator } from '../../directory/separator.mjs';\ncomment(`path.normalize slashes one way. However import statements in mjs require slashes another way. This function makes imports suitable for import usage in mjs.`);\nexport function js_import_path_normalize(import_path) {\n    arguments_assert(arguments, [path_is]);\n    let result = string_replace(import_path, directory_separator(), js_directory_separator());\n    if (!string_starts_with(result, directory_current())) {\n        return `${ directory_current() }${ js_directory_separator() }` + result;\n    }\n    return result;\n    metadata([]);\n}"
+ ]
+}

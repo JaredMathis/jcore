@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\js\\identifier\\rename.mjs",
+ "part_id": "4f30717c-82b2-4428-a07f-ff73bc1fa5e6",
+ "hunks": [
+  "0+import { js_mapper_args_is } from '../mapper/args/is.mjs';\nimport { string_identifier_is } from '../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { js_identifier_rename_if } from './rename/if.mjs';\nimport { metadata } from '../../metadata.mjs';\nexport function js_identifier_rename(args, identifier_name_old, identifier_name_new) {\n    arguments_assert(arguments, [\n        js_mapper_args_is,\n        string_identifier_is,\n        string_identifier_is\n    ]);\n    return js_identifier_rename_if(args, should_rename, name_new_get);\n    metadata([]);\n    function should_rename(name) {\n        return name === identifier_name_old;\n    }\n    function name_new_get(name) {\n        return identifier_name_new;\n    }\n}"
+ ]
+}

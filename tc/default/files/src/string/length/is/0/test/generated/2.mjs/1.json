@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\length\\is\\0\\test\\generated\\2.mjs",
+ "part_id": "ff916ed5-b93e-45b7-8aa7-0dd5500617fb",
+ "hunks": [
+  "0+import { metadata_generated } from '../../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../../metadata.mjs';\nimport { json_equal } from '../../../../../../json/equal.mjs';\nimport { assert } from '../../../../../../assert.mjs';\nimport { string_length_is_0 } from '../../../0.mjs';\nexport function string_length_is_0_test_generated_2() {\n    arguments_assert(arguments, []);\n    let expected = false;\n    let actual = string_length_is_0('aab');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
+ ]
+}

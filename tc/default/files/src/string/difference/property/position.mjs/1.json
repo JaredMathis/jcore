@@ -1,0 +1,7 @@
+{
+ "file_path": "src\\string\\difference\\property\\position.mjs",
+ "part_id": "fa0e22dc-caa8-4e1e-970c-e966b7cd6ee3",
+ "hunks": [
+  "0+export function string_difference_property_position() {\n    return 'position';\n}"
+ ]
+}
