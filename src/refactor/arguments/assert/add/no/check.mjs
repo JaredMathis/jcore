@@ -32,7 +32,7 @@ export function refactor_arguments_assert_add_no_check(function_declaration, exc
     let params_length = list_length(params);
     let params_mapped = list_map(range(params_length), i => function_name_get(arguments_assert_predicate_default()));
     let params_joined = js_code_join_comma(params_mapped);
-    let params_code = `[${ params_joined }]`;
+    let params_code = `${ `[` }${ params_joined }${ `]` }`;
     let params2 = [
         js_keyword_arguments(),
         params_code
