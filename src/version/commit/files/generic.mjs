@@ -1,14 +1,12 @@
+import { version_path_commit } from '../../path/commit.mjs';
 import { version_property_commit_id } from '../../property/commit/id.mjs';
 import { version_list_file_add } from '../../list/file/add.mjs';
 import { version_property_part_id } from '../../property/part/id.mjs';
 import { version_property_parts } from '../../property/parts.mjs';
-import { file_name_json } from '../../../file/name/json.mjs';
 import { version_commits_get } from '../../commits/get.mjs';
-import { version_path_commits_get } from '../../path/commits/get.mjs';
 import { version_property_contents } from '../../property/contents.mjs';
 import { version_property_file_path } from '../../property/file/path.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
-import { path_join } from '../../../path/join.mjs';
 import { add_1 } from '../../../add/1.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { guid_generate } from '../../../guid/generate.mjs';
@@ -65,11 +63,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         let parsed = await version_commits_get(repository_name);
         let max = list_max_or_0(parsed);
         let commit_version = add_1(max);
-        let repository_sub_path = version_path_commits_get(repository_name);
-        let commit_path = path_join([
-            repository_sub_path,
-            file_name_json(commit_version)
-        ]);
+        let commit_path = version_path_commit(repository_name, commit_version);
         version_list_file_add(writes, commit_path, commit);
     }
     return writes;
