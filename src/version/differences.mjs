@@ -19,7 +19,7 @@ export async function version_differences(repository_name) {
         todo(contents, existing, file_path);
     }
     let removals = await version_removals(repository_name, file_paths);
-    await version_file_contents_each(removals, repository_name, async (file_path, contents) => {
+    await version_file_contents_each(repository_name, removals, async (file_path, contents) => {
         todo(contents, '', file_path);
     });
     function todo(contents, existing, file_path) {

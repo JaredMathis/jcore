@@ -11,5 +11,5 @@ export async function version_output_generic(repository_name, file_paths, lambda
         function_is
     ]);
     let filtered = await git_ignore_filter(file_paths);
-    await version_file_contents_each(filtered, repository_name, lambda);
+    await version_file_contents_each(repository_name, filtered, lambda);
 }
