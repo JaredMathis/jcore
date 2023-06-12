@@ -1,3 +1,4 @@
+import { file_overwrite_if_changed } from '../overwrite/if/changed.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { js_unparse } from '../../js/unparse.mjs';
@@ -9,6 +10,9 @@ export async function file_js_overwrite(args) {
     let file_path = object_property_get(args, 'file_path');
     let parsed = object_property_get(args, 'parsed');
     let unparsed = js_unparse(parsed);
+    if (false) {
+        file_overwrite_if_changed;
+    }
     await file_overwrite(file_path, unparsed);
     metadata([]);
 }
