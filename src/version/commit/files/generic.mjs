@@ -1,3 +1,4 @@
+import { version_list_file_add } from '../../list/file/add.mjs';
 import { version_property_part_id } from '../../property/part/id.mjs';
 import { version_property_parts } from '../../property/parts.mjs';
 import { file_name_json } from '../../../file/name/json.mjs';
@@ -71,14 +72,4 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         version_list_file_add(writes, commit_path, commit);
     }
     return writes;
-}
-
-function version_list_file_add(list, file_path, contents) {
-    let property_file_path = version_property_file_path();
-    let property_contents = version_property_contents();
-    let commit_write = {
-        [property_file_path]: file_path,
-        [property_contents]: contents
-    };
-    list_add(list, commit_write);
 }
