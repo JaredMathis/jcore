@@ -14,6 +14,7 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { object_property_get } from '../object/property/get.mjs';
 import { range } from '../range.mjs';
 import { add_1 } from '../add/1.mjs';
+import { file_write } from '../file/write.mjs';
 export async function version_pull(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let db = database_firestore_get();
@@ -31,7 +32,8 @@ export async function version_pull(repository_name) {
             let commit_data = await database_reference_get_data(transaction, commit_refererence);
             let commit_value = database_value_get(commit_data);
             let commit_path = version_path_commit(repository_name, commit_version);
-            console.log({ commit_value });
+            await file_write(commit_path, commit_value);
+            console.log({ commit_path });
         }
     });
 }
