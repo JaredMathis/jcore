@@ -10,9 +10,10 @@ export async function refactor_input_add(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {input_name, function_declaration} = args;
     let params = js_function_declaration_to_params(function_declaration);
+
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let type = js_parse_expression(function_name_get(arguments_assert_todo));
     list_add(arguments_assert_args, type);
-    console.log({ arguments_assert_args });
+    console.log({ arguments_assert_args, params });
     return true;
 }

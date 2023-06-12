@@ -15,6 +15,7 @@ export function string_identifier_is_generic(value, enforce_first_and_last) {
     arguments_assert(arguments, [
         defined_is,
         boolean_is,
+        arguments_assert_todo
     ]);
     if (!string_is(value)) {
         return false;
