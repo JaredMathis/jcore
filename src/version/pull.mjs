@@ -1,3 +1,4 @@
+import { version_path_file_next } from './path/file/next.mjs';
 import { version_property_file_path } from './property/file/path.mjs';
 import { list_remove_multiple_property_exists } from '../list/remove/multiple/property/exists.mjs';
 import { version_property_commit_id } from './property/commit/id.mjs';
@@ -48,6 +49,7 @@ export async function version_pull(repository_name) {
             await file_write(commit_path, commit);
             for (let part of parts) {
                 let part_file_path = object_property_get(part, version_property_file_path());
+                let part_path = await version_path_file_next(repository_name, part_file_path);
             }
             console.log({ commit_path });
         }
