@@ -54,7 +54,6 @@ export async function version_pull(repository_name) {
                 assert(!await file_exists(part_path));
                 await file_json_write(part_path, commit);
             }
-            console.log({ commit_path });
         }
     });
 }
