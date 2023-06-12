@@ -1,7 +1,0 @@
-{
- "file_path": "src\\version\\path\\commits.mjs",
- "part_id": "8048cc09-1197-43ae-b1ad-1d76cd37e1b5",
- "hunks": [
-  "0+export function version_path_commits() {\n    return 'commits';\n}"
- ]
-}

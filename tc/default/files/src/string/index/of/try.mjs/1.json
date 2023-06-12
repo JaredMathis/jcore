@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\index\\of\\try.mjs",
- "part_id": "28b838eb-3966-448b-909e-5291b1b262f3",
- "hunks": [
-  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { string_is } from '../../is.mjs';\nexport function string_index_of_try(input, search) {\n    arguments_assert(arguments, [\n        string_is,\n        string_is\n    ]);\n    return input.indexOf(search);\n    metadata([]);\n}"
- ]
-}

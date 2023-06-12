@@ -1,7 +1,0 @@
-{
- "file_path": "src\\git\\ignore\\lines.mjs",
- "part_id": "5958db8a-911b-44de-857f-69951a9575f7",
- "hunks": [
-  "0+import { string_new_line } from '../../string/new/line.mjs';\nimport { string_split } from '../../string/split.mjs';\nimport { file_read } from '../../file/read.mjs';\nimport { string_empty } from '../../string/empty.mjs';\nimport { file_write } from '../../file/write.mjs';\nimport { file_exists } from '../../file/exists.mjs';\nimport { git_ignore_path } from './path.mjs';\nexport async function git_ignore_lines() {\n    let gitignore_file_path = git_ignore_path();\n    if (!await file_exists(gitignore_file_path)) {\n        await file_write(gitignore_file_path, string_empty());\n    }\n    let gitignore_contents = await file_read(gitignore_file_path);\n    let gitignore_lines = string_split(gitignore_contents, string_new_line());\n    return gitignore_lines;\n}"
- ]
-}

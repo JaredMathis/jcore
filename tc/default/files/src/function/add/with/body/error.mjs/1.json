@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\add\\with\\body\\error.mjs",
- "part_id": "79ae8abe-e606-404c-8f25-6676b074e295",
- "hunks": [
-  "0+import { string_identifier_is } from '../../../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { function_name_get } from '../../../name/get.mjs';\nimport { list_single_item } from '../../../../list/single/item.mjs';\nimport { js_parse_statement } from '../../../../js/parse/statement.mjs';\nimport { error } from '../../../../error.mjs';\nimport { function_add_with_statements } from '../statements.mjs';\nexport async function function_add_with_body_error(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let error_statement_code = `${ function_name_get(error) }('todo: ${ function_name }');`;\n    let error_statement = js_parse_statement(error_statement_code);\n    return await function_add_with_statements(function_name, list_single_item(error_statement));\n    metadata([]);\n}"
- ]
-}

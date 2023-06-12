@@ -1,7 +1,0 @@
-{
- "file_path": "src\\command\\line.mjs",
- "part_id": "9e222062-2fbe-4fd2-b01c-a7ff78c8bef9",
- "hunks": [
-  "0+import { string_empty_not_is } from '../string/empty/not/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { assert } from '../assert.mjs';\nimport { command_line_check } from './line/check.mjs';\nexport async function command_line(command) {\n    arguments_assert(arguments, [string_empty_not_is]);\n    let result = await command_line_check(command);\n    assert(result.success);\n    return result;\n    metadata([]);\n}"
- ]
-}

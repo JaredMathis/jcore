@@ -1,7 +1,0 @@
-{
- "file_path": "src\\command\\line\\all.mjs",
- "part_id": "abd2e98b-edfa-4408-b32e-b2263a5bdd4b",
- "hunks": [
-  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { log } from '../../log.mjs';\nimport { command_line_check } from './check.mjs';\nimport { result_empty } from '../../result/empty.mjs';\nimport { list_is } from '../../list/is.mjs';\nexport async function command_line_all(commands) {\n    arguments_assert(arguments, [list_is]);\n    let result = result_empty();\n    for (let c of commands) {\n        let c_result = await command_line_check(c);\n        if (!c_result.success) {\n            log(`Command failed: ${ c }`);\n            log(c_result.stdout);\n            return c_result;\n        }\n    }\n    return result;\n    metadata([]);\n}"
- ]
-}

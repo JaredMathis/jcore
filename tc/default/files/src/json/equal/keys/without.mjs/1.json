@@ -1,7 +1,0 @@
-{
- "file_path": "src\\json\\equal\\keys\\without.mjs",
- "part_id": "448c29ce-f1ab-4590-9bd7-c6f8b0b80078",
- "hunks": [
-  "0+import { defined_is } from '../../../defined/is.mjs';\nimport { list_is } from '../../../list/is.mjs';\nimport { json_equal } from '../../equal.mjs';\nimport { object_map_without } from '../../../object/map/without.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nexport function json_equal_keys_without(a, b, values_without) {\n    arguments_assert(arguments, [\n        defined_is,\n        defined_is,\n        list_is\n    ]);\n    let filtered_a = object_map_without(a, values_without);\n    let filtered_b = object_map_without(b, values_without);\n    return json_equal(filtered_a, filtered_b);\n}"
- ]
-}

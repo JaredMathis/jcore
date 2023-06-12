@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\difference\\get\\test\\18.mjs",
- "part_id": "11a2df33-963a-4176-96bb-ea85669dff18",
- "hunks": [
-  "0+import { metadata_generated } from '../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { json_equal } from '../../../../json/equal.mjs';\nimport { assert } from '../../../../assert.mjs';\nimport { string_difference_get } from '../../get.mjs';\nexport function string_difference_get_test_18() {\n    arguments_assert(arguments, []);\n    let expected = [\n        '0-5',\n        '0+aaa',\n        '13+aaaaabb',\n        '21-1',\n        '28+b'\n    ];\n    let actual = string_difference_get('bbbbbbbbbaaaaaabbbaaaabb', 'aaabbbbaaaaaaaaaaabbbbbaaabbb');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
- ]
-}

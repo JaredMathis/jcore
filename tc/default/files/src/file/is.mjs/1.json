@@ -1,7 +1,0 @@
-{
- "file_path": "src\\file\\is.mjs",
- "part_id": "1ba91001-a647-417a-9ff7-8f7754f721d5",
- "hunks": [
-  "0+import { path_is } from '../path/is.mjs';\nimport { error } from '../error.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { directory_is } from '../directory/is.mjs';\nexport async function file_is(file_path) {\n    arguments_assert(arguments, [path_is]);\n    return !await directory_is(file_path);\n}"
- ]
-}

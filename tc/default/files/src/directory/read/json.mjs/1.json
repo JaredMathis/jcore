@@ -1,7 +1,0 @@
-{
- "file_path": "src\\directory\\read\\json.mjs",
- "part_id": "29ed1072-a5d6-435b-a39b-efd859b65ecf",
- "hunks": [
-  "0+import { directory_property_json } from '../property/json.mjs';\nimport { object_property_initialize } from '../../object/property/initialize.mjs';\nimport { json_from } from '../../json/from.mjs';\nimport { directory_property_contents } from '../property/contents.mjs';\nimport { object_property_get } from '../../object/property/get.mjs';\nimport { directory_read_contents } from './contents.mjs';\nexport async function directory_read_json(repository_files_path) {\n    let files_contents = await directory_read_contents(repository_files_path);\n    for (let f of files_contents) {\n        let contents = object_property_get(f, directory_property_contents());\n        let json = json_from(contents);\n        object_property_initialize(f, directory_property_json(), json);\n    }\n    return files_contents;\n}"
- ]
-}

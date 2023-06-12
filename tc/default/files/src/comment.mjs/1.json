@@ -1,7 +1,0 @@
-{
- "file_path": "src\\comment.mjs",
- "part_id": "b006d7b9-0696-411a-b05a-8028e8e78420",
- "hunks": [
-  "0+import { metadata } from './metadata.mjs';\nimport { assert_arguments_count } from './assert/arguments/count.mjs';\nexport function comment(text) {\n    assert_arguments_count(arguments, 1);\n    metadata([]);\n}"
- ]
-}

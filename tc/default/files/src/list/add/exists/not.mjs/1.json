@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\add\\exists\\not.mjs",
- "part_id": "6f6bd210-60a1-4e94-9897-721e64eeb20e",
- "hunks": [
-  "0+import { defined_is } from '../../../defined/is.mjs';\nimport { list_is } from '../../is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { list_add } from '../../add.mjs';\nimport { list_contains } from '../../contains.mjs';\nimport { assert } from '../../../assert.mjs';\nexport function list_add_exists_not(stack, node) {\n    arguments_assert(arguments, [\n        list_is,\n        defined_is\n    ]);\n    assert(!list_contains(stack, node));\n    list_add(stack, node);\n    metadata([]);\n}"
- ]
-}

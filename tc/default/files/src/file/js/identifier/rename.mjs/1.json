@@ -1,7 +1,0 @@
-{
- "file_path": "src\\file\\js\\identifier\\rename.mjs",
- "part_id": "bad6180e-65e7-4ac4-b526-969811a4f050",
- "hunks": [
-  "0+import { string_identifier_is } from '../../../string/identifier/is.mjs';\nimport { path_is } from '../../../path/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { js_identifier_rename } from '../../../js/identifier/rename.mjs';\nimport { file_js_map_args } from '../map/args.mjs';\nexport async function file_js_identifier_rename(file_path, identifier_name_old, identifier_name_new) {\n    arguments_assert(arguments, [\n        path_is,\n        string_identifier_is,\n        string_identifier_is\n    ]);\n    await file_js_map_args(file_path, args => js_identifier_rename(args, identifier_name_old, identifier_name_new));\n    metadata([]);\n}"
- ]
-}

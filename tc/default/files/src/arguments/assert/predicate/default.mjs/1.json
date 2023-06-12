@@ -1,7 +1,0 @@
-{
- "file_path": "src\\arguments\\assert\\predicate\\default.mjs",
- "part_id": "7e7649b4-59f7-49f5-b83b-9f8d5f8a57b1",
- "hunks": [
-  "0+import { arguments_assert_todo } from '../todo.mjs';\nimport { arguments_assert } from '../../assert.mjs';\nexport function arguments_assert_predicate_default() {\n    arguments_assert(arguments, []);\n    return arguments_assert_todo;\n}"
- ]
-}

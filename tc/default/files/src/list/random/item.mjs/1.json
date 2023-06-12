@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\random\\item.mjs",
- "part_id": "a4ed30ef-c5b1-4eb3-b812-50845d6cee20",
- "hunks": [
-  "0+import { list_get } from '../get.mjs';\nimport { number_floor } from '../../number/floor.mjs';\nimport { list_length } from '../length.mjs';\nimport { random_get } from '../../random/get.mjs';\nexport function list_random_item(values) {\n    let random = random_get();\n    let length = list_length(values);\n    let index = number_floor(random * length);\n    let value = list_get(values, index);\n    return value;\n}"
- ]
-}

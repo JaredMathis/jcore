@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\empty\\is.mjs",
- "part_id": "8b6f663e-c287-41b5-bcb4-604bdfda717b",
- "hunks": [
-  "0+import { string_length } from '../length.mjs';\nimport { string_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nexport function string_empty_is(s) {\n    arguments_assert(arguments, [string_is]);\n    return string_length(s) === 0;\n}"
- ]
-}

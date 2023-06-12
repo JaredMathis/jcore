@@ -1,7 +1,0 @@
-{
- "file_path": "src\\version\\commits\\get.mjs",
- "part_id": "a2ff3ba7-3226-4ad8-9dc2-eb0e62d88c00",
- "hunks": [
-  "0+import { integer_parse } from '../../integer/parse.mjs';\nimport { file_extension_json } from '../../file/extension/json.mjs';\nimport { string_suffix_without } from '../../string/suffix/without.mjs';\nimport { path_parse_base } from '../../path/parse/base.mjs';\nimport { list_map } from '../../list/map.mjs';\nimport { list_length_is_0 } from '../../list/length/is/0.mjs';\nimport { directory_read } from '../../directory/read.mjs';\nimport { directory_exists_ensure } from '../../directory/exists/ensure.mjs';\nimport { version_path_commits_get } from '../path/commits/get.mjs';\nexport async function version_commits_get(repository_name) {\n    let repository_sub_path = version_path_commits_get(repository_name);\n    await directory_exists_ensure(repository_sub_path);\n    let existing_commits = await directory_read(repository_sub_path);\n    let parsed;\n    if (list_length_is_0(existing_commits)) {\n        parsed = [];\n    } else {\n        let names = list_map(existing_commits, path_parse_base);\n        let unparsed = list_map(names, c => string_suffix_without(c, file_extension_json()));\n        parsed = list_map(unparsed, integer_parse);\n    }\n    return parsed;\n}"
- ]
-}

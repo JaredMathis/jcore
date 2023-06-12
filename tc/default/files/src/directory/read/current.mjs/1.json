@@ -1,7 +1,0 @@
-{
- "file_path": "src\\directory\\read\\current.mjs",
- "part_id": "217c48b8-9a6b-43f9-8d19-e70712024844",
- "hunks": [
-  "0+import { directory_read } from '../read.mjs';\nimport { directory_current } from '../current.mjs';\nexport async function directory_read_current() {\n    let directory_path = directory_current();\n    let file_paths = await directory_read(directory_path);\n    return file_paths;\n}"
- ]
-}

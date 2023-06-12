@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\difference\\tests\\test\\generated\\10.mjs",
- "part_id": "466e90a0-eda3-4dc7-90c5-0ff488e3a217",
- "hunks": [
-  "0+import { metadata_generated } from '../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { json_equal } from '../../../../../json/equal.mjs';\nimport { assert } from '../../../../../assert.mjs';\nimport { string_difference_tests } from '../../../tests.mjs';\nexport function string_difference_tests_test_generated_10() {\n    arguments_assert(arguments, []);\n    let expected = 'aa';\n    let actual = string_difference_tests('aa', 'aa');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
- ]
-}

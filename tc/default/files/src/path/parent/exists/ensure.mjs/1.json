@@ -1,7 +1,0 @@
-{
- "file_path": "src\\path\\parent\\exists\\ensure.mjs",
- "part_id": "0698e1e4-be61-4efb-b81e-b3978bd17717",
- "hunks": [
-  "0+import { path_is } from '../../is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { directory_exists_ensure } from '../../../directory/exists/ensure.mjs';\nimport { path_parent } from '../../parent.mjs';\nexport async function path_parent_exists_ensure(file_path) {\n    arguments_assert(arguments, [path_is]);\n    let directory_path = path_parent(file_path);\n    await directory_exists_ensure(directory_path);\n    metadata([]);\n}"
- ]
-}

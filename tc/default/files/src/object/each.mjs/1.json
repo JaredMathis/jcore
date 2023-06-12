@@ -1,7 +1,0 @@
-{
- "file_path": "src\\object\\each.mjs",
- "part_id": "8df4a74d-b7ab-449f-8f3e-a3f573cf2b89",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { object_property_get } from './property/get.mjs';\nimport { defined_is } from '../defined/is.mjs';\nimport { function_is } from '../function/is.mjs';\nexport function object_each(object, lambda) {\n    arguments_assert(arguments, [\n        defined_is,\n        function_is\n    ]);\n    for (let key in object) {\n        let value = object_property_get(object, key);\n        lambda(value, key);\n    }\n    metadata([]);\n}"
- ]
-}

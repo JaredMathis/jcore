@@ -1,7 +1,0 @@
-{
- "file_path": "src\\value\\get.mjs",
- "part_id": "64451177-f6f7-43c9-bcdb-074abf5bfbe0",
- "hunks": [
-  "0+import { defined_is } from '../defined/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { value_set_is } from './set/is.mjs';\nimport { assert } from '../assert.mjs';\nimport { object_property_get } from '../object/property/get.mjs';\nexport function value_get(value_object) {\n    arguments_assert(arguments, [defined_is]);\n    assert(value_set_is(value_object));\n    let value = object_property_get(value_object, 'value');\n    return value;\n    metadata([]);\n}"
- ]
-}

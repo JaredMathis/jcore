@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\node\\is\\import\\declaration.mjs",
- "part_id": "fae33179-e580-4639-8346-94f65d4a97ef",
- "hunks": [
-  "0+import { js_node_is } from '../../is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { js_node_is_type } from '../type.mjs';\nexport function js_node_is_import_declaration(node) {\n    arguments_assert(arguments, [js_node_is]);\n    return js_node_is_type(node, 'ImportDeclaration');\n    metadata([]);\n}"
- ]
-}

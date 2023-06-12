@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\imports\\remove\\multiple.mjs",
- "part_id": "a9655d9f-a687-41b9-884f-978a9d56826c",
- "hunks": [
-  "0+import { js_node_is_program } from '../../node/is/program.mjs';\nimport { list_is } from '../../../list/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { js_imports_remove_generic } from './generic.mjs';\nimport { object_property_get } from '../../../object/property/get.mjs';\nimport { list_find } from '../../../list/find.mjs';\nimport { list_map } from '../../../list/map.mjs';\nexport function js_imports_remove_multiple(parsed, imports, removal_names) {\n    arguments_assert(arguments, [\n        js_node_is_program,\n        list_is,\n        list_is\n    ]);\n    let imports_to_remove = list_map(removal_names, removal_name => {\n        let result = list_find(imports, i => object_property_get(i, 'name') === removal_name);\n        return result;\n    });\n    js_imports_remove_generic(parsed, imports_to_remove);\n}"
- ]
-}

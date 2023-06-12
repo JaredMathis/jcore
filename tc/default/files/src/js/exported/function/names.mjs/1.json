@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\exported\\function\\names.mjs",
- "part_id": "c5888a95-59f7-44c7-ae0d-f6f73f51ed73",
- "hunks": [
-  "0+import { js_node_is_program } from '../../node/is/program.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { js_function_declarations_to_names } from '../../function/declarations/to/names.mjs';\nimport { js_exported_function_declarations } from './declarations.mjs';\nexport function js_exported_function_names(parsed) {\n    arguments_assert(arguments, [js_node_is_program]);\n    let filtered = js_exported_function_declarations(parsed);\n    let mapped = js_function_declarations_to_names(filtered);\n    return mapped;\n    metadata([]);\n}"
- ]
-}

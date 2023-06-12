@@ -1,7 +1,0 @@
-{
- "file_path": "src\\path\\resolve.mjs",
- "part_id": "860fa23b-fd81-41fa-af4c-cd7f14369e3c",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport path from 'path';\nimport { path_is } from './is.mjs';\nexport function path_resolve(file_path) {\n    arguments_assert(arguments, [path_is]);\n    return path.resolve(file_path);\n    metadata([]);\n}"
- ]
-}

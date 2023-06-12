@@ -1,7 +1,0 @@
-{
- "file_path": "src\\command\\line\\check.mjs",
- "part_id": "5ca6b610-9ce4-4e21-962f-c0d8460bd926",
- "hunks": [
-  "0+import { string_empty_not_is } from '../../string/empty/not/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { error } from '../../error.mjs';\nimport { exec } from 'child_process';\nexport async function command_line_check(command) {\n    arguments_assert(arguments, [string_empty_not_is]);\n    return await new Promise(function (resolve, reject) {\n        exec(command, (error, stdout, stderr) => {\n            let success = true;\n            if (error) {\n                success = false;\n            }\n            let result = {\n                command,\n                success,\n                error,\n                stdout,\n                stderr\n            };\n            resolve(result);\n        });\n    });\n    metadata([]);\n}"
- ]
-}

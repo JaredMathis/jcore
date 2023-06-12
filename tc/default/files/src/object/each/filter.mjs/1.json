@@ -1,7 +1,0 @@
-{
- "file_path": "src\\object\\each\\filter.mjs",
- "part_id": "5d565eab-8672-419b-8338-d7550f9073c3",
- "hunks": [
-  "0+import { defined_is } from '../../defined/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { list_add } from '../../list/add.mjs';\nimport { object_each } from '../each.mjs';\nimport { function_is } from '../../function/is.mjs';\nexport function object_each_filter(object, predicate) {\n    arguments_assert(arguments, [\n        defined_is,\n        function_is\n    ]);\n    let result = [];\n    let lambda = (value, key) => {\n        if (predicate(value, key)) {\n            list_add(result, key);\n        }\n    };\n    object_each(object, lambda);\n    return result;\n    metadata([]);\n}"
- ]
-}

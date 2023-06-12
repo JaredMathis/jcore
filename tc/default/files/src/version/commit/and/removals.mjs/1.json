@@ -1,7 +1,0 @@
-{
- "file_path": "src\\version\\commit\\and\\removals.mjs",
- "part_id": "d8ed91e1-4a79-4d6a-b8ce-937bdf967456",
- "hunks": [
-  "0+import { log } from '../../../log.mjs';\nimport { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { version_write_all } from '../../write/all.mjs';\nimport { list_multiple_combine } from '../../../list/multiple/combine.mjs';\nimport { file_json_overwrite } from '../../../file/json/overwrite.mjs';\nimport { version_commit_files_all_removals_generic } from '../files/all/removals/generic.mjs';\nimport { version_commit_files_difference } from '../files/difference.mjs';\nimport { directory_read_current } from '../../../directory/read/current.mjs';\nimport { version_commit_data } from '../data.mjs';\nimport { string_identifier_is } from '../../../string/identifier/is.mjs';\nexport async function version_commit_and_removals(repository_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    const commit_data = version_commit_data(version_commit_and_removals, arguments);\n    let file_paths = await directory_read_current();\n    let differences = await version_commit_files_difference(repository_name, file_paths, commit_data);\n    let removals = await version_commit_files_all_removals_generic(repository_name, file_paths, commit_data);\n    let writes = list_multiple_combine([\n        differences,\n        removals\n    ]);\n    await version_write_all(writes);\n}\n"
- ]
-}

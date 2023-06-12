@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\name\\to\\file\\path.mjs",
- "part_id": "86fd5bc5-5720-47e0-a5d1-1196499b60de",
- "hunks": [
-  "0+import { string_identifier_is } from '../../../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { list_add_beginning } from '../../../../list/add/beginning.mjs';\nimport { list_last_map } from '../../../../list/last/map.mjs';\nimport { directory_source } from '../../../../directory/source.mjs';\nimport { string_split } from '../../../../string/split.mjs';\nimport { function_extension } from '../../../extension.mjs';\nimport { directory_current } from '../../../../directory/current.mjs';\nimport { path_join } from '../../../../path/join.mjs';\nimport { function_name_separator } from '../../separator.mjs';\nexport function function_name_to_file_path(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let directory_source_result = directory_source();\n    let split = string_split(function_name, function_name_separator());\n    list_add_beginning(split, directory_source_result);\n    list_add_beginning(split, directory_current());\n    list_last_map(split, last => last + function_extension());\n    let joined = path_join(split);\n    return joined;\n    metadata([]);\n}"
- ]
-}

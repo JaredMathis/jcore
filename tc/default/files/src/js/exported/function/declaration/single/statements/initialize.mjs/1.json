@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\exported\\function\\declaration\\single\\statements\\initialize.mjs",
- "part_id": "cd82c331-5f87-449a-ac49-4dac12ff5d27",
- "hunks": [
-  "0+import { js_node_is_program } from '../../../../../node/is/program.mjs';\nimport { list_is } from '../../../../../../list/is.mjs';\nimport { arguments_assert } from '../../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../../metadata.mjs';\nimport { js_function_declaration_statements_initialize } from '../../../../../function/declaration/statements/initialize.mjs';\nimport { js_exported_function_declaration_single } from '../../single.mjs';\nexport function js_exported_function_declaration_single_statements_initialize(parsed, function_body_statements_new) {\n    arguments_assert(arguments, [\n        js_node_is_program,\n        list_is\n    ]);\n    let fd = js_exported_function_declaration_single(parsed);\n    js_function_declaration_statements_initialize(fd, function_body_statements_new);\n    metadata([]);\n}"
- ]
-}

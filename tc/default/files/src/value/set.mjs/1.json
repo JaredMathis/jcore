@@ -1,7 +1,0 @@
-{
- "file_path": "src\\value\\set.mjs",
- "part_id": "95c0181d-9c06-4263-b116-6f409082037a",
- "hunks": [
-  "0+import { defined_is } from '../defined/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { object_property_set } from '../object/property/set.mjs';\nexport function value_set(value_object, value) {\n    arguments_assert(arguments, [\n        defined_is,\n        defined_is\n    ]);\n    object_property_set(value_object, 'value', value);\n    object_property_set(value_object, 'set', true);\n    metadata([]);\n}"
- ]
-}

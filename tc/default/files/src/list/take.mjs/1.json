@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\take.mjs",
- "part_id": "c29b23db-8bf6-4185-8374-d27c323565b6",
- "hunks": [
-  "0+import { integer_is } from '../integer/is.mjs';\nimport { list_is } from './is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { list_slice } from './slice.mjs';\nexport function list_take(list, count) {\n    arguments_assert(arguments, [\n        list_is,\n        integer_is\n    ]);\n    return list_slice(list, 0, count);\n    metadata([]);\n}"
- ]
-}

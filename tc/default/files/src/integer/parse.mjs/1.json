@@ -1,7 +1,0 @@
-{
- "file_path": "src\\integer\\parse.mjs",
- "part_id": "d6788b52-848c-4200-8221-a1f0c7d9bd13",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { number_nan_is_not } from '../number/nan/is/not.mjs';\nimport { integer_parse_try } from './parse/try.mjs';\nimport { assert } from '../assert.mjs';\nimport { string_is } from '../string/is.mjs';\nexport function integer_parse(input) {\n    arguments_assert(arguments, [string_is]);\n    let result = integer_parse_try(input);\n    assert(number_nan_is_not(result));\n    return result;\n    metadata([]);\n}"
- ]
-}

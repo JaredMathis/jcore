@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\split\\test\\generated\\10.mjs",
- "part_id": "fe231451-c19b-419e-ab03-5a7c1c749939",
- "hunks": [
-  "0+import { metadata_generated } from '../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { json_equal } from '../../../../json/equal.mjs';\nimport { assert } from '../../../../assert.mjs';\nimport { string_split } from '../../../split.mjs';\nexport function string_split_test_generated_10() {\n    arguments_assert(arguments, []);\n    let expected = [\n        '',\n        ''\n    ];\n    let actual = string_split('aa', 'aa');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\without\\imports.mjs",
- "part_id": "bedd11e7-5c98-49a2-bd90-ce5ab5e814ec",
- "hunks": [
-  "0+import { js_node_is_program } from '../node/is/program.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { list_without_multiple } from '../../list/without/multiple.mjs';\nimport { js_body_get } from '../body/get.mjs';\nimport { js_import_all } from '../import/all.mjs';\nexport function js_without_imports(parsed) {\n    arguments_assert(arguments, [js_node_is_program]);\n    let imports = js_import_all(parsed);\n    let body = js_body_get(parsed);\n    let function_body_statements_new = list_without_multiple(body, imports);\n    return function_body_statements_new;\n    metadata([]);\n}"
- ]
-}

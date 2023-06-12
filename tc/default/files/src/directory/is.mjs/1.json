@@ -1,7 +1,0 @@
-{
- "file_path": "src\\directory\\is.mjs",
- "part_id": "ca498cef-6e12-49e6-b0f4-553e279ac6b0",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport fs from 'fs';\nimport { path_is } from '../path/is.mjs';\nexport async function directory_is(file_path) {\n    arguments_assert(arguments, [path_is]);\n    const stat = await fs.promises.stat(file_path);\n    const is_directory = stat.isDirectory();\n    return is_directory;\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\database\\reference.mjs",
- "part_id": "ae4f969e-d675-4411-9491-ef988771ceee",
- "hunks": [
-  "0+export function database_reference(db, collection_path, document_path) {\n    return db.collection(collection_path).doc(document_path);\n}"
- ]
-}

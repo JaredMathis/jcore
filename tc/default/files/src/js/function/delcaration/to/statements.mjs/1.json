@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\function\\delcaration\\to\\statements.mjs",
- "part_id": "c52f259c-068d-4252-950f-abfcc5114f68",
- "hunks": [
-  "0+import { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { js_node_is_block_statement } from '../../../node/is/block/statement.mjs';\nimport { assert } from '../../../../assert.mjs';\nimport { object_property_get } from '../../../../object/property/get.mjs';\nimport { js_node_is_function_declaration } from '../../../node/is/function/declaration.mjs';\nexport function js_function_delcaration_to_statements(fd) {\n    arguments_assert(arguments, [js_node_is_function_declaration]);\n    let function_body = object_property_get(fd, 'body');\n    assert(js_node_is_block_statement(function_body));\n    let function_body_statements = object_property_get(function_body, 'body');\n    return function_body_statements;\n    metadata([]);\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\subtract.mjs",
- "part_id": "9f7152f7-7054-4c29-97d4-ee47c14d71aa",
- "hunks": [
-  "0+export function subtract(a, b) {\n    return a - b;\n}"
- ]
-}

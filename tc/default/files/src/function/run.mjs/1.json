@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\run.mjs",
- "part_id": "a7c0301b-f720-4eca-85aa-a2604dc0bbf1",
- "hunks": [
-  "0+import { string_identifier_is } from '../string/identifier/is.mjs';\nimport { function_import } from './import.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { list_is } from '../list/is.mjs';\nexport async function function_run(function_name, function_args) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        list_is\n    ]);\n    let imported = await function_import(import.meta, function_name);\n    let imported_function = imported[function_name];\n    let result = await imported_function(...function_args);\n    return result;\n    metadata([]);\n}"
- ]
-}

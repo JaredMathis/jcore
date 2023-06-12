@@ -1,7 +1,0 @@
-{
- "file_path": "src\\directory\\current.mjs",
- "part_id": "ca30afef-afb8-467d-960b-1b9649b10b5f",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nexport function directory_current() {\n    arguments_assert(arguments, []);\n    return '.';\n    metadata([]);\n}"
- ]
-}

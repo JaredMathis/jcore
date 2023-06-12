@@ -1,7 +1,0 @@
-{
- "file_path": "src\\guid\\generate.mjs",
- "part_id": "36af8daf-5004-4eb0-9c93-6fc4b52bfc2b",
- "hunks": [
-  "0+import * as uuid from 'uuid';\nimport { arguments_assert } from '../arguments/assert.mjs';\nexport function guid_generate() {\n    arguments_assert(arguments, []);\n    return uuid.v4();\n}"
- ]
-}

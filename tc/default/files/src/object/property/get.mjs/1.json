@@ -1,7 +1,0 @@
-{
- "file_path": "src\\object\\property\\get.mjs",
- "part_id": "9305d61c-3a9a-42a4-926c-099258acb153",
- "hunks": [
-  "0+import { metadata } from '../../metadata.mjs';\nimport { assert } from '../../assert.mjs';\nimport { object_property_exists } from './exists.mjs';\nexport function object_property_get(object, property_name) {\n    assert(object_property_exists(object, property_name));\n    return object[property_name];\n    metadata([]);\n}"
- ]
-}

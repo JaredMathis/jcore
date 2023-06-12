@@ -1,7 +1,0 @@
-{
- "file_path": "src\\json\\from.mjs",
- "part_id": "b044640d-adab-4031-82e4-691c62e8fe57",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { string_is } from '../string/is.mjs';\nexport function json_from(json) {\n    arguments_assert(arguments, [string_is]);\n    return JSON.parse(json);\n    metadata([]);\n}"
- ]
-}

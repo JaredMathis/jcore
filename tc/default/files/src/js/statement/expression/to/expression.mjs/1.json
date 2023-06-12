@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\statement\\expression\\to\\expression.mjs",
- "part_id": "6174a652-7448-4af2-9569-26206c5bac8c",
- "hunks": [
-  "0+import { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { js_node_property_expression } from '../../../node/property/expression.mjs';\nimport { object_property_get } from '../../../../object/property/get.mjs';\nimport { js_node_is_expression_statement } from '../../../node/is/expression/statement.mjs';\nexport function js_statement_expression_to_expression(statement_first) {\n    arguments_assert(arguments, [js_node_is_expression_statement]);\n    let expression = object_property_get(statement_first, js_node_property_expression());\n    return expression;\n}"
- ]
-}

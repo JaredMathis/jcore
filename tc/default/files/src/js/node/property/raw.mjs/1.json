@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\node\\property\\raw.mjs",
- "part_id": "69a0debb-f693-4bf4-a4ba-b4349ad484a6",
- "hunks": [
-  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nexport function js_node_property_raw() {\n    arguments_assert(arguments, []);\n    return 'raw';\n    metadata([]);\n}"
- ]
-}

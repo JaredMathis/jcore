@@ -1,7 +1,0 @@
-{
- "file_path": "src\\version\\path\\files\\get.mjs",
- "part_id": "63f90afd-c9d7-4431-91b6-c1ee1d41549d",
- "hunks": [
-  "0+import { version_path_sub_get } from '../sub/get.mjs';\nimport { version_path_files } from '../files.mjs';\nexport function version_path_files_get(repository_name) {\n    let repository_files_directory_name = version_path_files();\n    let repository_sub_path = version_path_sub_get(repository_name, repository_files_directory_name);\n    return repository_sub_path;\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\call\\expression\\to\\name\\or\\null.mjs",
- "part_id": "8c46f565-a5e2-4d41-b695-d7248408df21",
- "hunks": [
-  "0+import { metadata } from '../../../../../../metadata.mjs';\nimport { js_call_expression_to_name_generic } from '../generic.mjs';\nimport { js_node_is_call_expression } from '../../../../../node/is/call/expression.mjs';\nimport { arguments_assert } from '../../../../../../arguments/assert.mjs';\nexport function js_call_expression_to_name_or_null(ce) {\n    arguments_assert(arguments, [js_node_is_call_expression]);\n    let or_null = true;\n    let name = js_call_expression_to_name_generic(ce, or_null);\n    return name;\n    metadata([]);\n}"
- ]
-}

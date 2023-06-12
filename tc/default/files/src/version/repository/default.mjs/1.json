@@ -1,7 +1,0 @@
-{
- "file_path": "src\\version\\repository\\default.mjs",
- "part_id": "d0424c7b-76bf-45d9-ae62-b55463a7d74b",
- "hunks": [
-  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nexport function version_repository_default() {\n    arguments_assert(arguments, []);\n    return 'default';\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\error\\is.mjs",
- "part_id": "e5ac29b6-1e39-4372-851f-2a195c124728",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { defined_is } from '../defined/is.mjs';\nexport function error_is(e) {\n    arguments_assert(arguments, [defined_is]);\n    return e && e.stack && e.message;\n}"
- ]
-}

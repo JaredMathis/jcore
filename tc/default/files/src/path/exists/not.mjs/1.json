@@ -1,7 +1,0 @@
-{
- "file_path": "src\\path\\exists\\not.mjs",
- "part_id": "221f8b3e-39ec-4fa0-8be7-86602609c82a",
- "hunks": [
-  "0+import { path_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { path_exists } from '../exists.mjs';\nexport async function path_exists_not(file_path) {\n    arguments_assert(arguments, [path_is]);\n    return await !await path_exists(file_path);\n    metadata([]);\n}"
- ]
-}

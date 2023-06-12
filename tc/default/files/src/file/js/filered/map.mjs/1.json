@@ -1,7 +1,0 @@
-{
- "file_path": "src\\file\\js\\filered\\map.mjs",
- "part_id": "f2020d31-e576-4cb7-93c2-333a9e1dd108",
- "hunks": [
-  "0+import { function_is } from '../../../function/is.mjs';\nimport { string_identifier_is } from '../../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { file_js_multiple_map } from '../multiple/map.mjs';\nimport { list_filter } from '../../../list/filter.mjs';\nimport { file_js_all_path } from '../all/path.mjs';\nexport async function file_js_filered_map(function_name_mapper, filter) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        function_is\n    ]);\n    let all = await file_js_all_path();\n    let filtered = list_filter(all, filter);\n    await file_js_multiple_map(function_name_mapper, filtered);\n    metadata([]);\n}"
- ]
-}

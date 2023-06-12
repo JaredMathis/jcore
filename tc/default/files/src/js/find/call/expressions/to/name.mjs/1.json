@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\find\\call\\expressions\\to\\name.mjs",
- "part_id": "f9ca9145-c1b2-4059-be02-782f8bdd93de",
- "hunks": [
-  "0+import { js_call_expression_to_name_generic } from '../../../../call/expression/to/name/generic.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { js_node_is_call_expression } from '../../../../node/is/call/expression.mjs';\nexport function js_find_call_expressions_to_name(ce) {\n    arguments_assert(arguments, [js_node_is_call_expression]);\n    let or_null = false;\n    let name = js_call_expression_to_name_generic(ce, or_null);\n    return name;\n    metadata([]);\n}"
- ]
-}

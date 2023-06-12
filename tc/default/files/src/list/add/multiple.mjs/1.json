@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\add\\multiple.mjs",
- "part_id": "fa33fc0d-03cf-489c-b613-df30de3bc4c1",
- "hunks": [
-  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { list_add } from '../add.mjs';\nimport { list_is } from '../is.mjs';\nexport function list_add_multiple(list, list_other) {\n    arguments_assert(arguments, [\n        list_is,\n        list_is\n    ]);\n    for (let o of list_other) {\n        list_add(list, o);\n    }\n    metadata([]);\n}"
- ]
-}

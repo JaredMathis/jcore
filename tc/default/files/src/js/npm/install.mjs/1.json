@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\npm\\install.mjs",
- "part_id": "28606bfa-6140-4445-8609-ed00e75cf3c1",
- "hunks": [
-  "0+import { command_line } from '../../command/line.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { string_is } from '../../string/is.mjs';\nexport async function js_npm_install(npm_package_name) {\n    arguments_assert(arguments, [string_is]);\n    await command_line(`npm i ${ npm_package_name }@latest`);\n}"
- ]
-}

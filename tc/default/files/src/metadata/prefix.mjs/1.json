@@ -1,7 +1,0 @@
-{
- "file_path": "src\\metadata\\prefix.mjs",
- "part_id": "ebc90ae9-94dd-49fc-ac17-08c2c47d70f4",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nexport function metadata_prefix() {\n    arguments_assert(arguments, []);\n    return 'metadata_';\n}"
- ]
-}

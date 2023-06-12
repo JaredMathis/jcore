@@ -1,7 +1,0 @@
-{
- "file_path": "src\\tests\\empty.mjs",
- "part_id": "4cfc590e-b2f2-4f21-9862-552661b2844b",
- "hunks": [
-  "0+import { tests_name_next } from './name/next.mjs';\nimport { string_identifier_is } from '../string/identifier/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { tests_generate } from './generate.mjs';\nimport { function_auto } from '../function/auto.mjs';\nexport async function tests_empty(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let test_name = await tests_name_next(function_name);\n    await function_auto(test_name);\n    await tests_generate();\n    metadata([]);\n}"
- ]
-}

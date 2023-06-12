@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\skip.mjs",
- "part_id": "3121853a-3eea-4e3f-af65-f3e5b3e9c2f4",
- "hunks": [
-  "0+import { integer_is } from '../integer/is.mjs';\nimport { list_is } from './is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { list_slice } from './slice.mjs';\nimport { list_length } from './length.mjs';\nexport function list_skip(list, skip_count) {\n    arguments_assert(arguments, [\n        list_is,\n        integer_is\n    ]);\n    return list_slice(list, skip_count, list_length(list));\n    metadata([]);\n}"
- ]
-}

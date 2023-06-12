@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\parse\\call\\expression.mjs",
- "part_id": "f33afdd6-6fa3-4808-af05-f235c5df9dae",
- "hunks": [
-  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { js_parse_expression } from '../expression.mjs';\nimport { js_code_call_expression } from '../../code/call/expression.mjs';\nimport { string_identifier_is } from '../../../string/identifier/is.mjs';\nexport function js_parse_call_expression(name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    const code = js_code_call_expression(name);\n    let expression = js_parse_expression(code);\n    return expression;\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\add\\with\\declaration.mjs",
- "part_id": "cc5dac7f-1088-4982-b809-0cc0e13ab652",
- "hunks": [
-  "0+import { js_node_is_function_declaration } from '../../../js/node/is/function/declaration.mjs';\nimport { string_identifier_is } from '../../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { js_code_function_name_to_parsed } from '../../../js/code/function/name/to/parsed.mjs';\nimport { js_node_property_declaration } from '../../../js/node/property/declaration.mjs';\nimport { object_property_change } from '../../../object/property/change.mjs';\nimport { js_export_single } from '../../../js/export/single.mjs';\nimport { function_write } from '../../write.mjs';\nexport async function function_add_with_declaration(function_name, fd) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        js_node_is_function_declaration\n    ]);\n    let parsed = js_code_function_name_to_parsed(function_name);\n    let export_single = js_export_single(parsed);\n    object_property_change(export_single, js_node_property_declaration(), fd);\n    return await function_write(function_name, parsed);\n    metadata([]);\n}"
- ]
-}

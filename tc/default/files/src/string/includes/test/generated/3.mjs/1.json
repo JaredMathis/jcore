@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\includes\\test\\generated\\3.mjs",
- "part_id": "f0d950a9-b9ac-4702-989f-8a1321166a89",
- "hunks": [
-  "0+import { metadata_generated } from '../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { json_equal } from '../../../../json/equal.mjs';\nimport { assert } from '../../../../assert.mjs';\nimport { string_includes } from '../../../includes.mjs';\nexport function string_includes_test_generated_3() {\n    arguments_assert(arguments, []);\n    let expected = false;\n    let actual = string_includes('', 'aab');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
- ]
-}

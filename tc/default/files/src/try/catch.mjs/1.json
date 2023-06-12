@@ -1,7 +1,0 @@
-{
- "file_path": "src\\try\\catch.mjs",
- "part_id": "ac60cffc-c9cd-4bd7-aabc-7b2cc001fa9d",
- "hunks": [
-  "0+import { string_empty_not_is } from '../string/empty/not/is.mjs';\nimport { function_is } from '../function/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { error_caught } from '../error/caught.mjs';\nexport function try_catch(fn, lambda, error_message) {\n    arguments_assert(arguments, [\n        function_is,\n        function_is,\n        string_empty_not_is\n    ]);\n    try {\n        return lambda();\n    } catch (e) {\n        error_caught(fn, e, error_message);\n    }\n    metadata([]);\n}"
- ]
-}

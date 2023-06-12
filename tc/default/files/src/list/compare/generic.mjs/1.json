@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\compare\\generic.mjs",
- "part_id": "762eccb5-c4fb-46fa-8ced-3ea7727e3a05",
- "hunks": [
-  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { number_is } from '../../number/is.mjs';\nimport { assert } from '../../assert.mjs';\nimport { list_first } from '../first.mjs';\nimport { value_get } from '../../value/get.mjs';\nimport { list_is } from '../is.mjs';\nimport { function_is } from '../../function/is.mjs';\nexport function list_compare_generic(list, value_get, compare) {\n    arguments_assert(arguments, [\n        list_is,\n        function_is,\n        function_is\n    ]);\n    let result = list_first(list);\n    let found = value_get(result);\n    assert(number_is(found));\n    for (let element of list) {\n        let current = value_get(element);\n        assert(number_is(current));\n        if (compare(current, found)) {\n            result = element;\n            found = current;\n        }\n    }\n    return result;\n}"
- ]
-}

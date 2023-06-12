@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\replace\\test\\generated\\5.mjs",
- "part_id": "076dcd0b-8102-4f7f-833b-6a983ebfa922",
- "hunks": [
-  "0+import { metadata_generated } from '../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { json_equal } from '../../../../json/equal.mjs';\nimport { assert } from '../../../../assert.mjs';\nimport { string_replace } from '../../../replace.mjs';\nexport function string_replace_test_generated_5() {\n    arguments_assert(arguments, []);\n    let expected = 'aa';\n    let actual = string_replace('aa', '', '');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
- ]
-}

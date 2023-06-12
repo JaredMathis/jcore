@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\auto\\after.mjs",
- "part_id": "55599200-119a-4e0f-93c5-ed8073ada5ce",
- "hunks": [
-  "0+import { function_map_multiple } from '../map/multiple.mjs';\nimport { string_identifier_is } from '../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { function_name_get } from '../name/get.mjs';\nimport { function_auto_after_refactors } from './after/refactors.mjs';\nimport { list_map } from '../../list/map.mjs';\nexport async function function_auto_after(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let refactors = function_auto_after_refactors();\n    let refactors_names = list_map(refactors, function_name_get);\n    await function_map_multiple(refactors_names, function_name);\n    metadata([]);\n}"
- ]
-}

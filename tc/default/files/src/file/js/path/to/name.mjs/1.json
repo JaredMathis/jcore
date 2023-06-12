@@ -1,7 +1,0 @@
-{
- "file_path": "src\\file\\js\\path\\to\\name.mjs",
- "part_id": "424449f7-3c98-4c55-b78c-edd8287ae895",
- "hunks": [
-  "0+import { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { list_single } from '../../../../list/single.mjs';\nimport { list_single_item } from '../../../../list/single/item.mjs';\nimport { file_js_path_all_to_name } from '../all/to/name.mjs';\nimport { path_is } from '../../../../path/is.mjs';\nexport function file_js_path_to_name(file_js_path) {\n    arguments_assert(arguments, [path_is]);\n    return list_single(file_js_path_all_to_name(list_single_item(file_js_path)));\n    metadata([]);\n}"
- ]
-}

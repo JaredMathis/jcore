@@ -1,7 +1,0 @@
-{
- "file_path": "src\\object\\is.mjs",
- "part_id": "a7aded86-b8d7-476f-bebf-18de220f5a9f",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { defined_is } from '../defined/is.mjs';\nexport function object_is(v) {\n    arguments_assert(arguments, [defined_is]);\n    return typeof v === 'object';\n}"
- ]
-}

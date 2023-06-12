@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\statement\\end.mjs",
- "part_id": "d8ab9722-266b-4c81-8932-9f3b0313d034",
- "hunks": [
-  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nexport function js_statement_end() {\n    arguments_assert(arguments, []);\n    return ';';\n    metadata([]);\n}"
- ]
-}

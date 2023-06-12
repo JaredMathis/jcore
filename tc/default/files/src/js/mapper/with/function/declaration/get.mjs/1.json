@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\mapper\\with\\function\\declaration\\get.mjs",
- "part_id": "1f06fed2-71ed-4042-bac0-4f7f855fb345",
- "hunks": [
-  "0+import { object_merge } from '../../../../../object/merge.mjs';\nimport { js_export_function_single_or_null } from '../../../../export/function/single/or/null.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { function_is } from '../../../../../function/is.mjs';\nexport function js_mapper_with_function_declaration_get(mapper) {\n    arguments_assert(arguments, [function_is]);\n    return async function js_mapper_with_function_declaration(args) {\n        let {parsed, file_path} = args;\n        let function_declaration = js_export_function_single_or_null(parsed);\n        if (function_declaration !== null) {\n            object_merge({ function_declaration }, args);\n        }\n        return await mapper(args);\n    };\n}"
- ]
-}

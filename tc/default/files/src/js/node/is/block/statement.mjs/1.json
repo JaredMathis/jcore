@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\node\\is\\block\\statement.mjs",
- "part_id": "44a5f670-82b2-4d6e-ae74-a68b27b2505d",
- "hunks": [
-  "0+import { js_node_is } from '../../is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { js_node_is_type } from '../type.mjs';\nexport function js_node_is_block_statement(node) {\n    arguments_assert(arguments, [js_node_is]);\n    return js_node_is_type(node, 'BlockStatement');\n    metadata([]);\n}"
- ]
-}

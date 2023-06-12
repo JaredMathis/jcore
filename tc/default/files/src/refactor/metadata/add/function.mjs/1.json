@@ -1,7 +1,0 @@
-{
- "file_path": "src\\refactor\\metadata\\add\\function.mjs",
- "part_id": "89fcfb1b-7384-4b09-9946-c11271b212a4",
- "hunks": [
-  "0+import { defined_is } from '../../../defined/is.mjs';\nimport { refactor_metadata_add_named } from './named.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { function_name_get } from '../../../function/name/get.mjs';\nimport { function_is } from '../../../function/is.mjs';\nimport { js_mapper_args_is } from '../../../js/mapper/args/is.mjs';\nexport async function refactor_metadata_add_function(args, metadata_function) {\n    arguments_assert(arguments, [\n        js_mapper_args_is,\n        function_is\n    ]);\n    const metadata_function_name = function_name_get(metadata_function);\n    await refactor_metadata_add_named(args, metadata_function_name);\n}"
- ]
-}

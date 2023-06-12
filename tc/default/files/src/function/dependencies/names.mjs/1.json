@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\dependencies\\names.mjs",
- "part_id": "d8cc221f-40f2-4888-a43d-7fca70edb4b6",
- "hunks": [
-  "0+import { string_identifier_is } from '../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { list_map } from '../../list/map.mjs';\nimport { object_property_get } from '../../object/property/get.mjs';\nimport { function_dependencies } from '../dependencies.mjs';\nexport async function function_dependencies_names(arguments_assert_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let dependencies = await function_dependencies(arguments_assert_name);\n    let dependencies_names = list_map(dependencies, d => object_property_get(d, 'function_name'));\n    return dependencies_names;\n}"
- ]
-}

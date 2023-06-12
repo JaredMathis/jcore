@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\tests\\generate\\after.mjs",
- "part_id": "c39a42e2-e0bd-442f-820a-09a3d33f0e3a",
- "hunks": [
-  "0+import { log } from '../../../log.mjs';\nimport { object_property_get } from '../../../object/property/get.mjs';\nimport { function_name_get } from '../../name/get.mjs';\nimport { command_line } from '../../../command/line.mjs';\nimport { tests } from '../../../tests.mjs';\nimport { comment } from '../../../comment.mjs';\nimport { tests_generate } from '../../../tests/generate.mjs';\nexport async function function_tests_generate_after() {\n    await tests_generate();\n    comment(`NodeJS will not re-import ${ tests } after we re-generate it so we must run through command line`);\n    let cl_result = await command_line(`node run.mjs ${ function_name_get(tests) }`);\n    let stdout = object_property_get(cl_result, 'stdout');\n    log(stdout);\n}"
- ]
-}

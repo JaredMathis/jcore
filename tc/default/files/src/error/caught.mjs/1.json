@@ -1,7 +1,0 @@
-{
- "file_path": "src\\error\\caught.mjs",
- "part_id": "a83d181e-233c-46af-b390-a5d6a9a766b6",
- "hunks": [
-  "0+import { string_empty_not_is } from '../string/empty/not/is.mjs';\nimport { error_is } from './is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { function_name_get } from '../function/name/get.mjs';\nimport { error } from '../error.mjs';\nimport { log } from '../log.mjs';\nimport { function_is } from '../function/is.mjs';\nexport function error_caught(fn, exception, error_message) {\n    arguments_assert(arguments, [\n        function_is,\n        error_is,\n        string_empty_not_is\n    ]);\n    log(exception);\n    log(error_message);\n    error(`${ function_name_get(fn) } failed`);\n    metadata([]);\n}"
- ]
-}

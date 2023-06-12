@@ -1,7 +1,0 @@
-{
- "file_path": "src\\directory\\read\\directories.mjs",
- "part_id": "1b6db4a4-2ad2-4cec-9ced-e2696611dd2b",
- "hunks": [
-  "0+import { directory_read_directories_recursive } from './directories/recursive.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { path_is } from '../../path/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nexport async function directory_read_directories(dir) {\n    arguments_assert(arguments, [path_is]);\n    return await directory_read_directories_recursive(dir, []);\n    metadata([]);\n}"
- ]
-}

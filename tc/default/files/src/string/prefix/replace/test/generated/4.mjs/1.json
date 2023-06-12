@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\prefix\\replace\\test\\generated\\4.mjs",
- "part_id": "84fd510a-f9ec-479f-95ba-88c52cc43819",
- "hunks": [
-  "0+import { metadata_generated } from '../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { json_equal } from '../../../../../json/equal.mjs';\nimport { assert } from '../../../../../assert.mjs';\nimport { string_prefix_replace } from '../../../replace.mjs';\nexport function string_prefix_replace_test_generated_4() {\n    arguments_assert(arguments, []);\n    let expected = 'aab';\n    let actual = string_prefix_replace('', '', 'aab');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
- ]
-}

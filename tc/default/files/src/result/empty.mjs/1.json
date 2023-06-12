@@ -1,7 +1,0 @@
-{
- "file_path": "src\\result\\empty.mjs",
- "part_id": "623a871a-25d0-4013-a637-b8ba76fb28cf",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { result_success } from './success.mjs';\nexport function result_empty() {\n    arguments_assert(arguments, []);\n    return { [result_success()]: true };\n    metadata([]);\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\prefix\\without.mjs",
- "part_id": "1584850d-3c3b-43c1-9478-e060d719fa26",
- "hunks": [
-  "0+import { string_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { string_skip } from '../skip.mjs';\nimport { string_starts_with } from '../starts/with.mjs';\nimport { assert } from '../../assert.mjs';\nimport { string_length } from '../length.mjs';\nexport function string_prefix_without(input, prefix) {\n    arguments_assert(arguments, [\n        string_is,\n        string_is\n    ]);\n    assert(string_starts_with(input, prefix));\n    let length = string_length(prefix);\n    return string_skip(input, length);\n    metadata([]);\n}"
- ]
-}

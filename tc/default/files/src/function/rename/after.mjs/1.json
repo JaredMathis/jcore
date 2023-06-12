@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\rename\\after.mjs",
- "part_id": "95caf55c-f83b-4d2c-8218-be41f4c4ed69",
- "hunks": [
-  "0+import { tests_generate } from '../../tests/generate.mjs';\nimport { arguments_assert_todo } from '../../arguments/assert/todo.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { refactor_import_fix } from '../../refactor/import/fix.mjs';\nimport { function_name_get } from '../name/get.mjs';\nimport { file_js_multiple_map } from '../../file/js/multiple/map.mjs';\nexport async function function_rename_after(file_paths_changed) {\n    arguments_assert(arguments, [arguments_assert_todo]);\n    await file_js_multiple_map(function_name_get(refactor_import_fix), file_paths_changed);\n    await tests_generate();\n}"
- ]
-}

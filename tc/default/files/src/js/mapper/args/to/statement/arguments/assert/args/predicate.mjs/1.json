@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\mapper\\args\\to\\statement\\arguments\\assert\\args\\predicate.mjs",
- "part_id": "bf7359b0-7c1e-445f-903a-a86e64f4899c",
- "hunks": [
-  "0+import { js_node_is_function_declaration } from '../../../../../../../node/is/function/declaration.mjs';\nimport { js_node_property_elements } from '../../../../../../../node/property/elements.mjs';\nimport { object_property_get } from '../../../../../../../../object/property/get.mjs';\nimport { list_get } from '../../../../../../../../list/get.mjs';\nimport { js_mapper_args_to_statement_arguments_assert_args } from '../args.mjs';\nimport { arguments_assert } from '../../../../../../../../arguments/assert.mjs';\nexport async function js_mapper_args_to_statement_arguments_assert_args_predicate(function_declaration) {\n    arguments_assert(arguments, [js_node_is_function_declaration]);\n    const arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args(function_declaration);\n    let array_expression = list_get(arguments_assert_args, 1);\n    let args = object_property_get(array_expression, js_node_property_elements());\n    return args;\n}"
- ]
-}

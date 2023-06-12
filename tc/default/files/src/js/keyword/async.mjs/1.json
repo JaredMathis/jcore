@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\keyword\\async.mjs",
- "part_id": "dd846be7-39a9-443f-86fd-389cf2bbd9e9",
- "hunks": [
-  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nexport function js_keyword_async() {\n    arguments_assert(arguments, []);\n    return 'async';\n    metadata([]);\n}"
- ]
-}

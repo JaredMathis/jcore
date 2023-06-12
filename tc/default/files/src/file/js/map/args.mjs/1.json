@@ -1,7 +1,0 @@
-{
- "file_path": "src\\file\\js\\map\\args.mjs",
- "part_id": "35fbeddb-268e-4bea-bd25-c8c3388a9012",
- "hunks": [
-  "0+import { function_is } from '../../../function/is.mjs';\nimport { path_is } from '../../../path/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { file_js_overwrite } from '../overwrite.mjs';\nimport { file_js_path_to_mapper_args } from '../path/to/mapper/args.mjs';\nimport { js_mapper_with_function_declaration_get } from '../../../js/mapper/with/function/declaration/get.mjs';\nexport async function file_js_map_args(file_path, mapper) {\n    arguments_assert(arguments, [\n        path_is,\n        function_is\n    ]);\n    let args = await file_js_path_to_mapper_args(file_path);\n    const get_result = js_mapper_with_function_declaration_get(mapper);\n    let result = await get_result(args);\n    if (result) {\n        return;\n    }\n    await file_js_overwrite(args);\n    metadata([]);\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\suffix\\without\\test\\generated\\8.mjs",
- "part_id": "681e2e9a-9198-425b-9315-aabca4aaeec6",
- "hunks": [
-  "0+import { metadata_generated } from '../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { json_equal } from '../../../../../json/equal.mjs';\nimport { assert } from '../../../../../assert.mjs';\nimport { string_suffix_without } from '../../../without.mjs';\nexport function string_suffix_without_test_generated_8() {\n    arguments_assert(arguments, []);\n    let expected = 'aa';\n    let actual = string_suffix_without('aa', '');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
- ]
-}

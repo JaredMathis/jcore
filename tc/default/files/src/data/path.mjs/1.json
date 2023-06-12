@@ -1,7 +1,0 @@
-{
- "file_path": "src\\data\\path.mjs",
- "part_id": "dafcefa8-bbb4-4a37-9858-d221451d95bd",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { file_name_json } from '../file/name/json.mjs';\nimport { directory_current } from '../directory/current.mjs';\nexport function data_path() {\n    arguments_assert(arguments, []);\n    return `${ directory_current() }/${ file_name_json(`data`) }`;\n    metadata([]);\n}"
- ]
-}

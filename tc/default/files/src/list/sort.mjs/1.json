@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\sort.mjs",
- "part_id": "d22de06a-6d18-4119-8061-4271108dd4b2",
- "hunks": [
-  "0+import { list_sort_generic } from './sort/generic.mjs';\nimport { value_get } from '../value/get.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { list_is } from './is.mjs';\nimport { identity } from '../identity.mjs';\nexport function list_sort(list) {\n    arguments_assert(arguments, [list_is]);\n    let value_get = identity;\n    list_sort_generic(list, value_get, false);\n}"
- ]
-}

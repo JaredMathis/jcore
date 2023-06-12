@@ -1,7 +1,0 @@
-{
- "file_path": "src\\todo.mjs",
- "part_id": "b11cae89-23ed-4595-b916-61c18e582086",
- "hunks": [
-  "0+import { arguments_assert } from './arguments/assert.mjs';\nimport { metadata } from './metadata.mjs';\nimport { comment } from './comment.mjs';\nimport { string_is } from './string/is.mjs';\nexport function todo(message) {\n    arguments_assert(arguments, [string_is]);\n    comment(message);\n    metadata([]);\n}"
- ]
-}

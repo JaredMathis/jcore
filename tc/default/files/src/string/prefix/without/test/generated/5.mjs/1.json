@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\prefix\\without\\test\\generated\\5.mjs",
- "part_id": "90420478-476d-4870-9dc2-a8328cb83c59",
- "hunks": [
-  "0+import { metadata_generated } from '../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { string_prefix_without } from '../../../without.mjs';\nimport { throws } from '../../../../../throws.mjs';\nimport { assert } from '../../../../../assert.mjs';\nexport function string_prefix_without_test_generated_5() {\n    arguments_assert(arguments, []);\n    assert(throws(() => string_prefix_without('b', 'aab')));\n    metadata([metadata_generated()]);\n}"
- ]
-}

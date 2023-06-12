@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\copy\\no\\open.mjs",
- "part_id": "be9a7453-67a4-4382-b345-59cc5b97342d",
- "hunks": [
-  "0+import { string_identifier_is } from '../../../string/identifier/is.mjs';\nimport { function_to_declaration } from '../../to/declaration.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { function_auto_after } from '../../auto/after.mjs';\nimport { js_id_name_set } from '../../../js/id/name/set.mjs';\nimport { function_add_with_declaration } from '../../add/with/declaration.mjs';\nexport async function function_copy_no_open(function_name_to_copy, function_name_of_copy) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        string_identifier_is\n    ]);\n    let fd = await function_to_declaration(function_name_to_copy);\n    js_id_name_set(fd, function_name_of_copy);\n    await function_add_with_declaration(function_name_of_copy, fd);\n    await function_auto_after(function_name_of_copy);\n    metadata([]);\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\version\\write\\all.mjs",
- "part_id": "4a1007cc-b871-48b2-b990-db07ccec897f",
- "hunks": [
-  "0+import { file_delete } from '../../file/delete.mjs';\nimport { file_json_overwrite } from '../../file/json/overwrite.mjs';\nimport { file_exists } from '../../file/exists.mjs';\nimport { assert } from '../../assert.mjs';\nimport { object_property_get } from '../../object/property/get.mjs';\nimport { version_property_contents } from '../property/contents.mjs';\nimport { version_property_file_path } from '../property/file/path.mjs';\nexport async function version_write_all(writes) {\n    let property_file_path = version_property_file_path();\n    let property_contents = version_property_contents();\n    for (let w of writes) {\n        const file_path = object_property_get(w, property_file_path);\n        assert(!await file_exists(file_path));\n    }\n    try {\n        for (let w of writes) {\n            const file_path = object_property_get(w, property_file_path);\n            const contents = object_property_get(w, property_contents);\n            await file_json_overwrite(file_path, contents);\n        }\n    } catch (e) {\n        for (let w of writes) {\n            const file_path = object_property_get(w, property_file_path);\n            if (await file_exists(file_path)) {\n                await file_delete(file_path);\n            }\n        }\n        throw e;\n    }\n}"
- ]
-}

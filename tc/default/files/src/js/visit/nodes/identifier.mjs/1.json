@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\visit\\nodes\\identifier.mjs",
- "part_id": "982c99c9-e2eb-43c1-87ba-45e81d71165a",
- "hunks": [
-  "0+import { function_is } from '../../../function/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { js_visit_nodes } from '../nodes.mjs';\nimport { js_node_is_identifier } from '../../node/is/identifier.mjs';\nimport { js_node_is } from '../../node/is.mjs';\nexport function js_visit_nodes_identifier(parsed, lambda) {\n    arguments_assert(arguments, [\n        js_node_is,\n        function_is\n    ]);\n    js_visit_nodes(parsed, node => js_node_is_identifier(node), lambda);\n    metadata([]);\n}"
- ]
-}

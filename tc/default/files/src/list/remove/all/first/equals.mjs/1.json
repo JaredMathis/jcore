@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\remove\\all\\first\\equals.mjs",
- "part_id": "48e5b814-e4c4-4a10-9e15-1d16a68329e0",
- "hunks": [
-  "0+import { list_is } from '../../../is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { list_first_remove } from '../../../first/remove.mjs';\nimport { list_first } from '../../../first.mjs';\nimport { defined_is } from '../../../../defined/is.mjs';\nexport function list_remove_all_first_equals(args, value) {\n    arguments_assert(arguments, [\n        list_is,\n        defined_is\n    ]);\n    while (list_first(args) === value) {\n        list_first_remove(args);\n    }\n    metadata([]);\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\arguments\\assert\\test\\4.mjs",
- "part_id": "197f893e-ed99-40ab-90f9-6033fa1bc315",
- "hunks": [
-  "0+import { metadata_arguments_assert_extra_allow } from '../../../metadata/arguments/assert/extra/allow.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { comment } from '../../../comment.mjs';\nimport { integer_is } from '../../../integer/is.mjs';\nimport { throws } from '../../../throws.mjs';\nimport { arguments_assert } from '../../assert.mjs';\nexport function arguments_assert_test_4() {\n    arguments_assert(arguments, []);\n    comment('wrong type (string is not a number)');\n    throws(() => arguments_assert([`1`], [integer_is]));\n    metadata([metadata_arguments_assert_extra_allow()]);\n}"
- ]
-}

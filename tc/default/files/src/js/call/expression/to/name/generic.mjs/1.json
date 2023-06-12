@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\call\\expression\\to\\name\\generic.mjs",
- "part_id": "9ee74da5-3a67-46cb-82d9-85fade7b554e",
- "hunks": [
-  "0+import { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { object_property_get } from '../../../../../object/property/get.mjs';\nimport { assert } from '../../../../../assert.mjs';\nimport { js_node_is_identifier } from '../../../../node/is/identifier.mjs';\nimport { boolean_is } from '../../../../../boolean/is.mjs';\nimport { js_node_is_call_expression } from '../../../../node/is/call/expression.mjs';\nexport function js_call_expression_to_name_generic(ce, or_null) {\n    arguments_assert(arguments, [\n        js_node_is_call_expression,\n        boolean_is\n    ]);\n    let callee = object_property_get(ce, 'callee');\n    if (or_null) {\n        if (!js_node_is_identifier(callee)) {\n            return null;\n        }\n    }\n    assert(js_node_is_identifier(callee));\n    let name = object_property_get(callee, 'name');\n    return name;\n    metadata([]);\n}"
- ]
-}

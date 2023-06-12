@@ -1,7 +1,0 @@
-{
- "file_path": "src\\arguments\\assert\\todo.mjs",
- "part_id": "c3c01996-4440-46ed-98e5-e72569854070",
- "hunks": [
-  "0+import { tautology } from '../../tautology.mjs';\nimport { arguments_assert } from '../assert.mjs';\nexport function arguments_assert_todo(value) {\n    arguments_assert(arguments, [() => true]);\n    return tautology(value);\n}"
- ]
-}

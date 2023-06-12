@@ -1,7 +1,0 @@
-{
- "file_path": "src\\visit.mjs",
- "part_id": "3703a988-94a4-4288-be03-8a17cd593f94",
- "hunks": [
-  "0+import { metadata_generated } from './metadata/generated.mjs';\nimport { metadata } from './metadata.mjs';\nimport { visit_recursive } from './visit/recursive.mjs';\nimport { function_is } from './function/is.mjs';\nimport { defined_is } from './defined/is.mjs';\nimport { arguments_assert } from './arguments/assert.mjs';\nexport function visit(root, children_get, lambda_local) {\n    arguments_assert(arguments, [\n        defined_is,\n        function_is,\n        function_is\n    ]);\n    visit_recursive(root, children_get, lambda_local, [], []);\n    metadata([metadata_generated()]);\n}"
- ]
-}

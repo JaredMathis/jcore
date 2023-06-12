@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\function\\name\\to\\export.mjs",
- "part_id": "2674596e-e246-45c7-949a-c497cb5ea778",
- "hunks": [
-  "0+import { string_identifier_is } from '../../../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { string_empty } from '../../../../string/empty.mjs';\nimport { js_code_export_function } from '../../../code/export/function.mjs';\nexport function js_function_name_to_export(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let function_statements_code = string_empty();\n    return js_code_export_function(function_name, function_statements_code);\n    metadata([]);\n}"
- ]
-}

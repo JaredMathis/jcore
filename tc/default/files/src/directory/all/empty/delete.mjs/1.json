@@ -1,7 +1,0 @@
-{
- "file_path": "src\\directory\\all\\empty\\delete.mjs",
- "part_id": "a35dccc4-13d7-47b9-aa1b-50c788d3bf44",
- "hunks": [
-  "0+import { directory_all_empty_count } from './count.mjs';\nimport { equal } from '../../../equal.mjs';\nimport { directory_delete_if_empty_recursive } from '../../delete/if/empty/recursive.mjs';\nimport { directory_current_to_source } from '../../current/to/source.mjs';\nimport { directory_read_directories } from '../../read/directories.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { path_exists } from '../../../path/exists.mjs';\nimport { assert } from '../../../assert.mjs';\nexport async function directory_all_empty_delete() {\n    arguments_assert(arguments, []);\n    let result = await directory_read_directories(directory_current_to_source());\n    for (let directory_path of result) {\n        if (!await path_exists(directory_path)) {\n            continue;\n        }\n        await directory_delete_if_empty_recursive(directory_path);\n    }\n    assert(equal(await directory_all_empty_count(), 0));\n}"
- ]
-}

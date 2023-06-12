@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\code\\call\\expression\\with\\args\\code.mjs",
- "part_id": "092e4672-2099-4615-86ad-395c625227dc",
- "hunks": [
-  "0+import { arguments_assert } from '../../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../../metadata.mjs';\nimport { string_is } from '../../../../../../string/is.mjs';\nexport function js_code_call_expression_with_args_code(name, args) {\n    arguments_assert(arguments, [\n        string_is,\n        string_is\n    ]);\n    return `${ name }(${ args })`;\n    metadata([]);\n}"
- ]
-}

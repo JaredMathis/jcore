@@ -1,7 +1,0 @@
-{
- "file_path": "src\\data\\git\\commit\\message\\set.mjs",
- "part_id": "ca463ec8-dd8a-48fe-b59a-4f3c8802e700",
- "hunks": [
-  "0+import { string_is } from '../../../../string/is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { git_data_commit_message } from '../../../../git/data/commit/message.mjs';\nimport { data_key_value_set } from '../../../key/value/set.mjs';\nexport async function data_git_commit_message_set(message) {\n    arguments_assert(arguments, [string_is]);\n    await data_key_value_set(git_data_commit_message(), message);\n    metadata([]);\n}"
- ]
-}

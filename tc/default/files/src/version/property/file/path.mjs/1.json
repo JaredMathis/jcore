@@ -1,7 +1,0 @@
-{
- "file_path": "src\\version\\property\\file\\path.mjs",
- "part_id": "4abf83d8-0238-4d92-ae0f-29d97f26dc6d",
- "hunks": [
-  "0+export function version_property_file_path() {\n    return 'file_path';\n}"
- ]
-}

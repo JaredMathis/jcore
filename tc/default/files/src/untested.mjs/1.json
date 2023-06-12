@@ -1,7 +1,0 @@
-{
- "file_path": "src\\untested.mjs",
- "part_id": "ba7b691d-85dc-4b86-981a-755da67eda1b",
- "hunks": [
-  "0+import { function_name_all_tests_not } from './function/name/all/tests/not.mjs';\nimport { arguments_assert } from './arguments/assert.mjs';\nimport { metadata } from './metadata.mjs';\nimport { list_filter_async } from './list/filter/async.mjs';\nimport { list_take } from './list/take.mjs';\nimport { function_tests_count } from './function/tests/count.mjs';\nimport { log } from './log.mjs';\nexport async function untested() {\n    arguments_assert(arguments, []);\n    let maximum_untested_display = 10;\n    let function_names = await function_name_all_tests_not();\n    let filtered = await list_filter_async(function_names, async f => await function_tests_count(f) === 0);\n    let limited = list_take(filtered, maximum_untested_display);\n    for (let function_name of limited) {\n        log(function_name);\n    }\n    metadata([]);\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\name\\all.mjs",
- "part_id": "ffbcfb73-796f-4f4a-b900-bdb97de19436",
- "hunks": [
-  "0+import { file_js_path_all_to_name } from '../../file/js/path/all/to/name.mjs';\nimport { file_js_all_path } from '../../file/js/all/path.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nexport async function function_name_all() {\n    arguments_assert(arguments, []);\n    let paths = await file_js_all_path();\n    let names = file_js_path_all_to_name(paths);\n    return names;\n    metadata([]);\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\name\\to\\tests\\values.mjs",
- "part_id": "36e26185-9551-47fa-9628-f9ed97e32dc8",
- "hunks": [
-  "0+export function function_name_to_tests_values(n) {\n    let ending = '_test_values';\n    return n + ending;\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\file\\js\\all\\path.mjs",
- "part_id": "71873ad1-32a6-4ef5-93a2-e8cf92a8a90f",
- "hunks": [
-  "0+import { directory_current_to_source } from '../../../directory/current/to/source.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { directory_read } from '../../../directory/read.mjs';\nimport { list_filter } from '../../../list/filter.mjs';\nimport { string_ends_with } from '../../../string/ends/with.mjs';\nimport { function_extension } from '../../../function/extension.mjs';\nexport async function file_js_all_path() {\n    arguments_assert(arguments, []);\n    let result = await directory_read(directory_current_to_source());\n    let filtered = list_filter(result, a => string_ends_with(a, function_extension()));\n    return filtered;\n    metadata([]);\n}"
- ]
-}

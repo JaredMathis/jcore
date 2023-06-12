@@ -1,7 +1,0 @@
-{
- "file_path": "src\\visit\\async.mjs",
- "part_id": "5aff1e4c-d529-4c00-954c-01497ec64fe6",
- "hunks": [
-  "0+import { function_is } from '../function/is.mjs';\nimport { defined_is } from '../defined/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { visit_recursive_async } from './recursive/async.mjs';\nimport { metadata } from '../metadata.mjs';\nexport async function visit_async(root, children_get, lambda_local) {\n    arguments_assert(arguments, [\n        defined_is,\n        function_is,\n        function_is\n    ]);\n    await visit_recursive_async(root, children_get, lambda_local, [], []);\n    metadata([]);\n}"
- ]
-}

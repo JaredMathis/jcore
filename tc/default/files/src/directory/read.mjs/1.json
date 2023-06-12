@@ -1,7 +1,0 @@
-{
- "file_path": "src\\directory\\read.mjs",
- "part_id": "ebc1b54e-0d8d-42d5-bb8d-d88281a6c442",
- "hunks": [
-  "0+import { path_is } from '../path/is.mjs';\nimport { directory_read_recursive } from './read/recursive.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { comment } from '../comment.mjs';\ncomment('From: https://gist.github.com/kethinov/6658166');\nexport async function directory_read(dir) {\n    arguments_assert(arguments, [path_is]);\n    return await directory_read_recursive(dir, []);\n    metadata([]);\n}"
- ]
-}

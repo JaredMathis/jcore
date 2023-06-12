@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\take.mjs",
- "part_id": "683f93e6-14e1-43a2-91c2-767332977183",
- "hunks": [
-  "0+import { string_sub } from './sub.mjs';\nexport function string_take(input, count) {\n    return string_sub(input, 0, count);\n}"
- ]
-}

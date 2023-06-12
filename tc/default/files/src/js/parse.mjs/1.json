@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\parse.mjs",
- "part_id": "e3c1d19c-5db3-4f75-9c21-fb7f8b18d2bb",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { try_catch } from '../try/catch.mjs';\nimport { Parser } from 'acorn';\nimport { string_is } from '../string/is.mjs';\nexport function js_parse(unparsed) {\n    arguments_assert(arguments, [string_is]);\n    return try_catch(js_parse, lambda, unparsed);\n    function lambda() {\n        let parsed = Parser.parse(unparsed, {\n            sourceType: 'module',\n            ecmaVersion: '2020'\n        });\n        return parsed;\n    }\n    metadata([]);\n}"
- ]
-}

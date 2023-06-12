@@ -1,7 +1,0 @@
-{
- "file_path": "src\\version\\file\\difference.mjs",
- "part_id": "725a04d1-65ad-4980-a1f0-91a004ce7a67",
- "hunks": [
-  "0+import { version_file_difference_generic } from './difference/generic.mjs';\nimport { file_read } from '../../file/read.mjs';\nimport { path_is } from '../../path/is.mjs';\nimport { string_identifier_is } from '../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nexport async function version_file_difference(repository_name, file_path) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        path_is\n    ]);\n    return await version_file_difference_generic(repository_name, file_path, file_read);\n}"
- ]
-}

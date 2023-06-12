@@ -1,7 +1,0 @@
-{
- "file_path": "src\\database\\reference\\set.mjs",
- "part_id": "8a614abb-7d27-45f8-ae8c-7a450cfdebe0",
- "hunks": [
-  "0+export async function database_reference_set(transaction, reference, document_data) {\n    return transaction.set(reference, document_data);\n}"
- ]
-}

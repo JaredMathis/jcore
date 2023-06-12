@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\difference\\removed.mjs",
- "part_id": "0c39d42c-522b-4634-a126-96d0f61da78f",
- "hunks": [
-  "0+export function string_difference_removed() {\n    return '-';\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\search.mjs",
- "part_id": "04214da7-96ee-4697-87e4-5b5234ef5c0d",
- "hunks": [
-  "0+import { string_identifier_sub_is } from '../string/identifier/sub/is.mjs';\nimport { list_single } from '../list/single.mjs';\nimport { list_length_is_1 } from '../list/length/is/1.mjs';\nimport { list_filter } from '../list/filter.mjs';\nimport { function_name_all } from './name/all.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { string_includes } from '../string/includes.mjs';\nexport async function function_search(query) {\n    arguments_assert(arguments, [string_identifier_sub_is]);\n    const all = await function_name_all();\n    let substrings = list_filter(all, a => {\n        return string_includes(a, query);\n    });\n    if (list_length_is_1(substrings)) {\n        return list_single(substrings);\n    }\n    return substrings;\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\directory\\current\\to\\source.mjs",
- "part_id": "1a08c4e2-adca-4a09-be09-5ef883e2864b",
- "hunks": [
-  "0+import { directory_current_with_separator } from '../with/separator.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { directory_source } from '../../source.mjs';\nexport function directory_current_to_source() {\n    arguments_assert(arguments, []);\n    return `${ directory_current_with_separator() }${ directory_source() }`;\n}"
- ]
-}

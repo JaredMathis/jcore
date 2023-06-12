@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\remove\\at.mjs",
- "part_id": "918c03e8-39cf-4b4a-ac92-177510a4a69e",
- "hunks": [
-  "0+import { integer_is } from '../../integer/is.mjs';\nimport { list_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { assert } from '../../assert.mjs';\nimport { list_index_valid } from '../index/valid.mjs';\nexport function list_remove_at(list, index) {\n    arguments_assert(arguments, [\n        list_is,\n        integer_is\n    ]);\n    assert(list_index_valid(list, index));\n    list.splice(index, 1);\n    metadata([]);\n}"
- ]
-}

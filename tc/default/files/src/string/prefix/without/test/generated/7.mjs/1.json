@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\prefix\\without\\test\\generated\\7.mjs",
- "part_id": "1ae520dc-485c-4029-a8d7-913ae0cb774b",
- "hunks": [
-  "0+import { metadata_generated } from '../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { json_equal } from '../../../../../json/equal.mjs';\nimport { assert } from '../../../../../assert.mjs';\nimport { string_prefix_without } from '../../../without.mjs';\nexport function string_prefix_without_test_generated_7() {\n    arguments_assert(arguments, []);\n    let expected = 'a';\n    let actual = string_prefix_without('aa', 'a');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
- ]
-}

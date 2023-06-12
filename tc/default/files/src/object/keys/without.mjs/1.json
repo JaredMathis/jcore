@@ -1,7 +1,0 @@
-{
- "file_path": "src\\object\\keys\\without.mjs",
- "part_id": "86a51e74-1ab8-474a-94e0-54513cd9ded7",
- "hunks": [
-  "0+import { defined_is } from '../../defined/is.mjs';\nimport { equal_not } from '../../equal/not.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { list_filter } from '../../list/filter.mjs';\nimport { object_properties } from '../properties.mjs';\nimport { list_is } from '../../list/is.mjs';\nexport function object_keys_without(value, excluded) {\n    arguments_assert(arguments, [\n        defined_is,\n        list_is\n    ]);\n    let all = object_properties(value);\n    let filtered = list_filter(all, v => equal_not(v, excluded));\n    return filtered;\n}"
- ]
-}

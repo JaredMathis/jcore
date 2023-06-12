@@ -1,7 +1,0 @@
-{
- "file_path": "src\\path\\parent.mjs",
- "part_id": "c0c88b1c-0461-463a-b21a-721929b34bc9",
- "hunks": [
-  "0+import { path_is } from './is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { list_last_remove } from '../list/last/remove.mjs';\nimport { file_path_split } from '../file/path/split.mjs';\nimport { path_join } from './join.mjs';\nexport function path_parent(file_path) {\n    arguments_assert(arguments, [path_is]);\n    let split = file_path_split(file_path);\n    list_last_remove(split);\n    let directory_path = path_join(split);\n    return directory_path;\n    metadata([]);\n}"
- ]
-}

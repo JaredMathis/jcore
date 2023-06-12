@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\extension.mjs",
- "part_id": "ebca7951-bd0f-49e5-a704-7f436cd9d580",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { file_extension_separator } from '../file/extension/separator.mjs';\nexport function function_extension() {\n    arguments_assert(arguments, []);\n    return file_extension_separator() + 'mjs';\n    metadata([]);\n}"
- ]
-}

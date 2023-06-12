@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\auto\\after\\refactors\\first.mjs",
- "part_id": "56980d9d-30d4-47f8-bce4-3b61a11c874d",
- "hunks": [
-  "0+import { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { refactor_import_fix } from '../../../../refactor/import/fix.mjs';\nimport { js_mapper_args_to_statement_arguments_assert } from '../../../../js/mapper/args/to/statement/arguments/assert.mjs';\nexport function function_auto_after_refactors_first() {\n    arguments_assert(arguments, []);\n    return [\n        js_mapper_args_to_statement_arguments_assert,\n        refactor_import_fix\n    ];\n}"
- ]
-}

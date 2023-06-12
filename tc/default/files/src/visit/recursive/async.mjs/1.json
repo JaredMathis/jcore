@@ -1,7 +1,0 @@
-{
- "file_path": "src\\visit\\recursive\\async.mjs",
- "part_id": "318bfd47-5e90-4959-8342-25c68313b518",
- "hunks": [
-  "0+import { function_is } from '../../function/is.mjs';\nimport { defined_is } from '../../defined/is.mjs';\nimport { list_is } from '../../list/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { visit_recursive_ignore_duplicates_async } from './ignore/duplicates/async.mjs';\nimport { metadata } from '../../metadata.mjs';\nexport async function visit_recursive_async(node, children_get, lambda, stack, visited) {\n    arguments_assert(arguments, [\n        defined_is,\n        function_is,\n        function_is,\n        list_is,\n        list_is\n    ]);\n    let ignore_duplicates = false;\n    await visit_recursive_ignore_duplicates_async(node, children_get, lambda, stack, visited, ignore_duplicates);\n    metadata([]);\n}"
- ]
-}

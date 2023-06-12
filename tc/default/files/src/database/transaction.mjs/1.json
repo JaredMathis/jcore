@@ -1,7 +1,0 @@
-{
- "file_path": "src\\database\\transaction.mjs",
- "part_id": "2f1d4f62-c9fa-49a1-9e18-a71e7016a304",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { arguments_assert_todo } from '../arguments/assert/todo.mjs';\nimport { function_is } from '../function/is.mjs';\nexport async function database_transaction(db, transaction_lambda) {\n    arguments_assert(arguments, [\n        arguments_assert_todo,\n        function_is\n    ]);\n    return await db.runTransaction(transaction_lambda);\n}"
- ]
-}

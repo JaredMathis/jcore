@@ -1,7 +1,0 @@
-{
- "file_path": "src\\file\\js\\all\\identifier\\exists.mjs",
- "part_id": "cbe1f01e-a876-4356-ba5e-843213f2abc7",
- "hunks": [
-  "0+import { string_identifier_is } from '../../../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { list_add_if_not_exists } from '../../../../list/add/if/not/exists.mjs';\nimport { list_contains } from '../../../../list/contains.mjs';\nimport { js_identifiers } from '../../../../js/identifiers.mjs';\nimport { file_js_parse } from '../../parse.mjs';\nimport { file_js_all_path } from '../path.mjs';\nexport async function file_js_all_identifier_exists(identifier_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    let all = await file_js_all_path();\n    let result = [];\n    for (let a of all) {\n        let parsed = await file_js_parse(a);\n        let identifiers = js_identifiers(parsed);\n        for (let i of identifiers) {\n            list_add_if_not_exists(result, i);\n        }\n    }\n    return list_contains(result, identifier_name);\n    metadata([]);\n}"
- ]
-}

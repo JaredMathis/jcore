@@ -1,7 +1,0 @@
-{
- "file_path": "src\\data\\task\\id\\set\\hash.mjs",
- "part_id": "561aaf62-9192-46a3-8da5-cf716285650a",
- "hunks": [
-  "0+import { metadata } from '../../../../metadata.mjs';\nimport { string_is } from '../../../../string/is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { data_task_id_set } from '../set.mjs';\nexport async function data_task_id_set_hash(data_id) {\n    arguments_assert(arguments, [string_is]);\n    let hashed = '#' + data_id;\n    await data_task_id_set(hashed);\n    metadata([]);\n}"
- ]
-}

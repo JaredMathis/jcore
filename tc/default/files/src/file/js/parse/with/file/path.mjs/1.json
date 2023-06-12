@@ -1,7 +1,0 @@
-{
- "file_path": "src\\file\\js\\parse\\with\\file\\path.mjs",
- "part_id": "3d17ca02-bd27-4c91-8716-8296215eeff6",
- "hunks": [
-  "0+import { path_is } from '../../../../../path/is.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { js_parse } from '../../../../../js/parse.mjs';\nimport { file_read } from '../../../../read.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nexport async function file_js_parse_with_file_path(file_path) {\n    arguments_assert(arguments, [path_is]);\n    let unparsed = await file_read(file_path);\n    let parsed = js_parse(unparsed);\n    return {\n        unparsed,\n        parsed\n    };\n    metadata([]);\n}"
- ]
-}

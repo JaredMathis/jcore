@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\index\\valid.mjs",
- "part_id": "b1d71c11-b3e1-420d-ac5b-bb9195a01983",
- "hunks": [
-  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { list_last_index } from '../last/index.mjs';\nimport { list_is } from '../is.mjs';\nimport { integer_is } from '../../integer/is.mjs';\nexport function list_index_valid(list, index) {\n    arguments_assert(arguments, [\n        list_is,\n        integer_is\n    ]);\n    return index >= 0 && index <= list_last_index(list);\n    metadata([]);\n}"
- ]
-}

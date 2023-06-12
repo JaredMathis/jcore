@@ -1,7 +1,0 @@
-{
- "file_path": "src\\integer\\parsable.mjs",
- "part_id": "06a8e384-575c-4740-9001-57d0f782fda9",
- "hunks": [
-  "0+import { integer_parse_try } from './parse/try.mjs';\nimport { string_is } from '../string/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { number_nan_is_not } from '../number/nan/is/not.mjs';\nexport function integer_parsable(input) {\n    arguments_assert(arguments, [string_is]);\n    return number_nan_is_not(integer_parse_try(input));\n    metadata([]);\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\version\\commit\\data.mjs",
- "part_id": "193c2920-3806-4658-88c1-3908b2902f90",
- "hunks": [
-  "0+import { list_to } from '../../list/to.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { function_name_get } from '../../function/name/get.mjs';\nimport { defined_is } from '../../defined/is.mjs';\nimport { function_is } from '../../function/is.mjs';\nexport function version_commit_data(fn, args) {\n    arguments_assert(arguments, [\n        function_is,\n        defined_is\n    ]);\n    return {\n        command: function_name_get(fn),\n        args: list_to(args)\n    };\n}"
- ]
-}

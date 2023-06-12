@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\function\\delcaration\\to\\statement\\first.mjs",
- "part_id": "9970f8a8-a19b-4979-9d3c-9987f5e33470",
- "hunks": [
-  "0+import { js_node_is_function_declaration } from '../../../../node/is/function/declaration.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { list_first } from '../../../../../list/first.mjs';\nimport { js_function_delcaration_to_statements } from '../statements.mjs';\nexport function js_function_delcaration_to_statement_first(function_declaration) {\n    arguments_assert(arguments, [js_node_is_function_declaration]);\n    let statements = js_function_delcaration_to_statements(function_declaration);\n    let statement_first = list_first(statements);\n    return statement_first;\n}"
- ]
-}

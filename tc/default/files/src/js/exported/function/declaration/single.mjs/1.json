@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\exported\\function\\declaration\\single.mjs",
- "part_id": "a5f59b7e-4d2b-43dc-8da2-751f77fc580d",
- "hunks": [
-  "0+import { js_node_is_program } from '../../../node/is/program.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { list_single } from '../../../../list/single.mjs';\nimport { js_exported_function_declarations } from '../declarations.mjs';\nexport function js_exported_function_declaration_single(parsed) {\n    arguments_assert(arguments, [js_node_is_program]);\n    let declarations = js_exported_function_declarations(parsed);\n    let result = list_single(declarations);\n    return result;\n    metadata([]);\n}"
- ]
-}

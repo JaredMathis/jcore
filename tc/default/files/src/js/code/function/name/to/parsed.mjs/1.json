@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\code\\function\\name\\to\\parsed.mjs",
- "part_id": "0cab644b-fd77-4e84-be23-9e286ad46557",
- "hunks": [
-  "0+import { string_identifier_is } from '../../../../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { js_function_name_to_export } from '../../../../function/name/to/export.mjs';\nimport { js_parse } from '../../../../parse.mjs';\nexport function js_code_function_name_to_parsed(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    return js_parse(js_function_name_to_export(function_name));\n    metadata([]);\n}"
- ]
-}

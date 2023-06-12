@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\function\\declarations\\to\\names.mjs",
- "part_id": "8d7e54e9-f644-46b5-9e99-3d3afe28d4fe",
- "hunks": [
-  "0+import { list_is } from '../../../../list/is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { js_function_declaration_to_name } from '../../declaration/to/name.mjs';\nimport { list_map } from '../../../../list/map.mjs';\nexport function js_function_declarations_to_names(filtered) {\n    arguments_assert(arguments, [list_is]);\n    return list_map(filtered, js_function_declaration_to_name);\n    metadata([]);\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\refactor\\metadata\\add\\named.mjs",
- "part_id": "c7d31020-088f-40be-bc41-ca979797c9cb",
- "hunks": [
-  "0+import { defined_is } from '../../../defined/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { list_add } from '../../../list/add.mjs';\nimport { list_length_is_0 } from '../../../list/length/is/0.mjs';\nimport { assert } from '../../../assert.mjs';\nimport { comment } from '../../../comment.mjs';\nimport { js_parse_call_expression } from '../../../js/parse/call/expression.mjs';\nimport { js_mapper_args_to_metadata_args } from '../../../js/mapper/args/to/metadata/args.mjs';\nimport { string_identifier_is } from '../../../string/identifier/is.mjs';\nimport { js_mapper_args_is } from '../../../js/mapper/args/is.mjs';\nexport async function refactor_metadata_add_named(args, metadata_function_name) {\n    arguments_assert(arguments, [\n        js_mapper_args_is,\n        string_identifier_is\n    ]);\n    let metadata_args = await js_mapper_args_to_metadata_args(args);\n    let metadata_function_parsed = js_parse_call_expression(metadata_function_name);\n    comment(`If this fails, the code needs enhancing to handle more complex scenarios`);\n    assert(list_length_is_0(metadata_args));\n    list_add(metadata_args, metadata_function_parsed);\n}"
- ]
-}

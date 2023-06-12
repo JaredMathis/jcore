@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\tests\\generate\\if\\starts\\with.mjs",
- "part_id": "5ff5b3d5-3896-4cd4-8a4f-c3579047ea2e",
- "hunks": [
-  "0+import { function_name_all_tests_not } from '../../../../name/all/tests/not.mjs';\nimport { function_tests_generate_after } from '../../after.mjs';\nimport { function_tests_generate_generic } from '../../generic.mjs';\nimport { string_starts_with } from '../../../../../string/starts/with.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { string_identifier_sub_is } from '../../../../../string/identifier/sub/is.mjs';\nimport { list_filter } from '../../../../../list/filter.mjs';\nexport async function function_tests_generate_if_starts_with(prefix) {\n    arguments_assert(arguments, [string_identifier_sub_is]);\n    let names = await function_name_all_tests_not();\n    let starts_with = list_filter(names, n => string_starts_with(n, prefix));\n    for (let function_name of starts_with) {\n        await function_tests_generate_generic(function_name);\n    }\n    await function_tests_generate_after();\n}"
- ]
-}

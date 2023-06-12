@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\sub\\max\\property\\offset.mjs",
- "part_id": "1dd258c7-be3c-4d02-968b-54c172aa33dc",
- "hunks": [
-  "0+export function string_sub_max_property_offset() {\n    return 'offset';\n}"
- ]
-}

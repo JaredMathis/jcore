@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\is\\test\\values.mjs",
- "part_id": "6790db0a-c803-4a26-8096-b2b1bda8e195",
- "hunks": [
-  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { string_empty } from '../../empty.mjs';\nimport { string_a } from '../../a.mjs';\nexport function string_is_test_values() {\n    arguments_assert(arguments, []);\n    let aa = `${ string_a() }${ string_a() }`;\n    return [\n        string_empty(),\n        string_a(),\n        `b`,\n        aa,\n        `${ aa }b`\n    ];\n}"
- ]
-}

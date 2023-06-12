@@ -1,7 +1,0 @@
-{
- "file_path": "src\\directory\\all\\empty\\count.mjs",
- "part_id": "d36d24f7-b8ff-4ee3-a793-73564b1d392f",
- "hunks": [
-  "0+import { list_filter_async } from '../../../list/filter/async.mjs';\nimport { directory_current_to_source } from '../../current/to/source.mjs';\nimport { directory_read_directories } from '../../read/directories.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { directory_empty_is } from '../../empty/is.mjs';\nimport { list_length } from '../../../list/length.mjs';\nexport async function directory_all_empty_count() {\n    arguments_assert(arguments, []);\n    let directories = await directory_read_directories(directory_current_to_source());\n    let empties = await list_filter_async(directories, directory_empty_is);\n    let count = list_length(empties);\n    return count;\n}"
- ]
-}

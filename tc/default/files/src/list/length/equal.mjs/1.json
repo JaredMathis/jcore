@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\length\\equal.mjs",
- "part_id": "89b9bbdf-3838-4cab-8d88-ee320ada1fd4",
- "hunks": [
-  "0+import { list_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { list_length } from '../length.mjs';\nexport function list_length_equal(a, b) {\n    arguments_assert(arguments, [\n        list_is,\n        list_is\n    ]);\n    let a_length = list_length(a);\n    let b_length = list_length(b);\n    return a_length === b_length;\n    metadata([]);\n}"
- ]
-}

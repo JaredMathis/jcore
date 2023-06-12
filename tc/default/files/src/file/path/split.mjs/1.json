@@ -1,7 +1,0 @@
-{
- "file_path": "src\\file\\path\\split.mjs",
- "part_id": "33c56ddd-f0fe-4d6e-a158-5a4f9a9244b6",
- "hunks": [
-  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { directory_separator } from '../../directory/separator.mjs';\nimport { string_split } from '../../string/split.mjs';\nimport { path_is } from '../../path/is.mjs';\nexport function file_path_split(file_path) {\n    arguments_assert(arguments, [path_is]);\n    let ds = directory_separator();\n    return string_split(file_path, ds);\n    metadata([]);\n}"
- ]
-}

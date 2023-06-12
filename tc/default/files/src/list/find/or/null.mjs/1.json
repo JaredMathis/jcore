@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\find\\or\\null.mjs",
- "part_id": "5b934157-e016-4dd6-9acd-e770fdb2a04c",
- "hunks": [
-  "0+import { function_is } from '../../../function/is.mjs';\nimport { list_is } from '../../is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { list_find_generic } from '../generic.mjs';\nexport function list_find_or_null(list, predicate) {\n    arguments_assert(arguments, [\n        list_is,\n        function_is\n    ]);\n    let or_null = true;\n    let result = list_find_generic(list, predicate, or_null);\n    return result;\n}"
- ]
-}

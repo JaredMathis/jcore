@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\each\\with\\index\\async.mjs",
- "part_id": "e6b386f3-edde-4a49-b177-93d194f1bcf2",
- "hunks": [
-  "0+import { list_is } from '../../../is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { list_get } from '../../../get.mjs';\nimport { range } from '../../../../range.mjs';\nimport { list_length } from '../../../length.mjs';\nimport { function_is } from '../../../../function/is.mjs';\nexport async function list_each_with_index_async(list, lambda) {\n    arguments_assert(arguments, [\n        list_is,\n        function_is\n    ]);\n    const r = range(list_length(list));\n    for (let index of r) {\n        let element = list_get(list, index);\n        await lambda(element, index);\n    }\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\function\\declaration\\to\\name.mjs",
- "part_id": "e94d2f4b-456b-4ead-8360-331135e7f2ea",
- "hunks": [
-  "0+import { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { js_id_name_get } from '../../../id/name/get.mjs';\nimport { js_node_is_function_declaration } from '../../../node/is/function/declaration.mjs';\nexport function js_function_declaration_to_name(fd) {\n    arguments_assert(arguments, [js_node_is_function_declaration]);\n    return js_id_name_get(fd);\n    metadata([]);\n}"
- ]
-}

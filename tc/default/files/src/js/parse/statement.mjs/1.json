@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\parse\\statement.mjs",
- "part_id": "4b2ee235-8c8e-4dd7-8954-70a753e264b9",
- "hunks": [
-  "0+import { string_is } from '../../string/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { js_parse_statements } from './statements.mjs';\nimport { list_single } from '../../list/single.mjs';\nexport function js_parse_statement(statement_code) {\n    arguments_assert(arguments, [string_is]);\n    let code = js_parse_statements(statement_code);\n    let statement = list_single(code);\n    return statement;\n    metadata([]);\n}"
- ]
-}

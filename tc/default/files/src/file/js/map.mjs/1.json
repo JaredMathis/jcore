@@ -1,7 +1,0 @@
-{
- "file_path": "src\\file\\js\\map.mjs",
- "part_id": "5644ef5f-4ddf-428f-84b6-9b81c2285b1b",
- "hunks": [
-  "0+import { string_identifier_is } from '../../string/identifier/is.mjs';\nimport { path_is } from '../../path/is.mjs';\nimport { file_js_map_with_args } from './map/with/args.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nexport async function file_js_map(function_name_mapper, file_path) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        path_is\n    ]);\n    await file_js_map_with_args(file_path, function_name_mapper, {});\n    metadata([]);\n}"
- ]
-}

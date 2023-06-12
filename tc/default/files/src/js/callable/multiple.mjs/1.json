@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\callable\\multiple.mjs",
- "part_id": "359e8f01-4654-4486-894c-2afcdd2a8e56",
- "hunks": [
-  "0+import { js_node_is_program } from '../node/is/program.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { js_node_is_callable } from '../node/is/callable.mjs';\nimport { js_nodes_count } from '../nodes/count.mjs';\nexport function js_callable_multiple(parsed) {\n    arguments_assert(arguments, [js_node_is_program]);\n    let count = js_nodes_count(parsed, js_node_is_callable);\n    return count >= 2;\n    metadata([]);\n}"
- ]
-}

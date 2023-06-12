@@ -1,7 +1,0 @@
-{
- "file_path": "src\\random\\get.mjs",
- "part_id": "92501601-6e8d-4452-a840-497f8ff02381",
- "hunks": [
-  "0+export function random_get() {\n    return Math.random();\n}"
- ]
-}

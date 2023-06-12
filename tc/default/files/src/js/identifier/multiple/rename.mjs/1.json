@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\identifier\\multiple\\rename.mjs",
- "part_id": "30a5087d-7ceb-49c9-a4e1-e22fb06ca0ca",
- "hunks": [
-  "0+import { js_mapper_args_is } from '../../mapper/args/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { js_identifier_rename } from '../rename.mjs';\nimport { object_each } from '../../../object/each.mjs';\nimport { defined_is } from '../../../defined/is.mjs';\nexport function js_identifier_multiple_rename(dictionary, args) {\n    arguments_assert(arguments, [\n        defined_is,\n        js_mapper_args_is\n    ]);\n    let changed = false;\n    object_each(dictionary, (to, from) => {\n        if (js_identifier_rename(args, from, to)) {\n            changed = true;\n        }\n    });\n    return changed;\n    metadata([]);\n}"
- ]
-}

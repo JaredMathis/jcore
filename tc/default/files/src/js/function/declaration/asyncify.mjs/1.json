@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\function\\declaration\\asyncify.mjs",
- "part_id": "a59d41ae-730b-42fd-bbf7-2bd3ba62700c",
- "hunks": [
-  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { js_keyword_async } from '../../keyword/async.mjs';\nimport { object_property_change } from '../../../object/property/change.mjs';\nimport { js_node_is_function_declaration } from '../../node/is/function/declaration.mjs';\nexport function js_function_declaration_asyncify(fd) {\n    arguments_assert(arguments, [js_node_is_function_declaration]);\n    object_property_change(fd, js_keyword_async(), true);\n    metadata([]);\n}"
- ]
-}

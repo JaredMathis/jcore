@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\difference\\tests.mjs",
- "part_id": "ee54112b-f4cc-4de4-85d8-f22683611c02",
- "hunks": [
-  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { string_is } from '../is.mjs';\nimport { string_difference_get_external } from './get/external.mjs';\nimport { string_difference_apply_external } from './apply/external.mjs';\nexport function string_difference_tests(string_old, string_new) {\n    arguments_assert(arguments, [\n        string_is,\n        string_is\n    ]);\n    let hunks = string_difference_get_external(string_old, string_new);\n    let string_new2 = string_difference_apply_external(string_old, hunks);\n    return string_new2;\n}"
- ]
-}

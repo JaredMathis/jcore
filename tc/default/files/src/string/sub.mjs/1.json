@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\sub.mjs",
- "part_id": "0051040c-48ca-4f52-bc48-9f89ad4ed9c0",
- "hunks": [
-  "0+import { integer_is } from '../integer/is.mjs';\nimport { string_is } from './is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { string_to_list } from './to/list.mjs';\nimport { list_slice } from '../list/slice.mjs';\nimport { list_join } from '../list/join.mjs';\nimport { string_empty } from './empty.mjs';\nexport function string_sub(input, start, end) {\n    arguments_assert(arguments, [\n        string_is,\n        integer_is,\n        integer_is\n    ]);\n    let list = string_to_list(input);\n    let sliced = list_slice(list, start, end);\n    let result = list_join(sliced, string_empty());\n    return result;\n    metadata([]);\n}"
- ]
-}

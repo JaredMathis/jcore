@@ -1,7 +1,0 @@
-{
- "file_path": "src\\file\\js\\all\\identifier\\rename.mjs",
- "part_id": "6b9ac34e-ee8c-4907-9a1b-d49992628219",
- "hunks": [
-  "0+import { list_add_property } from '../../../../list/add/property.mjs';\nimport { string_identifier_is } from '../../../../string/identifier/is.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { js_identifier_rename } from '../../../../js/identifier/rename.mjs';\nimport { file_js_all_map_args } from '../map/args.mjs';\nexport async function file_js_all_identifier_rename(identifier_name_old, identifier_name_new) {\n    arguments_assert(arguments, [\n        string_identifier_is,\n        string_identifier_is\n    ]);\n    let file_paths_changed = [];\n    await file_js_all_map_args(function mapper(args) {\n        let changed = js_identifier_rename(args, identifier_name_old, identifier_name_new);\n        if (changed) {\n            list_add_property(file_paths_changed, args, 'file_path');\n        }\n    });\n    return file_paths_changed;\n    metadata([]);\n}"
- ]
-}

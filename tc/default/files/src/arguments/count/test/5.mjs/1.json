@@ -1,7 +1,0 @@
-{
- "file_path": "src\\arguments\\count\\test\\5.mjs",
- "part_id": "6674a80b-cfe7-4d55-bb1c-d39984123370",
- "hunks": [
-  "0+import { arguments_assert } from '../../assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { throws } from '../../../throws.mjs';\nimport { assert_arguments_count } from '../../../assert/arguments/count.mjs';\nexport function arguments_count_test_5() {\n    arguments_assert(arguments, []);\n    throws(() => assert_arguments_count([\n        1,\n        2\n    ], 1));\n    metadata([]);\n}"
- ]
-}

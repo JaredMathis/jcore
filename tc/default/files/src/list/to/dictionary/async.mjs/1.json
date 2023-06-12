@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\to\\dictionary\\async.mjs",
- "part_id": "b69697d9-6567-46f0-970e-e4c367982569",
- "hunks": [
-  "0+import { object_property_initialize } from '../../../object/property/initialize.mjs';\nexport async function list_to_dictionary_async(keys, key_to_value) {\n    let dictionary = {};\n    for (let key of keys) {\n        let value = await key_to_value(key);\n        object_property_initialize(dictionary, key, value);\n    }\n    return dictionary;\n}"
- ]
-}

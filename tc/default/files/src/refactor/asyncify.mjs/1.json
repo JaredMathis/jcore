@@ -1,7 +1,0 @@
-{
- "file_path": "src\\refactor\\asyncify.mjs",
- "part_id": "05fdb17e-65bf-4d1f-bbde-d295ff488233",
- "hunks": [
-  "0+import { js_mapper_args_is } from '../js/mapper/args/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { js_function_declaration_asyncify } from '../js/function/declaration/asyncify.mjs';\nimport { js_export_function_single } from '../js/export/function/single.mjs';\nexport function refactor_asyncify(args) {\n    arguments_assert(arguments, [js_mapper_args_is]);\n    let {parsed} = args;\n    let fd = js_export_function_single(parsed);\n    js_function_declaration_asyncify(fd);\n    metadata([]);\n}"
- ]
-}

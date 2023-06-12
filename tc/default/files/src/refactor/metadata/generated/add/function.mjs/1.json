@@ -1,7 +1,0 @@
-{
- "file_path": "src\\refactor\\metadata\\generated\\add\\function.mjs",
- "part_id": "42665003-0779-46ab-ade8-9993e552523d",
- "hunks": [
-  "0+import { metadata_generated } from '../../../../metadata/generated.mjs';\nimport { refactor_metadata_add_function } from '../../add/function.mjs';\nexport async function refactor_metadata_generated_add_function(args) {\n    await refactor_metadata_add_function(args, metadata_generated);\n}"
- ]
-}

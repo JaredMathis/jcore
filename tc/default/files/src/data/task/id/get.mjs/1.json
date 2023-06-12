@@ -1,7 +1,0 @@
-{
- "file_path": "src\\data\\task\\id\\get.mjs",
- "part_id": "26bf2310-f4d1-4dfe-abcb-0c92b97200eb",
- "hunks": [
-  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { data_task_id } from '../id.mjs';\nimport { object_property_get } from '../../../object/property/get.mjs';\nimport { data_get } from '../../get.mjs';\nexport async function data_task_id_get() {\n    arguments_assert(arguments, []);\n    let data = await data_get();\n    return object_property_get(data, data_task_id());\n    metadata([]);\n}"
- ]
-}

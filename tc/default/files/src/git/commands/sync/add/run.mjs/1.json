@@ -1,7 +1,0 @@
-{
- "file_path": "src\\git\\commands\\sync\\add\\run.mjs",
- "part_id": "35300059-9421-4830-b7bb-5c16f054e089",
- "hunks": [
-  "0+import { command_line_all } from '../../../../command/line/all.mjs';\nimport { git_commands_sync_add } from '../add.mjs';\nexport async function git_commands_sync_add_run(sync, commands) {\n    if (sync) {\n        git_commands_sync_add(commands);\n    }\n    let c_result = await command_line_all(commands);\n    return c_result;\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\id\\name\\get.mjs",
- "part_id": "51f7d301-e852-4211-a8d5-412502ea0143",
- "hunks": [
-  "0+import { js_node_is } from '../../node/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { js_id_get } from '../get.mjs';\nimport { object_property_get } from '../../../object/property/get.mjs';\nexport function js_id_name_get(fd) {\n    arguments_assert(arguments, [js_node_is]);\n    let id = js_id_get(fd);\n    let name = object_property_get(id, 'name');\n    return name;\n    metadata([]);\n}"
- ]
-}

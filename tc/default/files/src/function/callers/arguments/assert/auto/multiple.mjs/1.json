@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\callers\\arguments\\assert\\auto\\multiple.mjs",
- "part_id": "94c296ac-67c3-44df-ae37-de07875cbfd2",
- "hunks": [
-  "0+import { function_callers_arguments_assert_auto_multiple_list } from './multiple/list.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nexport async function function_callers_arguments_assert_auto_multiple() {\n    arguments_assert(arguments, []);\n    let result = [];\n    let multiple = [\n        'file_js_all_identifier_rename',\n        'file_js_identifier_rename'\n    ];\n    return await function_callers_arguments_assert_auto_multiple_list(multiple, result);\n}"
- ]
-}

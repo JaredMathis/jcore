@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\to\\dictionary.mjs",
- "part_id": "dd531a9e-a94e-4020-863e-60f8f6ef02b0",
- "hunks": [
-  "0+import { metadata_generated } from '../../metadata/generated.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { object_property_initialize } from '../../object/property/initialize.mjs';\nimport { arguments_assert_todo } from '../../arguments/assert/todo.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nexport function list_to_dictionary(keys, key_to_value) {\n    arguments_assert(arguments, [\n        arguments_assert_todo,\n        arguments_assert_todo\n    ]);\n    let dictionary = {};\n    for (let key of keys) {\n        let value = key_to_value(key);\n        object_property_initialize(dictionary, key, value);\n    }\n    return dictionary;\n    metadata([metadata_generated()]);\n}"
- ]
-}

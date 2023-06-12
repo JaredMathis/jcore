@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\arguments\\assert\\default\\count.mjs",
- "part_id": "59b50eb2-bafe-43e0-8709-abe4cf9e8f17",
- "hunks": [
-  "0+import { function_arguments_assert_default_generic } from './generic.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nexport async function function_arguments_assert_default_count() {\n    arguments_assert(arguments, []);\n    let count = 0;\n    await function_arguments_assert_default_generic(on_equals);\n    async function on_equals(function_name) {\n        count++;\n        return false;\n    }\n    return count;\n}"
- ]
-}

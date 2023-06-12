@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\names\\each\\filter.mjs",
- "part_id": "2403f45f-5644-4233-b8d5-448bb4550bcb",
- "hunks": [
-  "0+import { function_is } from '../../is.mjs';\nimport { comment } from '../../../comment.mjs';\nimport { function_name_to_file_path } from '../../name/to/file/path.mjs';\nimport { js_export_function_single } from '../../../js/export/function/single.mjs';\nimport { function_parse } from '../../parse.mjs';\nimport { function_name_all } from '../../name/all.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { list_filter } from '../../../list/filter.mjs';\nexport async function function_names_each_filter(logic, filter) {\n    arguments_assert(arguments, [\n        function_is,\n        function_is\n    ]);\n    const all = await function_name_all();\n    let filtered = list_filter(all, filter);\n    for (let function_name of filtered) {\n        let parsed = await function_parse(function_name);\n        let function_declaration = js_export_function_single(parsed);\n        let file_path = function_name_to_file_path(function_name);\n        comment(`mapper_args code is being duplicated here likely`);\n        let result = await logic({\n            parsed,\n            function_name,\n            function_declaration,\n            file_path\n        });\n        if (result) {\n            return;\n        }\n    }\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\visit.mjs",
- "part_id": "56c4f702-3303-47a1-985c-5685d2d17875",
- "hunks": [
-  "0+import { function_is } from '../function/is.mjs';\nimport { js_node_is_program } from './node/is/program.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { object_properties } from '../object/properties.mjs';\nimport { visit_filter } from '../visit/filter.mjs';\nimport { js_body_get } from './body/get.mjs';\nimport { js_node_is } from './node/is.mjs';\nexport function js_visit(parsed, filter, lambda) {\n    arguments_assert(arguments, [\n        js_node_is,\n        function_is,\n        function_is\n    ]);\n    let root;\n    if (js_node_is_program(parsed)) {\n        root = js_body_get(parsed);\n    } else {\n        root = parsed;\n    }\n    visit_filter(root, node => object_properties(node), filter, lambda);\n    metadata([]);\n}"
- ]
-}

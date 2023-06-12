@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\last\\or\\null.mjs",
- "part_id": "b5a2dc8f-d3dd-437d-a117-03d6214ea974",
- "hunks": [
-  "0+import { list_is } from '../../is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { list_last } from '../../last.mjs';\nimport { list_length } from '../../length.mjs';\nexport function list_last_or_null(list) {\n    arguments_assert(arguments, [list_is]);\n    let parent = null;\n    if (list_length(list) >= 1) {\n        parent = list_last(list);\n    }\n    return parent;\n    metadata([]);\n}"
- ]
-}

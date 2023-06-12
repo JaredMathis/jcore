@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\node\\identifer\\by\\name\\get.mjs",
- "part_id": "d120f4b3-ae90-4086-ab5e-e96d71ca6561",
- "hunks": [
-  "0+import { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { js_node_is_identifier } from '../../../is/identifier.mjs';\nimport { assert } from '../../../../../assert.mjs';\nimport { object_property_get } from '../../../../../object/property/get.mjs';\nimport { js_node_is } from '../../../is.mjs';\nimport { string_identifier_is } from '../../../../../string/identifier/is.mjs';\nexport function js_node_identifer_by_name_get(node, node_identifier_name) {\n    arguments_assert(arguments, [\n        js_node_is,\n        string_identifier_is\n    ]);\n    let id = object_property_get(node, node_identifier_name);\n    assert(js_node_is_identifier(id));\n    return id;\n    metadata([]);\n}"
- ]
-}

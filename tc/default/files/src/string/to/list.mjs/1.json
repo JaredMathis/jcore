@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\to\\list.mjs",
- "part_id": "8d613a4b-88c2-4526-8585-82af322ade36",
- "hunks": [
-  "0+import { string_is } from '../is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { string_split } from '../split.mjs';\nexport function string_to_list(value) {\n    arguments_assert(arguments, [string_is]);\n    return string_split(value, '');\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\log.mjs",
- "part_id": "5aa0d6a6-2fa6-4904-b1e7-1e8fad72b94c",
- "hunks": [
-  "0+import { metadata } from './metadata.mjs';\nexport function log(message) {\n    console.log(message);\n    metadata([]);\n}"
- ]
-}

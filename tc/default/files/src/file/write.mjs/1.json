@@ -1,7 +1,0 @@
-{
- "file_path": "src\\file\\write.mjs",
- "part_id": "e3d1fe0e-f24a-4ac7-892f-014c145b01b9",
- "hunks": [
-  "0+import { string_is } from '../string/is.mjs';\nimport { path_is } from '../path/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { path_exists } from '../path/exists.mjs';\nimport { error } from '../error.mjs';\nimport { file_overwrite } from './overwrite.mjs';\nexport async function file_write(file_path, contents) {\n    arguments_assert(arguments, [\n        path_is,\n        string_is\n    ]);\n    if (await path_exists(file_path)) {\n        error('file already exists: ' + file_path);\n    }\n    await file_overwrite(file_path, contents);\n    metadata([]);\n}"
- ]
-}

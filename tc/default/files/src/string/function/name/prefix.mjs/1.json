@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\function\\name\\prefix.mjs",
- "part_id": "5e4437f8-7f3e-4824-ba4b-5482d4b1917e",
- "hunks": [
-  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { function_name_separator } from '../../../function/name/separator.mjs';\nimport { string_identifier_is } from '../../identifier/is.mjs';\nexport function string_function_name_prefix(function_name) {\n    arguments_assert(arguments, [string_identifier_is]);\n    return function_name + function_name_separator();\n    metadata([]);\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\version\\commit\\files\\all\\removals.mjs",
- "part_id": "4906321f-8dbe-42f0-b07f-fbe9abbdadd7",
- "hunks": [
-  "0+import { directory_read_current } from '../../../../directory/read/current.mjs';\nimport { version_commit_files_all_removals_generic } from './removals/generic.mjs';\nimport { version_write_all } from '../../../write/all.mjs';\nimport { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nexport async function version_commit_files_all_removals(repository_name) {\n    arguments_assert(arguments, [arguments_assert_todo]);\n    let file_paths = await directory_read_current();\n    const commit_data = version_commit_data(version_commit_files_all_removals, arguments);\n    let writes = await version_commit_files_all_removals_generic(repository_name, file_paths, commit_data);\n    await version_write_all(writes);\n    return writes;\n}"
- ]
-}

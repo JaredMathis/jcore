@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\underscore\\is.mjs",
- "part_id": "dbb33896-9a03-4c9e-95d6-c9ce6d4508be",
- "hunks": [
-  "0+import { string_underscore } from '../underscore.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { string_is } from '../is.mjs';\nexport function string_underscore_is(c) {\n    arguments_assert(arguments, [string_is]);\n    return c === string_underscore();\n}"
- ]
-}

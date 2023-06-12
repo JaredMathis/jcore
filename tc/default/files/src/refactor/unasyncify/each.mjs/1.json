@@ -1,7 +1,0 @@
-{
- "file_path": "src\\refactor\\unasyncify\\each.mjs",
- "part_id": "0127652a-871d-4f75-bdc1-76f0e9aa4daa",
- "hunks": [
-  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { object_replace } from '../../object/replace.mjs';\nimport { js_node_property_argument } from '../../js/node/property/argument.mjs';\nimport { object_property_get } from '../../object/property/get.mjs';\nimport { js_node_is_await_expression } from '../../js/node/is/await/expression.mjs';\nimport { js_mapper_args_is } from '../../js/mapper/args/is.mjs';\nexport function refactor_unasyncify_each(v) {\n    arguments_assert(arguments, [js_mapper_args_is]);\n    let {node} = v;\n    if (js_node_is_await_expression(node)) {\n        let arg = object_property_get(node, js_node_property_argument());\n        object_replace(node, arg);\n    }\n    metadata([]);\n}"
- ]
-}

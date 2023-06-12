@@ -1,7 +1,0 @@
-{
- "file_path": "src\\object\\property\\all\\delete.mjs",
- "part_id": "628da457-4e46-4a0a-ab7d-5f6909570004",
- "hunks": [
-  "0+import { defined_is } from '../../../defined/is.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nimport { object_property_remove } from '../remove.mjs';\nimport { object_keys } from '../../keys.mjs';\nexport function object_property_all_delete(node) {\n    arguments_assert(arguments, [defined_is]);\n    for (let key of object_keys(node)) {\n        object_property_remove(node, key);\n    }\n    metadata([]);\n}"
- ]
-}

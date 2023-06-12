@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\underscore\\is\\test\\generated\\4.mjs",
- "part_id": "5bde6219-d71f-42db-96a5-25a820136062",
- "hunks": [
-  "0+import { metadata_generated } from '../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { json_equal } from '../../../../../json/equal.mjs';\nimport { assert } from '../../../../../assert.mjs';\nimport { string_underscore_is } from '../../../is.mjs';\nexport function string_underscore_is_test_generated_4() {\n    arguments_assert(arguments, []);\n    let expected = false;\n    let actual = string_underscore_is('aa');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
- ]
-}

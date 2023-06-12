@@ -1,7 +1,0 @@
-{
- "file_path": "run.mjs",
- "part_id": "cad062b8-2e13-420c-921f-a37479d4bd21",
- "hunks": [
-  "0+Error.stackTraceLimit = Infinity;\n\nimport { run } from \"./src/run.mjs\";\n\nrun();"
- ]
-}

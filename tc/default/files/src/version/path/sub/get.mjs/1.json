@@ -1,7 +1,0 @@
-{
- "file_path": "src\\version\\path\\sub\\get.mjs",
- "part_id": "6f5712bc-c45f-415e-9572-e38db06f3577",
- "hunks": [
-  "0+import { version_path_repository } from '../repository.mjs';\nimport { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { path_join } from '../../../path/join.mjs';\nexport function version_path_sub_get(repository_name, repository_files_directory_name) {\n    arguments_assert(arguments, [\n        arguments_assert_todo,\n        arguments_assert_todo\n    ]);\n    let repository_directory = version_path_repository(repository_name);\n    let repository_sub_path = path_join([\n        repository_directory,\n        repository_files_directory_name\n    ]);\n    return repository_sub_path;\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\file\\name\\json.mjs",
- "part_id": "6ad069a7-c530-4225-a3c5-895708ca4099",
- "hunks": [
-  "0+import { file_extension_json } from '../extension/json.mjs';\nexport function file_name_json(version) {\n    return `${ version }${ file_extension_json() }`;\n}"
- ]
-}

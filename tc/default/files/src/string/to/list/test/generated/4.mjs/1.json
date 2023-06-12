@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\to\\list\\test\\generated\\4.mjs",
- "part_id": "d249a519-e3de-4356-ae30-63cc16cf61a4",
- "hunks": [
-  "0+import { metadata_generated } from '../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../metadata.mjs';\nimport { json_equal } from '../../../../../json/equal.mjs';\nimport { assert } from '../../../../../assert.mjs';\nimport { string_to_list } from '../../../list.mjs';\nexport function string_to_list_test_generated_4() {\n    arguments_assert(arguments, []);\n    let expected = [\n        'a',\n        'a',\n        'b'\n    ];\n    let actual = string_to_list('aab');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
- ]
-}

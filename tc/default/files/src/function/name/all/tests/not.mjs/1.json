@@ -1,7 +1,0 @@
-{
- "file_path": "src\\function\\name\\all\\tests\\not.mjs",
- "part_id": "fec0d2f1-566a-4e7c-9718-2cc5cc174bee",
- "hunks": [
-  "0+import { string_function_tests_name_is } from '../../../../string/function/tests/name/is.mjs';\nimport { list_filter } from '../../../../list/filter.mjs';\nimport { function_name_all } from '../../all.mjs';\nexport async function function_name_all_tests_not() {\n    const all = await function_name_all();\n    let function_names = list_filter(all, a => !string_function_tests_name_is(a));\n    return function_names;\n}"
- ]
-}

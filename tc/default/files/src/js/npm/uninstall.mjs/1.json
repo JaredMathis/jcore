@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\npm\\uninstall.mjs",
- "part_id": "ef5eca4b-3fbe-4742-94b9-6128c14345b1",
- "hunks": [
-  "0+import { command_line } from '../../command/line.mjs';\nimport { string_is } from '../../string/is.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nexport async function js_npm_uninstall(npm_package_name) {\n    arguments_assert(arguments, [string_is]);\n    await command_line(`npm uninstall ${ npm_package_name }`);\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\new\\line.mjs",
- "part_id": "0c4e2fef-7887-433e-b204-d6a852a39405",
- "hunks": [
-  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { comment } from '../../comment.mjs';\ncomment(`New line varies by operating system. Making decision for now to be consistent`);\nexport function string_new_line() {\n    arguments_assert(arguments, []);\n    return '\\n';\n    metadata([]);\n}"
- ]
-}

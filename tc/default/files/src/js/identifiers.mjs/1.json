@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\identifiers.mjs",
- "part_id": "f8f3fab0-56b7-4950-9a1d-9741a1aefe64",
- "hunks": [
-  "0+import { js_node_is_program } from './node/is/program.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { js_identifier_counts } from './identifier/counts.mjs';\nimport { object_keys } from '../object/keys.mjs';\nexport function js_identifiers(parsed) {\n    arguments_assert(arguments, [js_node_is_program]);\n    let counts = js_identifier_counts(parsed);\n    let keys = object_keys(counts);\n    return keys;\n    metadata([]);\n}"
- ]
-}

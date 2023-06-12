@@ -1,7 +1,0 @@
-{
- "file_path": "src\\data\\task\\id\\set.mjs",
- "part_id": "364fe7a7-fa5c-4ef9-89e0-6c9da65c52d0",
- "hunks": [
-  "0+import { metadata } from '../../../metadata.mjs';\nimport { arguments_assert } from '../../../arguments/assert.mjs';\nimport { string_is } from '../../../string/is.mjs';\nimport { data_key_value_set } from '../../key/value/set.mjs';\nimport { data_task_id } from '../id.mjs';\nexport async function data_task_id_set(task_id) {\n    arguments_assert(arguments, [string_is]);\n    await data_key_value_set(data_task_id(), task_id);\n    metadata([]);\n}"
- ]
-}

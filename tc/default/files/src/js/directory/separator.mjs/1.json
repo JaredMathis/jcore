@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\directory\\separator.mjs",
- "part_id": "54bb4a37-ad64-407f-a149-c90c4fc86279",
- "hunks": [
-  "0+import { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nexport function js_directory_separator() {\n    arguments_assert(arguments, []);\n    return '/';\n    metadata([]);\n}"
- ]
-}

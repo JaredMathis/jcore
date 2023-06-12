@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\node\\is\\expression\\statement.mjs",
- "part_id": "f1331319-ee56-47d6-a02b-e52239712d66",
- "hunks": [
-  "0+import { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../metadata.mjs';\nimport { js_node_is_type } from '../type.mjs';\nimport { js_node_is } from '../../is.mjs';\nexport function js_node_is_expression_statement(node) {\n    arguments_assert(arguments, [js_node_is]);\n    return js_node_is_type(node, 'ExpressionStatement');\n    metadata([]);\n}"
- ]
-}

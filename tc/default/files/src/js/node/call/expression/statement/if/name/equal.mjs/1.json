@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\node\\call\\expression\\statement\\if\\name\\equal.mjs",
- "part_id": "6815cca8-85db-4e8d-b0cd-eaaf1222e98d",
- "hunks": [
-  "0+import { function_is } from '../../../../../../../function/is.mjs';\nimport { defined_is } from '../../../../../../../defined/is.mjs';\nimport { arguments_assert } from '../../../../../../../arguments/assert.mjs';\nimport { js_node_call_expression_if_name_equal } from '../../../if/name/equal.mjs';\nimport { js_node_is_call_expression } from '../../../../../is/call/expression.mjs';\nimport { js_node_property_expression } from '../../../../../property/expression.mjs';\nimport { object_property_get } from '../../../../../../../object/property/get.mjs';\nimport { js_node_is_expression_statement } from '../../../../../is/expression/statement.mjs';\nimport { js_node_is } from '../../../../../is.mjs';\nexport function js_node_call_expression_statement_if_name_equal(statement, name_expected, on_name_equal) {\n    arguments_assert(arguments, [\n        js_node_is,\n        defined_is,\n        function_is\n    ]);\n    if (js_node_is_expression_statement(statement)) {\n        let expression = object_property_get(statement, js_node_property_expression());\n        if (js_node_is_call_expression(expression)) {\n            js_node_call_expression_if_name_equal(expression, name_expected, on_name_equal);\n        }\n    }\n}"
- ]
-}

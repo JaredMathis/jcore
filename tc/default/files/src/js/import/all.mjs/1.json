@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\import\\all.mjs",
- "part_id": "d8c90f56-a915-4ffd-95b5-9cf68752abc2",
- "hunks": [
-  "0+import { js_node_is_program } from '../node/is/program.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { metadata } from '../../metadata.mjs';\nimport { js_node_is_import_declaration } from '../node/is/import/declaration.mjs';\nimport { list_filter } from '../../list/filter.mjs';\nimport { js_body_get } from '../body/get.mjs';\nexport function js_import_all(parsed) {\n    arguments_assert(arguments, [js_node_is_program]);\n    let body = js_body_get(parsed);\n    let import_all = list_filter(body, b => js_node_is_import_declaration(b));\n    return import_all;\n    metadata([]);\n}"
- ]
-}

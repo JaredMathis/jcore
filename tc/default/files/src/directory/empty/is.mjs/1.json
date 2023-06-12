@@ -1,7 +1,0 @@
-{
- "file_path": "src\\directory\\empty\\is.mjs",
- "part_id": "3319c465-1447-449b-a25d-5eebca60484d",
- "hunks": [
-  "0+import { equal } from '../../equal.mjs';\nimport { list_length } from '../../list/length.mjs';\nimport { directory_read_non_recursive } from '../read/non/recursive.mjs';\nexport async function directory_empty_is(directory_path) {\n    let file_paths = await directory_read_non_recursive(directory_path);\n    let count = list_length(file_paths);\n    const is_empty = equal(count, 0);\n    return is_empty;\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\difference\\get\\external\\test\\generated\\5.mjs",
- "part_id": "f6298639-570d-4b68-99a7-25ba277fb685",
- "hunks": [
-  "0+import { metadata_generated } from '../../../../../../metadata/generated.mjs';\nimport { arguments_assert } from '../../../../../../arguments/assert.mjs';\nimport { metadata } from '../../../../../../metadata.mjs';\nimport { json_equal } from '../../../../../../json/equal.mjs';\nimport { assert } from '../../../../../../assert.mjs';\nimport { string_difference_get_external } from '../../../external.mjs';\nexport function string_difference_get_external_test_generated_5() {\n    arguments_assert(arguments, []);\n    let expected = [{\n            'oldStart': 1,\n            'oldLines': 1,\n            'newStart': 1,\n            'newLines': 0,\n            'lines': [\n                '-b',\n                '\\\\ No newline at end of file'\n            ],\n            'linedelimiters': [\n                '\\n',\n                '\\n'\n            ]\n        }];\n    let actual = string_difference_get_external('b', '');\n    assert(json_equal(actual, expected));\n    metadata([metadata_generated()]);\n}"
- ]
-}

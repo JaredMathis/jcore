@@ -1,7 +1,0 @@
-{
- "file_path": "src\\value\\new.mjs",
- "part_id": "52ff3a7f-d9fc-40fb-980a-85387cd12d9e",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nexport function value_new() {\n    arguments_assert(arguments, []);\n    return {\n        value: undefined,\n        set: false\n    };\n    metadata([]);\n}"
- ]
-}

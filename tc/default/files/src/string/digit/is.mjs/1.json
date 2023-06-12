@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\digit\\is.mjs",
- "part_id": "09bd1245-a87a-4572-9511-8d9e9901f1f0",
- "hunks": [
-  "0+import { string_length_is_1 } from '../length/is/1.mjs';\nimport { arguments_assert } from '../../arguments/assert.mjs';\nimport { string_is } from '../is.mjs';\nexport function string_digit_is(c) {\n    arguments_assert(arguments, [string_is]);\n    return string_length_is_1(c) && c >= '0' && c <= '9';\n}"
- ]
-}

@@ -1,7 +1,0 @@
-{
- "file_path": "src\\js\\node\\property\\declaration.mjs",
- "part_id": "911f0323-d38c-4d2b-aa94-81e1ed165d9d",
- "hunks": [
-  "0+import { arguments_assert } from '../../../arguments/assert.mjs';\nimport { metadata } from '../../../metadata.mjs';\nexport function js_node_property_declaration() {\n    arguments_assert(arguments, []);\n    return 'declaration';\n    metadata([]);\n}"
- ]
-}

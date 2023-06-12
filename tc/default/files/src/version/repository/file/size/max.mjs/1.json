@@ -1,7 +1,0 @@
-{
- "file_path": "src\\version\\repository\\file\\size\\max.mjs",
- "part_id": "9570d5de-0f3a-4231-952c-4e4720758702",
- "hunks": [
-  "0+import { directory_read_contents } from '../../../../directory/read/contents.mjs';\nimport { directory_property_contents } from '../../../../directory/property/contents.mjs';\nimport { list_map_property } from '../../../../list/map/property.mjs';\nimport { list_map } from '../../../../list/map.mjs';\nimport { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';\nimport { arguments_assert } from '../../../../arguments/assert.mjs';\nimport { list_max } from '../../../../list/max.mjs';\nimport { string_byte_size } from '../../../../string/byte/size.mjs';\nimport { version_path_repository } from '../../../path/repository.mjs';\nexport async function version_repository_file_size_max(repository_name) {\n    arguments_assert(arguments, [arguments_assert_todo]);\n    let repository_directory = version_path_repository(repository_name);\n    let mapped = await directory_read_contents(repository_directory);\n    let property_contents = directory_property_contents();\n    let list_contents = list_map_property(mapped, property_contents);\n    let file_sizes = list_map(list_contents, string_byte_size);\n    let file_size_max = list_max(file_sizes);\n    return file_size_max;\n}"
- ]
-}

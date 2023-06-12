@@ -1,7 +1,0 @@
-{
- "file_path": "src\\object\\replace.mjs",
- "part_id": "7eff6966-1c47-413c-ab53-48654713f9d8",
- "hunks": [
-  "0+import { defined_is } from '../defined/is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { object_merge } from './merge.mjs';\nimport { object_property_all_delete } from './property/all/delete.mjs';\nexport function object_replace(object, replacement) {\n    arguments_assert(arguments, [\n        defined_is,\n        defined_is\n    ]);\n    object_property_all_delete(object);\n    object_merge(replacement, object);\n    metadata([]);\n}"
- ]
-}

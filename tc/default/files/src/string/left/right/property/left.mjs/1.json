@@ -1,7 +1,0 @@
-{
- "file_path": "src\\string\\left\\right\\property\\left.mjs",
- "part_id": "a7e677b6-3c44-4d68-8232-6ea7d3df78af",
- "hunks": [
-  "0+export function string_left_right_property_left() {\n    return 'left';\n}"
- ]
-}

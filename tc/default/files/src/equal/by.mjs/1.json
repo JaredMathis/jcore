@@ -1,7 +1,0 @@
-{
- "file_path": "src\\equal\\by.mjs",
- "part_id": "53cb0156-306d-4b16-a098-a4eeeda0a402",
- "hunks": [
-  "0+import { arguments_assert } from '../arguments/assert.mjs';\nimport { equal } from '../equal.mjs';\nimport { function_is } from '../function/is.mjs';\nimport { defined_is } from '../defined/is.mjs';\nexport function equal_by(map, a, b) {\n    arguments_assert(arguments, [\n        function_is,\n        defined_is,\n        defined_is\n    ]);\n    return equal(map(a), map(b));\n}"
- ]
-}

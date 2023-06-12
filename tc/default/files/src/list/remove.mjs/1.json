@@ -1,7 +1,0 @@
-{
- "file_path": "src\\list\\remove.mjs",
- "part_id": "18ff32ee-dfa4-4ea3-8d03-196a46a73d68",
- "hunks": [
-  "0+import { defined_is } from '../defined/is.mjs';\nimport { list_is } from './is.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nimport { metadata } from '../metadata.mjs';\nimport { list_index_of } from './index/of.mjs';\nimport { list_remove_at } from './remove/at.mjs';\nexport function list_remove(list, element) {\n    arguments_assert(arguments, [\n        list_is,\n        defined_is\n    ]);\n    let index = list_index_of(list, element);\n    list_remove_at(list, index);\n    metadata([]);\n}"
- ]
-}

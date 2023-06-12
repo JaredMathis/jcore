@@ -1,7 +1,0 @@
-{
- "file_path": "src\\tests\\add.mjs",
- "part_id": "3a2ec517-46cc-4b57-ae73-264252904130",
- "hunks": [
-  "0+import { error } from '../error.mjs';\nimport { arguments_assert } from '../arguments/assert.mjs';\nexport function tests_add() {\n    arguments_assert(arguments, []);\n    error('todo: tests_add');\n}"
- ]
-}
