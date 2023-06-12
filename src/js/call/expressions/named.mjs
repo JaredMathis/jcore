@@ -16,10 +16,10 @@ export function js_call_expressions_named(parsed, name_expected) {
 }
 
 function list_new_then(then) {
-    let matches = [];
+    let list = [];
     then(lambda);
     function lambda(node) {
-        list_add(matches, node);
+        list_add(list, node);
     }
-    return matches;
+    return list;
 }
