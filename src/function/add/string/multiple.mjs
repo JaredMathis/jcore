@@ -1,3 +1,4 @@
+import { string_add_multiple } from '../../../string/add/multiple.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
 import { string_is } from '../../../string/is.mjs';
@@ -11,11 +12,12 @@ export function function_add_string_multiple(prefix, values) {
     ]);
     let split = string_split(values, ',');
     for (let value of split) {
-        const strings = [prefix, function_name_separator(), value];
-        let function_name = '';
-        for (let s of strings) {
-            function_name = string_add(function_name, s)
-        }
+        const strings = [
+            prefix,
+            function_name_separator(),
+            value
+        ];
+        let function_name = string_add_multiple(strings);
         function_add_string(function_name, value);
     }
 }
