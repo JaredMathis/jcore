@@ -5,14 +5,14 @@ import { string_identifier_is } from '../../../string/identifier/is.mjs';
 import { path_is } from '../../../path/is.mjs';
 import { integer_is } from '../../../integer/is.mjs';
 import { file_name_json } from '../../../file/name/json.mjs';
-export function version_path_file_get(repository_name, file_path, version) {
+export function version_path_file_get(repository_name, file_path, file_version) {
     arguments_assert(arguments, [
         string_identifier_is,
         path_is,
         integer_is
     ]);
     let repository_file_path = version_path_file_directory(repository_name, file_path);
-    let file_name = file_name_json(version);
+    let file_name = file_name_json(file_version);
     let repository_file_path_initial = path_join([
         repository_file_path,
         file_name
