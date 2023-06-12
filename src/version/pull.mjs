@@ -45,6 +45,8 @@ export async function version_pull(repository_name) {
             assert(list_length_is_0(commit_value));
             let commit_path = version_path_commit(repository_name, commit_version);
             await file_write(commit_path, commit);
+            for (let part of parts) {
+            }
             console.log({ commit_path });
         }
     });
