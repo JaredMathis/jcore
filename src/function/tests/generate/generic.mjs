@@ -1,3 +1,4 @@
+import { js_export_function_single } from '../../../js/export/function/single.mjs';
 import { function_tests_generate_generic_each } from './generic/each.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -21,7 +22,6 @@ import { js_keyword_async } from '../../../js/keyword/async.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
 import { assert } from '../../../assert.mjs';
 import { comment } from '../../../comment.mjs';
-import { js_exported_function_declaration_single } from '../../../js/exported/function/declaration/single.mjs';
 import { function_parse } from '../../parse.mjs';
 import { function_tests_count } from '../count.mjs';
 export async function function_tests_generate_generic(function_name) {
@@ -31,7 +31,7 @@ export async function function_tests_generate_generic(function_name) {
         return;
     }
     let parsed = await function_parse(function_name);
-    let function_declaration = js_exported_function_declaration_single(parsed);
+    let function_declaration = js_export_function_single(parsed);
     comment(`To generate code for an async function this code needs changing`);
     assert(!object_property_get(function_declaration, js_keyword_async()));
     let predicate = await js_mapper_args_to_statement_arguments_assert_args_predicate(function_declaration);
