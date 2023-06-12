@@ -13,16 +13,8 @@ export function js_node_call_expression_if_name_equal(node, name_expected, on_na
         defined_is,
         function_is
     ]);
-    if (false) {
-        js_node_call_expression_name_equal;
-    }
-    if (js_node_is_call_expression(node)) {
-        let name_actual = js_call_expression_to_name_or_null(node);
-        if (name_actual != null) {
-            if (equal(name_actual, name_expected)) {
+    if (js_node_call_expression_name_equal(node, name_expected)) {
                 on_name_equal();
-            }
-        }
     }
     metadata([]);
 }
