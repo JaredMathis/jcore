@@ -8,14 +8,18 @@ export function js_call_expressions_named(parsed, name_expected) {
         js_node_is_program,
         defined_is
     ]);
+    return list_new_then(then);
+    function then(lambda) {
+        js_visit_nodes_call_expression_name_equal(parsed, name_expected, lambda);
+    }
+
+}
+
+function list_new_then(then) {
     let matches = [];
     then(lambda);
     function lambda(node) {
         list_add(matches, node);
     }
     return matches;
-    function then(lambda) {
-        js_visit_nodes_call_expression_name_equal(parsed, name_expected, lambda);
-    }
-
 }
