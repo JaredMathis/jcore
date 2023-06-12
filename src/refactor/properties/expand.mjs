@@ -6,10 +6,10 @@ import { list_map } from '../../list/map.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {identifier, properties, prefix} = args;
-    let mapped = list_map(properties, p => string_identifier_with_prefix(prefix, p));
+    let property_gets = list_map(properties, p => string_identifier_with_prefix(prefix, p));
     console.log({
         identifier,
-        mapped,
+        mapped: property_gets,
         prefix
     });
 }
