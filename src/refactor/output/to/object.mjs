@@ -17,9 +17,9 @@ export function refactor_output_to_object(args) {
         js_visit_nodes_filter_node(parsed, js_node_is_return_statment, list_new_then_add);
     });
     error(`If this fails code needs changing`);
-    assert(list_length_is_1(returns))
+    assert(list_length_is_1(returns));
     let return_single = list_single(returns);
     let body = js_body_get(parsed);
-    assert(list_contains(body, return_single))
+    assert(list_contains(body, return_single));
     console.log(returns);
 }
