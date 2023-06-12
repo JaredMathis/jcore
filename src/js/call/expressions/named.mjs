@@ -18,8 +18,8 @@ export function js_call_expressions_named(parsed, name_expected) {
 function list_new_then(then) {
     let list = [];
     then(lambda);
-    function lambda(node) {
-        list_add(list, node);
+    function lambda(element) {
+        list_add(list, element);
     }
     return list;
 }
