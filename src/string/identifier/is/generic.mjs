@@ -11,7 +11,7 @@ import { string_to_list } from '../../to/list.mjs';
 import { string_is } from '../../is.mjs';
 import { boolean_is } from '../../../boolean/is.mjs';
 import { defined_is } from '../../../defined/is.mjs';
-export function string_identifier_is_generic(value, is_identifier) {
+export function string_identifier_is_generic(value, enforce_first_and_last) {
     arguments_assert(arguments, [
         defined_is,
         boolean_is
@@ -23,7 +23,7 @@ export function string_identifier_is_generic(value, is_identifier) {
     if (list_length_is_0(list)) {
         return false;
     }
-    if (is_identifier) {
+    if (enforce_first_and_last) {
         let first = list_first(list);
         if (!string_letter_is(first)) {
             return false;
