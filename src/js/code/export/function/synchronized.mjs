@@ -1,6 +1,6 @@
+import { string_length_at_least } from '../../../../string/length/at/least.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
-import { string_length } from '../../../../string/length.mjs';
 import { assert } from '../../../../assert.mjs';
 import { js_keyword_async } from '../../../keyword/async.mjs';
 import { string_empty } from '../../../../string/empty.mjs';
@@ -14,7 +14,7 @@ export function js_code_export_function_synchronized(function_name, is_async, fu
         string_is
     ]);
     const at_least = 1;
-    assert(string_length(function_name) >= at_least);
+    assert(string_length_at_least(function_name, at_least));
     let async_code = string_empty();
     if (is_async) {
         async_code = js_keyword_async();
