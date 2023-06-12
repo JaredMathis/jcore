@@ -5,7 +5,7 @@ import { function_rename_without_all_refactor } from '../without/all/refactor.mj
 import { list_to_dictionary_async } from '../../../list/to/dictionary/async.mjs';
 import { list_filter } from '../../../list/filter.mjs';
 import { function_name_all } from '../../name/all.mjs';
-export async function function_rename_if_generic(predicate, prefix_old, function_name_map, prefix_new) {
+export async function function_rename_if_generic(prefix_old, prefix_new, predicate, function_name_map) {
     let names = await function_name_all();
     let names_filtered = list_filter(names, n => predicate(n, prefix_old));
     let dictionary_tests = {};

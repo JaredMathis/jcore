@@ -11,6 +11,6 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
     ]);
     let predicate = string_starts_with;
     let function_name_map = string_prefix_replace;
-    await function_rename_if_generic(predicate, prefix_old, function_name_map, prefix_new);
+    await function_rename_if_generic(prefix_old, prefix_new, predicate, function_name_map);
     metadata([]);
 }
