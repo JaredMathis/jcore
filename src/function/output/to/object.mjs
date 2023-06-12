@@ -1,3 +1,4 @@
+import { refactor_output_to_object } from '../../../refactor/output/to/object.mjs';
 import { function_name_get } from '../../name/get.mjs';
 import { function_map } from '../../map.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
