@@ -1,0 +1,17 @@
+import { metadata } from '../../../../metadata.mjs';
+import { list_contains } from '../../../../list/contains.mjs';
+import { list_add_if_not_exists } from '../../../../list/add/if/not/exists.mjs';
+import { file_js_all_identifiers_each } from '../identifiers/each.mjs';
+import { string_identifier_is } from '../../../../string/identifier/is.mjs';
+import { arguments_assert } from '../../../../arguments/assert.mjs';
+export async function file_js_all_identifier_equal(identifier_name) {
+    arguments_assert(arguments, [string_identifier_is]);
+    let result = [];
+    await file_js_all_identifiers_each(function lambda(identifiers) {
+        for (let i of identifiers) {
+            list_add_if_not_exists(result, i);
+        }
+    });
+    return list_contains(result, identifier_name);
+    metadata([]);
+}
