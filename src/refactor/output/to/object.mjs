@@ -1,6 +1,6 @@
-import { error } from '../../../error.mjs';
+import { defined_is } from '../../../defined/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
-export function refactor_output_to_object() {
-    arguments_assert(arguments, []);
-    error('todo: refactor_output_to_object');
+export function refactor_output_to_object(args) {
+    arguments_assert(arguments, [defined_is]);
+    let {parsed, function_declaration} = args;
 }
