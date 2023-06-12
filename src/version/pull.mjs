@@ -1,3 +1,4 @@
+import { database_value_get } from '../database/value/get.mjs';
 import { database_reference } from '../database/reference.mjs';
 import { version_document_path_commit } from './document/path/commit.mjs';
 import { database_reference_get } from '../database/reference/get.mjs';
@@ -28,8 +29,4 @@ export async function version_pull(repository_name) {
             let commit_value = database_value_get(commit_data);
         }
     });
-}
-
-function database_value_get(commit_data) {
-    return object_property_get(commit_data, database_property_value());
 }
