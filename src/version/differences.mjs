@@ -4,7 +4,6 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { list_add } from '../list/add.mjs';
 import { list_length_is_0 } from '../list/length/is/0.mjs';
 import { string_difference_get } from '../string/difference/get.mjs';
-import { version_file_contents } from './file/contents.mjs';
 import { version_removals } from './removals.mjs';
 import { todo } from '../todo.mjs';
 import { file_read } from '../file/read.mjs';
@@ -20,13 +19,9 @@ export async function version_differences(repository_name) {
         todo(contents, existing, file_path);
     }
     let removals = await version_removals(repository_name, file_paths);
-    if (false) {
-        await version_file_contents_each();
-    }
-    for (let file_path of removals) {
-        let contents = await version_file_contents(repository_name, file_path);
+    await version_file_contents_each(removals, repository_name, async (file_path, contents) => {
         todo(contents, '', file_path);
-    }
+    });
     function todo(contents, existing, file_path) {
         let hunks = string_difference_get(contents, existing);
         if (!list_length_is_0(hunks)) {
