@@ -16,9 +16,10 @@ export function js_node_call_expression_name_equal(node, name_expected, on_name_
         let name_actual = js_call_expression_to_name_or_null(node);
         if (name_actual != null) {
             if (equal(name_actual, name_expected)) {
-                on_name_equal();
+                return true;
             }
         }
     }
+    return false;
     metadata([]);
 }
