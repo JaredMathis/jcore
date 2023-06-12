@@ -27,6 +27,7 @@ export async function version_pull(repository_name) {
             let commit_refererence = database_reference(db, database_collection_name, document_path_commit);
             let commit_data = await database_reference_get(transaction, commit_refererence);
             let commit_value = database_value_get(commit_data);
+            console.log({commit_value})
         }
     });
 }
