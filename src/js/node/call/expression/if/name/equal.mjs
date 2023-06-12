@@ -1,10 +1,7 @@
 import { js_node_call_expression_name_equal } from '../../name/equal.mjs';
 import { defined_is } from '../../../../../../defined/is.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
-import { js_call_expression_to_name_or_null } from '../../../../../call/expression/to/name/or/null.mjs';
 import { metadata } from '../../../../../../metadata.mjs';
-import { equal } from '../../../../../../equal.mjs';
-import { js_node_is_call_expression } from '../../../../is/call/expression.mjs';
 import { js_node_is } from '../../../../is.mjs';
 import { function_is } from '../../../../../../function/is.mjs';
 export function js_node_call_expression_if_name_equal(node, name_expected, on_name_equal) {
@@ -14,7 +11,7 @@ export function js_node_call_expression_if_name_equal(node, name_expected, on_na
         function_is
     ]);
     if (js_node_call_expression_name_equal(node, name_expected)) {
-                on_name_equal();
+        on_name_equal();
     }
     metadata([]);
 }
