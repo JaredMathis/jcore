@@ -12,6 +12,6 @@ export async function file_js_all_identifier_equal(identifier_name) {
             list_add_if_not_exists(result, file_path);
         }
     });
-    return list_contains(result, identifier_name);
+    return result;
     metadata([]);
 }
