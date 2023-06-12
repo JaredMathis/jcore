@@ -1,3 +1,4 @@
+import { list_set } from '../../../../list/set.mjs';
 import { string_length_at_least } from '../../../../string/length/at/least.mjs';
 import { string_identifier_parts } from '../../../../string/identifier/parts.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -12,6 +13,8 @@ export async function function_rename_swap_last_2(function_name) {
     assert(string_length_at_least(parts, 2));
     let last_index = list_last_index(parts);
     let last_index_second = subtract_1(last_index);
-    let temp = list_get(last_index);
-    ilst_set(parts, last_index_second, temp);
+    let last = list_get(parts, last_index);
+    let last_second = list_get(parts, last_index_second);
+    ilst_set(parts, last_index_second, last);
+    list_set(parts, last_index, last_second);
 }
