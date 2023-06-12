@@ -12,7 +12,6 @@ import { refactor_import_fix } from '../../../../../refactor/import/fix.mjs';
 import { list_set } from '../../../../../list/set.mjs';
 import { list_get } from '../../../../../list/get.mjs';
 import { js_node_property_arguments } from '../../../../../js/node/property/arguments.mjs';
-import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
 import { js_node_property_left } from '../../../../../js/node/property/left.mjs';
 import { js_node_is_assignment_expression } from '../../../../../js/node/is/assignment/expression.mjs';
 import { js_visit_nodes_filter } from '../../../../../js/visit/nodes/filter.mjs';
@@ -73,32 +72,30 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             if (assignment_exists === true) {
                 return changed;
             }
-            js_visit_nodes_filter(c_parsed, js_node_is_call_expression, v => {
+            js_visit_nodes_filter(c_parsed, node => js_node_call_expression_name_equal(node, function_name), v => {
                 let {node} = v;
-                if (js_node_call_expression_name_equal(node, function_name)) {
-                    let ce_args = object_property_get(node, js_node_property_arguments());
-                    list_each_with_index(ce_args, (ce_arg, ce_arg_index) => {
-                        if (!js_node_is_identifier(ce_arg)) {
-                            return;
+                let ce_args = object_property_get(node, js_node_property_arguments());
+                list_each_with_index(ce_args, (ce_arg, ce_arg_index) => {
+                    if (!js_node_is_identifier(ce_arg)) {
+                        return;
+                    }
+                    const ce_arg_name = object_property_get(ce_arg, 'name');
+                    if (!equal(c_param_name, ce_arg_name)) {
+                        return;
+                    }
+                    if (ce_arg !== null) {
+                        let arguments_assert_arg = list_get(arguments_assert_args, ce_arg_index);
+                        let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index);
+                        let identical = json_equal_keys_without(arguments_assert_arg, c_arguments_assert_arg, [
+                            js_node_property_start(),
+                            js_node_property_end()
+                        ]);
+                        if (!identical) {
+                            list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
+                            changed = true;
                         }
-                        const ce_arg_name = object_property_get(ce_arg, 'name');
-                        if (!equal(c_param_name, ce_arg_name)) {
-                            return;
-                        }
-                        if (ce_arg !== null) {
-                            let arguments_assert_arg = list_get(arguments_assert_args, ce_arg_index);
-                            let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index);
-                            let identical = json_equal_keys_without(arguments_assert_arg, c_arguments_assert_arg, [
-                                js_node_property_start(),
-                                js_node_property_end()
-                            ]);
-                            if (!identical) {
-                                list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
-                                changed = true;
-                            }
-                        }
-                    });
-                }
+                    }
+                });
             });
             if (changed) {
                 await refactor_import_fix(c_args);
