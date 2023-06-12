@@ -1,3 +1,5 @@
+import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { function_rename_after } from '../after.mjs';
 import { file_js_all_identifier_multiple_rename } from '../../../file/js/all/identifier/multiple/rename.mjs';
 import { object_merge } from '../../../object/merge.mjs';
@@ -6,6 +8,12 @@ import { list_to_dictionary_async } from '../../../list/to/dictionary/async.mjs'
 import { list_filter } from '../../../list/filter.mjs';
 import { function_name_all } from '../../name/all.mjs';
 export async function function_rename_if_generic(prefix_old, prefix_new, predicate, function_name_map) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     let names = await function_name_all();
     let names_filtered = list_filter(names, n => predicate(n, prefix_old));
     let dictionary_tests = {};
