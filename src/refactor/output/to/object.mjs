@@ -10,4 +10,8 @@ export function refactor_output_to_object(args) {
         let {node} = v;
         console.log({ t: node.type });
     });
+    list_new_then(then);
+    function then(list_new_then_add) {
+        js_visit_nodes_call_expression_name_equal(parsed, name_expected, list_new_then_add);
+    }
 }
