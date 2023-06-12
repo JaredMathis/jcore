@@ -24,11 +24,12 @@ export async function version_pull(repository_name) {
         console.log({ info_data });
         let commit_latest_value = object_property_get(info_data, property_commit_latest);
         for (let i of range(commit_latest_value)) {
-            let commit_id = add_1(i);
-            let document_path_commit = version_document_path_commit(commit_id);
+            let commit_version = add_1(i);
+            let document_path_commit = version_document_path_commit(commit_version);
             let commit_refererence = database_reference(db, database_collection_name, document_path_commit);
             let commit_data = await database_reference_get_data(transaction, commit_refererence);
             let commit_value = database_value_get(commit_data);
+            let commit_path = version_path_commit(repository_name, commit_version);
             console.log({ commit_value });
         }
     });
