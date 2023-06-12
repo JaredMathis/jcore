@@ -22,7 +22,7 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
     let dictionary_tests = {};
     let dictionary = await list_to_dictionary_async(names_filtered, key_to_value);
     async function key_to_value(n_old) {
-        let n_new = string_prefix_replace(n_old, prefix_old, prefix_new);
+        let n_new = function_name_map(n_old, prefix_old, prefix_new);
         let tests_renames = await function_rename_without_all_refactor(n_old, n_new);
         object_merge(tests_renames, dictionary_tests);
         return n_new;
