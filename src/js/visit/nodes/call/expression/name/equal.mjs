@@ -8,6 +8,5 @@ export function js_visit_nodes_call_expression_name_equal(parsed, name_expected,
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    const predicate = node => js_node_call_expression_name_equal(node, name_expected);
-    js_visit_nodes_filter_node(parsed, predicate, lambda);
+    js_visit_nodes_filter_node(parsed, predicate, node => js_node_call_expression_name_equal(node, name_expected));
 }
