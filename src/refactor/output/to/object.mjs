@@ -20,7 +20,7 @@ export function refactor_output_to_object(args) {
     assert(list_length_is_1(returns));
     let return_single = list_single(returns);
     let body = js_body_get(parsed);
-    console.log({function_declaration})
+    console.log({ function_declaration });
     assert(list_contains(body, return_single));
     console.log(returns);
 }

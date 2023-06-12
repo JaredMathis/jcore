@@ -4,14 +4,14 @@ import { metadata } from '../../../../metadata.mjs';
 import { list_add_multiple } from '../../../../list/add/multiple.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 import { assert } from '../../../../assert.mjs';
-import { js_function_delcaration_to_statements } from '../../delcaration/to/statements.mjs';
+import { js_function_declaration_to_statements } from '../to/statements.mjs';
 import { list_is } from '../../../../list/is.mjs';
 export function js_function_declaration_statements_initialize(fd, function_body_statements_new) {
     arguments_assert(arguments, [
         js_node_is_function_declaration,
         list_is
     ]);
-    let function_body_statements_old = js_function_delcaration_to_statements(fd);
+    let function_body_statements_old = js_function_declaration_to_statements(fd);
     assert(list_length_is_0(function_body_statements_old));
     list_add_multiple(function_body_statements_old, function_body_statements_new);
     metadata([]);

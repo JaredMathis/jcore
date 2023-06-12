@@ -5,7 +5,7 @@ import { file_js_all_map_args_if_function } from '../../../../../file/js/all/map
 import { metadata } from '../../../../../metadata.mjs';
 import { list_length_is_0 } from '../../../../../list/length/is/0.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
-import { js_function_delcaration_to_statements } from '../../../../../js/function/delcaration/to/statements.mjs';
+import { js_function_declaration_to_statements } from '../../../../../js/function/declaration/to/statements.mjs';
 import { list_first } from '../../../../../list/first.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { refactor_import_fix } from '../../../../import/fix.mjs';
@@ -15,7 +15,7 @@ export async function refactor_functions_arguments_assert_missing_add() {
     await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
         let exists = false;
-        let statements = js_function_delcaration_to_statements(function_declaration);
+        let statements = js_function_declaration_to_statements(function_declaration);
         if (!list_length_is_0(statements)) {
             let statement_first = list_first(statements);
             js_node_call_expression_statement_if_name_equal(statement_first, function_name_get(arguments_assert), function on_name_equal() {
