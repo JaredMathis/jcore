@@ -1,3 +1,4 @@
+import { version_document_path_commit } from './document/path/commit.mjs';
 import { database_reference_get } from '../database/reference/get.mjs';
 import { database_document_info_reference } from '../database/document/info/reference.mjs';
 import { database_firestore_get } from '../database/firestore/get.mjs';
@@ -20,7 +21,7 @@ export async function version_pull(repository_name) {
         let commit_latest_value = object_property_get(info_data, property_commit_latest);
         for (let i of range(commit_latest_value)) {
             let commit_id = add_1(i);
-
+            let document_path_commit = version_document_path_commit(commit_id);
         }
     });
 }
