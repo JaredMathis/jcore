@@ -10,7 +10,7 @@ import { list_filter } from '../../list/filter.mjs';
 import { git_ignore_lines } from './lines.mjs';
 export async function git_ignore_filter(file_paths) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let gil = await git_ignore_lines();
+    let {lines:gil} = await git_ignore_lines();
     let filter = list_multiple_combine([
         gil,
         list_single_item('.git')

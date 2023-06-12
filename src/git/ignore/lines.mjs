@@ -10,7 +10,7 @@ export async function git_ignore_lines() {
     if (!await file_exists(gitignore_file_path)) {
         await file_write(gitignore_file_path, string_empty());
     }
-    let gitignore_contents = await file_read(gitignore_file_path);
-    let gitignore_lines = string_split(gitignore_contents, string_new_line());
-    return gitignore_lines;
+    let contents = await file_read(gitignore_file_path);
+    let lines = string_split(contents, string_new_line());
+    return {lines,contents};
 }
