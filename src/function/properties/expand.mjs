@@ -1,6 +1,8 @@
-import { error } from '../../error.mjs';
+import { function_name_get } from '../name/get.mjs';
+import { function_map } from '../map.mjs';
+import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-export function function_properties_expand() {
-    arguments_assert(arguments, []);
-    error('todo: function_properties_expand');
+export async function function_properties_expand(function_name) {
+    arguments_assert(arguments, [string_identifier_is]);
+    await function_map(function_name_get(refactor_properties_expand), function_name);
 }
