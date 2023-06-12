@@ -1,3 +1,6 @@
+import { version_file_contents_each } from './file/contents/each.mjs';
+import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
+import { arguments_assert } from '../arguments/assert.mjs';
 import { list_add } from '../list/add.mjs';
 import { list_length_is_0 } from '../list/length/is/0.mjs';
 import { string_difference_get } from '../string/difference/get.mjs';
@@ -8,6 +11,7 @@ import { file_read } from '../file/read.mjs';
 import { version_output_generic } from './output/generic.mjs';
 import { directory_read_current } from '../directory/read/current.mjs';
 export async function version_differences(repository_name) {
+    arguments_assert(arguments, [arguments_assert_todo]);
     let file_paths = await directory_read_current();
     let differences = [];
     await version_output_generic(repository_name, file_paths, lambda);
@@ -16,9 +20,12 @@ export async function version_differences(repository_name) {
         todo(contents, existing, file_path);
     }
     let removals = await version_removals(repository_name, file_paths);
-    for (let r of removals) {
-        let contents = await version_file_contents(repository_name, r);
-        todo(contents, '', r);
+    if (false) {
+        await version_file_contents_each();
+    }
+    for (let file_path of removals) {
+        let contents = await version_file_contents(repository_name, file_path);
+        todo(contents, '', file_path);
     }
     function todo(contents, existing, file_path) {
         let hunks = string_difference_get(contents, existing);

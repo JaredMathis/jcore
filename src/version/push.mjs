@@ -1,3 +1,6 @@
+import { version_file_contents } from './file/contents.mjs';
+import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
+import { arguments_assert } from '../arguments/assert.mjs';
 import { data_key_value_set } from '../data/key/value/set.mjs';
 import { database_reference_update_property } from '../database/reference/update/property.mjs';
 import { database_create } from '../database/create.mjs';
@@ -27,7 +30,9 @@ import { database_transaction } from '../database/transaction.mjs';
 import { database_reference } from '../database/reference.mjs';
 import { function_name_separator } from '../function/name/separator.mjs';
 import { database_firestore_get } from '../database/firestore/get.mjs';
+import { version_files_paths } from './files/paths.mjs';
 export async function version_push(repository_name) {
+    arguments_assert(arguments, [arguments_assert_todo]);
     let db = database_firestore_get();
     let fns = function_name_separator();
     let database_collection_name = `repository${ fns }${ repository_name }`;
@@ -74,5 +79,11 @@ export async function version_push(repository_name) {
                 await data_key_value_set(property_commit_latest_data, commit_id);
             }
         });
+        if (false) {
+            let file_paths = await version_files_paths(repository_name);
+            for (let file_path of file_paths) {
+                version_file_contents(repository_name, file_path);
+            }
+        }
     });
 }
