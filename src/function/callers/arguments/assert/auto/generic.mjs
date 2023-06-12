@@ -22,7 +22,7 @@ import { js_node_property_name } from '../../../../../js/node/property/name.mjs'
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
 import { assert } from '../../../../../assert.mjs';
 import { list_each_with_index_async } from '../../../../../list/each/with/index/async.mjs';
-import { js_mapper_args_to_statement_arguments_assert_args_predicate } from '../../../../../js/mapper/args/to/statement/arguments/assert/args/predicate.mjs';
+import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../../../../../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
 import { list_length_is_0 } from '../../../../../list/length/is/0.mjs';
 import { js_node_property_params } from '../../../../../js/node/property/params.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
@@ -47,7 +47,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         if (list_length_is_0(c_params)) {
             return true;
         }
-        let c_arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args_predicate(c_function_declaration);
+        let c_arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(c_function_declaration);
         await list_each_with_index_async(c_arguments_assert_args, async function lambda(c_arg, c_arg_index) {
             let c_param = list_get(c_params, c_arg_index);
             let c_param_name = object_property_get(c_param, js_node_property_name());

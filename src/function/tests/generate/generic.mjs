@@ -17,7 +17,7 @@ import { list_any_async } from '../../../list/any/async.mjs';
 import { list_unique } from '../../../list/unique.mjs';
 import { function_name_to_tests_values } from '../../name/to/tests/values.mjs';
 import { list_map } from '../../../list/map.mjs';
-import { js_mapper_args_to_statement_arguments_assert_args_predicate } from '../../../js/mapper/args/to/statement/arguments/assert/args/predicate.mjs';
+import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../../../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
 import { js_keyword_async } from '../../../js/keyword/async.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
 import { assert } from '../../../assert.mjs';
@@ -32,7 +32,7 @@ export async function function_tests_generate_generic(function_name) {
     let function_declaration = await function_to_declaration(function_name);
     comment(`To generate code for an async function this code needs changing`);
     assert(!object_property_get(function_declaration, js_keyword_async()));
-    let predicate = await js_mapper_args_to_statement_arguments_assert_args_predicate(function_declaration);
+    let predicate = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let predicate_names = list_map(predicate, p => object_property_get(p, 'name'));
     let names_with_endings = list_map(predicate_names, n => {
         return function_name_to_tests_values(n);
