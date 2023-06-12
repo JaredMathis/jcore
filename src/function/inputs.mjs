@@ -11,5 +11,5 @@ export async function function_inputs(function_name) {
     let fd = await function_to_declaration(function_name);
     let params = object_property_get(fd, js_node_property_params());
     let mapped = list_map_property(params, js_node_property_name());
-    console.log({ params });
+    console.log({ mapped });
 }
