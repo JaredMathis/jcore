@@ -1,8 +1,8 @@
+import { list_new_then } from '../../../list/new/then.mjs';
 import { js_visit_nodes_call_expression_name_equal } from '../../visit/nodes/call/expression/name/equal.mjs';
 import { js_node_is_program } from '../../node/is/program.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
-import { list_add } from '../../../list/add.mjs';
 export function js_call_expressions_named(parsed, name_expected) {
     arguments_assert(arguments, [
         js_node_is_program,
@@ -12,14 +12,4 @@ export function js_call_expressions_named(parsed, name_expected) {
     function then(list_new_then_add) {
         js_visit_nodes_call_expression_name_equal(parsed, name_expected, list_new_then_add);
     }
-
-}
-
-function list_new_then(then) {
-    let list = [];
-    then(list_new_then_add);
-    function list_new_then_add(element) {
-        list_add(list, element);
-    }
-    return list;
 }
