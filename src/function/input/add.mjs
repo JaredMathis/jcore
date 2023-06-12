@@ -1,4 +1,4 @@
-import { refactor_string_replace } from '../../refactor/string/replace.mjs';
+import { refactor_input_add } from '../../refactor/input/add.mjs';
 import { function_name_get } from '../name/get.mjs';
 import { function_map_with_args } from '../map/with/args.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
