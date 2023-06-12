@@ -10,7 +10,7 @@ export function string_multiply(s, times) {
     ]);
     let result = string_empty();
     for (let i of range(times)) {
-        result += s;
+        result = result + s;
     }
     return result;
 }
