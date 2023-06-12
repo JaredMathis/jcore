@@ -1,3 +1,4 @@
+import { version_property_commit_id } from '../../property/commit/id.mjs';
 import { version_list_file_add } from '../../list/file/add.mjs';
 import { version_property_part_id } from '../../property/part/id.mjs';
 import { version_property_parts } from '../../property/parts.mjs';
@@ -72,8 +73,4 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         version_list_file_add(writes, commit_path, commit);
     }
     return writes;
-}
-
-function version_property_commit_id() {
-    return 'commit_id';
 }
