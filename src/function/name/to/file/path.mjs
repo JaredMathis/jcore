@@ -12,11 +12,11 @@ import { function_name_separator } from '../../separator.mjs';
 export function function_name_to_file_path(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let directory_source_result = directory_source();
-    let split = string_split(function_name, function_name_separator());
-    list_add_beginning(split, directory_source_result);
-    list_add_beginning(split, directory_current());
-    list_last_map(split, last => last + function_extension());
-    let joined = path_join(split);
+    let parts = string_split(function_name, function_name_separator());
+    list_add_beginning(parts, directory_source_result);
+    list_add_beginning(parts, directory_current());
+    list_last_map(parts, last => last + function_extension());
+    let joined = path_join(parts);
     return joined;
     metadata([]);
 }
