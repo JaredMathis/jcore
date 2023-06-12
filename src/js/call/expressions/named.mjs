@@ -9,9 +9,9 @@ export function js_call_expressions_named(parsed, name_expected) {
         defined_is
     ]);
     let matches = [];
-    then();
+    then(lambda);
     return matches;
-    function then() {
+    function then(lambda) {
         js_visit_nodes_call_expression_name_equal(parsed, name_expected, lambda);
     }
 
