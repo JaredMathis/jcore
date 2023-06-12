@@ -1,7 +1,6 @@
-import { string_identifier_parts_from } from '../../../../string/identifier/parts/from.mjs';
+import { string_identifier_parts_map } from '../../../../string/identifier/parts/map.mjs';
 import { list_swap } from '../../../../list/swap.mjs';
 import { string_length_at_least } from '../../../../string/length/at/least.mjs';
-import { string_identifier_parts_to } from '../../../../string/identifier/parts/to.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { string_identifier_is } from '../../../../string/identifier/is.mjs';
 import { assert } from '../../../../assert.mjs';
@@ -10,9 +9,7 @@ import { subtract_1 } from '../../../../subtract/1.mjs';
 import { equal } from '../../../../equal.mjs';
 export async function function_rename_swap_last_2(function_name_old) {
     arguments_assert(arguments, [string_identifier_is]);
-    let parts = string_identifier_parts_to(function_name_old);
-    map(parts);
-    let function_name_new = string_identifier_parts_from(parts);
+    let function_name_new = string_identifier_parts_map(function_name_old, map);
     assert(!equal(function_name_old, function_name_new));
     function map(parts) {
         assert(string_length_at_least(parts, 2));
