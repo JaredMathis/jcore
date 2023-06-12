@@ -1,6 +1,11 @@
-import { error } from '../../error.mjs';
+import { log } from '../../log.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-export function refactor_properties_expand() {
-    arguments_assert(arguments, []);
-    error('todo: refactor_properties_expand');
+import { defined_is } from '../../defined/is.mjs';
+export function refactor_properties_expand(args) {
+    arguments_assert(arguments, [defined_is]);
+    let {identifier, properties} = args;
+    console.log({
+        identifier,
+        properties
+    });
 }
