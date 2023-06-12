@@ -16,6 +16,5 @@ export async function function_rename_swap_last_2(function_name_old) {
         let last_index_second = subtract_1(last_index);
         list_swap(parts, last_index, last_index_second);
     });
-    assert(!equal(function_name_old, function_name_new));
     function_rename;
 }

@@ -1,3 +1,4 @@
+import { equal } from '../../../../equal.mjs';
 import { list_to_dictionary } from '../../../../list/to/dictionary.mjs';
 import { string_starts_with } from '../../../../string/starts/with.mjs';
 import { list_filter } from '../../../../list/filter.mjs';
@@ -19,6 +20,7 @@ export async function function_rename_without_all_refactor(function_name_old, fu
         string_identifier_is,
         string_identifier_is
     ]);
+    assert(!equal(function_name_old, function_name_new));
     assert(await function_exists(function_name_old));
     assert(!await function_exists(function_name_new));
     assert(!await file_js_all_identifier_exists(function_name_new));
