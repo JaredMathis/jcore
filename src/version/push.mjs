@@ -81,7 +81,8 @@ export async function version_push(repository_name) {
         });
         if (false) {
             let file_paths = await version_files_paths(repository_name);
-            await version_file_contents_each(repository_name, removals, async (file_path, contents) => {
+            await version_file_contents_each(repository_name, file_paths, async (file_path, contents) => {
+
             });
         }
     });
