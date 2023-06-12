@@ -9,8 +9,12 @@ export function js_call_expressions_named(parsed, name_expected) {
         defined_is
     ]);
     let matches = [];
-    js_visit_nodes_call_expression_name_equal(parsed, name_expected, lambda);
+    then();
     return matches;
+    function then() {
+        js_visit_nodes_call_expression_name_equal(parsed, name_expected, lambda);
+    }
+
     function lambda(node) {
         list_add(matches, node);
     }
