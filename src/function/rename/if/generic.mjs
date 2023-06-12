@@ -22,7 +22,7 @@ export async function function_rename_if_generic(prefix_old, prefix_new, predica
     let dictionary_tests = {};
     let dictionary = await list_to_dictionary_async(names_filtered, key_to_value);
     async function key_to_value(n_old) {
-        let n_new = function_name_map(n_old, prefix_old, prefix_new);
+        let n_new = function_name_new_get(n_old);
         let tests_renames = await function_rename_without_all_refactor(n_old, n_new);
         object_merge(tests_renames, dictionary_tests);
         return n_new;
@@ -30,4 +30,7 @@ export async function function_rename_if_generic(prefix_old, prefix_new, predica
     object_merge(dictionary_tests, dictionary);
     let file_paths_changed = await file_js_all_identifier_multiple_rename(dictionary);
     await function_rename_after(file_paths_changed);
+    function function_name_new_get(n_old) {
+        return function_name_map(n_old, prefix_old, prefix_new);
+    }
 }
