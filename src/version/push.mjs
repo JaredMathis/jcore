@@ -1,4 +1,4 @@
-import { version_file_contents } from './file/contents.mjs';
+import { version_file_contents_each } from './file/contents/each.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { data_key_value_set } from '../data/key/value/set.mjs';
@@ -81,9 +81,8 @@ export async function version_push(repository_name) {
         });
         if (false) {
             let file_paths = await version_files_paths(repository_name);
-            for (let file_path of file_paths) {
-                version_file_contents(repository_name, file_path);
-            }
+            await version_file_contents_each(repository_name, removals, async (file_path, contents) => {
+            });
         }
     });
 }
