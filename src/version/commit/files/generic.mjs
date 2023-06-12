@@ -64,11 +64,11 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         };
         let parsed = await version_commits_get(repository_name);
         let max = list_max_or_0(parsed);
-        let version = add_1(max);
+        let commit_version = add_1(max);
         let repository_sub_path = version_path_commits_get(repository_name);
         let commit_path = path_join([
             repository_sub_path,
-            file_name_json(version)
+            file_name_json(commit_version)
         ]);
         version_list_file_add(writes, commit_path, commit);
     }
