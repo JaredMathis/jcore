@@ -32,7 +32,6 @@ export async function version_pull(repository_name) {
     let info_refererence = database_document_info_reference(db, database_collection_name);
     await database_transaction(db, async transaction => {
         let info_data = await database_reference_get_data(transaction, info_refererence);
-        console.log({ info_data });
         let commit_latest_value = object_property_get(info_data, property_commit_latest);
         for (let i of range(commit_latest_value)) {
             let commit_version = add_1(i);
