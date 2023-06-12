@@ -12,5 +12,8 @@ export async function git_ignore_lines() {
     }
     let contents = await file_read(gitignore_file_path);
     let lines = string_split(contents, string_new_line());
-    return {lines,contents};
+    return {
+        lines,
+        contents
+    };
 }

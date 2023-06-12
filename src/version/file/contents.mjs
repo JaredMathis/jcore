@@ -6,7 +6,7 @@ import { file_json_read } from '../../file/json/read.mjs';
 import { file_exists } from '../../file/exists.mjs';
 import { version_path_file_get } from '../path/file/get.mjs';
 import { version_property_hunks } from '../property/hunks.mjs';
-import { git_ignore_add } from '../../git/ignore/add.mjs';
+import { git_ignore_add_if_not_exists } from '../../git/ignore/add/if/not/exists.mjs';
 import { version_path_root } from '../path/root.mjs';
 import { path_is } from '../../path/is.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
@@ -17,7 +17,7 @@ export async function version_file_contents(repository_name, file_path) {
         path_is
     ]);
     let gitignore_line_to_add = version_path_root();
-    await git_ignore_add(gitignore_line_to_add);
+    await git_ignore_add_if_not_exists(gitignore_line_to_add);
     let list_hunks = [];
     let property_hunks = version_property_hunks();
     let version = 1;
