@@ -3,7 +3,6 @@ import { js_node_property_properties } from '../../../js/node/property/propertie
 import { js_node_property_argument } from '../../../js/node/property/argument.mjs';
 import { js_function_declaration_to_statements } from '../../../js/function/declaration/to/statements.mjs';
 import { comment } from '../../../comment.mjs';
-import { log } from '../../../log.mjs';
 import { js_visit_nodes_filter_node } from '../../../js/visit/nodes/filter/node.mjs';
 import { list_new_then } from '../../../list/new/then.mjs';
 import { js_node_is_return_statment } from '../../../js/node/is/return/statment.mjs';
@@ -30,5 +29,4 @@ export function refactor_output_to_object(args) {
     let object = js_code_return_statement(return_expression);
     let arg = object_property_get(object, js_node_property_argument());
     let properties = object_property_get(arg, js_node_property_properties());
-    console.log({ properties });
 }
