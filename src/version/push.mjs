@@ -1,3 +1,4 @@
+import { database_document_info_reference } from '../database/document/info/reference.mjs';
 import { version_property_commit_latest } from './property/commit/latest.mjs';
 import { version_property_commit } from './property/commit.mjs';
 import { version_collection_repository } from './collection/repository.mjs';
@@ -42,8 +43,7 @@ export async function version_push(repository_name) {
     let fns = function_name_separator();
     let property_commit = version_property_commit();
     let property_commit_latest = version_property_commit_latest();
-    let document_path_info = `info`;
-    let info_refererence = database_reference(db, database_collection_name, document_path_info);
+    let info_refererence = database_document_info_reference(db, database_collection_name);
     await database_transaction(db, async transaction => {
         await database_reference_set_if_not_exists(transaction, info_refererence, { [property_commit_latest]: 0 });
     });
