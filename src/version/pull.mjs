@@ -1,3 +1,4 @@
+import { version_path_commit } from './path/commit.mjs';
 import { log } from '../log.mjs';
 import { database_reference_get_data } from '../database/reference/get/data.mjs';
 import { database_value_get } from '../database/value/get.mjs';
