@@ -7,7 +7,6 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 export function refactor_output_to_object(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
-    js_callable_multiple_assert_not(parsed);
     js_visit_nodes_all(parsed, v => {
         let {node} = v;
         js_node_is_return_statment(node);
