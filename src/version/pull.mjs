@@ -32,9 +32,9 @@ export async function version_pull(repository_name) {
             let document_path_commit = version_document_path_commit(commit_version);
             let commit_refererence = database_reference(db, database_collection_name, document_path_commit);
             let commit_data = await database_reference_get_data(transaction, commit_refererence);
-            const property_commit_id = version_property_commit_id();
-            let commits = list_filter_property_exists(property_commit_id);
             let commit_value = database_value_get(commit_data);
+            const property_commit_id = version_property_commit_id();
+            let commits = list_filter_property_exists(commit_value, property_commit_id);
             let commit_path = version_path_commit(repository_name, commit_version);
             await file_write(commit_path, commit_value);
             console.log({ commit_path });
