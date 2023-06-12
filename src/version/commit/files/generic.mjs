@@ -56,7 +56,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         let when = new Date().toISOString();
         let commit_id = guid_generate();
         let commit = {
-            ['commit_id']: commit_id,
+            [version_property_commit_id()]: commit_id,
             when,
             [version_property_parts()]: parts,
             data: commit_data
@@ -72,4 +72,8 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         version_list_file_add(writes, commit_path, commit);
     }
     return writes;
+}
+
+function version_property_commit_id() {
+    return 'commit_id';
 }
