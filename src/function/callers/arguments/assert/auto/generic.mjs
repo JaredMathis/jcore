@@ -1,3 +1,4 @@
+import { js_visit_nodes_call_expression_name_equal } from '../../../../../js/visit/nodes/call/expression/name/equal.mjs';
 import { js_node_call_expression_name_equal } from '../../../../../js/node/call/expression/name/equal.mjs';
 import { js_node_property_end } from '../../../../../js/node/property/end.mjs';
 import { js_node_property_start } from '../../../../../js/node/property/start.mjs';
@@ -72,7 +73,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             if (assignment_exists === true) {
                 return changed;
             }
-            js_visit_nodes_filter(c_parsed, node => js_node_call_expression_name_equal(node, function_name), v => {
+            js_visit_nodes_call_expression_name_equal(c_parsed, function_name, v => {
                 let {node} = v;
                 let ce_args = object_property_get(node, js_node_property_arguments());
                 list_each_with_index(ce_args, (ce_arg, ce_arg_index) => {
@@ -97,6 +98,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                     }
                 });
             });
+            js_visit_nodes_filter(c_parsed, node => js_node_call_expression_name_equal(node, function_name));
             if (changed) {
                 await refactor_import_fix(c_args);
                 list_add_if_not_exists(result, c_function_name);
