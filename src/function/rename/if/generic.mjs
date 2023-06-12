@@ -8,10 +8,10 @@ export async function function_rename_if_generic(prefix_old, prefix_new, predica
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    function predicate_name(n) {
+    function predicate_should_rename(n) {
         return predicate(n, prefix_old);
     }
-    await function_rename_generic(predicate_name, function_name_new_get);
+    await function_rename_generic(predicate_should_rename, function_name_new_get);
     function function_name_new_get(n_old) {
         return function_name_map(n_old, prefix_old, prefix_new);
     }
