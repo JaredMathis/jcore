@@ -90,5 +90,5 @@ export async function version_push(repository_name) {
 function newFunction(repository_name) {
     let fns = function_name_separator();
     let database_collection_name = `repository${fns}${repository_name}`;
-    return { fns, database_collection_name };
+    return database_collection_name;
 }
