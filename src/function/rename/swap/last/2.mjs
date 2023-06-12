@@ -13,8 +13,12 @@ export async function function_rename_swap_last_2(function_name) {
     assert(string_length_at_least(parts, 2));
     let last_index = list_last_index(parts);
     let last_index_second = subtract_1(last_index);
-    let last = list_get(parts, last_index);
-    let last_second = list_get(parts, last_index_second);
-    ilst_set(parts, last_index_second, last);
-    list_set(parts, last_index, last_second);
+    list_swap(parts, last_index, last_index_second);
+}
+
+function list_swap(list, index_a, index_b) {
+    let a = list_get(list, index_a);
+    let b = list_get(list, index_b);
+    list_set(list, index_b, a);
+    list_set(list, index_a, b);
 }
