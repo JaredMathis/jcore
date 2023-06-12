@@ -9,6 +9,6 @@ export async function function_add_string(function_name, string_value) {
         string_identifier_is,
         string_is
     ]);
-    let expression = js_code_expression_string();
+    let expression = js_code_expression_string(string_value);
     return await function_add_with_statement(function_name, js_code_return_statement(expression));
 }
