@@ -6,5 +6,4 @@ export function function_wrap(function_name_to_wrap, function_name_to_add) {
         string_identifier_is,
         string_identifier_is
     ]);
-    error('todo: function_wrap');
 }
