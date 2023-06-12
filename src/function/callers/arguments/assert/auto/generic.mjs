@@ -15,7 +15,7 @@ import { js_call_expression_to_name_or_null } from '../../../../../js/call/expre
 import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
 import { js_node_property_left } from '../../../../../js/node/property/left.mjs';
 import { js_node_is_assignment_expression } from '../../../../../js/node/is/assignment/expression.mjs';
-import { js_visit_nodes } from '../../../../../js/visit/nodes.mjs';
+import { js_visit_nodes_filtered } from '../../../../../js/visit/nodes/filtered.mjs';
 import { arguments_assert_predicate_default } from '../../../../../arguments/assert/predicate/default.mjs';
 import { function_name_get } from '../../../../name/get.mjs';
 import { js_node_property_name } from '../../../../../js/node/property/name.mjs';
@@ -60,7 +60,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             }
             let changed = false;
             let assignment_exists = false;
-            js_visit_nodes(c_parsed, js_node_is_assignment_expression, v => {
+            js_visit_nodes_filtered(c_parsed, js_node_is_assignment_expression, v => {
                 let {node} = v;
                 let left = object_property_get(node, js_node_property_left());
                 if (js_node_is_identifier(left)) {
@@ -73,7 +73,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             if (assignment_exists === true) {
                 return changed;
             }
-            js_visit_nodes(c_parsed, js_node_is_call_expression, v => {
+            js_visit_nodes_filtered(c_parsed, js_node_is_call_expression, v => {
                 let {node} = v;
                 let c_ce_name = js_call_expression_to_name_or_null(node);
                 if (c_ce_name !== null) {

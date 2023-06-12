@@ -8,7 +8,7 @@ import { js_node_property_name } from '../../../../../js/node/property/name.mjs'
 import { object_replace } from '../../../../../object/replace.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
-import { js_visit_nodes } from '../../../../../js/visit/nodes.mjs';
+import { js_visit_nodes_filtered } from '../../../../../js/visit/nodes/filtered.mjs';
 import { js_node_is_member_expression } from '../../../../../js/node/is/member/expression.mjs';
 import { list_add } from '../../../../../list/add.mjs';
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
@@ -16,7 +16,7 @@ export async function refactor_member_expression_to_function_call(args) {
     arguments_assert(arguments, [defined_is]);
     let changed = false;
     let {parsed} = args;
-    js_visit_nodes(parsed, js_node_is_member_expression, v => {
+    js_visit_nodes_filtered(parsed, js_node_is_member_expression, v => {
         let node = object_property_get(v, 'node');
         let property = object_property_get(node, 'property');
         if (!js_node_is_identifier(property)) {
