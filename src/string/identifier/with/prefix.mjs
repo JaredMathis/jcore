@@ -12,6 +12,6 @@ export function string_identifier_with_prefix(prefix, identifier) {
         function_name_separator(),
         identifier
     ];
-    let function_name = string_add_multiple(strings);
-    return function_name;
+    let result = string_add_multiple(strings);
+    return result;
 }
