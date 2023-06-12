@@ -68,12 +68,14 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             repository_sub_path,
             file_name_json(version)
         ]);
-        version_list_file_add(property_file_path, commit_path, property_contents, commit, writes);
+        version_list_file_add(commit_path, commit, writes);
     }
     return writes;
 }
 
-function version_list_file_add(property_file_path, commit_path, property_contents, commit, writes) {
+function version_list_file_add(commit_path, commit, writes) {
+    let property_file_path = version_property_file_path();
+    let property_contents = version_property_contents();
     let commit_write = {
         [property_file_path]: commit_path,
         [property_contents]: commit
