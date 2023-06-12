@@ -11,8 +11,8 @@ export function function_add_string_multiple(prefix, values) {
     ]);
     let split = string_split(values, ',');
     for (let value of split) {
-        let function_name = '';
         const strings = [prefix, function_name_separator(), value];
+        let function_name = '';
         for (let s of strings) {
             function_name = string_add(function_name, s)
         }
