@@ -5,7 +5,7 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { function_name_get } from '../../../function/name/get.mjs';
 import { function_add_with_declaration } from '../../../function/add/with/declaration.mjs';
-import { list_remove_all } from '../../../list/remove/all.mjs';
+import { list_remove_multiple } from '../../../list/remove/multiple.mjs';
 import { function_map } from '../../../function/map.mjs';
 import { list_length_is_0 } from '../../../list/length/is/0.mjs';
 import { function_exists } from '../../../function/exists.mjs';
@@ -37,7 +37,7 @@ export async function refactor_functions_to_files(args) {
         await function_map(function_name_get(refactor_import_fix), n);
     }
     let body = js_body_get(parsed);
-    list_remove_all(body, function_declarations_to_export);
+    list_remove_multiple(body, function_declarations_to_export);
     function_auto_after_refactors_first;
     let after = function_auto_after_refactors_first();
     await refactor_multiple(args, after);
