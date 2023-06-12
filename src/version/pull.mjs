@@ -1,3 +1,4 @@
+import { database_reference_get } from '../database/reference/get.mjs';
 import { database_document_info_reference } from '../database/document/info/reference.mjs';
 import { database_firestore_get } from '../database/firestore/get.mjs';
 import { version_property_commit_latest } from './property/commit/latest.mjs';
@@ -12,5 +13,6 @@ export async function version_pull(repository_name) {
     const property_commit_latest = version_property_commit_latest();
     let info_refererence = database_document_info_reference(db, database_collection_name);
     await database_transaction(db, async transaction => {
+        database_reference_get(transaction, info_refererence);
     });
 }
