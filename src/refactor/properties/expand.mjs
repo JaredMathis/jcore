@@ -9,6 +9,7 @@ export function refactor_properties_expand(args) {
     let mapped = list_map(properties, string_identifier_with_prefix);
     console.log({
         identifier,
-        properties
+        mapped,
+        prefix
     });
 }
