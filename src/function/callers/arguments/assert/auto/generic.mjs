@@ -1,3 +1,4 @@
+import { js_node_call_expression_name_equal } from '../../../../../js/node/call/expression/name/equal.mjs';
 import { js_node_property_end } from '../../../../../js/node/property/end.mjs';
 import { js_node_property_start } from '../../../../../js/node/property/start.mjs';
 import { function_map_args } from '../../../../map/args.mjs';
@@ -11,7 +12,6 @@ import { refactor_import_fix } from '../../../../../refactor/import/fix.mjs';
 import { list_set } from '../../../../../list/set.mjs';
 import { list_get } from '../../../../../list/get.mjs';
 import { js_node_property_arguments } from '../../../../../js/node/property/arguments.mjs';
-import { js_call_expression_to_name_or_null } from '../../../../../js/call/expression/to/name/or/null.mjs';
 import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
 import { js_node_property_left } from '../../../../../js/node/property/left.mjs';
 import { js_node_is_assignment_expression } from '../../../../../js/node/is/assignment/expression.mjs';
@@ -75,32 +75,29 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             }
             js_visit_nodes_filter(c_parsed, js_node_is_call_expression, v => {
                 let {node} = v;
-                let c_ce_name = js_call_expression_to_name_or_null(node);
-                if (c_ce_name !== null) {
-                    if (equal(c_ce_name, function_name)) {
-                        let ce_args = object_property_get(node, js_node_property_arguments());
-                        list_each_with_index(ce_args, (ce_arg, ce_arg_index) => {
-                            if (!js_node_is_identifier(ce_arg)) {
-                                return;
+                if (js_node_call_expression_name_equal(node, function_name)) {
+                    let ce_args = object_property_get(node, js_node_property_arguments());
+                    list_each_with_index(ce_args, (ce_arg, ce_arg_index) => {
+                        if (!js_node_is_identifier(ce_arg)) {
+                            return;
+                        }
+                        const ce_arg_name = object_property_get(ce_arg, 'name');
+                        if (!equal(c_param_name, ce_arg_name)) {
+                            return;
+                        }
+                        if (ce_arg !== null) {
+                            let arguments_assert_arg = list_get(arguments_assert_args, ce_arg_index);
+                            let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index);
+                            let identical = json_equal_keys_without(arguments_assert_arg, c_arguments_assert_arg, [
+                                js_node_property_start(),
+                                js_node_property_end()
+                            ]);
+                            if (!identical) {
+                                list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
+                                changed = true;
                             }
-                            const ce_arg_name = object_property_get(ce_arg, 'name');
-                            if (!equal(c_param_name, ce_arg_name)) {
-                                return;
-                            }
-                            if (ce_arg !== null) {
-                                let arguments_assert_arg = list_get(arguments_assert_args, ce_arg_index);
-                                let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index);
-                                let identical = json_equal_keys_without(arguments_assert_arg, c_arguments_assert_arg, [
-                                    js_node_property_start(),
-                                    js_node_property_end()
-                                ]);
-                                if (!identical) {
-                                    list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
-                                    changed = true;
-                                }
-                            }
-                        });
-                    }
+                        }
+                    });
                 }
             });
             if (changed) {
