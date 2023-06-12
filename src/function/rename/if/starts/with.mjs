@@ -15,7 +15,7 @@ export async function function_rename_if_starts_with(prefix_old, prefix_new) {
         string_identifier_sub_is,
         string_identifier_sub_is
     ]);
-    let predicate;
+    let predicate = string_starts_with;
     let names = await function_name_all();
     let names_filtered = list_filter(names, n => string_starts_with(n, prefix_old));
     let dictionary_tests = {};
