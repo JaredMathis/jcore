@@ -9,8 +9,8 @@ export function js_call_expressions_named(parsed, name_expected) {
         defined_is
     ]);
     return list_new_then(then);
-    function then(lambda) {
-        js_visit_nodes_call_expression_name_equal(parsed, name_expected, lambda);
+    function then(list_new_then_add) {
+        js_visit_nodes_call_expression_name_equal(parsed, name_expected, list_new_then_add);
     }
 
 }
