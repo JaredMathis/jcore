@@ -1,6 +1,6 @@
+import { version_push_latest } from './push/latest.mjs';
 import { database_reference_set } from '../database/reference/set.mjs';
 import { database_value } from '../database/value.mjs';
-import { version_file_contents_each } from './file/contents/each.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { data_key_value_set } from '../data/key/value/set.mjs';
@@ -32,7 +32,6 @@ import { database_transaction } from '../database/transaction.mjs';
 import { database_reference } from '../database/reference.mjs';
 import { function_name_separator } from '../function/name/separator.mjs';
 import { database_firestore_get } from '../database/firestore/get.mjs';
-import { version_files_paths } from './files/paths.mjs';
 export async function version_push(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let db = database_firestore_get();
@@ -83,10 +82,7 @@ export async function version_push(repository_name) {
             }
         });
         if (false) {
-            let latest_files = [];
-            let file_paths = await version_files_paths(repository_name);
-            await version_file_contents_each(repository_name, file_paths, async (file_path, contents) => {
-            });
+            let latest_files = await version_push_latest(repository_name);
             let latest_refererence = database_reference(db, database_collection_name, commit_latest);
             await database_reference_set(transaction, latest_refererence, database_value(latest_files));
         }
