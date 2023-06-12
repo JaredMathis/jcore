@@ -13,10 +13,13 @@ export async function file_js_all_identifier_exists(identifier_name) {
     for (let a of all) {
         let parsed = await file_js_parse(a);
         let identifiers = js_identifiers(parsed);
+        lambda(identifiers);
+    }
+    return list_contains(result, identifier_name);
+    metadata([]);
+    function lambda(identifiers) {
         for (let i of identifiers) {
             list_add_if_not_exists(result, i);
         }
     }
-    return list_contains(result, identifier_name);
-    metadata([]);
 }
