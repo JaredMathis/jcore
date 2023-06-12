@@ -1,3 +1,4 @@
+import { database_reference_get_data } from '../database/reference/get/data.mjs';
 import { version_document_path_commit } from './document/path/commit.mjs';
 import { database_document_info_reference } from '../database/document/info/reference.mjs';
 import { version_property_commit_latest } from './property/commit/latest.mjs';
@@ -28,8 +29,6 @@ import { equal } from '../equal.mjs';
 import { assert } from '../assert.mjs';
 import { comment } from '../comment.mjs';
 import { object_property_get } from '../object/property/get.mjs';
-import { database_reference_data } from '../database/reference/data.mjs';
-import { database_reference_get } from '../database/reference/get.mjs';
 import { data_key_value_get } from '../data/key/value/get.mjs';
 import { database_reference_set_if_not_exists } from '../database/reference/set/if/not/exists.mjs';
 import { database_transaction } from '../database/transaction.mjs';
@@ -49,8 +48,7 @@ export async function version_push(repository_name) {
     await database_transaction(db, async transaction => {
         const property_commit_latest_data = `${ database_collection_name }${ fns }${ property_commit_latest }`;
         let property_commit_latest_data_value = await data_key_value_get(property_commit_latest_data);
-        const info = await database_reference_get(transaction, info_refererence);
-        let info_data = database_reference_data(info);
+        let info_data = await database_reference_get_data(transaction, info_refererence);
         let property_commit_latest_value = object_property_get(info_data, property_commit_latest);
         comment('if this fails then local code is out of sync with server');
         assert(equal(property_commit_latest_data_value, property_commit_latest_value));
