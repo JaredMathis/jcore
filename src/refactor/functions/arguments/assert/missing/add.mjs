@@ -11,7 +11,6 @@ import { function_name_get } from '../../../../../function/name/get.mjs';
 import { refactor_import_fix } from '../../../../import/fix.mjs';
 export async function refactor_functions_arguments_assert_missing_add() {
     arguments_assert(arguments, []);
-    let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
         let exists = false;
@@ -23,6 +22,7 @@ export async function refactor_functions_arguments_assert_missing_add() {
             });
         }
         if (!exists) {
+            let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
             refactor_arguments_assert_add_no_check(function_declaration, excludes);
             await refactor_import_fix(args);
         }
