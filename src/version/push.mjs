@@ -1,3 +1,4 @@
+import { version_property_commit_latest } from './property/commit/latest.mjs';
 import { version_property_commit } from './property/commit.mjs';
 import { version_collection_repository } from './collection/repository.mjs';
 import { version_push_latest } from './push/latest.mjs';
@@ -40,7 +41,7 @@ export async function version_push(repository_name) {
     let database_collection_name = version_collection_repository(repository_name);
     let fns = function_name_separator();
     let property_commit = version_property_commit();
-    const commit_latest = `${ version_property_commit() }${ function_name_separator() }latest`;
+    const commit_latest = version_property_commit_latest();
     let property_commit_latest = commit_latest;
     let document_path_info = `info`;
     let info_refererence = database_reference(db, database_collection_name, document_path_info);
