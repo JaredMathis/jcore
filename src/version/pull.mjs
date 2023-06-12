@@ -1,3 +1,4 @@
+import { database_reference } from '../database/reference.mjs';
 import { version_document_path_commit } from './document/path/commit.mjs';
 import { database_reference_get } from '../database/reference/get.mjs';
 import { database_document_info_reference } from '../database/document/info/reference.mjs';
@@ -22,6 +23,7 @@ export async function version_pull(repository_name) {
         for (let i of range(commit_latest_value)) {
             let commit_id = add_1(i);
             let document_path_commit = version_document_path_commit(commit_id);
+            let commit_refererence = database_reference(db, database_collection_name, document_path_commit);
         }
     });
 }
