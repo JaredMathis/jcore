@@ -1,4 +1,4 @@
-import { js_code_comma_join } from '../../../../../js/code/comma/join.mjs';
+import { js_code_join_comma } from '../../../../../js/code/join/comma.mjs';
 import { js_code_call_expression_with_args } from '../../../../../js/code/call/expression/with/args.mjs';
 import { list_is } from '../../../../../list/is.mjs';
 import { js_node_is_function_declaration } from '../../../../../js/node/is/function/declaration.mjs';
@@ -31,7 +31,7 @@ export function refactor_arguments_assert_add_no_check(function_declaration, exc
     let params = object_property_get(function_declaration, js_node_property_params());
     let params_length = list_length(params);
     let params_mapped = list_map(range(params_length), i => function_name_get(arguments_assert_predicate_default()));
-    let params_joined = js_code_comma_join(params_mapped);
+    let params_joined = js_code_join_comma(params_mapped);
     let params_code = `[${ params_joined }]`;
     let params2 = [
         js_keyword_arguments(),
