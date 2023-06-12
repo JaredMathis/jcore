@@ -52,7 +52,7 @@ export async function version_pull(repository_name) {
                 let part_file_path = object_property_get(part, version_property_file_path());
                 let part_path = await version_path_file_next(repository_name, part_file_path);
                 assert(!await file_exists(part_path));
-                await file_json_write(part_path, commit);
+                await file_json_write(part_path, part);
             }
         }
     });
