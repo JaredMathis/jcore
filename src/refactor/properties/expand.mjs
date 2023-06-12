@@ -9,7 +9,7 @@ export function refactor_properties_expand(args) {
     let {identifier, properties, prefix} = args;
     let property_gets = list_map(properties, p => string_identifier_with_prefix(prefix, p));
     let {function_declaration} = args;
-    js_function_declaration_to_statements();
+    let statements = js_function_declaration_to_statements(function_declaration);
     console.log({
         identifier,
         mapped: property_gets,
