@@ -9,6 +9,7 @@ export async function file_js_overwrite(args) {
     arguments_assert(arguments, [defined_is]);
     let file_path = object_property_get(args, 'file_path');
     let parsed = object_property_get(args, 'parsed');
+    let unparsed_old = object_property_get(args, 'unparsed');
     let unparsed_new = js_unparse(parsed);
     if (false) {
         file_overwrite_if_changed;
