@@ -14,13 +14,13 @@ export async function function_rename_if_generic(prefix_old, prefix_new, predica
         arguments_assert_todo,
         arguments_assert_todo
     ]);
+    function predicate_name(n) {
+        return predicate(n, prefix_old);
+    }
     let names = await function_name_all();
     let names_filtered = list_filter(names, n => predicate_name(n));
     let dictionary_tests = {};
     let dictionary = await list_to_dictionary_async(names_filtered, key_to_value);
-    function predicate_name(n) {
-        return predicate(n, prefix_old);
-    }
     async function key_to_value(n_old) {
         let n_new = function_name_map(n_old, prefix_old, prefix_new);
         let tests_renames = await function_rename_without_all_refactor(n_old, n_new);
