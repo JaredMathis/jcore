@@ -73,12 +73,12 @@ export async function version_commit_files_generic(repository_name, file_paths, 
     return writes;
 }
 
-function version_list_file_add(file_path, commit, writes) {
+function version_list_file_add(file_path, contents, writes) {
     let property_file_path = version_property_file_path();
     let property_contents = version_property_contents();
     let commit_write = {
         [property_file_path]: file_path,
-        [property_contents]: commit
+        [property_contents]: contents
     };
     list_add(writes, commit_write);
 }
