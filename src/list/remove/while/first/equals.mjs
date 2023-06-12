@@ -4,7 +4,7 @@ import { metadata } from '../../../../metadata.mjs';
 import { list_first_remove } from '../../../first/remove.mjs';
 import { list_first } from '../../../first.mjs';
 import { defined_is } from '../../../../defined/is.mjs';
-export function list_remove_all_first_equals(args, value) {
+export function list_remove_while_first_equals(args, value) {
     arguments_assert(arguments, [
         list_is,
         defined_is

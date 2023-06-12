@@ -3,7 +3,7 @@ import { log } from '../../../log.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { function_name_get } from '../../../function/name/get.mjs';
-import { list_remove_all_first_equals } from '../../../list/remove/all/first/equals.mjs';
+import { list_remove_while_first_equals } from '../../../list/remove/while/first/equals.mjs';
 import { git } from '../../../git.mjs';
 import { list_join } from '../../../list/join.mjs';
 import { command_line_args_skipped } from '../../../command/line/args/skipped.mjs';
@@ -16,7 +16,7 @@ export async function git_pacp_with_message(commit_message, sync) {
         boolean_is
     ]);
     let args = command_line_args_skipped();
-    list_remove_all_first_equals(args, function_name_get(git));
+    list_remove_while_first_equals(args, function_name_get(git));
     let args_message = list_join(args, ' ');
     const command_commit = `git commit -m "${ commit_message } ${ args_message }"`;
     let commands = [
