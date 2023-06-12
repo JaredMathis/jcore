@@ -2,7 +2,7 @@ import { version_push } from './version/push.mjs';
 import { version_repository_file_size_max } from './version/repository/file/size/max.mjs';
 import { version_repository_default } from './version/repository/default.mjs';
 import { database_set } from './database/set.mjs';
-import { version_differences } from './version/differences.mjs';
+import { version_sync_local_preview } from './version/sync/local/preview.mjs';
 import { string_difference_apply_parse } from './string/difference/apply/parse.mjs';
 import { string_multiply } from './string/multiply.mjs';
 import { random_get } from './random/get.mjs';
@@ -39,7 +39,7 @@ export async function sandbox() {
     const document_data = { message: 'test' };
     await database_set(collection_path, document_path, document_data);
     return;
-    let differences = await version_differences(repository_name);
+    let differences = await version_sync_local_preview(repository_name);
     console.log(differences);
     return;
     await tests();
