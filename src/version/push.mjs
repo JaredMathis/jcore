@@ -41,8 +41,7 @@ export async function version_push(repository_name) {
     let database_collection_name = version_collection_repository(repository_name);
     let fns = function_name_separator();
     let property_commit = version_property_commit();
-    const commit_latest = version_property_commit_latest();
-    let property_commit_latest = commit_latest;
+    let property_commit_latest = version_property_commit_latest();
     let document_path_info = `info`;
     let info_refererence = database_reference(db, database_collection_name, document_path_info);
     await database_transaction(db, async transaction => {
@@ -85,7 +84,7 @@ export async function version_push(repository_name) {
             }
         });
         let latest_files = await version_push_latest(repository_name);
-        let latest_refererence = database_reference(db, database_collection_name, commit_latest);
+        let latest_refererence = database_reference(db, database_collection_name, property_commit_latest);
         await database_reference_set(transaction, latest_refererence, database_value(latest_files));
     });
 }
