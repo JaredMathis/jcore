@@ -1,3 +1,4 @@
+import { version_property_commit } from './property/commit.mjs';
 import { version_collection_repository } from './collection/repository.mjs';
 import { version_push_latest } from './push/latest.mjs';
 import { database_reference_set } from '../database/reference/set.mjs';
@@ -38,7 +39,7 @@ export async function version_push(repository_name) {
     let db = database_firestore_get();
     let database_collection_name = version_collection_repository(repository_name);
     let fns = function_name_separator();
-    let property_commit = 'commit';
+    let property_commit = version_property_commit();
     const commit_latest = `${ property_commit }${ fns }latest`;
     let property_commit_latest = commit_latest;
     let document_path_info = `info`;
