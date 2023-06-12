@@ -10,12 +10,12 @@ export function js_call_expressions_named(parsed, name_expected) {
     ]);
     let matches = [];
     then(lambda);
+    function lambda(node) {
+        list_add(matches, node);
+    }
     return matches;
     function then(lambda) {
         js_visit_nodes_call_expression_name_equal(parsed, name_expected, lambda);
     }
 
-    function lambda(node) {
-        list_add(matches, node);
-    }
 }
