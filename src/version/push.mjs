@@ -35,8 +35,8 @@ import { database_firestore_get } from '../database/firestore/get.mjs';
 export async function version_push(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let db = database_firestore_get();
+    let database_collection_name = newFunction(repository_name);
     let fns = function_name_separator();
-    let database_collection_name = `repository${ fns }${ repository_name }`;
     let property_commit = 'commit';
     const commit_latest = `${ property_commit }${ fns }latest`;
     let property_commit_latest = commit_latest;
@@ -85,4 +85,10 @@ export async function version_push(repository_name) {
         let latest_refererence = database_reference(db, database_collection_name, commit_latest);
         await database_reference_set(transaction, latest_refererence, database_value(latest_files));
     });
+}
+
+function newFunction(repository_name) {
+    let fns = function_name_separator();
+    let database_collection_name = `repository${fns}${repository_name}`;
+    return { fns, database_collection_name };
 }
