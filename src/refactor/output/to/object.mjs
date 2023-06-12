@@ -1,4 +1,3 @@
-import { js_callable_multiple_assert_not } from '../../../js/callable/multiple/assert/not.mjs';
 import { js_node_is_return_statment } from '../../../js/node/is/return/statment.mjs';
 import { log } from '../../../log.mjs';
 import { js_visit_nodes_all } from '../../../js/visit/nodes/all.mjs';
