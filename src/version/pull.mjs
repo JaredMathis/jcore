@@ -13,6 +13,6 @@ export async function version_pull(repository_name) {
     const property_commit_latest = version_property_commit_latest();
     let info_refererence = database_document_info_reference(db, database_collection_name);
     await database_transaction(db, async transaction => {
-        await database_reference_get(transaction, info_refererence);
+        let info_data = await database_reference_get(transaction, info_refererence);
     });
 }
