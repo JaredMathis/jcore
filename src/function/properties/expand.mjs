@@ -1,3 +1,4 @@
+import { refactor_properties_expand } from '../../refactor/properties/expand.mjs';
 import { string_identifier_multiple_parse } from '../../string/identifier/multiple/parse.mjs';
 import { function_map_with_args } from '../map/with/args.mjs';
 import { function_name_get } from '../name/get.mjs';
