@@ -12,7 +12,11 @@ export function js_call_expressions_named(parsed, name_expected) {
     let matches = [];
     js_visit_nodes_filter(parsed, node => js_node_call_expression_name_equal(node, name_expected), v => {
         let {node} = v;
-        list_add(matches, node);
+        lambda(node);
     });
     return matches;
+
+    function lambda(node) {
+        list_add(matches, node);
+    }
 }
