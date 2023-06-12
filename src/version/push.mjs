@@ -1,3 +1,4 @@
+import { database_value } from '../database/value.mjs';
 import { version_file_contents_each } from './file/contents/each.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -73,7 +74,7 @@ export async function version_push(repository_name) {
                 }
             }
             let document_path_commit = `${ property_commit }${ fns }${ commit_id }`;
-            database_create(db, transaction, database_collection_name, document_path_commit, { value: commit_files });
+            database_create(db, transaction, database_collection_name, document_path_commit, database_value(commit_files));
             if (equal(index, last_index)) {
                 database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_id);
                 await data_key_value_set(property_commit_latest_data, commit_id);
@@ -82,7 +83,6 @@ export async function version_push(repository_name) {
         if (false) {
             let file_paths = await version_files_paths(repository_name);
             await version_file_contents_each(repository_name, file_paths, async (file_path, contents) => {
-
             });
         }
     });
