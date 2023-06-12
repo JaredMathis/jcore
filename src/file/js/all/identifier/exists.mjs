@@ -8,8 +8,8 @@ import { file_js_parse } from '../../parse.mjs';
 import { file_js_all_path } from '../path.mjs';
 export async function file_js_all_identifier_exists(identifier_name) {
     arguments_assert(arguments, [string_identifier_is]);
-    let all = await file_js_all_path();
     let result = [];
+    let all = await file_js_all_path();
     for (let a of all) {
         let parsed = await file_js_parse(a);
         let identifiers = js_identifiers(parsed);
