@@ -1,6 +1,6 @@
+import { version_document_path_commit } from './document/path/commit.mjs';
 import { database_document_info_reference } from '../database/document/info/reference.mjs';
 import { version_property_commit_latest } from './property/commit/latest.mjs';
-import { version_property_commit } from './property/commit.mjs';
 import { version_collection_repository } from './collection/repository.mjs';
 import { version_push_latest } from './push/latest.mjs';
 import { database_reference_set } from '../database/reference/set.mjs';
@@ -75,7 +75,7 @@ export async function version_push(repository_name) {
                     list_add(commit_files, file_json);
                 }
             }
-            let document_path_commit = `${ version_property_commit() }${ function_name_separator() }${ commit_id }`;
+            let document_path_commit = version_document_path_commit(commit_id);
             database_create(db, transaction, database_collection_name, document_path_commit, database_value(commit_files));
             if (equal(index, last_index)) {
                 database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_id);
