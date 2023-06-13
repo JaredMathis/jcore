@@ -1,3 +1,4 @@
+import { refactor_import_fix } from '../import/fix.mjs';
 import { js_node_is_identifier } from '../../js/node/is/identifier.mjs';
 import { js_node_property_callee } from '../../js/node/property/callee.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
@@ -6,7 +7,7 @@ import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { error } from '../../error.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { object_property_set } from '../../object/property/set.mjs';
-export function refactor_call_replace(args) {
+export async function refactor_call_replace(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name_called_old, function_name_called_new} = args;
     let {parsed} = args;
@@ -17,5 +18,6 @@ export function refactor_call_replace(args) {
         }
         object_property_set(callee, function_name_called_new);
     });
+    await refactor_import_fix;
     error('todo: refactor_call_replace');
 }
