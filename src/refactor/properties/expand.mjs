@@ -20,5 +20,5 @@ export function refactor_properties_expand(args) {
             index
         };
     });
-    let filtered = list_filter(mapped, m => object_property_get(m, property_is_capital));
+    let filtered = list_filter_property(mapped, property_is_capital, true);
 }
