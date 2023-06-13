@@ -23,7 +23,7 @@ export async function refactor_input_add(args) {
     let function_name = js_function_declaration_to_name(function_declaration);
     let callers = await function_callers(function_name);
     for (let caller of callers) {
-        await function_map_with_args(function_name_get(refactor_input_add_caller), caller, { input_name });
+        await function_map_with_args(function_name_get(refactor_input_add_caller), caller, { input_name, function_name_called:function_name  });
     }
     error();
 }
