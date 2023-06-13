@@ -1,3 +1,4 @@
+import { function_callers } from '../../function/callers.mjs';
 import { js_function_declaration_to_name } from '../../js/function/declaration/to/name.mjs';
 import { log } from '../../log.mjs';
 import { js_function_declaration_to_params } from '../../js/function/declaration/to/params.mjs';
@@ -21,5 +22,6 @@ export async function refactor_input_add(args) {
     await refactor_import_fix(args);
     console.log({ args });
     let function_name = js_function_declaration_to_name(function_declaration);
+    let callers = await function_callers(function_name);
     error();
 }
