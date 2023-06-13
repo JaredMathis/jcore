@@ -8,7 +8,7 @@ export async function list_map_with_index_async(list, mapper) {
         list_is,
         function_is
     ]);
-    let lambda = async (element, index) => await mapper(element);
+    let lambda = async (element, index) => await mapper(element, index);
     return await list_map_generic_async(list, lambda);
     metadata([]);
 }
