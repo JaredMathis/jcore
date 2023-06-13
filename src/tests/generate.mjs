@@ -1,3 +1,4 @@
+import { js_code_await } from '../js/code/await.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { js_code_call_expression_statement } from '../js/code/call/expression/statement.mjs';
@@ -23,7 +24,7 @@ export async function tests_generate() {
     let test_names = await function_all_tests();
     let mapped = list_map(test_names, n => {
         const awaited = js_code_call_expression_statement(n);
-        return `await ${ awaited }`
+        return js_code_await(awaited);
     });
     list_add(mapped, `${ function_name_get(log) }(${ list_length(mapped) } + ' tests ran successfully')`);
     let code = list_join(mapped, string_new_line());
