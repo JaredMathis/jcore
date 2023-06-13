@@ -21,7 +21,9 @@ export async function tests_generate() {
     let function_name = 'tests';
     let file_path = function_name_to_file_path(function_name);
     let test_names = await function_all_tests();
-    let mapped = list_map(test_names, n => `await ${ js_code_call_expression_statement(n) }`);
+    let mapped = list_map(test_names, n => {
+        return `await ${ js_code_call_expression_statement(n) }`
+    });
     list_add(mapped, `${ function_name_get(log) }(${ list_length(mapped) } + ' tests ran successfully')`);
     let code = list_join(mapped, string_new_line());
     let statements = js_parse_statements(code);
