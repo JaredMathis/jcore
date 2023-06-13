@@ -19,7 +19,7 @@ export async function refactor_input_add(args) {
     let params = js_function_declaration_to_params(function_declaration);
     js_list_add_identifier(params, input_name);
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
-    let type = js_parse_expression(function_name_get(arguments_assert_todo));
+    let type = js_parse_expression(function_name_get(input_type));
     list_add(arguments_assert_args, type);
     await refactor_import_fix(args);
     let function_name = js_function_declaration_to_name(function_declaration);
