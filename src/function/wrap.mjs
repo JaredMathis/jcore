@@ -32,5 +32,5 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
         statement_second_code
     ];
     let statements = list_map(statements_code, js_parse_statement);
-    function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
+    await function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
 }
