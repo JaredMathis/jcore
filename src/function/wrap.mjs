@@ -10,8 +10,8 @@ import { string_identifier_is } from '../string/identifier/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { error } from '../error.mjs';
 import { function_to_declaration } from './to/declaration.mjs';
-import { list_add } from '../list/add.mjs';
 import { list_map } from '../list/map.mjs';
+import { js_parse_statement } from '../js/parse/statement.mjs';
 export async function function_wrap(function_name_to_wrap, function_name_to_add) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -32,7 +32,7 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
         statement_first_code,
         statement_second_code
     ];
-    list_add(statements);
+    let statements = list_map(statements_code, js_parse_statement);
     error();
     function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
 }
