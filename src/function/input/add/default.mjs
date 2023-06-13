@@ -1,4 +1,3 @@
-import { function_input_add } from '../add.mjs';
 import { function_input_add_generic } from './generic.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
@@ -10,5 +9,4 @@ export async function function_input_add_default(function_name, input_name, inpu
         string_is
     ]);
     await function_input_add_generic(function_name, input_name, input_value_default);
-    await function_input_add(function_name, input_name);
 }
