@@ -15,17 +15,15 @@ import { js_visit_nodes_all } from '../js/visit/nodes/all.mjs';
 import { string_ends_with } from '../string/ends/with.mjs';
 import { string_suffix_without } from '../string/suffix/without.mjs';
 import { js_function_declaration_to_name } from '../js/function/declaration/to/name.mjs';
-import { error } from '../error.mjs';
 import { object_property_change } from '../object/property/change.mjs';
-import { list_add_assert_exists_not } from '../list/add/assert/exists/not.mjs';
 export async function refactor_unasyncify(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
     let callables = js_nodes_get(parsed, js_node_is_callable);
-    list_add_assert_exists_not(callables, function_declaration);
-    error();
+    for (let callable of callables) {
+        object_property_change(callable, js_keyword_async(), false);
+    }
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
-    object_property_change(function_declaration, js_keyword_async(), false);
     await refactor_metadata_generated_add_function(args);
     let suffix = function_naming_suffix_async();
     js_identifier_rename_if(args, name => string_ends_with(name, suffix), name => string_suffix_without(name, suffix));
