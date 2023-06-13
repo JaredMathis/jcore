@@ -8,5 +8,5 @@ export async function function_add_string_prefix_camel_generic(prefix, value) {
         arguments_assert_todo
     ]);
     let snake = string_case_camel_to_snake(value);
-    await function_add_string_prefix_generic(prefix, snake, value);
+    return await function_add_string_prefix_generic(prefix, snake, value);
 }
