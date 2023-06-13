@@ -1,4 +1,5 @@
-import { js_declarations_single } from '../../js/declarations/single.mjs';
+import { list_single } from '../../list/single.mjs';
+import { js_node_property_declarations } from '../../js/node/property/declarations.mjs';
 import { js_parse_statement_let } from '../../js/parse/statement/let.mjs';
 import { string_identifier_with_prefix } from '../../string/identifier/with/prefix.mjs';
 import { js_identifiers } from '../../js/identifiers.mjs';
@@ -21,6 +22,7 @@ import { defined_is } from '../../defined/is.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { function_name_get } from '../../function/name/get.mjs';
 import { list_contains } from '../../list/contains.mjs';
+import { list_length_is_1 } from '../../list/length/is/1.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration, parsed} = args;
@@ -29,30 +31,33 @@ export function refactor_properties_expand(args) {
         if (js_node_is_variable_declarator(parent)) {
             let grandparent = js_visit_node_grandparent(stack, 0);
             if (js_node_is_variable_declaration(grandparent)) {
-                let declaration = js_declarations_single(grandparent);
-                let grandparent_great = js_visit_node_grandparent(stack, 1);
-                if (js_node_is_block_statement(grandparent_great)) {
-                    let function_body_statements = js_block_statement_body(grandparent_great);
-                    let index = list_index_of(function_body_statements, grandparent);
-                    let properties = object_property_get(node, js_node_property_properties());
-                    for (let property of properties) {
-                        let key = js_property_identifier_name(property, js_node_property_key());
-                        let local = js_property_identifier_name(property, js_node_property_value());
-                        let identifier_next_prefix = 'v';
-                        let identifier_next = identifier_next_prefix;
-                        let identifiers = js_identifiers(parsed);
-                        let c = 2;
-                        while (list_contains(identifiers, identifier_next)) {
-                            identifier_next = string_identifier_with_prefix(identifier_next_prefix, c);
-                            c++;
+                let declarations = object_property_get(match, js_node_property_declarations());
+                if (list_length_is_1(declarations)) {
+                    let declaration = list_single(declarations);
+                    let grandparent_great = js_visit_node_grandparent(stack, 1);
+                    if (js_node_is_block_statement(grandparent_great)) {
+                        let function_body_statements = js_block_statement_body(grandparent_great);
+                        let index = list_index_of(function_body_statements, grandparent);
+                        let properties = object_property_get(node, js_node_property_properties());
+                        for (let property of properties) {
+                            let key = js_property_identifier_name(property, js_node_property_key());
+                            let local = js_property_identifier_name(property, js_node_property_value());
+                            let identifier_next_prefix = 'v';
+                            let identifier_next = identifier_next_prefix;
+                            let identifiers = js_identifiers(parsed);
+                            let c = 2;
+                            while (list_contains(identifiers, identifier_next)) {
+                                identifier_next = string_identifier_with_prefix(identifier_next_prefix, c);
+                                c++;
+                            }
+                            js_parse_statement_let(identifier_next);
+                            let args = [];
+                            js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args);
+                            console.log({
+                                key,
+                                value: local
+                            });
                         }
-                        js_parse_statement_let(identifier_next);
-                        let args = [];
-                        js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args);
-                        console.log({
-                            key,
-                            value: local
-                        });
                     }
                 }
             }
