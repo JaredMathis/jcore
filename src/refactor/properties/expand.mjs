@@ -19,5 +19,5 @@ export function refactor_properties_expand(args) {
         };
     });
     let filtered = list_filter_property(mapped, property_is_capital, true);
-    let mapped2 = list_map_property(filtered, index);
+    let indices = list_map_property(filtered, index);
 }
