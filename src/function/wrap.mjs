@@ -8,7 +8,6 @@ import { js_function_declaration_to_params_names } from '../js/function/declarat
 import { function_add_with_statements_synchronized } from './add/with/statements/synchronized.mjs';
 import { string_identifier_is } from '../string/identifier/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-import { error } from '../error.mjs';
 import { function_to_declaration } from './to/declaration.mjs';
 import { list_map } from '../list/map.mjs';
 import { js_parse_statement } from '../js/parse/statement.mjs';
@@ -33,6 +32,5 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
         statement_second_code
     ];
     let statements = list_map(statements_code, js_parse_statement);
-    error();
     function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
 }
