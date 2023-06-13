@@ -9,6 +9,7 @@ import { equal } from '../../../equal.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { list_last_index } from '../../../list/last/index.mjs';
 import { list_length } from '../../../list/length.mjs';
+import { string_empty } from '../../empty.mjs';
 export function string_case_camel_parse(input) {
     let characters = string_to_list(input);
     const property_is_capital = 'is_capital';
@@ -29,7 +30,9 @@ export function string_case_camel_parse(input) {
                 continue;
             }
             let part = string_sub(input, previous, index);
-            list_new_then_add(part);
+            if (!equal(part, string_empty())) {
+                list_new_then_add(part);
+            }
             previous = index;
         }
     });
