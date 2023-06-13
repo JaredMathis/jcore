@@ -1,3 +1,4 @@
+import { string_sub } from '../../string/sub.mjs';
 import { list_map_property } from '../../list/map/property.mjs';
 import { string_case_upper_is } from '../../string/case/upper/is.mjs';
 import { list_filter_property } from '../../list/filter/property.mjs';
@@ -23,10 +24,10 @@ export function refactor_properties_expand(args) {
     let indices = list_map_property(filtered, index);
     list_new_then(list_new_then_add => {
         let previous = 0;
-        let next;
-        for (let i of indices) {
-            
-            list_new_then_add()
+        for (let index of indices) {
+            let part = string_sub(node_type, previous, index);
+            list_new_then_add(part);
+            previous = index;
         }
     });
 }
