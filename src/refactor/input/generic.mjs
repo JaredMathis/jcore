@@ -23,11 +23,11 @@ export async function refactor_input_generic(args, function_declaration, args_ad
     arguments_assert_args_change(arguments_assert_args);
     await refactor_import_fix(args);
     const args_additional = args_additional_get();
+    let function_name = js_function_declaration_to_name(function_declaration);
     const args_additional_merge = {
         function_name_called: function_name
     };
     object_merge(args_additional, args_additional_merge)
-    let function_name = js_function_declaration_to_name(function_declaration);
     let callers = await function_callers(function_name);
     for (let caller of callers) {
         await function_map_with_args(function_name_get(refactor_input_caller_generic), caller, args_additional_merge);
