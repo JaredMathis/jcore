@@ -5,7 +5,7 @@ import { string_identifier_part_is } from '../../string/identifier/part/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { assert } from '../../assert.mjs';
 import { equal } from '../../equal.mjs';
-export async function function_rename_part(part_old) {
+export async function function_rename_part(part_old, part_new) {
     arguments_assert(arguments, [
         string_identifier_part_is,
         string_identifier_part_is
