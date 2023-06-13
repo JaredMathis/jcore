@@ -6,5 +6,6 @@ export async function function_add_js_node_type(prefix, value) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
+    let prefix2 = 'js_node_is';
     await function_add_string_prefix_camel_generic(prefix, value);
 }
