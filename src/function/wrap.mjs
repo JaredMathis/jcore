@@ -38,7 +38,7 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     ];
     let statements = list_map(statements_code, js_parse_statement);
     await function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
-    await list_each_with_index_async(list, async (element, index) => {
+    await list_each_with_index_async(inputs, async (element, index) => {
         let arguments_assert_arg = list_get(arguments_assert_args, index);
         log({arguments_assert_arg})
         error()
