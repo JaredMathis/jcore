@@ -5,10 +5,10 @@ export function count(then, lambda) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let list = [];
-    then(list_new_then_add);
-    function list_new_then_add(element) {
-        lambda(list, element);
+    let result = 0;
+    then(counter);
+    function counter() {
+        result++;
     }
-    return list;
+    return result;
 }
