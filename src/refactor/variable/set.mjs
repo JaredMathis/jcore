@@ -28,5 +28,6 @@ export async function refactor_variable_set(args) {
         if (!js_node_is_variable_declarator(declaration)) {
             return false;
         }
+        let id = object_property_get(declaration, js_node_property_id());
     }, n => console.log(n));
 }
