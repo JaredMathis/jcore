@@ -11,7 +11,7 @@ export async function refactor_input_add(args) {
     let {input_name, function_declaration} = args;
     let params = js_function_declaration_to_params(function_declaration);
     let input_new = js_parse_expression(input_name);
-    list_add(arguments_assert_args, input_new);
+    list_add(params, input_new);
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let type = js_parse_expression(function_name_get(arguments_assert_todo));
     list_add(arguments_assert_args, type);
