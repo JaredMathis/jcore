@@ -1,5 +1,5 @@
+import { js_parse_expression } from '../../js/parse/expression.mjs';
 import { log_json } from '../../log/json.mjs';
-import { js_parse_statement_let } from '../../js/parse/statement/let.mjs';
 import { js_node_property_id } from '../../js/node/property/id.mjs';
 import { js_property_name } from '../../js/property/name.mjs';
 import { js_node_is_variable_declaration } from '../../js/node/is/variable/declaration.mjs';
@@ -18,8 +18,9 @@ export async function refactor_variable_set(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {identifier, value} = args;
     let {parsed} = args;
-    const o = js_parse_statement_let('a', '= b');
+    const o = js_parse_expression('a', '= b');
     log_json(o);
+    list_add_then;
     js_visit_nodes_filter_node(parsed, n => {
         if (!js_node_is_variable_declaration(n)) {
             return false;
