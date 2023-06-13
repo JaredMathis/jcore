@@ -6,7 +6,8 @@ import { json_to } from '../../json/to.mjs';
 import { js_visit_nodes_filter } from '../../js/visit/nodes/filter.mjs';
 export async function refactor_variable_set(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
+    let { identifier, value } = args;
     let {parsed} = args;
-    let expecting = js_parse_statement_let();
+    let expecting = js_parse_statement_let(identifier, ``);
     js_visit_nodes_filter(parsed);
 }
