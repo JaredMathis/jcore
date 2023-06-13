@@ -16,7 +16,10 @@ import { defined_is } from '../../defined/is.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
-    let {function_declaration, parsed} = args;
+    let {
+        function_declaration: a,
+        parsed
+    } = args;
     js_visit_nodes_filter(parsed, js_node_is_object_pattern, v => {
         let {stack, parent, node} = v;
         if (js_node_is_variable_declarator(parent)) {
