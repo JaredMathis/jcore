@@ -1,6 +1,6 @@
+import { js_nodes_get } from '../../js/nodes/get.mjs';
 import { js_node_property_init } from '../../js/node/property/init.mjs';
 import { object_property_change } from '../../object/property/change.mjs';
-import { list_new_then } from '../../list/new/then.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
 import { js_node_property_id } from '../../js/node/property/id.mjs';
 import { js_property_name } from '../../js/property/name.mjs';
@@ -14,7 +14,6 @@ import { list_length_is_1 } from '../../list/length/is/1.mjs';
 import { list_single } from '../../list/single.mjs';
 import { js_node_is_identifier } from '../../js/node/is/identifier.mjs';
 import { equal } from '../../equal.mjs';
-import { js_nodes_each } from '../../js/nodes/each.mjs';
 export async function refactor_variable_set(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {identifier, value} = args;
@@ -37,9 +36,7 @@ export async function refactor_variable_set(args) {
         }
         return equal(object_property_get(id, js_property_name()), identifier);
     };
-    let nodes = list_new_then(list_new_then_add => {
-        js_nodes_each(parsed, predicate, list_new_then_add);
-    });
+    let nodes = js_nodes_get(parsed, predicate);
     let match = list_single(nodes);
     let declarations = object_property_get(match, js_node_property_declarations());
     let declaration = list_single(declarations);
