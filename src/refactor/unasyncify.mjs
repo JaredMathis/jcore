@@ -1,4 +1,3 @@
-import { js_callable_multiple_assert_not } from '../js/callable/multiple/assert/not.mjs';
 import { refactor_metadata_generated_add_function } from './metadata/generated/add/function.mjs';
 import { defined_is } from '../defined/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -18,7 +17,6 @@ import { js_function_declaration_to_name } from '../js/function/declaration/to/n
 export async function refactor_unasyncify(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
-    js_callable_multiple_assert_not(parsed);
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     object_property_set(function_declaration, js_keyword_async(), false);
     await refactor_metadata_generated_add_function(args);

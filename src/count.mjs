@@ -1,12 +1,9 @@
-import { arguments_assert_todo } from './arguments/assert/todo.mjs';
+import { function_is } from './function/is.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
-export function count(then, lambda) {
-    arguments_assert(arguments, [
-        arguments_assert_todo,
-        arguments_assert_todo
-    ]);
+export async function count(then) {
+    arguments_assert(arguments, [function_is]);
     let result = 0;
-    then(counter);
+    await then(counter);
     function counter() {
         result++;
     }
