@@ -16,15 +16,13 @@ import { string_ends_with } from '../string/ends/with.mjs';
 import { string_suffix_without } from '../string/suffix/without.mjs';
 import { js_function_declaration_to_name } from '../js/function/declaration/to/name.mjs';
 import { error } from '../error.mjs';
-import { log } from '../log.mjs';
 import { object_property_change } from '../object/property/change.mjs';
-import { list_add } from '../list/add.mjs';
 import { list_add_assert_exists_not } from '../list/add/assert/exists/not.mjs';
 export async function refactor_unasyncify(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
     let callables = js_nodes_get(parsed, js_node_is_callable);
-    list_add_assert_exists_not(callables, function_declaration)
+    list_add_assert_exists_not(callables, function_declaration);
     error();
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     object_property_change(function_declaration, js_keyword_async(), false);
