@@ -9,6 +9,7 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { error } from '../error.mjs';
 import { function_to_declaration } from './to/declaration.mjs';
 import { list_add } from '../list/add.mjs';
+import { list_map } from '../list/map.mjs';
 export async function function_wrap(function_name_to_wrap, function_name_to_add) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -18,6 +19,7 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     let identifier = 'result';
     let inputs = js_function_declaration_to_params_names(function_declaration);
     let is_async = js_function_declaration_async_is(function_declaration);
+    let args = list_map(inputs, js_parse_identifier);
     let statement_first_code = js_code_call_expression_with_args(function_name_to_wrap, args);
     let statements = [];
     list_add(statements);
