@@ -1,3 +1,4 @@
+import { js_declarations_single } from '../../js/declarations/single.mjs';
 import { js_parse_statement_let } from '../../js/parse/statement/let.mjs';
 import { string_identifier_with_prefix } from '../../string/identifier/with/prefix.mjs';
 import { js_identifiers } from '../../js/identifiers.mjs';
@@ -28,6 +29,7 @@ export function refactor_properties_expand(args) {
         if (js_node_is_variable_declarator(parent)) {
             let grandparent = js_visit_node_grandparent(stack, 0);
             if (js_node_is_variable_declaration(grandparent)) {
+                let declaration = js_declarations_single(grandparent);
                 let grandparent_great = js_visit_node_grandparent(stack, 1);
                 if (js_node_is_block_statement(grandparent_great)) {
                     let function_body_statements = js_block_statement_body(grandparent_great);
@@ -44,7 +46,7 @@ export function refactor_properties_expand(args) {
                             identifier_next = string_identifier_with_prefix(identifier_next_prefix, c);
                             c++;
                         }
-                        js_parse_statement_let;
+                        js_parse_statement_let(identifier_next);
                         let args = [];
                         js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args);
                         console.log({
