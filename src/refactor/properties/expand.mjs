@@ -18,7 +18,7 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { function_name_get } from '../../function/name/get.mjs';
-import { error } from '../../error.mjs';
+import { list_contains } from '../../list/contains.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration, parsed} = args;
@@ -36,9 +36,13 @@ export function refactor_properties_expand(args) {
                         let key = js_property_identifier_name(property, js_node_property_key());
                         let local = js_property_identifier_name(property, js_node_property_value());
                         let identifier_next_prefix = 'v';
+                        let identifier_next = identifier_next_prefix;
                         let identifiers = js_identifiers(parsed);
-                        string_identifier_with_prefix(identifier_next_prefix);
-                        let identifier_next = error();
+                        let c = 2;
+                        while (list_contains(identifiers, identifier_next)) {
+                            identifier_next = string_identifier_with_prefix(identifier_next_prefix, c);
+                            c++;
+                        }
                         let args = [];
                         js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args);
                         console.log({
