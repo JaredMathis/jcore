@@ -5,6 +5,6 @@ import { metadata } from '../../metadata.mjs';
 export function string_identifier_is(value) {
     arguments_assert(arguments, [string_is]);
     let enforce_first_and_last = true;
-    return string_identifier_is_generic(value, enforce_first_and_last);
+    return string_identifier_is_generic(value, enforce_first_and_last, true);
     metadata([]);
 }
