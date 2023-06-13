@@ -1,3 +1,4 @@
+import { js_call_expression_arguments } from '../../../../../js/call/expression/arguments.mjs';
 import { js_visit_nodes_call_expression_name_equal } from '../../../../../js/visit/nodes/call/expression/name/equal.mjs';
 import { js_node_property_end } from '../../../../../js/node/property/end.mjs';
 import { js_node_property_start } from '../../../../../js/node/property/start.mjs';
@@ -11,7 +12,6 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { refactor_import_fix } from '../../../../../refactor/import/fix.mjs';
 import { list_set } from '../../../../../list/set.mjs';
 import { list_get } from '../../../../../list/get.mjs';
-import { js_node_property_arguments } from '../../../../../js/node/property/arguments.mjs';
 import { js_node_property_left } from '../../../../../js/node/property/left.mjs';
 import { js_node_is_assignment_expression } from '../../../../../js/node/is/assignment/expression.mjs';
 import { js_visit_nodes_filter } from '../../../../../js/visit/nodes/filter.mjs';
@@ -104,8 +104,4 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             return !changed;
         });
     }
-}
-
-function js_call_expression_arguments(node) {
-    return object_property_get(node, js_node_property_arguments());
 }
