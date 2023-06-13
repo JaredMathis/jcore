@@ -18,7 +18,6 @@ export async function refactor_input_swap_last_2(args) {
         list_swap_last_2(params)
     }
     function args_additional_get() {
-        error()
         const args_additional = {
         };
         return args_additional;
