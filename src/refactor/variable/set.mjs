@@ -19,6 +19,7 @@ export async function refactor_variable_set(args) {
         if (!js_node_is_variable_declaration(n)) {
             return false;
         }
+        console.log({n})
         let declarations = object_property_get(n, js_node_property_declarations());
         if (!list_length_is_1(declarations)) {
             return false;
