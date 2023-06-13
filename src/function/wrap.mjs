@@ -18,7 +18,7 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     let identifier = 'result';
     let inputs = js_function_declaration_to_params_names(function_declaration);
     let is_async = js_function_declaration_async_is(function_declaration);
-    let args = js_code_call_expression_with_args(function_name_to_wrap, args);
+    let statement_first_code = js_code_call_expression_with_args(function_name_to_wrap, args);
     let statements = [];
     list_add(statements);
     error();
