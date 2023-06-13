@@ -9,7 +9,7 @@ import { list_swap_last_2 } from '../../../../list/swap/last/2.mjs';
 import { error } from '../../../../error.mjs';
 export async function refactor_input_swap_last_2(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let {function_declaration, input_value_default} = args;
+    let {function_declaration} = args;
     await refactor_input_generic(args, function_declaration, args_additional_get, params_change, arguments_assert_args_change);
     function arguments_assert_args_change(arguments_assert_args) {
         list_swap_last_2(arguments_assert_args)
