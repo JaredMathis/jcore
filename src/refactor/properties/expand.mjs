@@ -16,10 +16,7 @@ import { defined_is } from '../../defined/is.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
-    let {
-        function_declaration: a,
-        parsed
-    } = args;
+    let {function_declaration, parsed} = args;
     js_visit_nodes_filter(parsed, js_node_is_object_pattern, v => {
         let {stack, parent, node} = v;
         if (js_node_is_variable_declarator(parent)) {
@@ -32,10 +29,10 @@ export function refactor_properties_expand(args) {
                     let properties = object_property_get(node, js_node_property_properties());
                     for (let property of properties) {
                         let key = js_property_identifier_name(property, js_node_property_key());
-                        let value = js_property_identifier_name(property, js_node_property_value());
+                        let local = js_property_identifier_name(property, js_node_property_value());
                         console.log({
                             key,
-                            value
+                            value: local
                         });
                     }
                 }
