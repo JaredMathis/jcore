@@ -1,3 +1,5 @@
+import { function_input_add } from './input/add.mjs';
+import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
 import { function_add_input } from './add/input.mjs';
 import { function_open_vs_code } from './open/vs/code.mjs';
 import { js_statement_assignment } from '../js/statement/assignment.mjs';
@@ -18,6 +20,7 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
         string_identifier_is
     ]);
     let function_declaration = await function_to_declaration(function_name_to_wrap);
+    let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let identifier = 'result';
     let inputs = js_function_declaration_to_params_names(function_declaration);
     let is_async = js_function_declaration_async_is(function_declaration);
