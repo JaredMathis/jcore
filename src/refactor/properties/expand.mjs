@@ -25,6 +25,8 @@ export function refactor_properties_expand(args) {
         let previous = 0;
         let next;
         for (let i of indices) {
+            
+            list_new_then_add()
         }
     });
 }
