@@ -16,7 +16,7 @@ export async function function_dependencies_generic(function_name, recursive) {
     if (!recursive) {
         lambda = file_js_dependencies_non_recursive;
     }
-    let d = await file_js_dependencies(file_path);
+    let d = await lambda(file_path);
     return list_map(d, file_path => {
         return {
             file_path,
