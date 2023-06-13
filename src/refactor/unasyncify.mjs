@@ -18,13 +18,15 @@ import { string_suffix_without } from '../string/suffix/without.mjs';
 import { js_function_declaration_to_name } from '../js/function/declaration/to/name.mjs';
 import { js_nodes_each } from '../js/nodes/each.mjs';
 import { error } from '../error.mjs';
+import { log } from '../log.mjs';
+import { object_property_change } from '../object/property/change.mjs';
 export async function refactor_unasyncify(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
-    js_nodes_each(parsed, js_node_is_callable, log_json);
+    js_nodes_each(parsed, js_node_is_callable, log);
     error();
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
-    object_property_set(function_declaration, js_keyword_async(), false);
+    object_property_change(function_declaration, js_keyword_async(), false);
     await refactor_metadata_generated_add_function(args);
     let suffix = function_naming_suffix_async();
     js_identifier_rename_if(args, name => string_ends_with(name, suffix), name => string_suffix_without(name, suffix));
