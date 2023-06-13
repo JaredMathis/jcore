@@ -1,4 +1,3 @@
-import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { string_letter_digit_or_underscore_is } from '../../letter/digit/or/underscore/is.mjs';
 import { string_includes } from '../../includes.mjs';
@@ -12,11 +11,10 @@ import { string_to_list } from '../../to/list.mjs';
 import { string_is } from '../../is.mjs';
 import { boolean_is } from '../../../boolean/is.mjs';
 import { defined_is } from '../../../defined/is.mjs';
-export function string_identifier_is_generic(value, enforce_first_and_last, allow_underscores) {
+export function string_identifier_is_generic(value, enforce_first_and_last) {
     arguments_assert(arguments, [
         defined_is,
         boolean_is,
-        arguments_assert_todo
     ]);
     if (!string_is(value)) {
         return false;
