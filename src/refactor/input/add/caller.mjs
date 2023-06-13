@@ -8,6 +8,6 @@ export function refactor_input_add_caller(args) {
     let {input_value_expression, function_declaration, function_name_called, parsed} = args;
     js_visit_nodes_call_expression_name_equal(parsed, function_name_called, node => {
         let args = js_call_expression_arguments(node);
-        list_add(list, input_value_expression);
+        list_add(args, input_value_expression);
     });
 }
