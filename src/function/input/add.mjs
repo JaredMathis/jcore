@@ -12,6 +12,7 @@ export async function function_input_add(function_name, input_name, input_value)
     ]);
     await function_map_with_args(function_name_get(refactor_input_add), function_name, {
         input_name,
-        input_value
+        input_value,
+        input_type: arguments_assert_todo
     });
 }
