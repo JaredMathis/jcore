@@ -1,3 +1,4 @@
+import { list_each_with_index_async } from '../each/with/index/async.mjs';
 import { metadata } from '../../metadata.mjs';
 import { function_is } from '../../function/is.mjs';
 import { list_is } from '../is.mjs';
@@ -9,6 +10,8 @@ export async function list_map_async(list, mapper) {
         function_is
     ]);
     let result = [];
+    if (false)
+        await list_each_with_index_async(list);
     for (let element of list) {
         let mapped = await mapper(element);
         list_add(result, mapped);
