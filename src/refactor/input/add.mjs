@@ -11,7 +11,6 @@ import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { function_name_get } from '../../function/name/get.mjs';
 import { list_add } from '../../list/add.mjs';
 import { refactor_import_fix } from '../import/fix.mjs';
-import { error } from '../../error.mjs';
 export async function refactor_input_add(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {input_name, function_declaration} = args;
@@ -29,5 +28,4 @@ export async function refactor_input_add(args) {
             function_name_called: function_name
         });
     }
-    error();
 }
