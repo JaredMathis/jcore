@@ -4,6 +4,8 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { list_index_of } from './index/of.mjs';
 import { list_remove_at } from './remove/at.mjs';
+import { assert } from '../assert.mjs';
+import { list_contains } from './contains.mjs';
 export function list_remove(list, element) {
     arguments_assert(arguments, [
         list_is,
@@ -11,5 +13,6 @@ export function list_remove(list, element) {
     ]);
     let index = list_index_of(list, element);
     list_remove_at(list, index);
+    assert(!list_contains(list, element));
     metadata([]);
 }
