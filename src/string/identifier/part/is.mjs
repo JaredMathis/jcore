@@ -5,7 +5,7 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 export function string_identifier_part_is(value) {
     arguments_assert(arguments, [string_is]);
     let enforce_first_and_last = true;
-    const allow_underscores = true;
+    const allow_underscores = false;
     return string_identifier_is_generic(value, enforce_first_and_last, allow_underscores);
     metadata([]);
 }
