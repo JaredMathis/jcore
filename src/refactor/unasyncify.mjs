@@ -1,4 +1,5 @@
-import { js_callable_multiple_assert_not } from '../js/callable/multiple/assert/not.mjs';
+import { log_json } from '../log/json.mjs';
+import { js_node_is_callable } from '../js/node/is/callable.mjs';
 import { refactor_metadata_generated_add_function } from './metadata/generated/add/function.mjs';
 import { defined_is } from '../defined/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -15,10 +16,13 @@ import { js_visit_nodes_all } from '../js/visit/nodes/all.mjs';
 import { string_ends_with } from '../string/ends/with.mjs';
 import { string_suffix_without } from '../string/suffix/without.mjs';
 import { js_function_declaration_to_name } from '../js/function/declaration/to/name.mjs';
+import { js_nodes_each } from '../js/nodes/each.mjs';
+import { error } from '../error.mjs';
 export async function refactor_unasyncify(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
-    js_node_is_callable(parsed);
+    js_nodes_each(parsed, js_node_is_callable, log_json);
+    error();
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     object_property_set(function_declaration, js_keyword_async(), false);
     await refactor_metadata_generated_add_function(args);
