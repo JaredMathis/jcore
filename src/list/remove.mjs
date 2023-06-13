@@ -1,3 +1,4 @@
+import { list_index_of_single } from './index/of/single.mjs';
 import { defined_is } from '../defined/is.mjs';
 import { list_is } from './is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -15,4 +16,6 @@ export function list_remove(list, element) {
     list_remove_at(list, index);
     assert(!list_contains(list, element));
     metadata([]);
+    if (false)
+        list_index_of_single;
 }
