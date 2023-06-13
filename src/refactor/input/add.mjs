@@ -13,7 +13,7 @@ import { list_add } from '../../list/add.mjs';
 import { refactor_import_fix } from '../import/fix.mjs';
 export async function refactor_input_add(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let {input_name, function_declaration} = args;
+    let {input_name, function_declaration, input_value} = args;
     let params = js_function_declaration_to_params(function_declaration);
     js_list_add_identifier(params, input_name);
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
@@ -24,7 +24,7 @@ export async function refactor_input_add(args) {
     let callers = await function_callers(function_name);
     for (let caller of callers) {
         await function_map_with_args(function_name_get(refactor_input_add_caller), caller, {
-            input_name,
+            input_value,
             function_name_called: function_name
         });
     }
