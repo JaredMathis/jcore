@@ -23,7 +23,7 @@ export function string_case_camel_parse(input) {
     let filtered = list_filter_property(mapped, property_is_capital, true);
     let indices = list_map_property(filtered, property_index);
     list_add(indices, list_length(characters))
-    return list_new_then(list_new_then_add => {
+    let parts = list_new_then(list_new_then_add => {
         let previous = 0;
         for (let index of indices) {
             if (equal(index, 0)) {
@@ -36,4 +36,5 @@ export function string_case_camel_parse(input) {
             previous = index;
         }
     });
+    return parts;
 }
