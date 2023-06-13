@@ -22,14 +22,19 @@ export async function refactor_input_generic(args, function_declaration, input_v
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     arguments_assert_args_change(arguments_assert_args);
     await refactor_import_fix(args);
-    let input_value_expression = js_parse_expression(input_value_default);
-    const args_additional = {
-        input_value_expression,
-        function_name_called: function_name
-    };
+    const args_additional = args_additional_get();
     let function_name = js_function_declaration_to_name(function_declaration);
     let callers = await function_callers(function_name);
     for (let caller of callers) {
         await function_map_with_args(function_name_get(refactor_input_add_caller), caller, args_additional);
+    }
+
+    function args_additional_get() {
+        let input_value_expression = js_parse_expression(input_value_default);
+        const args_additional = {
+            input_value_expression,
+            function_name_called: function_name
+        };
+        return args_additional;
     }
 }
