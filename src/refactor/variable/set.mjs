@@ -1,3 +1,4 @@
+import { list_new_then } from '../../list/new/then.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
 import { log_json } from '../../log/json.mjs';
 import { js_node_property_id } from '../../js/node/property/id.mjs';
@@ -20,7 +21,7 @@ export async function refactor_variable_set(args) {
     let {parsed} = args;
     const o = js_parse_expression('a', '= b');
     log_json(o);
-    list_add_then;
+    list_new_then;
     js_visit_nodes_filter_node(parsed, n => {
         if (!js_node_is_variable_declaration(n)) {
             return false;
