@@ -26,7 +26,10 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
         statement_first_code = js_code_await(statement_first_code);
     }
     let statement_second_code = js_code_return_statement(js_parse_identifier(identifier));
-    let statements = [];
+    let statements_code = [
+        statement_first_code,
+        statement_second_code
+    ];
     list_add(statements);
     error();
     function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
