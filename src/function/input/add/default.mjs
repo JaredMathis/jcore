@@ -5,7 +5,7 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
 import { string_is } from '../../../string/is.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
-export async function function_input_add_default(function_name, input_name, input_value) {
+export async function function_input_add_default(function_name, input_name, input_value_default) {
     arguments_assert(arguments, [
         string_identifier_is,
         string_identifier_is,
@@ -13,7 +13,7 @@ export async function function_input_add_default(function_name, input_name, inpu
     ]);
     await function_map_with_args(function_name_get(refactor_input_add), function_name, {
         input_name,
-        input_value,
+        input_value_default,
         input_type: arguments_assert_todo
     });
 }

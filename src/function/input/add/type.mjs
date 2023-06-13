@@ -5,7 +5,7 @@ import { function_map_with_args } from '../../map/with/args.mjs';
 import { string_is } from '../../../string/is.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
-export async function function_input_add_type(function_name, input_name, input_value) {
+export async function function_input_add_type(function_name, input_name, input_value_default) {
     arguments_assert(arguments, [
         string_identifier_is,
         string_identifier_is,
@@ -13,7 +13,7 @@ export async function function_input_add_type(function_name, input_name, input_v
     ]);
     await function_map_with_args(function_name_get(refactor_input_add), function_name, {
         input_name,
-        input_value,
+        input_value_default,
         input_type: arguments_assert_todo
     });
 }
