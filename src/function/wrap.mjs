@@ -1,7 +1,6 @@
 import { list_each_with_index_async } from '../list/each/with/index/async.mjs';
 import { function_input_add } from './input/add.mjs';
 import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
-import { function_add_input } from './add/input.mjs';
 import { function_open_vs_code } from './open/vs/code.mjs';
 import { js_statement_assignment } from '../js/statement/assignment.mjs';
 import { js_code_await } from '../js/code/await.mjs';
