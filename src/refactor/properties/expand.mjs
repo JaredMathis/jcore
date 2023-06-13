@@ -1,3 +1,4 @@
+import { js_block_statement_body } from '../../js/block/statement/body.mjs';
 import { js_node_is_block_statement } from '../../js/node/is/block/statement.mjs';
 import { js_visit_node_grandparent } from '../../js/visit/node/grandparent.mjs';
 import { js_node_is_variable_declaration } from '../../js/node/is/variable/declaration.mjs';
@@ -16,7 +17,7 @@ export function refactor_properties_expand(args) {
             if (js_node_is_variable_declaration(grandparent)) {
                 let grandparent_great = js_visit_node_grandparent(stack, 1);
                 if (js_node_is_block_statement(grandparent)) {
-                    
+                    let function_body_statements = js_block_statement_body(grandparent_great);
                 }
             }
         }
