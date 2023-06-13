@@ -20,9 +20,12 @@ export async function refactor_input_add(args) {
     function args_additional_get() {
         let input_value_expression = js_parse_expression(input_value_default);
         const args_additional = {
-            input_value_expression,
+            args_change,
             function_name_called: function_name
         };
+        function args_change(args) {
+            list_add(args, input_value_expression);
+        }
         return args_additional;
     }
 }
