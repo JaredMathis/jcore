@@ -1,6 +1,7 @@
+import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { function_copy_suffix } from '../suffix.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
-export async function function_copy_suffix_add() {
-    arguments_assert(arguments, []);
+export async function function_copy_suffix_add(function_name_prefix) {
+    arguments_assert(arguments, [arguments_assert_todo]);
     function_copy_suffix();
 }
