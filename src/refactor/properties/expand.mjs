@@ -13,7 +13,7 @@ export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration, parsed} = args;
     js_visit_nodes_filter(parsed, js_node_is_object_pattern, v => {
-        let {stack, parent} = v;
+        let {stack, parent, node} = v;
         if (js_node_is_variable_declarator(parent)) {
             let grandparent = js_visit_node_grandparent(stack, 0);
             if (js_node_is_variable_declaration(grandparent)) {
@@ -21,7 +21,10 @@ export function refactor_properties_expand(args) {
                 if (js_node_is_block_statement(grandparent_great)) {
                     let function_body_statements = js_block_statement_body(grandparent_great);
                     let index = list_index_of(function_body_statements, grandparent);
-                    console.log({ index });
+                    console.log({
+                        index,
+                        node
+                    });
                 }
             }
         }
