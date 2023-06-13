@@ -19,25 +19,26 @@ export async function refactor_variable_set(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {identifier, value} = args;
     let {parsed} = args;
+    const predicate = n => {
+        if (!js_node_is_variable_declaration(n)) {
+            return false;
+        }
+        let declarations = object_property_get(n, js_node_property_declarations());
+        if (!list_length_is_1(declarations)) {
+            return false;
+        }
+        let declaration = list_single(declarations);
+        if (!js_node_is_variable_declarator(declaration)) {
+            return false;
+        }
+        let id = object_property_get(declaration, js_node_property_id());
+        if (!js_node_is_identifier(id)) {
+            return false;
+        }
+        return equal(object_property_get(id, js_property_name()), identifier);
+    };
     let nodes = list_new_then(list_new_then_add => {
-        js_visit_nodes_filter_node(parsed, n => {
-            if (!js_node_is_variable_declaration(n)) {
-                return false;
-            }
-            let declarations = object_property_get(n, js_node_property_declarations());
-            if (!list_length_is_1(declarations)) {
-                return false;
-            }
-            let declaration = list_single(declarations);
-            if (!js_node_is_variable_declarator(declaration)) {
-                return false;
-            }
-            let id = object_property_get(declaration, js_node_property_id());
-            if (!js_node_is_identifier(id)) {
-                return false;
-            }
-            return equal(object_property_get(id, js_property_name()), identifier);
-        }, list_new_then_add);
+        js_visit_nodes_filter_node(parsed, predicate, list_new_then_add);
     });
     let match = list_single(nodes);
     let declarations = object_property_get(match, js_node_property_declarations());
