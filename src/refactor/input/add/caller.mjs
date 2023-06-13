@@ -12,5 +12,4 @@ export function refactor_input_add_caller(args) {
         let args = js_call_expression_arguments(node);
         js_list_add_identifier(args, input_name);
     });
-    error();
 }
