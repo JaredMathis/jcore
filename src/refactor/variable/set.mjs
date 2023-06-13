@@ -6,5 +6,5 @@ export async function refactor_variable_set(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
     let types = js_visit_nodes_types_get(parsed);
-    log(types)
+    log(parsed)
 }
