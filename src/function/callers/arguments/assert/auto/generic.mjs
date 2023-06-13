@@ -74,7 +74,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             }
             js_visit_nodes_call_expression_name_equal(c_parsed, function_name, v => {
                 let {node} = v;
-                let ce_args = object_property_get(node, js_node_property_arguments());
+                let ce_args = js_call_expression_arguments(node);
                 list_each_with_index(ce_args, (ce_arg, ce_arg_index) => {
                     if (!js_node_is_identifier(ce_arg)) {
                         return;
@@ -104,4 +104,8 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             return !changed;
         });
     }
+}
+
+function js_call_expression_arguments(node) {
+    return object_property_get(node, js_node_property_arguments());
 }
