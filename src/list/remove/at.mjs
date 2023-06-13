@@ -10,6 +10,7 @@ export function list_remove_at(list, index) {
         integer_is
     ]);
     assert(list_index_valid(list, index));
-    list.splice(index, 1);
+    const delete_count = 1;
+    list.splice(index, delete_count);
     metadata([]);
 }
