@@ -10,6 +10,8 @@ import { list_add } from '../../../list/add.mjs';
 import { list_last_index } from '../../../list/last/index.mjs';
 import { list_length } from '../../../list/length.mjs';
 import { string_empty } from '../../empty.mjs';
+import { list_map } from '../../../list/map.mjs';
+import { string_to_case_upper } from '../../to/case/upper.mjs';
 export function string_case_camel_parse(input) {
     let characters = string_to_list(input);
     const property_is_capital = 'is_capital';
@@ -36,5 +38,6 @@ export function string_case_camel_parse(input) {
             previous = index;
         }
     });
+    list_map(parts, string_to_case_lower)
     return parts;
 }
