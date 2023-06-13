@@ -8,7 +8,7 @@ export function refactor_input_add_caller(args) {
     let {input_name, function_declaration, function_name_called, parsed} = args;
     js_visit_nodes_call_expression_name_equal(parsed, function_name_called, v => {
         let {node} = v;
-        js_call_expression_arguments();
+        let args = js_call_expression_arguments(node);
     });
     error();
 }
