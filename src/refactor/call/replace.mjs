@@ -15,7 +15,7 @@ export async function refactor_call_replace(args) {
         if (!js_node_is_identifier(callee)) {
             return;
         }
-        object_property_set(callee, function_name_called_new);
+        object_property_set(callee, js_node_property_name(), function_name_called_new);
     });
     await refactor_import_fix(args);
 }
