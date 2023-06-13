@@ -15,9 +15,9 @@ export function refactor_properties_expand(args) {
         let {stack, parent} = v;
         let stack_nodes = list_filter(stack, js_node_is);
         if (js_node_is_variable_declarator(parent)) {
-            let grandparent_great = list_get_end(stack, 3);
+            let grandparent_great = list_get_end(stack_nodes, 2);
             if (js_node_is_variable_declaration(grandparent_great)) {
-                let grandparent_great_great = list_get_end(stack, 5);
+                let grandparent_great_great = list_get_end(stack_nodes, 3);
                 console.log({ grandparent_great_great });
             }
         }
