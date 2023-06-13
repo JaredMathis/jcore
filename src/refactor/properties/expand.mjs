@@ -1,4 +1,3 @@
-import { list_single } from '../../list/single.mjs';
 import { js_node_property_declarations } from '../../js/node/property/declarations.mjs';
 import { js_parse_statement_let } from '../../js/parse/statement/let.mjs';
 import { string_identifier_with_prefix } from '../../string/identifier/with/prefix.mjs';
@@ -33,7 +32,6 @@ export function refactor_properties_expand(args) {
             if (js_node_is_variable_declaration(grandparent)) {
                 let declarations = object_property_get(match, js_node_property_declarations());
                 if (list_length_is_1(declarations)) {
-                    let declaration = list_single(declarations);
                     let grandparent_great = js_visit_node_grandparent(stack, 1);
                     if (js_node_is_block_statement(grandparent_great)) {
                         let function_body_statements = js_block_statement_body(grandparent_great);
