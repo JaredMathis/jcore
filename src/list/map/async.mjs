@@ -10,12 +10,10 @@ export async function list_map_async(list, mapper) {
         function_is
     ]);
     let result = [];
-    if (false)
-        await list_each_with_index_async(list);
-    for (let element of list) {
+    await list_each_with_index_async(list, async (element, index) => {
         let mapped = await mapper(element);
         list_add(result, mapped);
-    }
+    });
     return result;
     metadata([]);
 }
