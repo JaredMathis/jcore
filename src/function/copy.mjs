@@ -9,7 +9,6 @@ export async function function_copy(function_name_to_copy, function_name_of_copy
     ]);
     await function_copy_suffix(function_name_to_copy, function_name_of_copy);
 }
-
 async function function_copy_suffix(function_name_to_copy, function_name_of_copy) {
     await function_copy_no_open(function_name_to_copy, function_name_of_copy);
     await function_open_vs_code(function_name_of_copy);
