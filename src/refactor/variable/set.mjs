@@ -12,11 +12,12 @@ import { list_length_is_1 } from '../../list/length/is/1.mjs';
 import { list_single } from '../../list/single.mjs';
 import { js_node_is_identifier } from '../../js/node/is/identifier.mjs';
 import { equal } from '../../equal.mjs';
+import { js_visit_nodes_filter_node } from '../../js/visit/nodes/filter/node.mjs';
 export async function refactor_variable_set(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {identifier, value} = args;
     let {parsed} = args;
-    js_visit_nodes_filter(parsed, n => {
+    js_visit_nodes_filter_node(parsed, n => {
         if (!js_node_is_variable_declaration(n)) {
             return false;
         }
