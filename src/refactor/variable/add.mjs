@@ -14,6 +14,6 @@ export function refactor_variable_add(args) {
     let statement_arguments_assert = js_mapper_args_to_statement_arguments_assert(args);
     let statement = js_parse_statement(`${ js_keyword_let() } ${ identifier }`);
     let after_index = list_index_of(statements, statement_arguments_assert);
-    list_add_beginning(statements, statement);
+    list_add_at(statements, statement, after_index);
     error('todo: refactor_variable_new');
 }
