@@ -1,3 +1,5 @@
+import { log_json } from '../../log/json.mjs';
+import { js_parse_statement_let } from '../../js/parse/statement/let.mjs';
 import { js_node_property_id } from '../../js/node/property/id.mjs';
 import { js_property_name } from '../../js/property/name.mjs';
 import { js_node_is_variable_declaration } from '../../js/node/is/variable/declaration.mjs';
@@ -6,14 +8,12 @@ import { js_node_is_variable_declarator } from '../../js/node/is/variable/declar
 import { log } from '../../log.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-import { js_visit_nodes_filter } from '../../js/visit/nodes/filter.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { list_length_is_1 } from '../../list/length/is/1.mjs';
 import { list_single } from '../../list/single.mjs';
 import { js_node_is_identifier } from '../../js/node/is/identifier.mjs';
 import { equal } from '../../equal.mjs';
 import { js_visit_nodes_filter_node } from '../../js/visit/nodes/filter/node.mjs';
-import { json_to } from '../../json/to.mjs';
 export async function refactor_variable_set(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {identifier, value} = args;
@@ -38,8 +38,4 @@ export async function refactor_variable_set(args) {
         }
         return equal(object_property_get(id, js_property_name()), identifier);
     }, n => console.log(n));
-}
-
-function log_json(o) {
-    log(json_to(o));
 }
