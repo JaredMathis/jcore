@@ -16,6 +16,7 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { function_name_get } from '../../function/name/get.mjs';
+import { error } from '../../error.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration, parsed} = args;
@@ -32,7 +33,10 @@ export function refactor_properties_expand(args) {
                     for (let property of properties) {
                         let key = js_property_identifier_name(property, js_node_property_key());
                         let local = js_property_identifier_name(property, js_node_property_value());
-                        js_code_call_expression_statement_with_args_code(function_name_get(object_property_get));
+                        let identifier_next_prefix = 'v';
+                        let identifier_next = error();
+                        let args = [];
+                        js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args);
                         console.log({
                             key,
                             value: local
