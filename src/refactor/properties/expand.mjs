@@ -9,7 +9,7 @@ export function refactor_properties_expand(args) {
     let {function_declaration, parsed} = args;
     js_visit_nodes_filter(parsed, js_node_is_object_pattern, v => {
         if (js_node_is_variable_declarator(v)) {
-            
+         log({v})   
         }
     });
 }
