@@ -1,3 +1,4 @@
+import { json_to } from '../../json/to.mjs';
 import { log } from '../../log.mjs';
 import { json_equal } from '../../json/equal.mjs';
 import { js_parse_statement_let } from '../../js/parse/statement/let.mjs';
@@ -9,6 +10,6 @@ export async function refactor_variable_set(args) {
     let {identifier, value} = args;
     let {parsed} = args;
     let expecting = js_parse_statement_let(identifier, ``);
-    console.log({expecting})
+    console.log(json_to({ expecting }));
     js_visit_nodes_filter(parsed, n => json_equal(n, expecting), n => console.log(n));
 }
