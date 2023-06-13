@@ -1,3 +1,4 @@
+import { js_node_property_id } from '../../js/node/property/id.mjs';
 import { js_property_name } from '../../js/property/name.mjs';
 import { js_node_is_variable_declaration } from '../../js/node/is/variable/declaration.mjs';
 import { js_node_property_declarations } from '../../js/node/property/declarations.mjs';
