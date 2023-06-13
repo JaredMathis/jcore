@@ -16,6 +16,6 @@ export async function refactor_variable_add(args) {
     let statements = js_function_declaration_to_statements(js_function_declaration);
     let after_index = list_index_of(statements, statement_arguments_assert);
     let add_index = add_1(after_index);
-    list_add_at(statements, statement, after_index);
+    list_add_at(statements, statement, add_index);
     error('todo: refactor_variable_new');
 }
