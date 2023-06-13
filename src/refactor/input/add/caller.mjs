@@ -9,5 +9,5 @@ export function refactor_input_add_caller(args) {
     js_visit_nodes_call_expression_name_equal(args, function_name_called, v => {
         console.log({ v });
     });
-    error()
+    error();
 }
