@@ -1,3 +1,4 @@
+import { function_add_input } from './add/input.mjs';
 import { function_open_vs_code } from './open/vs/code.mjs';
 import { js_statement_assignment } from '../js/statement/assignment.mjs';
 import { js_code_await } from '../js/code/await.mjs';
