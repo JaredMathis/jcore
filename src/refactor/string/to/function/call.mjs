@@ -1,3 +1,4 @@
+import { string_a } from '../../../../string/a.mjs';
 import { refactor_import_fix } from '../../../import/fix.mjs';
 import { js_nodes_get } from '../../../../js/nodes/get.mjs';
 import { js_parse_call_expression } from '../../../../js/parse/call/expression.mjs';
@@ -14,7 +15,7 @@ import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
 export async function refactor_string_to_function_call(args) {
     arguments_assert(arguments, [defined_is]);
     let {string_value, replacement_function_name, parsed} = args;
-    let t = 'a';
+    let t = string_a();
     let ce = js_parse_call_expression(replacement_function_name);
     let literals = js_nodes_get(parsed, js_node_is_literal);
     assert(!list_length_is_0(literals));
