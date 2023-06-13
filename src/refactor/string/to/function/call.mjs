@@ -13,7 +13,8 @@ export function refactor_string_to_function_call(args) {
     js_visit_nodes_filter_node(parsed, js_node_is_literal, n => {
         let current = object_property_get(n, js_node_property_value());
         if (equal(current, string_value)) {
-            let ce = object_replace(current, ce);
+            let ce = 
+            object_replace(current, ce)
         }
     });
 }
