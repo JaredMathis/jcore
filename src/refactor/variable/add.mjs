@@ -12,8 +12,8 @@ export async function refactor_variable_add(args) {
     let {js_function_declaration, identifier} = args;
     let statement = js_parse_statement(`${ js_keyword_let() } ${ identifier }`);
     let statement_arguments_assert = await js_mapper_args_to_statement_arguments_assert(args);
-    let after_index = list_index_of(statements, statement_arguments_assert);
     let statements = js_function_declaration_to_statements(js_function_declaration);
+    let after_index = list_index_of(statements, statement_arguments_assert);
     list_add_at(statements, statement, after_index);
     error('todo: refactor_variable_new');
 }
