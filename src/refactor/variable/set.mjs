@@ -13,10 +13,13 @@ import { list_single } from '../../list/single.mjs';
 import { js_node_is_identifier } from '../../js/node/is/identifier.mjs';
 import { equal } from '../../equal.mjs';
 import { js_visit_nodes_filter_node } from '../../js/visit/nodes/filter/node.mjs';
+import { json_to } from '../../json/to.mjs';
 export async function refactor_variable_set(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {identifier, value} = args;
     let {parsed} = args;
+    const o = js_parse_statement_let('a', '= b');
+    log_json(o);
     js_visit_nodes_filter_node(parsed, n => {
         if (!js_node_is_variable_declaration(n)) {
             return false;
@@ -35,4 +38,8 @@ export async function refactor_variable_set(args) {
         }
         return equal(object_property_get(id, js_property_name()), identifier);
     }, n => console.log(n));
+}
+
+function log_json(o) {
+    log(json_to(o));
 }
