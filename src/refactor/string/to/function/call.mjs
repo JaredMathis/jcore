@@ -1,3 +1,4 @@
+import { log } from '../../../../log.mjs';
 import { js_code_call_expression } from '../../../../js/code/call/expression.mjs';
 import { object_replace } from '../../../../object/replace.mjs';
 import { js_node_property_value } from '../../../../js/node/property/value.mjs';
@@ -13,9 +14,10 @@ export function refactor_string_to_function_call(args) {
     let t = 'a';
     let ce = js_code_call_expression(replacement_function_name);
     js_visit_nodes_filter_node(parsed, js_node_is_literal, n => {
-        let current = object_property_get(n, js_node_property_value());
-        if (equal(current, string_value)) {
-            object_replace(current, ce);
+        let literal_value = object_property_get(n, js_node_property_value());
+        if (equal(literal_value, string_value)) {
+            console.log({ ce });
+            object_replace(n, ce);
         }
     });
 }
