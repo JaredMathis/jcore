@@ -2,7 +2,6 @@ import { js_node_property_init } from '../../js/node/property/init.mjs';
 import { object_property_change } from '../../object/property/change.mjs';
 import { list_new_then } from '../../list/new/then.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
-import { log_json } from '../../log/json.mjs';
 import { js_node_property_id } from '../../js/node/property/id.mjs';
 import { js_property_name } from '../../js/property/name.mjs';
 import { js_node_is_variable_declaration } from '../../js/node/is/variable/declaration.mjs';
@@ -45,5 +44,4 @@ export async function refactor_variable_set(args) {
     let declaration = list_single(declarations);
     const value_parsed = js_parse_expression(value);
     object_property_change(declaration, js_node_property_init(), value_parsed);
-    log_json(value_parsed);
 }
