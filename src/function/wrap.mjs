@@ -6,6 +6,7 @@ import { string_identifier_is } from '../string/identifier/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { error } from '../error.mjs';
 import { function_to_declaration } from './to/declaration.mjs';
+import { list_add } from '../list/add.mjs';
 export async function function_wrap(function_name_to_wrap, function_name_to_add) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -15,7 +16,9 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     let identifier = 'result';
     let inputs = js_function_declaration_to_params_names(function_declaration);
     let is_async = js_function_declaration_async_is(function_declaration);
-    let statements = error();
+    let statements = [];
+    list_add(statements, )
+    error()
     js_code_return_statement(js_parse_identifier(identifier))
     function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
 }
