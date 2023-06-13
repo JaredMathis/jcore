@@ -12,7 +12,7 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     ]);
     let function_declaration = await function_to_declaration(function_name_to_wrap);
     let inputs = js_function_declaration_to_params_names(function_declaration);
-    let statements = error();
     let is_async = js_function_declaration_async_is(function_declaration);
+    let statements = error();
     function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
 }
