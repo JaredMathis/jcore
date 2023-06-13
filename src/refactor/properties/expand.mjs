@@ -24,6 +24,10 @@ export function refactor_properties_expand(args) {
                     let function_body_statements = js_block_statement_body(grandparent_great);
                     let index = list_index_of(function_body_statements, grandparent);
                     let properties = object_property_get(node, js_node_property_properties());
+                    for (let property of properties) {
+                        object_property_get(property, js_node_property_key())
+                        
+                    }
                     console.log({
                         index,
                         properties
