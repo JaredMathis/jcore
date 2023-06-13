@@ -29,7 +29,8 @@ export function visit_recursive_ignore_duplicates(node, children_get, lambda, st
     list_add_assert_exists_not(stack, node);
     lambda({
         node,
-        parent
+        parent,
+        stack
     });
     let children = children_get(node);
     for (let c of children) {
