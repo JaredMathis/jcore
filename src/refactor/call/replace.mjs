@@ -4,7 +4,6 @@ import { js_node_property_callee } from '../../js/node/property/callee.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { js_visit_nodes_call_expression_name_equal } from '../../js/visit/nodes/call/expression/name/equal.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
-import { error } from '../../error.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { object_property_set } from '../../object/property/set.mjs';
 export async function refactor_call_replace(args) {
@@ -18,6 +17,5 @@ export async function refactor_call_replace(args) {
         }
         object_property_set(callee, function_name_called_new);
     });
-    await refactor_import_fix;
-    error('todo: refactor_call_replace');
+    await refactor_import_fix(args);
 }
