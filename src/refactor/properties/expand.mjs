@@ -5,5 +5,5 @@ export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration, parsed} = args;
     const node_type = 'ObjectPattern';
-    string_case_camel_parse_to_snake(node_type);
+    let snake = string_case_camel_parse_to_snake(node_type);
 }
