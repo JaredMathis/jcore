@@ -13,7 +13,7 @@ export async function function_input_add_default(function_name, input_name, inpu
     ]);
     await function_map_with_args(function_name_get(refactor_input_add), function_name, {
         input_name,
-        input_value_default,
+        input_value_default: input_value_default,
         input_type: arguments_assert_todo
     });
 }
