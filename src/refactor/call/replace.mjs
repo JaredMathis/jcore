@@ -1,4 +1,6 @@
-import { log } from '../../log.mjs';
+import { js_node_is_identifier } from '../../js/node/is/identifier.mjs';
+import { js_node_property_callee } from '../../js/node/property/callee.mjs';
+import { object_property_get } from '../../object/property/get.mjs';
 import { js_visit_nodes_call_expression_name_equal } from '../../js/visit/nodes/call/expression/name/equal.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { error } from '../../error.mjs';
@@ -8,8 +10,9 @@ export function refactor_call_replace(args) {
     let {function_name_called_old, function_name_called_new} = args;
     let {parsed} = args;
     js_visit_nodes_call_expression_name_equal(parsed, function_name_called_old, n => {
+        let callee = object_property_get(ce, js_node_property_callee());
         if (!js_node_is_identifier(callee)) {
-            return
+            return;
         }
         let name = object_property_get(callee, 'name');
     });
