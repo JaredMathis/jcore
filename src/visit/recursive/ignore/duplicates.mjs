@@ -30,7 +30,6 @@ export function visit_recursive_ignore_duplicates(node, children_get, lambda, st
     lambda({
         node,
         parent,
-        stack
     });
     let children = children_get(node);
     for (let c of children) {
