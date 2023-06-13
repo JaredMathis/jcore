@@ -5,7 +5,6 @@ import { list_map_with_index } from '../../list/map/with/index.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { string_to_list } from '../../string/to/list.mjs';
-import { error } from '../../error.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration, parsed} = args;
@@ -16,10 +15,9 @@ export function refactor_properties_expand(args) {
     let mapped = list_map_with_index(characters, (c, index) => {
         return {
             [property_is_capital]: string_case_upper_is(c),
-            value: c,
             [index]: index
         };
     });
     let filtered = list_filter_property(mapped, property_is_capital, true);
-    let mapped2 = list_map_property(filtered, error());
+    let mapped2 = list_map_property(filtered, index);
 }
