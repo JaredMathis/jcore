@@ -15,6 +15,7 @@ import { function_to_declaration } from './to/declaration.mjs';
 import { list_map } from '../list/map.mjs';
 import { js_parse_statement } from '../js/parse/statement.mjs';
 import { list_get } from '../list/get.mjs';
+import { log } from '../log.mjs';
 export async function function_wrap(function_name_to_wrap, function_name_to_add) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -39,6 +40,8 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     await function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
     await list_each_with_index_async(list, async (element, index) => {
         let arguments_assert_arg = list_get(arguments_assert_args, index);
+        log({arguments_assert_arg})
+        error()
         await function_input_add_type(function_name_to_add, element);
     });
     await function_open_vs_code(function_name_to_add);
