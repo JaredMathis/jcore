@@ -10,5 +10,5 @@ export async function function_input_add_type(function_name, input_name, input_v
         string_is,
         string_identifier_is
     ]);
-    await function_input_add_generic(function_name, input_name, input_value_default, arguments_assert_todo);
+    await function_input_add_generic(function_name, input_name, input_value_default, type);
 }
