@@ -41,6 +41,7 @@ export async function refactor_variable_set(args) {
     let match = list_single(nodes);
     let declarations = object_property_get(match, js_node_property_declarations());
     let declaration = list_single(declarations);
-    const o = js_parse_expression(value);
-    log_json(o);
+    object_property_get(match, js_node_property_declarations())
+    const value_parsed = js_parse_expression(value);
+    log_json(value_parsed);
 }
