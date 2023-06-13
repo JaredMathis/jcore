@@ -1,5 +1,5 @@
+import { function_input_add_type } from './input/add/type.mjs';
 import { list_each_with_index_async } from '../list/each/with/index/async.mjs';
-import { function_input_add } from './input/add.mjs';
 import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
 import { function_open_vs_code } from './open/vs/code.mjs';
 import { js_statement_assignment } from '../js/statement/assignment.mjs';
@@ -15,7 +15,7 @@ import { function_to_declaration } from './to/declaration.mjs';
 import { list_map } from '../list/map.mjs';
 import { js_parse_statement } from '../js/parse/statement.mjs';
 import { list_get } from '../list/get.mjs';
-import { log } from '../log.mjs';
+import { js_identifier_name } from '../js/identifier/name.mjs';
 export async function function_wrap(function_name_to_wrap, function_name_to_add) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -38,11 +38,10 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     ];
     let statements = list_map(statements_code, js_parse_statement);
     await function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
-    await list_each_with_index_async(inputs, async (element, index) => {
+    await list_each_with_index_async(inputs, async (input, index) => {
         let arguments_assert_arg = list_get(arguments_assert_args, index);
-        log({arguments_assert_arg})
-        error()
-        await function_input_add_type(function_name_to_add, element);
+        let arguments_assert_arg_name = js_identifier_name(arguments_assert_arg);
+        await function_input_add_type(function_name_to_add, input, arguments_assert_arg_name);
     });
     await function_open_vs_code(function_name_to_add);
 }
