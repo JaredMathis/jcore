@@ -4,5 +4,6 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 export function refactor_call_replace(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name_called_old, function_name_called_new} = args;
+    js_visit_nodes_call_expression_name_equal()
     error('todo: refactor_call_replace');
 }
