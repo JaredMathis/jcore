@@ -15,5 +15,5 @@ export async function refactor_input_add(args) {
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let type = js_parse_expression(function_name_get(arguments_assert_todo));
     list_add(arguments_assert_args, type);
-    refactor_import_fix(args);
+    await refactor_import_fix(args);
 }
