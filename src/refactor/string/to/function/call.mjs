@@ -10,7 +10,7 @@ import { object_property_get } from '../../../../object/property/get.mjs';
 import { equal } from '../../../../equal.mjs';
 import { assert } from '../../../../assert.mjs';
 import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
-export function refactor_string_to_function_call(args) {
+export async function refactor_string_to_function_call(args) {
     arguments_assert(arguments, [defined_is]);
     let {string_value, replacement_function_name, parsed} = args;
     let t = string_a();
@@ -24,4 +24,5 @@ export function refactor_string_to_function_call(args) {
             object_replace(n, ce);
         }
     }
+    await 
 }
