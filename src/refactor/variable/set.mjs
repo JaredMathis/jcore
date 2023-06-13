@@ -12,5 +12,9 @@ export async function refactor_variable_set(args) {
     let {parsed} = args;
     let expecting = js_parse_statement_let(identifier, ``);
     console.log(json_to({ expecting }));
-    js_visit_nodes_filter(parsed, n => js_node_is_type(n,"VariableDeclarator"), n => console.log(n));
+    js_visit_nodes_filter(parsed, n => js_node_is_variable_declarator(n), n => console.log(n));
+}
+
+function js_node_is_variable_declarator(n) {
+    return js_node_is_type(n, "VariableDeclarator");
 }
