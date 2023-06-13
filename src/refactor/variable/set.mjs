@@ -18,8 +18,6 @@ export async function refactor_variable_set(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {identifier, value} = args;
     let {parsed} = args;
-    const o = js_parse_expression('a', '= b');
-    log_json(o);
     let nodes = list_new_then(list_new_then_add => {
         js_visit_nodes_filter_node(parsed, n => {
             if (!js_node_is_variable_declaration(n)) {
@@ -40,5 +38,7 @@ export async function refactor_variable_set(args) {
             return equal(object_property_get(id, js_property_name()), identifier);
         }, list_new_then_add);
     });
-    list_single(nodes);
+    let match = list_single(nodes);
+    const o = js_parse_expression('a', '= b');
+    log_json(o);
 }
