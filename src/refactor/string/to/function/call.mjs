@@ -1,5 +1,5 @@
+import { js_parse_call_expression } from '../../../../js/parse/call/expression.mjs';
 import { log } from '../../../../log.mjs';
-import { js_code_call_expression } from '../../../../js/code/call/expression.mjs';
 import { object_replace } from '../../../../object/replace.mjs';
 import { js_node_property_value } from '../../../../js/node/property/value.mjs';
 import { js_node_is_literal } from '../../../../js/node/is/literal.mjs';
@@ -12,7 +12,7 @@ export function refactor_string_to_function_call(args) {
     arguments_assert(arguments, [defined_is]);
     let {string_value, replacement_function_name, parsed} = args;
     let t = 'a';
-    let ce = js_code_call_expression(replacement_function_name);
+    let ce = js_parse_call_expression(replacement_function_name);
     js_visit_nodes_filter_node(parsed, js_node_is_literal, n => {
         let literal_value = object_property_get(n, js_node_property_value());
         if (equal(literal_value, string_value)) {
