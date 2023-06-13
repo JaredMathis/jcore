@@ -1,5 +1,4 @@
 import { js_visit_nodes_call_expression_name_equal } from '../../../../../js/visit/nodes/call/expression/name/equal.mjs';
-import { js_node_call_expression_name_equal } from '../../../../../js/node/call/expression/name/equal.mjs';
 import { js_node_property_end } from '../../../../../js/node/property/end.mjs';
 import { js_node_property_start } from '../../../../../js/node/property/start.mjs';
 import { function_map_args } from '../../../../map/args.mjs';
@@ -98,7 +97,6 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                     }
                 });
             });
-            js_visit_nodes_filter(c_parsed, node => js_node_call_expression_name_equal(node, function_name));
             if (changed) {
                 await refactor_import_fix(c_args);
                 list_add_if_not_exists(result, c_function_name);
