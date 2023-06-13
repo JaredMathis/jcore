@@ -12,14 +12,13 @@ export async function refactor_input_swap_last_2(args) {
     let {function_declaration} = args;
     await refactor_input_generic(args, function_declaration, args_additional_get, params_change, arguments_assert_args_change);
     function arguments_assert_args_change(arguments_assert_args) {
-        list_swap_last_2(arguments_assert_args)
+        list_swap_last_2(arguments_assert_args);
     }
     function params_change(params) {
-        list_swap_last_2(params)
+        list_swap_last_2(params);
     }
     function args_additional_get() {
-        const args_additional = {
-        };
+        const args_additional = {};
         return args_additional;
     }
 }

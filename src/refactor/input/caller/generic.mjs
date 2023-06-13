@@ -4,7 +4,7 @@ import { js_visit_nodes_call_expression_name_equal } from '../../../js/visit/nod
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { refactor_import_fix } from '../../import/fix.mjs';
-export async function refactor_input_add_caller(args) {
+export async function refactor_input_caller_generic(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {input_value_expression, function_declaration, function_name_called, parsed} = args;
     js_visit_nodes_call_expression_name_equal(parsed, function_name_called, node => {
