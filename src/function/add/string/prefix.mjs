@@ -9,5 +9,5 @@ export async function function_add_string_prefix(prefix, suffix) {
     ]);
     let value = suffix;
     let function_name = string_identifier_with_prefix(prefix, suffix);
-    await function_add_string(function_name, suffix);
+    await function_add_string(function_name, value);
 }
