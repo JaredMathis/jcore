@@ -20,4 +20,8 @@ export function refactor_properties_expand(args) {
     });
     let filtered = list_filter_property(mapped, property_is_capital, true);
     let indices = list_map_property(filtered, index);
+    let previous = 0;
+    let next;
+    for (let i of indices) {
+    }
 }
