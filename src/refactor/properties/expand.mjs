@@ -1,3 +1,4 @@
+import { js_property_identifier_name } from '../../js/property/identifier/name.mjs';
 import { js_node_property_value } from '../../js/node/property/value.mjs';
 import { js_node_property_key } from '../../js/node/property/key.mjs';
 import { js_node_property_properties } from '../../js/node/property/properties.mjs';
@@ -27,8 +28,8 @@ export function refactor_properties_expand(args) {
                     let index = list_index_of(function_body_statements, grandparent);
                     let properties = object_property_get(node, js_node_property_properties());
                     for (let property of properties) {
-                        let key = object_property_get(property, js_node_property_key());
-                        let value = object_property_get(property, js_node_property_value());
+                        let key = js_property_identifier_name(property, js_node_property_key());
+                        let value = js_property_identifier_name(property, js_node_property_value());
                         console.log({
                             key,
                             value
