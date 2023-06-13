@@ -11,5 +11,7 @@ export async function function_rename_part(part) {
     }
     await function_rename_generic(predicate_should_rename, function_name_new_get);
     function function_name_new_get(n_old) {
+        let parts = string_identifier_parts_from(n_old);
+
     }
 }
