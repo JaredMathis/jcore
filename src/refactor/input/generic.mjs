@@ -17,9 +17,9 @@ export async function refactor_input_generic(args, function_declaration, args_ad
         arguments_assert_todo,
         arguments_assert_todo
     ]);
+    let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let params = js_function_declaration_to_params(function_declaration);
     params_change(params);
-    let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     arguments_assert_args_change(arguments_assert_args);
     await refactor_import_fix(args);
     const args_additional = args_additional_get();
