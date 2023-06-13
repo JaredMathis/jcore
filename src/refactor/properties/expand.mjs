@@ -1,3 +1,4 @@
+import { js_parse_statement_let } from '../../js/parse/statement/let.mjs';
 import { string_identifier_with_prefix } from '../../string/identifier/with/prefix.mjs';
 import { js_identifiers } from '../../js/identifiers.mjs';
 import { js_code_call_expression_statement_with_args_code } from '../../js/code/call/expression/statement/with/args/code.mjs';
@@ -43,6 +44,7 @@ export function refactor_properties_expand(args) {
                             identifier_next = string_identifier_with_prefix(identifier_next_prefix, c);
                             c++;
                         }
+                        js_parse_statement_let;
                         let args = [];
                         js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args);
                         console.log({
