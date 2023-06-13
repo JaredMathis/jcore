@@ -1,5 +1,5 @@
+import { js_code_call_expression_with_args } from '../js/code/call/expression/with/args.mjs';
 import { js_parse_identifier } from '../js/parse/identifier.mjs';
-import { js_code_call_expression_statement_with_args_code } from '../js/code/call/expression/statement/with/args/code.mjs';
 import { js_code_return_statement } from '../js/code/return/statement.mjs';
 import { js_function_declaration_async_is } from '../js/function/declaration/async/is.mjs';
 import { js_function_declaration_to_params_names } from '../js/function/declaration/to/params/names.mjs';
@@ -18,7 +18,7 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     let identifier = 'result';
     let inputs = js_function_declaration_to_params_names(function_declaration);
     let is_async = js_function_declaration_async_is(function_declaration);
-    js_code_call_expression_statement_with_args_code(function_name_to_wrap, args);
+    let args = js_code_call_expression_with_args(function_name_to_wrap, args);
     let statements = [];
     list_add(statements);
     error();
