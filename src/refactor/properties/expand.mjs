@@ -16,6 +16,7 @@ export function refactor_properties_expand(args) {
             if (js_node_is_variable_declaration(grandparent)) {
                 let grandparent_great = js_visit_node_grandparent(stack, 1);
                 if (js_node_is_block_statement(grandparent)) {
+                    
                 }
             }
         }
