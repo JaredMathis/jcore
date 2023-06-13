@@ -10,5 +10,4 @@ export async function function_input_add_last_before(function_name, input_name) 
     ]);
     await function_input_add(function_name, input_name);
     await function_input_swap_last_2(function_name);
-    error('todo: function_input_add_last_second');
 }
