@@ -13,7 +13,7 @@ export function refactor_properties_expand(args) {
         let {stack, parent} = v;
         if (js_node_is_variable_declarator(parent)) {
             let grandparent = js_visit_node_grandparent(stack, 0);
-            if (js_node_is_variable_declaration(grandparent_great)) {
+            if (js_node_is_variable_declaration(grandparent)) {
                 let grandparent_great = js_visit_node_grandparent(stack, 1);
                 console.log({ grandparent_great });
             }
