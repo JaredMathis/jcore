@@ -9,7 +9,11 @@ export async function refactor_input_caller_generic(args) {
     let {input_value_expression, function_declaration, function_name_called, parsed} = args;
     js_visit_nodes_call_expression_name_equal(parsed, function_name_called, node => {
         let args = js_call_expression_arguments(node);
-        list_add(args, input_value_expression);
+        args_change(args);
     });
     await refactor_import_fix(args);
+
+    function args_change(args) {
+        list_add(args, input_value_expression);
+    }
 }
