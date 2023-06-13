@@ -1,3 +1,4 @@
+import { js_statement_assignment } from '../js/statement/assignment.mjs';
 import { js_code_await } from '../js/code/await.mjs';
 import { js_code_call_expression_with_args } from '../js/code/call/expression/with/args.mjs';
 import { js_parse_identifier } from '../js/parse/identifier.mjs';
@@ -25,7 +26,8 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     if (is_async) {
         statement_first_code = js_code_await(statement_first_code);
     }
-    let statement_second_code = js_code_return_statement(js_parse_identifier(identifier));
+    statement_first_code = js_statement_assignment(identifier, statement_first_code);
+    let statement_second_code = js_code_return_statement(identifier);
     let statements_code = [
         statement_first_code,
         statement_second_code
