@@ -15,6 +15,19 @@ export async function refactor_input_add(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {input_name, input_type} = args;
     let { function_declaration, input_value_default} = args;
+    await refactor_input_generic(args, function_declaration, input_value_default, params_change, arguments_assert_args_change);
+
+    function arguments_assert_args_change(arguments_assert_args) {
+        let type = js_parse_expression(function_name_get(input_type));
+        list_add(arguments_assert_args, type);
+    }
+
+    function params_change(params) {
+        js_list_add_identifier(params, input_name);
+    }
+}
+
+async function refactor_input_generic(args, function_declaration, input_value_default, params_change, arguments_assert_args_change) {
     let input_value_expression = js_parse_expression(input_value_default);
     let params = js_function_declaration_to_params(function_declaration);
     params_change(params);
@@ -28,14 +41,5 @@ export async function refactor_input_add(args) {
             input_value_expression,
             function_name_called: function_name
         });
-    }
-
-    function arguments_assert_args_change(arguments_assert_args) {
-        let type = js_parse_expression(function_name_get(input_type));
-        list_add(arguments_assert_args, type);
-    }
-
-    function params_change(params) {
-        js_list_add_identifier(params, input_name);
     }
 }
