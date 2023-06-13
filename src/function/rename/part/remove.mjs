@@ -14,7 +14,10 @@ export async function function_rename_part_remove(part) {
     await function_rename_generic(predicate_should_rename, function_name_new_get);
     function function_name_new_get(n_old) {
         let parts = string_identifier_parts_from(n_old);
-        list_remove(parts, part);
+        parts_map(parts);
         return string_identifier_parts_to(parts);
+    }
+    function parts_map(parts) {
+        list_remove(parts, part);
     }
 }
