@@ -9,5 +9,5 @@ export async function refactor_variable_add(args) {
     let {function_declaration, identifier} = args;
     let statement = js_parse_statement(`${ js_keyword_let() } ${ identifier }`);
     await js_function_declaration_statement_add_after_arguments_assert(function_declaration, statement);
-    refactor_import_fix;
+    await refactor_import_fix(args);
 }
