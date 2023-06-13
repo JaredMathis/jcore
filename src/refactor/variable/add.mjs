@@ -1,6 +1,4 @@
-import { add_1 } from '../../add/1.mjs';
-import { list_add_at } from '../../list/add/at.mjs';
-import { list_index_of } from '../../list/index/of.mjs';
+import { list_add_after } from '../../list/add/after.mjs';
 import { js_mapper_args_to_statement_arguments_assert } from '../../js/mapper/args/to/statement/arguments/assert.mjs';
 import { js_keyword_let } from '../../js/keyword/let.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
@@ -14,8 +12,6 @@ export async function refactor_variable_add(args) {
     let statement = js_parse_statement(`${ js_keyword_let() } ${ identifier }`);
     let statement_arguments_assert = await js_mapper_args_to_statement_arguments_assert(args);
     let statements = js_function_declaration_to_statements(js_function_declaration);
-    let after_index = list_index_of(statements, statement_arguments_assert);
-    let add_index = add_1(after_index);
-    list_add_at(statements, statement, add_index);
+    list_add_after(statements, statement, statement_arguments_assert);
     error('todo: refactor_variable_new');
 }
