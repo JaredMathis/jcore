@@ -1,3 +1,4 @@
+import { list_each_with_index_async } from '../list/each/with/index/async.mjs';
 import { function_input_add } from './input/add.mjs';
 import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
 import { function_add_input } from './add/input.mjs';
@@ -14,6 +15,7 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { function_to_declaration } from './to/declaration.mjs';
 import { list_map } from '../list/map.mjs';
 import { js_parse_statement } from '../js/parse/statement.mjs';
+import { list_get } from '../list/get.mjs';
 export async function function_wrap(function_name_to_wrap, function_name_to_add) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -36,8 +38,9 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     ];
     let statements = list_map(statements_code, js_parse_statement);
     await function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
-    for (let input of inputs) {
-        await function_input_add(function_name_to_add, input);
-    }
+    await list_each_with_index_async(list, async (element, index) => {
+        let arguments_assert_arg = list_get(arguments_assert_args, index);
+        await function_input_add(function_name_to_add, element);
+    });
     await function_open_vs_code(function_name_to_add);
 }
