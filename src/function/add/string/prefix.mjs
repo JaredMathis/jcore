@@ -7,6 +7,7 @@ export async function function_add_string_prefix(prefix, suffix) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
+    let value = suffix;
     let function_name = string_identifier_with_prefix(prefix, suffix);
     await function_add_string(function_name, suffix);
 }
