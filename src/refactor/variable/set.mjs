@@ -1,3 +1,4 @@
+import { js_declarations_single } from '../../js/declarations/single.mjs';
 import { js_nodes_get } from '../../js/nodes/get.mjs';
 import { js_node_property_init } from '../../js/node/property/init.mjs';
 import { object_property_change } from '../../object/property/change.mjs';
@@ -38,8 +39,7 @@ export async function refactor_variable_set(args) {
     };
     let nodes = js_nodes_get(parsed, predicate);
     let match = list_single(nodes);
-    let declarations = object_property_get(match, js_node_property_declarations());
-    let declaration = list_single(declarations);
+    let declaration = js_declarations_single(match);
     const value_parsed = js_parse_expression(value);
     object_property_change(declaration, js_node_property_init(), value_parsed);
 }
