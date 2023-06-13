@@ -1,3 +1,4 @@
+import { js_node_property_name } from '../../js/node/property/name.mjs';
 import { refactor_import_fix } from '../import/fix.mjs';
 import { js_node_is_identifier } from '../../js/node/is/identifier.mjs';
 import { js_node_property_callee } from '../../js/node/property/callee.mjs';
