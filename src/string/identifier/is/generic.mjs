@@ -1,6 +1,5 @@
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
-import { string_letter_digit_or_underscore_is } from '../../letter/digit/or/underscore/is.mjs';
 import { string_includes } from '../../includes.mjs';
 import { string_underscore } from '../../underscore.mjs';
 import { string_underscore_is } from '../../underscore/is.mjs';
@@ -12,6 +11,7 @@ import { string_to_list } from '../../to/list.mjs';
 import { string_is } from '../../is.mjs';
 import { boolean_is } from '../../../boolean/is.mjs';
 import { defined_is } from '../../../defined/is.mjs';
+import { string_letter_digit_or_underscore_is_generic } from '../../letter/digit/or/underscore/is/generic.mjs';
 export function string_identifier_is_generic(value, enforce_first_and_last, allow_underscores) {
     arguments_assert(arguments, [
         defined_is,
@@ -40,7 +40,7 @@ export function string_identifier_is_generic(value, enforce_first_and_last, allo
         return false;
     }
     for (let c of list) {
-        if (!string_letter_digit_or_underscore_is(c)) {
+        if (!string_letter_digit_or_underscore_is_generic(c, allow_underscores)) {
             return false;
         }
     }
