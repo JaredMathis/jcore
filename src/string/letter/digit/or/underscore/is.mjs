@@ -16,8 +16,10 @@ export function string_letter_digit_or_underscore_is(c) {
     if (string_digit_is(c)) {
         return true;
     }
-    if (string_underscore_is(c)) {
-        return true;
+    if (allow_underscores) {
+        if (string_underscore_is(c)) {
+            return true;
+        }
     }
     return false;
 }
