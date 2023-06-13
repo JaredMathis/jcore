@@ -1,3 +1,5 @@
+import { log } from '../../log.mjs';
+import { list_index_of } from '../../list/index/of.mjs';
 import { js_block_statement_body } from '../../js/block/statement/body.mjs';
 import { js_node_is_block_statement } from '../../js/node/is/block/statement.mjs';
 import { js_visit_node_grandparent } from '../../js/visit/node/grandparent.mjs';
@@ -18,7 +20,8 @@ export function refactor_properties_expand(args) {
                 let grandparent_great = js_visit_node_grandparent(stack, 1);
                 if (js_node_is_block_statement(grandparent_great)) {
                     let function_body_statements = js_block_statement_body(grandparent_great);
-                    let index = 
+                    let index = list_index_of(function_body_statements, grandparent);
+                    console.log({ index });
                 }
             }
         }
