@@ -12,7 +12,7 @@ export async function list_map_async(list, mapper) {
     let lambda = async (element, index) => await mapper(element);
     let result = [];
     await list_each_with_index_async(list, async (element, index) => {
-        let mapped = await mapper(element);
+        let mapped = await lambda(element, index);
         list_add(result, mapped);
     });
     return result;
