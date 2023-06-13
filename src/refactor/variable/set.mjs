@@ -14,6 +14,9 @@ export async function refactor_variable_set(args) {
     let expecting = js_parse_statement_let(identifier, ``);
     console.log(json_to({ expecting }));
     js_visit_nodes_filter(parsed, n => {
-        return js_node_is_variable_declarator(n) && object_property_get(n, js_node_property_declarations());
+        if (!js_node_is_variable_declarator(n)) {
+            return false;
+        }
+        let declarations = object_property_get(n, js_node_property_declarations());
     }, n => console.log(n));
 }
