@@ -1,3 +1,4 @@
+import { js_code_await } from '../js/code/await.mjs';
 import { js_code_call_expression_with_args } from '../js/code/call/expression/with/args.mjs';
 import { js_parse_identifier } from '../js/parse/identifier.mjs';
 import { js_code_return_statement } from '../js/code/return/statement.mjs';
@@ -21,6 +22,9 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     let is_async = js_function_declaration_async_is(function_declaration);
     let args = list_map(inputs, js_parse_identifier);
     let statement_first_code = js_code_call_expression_with_args(function_name_to_wrap, args);
+    if (is_async) {
+        statement_first_code = js_code_await(statement_first_code);
+    }
     let statements = [];
     list_add(statements);
     error();
