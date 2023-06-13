@@ -12,7 +12,7 @@ export function string_case_camel_parse(node_type) {
     let mapped = list_map_with_index(characters, (c, index) => {
         return {
             [property_is_capital]: string_case_upper_is(c),
-            [index]: index
+            [property_index]: index
         };
     });
     let filtered = list_filter_property(mapped, property_is_capital, true);
