@@ -1,3 +1,4 @@
+import { js_node_property_properties } from '../../js/node/property/properties.mjs';
 import { log } from '../../log.mjs';
 import { list_index_of } from '../../list/index/of.mjs';
 import { js_block_statement_body } from '../../js/block/statement/body.mjs';
@@ -9,6 +10,7 @@ import { js_visit_nodes_filter } from '../../js/visit/nodes/filter.mjs';
 import { js_node_is_object_pattern } from '../../js/node/is/object/pattern.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { defined_is } from '../../defined/is.mjs';
+import { object_property_get } from '../../object/property/get.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration, parsed} = args;
@@ -21,9 +23,10 @@ export function refactor_properties_expand(args) {
                 if (js_node_is_block_statement(grandparent_great)) {
                     let function_body_statements = js_block_statement_body(grandparent_great);
                     let index = list_index_of(function_body_statements, grandparent);
+                    let properties = object_property_get(node, js_node_property_properties());
                     console.log({
                         index,
-                        node
+                        properties
                     });
                 }
             }
