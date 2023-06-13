@@ -27,13 +27,13 @@ export function refactor_properties_expand(args) {
                     let index = list_index_of(function_body_statements, grandparent);
                     let properties = object_property_get(node, js_node_property_properties());
                     for (let property of properties) {
-                        object_property_get(property, js_node_property_key());
-                        object_property_get(property, js_node_property_value());
+                        let key = object_property_get(property, js_node_property_key());
+                        let value = object_property_get(property, js_node_property_value());
+                        console.log({
+                            key,
+                            value
+                        });
                     }
-                    console.log({
-                        index,
-                        properties
-                    });
                 }
             }
         }
