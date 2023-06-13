@@ -11,7 +11,7 @@ export async function refactor_input_add(args) {
     let {function_declaration, input_value_default} = args;
     await refactor_input_generic(args, function_declaration, args_additional_get, params_change, arguments_assert_args_change);
     function arguments_assert_args_change(arguments_assert_args) {
-        let type = js_parse_expression(function_name_get(input_type));
+        let type = js_parse_expression((input_type));
         list_add(arguments_assert_args, type);
     }
     function params_change(params) {
