@@ -8,7 +8,7 @@ export async function function_input_add_type(function_name, input_name, input_v
         string_identifier_is,
         string_identifier_is,
         string_is,
-        arguments_assert_todo
+        string_identifier_is
     ]);
     await function_input_add_generic(function_name, input_name, input_value_default, arguments_assert_todo);
 }
