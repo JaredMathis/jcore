@@ -5,11 +5,11 @@ import { integer_is } from '../../integer/is.mjs';
 import { list_is } from '../is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { defined_is } from '../../defined/is.mjs';
-export function list_add_at(list, index, value) {
+export function list_add_at(list, value, index) {
     arguments_assert(arguments, [
         list_is,
-        integer_is,
-        defined_is
+        defined_is,
+        integer_is
     ]);
     assert(list_index_valid(list, index));
     const delete_count = 0;
