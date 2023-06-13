@@ -5,6 +5,7 @@ import { list_map_with_index } from '../../list/map/with/index.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { string_to_list } from '../../string/to/list.mjs';
+import { list_new_then } from '../../list/new/then.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration, parsed} = args;
@@ -20,8 +21,10 @@ export function refactor_properties_expand(args) {
     });
     let filtered = list_filter_property(mapped, property_is_capital, true);
     let indices = list_map_property(filtered, index);
-    let previous = 0;
-    let next;
-    for (let i of indices) {
-    }
+    list_new_then(list_new_then_add => {
+        let previous = 0;
+        let next;
+        for (let i of indices) {
+        }
+    });
 }
