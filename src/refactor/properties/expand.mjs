@@ -1,3 +1,4 @@
+import { log } from '../../log.mjs';
 import { list_get_end } from '../../list/get/end.mjs';
 import { js_node_is_variable_declarator } from '../../js/node/is/variable/declarator.mjs';
 import { js_visit_nodes_filter } from '../../js/visit/nodes/filter.mjs';
@@ -9,8 +10,9 @@ export function refactor_properties_expand(args) {
     let {function_declaration, parsed} = args;
     js_visit_nodes_filter(parsed, js_node_is_object_pattern, v => {
         let {stack, parent} = v;
-        let grandpart = list_get_end(stack, 2);
+        let grandparent = list_get_end(stack, 2);
         if (js_node_is_variable_declarator(parent)) {
+            console.log({ grandparent });
         }
     });
 }
