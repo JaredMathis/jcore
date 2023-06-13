@@ -1,6 +1,6 @@
+import { function_map_with_args } from '../../function/map/with/args.mjs';
 import { function_callers } from '../../function/callers.mjs';
 import { js_function_declaration_to_name } from '../../js/function/declaration/to/name.mjs';
-import { log } from '../../log.mjs';
 import { js_function_declaration_to_params } from '../../js/function/declaration/to/params.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
 import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
@@ -20,8 +20,10 @@ export async function refactor_input_add(args) {
     let type = js_parse_expression(function_name_get(arguments_assert_todo));
     list_add(arguments_assert_args, type);
     await refactor_import_fix(args);
-    console.log({ args });
     let function_name = js_function_declaration_to_name(function_declaration);
     let callers = await function_callers(function_name);
+    for (let caller of callers) {
+        await function_map_with_args(function_name_get(refactor_input_add_caller), caller, { input_name });
+    }
     error();
 }
