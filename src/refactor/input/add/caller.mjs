@@ -6,5 +6,7 @@ export function refactor_input_add_caller(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {input_name, function_declaration, function_name_called} = args;
     error('todo: refactor_input_add_caller');
-    js_visit_nodes_call_expression_name_equal(args);
+    js_visit_nodes_call_expression_name_equal(args, function_name_called, v => {
+        
+    });
 }
