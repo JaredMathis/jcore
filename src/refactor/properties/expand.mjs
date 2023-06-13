@@ -1,3 +1,5 @@
+import { string_identifier_with_prefix } from '../../string/identifier/with/prefix.mjs';
+import { js_identifiers } from '../../js/identifiers.mjs';
 import { js_code_call_expression_statement_with_args_code } from '../../js/code/call/expression/statement/with/args/code.mjs';
 import { js_property_identifier_name } from '../../js/property/identifier/name.mjs';
 import { js_node_property_value } from '../../js/node/property/value.mjs';
@@ -34,6 +36,8 @@ export function refactor_properties_expand(args) {
                         let key = js_property_identifier_name(property, js_node_property_key());
                         let local = js_property_identifier_name(property, js_node_property_value());
                         let identifier_next_prefix = 'v';
+                        let identifiers = js_identifiers(parsed);
+                        string_identifier_with_prefix(identifier_next_prefix);
                         let identifier_next = error();
                         let args = [];
                         js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args);
