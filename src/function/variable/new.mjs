@@ -1,3 +1,4 @@
+import { refactor_variable_new } from '../../refactor/variable/new.mjs';
 import { function_name_get } from '../name/get.mjs';
 import { function_map_with_args } from '../map/with/args.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
