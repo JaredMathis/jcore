@@ -11,6 +11,7 @@ export async function function_input_add_default(function_name, input_name, inpu
         string_identifier_is,
         string_is
     ]);
+    let input_value_default = js_code_call_expression()
     await function_map_with_args(function_name_get(refactor_input_add), function_name, {
         input_name,
         input_value_default: input_value_default,
