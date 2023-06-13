@@ -9,6 +9,7 @@ export async function list_map_async(list, mapper) {
         list_is,
         function_is
     ]);
+    let lambda = async (element, index) => await mapper(element);
     let result = [];
     await list_each_with_index_async(list, async (element, index) => {
         let mapped = await mapper(element);
