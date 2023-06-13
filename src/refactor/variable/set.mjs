@@ -14,7 +14,7 @@ import { list_length_is_1 } from '../../list/length/is/1.mjs';
 import { list_single } from '../../list/single.mjs';
 import { js_node_is_identifier } from '../../js/node/is/identifier.mjs';
 import { equal } from '../../equal.mjs';
-import { js_visit_nodes_filter_node } from '../../js/visit/nodes/filter/node.mjs';
+import { js_nodes_each } from '../../js/nodes/each.mjs';
 export async function refactor_variable_set(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {identifier, value} = args;
@@ -38,7 +38,7 @@ export async function refactor_variable_set(args) {
         return equal(object_property_get(id, js_property_name()), identifier);
     };
     let nodes = list_new_then(list_new_then_add => {
-        js_visit_nodes_filter_node(parsed, predicate, list_new_then_add);
+        js_nodes_each(parsed, predicate, list_new_then_add);
     });
     let match = list_single(nodes);
     let declarations = object_property_get(match, js_node_property_declarations());
