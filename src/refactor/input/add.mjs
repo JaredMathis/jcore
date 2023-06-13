@@ -18,8 +18,7 @@ export async function refactor_input_add(args) {
     let params = js_function_declaration_to_params(function_declaration);
     params_change(params);
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
-    let type = js_parse_expression(function_name_get(input_type));
-    list_add(arguments_assert_args, type);
+    arguments_assert_args_change();
     await refactor_import_fix(args);
     let function_name = js_function_declaration_to_name(function_declaration);
     let callers = await function_callers(function_name);
@@ -28,6 +27,11 @@ export async function refactor_input_add(args) {
             input_value_expression,
             function_name_called: function_name
         });
+    }
+
+    function arguments_assert_args_change() {
+        let type = js_parse_expression(function_name_get(input_type));
+        list_add(arguments_assert_args, type);
     }
 
     function params_change(params) {
