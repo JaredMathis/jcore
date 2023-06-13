@@ -1,3 +1,4 @@
+import { js_node_property_callee } from '../../../../node/property/callee.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
@@ -10,7 +11,7 @@ export function js_call_expression_to_name_generic(ce, or_null) {
         js_node_is_call_expression,
         boolean_is
     ]);
-    let callee = object_property_get(ce, 'callee');
+    let callee = object_property_get(ce, js_node_property_callee());
     if (or_null) {
         if (!js_node_is_identifier(callee)) {
             return null;
