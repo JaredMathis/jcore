@@ -13,6 +13,7 @@ import { list_add } from '../../list/add.mjs';
 import { refactor_import_fix } from '../import/fix.mjs';
 export async function refactor_input_add(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
+    let input_type;
     let {input_name, function_declaration, input_value} = args;
     let input_value_expression = js_parse_expression(input_value);
     let params = js_function_declaration_to_params(function_declaration);
