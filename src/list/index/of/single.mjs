@@ -7,4 +7,5 @@ export function list_index_of_single(parts, part) {
     let filtered = list_filter(parts, p => equal(p, part));
     assert(list_length_is_1(filtered));
     let index = list_index_of(parts, part);
+    return index;
 }
