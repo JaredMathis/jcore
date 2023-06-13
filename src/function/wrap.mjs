@@ -39,7 +39,7 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     await function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
     await list_each_with_index_async(list, async (element, index) => {
         let arguments_assert_arg = list_get(arguments_assert_args, index);
-        await function_input_add(function_name_to_add, element);
+        await function_input_add_type(function_name_to_add, element);
     });
     await function_open_vs_code(function_name_to_add);
 }
