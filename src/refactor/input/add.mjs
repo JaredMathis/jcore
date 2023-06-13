@@ -1,3 +1,4 @@
+import { js_list_add_identifier } from '../../js/list/add/identifier.mjs';
 import { refactor_input_add_caller } from './add/caller.mjs';
 import { function_map_with_args } from '../../function/map/with/args.mjs';
 import { function_callers } from '../../function/callers.mjs';
@@ -15,8 +16,7 @@ export async function refactor_input_add(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {input_name, function_declaration} = args;
     let params = js_function_declaration_to_params(function_declaration);
-    let input_new = js_parse_expression(input_name);
-    list_add(params, input_new);
+    js_list_add_identifier(params, input_name);
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let type = js_parse_expression(function_name_get(arguments_assert_todo));
     list_add(arguments_assert_args, type);
