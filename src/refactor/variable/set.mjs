@@ -7,6 +7,6 @@ import { js_visit_nodes_filter } from '../../js/visit/nodes/filter.mjs';
 export async function refactor_variable_set(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
-    let expecting = 
+    let expecting = js_parse_statement_let()
     js_visit_nodes_filter(parsed);
 }
