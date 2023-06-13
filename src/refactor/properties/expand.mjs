@@ -11,6 +11,9 @@ export function refactor_properties_expand(args) {
     const node_type = 'ObjectPattern';
     let characters = string_to_list(node_type);
     let indices_capital = list_map(characters, c => {
-        return { is_capital: string_letter_is(c) && equal(string_to_case_upper(c), c) };
+        return {
+            is_capital: string_letter_is(c) && equal(string_to_case_upper(c), c),
+            value: c
+        };
     });
 }
