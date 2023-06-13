@@ -7,6 +7,8 @@ import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { js_visit_nodes_filter } from '../../js/visit/nodes/filter.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
+import { list_length_is_1 } from '../../list/length/is/1.mjs';
+import { list_single } from '../../list/single.mjs';
 export async function refactor_variable_set(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {identifier, value} = args;
@@ -18,5 +20,9 @@ export async function refactor_variable_set(args) {
             return false;
         }
         let declarations = object_property_get(n, js_node_property_declarations());
+        if (!list_length_is_1(declarations)) {
+            return false;
+        }
+        let declaration = list_single(declarations);
     }, n => console.log(n));
 }
