@@ -17,7 +17,7 @@ export function string_case_camel_parse(node_type) {
     });
     let filtered = list_filter_property(mapped, property_is_capital, true);
     let indices = list_map_property(filtered, index);
-    list_new_then(list_new_then_add => {
+    return list_new_then(list_new_then_add => {
         let previous = 0;
         for (let index of indices) {
             let part = string_sub(node_type, previous, index);
