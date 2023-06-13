@@ -1,3 +1,4 @@
+import { js_node_property_declarations } from '../../js/node/property/declarations.mjs';
 import { js_node_is_variable_declarator } from '../../js/node/is/variable/declarator.mjs';
 import { json_to } from '../../json/to.mjs';
 import { log } from '../../log.mjs';
@@ -11,5 +12,5 @@ export async function refactor_variable_set(args) {
     let {parsed} = args;
     let expecting = js_parse_statement_let(identifier, ``);
     console.log(json_to({ expecting }));
-    js_visit_nodes_filter(parsed, n => js_node_is_variable_declarator(n), n => console.log(n));
+    js_visit_nodes_filter(parsed, n => js_node_is_variable_declarator(n) && js_node_property_declarations(), n => console.log(n));
 }
