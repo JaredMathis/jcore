@@ -1,12 +1,9 @@
+import { string_case_upper_is } from '../../string/case/upper/is.mjs';
+import { list_filter_property } from '../../list/filter/property.mjs';
 import { list_map_with_index } from '../../list/map/with/index.mjs';
-import { equal } from '../../equal.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { string_to_list } from '../../string/to/list.mjs';
-import { string_letter_is } from '../../string/letter/is.mjs';
-import { string_to_case_upper } from '../../string/to/case/upper.mjs';
-import { list_filter } from '../../list/filter.mjs';
-import { object_property_get } from '../../object/property/get.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration, parsed} = args;
@@ -15,7 +12,7 @@ export function refactor_properties_expand(args) {
     const property_is_capital = 'is_capital';
     let mapped = list_map_with_index(characters, (c, index) => {
         return {
-            [property_is_capital]: string_letter_is(c) && equal(string_to_case_upper(c), c),
+            [property_is_capital]: string_case_upper_is(c),
             value: c,
             index
         };
