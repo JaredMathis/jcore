@@ -52,7 +52,7 @@ export function refactor_properties_expand(args) {
                             }
                             if (false)
                                 js_parse_statement_let(identifier_next);
-                            let args = [];
+                            let args = [identifier_next, ];
                             let args_code = js_code_join_comma(args);
                             js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args_code);
                             console.log({
