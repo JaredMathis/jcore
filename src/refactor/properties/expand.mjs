@@ -1,3 +1,4 @@
+import { string_to } from '../../string/to.mjs';
 import { js_node_property_declarations } from '../../js/node/property/declarations.mjs';
 import { js_parse_statement_let } from '../../js/parse/statement/let.mjs';
 import { string_identifier_with_prefix } from '../../string/identifier/with/prefix.mjs';
@@ -62,8 +63,4 @@ export function refactor_properties_expand(args) {
             }
         }
     });
-}
-
-function string_to(c) {
-    return `${c}`;
 }
