@@ -43,5 +43,6 @@ export function refactor_output_to_object(args) {
         ]) {
         object_property_change(property_single, property, return_single_argument);
     }
+    js_return_statement_argument_change(return_single, object_code)
     return args;
 }
