@@ -34,6 +34,6 @@ export function refactor_output_to_object(args) {
     let object = js_code_return_statement(return_expression);
     let arg = js_return_statement_argument(object);
     let properties = object_property_get(arg, js_node_property_properties());
-    log(properties);
+    log(js_unparse(properties));
     return args;
 }
