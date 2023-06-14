@@ -27,6 +27,7 @@ import { list_length_is_1 } from '../../list/length/is/1.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
 import { assert } from '../../assert.mjs';
 import { list_contains } from '../../list/contains.mjs';
+import { js_parse_expression } from '../../js/parse/expression.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration, parsed} = args;
@@ -58,7 +59,7 @@ export function refactor_properties_expand(args) {
                             list_add_after(function_body_statements, statement, previous);
                             previous = statement;
                         }
-                        object_replace(node, v);
+                        object_replace(node, js_parse_expression(v);
                     }
                 }
             }
