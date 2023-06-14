@@ -10,6 +10,6 @@ export function js_return_statement_argument_change(object, value) {
         arguments_assert_todo
     ]);
     assert(js_node_is_return_statment(object));
-    let arg = object_property_change(object, js_node_property_argument());
+    let arg = object_property_change(object, js_node_property_argument(), value);
     return arg;
 }
