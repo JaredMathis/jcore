@@ -23,7 +23,7 @@ export function refactor_output_to_object(args) {
     comment(`If this fails code needs changing`);
     assert(list_length_is_1(returns));
     let return_single = list_single(returns);
-    let return_single_argument = js_code_return_statement(return_expression);
+    let return_single_argument = js_code_return_statement(return_single);
     comment(`Needs to be identifier - maybe convert to identifier in the future if not`);
     assert(js_node_is_identifier(return_single_argument));
     let statements = js_function_declaration_to_statements(function_declaration);
