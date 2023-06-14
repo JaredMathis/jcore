@@ -10,6 +10,8 @@ import { file_exists } from '../../../file/exists.mjs';
 import { path_join } from '../../../path/join.mjs';
 import { file_extension_json } from '../../../file/extension/json.mjs';
 import { json_from } from '../../../json/from.mjs';
+import { json_to } from '../../../json/to.mjs';
+import { list_map } from '../../../list/map.mjs';
 export async function git_hub_repository_issues() {
     arguments_assert(arguments, []);
     await git_ignore_add_if_not_exists(git_ignore_cache());
@@ -30,5 +32,7 @@ export async function git_hub_repository_issues() {
         owner: owner,
         repo: repository
     });
+    let json = json_to(issues);
+    await file_json_write(file_path, json);
     return issues;
 }
