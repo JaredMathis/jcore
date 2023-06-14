@@ -1,7 +1,6 @@
-import { js_variable_declarator_init_change } from '../../js/variable/declarator/init/change.mjs';
+import { js_variable_declarator_init_change_unparsed } from '../../js/variable/declarator/init/change/unparsed.mjs';
 import { js_declarations_single } from '../../js/declarations/single.mjs';
 import { js_nodes_get } from '../../js/nodes/get.mjs';
-import { js_parse_expression } from '../../js/parse/expression.mjs';
 import { js_node_property_id } from '../../js/node/property/id.mjs';
 import { js_property_name } from '../../js/property/name.mjs';
 import { js_node_is_variable_declaration } from '../../js/node/is/variable/declaration.mjs';
@@ -39,6 +38,5 @@ export async function refactor_variable_set(args) {
     let nodes = js_nodes_get(parsed, predicate);
     let match = list_single(nodes);
     let declaration = js_declarations_single(match);
-    const value_parsed = js_parse_expression(value);
-    js_variable_declarator_init_change(declaration, value_parsed);
+    js_variable_declarator_init_change_unparsed(value, declaration);
 }
