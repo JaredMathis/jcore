@@ -1,3 +1,4 @@
+import { js_callable_multiple_assert_not } from '../js/callable/multiple/assert/not.mjs';
 import { object_replace } from '../object/replace.mjs';
 import { js_await_expression_argument_change } from '../js/await/expression/argument/change.mjs';
 import { js_code_await } from '../js/code/await.mjs';
@@ -22,6 +23,7 @@ import { string_a } from '../string/a.mjs';
 import { js_parse_expression } from '../js/parse/expression.mjs';
 export async function refactor_asyncify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
+    js_callable_multiple_assert_not();
     refactor_async_add(args);
     let function_names = await function_name_all();
     let function_names_dictionary = list_to_dictionary(function_names, identity);
