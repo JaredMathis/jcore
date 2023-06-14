@@ -1,4 +1,4 @@
-import { list_new_then_generic } from './generic.mjs';
+import { list_new_then_generic_async } from './generic/async.mjs';
 import { list_add } from '../../add.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
