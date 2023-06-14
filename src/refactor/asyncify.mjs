@@ -1,3 +1,4 @@
+import { js_call_expression_name_change } from '../js/call/expression/name/change.mjs';
 import { function_naming_suffix_async } from '../function/naming/suffix/async.mjs';
 import { js_call_expression_name_get_or_null } from '../js/call/expression/name/get/or/null.mjs';
 import { object_property_exists } from '../object/property/exists.mjs';
@@ -12,6 +13,8 @@ import { list_filter } from '../list/filter.mjs';
 import { identity } from '../identity.mjs';
 import { assert } from '../assert.mjs';
 import { string_ends_with } from '../string/ends/with.mjs';
+import { comment } from '../comment.mjs';
+import { string_add } from '../string/add.mjs';
 export async function refactor_asyncify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     refactor_async_add(args);
@@ -22,6 +25,12 @@ export async function refactor_asyncify(args) {
     let suffix = function_naming_suffix_async();
     for (let f of function_calls) {
         let name = js_call_expression_name_get_or_null(f);
+        comment(`If this assert fails - look into why a non-async function (presumably) is calling a function that ends with async`);
         assert(!string_ends_with(name, suffix));
+    }
+    for (let f of function_calls) {
+        let name_old = js_call_expression_name_get_or_null(f);
+        let name_new = string_add(name_old, suffix);
+        js_call_expression_name_change(f, name_new);
     }
 }
