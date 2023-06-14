@@ -1,3 +1,5 @@
+import { js_node_is_callable } from '../js/node/is/callable.mjs';
+import { log } from '../log.mjs';
 import { function_asyncify } from '../function/asyncify.mjs';
 import { js_callable_multiple_assert_not } from '../js/callable/multiple/assert/not.mjs';
 import { object_replace } from '../object/replace.mjs';
@@ -25,6 +27,7 @@ import { js_parse_expression } from '../js/parse/expression.mjs';
 export async function refactor_asyncify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = { args };
+    log(js_nodes_get(parsed, js_node_is_callable));
     js_callable_multiple_assert_not(parsed);
     refactor_async_add(args);
     let function_names = await function_name_all();
