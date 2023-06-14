@@ -34,6 +34,6 @@ export async function refactor_asyncify(args) {
         let name_old = js_call_expression_name_get_or_null(f);
         let name_new = string_add(name_old, suffix);
         js_call_expression_name_change(f, name_new);
-        js_code_await(string_a());
+        let awaited = js_code_await(string_a());
     }
 }
