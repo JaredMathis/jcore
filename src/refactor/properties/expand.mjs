@@ -28,6 +28,7 @@ import { js_parse_statement } from '../../js/parse/statement.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
+    let changed = false;
     let {function_declaration, parsed} = args;
     js_visit_nodes_filter(parsed, js_node_is_object_pattern, v => {
         let {stack, parent, node} = v;
@@ -57,6 +58,7 @@ export function refactor_properties_expand(args) {
                             let statement = js_parse_statement(statement_code);
                             list_add_after(function_body_statements, statement, previous);
                             previous = statement;
+                            changed = true;
                         }
                     }
                 }
