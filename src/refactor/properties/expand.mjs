@@ -25,6 +25,8 @@ import { object_property_get } from '../../object/property/get.mjs';
 import { function_name_get } from '../../function/name/get.mjs';
 import { list_length_is_1 } from '../../list/length/is/1.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
+import { assert } from '../../assert.mjs';
+import { list_contains } from '../../list/contains.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration, parsed} = args;
@@ -39,6 +41,7 @@ export function refactor_properties_expand(args) {
                     if (js_node_is_block_statement(grandparent_great)) {
                         let function_body_statements = js_block_statement_body(grandparent_great);
                         let previous = grandparent;
+                        assert(list_contains(function_body_statements, previous));
                         let v = js_identifier_name_next(parsed);
                         let properties = object_property_get(node, js_node_property_properties());
                         for (let property of properties) {
