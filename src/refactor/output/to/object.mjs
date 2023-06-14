@@ -1,3 +1,4 @@
+import { js_return_statement_argument_change } from '../../../js/return/statement/argument/change.mjs';
 import { object_property_change } from '../../../object/property/change.mjs';
 import { js_parse_statement } from '../../../js/parse/statement.mjs';
 import { js_nodes_get } from '../../../js/nodes/get.mjs';
@@ -43,6 +44,6 @@ export function refactor_output_to_object(args) {
         ]) {
         object_property_change(property_single, property, return_single_argument);
     }
-    js_return_statement_argument_change(return_single, object_code)
+    js_return_statement_argument_change(return_single, object_code);
     return args;
 }
