@@ -9,7 +9,7 @@ export async function list_new_then_generic_async(then, lambda) {
     let list = [];
     then(list_new_then_add);
     function list_new_then_add(element) {
-        await arguments_assert_async(arguments, [defined_is]);
+        await arguments_assert(arguments, [defined_is]);
         lambda(list, element);
     }
     return list;
