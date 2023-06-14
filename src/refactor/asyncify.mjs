@@ -13,7 +13,7 @@ export async function refactor_asyncify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     refactor_async_add(args);
     let function_names = await function_name_all();
-    let calls = js_nodes_get(parsed, js_node_is_call_expression);
     let function_names_dictionary = list_to_dictionary(function_names, identity);
+    let calls = js_nodes_get(parsed, js_node_is_call_expression);
     let function_calls = list_filter(calls, ce => object_property_exists(function_names_dictionary, js_call_expression_to_name_or_null(ce)));
 }
