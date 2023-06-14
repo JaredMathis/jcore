@@ -47,14 +47,13 @@ export function refactor_properties_expand(args) {
                         for (let property of properties) {
                             let key = js_property_identifier_name(property, js_node_property_key());
                             let local = js_property_identifier_name(property, js_node_property_value());
-                            let local_identifier = js_identifier_name_next_prefix(parsed, local);
                             let args = [
                                 v,
                                 js_code_expression_string(key)
                             ];
                             let args_code = js_code_join_comma(args);
                             let after_let = js_code_call_expression_with_args_code(function_name_get(object_property_get), args_code);
-                            let statement_code = js_code_statement_assignment(local_identifier, after_let);
+                            let statement_code = js_code_statement_assignment(local, after_let);
                             let statement = js_parse_statement(statement_code);
                             list_add_after(function_body_statements, statement, previous);
                             previous = statement;
