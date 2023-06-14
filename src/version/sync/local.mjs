@@ -11,7 +11,6 @@ import { version_commit_data } from '../commit/data.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { list_length } from '../../list/length.mjs';
 import { object_property_initialize } from '../../object/property/initialize.mjs';
-import { function_name_separator } from '../../function/name/separator.mjs';
 export async function version_sync_local(repository_name) {
     arguments_assert(arguments, [string_identifier_is]);
     const commit_data = version_commit_data(version_sync_local, arguments);
