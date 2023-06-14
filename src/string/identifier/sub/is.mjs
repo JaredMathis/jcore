@@ -4,6 +4,7 @@ import { metadata } from '../../../metadata.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 export function string_identifier_sub_is(value) {
     arguments_assert(arguments, [string_is]);
-    return string_identifier_is_generic(value, false, true);
+    let enforce_first_and_last = false;
+    return string_identifier_is_generic(value, enforce_first_and_last, enforce_first_and_last, true);
     metadata([]);
 }
