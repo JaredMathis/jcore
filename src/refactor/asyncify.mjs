@@ -21,7 +21,7 @@ export async function refactor_asyncify(args) {
     let function_calls = list_filter(calls, ce => object_property_exists(function_names_dictionary, js_call_expression_to_name_or_null(ce)));
     let suffix = function_naming_suffix_async();
     for (let f of function_calls) {
-        let name = js_call_expression_to_name_or_null(ce);
+        let name = js_call_expression_to_name_or_null(f);
         assert(!string_ends_with(name, suffix));
     }
 }
