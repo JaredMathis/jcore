@@ -1,3 +1,4 @@
+import { js_block_statement_body } from '../../../js/block/statement/body.mjs';
 import { js_nodes_get } from '../../../js/nodes/get.mjs';
 import { js_return_statement_argument } from '../../../js/return/statement/argument.mjs';
 import { js_code_return_statement } from '../../../js/code/return/statement.mjs';
@@ -26,8 +27,9 @@ export function refactor_output_to_object(args) {
     comment(`Needs to be identifier - maybe convert to identifier in the future if not`);
     assert(js_node_is_identifier(return_single_argument));
     let statements = js_function_declaration_to_statements(function_declaration);
+    let statements_body = js_block_statement_body(statements);
     comment(`If this fails code needs changing - needs to be 1 return statement per function`);
-    assert(list_contains(statements, return_single));
+    assert(list_contains(statements_body, return_single));
     const return_expression = `{ ${ string_a() } }`;
     let object = js_code_return_statement(return_expression);
     let arg = js_return_statement_argument(object);
