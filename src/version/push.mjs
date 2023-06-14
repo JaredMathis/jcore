@@ -38,6 +38,7 @@ import { function_name_separator } from '../function/name/separator.mjs';
 import { database_firestore_get } from '../database/firestore/get.mjs';
 export async function version_push(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
+    let preview = false;
     let list_commits = await list_new_then_async(async list_commits_add => {
         let db = database_firestore_get();
         let database_collection_name = version_collection_repository(repository_name);
