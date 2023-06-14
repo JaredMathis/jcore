@@ -45,7 +45,7 @@ export function refactor_properties_expand(args) {
                             let identifiers = js_identifiers(parsed);
                             let c = 2;
                             while (list_contains(identifiers, identifier_next)) {
-                                identifier_next = string_identifier_with_prefix(identifier_next_prefix, `${c}`);
+                                identifier_next = string_identifier_with_prefix(identifier_next_prefix, string_to(c));
                                 c++;
                             }
                             if (false)
@@ -62,4 +62,8 @@ export function refactor_properties_expand(args) {
             }
         }
     });
+}
+
+function string_to(c) {
+    return `${c}`;
 }
