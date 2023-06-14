@@ -59,7 +59,7 @@ export function refactor_properties_expand(args) {
                             list_add_after(function_body_statements, statement, previous);
                             previous = statement;
                         }
-                        object_replace(node, js_parse_expression(v);
+                        object_replace(node, js_parse_expression(v));
                     }
                 }
             }
