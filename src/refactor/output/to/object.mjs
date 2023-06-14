@@ -17,6 +17,9 @@ import { string_a } from '../../../string/a.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
 import { log } from '../../../log.mjs';
 import { js_node_is_identifier } from '../../../js/node/is/identifier.mjs';
+import { log_json } from '../../../log/json.mjs';
+import { js_node_property_key } from '../../../js/node/property/key.mjs';
+import { js_node_property_value } from '../../../js/node/property/value.mjs';
 export function refactor_output_to_object(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
@@ -35,6 +38,9 @@ export function refactor_output_to_object(args) {
     let object = js_parse_statement(object_code);
     let arg = js_return_statement_argument(object);
     let properties = object_property_get(arg, js_node_property_properties());
-    log(js_unparse(object));
+    let property_single = list_single(properties);
+    for (let property of [js_node_property_key(), js_node_property_value()]) {
+        object_property_change(property_single, property, return_single_argument);
+    }
     return args;
 }
