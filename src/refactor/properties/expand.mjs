@@ -1,4 +1,4 @@
-import { log } from '../../log.mjs';
+import { log_json } from '../../log/json.mjs';
 import { js_code_call_expression_with_args_code } from '../../js/code/call/expression/with/args/code.mjs';
 import { list_add_after } from '../../list/add/after.mjs';
 import { object_replace } from '../../object/replace.mjs';
@@ -25,8 +25,6 @@ import { object_property_get } from '../../object/property/get.mjs';
 import { function_name_get } from '../../function/name/get.mjs';
 import { list_length_is_1 } from '../../list/length/is/1.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
-import { assert } from '../../assert.mjs';
-import { list_contains } from '../../list/contains.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
@@ -44,6 +42,7 @@ export function refactor_properties_expand(args) {
                         let previous = grandparent;
                         let v = js_identifier_name_next(parsed);
                         let properties = object_property_get(node, js_node_property_properties());
+                        log_json(node);
                         object_replace(node, js_parse_expression(v));
                         for (let property of properties) {
                             let key = js_property_identifier_name(property, js_node_property_key());
@@ -56,7 +55,7 @@ export function refactor_properties_expand(args) {
                             let args_code = js_code_join_comma(args);
                             let after_let = js_code_call_expression_with_args_code(function_name_get(object_property_get), args_code);
                             let statement_code = js_code_statement_assignment(local_identifier, after_let);
-                            let statement = js_parse_statement(statement_code)
+                            let statement = js_parse_statement(statement_code);
                             list_add_after(function_body_statements, statement, previous);
                             previous = statement;
                         }
