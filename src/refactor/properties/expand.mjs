@@ -57,7 +57,8 @@ export function refactor_properties_expand(args) {
                             js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args_code);
                             console.log({
                                 key,
-                                value: local
+                                local,
+                                identifier_next
                             });
                         }
                     }
