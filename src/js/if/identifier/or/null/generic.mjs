@@ -15,5 +15,5 @@ export function js_if_identifier_or_null_generic(node, property_name, or_null, l
             return null;
         }
     }
-    return lambda();
+    return lambda(property);
 }

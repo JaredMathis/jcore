@@ -9,7 +9,7 @@ export function js_if_identifier_then_name_or_null(node, property_name, or_null)
         arguments_assert_todo
     ]);
     return js_if_identifier_or_null_generic(node, property_name, or_null, lambda);
-    function lambda() {
+    function lambda(property) {
         let name = js_identifier_name_get(property);
         return name;
     }
