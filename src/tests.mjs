@@ -306,7 +306,9 @@ import { add_1_test_4 } from './add/1/test/4.mjs';
 import { add_1_test_3 } from './add/1/test/3.mjs';
 import { add_1_test_2 } from './add/1/test/2.mjs';
 import { add_1_test_1 } from './add/1/test/1.mjs';
+import { arguments_assert } from './arguments/assert.mjs';
 export async function tests() {
+    arguments_assert(arguments, []);
     await add_1_test_1();
     await add_1_test_2();
     await add_1_test_3();

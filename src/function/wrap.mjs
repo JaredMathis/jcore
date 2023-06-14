@@ -15,7 +15,7 @@ import { function_to_declaration } from './to/declaration.mjs';
 import { list_map } from '../list/map.mjs';
 import { js_parse_statement } from '../js/parse/statement.mjs';
 import { list_get } from '../list/get.mjs';
-import { js_identifier_name } from '../js/identifier/name.mjs';
+import { js_identifier_name_get } from '../js/identifier/name/get.mjs';
 export async function function_wrap(function_name_to_wrap, function_name_to_add) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -40,7 +40,7 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     await function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
     await list_each_with_index_async(inputs, async (input, index) => {
         let arguments_assert_arg = list_get(arguments_assert_args, index);
-        let arguments_assert_arg_name = js_identifier_name(arguments_assert_arg);
+        let arguments_assert_arg_name = js_identifier_name_get(arguments_assert_arg);
         await function_input_add_type(function_name_to_add, input, arguments_assert_arg_name);
     });
     await function_open_vs_code(function_name_to_add);
