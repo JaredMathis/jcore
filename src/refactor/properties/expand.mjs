@@ -36,12 +36,12 @@ export function refactor_properties_expand(args) {
                     if (js_node_is_block_statement(grandparent_great)) {
                         let function_body_statements = js_block_statement_body(grandparent_great);
                         let index = list_index_of(function_body_statements, grandparent);
-                        let v = js_parse_statement_let(identifier_next);
+                        let v = js_identifier_next(parsed);
+                        let replacement = js_parse_statement_let(identifier_next);
                         let properties = object_property_get(node, js_node_property_properties());
                         for (let property of properties) {
                             let key = js_property_identifier_name(property, js_node_property_key());
                             let local = js_property_identifier_name(property, js_node_property_value());
-                            let identifier_next = js_identifier_next(parsed);
                             let args = [
                                 identifier_next,
                                 js_code_expression_string(key)
