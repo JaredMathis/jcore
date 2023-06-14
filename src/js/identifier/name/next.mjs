@@ -4,5 +4,5 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 export function js_identifier_name_next(parsed) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let identifier_next_prefix = 'v';
-    return js_identifier_name_next_prefix(identifier_next_prefix, parsed);
+    return js_identifier_name_next_prefix(parsed, identifier_next_prefix);
 }
