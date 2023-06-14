@@ -1,8 +1,8 @@
+import { object_replace } from '../../object/replace.mjs';
 import { js_identifier_next } from '../../js/identifier/next.mjs';
 import { js_code_expression_string } from '../../js/code/expression/string.mjs';
 import { js_code_join_comma } from '../../js/code/join/comma.mjs';
 import { js_node_property_declarations } from '../../js/node/property/declarations.mjs';
-import { js_parse_statement_let } from '../../js/parse/statement/let.mjs';
 import { js_code_call_expression_statement_with_args_code } from '../../js/code/call/expression/statement/with/args/code.mjs';
 import { js_property_identifier_name } from '../../js/property/identifier/name.mjs';
 import { js_node_property_value } from '../../js/node/property/value.mjs';
@@ -37,7 +37,6 @@ export function refactor_properties_expand(args) {
                         let function_body_statements = js_block_statement_body(grandparent_great);
                         let index = list_index_of(function_body_statements, grandparent);
                         let v = js_identifier_next(parsed);
-                        let replacement = js_parse_statement_let(v);
                         let properties = object_property_get(node, js_node_property_properties());
                         for (let property of properties) {
                             let key = js_property_identifier_name(property, js_node_property_key());
@@ -54,6 +53,7 @@ export function refactor_properties_expand(args) {
                                 identifier_next
                             });
                         }
+                        object_replace();
                     }
                 }
             }
