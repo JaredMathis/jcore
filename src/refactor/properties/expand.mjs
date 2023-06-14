@@ -48,9 +48,8 @@ export function refactor_properties_expand(args) {
                                 js_code_expression_string(key)
                             ];
                             let args_code = js_code_join_comma(args);
-                            js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args_code);
-                            local_identifier;
-                            js_parse_statement_let();
+                            let after_let = js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args_code);
+                            js_parse_statement_let(local_identifier, after_let);
                         }
                         js_variable_declarator_init_change_unparsed(parent, v);
                     }
