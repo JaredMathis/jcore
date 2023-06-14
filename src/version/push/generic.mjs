@@ -34,6 +34,8 @@ import { function_name_separator } from '../../function/name/separator.mjs';
 import { version_collection_repository } from '../collection/repository.mjs';
 import { database_firestore_get } from '../../database/firestore/get.mjs';
 import { list_new_then_async } from '../../list/new/then/async.mjs';
+import { subtract_1 } from '../../subtract/1.mjs';
+import { list_length } from '../../list/length.mjs';
 export async function version_push_generic(repository_name, preview) {
     let list_commits = await list_new_then_async(async list_commits_add => {
         let db = database_firestore_get();
@@ -62,10 +64,6 @@ export async function version_push_generic(repository_name, preview) {
                 if (commit_vesion <= property_commit_latest_value) {
                     return;
                 }
-                list_commits_add({commit_vesion});
-                if (preview) {
-                    return;
-                }
                 let commit_json = object_property_get(commit, directory_property_json());
                 let commit_parts = object_property_get(commit_json, version_property_parts());
                 let commit_files = list_single_item(commit_json);
@@ -75,6 +73,10 @@ export async function version_push_generic(repository_name, preview) {
                     if (list_contains(commit_parts, part_id)) {
                         list_add(commit_files, file_json);
                     }
+                }
+                list_commits_add({commit_vesion,files_length:subtract_1(list_length(commit_files))});
+                if (preview) {
+                    return;
                 }
                 let document_path_commit = version_document_path_commit(commit_vesion);
                 database_create(db, transaction, database_collection_name, document_path_commit, database_value(commit_files));
