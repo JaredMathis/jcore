@@ -58,8 +58,8 @@ export async function version_push_generic(repository_name, preview) {
             let last_index = list_last_index(commits);
             await list_each_with_index_async(commits, async (commit, index) => {
                 let commit_path = object_property_get(commit, directory_property_file_path());
-                let commit_id = list_single(version_commits_path_to_integer(list_single_item(commit_path)));
-                if (commit_id <= property_commit_latest_value) {
+                let commit_vesion = list_single(version_commits_path_to_integer(list_single_item(commit_path)));
+                if (commit_vesion <= property_commit_latest_value) {
                     return;
                 }
                 list_commits_add(commit);
@@ -76,11 +76,11 @@ export async function version_push_generic(repository_name, preview) {
                         list_add(commit_files, file_json);
                     }
                 }
-                let document_path_commit = version_document_path_commit(commit_id);
+                let document_path_commit = version_document_path_commit(commit_vesion);
                 database_create(db, transaction, database_collection_name, document_path_commit, database_value(commit_files));
                 if (equal(index, last_index)) {
-                    database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_id);
-                    await data_key_value_set(property_commit_latest_data, commit_id);
+                    database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_vesion);
+                    await data_key_value_set(property_commit_latest_data, commit_vesion);
                 }
             });
             if (preview) {
