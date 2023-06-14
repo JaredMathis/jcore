@@ -1,3 +1,4 @@
+import { function_asyncify } from '../function/asyncify.mjs';
 import { js_callable_multiple_assert_not } from '../js/callable/multiple/assert/not.mjs';
 import { object_replace } from '../object/replace.mjs';
 import { js_await_expression_argument_change } from '../js/await/expression/argument/change.mjs';
@@ -43,5 +44,8 @@ export async function refactor_asyncify(args) {
         let awaited = js_parse_expression(js_code_await(string_a()));
         js_await_expression_argument_change(awaited, f);
         object_replace(f, awaited);
+        if (!object_property_exists(function_names_dictionary, name_new)) {
+            await function_asyncify(name_old);
+        }
     }
 }
