@@ -1,4 +1,4 @@
-import { object_replace } from '../../object/replace.mjs';
+import { js_variable_declarator_init_change } from '../../js/variable/declarator/init/change.mjs';
 import { js_identifier_next } from '../../js/identifier/next.mjs';
 import { js_code_expression_string } from '../../js/code/expression/string.mjs';
 import { js_code_join_comma } from '../../js/code/join/comma.mjs';
