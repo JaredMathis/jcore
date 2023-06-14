@@ -14,6 +14,7 @@ import { list_contains } from '../../../list/contains.mjs';
 import { list_single } from '../../../list/single.mjs';
 import { string_a } from '../../../string/a.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
+import { log } from '../../../log.mjs';
 export function refactor_output_to_object(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
@@ -30,4 +31,5 @@ export function refactor_output_to_object(args) {
     let object = js_code_return_statement(return_expression);
     let arg = object_property_get(object, js_node_property_argument());
     let properties = object_property_get(arg, js_node_property_properties());
+    log(properties)
 }
