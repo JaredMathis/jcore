@@ -1,15 +1,14 @@
+import { js_if_identifier_or_null_generic } from '../../../or/null/generic.mjs';
+import { arguments_assert_todo } from '../../../../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { js_identifier_name_get } from '../../../../../identifier/name/get.mjs';
-import { js_node_is_identifier } from '../../../../../node/is/identifier.mjs';
-import { object_property_get } from '../../../../../../object/property/get.mjs';
 export function js_if_identifier_then_name_or_null(node, property_name, or_null) {
-    let property = object_property_get(node, property_name);
-    if (or_null) {
-        if (!js_node_is_identifier(property)) {
-            return null;
-        }
-    }
-    return lambda();
-
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
+    return js_if_identifier_or_null_generic(node, property_name, or_null, lambda);
     function lambda() {
         let name = js_identifier_name_get(property);
         return name;
