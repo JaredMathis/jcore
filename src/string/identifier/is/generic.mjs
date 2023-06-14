@@ -12,7 +12,7 @@ import { string_is } from '../../is.mjs';
 import { boolean_is } from '../../../boolean/is.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { string_letter_digit_or_underscore_is_generic } from '../../letter/digit/or/underscore/is/generic.mjs';
-export function string_identifier_is_generic(value, enforce_first, enforce_first_and_last2, allow_underscores) {
+export function string_identifier_is_generic(value, enforce_first, enforce_last, allow_underscores) {
     arguments_assert(arguments, [
         defined_is,
         boolean_is,
