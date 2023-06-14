@@ -1,3 +1,4 @@
+import { object_copy_shallow } from '../object/copy/shallow.mjs';
 import { js_callable_multiple_assert_not } from '../js/callable/multiple/assert/not.mjs';
 import { object_replace } from '../object/replace.mjs';
 import { js_await_expression_argument_change } from '../js/await/expression/argument/change.mjs';
@@ -21,9 +22,6 @@ import { comment } from '../comment.mjs';
 import { string_add } from '../string/add.mjs';
 import { string_a } from '../string/a.mjs';
 import { js_parse_expression } from '../js/parse/expression.mjs';
-import { object_keys } from '../object/keys.mjs';
-import { object_property_initialize } from '../object/property/initialize.mjs';
-import { object_property_get } from '../object/property/get.mjs';
 export async function refactor_asyncify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
@@ -48,13 +46,4 @@ export async function refactor_asyncify(args) {
         js_await_expression_argument_change(awaited, result);
         object_replace(f, awaited);
     }
-}
-
-function object_copy_shallow(f) {
-    let result = {};
-    for (let key of object_keys(f)) {
-        let value = object_property_get(f, key);
-        object_property_initialize(result, key, value);
-    }
-    return result;
 }
