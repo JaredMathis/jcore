@@ -1,3 +1,4 @@
+import { js_code_await } from '../js/code/await.mjs';
 import { js_call_expression_name_change } from '../js/call/expression/name/change.mjs';
 import { function_naming_suffix_async } from '../function/naming/suffix/async.mjs';
 import { js_call_expression_name_get_or_null } from '../js/call/expression/name/get/or/null.mjs';
@@ -32,5 +33,6 @@ export async function refactor_asyncify(args) {
         let name_old = js_call_expression_name_get_or_null(f);
         let name_new = string_add(name_old, suffix);
         js_call_expression_name_change(f, name_new);
+        js_code_await();
     }
 }
