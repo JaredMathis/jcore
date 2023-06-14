@@ -24,6 +24,7 @@ export function refactor_output_to_object(args) {
     assert(list_length_is_1(returns));
     let return_single = list_single(returns);
     let statements = js_function_declaration_to_statements(function_declaration);
+    comment(`If this fails code needs changing - needs to be 1 return statement per function`);
     assert(list_contains(statements, return_single));
     const return_expression = `{ ${ string_a() } }`;
     let object = js_code_return_statement(return_expression);
