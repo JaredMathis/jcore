@@ -1,4 +1,4 @@
-import { js_property_identifier_name_or_null } from '../../../../property/identifier/name/or/null.mjs';
+import { js_if_identifier_then_name_or_null } from '../../../../if/identifier/then/name/or/null.mjs';
 import { js_node_property_callee } from '../../../../node/property/callee.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../metadata.mjs';
@@ -10,6 +10,6 @@ export function js_call_expression_to_name_generic(ce, or_null) {
         boolean_is
     ]);
     const property_name = js_node_property_callee();
-    return js_property_identifier_name_or_null(ce, property_name, or_null);
+    return js_if_identifier_then_name_or_null(ce, property_name, or_null);
     metadata([]);
 }
