@@ -27,7 +27,9 @@ export async function version_sync_local(repository_name) {
         removals
     };
     object_keys_each(lists, (list, list_name) => {
-        let length = list_length(list);
+        let prefix = 'list_';
+        let fn = list_length;
+        let length = fn(list);
         object_property_initialize(result, string_add(list_name, '_length'), length);
     });
     return result;
