@@ -1,9 +1,8 @@
+import { js_identifier_next } from '../../js/identifier/next.mjs';
+import { js_code_expression_string } from '../../js/code/expression/string.mjs';
 import { js_code_join_comma } from '../../js/code/join/comma.mjs';
-import { string_to } from '../../string/to.mjs';
 import { js_node_property_declarations } from '../../js/node/property/declarations.mjs';
 import { js_parse_statement_let } from '../../js/parse/statement/let.mjs';
-import { string_identifier_with_prefix } from '../../string/identifier/with/prefix.mjs';
-import { js_identifiers } from '../../js/identifiers.mjs';
 import { js_code_call_expression_statement_with_args_code } from '../../js/code/call/expression/statement/with/args/code.mjs';
 import { js_property_identifier_name } from '../../js/property/identifier/name.mjs';
 import { js_node_property_value } from '../../js/node/property/value.mjs';
@@ -22,7 +21,6 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { function_name_get } from '../../function/name/get.mjs';
-import { list_contains } from '../../list/contains.mjs';
 import { list_length_is_1 } from '../../list/length/is/1.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
@@ -38,21 +36,16 @@ export function refactor_properties_expand(args) {
                     if (js_node_is_block_statement(grandparent_great)) {
                         let function_body_statements = js_block_statement_body(grandparent_great);
                         let index = list_index_of(function_body_statements, grandparent);
+                        js_parse_statement_let(identifier_next);
                         let properties = object_property_get(node, js_node_property_properties());
                         for (let property of properties) {
                             let key = js_property_identifier_name(property, js_node_property_key());
                             let local = js_property_identifier_name(property, js_node_property_value());
-                            let identifier_next_prefix = 'v';
-                            let identifier_next = identifier_next_prefix;
-                            let identifiers = js_identifiers(parsed);
-                            let c = 2;
-                            while (list_contains(identifiers, identifier_next)) {
-                                identifier_next = string_identifier_with_prefix(identifier_next_prefix, string_to(c));
-                                c++;
-                            }
-                            if (false)
-                                js_parse_statement_let(identifier_next);
-                            let args = [identifier_next, ];
+                            let identifier_next = js_identifier_next(parsed);
+                            let args = [
+                                identifier_next,
+                                js_code_expression_string(key)
+                            ];
                             let args_code = js_code_join_comma(args);
                             js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args_code);
                             console.log({
