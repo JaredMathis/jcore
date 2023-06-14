@@ -1,9 +1,9 @@
+import { refactor_import_fix } from '../import/fix.mjs';
 import { log_json } from '../../log/json.mjs';
 import { js_code_call_expression_with_args_code } from '../../js/code/call/expression/with/args/code.mjs';
 import { list_add_after } from '../../list/add/after.mjs';
 import { object_replace } from '../../object/replace.mjs';
 import { js_code_statement_assignment } from '../../js/code/statement/assignment.mjs';
-import { js_identifier_name_next_prefix } from '../../js/identifier/name/next/prefix.mjs';
 import { js_identifier_name_next } from '../../js/identifier/name/next.mjs';
 import { js_code_expression_string } from '../../js/code/expression/string.mjs';
 import { js_code_join_comma } from '../../js/code/join/comma.mjs';
@@ -26,7 +26,7 @@ import { function_name_get } from '../../function/name/get.mjs';
 import { list_length_is_1 } from '../../list/length/is/1.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
-export function refactor_properties_expand(args) {
+export async function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let changed = false;
     let {function_declaration, parsed} = args;
@@ -65,4 +65,7 @@ export function refactor_properties_expand(args) {
             }
         }
     });
+    if (changed) {
+        await refactor_import_fix(args);
+    }
 }
