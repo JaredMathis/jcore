@@ -30,7 +30,7 @@ export function refactor_properties_expand(args) {
         if (js_node_is_variable_declarator(parent)) {
             let grandparent = js_visit_node_grandparent(stack, 0);
             if (js_node_is_variable_declaration(grandparent)) {
-                let declarations = object_property_get(match, js_node_property_declarations());
+                let declarations = object_property_get(grandparent, js_node_property_declarations());
                 if (list_length_is_1(declarations)) {
                     let grandparent_great = js_visit_node_grandparent(stack, 1);
                     if (js_node_is_block_statement(grandparent_great)) {
