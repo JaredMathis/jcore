@@ -1,5 +1,5 @@
 import { function_naming_suffix_async } from '../function/naming/suffix/async.mjs';
-import { js_call_expression_name_or_null } from '../js/call/expression/name/or/null.mjs';
+import { js_call_expression_name_get_or_null } from '../js/call/expression/name/get/or/null.mjs';
 import { object_property_exists } from '../object/property/exists.mjs';
 import { list_to_dictionary } from '../list/to/dictionary.mjs';
 import { js_node_is_call_expression } from '../js/node/is/call/expression.mjs';
@@ -18,10 +18,10 @@ export async function refactor_asyncify(args) {
     let function_names = await function_name_all();
     let function_names_dictionary = list_to_dictionary(function_names, identity);
     let calls = js_nodes_get(parsed, js_node_is_call_expression);
-    let function_calls = list_filter(calls, ce => object_property_exists(function_names_dictionary, js_call_expression_name_or_null(ce)));
+    let function_calls = list_filter(calls, ce => object_property_exists(function_names_dictionary, js_call_expression_name_get_or_null(ce)));
     let suffix = function_naming_suffix_async();
     for (let f of function_calls) {
-        let name = js_call_expression_name_or_null(f);
+        let name = js_call_expression_name_get_or_null(f);
         assert(!string_ends_with(name, suffix));
     }
 }

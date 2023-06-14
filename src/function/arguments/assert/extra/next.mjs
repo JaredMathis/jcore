@@ -8,7 +8,7 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_node_is_call_expression } from '../../../../js/node/is/call/expression.mjs';
 import { js_mapper_args_to_metadata_args } from '../../../../js/mapper/args/to/metadata/args.mjs';
 import { list_map } from '../../../../list/map.mjs';
-import { js_call_expression_name_or_null } from '../../../../js/call/expression/name/or/null.mjs';
+import { js_call_expression_name_get_or_null } from '../../../../js/call/expression/name/get/or/null.mjs';
 import { list_contains } from '../../../../list/contains.mjs';
 import { list_filter } from '../../../../list/filter.mjs';
 export async function function_arguments_assert_extra_next() {
@@ -19,7 +19,7 @@ export async function function_arguments_assert_extra_next() {
         let {parsed, function_name} = args;
         let metadata_args = await js_mapper_args_to_metadata_args(args);
         let filtered = list_filter(metadata_args, js_node_is_call_expression);
-        let mapped = list_map(filtered, js_call_expression_name_or_null);
+        let mapped = list_map(filtered, js_call_expression_name_get_or_null);
         if (list_contains(mapped, function_name_get(metadata_arguments_assert_extra_allow))) {
             return;
         }
