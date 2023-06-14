@@ -1,3 +1,5 @@
+import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { database_reference_set } from '../../database/reference/set.mjs';
 import { database_reference } from '../../database/reference.mjs';
 import { version_push_latest } from './latest.mjs';
@@ -37,6 +39,10 @@ import { list_new_then_async } from '../../list/new/then/async.mjs';
 import { subtract_1 } from '../../subtract/1.mjs';
 import { list_length } from '../../list/length.mjs';
 export async function version_push_generic(repository_name, preview) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     let list_commits = await list_new_then_async(async list_commits_add => {
         let db = database_firestore_get();
         let database_collection_name = version_collection_repository(repository_name);
@@ -74,7 +80,10 @@ export async function version_push_generic(repository_name, preview) {
                         list_add(commit_files, file_json);
                     }
                 }
-                list_commits_add({commit_vesion,files_length:subtract_1(list_length(commit_files))});
+                list_commits_add({
+                    commit_vesion,
+                    files_length: subtract_1(list_length(commit_files))
+                });
                 if (preview) {
                     return;
                 }
