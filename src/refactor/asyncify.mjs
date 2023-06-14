@@ -27,12 +27,12 @@ import { string_a } from '../string/a.mjs';
 import { js_parse_expression } from '../js/parse/expression.mjs';
 export async function refactor_asyncify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     let {parsed} = args;
     log(js_nodes_get(parsed, js_node_is_callable));
     js_callable_multiple_assert_not(parsed);
     refactor_async_add(args);
     let function_names = await function_name_all();
+    let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     let function_names_excluded;
     let function_names_dictionary = list_to_dictionary(function_names, identity);
     let calls = js_nodes_get(parsed, js_node_is_call_expression);
