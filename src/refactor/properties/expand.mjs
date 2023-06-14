@@ -1,3 +1,4 @@
+import { js_identifier_name_next_prefix } from '../../js/identifier/name/next/prefix.mjs';
 import { log } from '../../log.mjs';
 import { js_identifier_name_next } from '../../js/identifier/name/next.mjs';
 import { js_variable_declarator_init_change_unparsed } from '../../js/variable/declarator/init/change/unparsed.mjs';
@@ -41,6 +42,7 @@ export function refactor_properties_expand(args) {
                         for (let property of properties) {
                             let key = js_property_identifier_name(property, js_node_property_key());
                             let local = js_property_identifier_name(property, js_node_property_value());
+                            let local_identifier = js_identifier_name_next_prefix(parsed, local);
                             let args = [
                                 identifier_next,
                                 js_code_expression_string(key)
