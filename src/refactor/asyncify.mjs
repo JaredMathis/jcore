@@ -1,3 +1,4 @@
+import { list_to_dictionary } from '../list/to/dictionary.mjs';
 import { js_node_call_expression_name_equal } from '../js/node/call/expression/name/equal.mjs';
 import { list_any } from '../list/any.mjs';
 import { js_node_is_call_expression } from '../js/node/is/call/expression.mjs';
@@ -12,5 +13,6 @@ export async function refactor_asyncify(args) {
     refactor_async_add(args);
     let function_names = await function_name_all();
     let calls = js_nodes_get(parsed, js_node_is_call_expression);
+    let function_names_dictionary = list_to_dictionary();
     let function_calls = list_filter(calls, ce => list_any(function_names, name => js_node_call_expression_name_equal(ce, name)));
 }
