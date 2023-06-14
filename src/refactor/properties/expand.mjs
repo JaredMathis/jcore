@@ -43,6 +43,7 @@ export function refactor_properties_expand(args) {
                         let function_body_statements = js_block_statement_body(grandparent_great);
                         let previous = grandparent;
                         let v = js_identifier_name_next(parsed);
+                        object_replace(node, js_parse_expression(v));
                         let properties = object_property_get(node, js_node_property_properties());
                         for (let property of properties) {
                             let key = js_property_identifier_name(property, js_node_property_key());
@@ -59,7 +60,6 @@ export function refactor_properties_expand(args) {
                             list_add_after(function_body_statements, statement, previous);
                             previous = statement;
                         }
-                        object_replace(node, js_parse_expression(v));
                     }
                 }
             }
