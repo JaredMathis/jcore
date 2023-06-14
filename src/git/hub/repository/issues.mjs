@@ -7,9 +7,11 @@ export async function git_hub_repository_issues() {
     let p = await file_json_read('../private.json');
     let token = object_property_get(p, 'git_hub_api_token');
     const octokit = new Octokit({ auth: token });
-    await octokit.request('GET /repos/{owner}/{repo}/issues', {
-        owner: 'github',
-        repo: 'docs',
-        per_page: 2
+    let owner = 'JaredMathis';
+    let repository = 'jcore';
+    let issues = await octokit.request('GET /repos/{owner}/{repo}/issues', {
+        owner: owner,
+        repo: repository
     });
+    return issues;
 }
