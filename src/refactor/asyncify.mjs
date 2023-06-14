@@ -6,5 +6,5 @@ import { arguments_assert } from '../arguments/assert.mjs';
 export function refactor_asyncify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     refactor_async_add(args);
-    js_nodes_get(parsed, js_node_is_call_expression);
+    let calls = js_nodes_get(parsed, js_node_is_call_expression);
 }
