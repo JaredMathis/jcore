@@ -18,5 +18,9 @@ export async function version_sync_local(repository_name) {
         removals
     ]);
     await version_write_all(writes);
-    return { write_length: list_length(writes) };
+    let result = {}
+    for (let list of [differences, removals]) {
+        
+    }
+    return result;
 }
