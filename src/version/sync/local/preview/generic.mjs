@@ -1,3 +1,4 @@
+import { list_multiple_summary } from '../../../../list/multiple/summary.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { list_add } from '../../../../list/add.mjs';
@@ -31,5 +32,9 @@ export async function version_sync_local_preview_generic(repository_name) {
             });
         }
     }
-    return differences;
+    return list_multiple_summary({
+        differences,
+        removals
+    });
+    ;
 }
