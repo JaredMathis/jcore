@@ -1,3 +1,5 @@
+import { object_replace } from '../object/replace.mjs';
+import { js_await_expression_argument_change } from '../js/await/expression/argument/change.mjs';
 import { js_code_await } from '../js/code/await.mjs';
 import { js_call_expression_name_change } from '../js/call/expression/name/change.mjs';
 import { function_naming_suffix_async } from '../function/naming/suffix/async.mjs';
@@ -36,5 +38,7 @@ export async function refactor_asyncify(args) {
         let name_new = string_add(name_old, suffix);
         js_call_expression_name_change(f, name_new);
         let awaited = js_parse_expression(js_code_await(string_a()));
+        js_await_expression_argument_change(awaited, f);
+        object_replace(f, awaited);
     }
 }
