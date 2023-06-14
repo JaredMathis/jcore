@@ -18,9 +18,8 @@ export async function version_sync_local(repository_name) {
         removals
     ]);
     await version_write_all(writes);
-    let lists = {
+    return list_multiple_summary({
         differences,
         removals
-    };
-    return list_multiple_summary(lists);
+    });
 }
