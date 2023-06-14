@@ -1,4 +1,3 @@
-import { js_identifier_name_next } from '../../js/identifier/name/next.mjs';
 import { js_variable_declarator_init_change_unparsed } from '../../js/variable/declarator/init/change/unparsed.mjs';
 import { js_identifier_next } from '../../js/identifier/next.mjs';
 import { js_code_expression_string } from '../../js/code/expression/string.mjs';
@@ -37,7 +36,7 @@ export function refactor_properties_expand(args) {
                     if (js_node_is_block_statement(grandparent_great)) {
                         let function_body_statements = js_block_statement_body(grandparent_great);
                         let index = list_index_of(function_body_statements, grandparent);
-                        let v = js_identifier_name_next(parsed);
+                        let v = js_identifier_next_name(parsed);
                         let properties = object_property_get(node, js_node_property_properties());
                         for (let property of properties) {
                             let key = js_property_identifier_name(property, js_node_property_key());
