@@ -62,6 +62,9 @@ export async function version_push(repository_name) {
             let last_index = list_last_index(commits);
             await list_each_with_index_async(commits, async (commit, index) => {
                 list_commits_add(commit);
+                if (preview) {
+                    return;
+                }
                 let commit_path = object_property_get(commit, directory_property_file_path());
                 let commit_id = list_single(version_commits_path_to_integer(list_single_item(commit_path)));
                 if (commit_id <= property_commit_latest_value) {
@@ -84,6 +87,9 @@ export async function version_push(repository_name) {
                     await data_key_value_set(property_commit_latest_data, commit_id);
                 }
             });
+            if (preview) {
+                return;
+            }
             let latest_files = await version_push_latest(repository_name);
             let latest_refererence = database_reference(db, database_collection_name, property_commit_latest);
             await database_reference_set(transaction, latest_refererence, database_value(latest_files));
