@@ -21,6 +21,9 @@ import { comment } from '../comment.mjs';
 import { string_add } from '../string/add.mjs';
 import { string_a } from '../string/a.mjs';
 import { js_parse_expression } from '../js/parse/expression.mjs';
+import { object_keys } from '../object/keys.mjs';
+import { object_property_initialize } from '../object/property/initialize.mjs';
+import { object_property_get } from '../object/property/get.mjs';
 export async function refactor_asyncify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
@@ -41,7 +44,17 @@ export async function refactor_asyncify(args) {
         let name_new = string_add(name_old, suffix);
         js_call_expression_name_change(f, name_new);
         let awaited = js_parse_expression(js_code_await(string_a()));
-        js_await_expression_argument_change(awaited, f);
+        let result = object_copy_shallow(f);
+        js_await_expression_argument_change(awaited, result);
         object_replace(f, awaited);
     }
+}
+
+function object_copy_shallow(f) {
+    let result = {};
+    for (let key of object_keys(f)) {
+        let value = object_property_get(f, key);
+        object_property_initialize(result, key, value);
+    }
+    return result;
 }
