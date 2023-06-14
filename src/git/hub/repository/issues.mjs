@@ -23,8 +23,7 @@ export async function git_hub_repository_issues() {
         string_add(file_name, file_extension_json())
     ]);
     if (await file_exists(file_path)) {
-        let json = await file_json_read(file_path);
-        let result = json_from(json);
+        let result = await file_json_read(file_path);
         return result;
     }
     let p = await file_json_read('../private.json');
@@ -36,7 +35,6 @@ export async function git_hub_repository_issues() {
         owner: owner,
         repo: repository
     });
-    let json = json_to(issues);
-    await file_json_write(file_path, json);
+    await file_json_write(file_path, issues);
     return issues;
 }
