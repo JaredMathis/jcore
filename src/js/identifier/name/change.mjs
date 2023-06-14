@@ -9,6 +9,5 @@ export function js_identifier_name_change(identifier, value) {
         arguments_assert_todo
     ]);
     assert(js_node_is_identifier(identifier));
-    let name = object_property_change(identifier, 'name');
-    return name;
+    object_property_change(identifier, 'name', value);
 }
