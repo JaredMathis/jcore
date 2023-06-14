@@ -44,7 +44,7 @@ export function refactor_properties_expand(args) {
                             let local = js_property_identifier_name(property, js_node_property_value());
                             let local_identifier = js_identifier_name_next_prefix(parsed, local);
                             let args = [
-                                identifier_next,
+                                v,
                                 js_code_expression_string(key)
                             ];
                             let args_code = js_code_join_comma(args);
