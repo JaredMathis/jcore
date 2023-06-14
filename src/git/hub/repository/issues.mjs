@@ -1,6 +1,11 @@
-import { error } from '../../../error.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
-export function git_hub_repository_issues() {
+import { Octokit } from 'octokit';
+export async function git_hub_repository_issues() {
     arguments_assert(arguments, []);
-    error('todo: git_hub_repository_issues');
+    const octokit = new Octokit({ auth: 'YOUR-TOKEN' });
+    await octokit.request('GET /repos/{owner}/{repo}/issues', {
+        owner: 'github',
+        repo: 'docs',
+        per_page: 2
+    });
 }
