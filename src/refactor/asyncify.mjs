@@ -23,7 +23,8 @@ import { string_a } from '../string/a.mjs';
 import { js_parse_expression } from '../js/parse/expression.mjs';
 export async function refactor_asyncify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    js_callable_multiple_assert_not();
+    let parsed = { args };
+    js_callable_multiple_assert_not(parsed);
     refactor_async_add(args);
     let function_names = await function_name_all();
     let function_names_dictionary = list_to_dictionary(function_names, identity);
