@@ -1,3 +1,4 @@
+import { js_code_join_comma } from '../../js/code/join/comma.mjs';
 import { string_to } from '../../string/to.mjs';
 import { js_node_property_declarations } from '../../js/node/property/declarations.mjs';
 import { js_parse_statement_let } from '../../js/parse/statement/let.mjs';
@@ -52,6 +53,7 @@ export function refactor_properties_expand(args) {
                             if (false)
                                 js_parse_statement_let(identifier_next);
                             let args = [];
+                            let args_code = js_code_join_comma(args);
                             js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args);
                             console.log({
                                 key,
