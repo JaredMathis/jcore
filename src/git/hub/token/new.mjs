@@ -1,6 +1,6 @@
-import { error } from '../../../error.mjs';
+import { command_line } from '../../../command/line.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
-export function git_hub_token_new() {
+export async function git_hub_token_new() {
     arguments_assert(arguments, []);
-    error('todo: git_hub_token_new');
+    await command_line(`start https://github.com/settings/personal-access-tokens/new`);
 }
