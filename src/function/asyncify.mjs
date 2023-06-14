@@ -7,4 +7,5 @@ export async function function_asyncify(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let function_name_new = string_add(function_name, function_naming_suffix_async());
     await function_copy(function_name, function_name_new);
+    
 }
