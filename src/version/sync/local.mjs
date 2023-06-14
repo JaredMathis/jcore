@@ -22,11 +22,11 @@ export async function version_sync_local(repository_name) {
         removals
     ]);
     await version_write_all(writes);
-    let result = {};
     let lists = {
         differences,
         removals
     };
+    let result = {};
     object_keys_each(lists, (list, list_name) => {
         let prefix = `list`;
         let fn = list_length;
