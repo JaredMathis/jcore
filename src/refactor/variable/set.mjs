@@ -38,5 +38,5 @@ export async function refactor_variable_set(args) {
     let nodes = js_nodes_get(parsed, predicate);
     let match = list_single(nodes);
     let declaration = js_declarations_single(match);
-    js_variable_declarator_init_change_unparsed(value, declaration);
+    js_variable_declarator_init_change_unparsed(declaration, value);
 }
