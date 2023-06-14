@@ -50,10 +50,10 @@ export function refactor_properties_expand(args) {
                             let args_code = js_code_join_comma(args);
                             let after_let = js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args_code);
                             let statement = js_statement_assignment(local_identifier, after_let);
-                            //list_add_after(function_body_statements, statement, previous);
+                            list_add_after(function_body_statements, statement, previous);
                             previous = statement;
                         }
-                        //object_replace(node, v);
+                        object_replace(node, v);
                     }
                 }
             }
