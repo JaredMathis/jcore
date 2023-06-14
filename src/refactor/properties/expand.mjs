@@ -1,3 +1,4 @@
+import { js_unparse } from '../../js/unparse.mjs';
 import { list_add_after } from '../../list/add/after.mjs';
 import { object_replace } from '../../object/replace.mjs';
 import { js_statement_assignment } from '../../js/statement/assignment.mjs';
@@ -23,7 +24,6 @@ import { defined_is } from '../../defined/is.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { function_name_get } from '../../function/name/get.mjs';
 import { list_length_is_1 } from '../../list/length/is/1.mjs';
-import { js_parse } from '../../js/parse.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration, parsed} = args;
@@ -52,11 +52,11 @@ export function refactor_properties_expand(args) {
                             let after_let = js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args_code);
                             let statement = js_statement_assignment(local_identifier, after_let);
                             list_add_after(function_body_statements, statement, previous);
-                            js_unparse(statement)
+                            js_unparse(statement);
                             previous = statement;
                         }
                         object_replace(node, v);
-                        js_unparse(node)
+                        js_unparse(node);
                     }
                 }
             }
