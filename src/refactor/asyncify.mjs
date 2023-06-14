@@ -30,7 +30,4 @@ export async function refactor_asyncify(args) {
         comment(`If this assert fails - look into why a non-async function (presumably) is calling a function that ends with async`);
         assert(!string_ends_with(name, suffix));
     }
-    for (let f of function_calls) {
-        js_call_expression_awaitify(f, suffix);
-    }
 }
