@@ -4,7 +4,7 @@ import { refactor_metadata_generated_add_function } from '../../../../refactor/m
 import { function_add_with_statements_synchronized } from '../../../add/with/statements/synchronized.mjs';
 import { js_parse_statement } from '../../../../js/parse/statement.mjs';
 import { json_equal } from '../../../../json/equal.mjs';
-import { js_statement_assignment } from '../../../../js/statement/assignment.mjs';
+import { js_code_statement_assignment } from '../../../../js/code/statement/assignment.mjs';
 import { error } from '../../../../error.mjs';
 import { log } from '../../../../log.mjs';
 import { assert } from '../../../../assert.mjs';
@@ -43,9 +43,9 @@ export async function function_tests_generate_generic_each(function_name, test_n
         });
     } else {
         let identifier_expected = 'expected';
-        let statement_expected = js_statement_assignment(identifier_expected, json_to(expected));
+        let statement_expected = js_code_statement_assignment(identifier_expected, json_to(expected));
         let identifier_actual = 'actual';
-        let statement_function = js_statement_assignment(identifier_actual, ce_function);
+        let statement_function = js_code_statement_assignment(identifier_actual, ce_function);
         let ce_equal = js_code_call_expression_with_args(function_name_get(json_equal), [
             identifier_actual,
             identifier_expected

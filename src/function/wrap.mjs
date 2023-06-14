@@ -2,7 +2,7 @@ import { function_input_add_type } from './input/add/type.mjs';
 import { list_each_with_index_async } from '../list/each/with/index/async.mjs';
 import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
 import { function_open_vs_code } from './open/vs/code.mjs';
-import { js_statement_assignment } from '../js/statement/assignment.mjs';
+import { js_code_statement_assignment } from '../js/code/statement/assignment.mjs';
 import { js_code_await } from '../js/code/await.mjs';
 import { js_code_call_expression_with_args } from '../js/code/call/expression/with/args.mjs';
 import { js_code_return_statement } from '../js/code/return/statement.mjs';
@@ -30,7 +30,7 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     if (is_async) {
         statement_first_code = js_code_await(statement_first_code);
     }
-    statement_first_code = js_statement_assignment(identifier, statement_first_code);
+    statement_first_code = js_code_statement_assignment(identifier, statement_first_code);
     let statement_second_code = js_code_return_statement(identifier);
     let statements_code = [
         statement_first_code,
