@@ -1,6 +1,6 @@
+import { js_return_statement_argument } from '../../../js/return/statement/argument.mjs';
 import { js_code_return_statement } from '../../../js/code/return/statement.mjs';
 import { js_node_property_properties } from '../../../js/node/property/properties.mjs';
-import { js_node_property_argument } from '../../../js/node/property/argument.mjs';
 import { js_function_declaration_to_statements } from '../../../js/function/declaration/to/statements.mjs';
 import { comment } from '../../../comment.mjs';
 import { js_nodes_each } from '../../../js/nodes/each.mjs';
@@ -24,15 +24,14 @@ export function refactor_output_to_object(args) {
     comment(`If this fails code needs changing`);
     assert(list_length_is_1(returns));
     let return_single = list_single(returns);
-    log({return_single})
+    log({ return_single });
     let statements = js_function_declaration_to_statements(function_declaration);
     comment(`If this fails code needs changing - needs to be 1 return statement per function`);
     assert(list_contains(statements, return_single));
     const return_expression = `{ ${ string_a() } }`;
     let object = js_code_return_statement(return_expression);
-    assert(js_node_is_return_statment(object));
-    let arg = object_property_get(object, js_node_property_argument());
+    let arg = js_return_statement_argument(object);
     let properties = object_property_get(arg, js_node_property_properties());
-    log(properties)
+    log(properties);
     return args;
 }
