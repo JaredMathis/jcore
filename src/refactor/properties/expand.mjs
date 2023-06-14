@@ -52,11 +52,11 @@ export function refactor_properties_expand(args) {
                             let after_let = js_code_call_expression_with_args_code(function_name_get(object_property_get), args_code);
                             let statement = js_statement_assignment(local_identifier, after_let);
                             list_add_after(function_body_statements, statement, previous);
-                            js_unparse(statement);
+                            console.log({statement})
                             previous = statement;
                         }
                         object_replace(node, v);
-                        js_unparse(node);
+                        console.log({node})
                     }
                 }
             }
