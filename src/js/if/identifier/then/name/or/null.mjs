@@ -8,6 +8,10 @@ export function js_if_identifier_then_name_or_null(node, property_name, or_null)
             return null;
         }
     }
-    let name = js_identifier_name_get(property);
-    return name;
+    return lambda();
+
+    function lambda() {
+        let name = js_identifier_name_get(property);
+        return name;
+    }
 }
