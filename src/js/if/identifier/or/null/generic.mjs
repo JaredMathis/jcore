@@ -16,8 +16,4 @@ export function js_if_identifier_or_null_generic(node, property_name, or_null) {
         }
     }
     return lambda();
-    function lambda() {
-        let name = js_identifier_name_get(property);
-        return name;
-    }
 }
