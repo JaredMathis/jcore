@@ -1,3 +1,4 @@
+import { js_code_call_expression_with_args_code } from '../../js/code/call/expression/with/args/code.mjs';
 import { js_unparse } from '../../js/unparse.mjs';
 import { list_add_after } from '../../list/add/after.mjs';
 import { object_replace } from '../../object/replace.mjs';
@@ -7,7 +8,6 @@ import { js_identifier_name_next } from '../../js/identifier/name/next.mjs';
 import { js_code_expression_string } from '../../js/code/expression/string.mjs';
 import { js_code_join_comma } from '../../js/code/join/comma.mjs';
 import { js_node_property_declarations } from '../../js/node/property/declarations.mjs';
-import { js_code_call_expression_statement_with_args_code } from '../../js/code/call/expression/statement/with/args/code.mjs';
 import { js_property_identifier_name } from '../../js/property/identifier/name.mjs';
 import { js_node_property_value } from '../../js/node/property/value.mjs';
 import { js_node_property_key } from '../../js/node/property/key.mjs';
@@ -49,7 +49,7 @@ export function refactor_properties_expand(args) {
                                 js_code_expression_string(key)
                             ];
                             let args_code = js_code_join_comma(args);
-                            let after_let = js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args_code);
+                            let after_let = js_code_call_expression_with_args_code(function_name_get(object_property_get), args_code);
                             let statement = js_statement_assignment(local_identifier, after_let);
                             list_add_after(function_body_statements, statement, previous);
                             js_unparse(statement);
