@@ -57,13 +57,13 @@ export async function version_push_generic(repository_name, preview) {
             let commits = await directory_read_json(repository_commits_path);
             let last_index = list_last_index(commits);
             await list_each_with_index_async(commits, async (commit, index) => {
-                list_commits_add(commit);
-                if (preview) {
-                    return;
-                }
                 let commit_path = object_property_get(commit, directory_property_file_path());
                 let commit_id = list_single(version_commits_path_to_integer(list_single_item(commit_path)));
                 if (commit_id <= property_commit_latest_value) {
+                    return;
+                }
+                list_commits_add(commit);
+                if (preview) {
                     return;
                 }
                 let commit_json = object_property_get(commit, directory_property_json());
