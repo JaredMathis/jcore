@@ -1,7 +1,6 @@
+import { js_variable_declarator_init_change } from '../../js/variable/declarator/init/change.mjs';
 import { js_declarations_single } from '../../js/declarations/single.mjs';
 import { js_nodes_get } from '../../js/nodes/get.mjs';
-import { js_node_property_init } from '../../js/node/property/init.mjs';
-import { object_property_change } from '../../object/property/change.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
 import { js_node_property_id } from '../../js/node/property/id.mjs';
 import { js_property_name } from '../../js/property/name.mjs';
@@ -15,7 +14,6 @@ import { list_length_is_1 } from '../../list/length/is/1.mjs';
 import { list_single } from '../../list/single.mjs';
 import { js_node_is_identifier } from '../../js/node/is/identifier.mjs';
 import { equal } from '../../equal.mjs';
-import { assert } from '../../assert.mjs';
 export async function refactor_variable_set(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {identifier, value} = args;
@@ -42,6 +40,5 @@ export async function refactor_variable_set(args) {
     let match = list_single(nodes);
     let declaration = js_declarations_single(match);
     const value_parsed = js_parse_expression(value);
-    assert(js_node_is_variable_declarator(declaration))
-    object_property_change(declaration, js_node_property_init(), value_parsed);
+    js_variable_declarator_init_change(declaration, value_parsed);
 }

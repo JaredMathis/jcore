@@ -53,7 +53,7 @@ export function refactor_properties_expand(args) {
                                 identifier_next
                             });
                         }
-                        object_replace();
+                        object_replace(node, );
                     }
                 }
             }
