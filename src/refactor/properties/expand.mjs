@@ -1,5 +1,4 @@
 import { js_variable_declarator_init_change_unparsed } from '../../js/variable/declarator/init/change/unparsed.mjs';
-import { js_identifier_next } from '../../js/identifier/next.mjs';
 import { js_code_expression_string } from '../../js/code/expression/string.mjs';
 import { js_code_join_comma } from '../../js/code/join/comma.mjs';
 import { js_node_property_declarations } from '../../js/node/property/declarations.mjs';
@@ -8,7 +7,6 @@ import { js_property_identifier_name } from '../../js/property/identifier/name.m
 import { js_node_property_value } from '../../js/node/property/value.mjs';
 import { js_node_property_key } from '../../js/node/property/key.mjs';
 import { js_node_property_properties } from '../../js/node/property/properties.mjs';
-import { log } from '../../log.mjs';
 import { list_index_of } from '../../list/index/of.mjs';
 import { js_block_statement_body } from '../../js/block/statement/body.mjs';
 import { js_node_is_block_statement } from '../../js/node/is/block/statement.mjs';
