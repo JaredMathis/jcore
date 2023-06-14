@@ -12,7 +12,7 @@ export function js_call_expression_name_change(ce, name_new) {
     let or_null = false;
     return js_if_identifier_or_null_generic(ce, property_name, or_null, lambda);
     function lambda(property) {
-        let name = js_identifier_name_change(property);
+        let name = js_identifier_name_change(property, name_new);
         return name;
     }
     metadata([]);
