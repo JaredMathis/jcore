@@ -1,7 +1,8 @@
+import { list_add_after } from '../../list/add/after.mjs';
+import { object_replace } from '../../object/replace.mjs';
 import { js_statement_assignment } from '../../js/statement/assignment.mjs';
 import { js_identifier_name_next_prefix } from '../../js/identifier/name/next/prefix.mjs';
 import { js_identifier_name_next } from '../../js/identifier/name/next.mjs';
-import { js_variable_declarator_init_change_unparsed } from '../../js/variable/declarator/init/change/unparsed.mjs';
 import { js_code_expression_string } from '../../js/code/expression/string.mjs';
 import { js_code_join_comma } from '../../js/code/join/comma.mjs';
 import { js_node_property_declarations } from '../../js/node/property/declarations.mjs';
@@ -10,7 +11,6 @@ import { js_property_identifier_name } from '../../js/property/identifier/name.m
 import { js_node_property_value } from '../../js/node/property/value.mjs';
 import { js_node_property_key } from '../../js/node/property/key.mjs';
 import { js_node_property_properties } from '../../js/node/property/properties.mjs';
-import { list_index_of } from '../../list/index/of.mjs';
 import { js_block_statement_body } from '../../js/block/statement/body.mjs';
 import { js_node_is_block_statement } from '../../js/node/is/block/statement.mjs';
 import { js_visit_node_grandparent } from '../../js/visit/node/grandparent.mjs';
@@ -36,7 +36,7 @@ export function refactor_properties_expand(args) {
                     let grandparent_great = js_visit_node_grandparent(stack, 1);
                     if (js_node_is_block_statement(grandparent_great)) {
                         let function_body_statements = js_block_statement_body(grandparent_great);
-                        let index = list_index_of(function_body_statements, grandparent);
+                        let previous = grandparent;
                         let v = js_identifier_name_next(parsed);
                         let properties = object_property_get(node, js_node_property_properties());
                         for (let property of properties) {
@@ -50,8 +50,10 @@ export function refactor_properties_expand(args) {
                             let args_code = js_code_join_comma(args);
                             let after_let = js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args_code);
                             let statement = js_statement_assignment(local_identifier, after_let);
+                            //list_add_after(function_body_statements, statement, previous);
+                            previous = statement;
                         }
-                        js_variable_declarator_init_change_unparsed(parent, v);
+                        //object_replace(node, v);
                     }
                 }
             }
