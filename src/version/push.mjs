@@ -38,7 +38,7 @@ import { function_name_separator } from '../function/name/separator.mjs';
 import { database_firestore_get } from '../database/firestore/get.mjs';
 export async function version_push(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    await list_new_then_async(async list_new_then_add => {
+    let list_commits = await list_new_then_async(async list_commits_add => {
         let db = database_firestore_get();
         let database_collection_name = version_collection_repository(repository_name);
         let fns = function_name_separator();
@@ -60,6 +60,7 @@ export async function version_push(repository_name) {
             let commits = await directory_read_json(repository_commits_path);
             let last_index = list_last_index(commits);
             await list_each_with_index_async(commits, async (commit, index) => {
+                list_commits_add(commit);
                 let commit_path = object_property_get(commit, directory_property_file_path());
                 let commit_id = list_single(version_commits_path_to_integer(list_single_item(commit_path)));
                 if (commit_id <= property_commit_latest_value) {
@@ -87,4 +88,5 @@ export async function version_push(repository_name) {
             await database_reference_set(transaction, latest_refererence, database_value(latest_files));
         });
     });
+    return list_commits;
 }
