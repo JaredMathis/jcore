@@ -56,7 +56,9 @@ export function refactor_properties_expand(args) {
                             let after_let = js_code_call_expression_with_args_code(function_name_get(object_property_get), args_code);
                             let statement_code = js_code_statement_assignment(local_identifier, after_let);
                             let statement = js_parse_statement(statement_code)
+                            assert(list_contains(function_body_statements, previous));
                             list_add_after(function_body_statements, statement, previous);
+                            assert(list_contains(function_body_statements, statement));
                             previous = statement_code;
                         }
                         object_replace(node, v);
