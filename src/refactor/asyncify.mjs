@@ -17,6 +17,7 @@ import { string_ends_with } from '../string/ends/with.mjs';
 import { comment } from '../comment.mjs';
 import { string_add } from '../string/add.mjs';
 import { string_a } from '../string/a.mjs';
+import { js_parse_expression } from '../js/parse/expression.mjs';
 export async function refactor_asyncify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     refactor_async_add(args);
@@ -34,6 +35,6 @@ export async function refactor_asyncify(args) {
         let name_old = js_call_expression_name_get_or_null(f);
         let name_new = string_add(name_old, suffix);
         js_call_expression_name_change(f, name_new);
-        let awaited = js_code_await(string_a());
+        let awaited = js_parse_expression(js_code_await(string_a()));
     }
 }
