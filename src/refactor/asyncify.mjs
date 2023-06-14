@@ -1,4 +1,4 @@
-import { function_dependencies_names_arguments_assert } from '../function/dependencies/names/arguments/assert.mjs';
+import { refactor_functions_arguments_assert_missing_add_excludes } from './functions/arguments/assert/missing/add/excludes.mjs';
 import { js_node_is_callable } from '../js/node/is/callable.mjs';
 import { log } from '../log.mjs';
 import { function_asyncify } from '../function/asyncify.mjs';
@@ -27,12 +27,13 @@ import { string_a } from '../string/a.mjs';
 import { js_parse_expression } from '../js/parse/expression.mjs';
 export async function refactor_asyncify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let excludes = await function_dependencies_names_arguments_assert();
+    let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     let {parsed} = args;
     log(js_nodes_get(parsed, js_node_is_callable));
     js_callable_multiple_assert_not(parsed);
     refactor_async_add(args);
     let function_names = await function_name_all();
+    let function_names_excluded;
     let function_names_dictionary = list_to_dictionary(function_names, identity);
     let calls = js_nodes_get(parsed, js_node_is_call_expression);
     let function_calls = list_filter(calls, ce => object_property_exists(function_names_dictionary, js_call_expression_name_get_or_null(ce)));
