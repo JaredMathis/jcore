@@ -1,5 +1,5 @@
+import { js_parse_statement_let } from '../../js/parse/statement/let.mjs';
 import { js_identifier_name_next_prefix } from '../../js/identifier/name/next/prefix.mjs';
-import { log } from '../../log.mjs';
 import { js_identifier_name_next } from '../../js/identifier/name/next.mjs';
 import { js_variable_declarator_init_change_unparsed } from '../../js/variable/declarator/init/change/unparsed.mjs';
 import { js_code_expression_string } from '../../js/code/expression/string.mjs';
@@ -49,11 +49,8 @@ export function refactor_properties_expand(args) {
                             ];
                             let args_code = js_code_join_comma(args);
                             js_code_call_expression_statement_with_args_code(function_name_get(object_property_get), args_code);
-                            console.log({
-                                key,
-                                local,
-                                identifier_next
-                            });
+                            local_identifier;
+                            js_parse_statement_let();
                         }
                         js_variable_declarator_init_change_unparsed(parent, v);
                     }
