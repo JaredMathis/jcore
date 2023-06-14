@@ -1,6 +1,6 @@
+import { js_call_expression_to_name_or_null } from '../js/call/expression/to/name/or/null.mjs';
+import { object_property_exists } from '../object/property/exists.mjs';
 import { list_to_dictionary } from '../list/to/dictionary.mjs';
-import { js_node_call_expression_name_equal } from '../js/node/call/expression/name/equal.mjs';
-import { list_any } from '../list/any.mjs';
 import { js_node_is_call_expression } from '../js/node/is/call/expression.mjs';
 import { js_nodes_get } from '../js/nodes/get.mjs';
 import { refactor_async_add } from './async/add.mjs';
@@ -15,5 +15,5 @@ export async function refactor_asyncify(args) {
     let function_names = await function_name_all();
     let calls = js_nodes_get(parsed, js_node_is_call_expression);
     let function_names_dictionary = list_to_dictionary(function_names, identity);
-    let function_calls = list_filter(calls, ce => list_any(function_names, name => js_node_call_expression_name_equal(ce, name)));
+    let function_calls = list_filter(calls, ce => object_property_exists(function_names_dictionary, js_call_expression_to_name_or_null(ce)));
 }
