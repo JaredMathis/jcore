@@ -31,6 +31,8 @@ export function string_identifier_is_generic(value, enforce_first, enforce_last,
         if (!string_letter_is(first)) {
             return false;
         }
+    }
+    if (enforce_last) {
         let last = list_last(list);
         if (string_underscore_is(last)) {
             return false;
