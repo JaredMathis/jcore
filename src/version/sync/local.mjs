@@ -1,3 +1,4 @@
+import { function_name_without_prefix } from '../../function/name/without/prefix.mjs';
 import { string_add } from '../../string/add.mjs';
 import { object_keys_each } from '../../object/keys/each.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -10,8 +11,6 @@ import { version_commit_data } from '../commit/data.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { list_length } from '../../list/length.mjs';
 import { object_property_initialize } from '../../object/property/initialize.mjs';
-import { function_name_get } from '../../function/name/get.mjs';
-import { string_prefix_without } from '../../string/prefix/without.mjs';
 export async function version_sync_local(repository_name) {
     arguments_assert(arguments, [string_identifier_is]);
     const commit_data = version_commit_data(version_sync_local, arguments);
@@ -31,8 +30,7 @@ export async function version_sync_local(repository_name) {
     object_keys_each(lists, (list, list_name) => {
         let prefix = 'list_';
         let fn = list_length;
-        let fn_name = function_name_get(fn);
-        let fn_name_without_prefix = string_prefix_without(fn_name, prefix);
+        function_name_without_prefix(fn, prefix);
         let length = fn(list);
         object_property_initialize(result, string_add(list_name, '_length'), length);
     });
