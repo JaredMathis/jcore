@@ -62,7 +62,7 @@ export async function version_push_generic(repository_name, preview) {
                 if (commit_vesion <= property_commit_latest_value) {
                     return;
                 }
-                list_commits_add(commit);
+                list_commits_add(commit_vesion);
                 if (preview) {
                     return;
                 }
