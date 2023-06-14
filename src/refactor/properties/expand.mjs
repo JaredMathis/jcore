@@ -22,7 +22,6 @@ import { defined_is } from '../../defined/is.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { function_name_get } from '../../function/name/get.mjs';
 import { list_length_is_1 } from '../../list/length/is/1.mjs';
-import { js_parse_expression } from '../../js/parse/expression.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration, parsed} = args;
@@ -54,7 +53,7 @@ export function refactor_properties_expand(args) {
                                 identifier_next
                             });
                         }
-                        js_variable_declarator_init_change_unparsed(parent, js_parse_expression(v));
+                        js_variable_declarator_init_change_unparsed(parent, v);
                     }
                 }
             }
