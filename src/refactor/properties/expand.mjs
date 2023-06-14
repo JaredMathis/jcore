@@ -1,5 +1,5 @@
-import { js_variable_declarator_init_change } from '../../js/variable/declarator/init/change.mjs';
-import { js_identifier_name_next } from '../../js/identifier/name/next.mjs';
+import { object_replace } from '../../object/replace.mjs';
+import { js_identifier_next } from '../../js/identifier/next.mjs';
 import { js_code_expression_string } from '../../js/code/expression/string.mjs';
 import { js_code_join_comma } from '../../js/code/join/comma.mjs';
 import { js_node_property_declarations } from '../../js/node/property/declarations.mjs';
@@ -22,6 +22,7 @@ import { defined_is } from '../../defined/is.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { function_name_get } from '../../function/name/get.mjs';
 import { list_length_is_1 } from '../../list/length/is/1.mjs';
+import { js_parse_expression } from '../../js/parse/expression.mjs';
 export function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration, parsed} = args;
@@ -36,7 +37,7 @@ export function refactor_properties_expand(args) {
                     if (js_node_is_block_statement(grandparent_great)) {
                         let function_body_statements = js_block_statement_body(grandparent_great);
                         let index = list_index_of(function_body_statements, grandparent);
-                        let v = js_identifier_name_next(parsed);
+                        let v = js_identifier_next(parsed);
                         let properties = object_property_get(node, js_node_property_properties());
                         for (let property of properties) {
                             let key = js_property_identifier_name(property, js_node_property_key());
@@ -53,7 +54,7 @@ export function refactor_properties_expand(args) {
                                 identifier_next
                             });
                         }
-                        js_variable_declarator_init_change();
+                        js_variable_declarator_init_change(parent, js_parse_expression(v));
                     }
                 }
             }
