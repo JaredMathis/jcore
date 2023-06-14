@@ -9,6 +9,7 @@ import { error } from '../../../error.mjs';
 import { file_exists } from '../../../file/exists.mjs';
 import { path_join } from '../../../path/join.mjs';
 import { file_extension_json } from '../../../file/extension/json.mjs';
+import { json_from } from '../../../json/from.mjs';
 export async function git_hub_repository_issues() {
     arguments_assert(arguments, []);
     await git_ignore_add_if_not_exists(git_ignore_cache());
@@ -16,9 +17,10 @@ export async function git_hub_repository_issues() {
     let file_name = string_base64_to(key);
     let file_path = path_join([git_ignore_cache(), string_add(file_name, file_extension_json())]);
     if (await file_exists(file_path)) {
-
+        let json = await file_json_read(file_path);
+        let result = json_from(json);
+        return result;
     }
-    let cache = await file_json_read(error());
     let p = await file_json_read('../private.json');
     let token = object_property_get(p, 'git_hub_api_token');
     const octokit = new Octokit({ auth: token });
