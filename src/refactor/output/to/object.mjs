@@ -1,3 +1,4 @@
+import { js_nodes_get } from '../../../js/nodes/get.mjs';
 import { js_return_statement_argument } from '../../../js/return/statement/argument.mjs';
 import { js_code_return_statement } from '../../../js/code/return/statement.mjs';
 import { js_node_property_properties } from '../../../js/node/property/properties.mjs';
@@ -15,16 +16,20 @@ import { list_single } from '../../../list/single.mjs';
 import { string_a } from '../../../string/a.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
 import { log } from '../../../log.mjs';
+import { js_node_is_identifier } from '../../../js/node/is/identifier.mjs';
 export function refactor_output_to_object(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
     let returns = list_new_then(function then(list_new_then_add) {
         js_nodes_each(parsed, js_node_is_return_statment, list_new_then_add);
     });
+    js_nodes_get;
     comment(`If this fails code needs changing`);
     assert(list_length_is_1(returns));
     let return_single = list_single(returns);
-    log({ return_single });
+    let return_single_argument = js_code_return_statement(return_expression);
+    comment(`Needs to be identifier - maybe convert to identifier in the future if not`);
+    assert(js_node_is_identifier(return_single_argument));
     let statements = js_function_declaration_to_statements(function_declaration);
     comment(`If this fails code needs changing - needs to be 1 return statement per function`);
     assert(list_contains(statements, return_single));
