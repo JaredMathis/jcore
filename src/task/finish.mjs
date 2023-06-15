@@ -12,9 +12,6 @@ export async function task_finish() {
     arguments_assert(arguments, []);
     todo(`Validate the task id is valid i.e. #123 not asdf`);
     let task_id = await task_id_get();
-    if (false) {
-        await file_js_all_map(function_name_get(refactor_import_fix));
-    }
     let result = await git_pacp_with_message(`closes ${ task_id }`);
     assert(result.success);
     await task_id_remove();
