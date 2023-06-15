@@ -1,3 +1,4 @@
+import { task_from_git_hub_issue } from './from/git/hub/issue.mjs';
 import { object_property_data } from '../object/property/data.mjs';
 import { git_hub_repository_issues_post } from '../git/hub/repository/issues/post.mjs';
 import { version_path_tasks_all_get } from '../version/path/tasks/all/get.mjs';
@@ -12,6 +13,7 @@ export async function task_add(title) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let response = await git_hub_repository_issues_post(title);
     let data = object_property_data(response);
+    let task = task_from_git_hub_issue(data);
     let tasks_all_path = version_path_tasks_all_get(repository_name);
     if (!await file_exists(tasks_all_path)) {
         await file_json_overwrite(tasks_all_path, []);
