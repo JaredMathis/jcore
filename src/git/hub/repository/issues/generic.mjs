@@ -14,8 +14,9 @@ import { git_ignore_cache } from '../../../ignore/cache.mjs';
 import { git_ignore_add_if_not_exists } from '../../../ignore/add/if/not/exists.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { Octokit } from 'octokit';
+import { defined_is } from '../../../../defined/is.mjs';
 export async function git_hub_repository_issues_generic(api_args_to_merge) {
-    arguments_assert(arguments, []);
+    arguments_assert(arguments, [defined_is]);
     await git_ignore_add_if_not_exists(git_ignore_cache());
     let function_name = function_name_get(git_hub_repository_issues_open);
     let args = arguments;
