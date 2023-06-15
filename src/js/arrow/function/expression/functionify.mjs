@@ -3,5 +3,5 @@ import { js_node_is_arrow_function_expression } from '../../../node/is/arrow/fun
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function js_arrow_function_expression_functionify(node) {
     arguments_assert(arguments, [js_node_is_arrow_function_expression]);
-    let function_code = `${ js_keyword_function() }`;
+    let function_code = `${ js_keyword_function() } `;
 }
