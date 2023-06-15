@@ -11,4 +11,5 @@ export async function refactor_call_name(args) {
     let index_after = list_index_after(statements, statement_arguments_assert);
     let statement_after = list_get(index_after);
     let expression = js_statement_expression_to_expression(statement_after);
+    js_call_expression_name_change
 }
