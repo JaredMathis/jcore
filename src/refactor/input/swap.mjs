@@ -1,3 +1,4 @@
+import { integer_parse } from '../../integer/parse.mjs';
 import { refactor_input_swap_generic } from './swap/generic.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
