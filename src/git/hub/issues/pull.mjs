@@ -17,5 +17,5 @@ export async function git_hub_issues_pull() {
         'number',
         'title'
     ]));
-    return mapped;
+    
 }
