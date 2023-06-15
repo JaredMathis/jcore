@@ -10,6 +10,7 @@ export function refactor_input_swap_last_to(args) {
     let {function_declaration} = args;
     let params = js_function_declaration_to_params(function_declaration);
     let params_length = list_length(params);
+    let limit = params_length - index;
     for (let i of range(0, list_length()));
     refactor_input_swap_generic();
 }
