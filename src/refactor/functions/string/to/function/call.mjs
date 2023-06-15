@@ -16,6 +16,7 @@ export async function refactor_functions_string_to_function_call(function_name, 
         arguments_assert_todo
     ]);
     await file_js_all_map_args_if_function(async function logic(args) {
+        console.log({args})
         let c = changed(change => {
             let {parsed} = args;
             js_nodes_each(parsed, js_node_is_literal, n => {
