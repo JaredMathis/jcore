@@ -1,5 +1,4 @@
-import { js_token_brace_right } from '../../js/token/brace/right.mjs';
-import { js_token_brace_left } from '../../js/token/brace/left.mjs';
+import { js_brace_left_right } from '../../js/brace/left/right.mjs';
 import { function_map_with_args } from '../map/with/args.mjs';
 import { function_open_vs_code } from '../open/vs/code.mjs';
 import { function_add_with_statements_synchronized } from './with/statements/synchronized.mjs';
@@ -32,7 +31,7 @@ export async function function_add_mapper(function_name_suffix) {
     let expression_code = js_code_call_expression_with_args(function_name_get(function_map_with_args), [
         js_code_call_expression_with_args(function_name_get(function_name_get), [function_name_refactor]),
         input,
-        `${ js_token_brace_left() }${ js_token_brace_right() }`
+        js_brace_left_right()
     ]);
     let awaited = js_code_await(expression_code);
     let statement_code = js_code_statement(awaited);
