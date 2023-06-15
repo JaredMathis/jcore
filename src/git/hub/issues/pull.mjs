@@ -11,4 +11,5 @@ export function git_hub_issues_pull() {
     comment(`If there's more than 1 page of issues code needs adjusting`);
     assert(list_length(issues) <= git_hub_page_size());
     let issue_first = list_first(issues);
+    return issue_first;
 }
