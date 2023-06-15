@@ -20,7 +20,7 @@ export async function refactor_input_swap_last_to(args) {
         let index_previous = subtract_1(i);
         await refactor_input_swap_generic(index_previous, i, args);
     }
-    function indices_get() {
+    function indices_get(index) {
         let index_next = add_1(index);
         return range_from(index_next, index_last);
     }
