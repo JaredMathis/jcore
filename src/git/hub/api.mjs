@@ -5,6 +5,7 @@ import { object_merge } from '../../object/merge.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { file_json_read } from '../../file/json/read.mjs';
 import { git_hub_cached } from './cached.mjs';
+import { Octokit } from 'octokit';
 import { list_contains } from '../../list/contains.mjs';
 export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge) {
     arguments_assert(arguments, [
