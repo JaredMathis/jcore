@@ -1,3 +1,4 @@
+import { function_add_inputs } from './inputs.mjs';
 import { function_input_add_type } from '../input/add/type.mjs';
 import { function_map } from '../map.mjs';
 import { function_name_get } from '../name/get.mjs';
@@ -30,4 +31,5 @@ export async function function_add_mapper(function_name_suffix) {
     ]);
     await function_add_with_statement(function_name, js_code_statement(js_call_expression_awaitify(expression)));
     await function_input_add_type(function_name, input, function_name_get(string_identifier_is));
+    await function_add_inputs(function_name_refactor, 'args');
 }
