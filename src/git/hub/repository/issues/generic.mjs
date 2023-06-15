@@ -20,7 +20,7 @@ export async function git_hub_repository_issues_generic(api_args_to_merge) {
     let function_name = function_name_get(git_hub_repository_issues_open);
     let key = [function_name];
     let key_json = json_to_minimized(key);
-    let file_name = string_base64_to(key);
+    let file_name = string_base64_to(key_json);
     let file_path = path_join([
         git_ignore_cache(),
         string_add(file_name, file_extension_json())
