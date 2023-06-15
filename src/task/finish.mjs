@@ -1,3 +1,4 @@
+import { task_symbol_hash } from './symbol/hash.mjs';
 import { integer_parse } from '../integer/parse.mjs';
 import { string_prefix_without } from '../string/prefix/without.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
