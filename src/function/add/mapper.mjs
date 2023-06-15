@@ -12,6 +12,7 @@ import { comment } from '../../comment.mjs';
 import { string_identifier_parts_from } from '../../string/identifier/parts/from.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { list_single_item } from '../../list/single/item.mjs';
+import { js_parse_statement } from '../../js/parse/statement.mjs';
 export async function function_add_mapper(function_name_suffix) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let function_name = string_identifier_parts_from([
@@ -29,7 +30,8 @@ export async function function_add_mapper(function_name_suffix) {
         input
     ]);
     let awaited = js_code_await(expression_code);
-    let statement = js_code_statement(awaited);
+    let statement_code = js_code_statement(awaited);
+    let statement = js_parse_statement(statement_code);
     let statements = list_single_item(statement);
     let is_async = true;
     await function_add_with_statements_synchronized(function_name, statements, is_async);
