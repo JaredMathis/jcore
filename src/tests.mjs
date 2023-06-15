@@ -279,6 +279,15 @@ import { string_difference_apply_parse_test_3 } from './string/difference/apply/
 import { string_difference_apply_parse_test_2 } from './string/difference/apply/parse/test/2.mjs';
 import { string_difference_apply_parse_test_1 } from './string/difference/apply/parse/test/1.mjs';
 import { string_a_test_generated_1 } from './string/a/test/generated/1.mjs';
+import { range_from_test_generated_8 } from './range/from/test/generated/8.mjs';
+import { range_from_test_generated_7 } from './range/from/test/generated/7.mjs';
+import { range_from_test_generated_6 } from './range/from/test/generated/6.mjs';
+import { range_from_test_generated_5 } from './range/from/test/generated/5.mjs';
+import { range_from_test_generated_4 } from './range/from/test/generated/4.mjs';
+import { range_from_test_generated_3 } from './range/from/test/generated/3.mjs';
+import { range_from_test_generated_2 } from './range/from/test/generated/2.mjs';
+import { range_from_test_generated_10 } from './range/from/test/generated/10.mjs';
+import { range_from_test_generated_1 } from './range/from/test/generated/1.mjs';
 import { integer_is_test_values } from './integer/is/test/values.mjs';
 import { error_test_3 } from './error/test/3.mjs';
 import { error_test_2 } from './error/test/2.mjs';
@@ -336,6 +345,15 @@ export async function tests() {
     await error_test_2();
     await error_test_3();
     await integer_is_test_values();
+    await range_from_test_generated_1();
+    await range_from_test_generated_10();
+    await range_from_test_generated_2();
+    await range_from_test_generated_3();
+    await range_from_test_generated_4();
+    await range_from_test_generated_5();
+    await range_from_test_generated_6();
+    await range_from_test_generated_7();
+    await range_from_test_generated_8();
     await string_a_test_generated_1();
     await string_difference_apply_parse_test_1();
     await string_difference_apply_parse_test_2();
@@ -616,5 +634,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(307 + ' tests ran successfully');
+    log(316 + ' tests ran successfully');
 }
