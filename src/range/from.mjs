@@ -12,7 +12,7 @@ export function range_from(from, to) {
         integer_is
     ]);
     assert(from <= to);
-    let difference = subtract(from, to);
+    let difference = subtract(to, from);
     let value = add_1(difference);
     let ranged = range(value);
     let mapped = list_map(ranged, r => add(r, from));
