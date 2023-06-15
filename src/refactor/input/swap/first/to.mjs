@@ -8,8 +8,8 @@ export async function refactor_input_swap_first_to(args) {
     await refactor_input_swap_generic_to(args, predicate, indices_get);
     function indices_get(index, params) {
         let ranged = range_from(1, index);
-        let reversed = list_reverse(ranged);
-        return reversed;
+        list_reverse(ranged);
+        return ranged;
     }
     function predicate(index, params) {
         return index >= 1;
