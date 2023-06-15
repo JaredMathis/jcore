@@ -19,6 +19,12 @@ export async function git_hub_repository_issues_generic(api_args_to_merge) {
         let result = await file_json_read(file_path);
         return result;
     }
+    let issues = await lambda(api_args_to_merge);
+    await file_json_write(file_path, issues);
+    return issues;
+
+    
+async function lambda(api_args_to_merge) {
     let p = await file_json_read('../private.json');
     let token = object_property_get(p, 'git_hub_api_token');
     const octokit = new Octokit({ auth: token });
@@ -31,6 +37,7 @@ export async function git_hub_repository_issues_generic(api_args_to_merge) {
     };
     object_merge(api_args_to_merge, api_args);
     let issues = await octokit.request('GET /repos/{owner}/{repo}/issues', api_args);
-    await file_json_write(file_path, issues);
     return issues;
+}
+
 }
