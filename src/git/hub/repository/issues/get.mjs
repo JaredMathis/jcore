@@ -12,7 +12,7 @@ export async function git_hub_repository_issues_get(api_args_to_merge) {
     let verb = 'GET';
     object_merge({
         per_page: git_hub_page_size()
-    }, api_args);
+    }, api_args_to_merge);
     return await git_hub_cached(git_hub_repository_issues_open, arguments, async function lambda() {
         let p = await file_json_read('../private.json');
         let token = object_property_get(p, 'git_hub_api_token');
@@ -20,12 +20,10 @@ export async function git_hub_repository_issues_get(api_args_to_merge) {
         let owner = 'JaredMathis';
         let repository = 'jcore';
         const api_args = {
-        };
-        object_merge(api_args_to_merge, api_args);
-        object_merge({
             owner: owner,
             repo: repository,
-        }, api_args);
+        };
+        object_merge(api_args_to_merge, api_args);
         let issues = await octokit.request(`${ verb } /repos/{owner}/{repo}/issues`, api_args);
         return issues;
     });
