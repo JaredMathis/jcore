@@ -10,7 +10,6 @@ import { js_parse_expression } from '../../js/parse/expression.mjs';
 import { list_add_multiple } from '../../list/add/multiple.mjs';
 export async function refactor_call_inputs(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let {name_new} = args;
     let {function_declaration} = args;
     let expression = await js_function_declaration_to_expression_after_arguments_assert(function_declaration);
     let args = js_call_expression_arguments(expression);
