@@ -13,7 +13,6 @@ export async function refactor_input_swap_last_to(args) {
     assert(index >= 0);
     let {function_declaration} = args;
     let params = js_function_declaration_to_params(function_declaration);
-    let index_last = list_last_index(params);
     assert(predicate(index, params));
     let index_next = add_1(index);
     for (let i of range_from(index_next, index_last)) {
@@ -22,6 +21,7 @@ export async function refactor_input_swap_last_to(args) {
     }
 
     function predicate(index, params) {
+        let index_last = list_last_index(params);
         return index < index_last;
     }
 }
