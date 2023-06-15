@@ -13,6 +13,7 @@ import { string_a } from '../../../../string/a.mjs';
 import { js_parse_statement } from '../../../parse/statement.mjs';
 import { assert } from '../../../../assert.mjs';
 import { js_node_is_call_expression } from '../../../node/is/call/expression.mjs';
+import { comment } from '../../../../comment.mjs';
 export function js_arrow_function_expression_functionify(node, name) {
     arguments_assert(arguments, [
         js_node_is_arrow_function_expression,
@@ -28,6 +29,7 @@ export function js_arrow_function_expression_functionify(node, name) {
         function_expression,
         return_statement
     });
-    assert(js_node_is_call_expression(node));
-    js_return_statement_argument_change(return_statement, node);
+    comment(`If this fails, code needs to handle`);
+    assert(js_node_is_call_expression(body));
+    js_return_statement_argument_change(return_statement, body);
 }
