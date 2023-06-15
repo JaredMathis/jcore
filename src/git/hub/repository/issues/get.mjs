@@ -17,11 +17,13 @@ export async function git_hub_repository_issues_get(api_args_to_merge) {
         let owner = 'JaredMathis';
         let repository = 'jcore';
         const api_args = {
+        };
+        object_merge(api_args_to_merge, api_args);
+        object_merge({
             owner: owner,
             repo: repository,
             per_page: git_hub_page_size()
-        };
-        object_merge(api_args_to_merge, api_args);
+        }, api_args);
         let issues = await octokit.request(`${ verb } /repos/{owner}/{repo}/issues`, api_args);
         return issues;
     });
