@@ -8,5 +8,5 @@ export async function function_input_add_multiple(function_name, inputs_string) 
         arguments_assert_todo
     ]);
     let inputs = string_identifier_multiple_parse(inputs_string);
-    await function_input_add_multiple_generic(inputs, function_name);
+    await function_input_add_multiple_generic(function_name, inputs);
 }
