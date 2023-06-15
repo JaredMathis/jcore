@@ -38,7 +38,8 @@ export async function git_hub_repository_issues_generic(api_args_to_merge) {
     let repository = 'jcore';
     const api_args = {
         owner: owner,
-        repo: repository
+        repo: repository,
+        per_page: 100,
     };
     object_merge(api_args_to_merge, api_args);
     let issues = await octokit.request('GET /repos/{owner}/{repo}/issues', api_args);
