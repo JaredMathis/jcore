@@ -8,6 +8,6 @@ export function object_map_without(object, values_without) {
         defined_is,
         list_is
     ]);
-    let lambda = list_contains_not;
-    return object_merge_filtered(object, key => lambda(values_without, key), {});
+    let lambda = key => list_contains_not(values_without, key);
+    return object_merge_filtered(object, lambda, {});
 }
