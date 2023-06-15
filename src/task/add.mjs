@@ -16,10 +16,9 @@ export async function task_add(title) {
     let task = task_from_git_hub_issue(data);
     let tasks_all_path = version_path_tasks_all_get(repository_name);
     const initial_value = [];
-    await file_json_map(tasks_all_path, initial_value, map);
+    await file_json_map(tasks_all_path, initial_value, function map(tasks_all) {
+        list_add(tasks_all, task);
+    });
     let task_number = object_property_get(task, task_property_number());
     await task_id_set_hash(task_number);
-    function map(tasks_all) {
-        list_add(tasks_all, task);
-    }
 }
