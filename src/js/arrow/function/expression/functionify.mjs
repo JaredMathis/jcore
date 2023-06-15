@@ -1,8 +1,8 @@
+import { object_replace } from '../../../../object/replace.mjs';
 import { js_arrow_function_expression_body } from './body.mjs';
 import { js_return_statement_argument_change } from '../../../return/statement/argument/change.mjs';
 import { js_code_return_statement } from '../../../code/return/statement.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
-import { log } from '../../../../log.mjs';
 import { js_brace_left_right } from '../../../brace/left/right.mjs';
 import { js_code_parenthesis_surround } from '../../../code/parenthesis/surround.mjs';
 import { js_keyword_function } from '../../../keyword/function.mjs';
@@ -27,7 +27,5 @@ export function js_arrow_function_expression_functionify(node, name) {
     comment(`If this fails, code needs to handle`);
     assert(js_node_is_call_expression(body));
     js_return_statement_argument_change(return_statement, body);
-    console.log({
-        return_statement
-    });
+    object_replace(node, return_statement);
 }
