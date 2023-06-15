@@ -1,3 +1,4 @@
+import { object_map } from '../../../object/map.mjs';
 import { object_property_data } from '../../../object/property/data.mjs';
 import { list_first } from '../../../list/first.mjs';
 import { git_hub_page_size } from '../page/size.mjs';
@@ -13,5 +14,9 @@ export async function git_hub_issues_pull() {
     comment(`If there's more than 1 page of issues code needs adjusting`);
     assert(list_length(issues) <= git_hub_page_size());
     let issue_first = list_first(issues);
-    return issue_first;
+    let mapped = object_map(issue_first, [
+        'number',
+        'title'
+    ]);
+    return mapped;
 }
