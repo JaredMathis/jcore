@@ -12,7 +12,8 @@ export function js_imports_remove_multiple(parsed, imports, removal_names) {
         list_is
     ]);
     let imports_to_remove = list_map(removal_names, removal_name => {
-        let result = list_find(imports, i => object_property_get(i, 'name') === removal_name);
+        const property_name = 'name';
+        let result = list_find(imports, i => object_property_get(i, property_name) === removal_name);
         return result;
     });
     js_imports_remove_generic(parsed, imports_to_remove);
