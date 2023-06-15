@@ -18,7 +18,8 @@ export async function task_add(title) {
     let task = task_from_git_hub_issue(data);
     let tasks_all_path = version_path_tasks_all_get(repository_name);
     if (!await file_exists(tasks_all_path)) {
-        await file_json_overwrite(tasks_all_path, []);
+        const initial_value = [];
+        await file_json_overwrite(tasks_all_path, initial_value);
     }
     let tasks_all = await file_json_read(tasks_all_path);
     map(tasks_all);
