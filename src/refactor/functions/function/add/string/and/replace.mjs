@@ -8,6 +8,7 @@ import { file_js_all_map_args_if_function } from '../../../../../../file/js/all/
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { string_identifier_is } from '../../../../../../string/identifier/is.mjs';
 import { string_is } from '../../../../../../string/is.mjs';
+import { equal } from '../../../../../../equal.mjs';
 export async function refactor_functions_function_add_string_and_replace(function_name, string_value) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -17,8 +18,11 @@ export async function refactor_functions_function_add_string_and_replace(functio
     await file_js_all_map_args_if_function(async function logic(args) {
         let {parsed} = args;
         js_nodes_each(parsed, js_node_is_literal, n => {
-            let replacement = js_parse_call_expression(function_name);
-            object_replace(n, replacement);
+            let value = object_property_set(n, js_node_property_value());
+            if (equal(value, string_value)) {
+                let replacement = js_parse_call_expression(function_name);
+                object_replace(n, replacement);
+            }
         });
     });
     metadata([]);
