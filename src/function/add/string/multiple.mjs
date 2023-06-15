@@ -1,3 +1,4 @@
+import { list_map_async } from '../../../list/map/async.mjs';
 import { function_add_string } from '../string.mjs';
 import { string_identifier_multiple_parse } from '../../../string/identifier/multiple/parse.mjs';
 import { string_identifier_with_prefix } from '../../../string/identifier/with/prefix.mjs';
@@ -19,6 +20,7 @@ export async function function_add_string_multiple(prefix, keys_unparsed, values
     let keys = string_identifier_multiple_parse(keys_unparsed);
     let values = string_split_comma(values_unparsed);
     assert(equal_by(list_length, keys, values));
+    list_map_async;
     for (let i of range(list_length(keys))) {
         let key = list_get(keys, i);
         let value = list_get(values, i);
