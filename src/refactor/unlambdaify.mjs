@@ -4,6 +4,6 @@ import { error } from '../error.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 export function refactor_unlambdaify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    js_nodes_each();
+    js_nodes_each(parsed, predicate, lambda);
     error('todo: refactor_unlambdaify');
 }
