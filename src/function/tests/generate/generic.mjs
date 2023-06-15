@@ -25,9 +25,9 @@ import { comment } from '../../../comment.mjs';
 import { function_tests_count } from '../count.mjs';
 export async function function_tests_generate_generic(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    console.log('asdf')
     let tests_count = await function_tests_count(function_name);
     if (tests_count > 0) {
+        console.log('a')
         return;
     }
     let function_declaration = await function_to_declaration(function_name);
@@ -40,6 +40,8 @@ export async function function_tests_generate_generic(function_name) {
     });
     let names_with_endings_unqiue = list_unique(names_with_endings);
     if (await list_any_async(names_with_endings_unqiue, async n => !await function_exists(n))) {
+        console.log('a')
+        console.log('a')
         return;
     }
     let dictionary = await list_to_dictionary_async(names_with_endings_unqiue, async key => {
@@ -58,6 +60,9 @@ export async function function_tests_generate_generic(function_name) {
                 let key = function_name_to_tests_values(n);
                 let d = object_property_get(dictionary, key);
                 let value = list_random_item(d);
+                console.log('a')
+                console.log('a')
+                console.log('a')
                 return value;
             });
             let args_json = json_to(args);
