@@ -6,8 +6,8 @@ import { js_node_is_function_declaration } from '../../../node/is/function/decla
 import { js_node_property_body } from '../../../node/property/body.mjs';
 export function js_function_declaration_to_statements(fd) {
     arguments_assert(arguments, [js_node_is_function_declaration]);
-    let function_body = object_property_get(fd, js_node_property_body());
-    let function_body_statements = js_block_statement_body(function_body);
-    return function_body_statements;
+    let body = object_property_get(fd, js_node_property_body());
+    let statements = js_block_statement_body(body);
+    return statements;
     metadata([]);
 }
