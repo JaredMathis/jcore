@@ -14,14 +14,14 @@ export async function refactor_input_swap_last_to(args) {
     let {function_declaration} = args;
     let params = js_function_declaration_to_params(function_declaration);
     let index_last = list_last_index(params);
-    assert(predicate());
+    assert(predicate(index));
     let index_next = add_1(index);
     for (let i of range_from(index_next, index_last)) {
         let index_previous = subtract_1(i);
         await refactor_input_swap_generic(index_previous, i, args);
     }
 
-    function predicate() {
+    function predicate(index) {
         return index < index_last;
     }
 }
