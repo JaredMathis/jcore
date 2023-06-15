@@ -29,7 +29,8 @@ export async function function_add_mapper(function_name_suffix) {
         input
     ]);
     let expression = js_parse_expression(expression_code);
-    await function_add_with_statement(function_name, js_code_statement(js_expression_awaitify(expression)));
+    let awaited = js_expression_awaitify(expression);
+    await function_add_with_statement(function_name, js_code_statement(awaited));
     await function_input_add_type(function_name, input, function_name_get(string_identifier_is));
     await function_add_inputs(function_name_refactor, 'args');
 }
