@@ -6,6 +6,8 @@ export async function file_json_map(tasks_all_path, initial_value, map) {
         await file_json_overwrite(tasks_all_path, initial_value);
     }
     let tasks_all = await file_json_read(tasks_all_path);
-    map(tasks_all);
+    if (map(tasks_all)) {
+        return;
+    }
     await file_json_overwrite(tasks_all_path, tasks_all);
 }
