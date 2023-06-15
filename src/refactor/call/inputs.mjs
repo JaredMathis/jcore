@@ -17,7 +17,7 @@ export async function refactor_call_inputs(args) {
     let expression_args = js_call_expression_arguments(expression);
     assert(list_length_is_0(expression_args));
     let name = js_call_expression_name_get_or_null(expression);
-    let inputs = function_inputs(name);
+    let inputs = await function_inputs(name);
     let mapped = list_map(inputs, js_parse_expression);
     list_add_multiple(expression_args, mapped);
     await refactor_import_fix(args);
