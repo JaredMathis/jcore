@@ -11,6 +11,9 @@ export async function function_input_add_multiple_prefix(function_name, prefix, 
     let result = await function_input_add_multiple_generic(function_name, inputs_string, map);
     return result;
     function map(i) {
-        return string_identifier_parts_from([prefix, i]);
+        return string_identifier_parts_from([
+            prefix,
+            i
+        ]);
     }
 }

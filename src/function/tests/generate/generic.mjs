@@ -27,7 +27,7 @@ export async function function_tests_generate_generic(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let tests_count = await function_tests_count(function_name);
     if (tests_count > 0) {
-        console.log('a')
+        console.log('a');
         return;
     }
     let function_declaration = await function_to_declaration(function_name);
@@ -40,7 +40,7 @@ export async function function_tests_generate_generic(function_name) {
     });
     let names_with_endings_unqiue = list_unique(names_with_endings);
     if (await list_any_async(names_with_endings_unqiue, async n => !await function_exists(n))) {
-        comment(`${arguments_assert} types need filling in`)
+        comment(`${ arguments_assert } types need filling in`);
         return;
     }
     let dictionary = await list_to_dictionary_async(names_with_endings_unqiue, async key => {
