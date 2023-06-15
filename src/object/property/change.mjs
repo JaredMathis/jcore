@@ -1,3 +1,4 @@
+import { assert } from '../../assert.mjs';
 import { string_is } from '../../string/is.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -10,7 +11,7 @@ export function object_property_change(f, property_name, value) {
         string_is,
         defined_is
     ]);
-    object_property_exists(f, property_name);
+    assert(object_property_exists(f, property_name));
     object_property_set(f, property_name, value);
     metadata([]);
 }

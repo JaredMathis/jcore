@@ -19,6 +19,7 @@ import { js_function_declaration_to_statements } from '../../../function/declara
 import { list_add } from '../../../../list/add.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { object_property_change } from '../../../../object/property/change.mjs';
+import { js_node_property_params } from '../../../node/property/params.mjs';
 export function js_arrow_function_expression_functionify(node, name) {
     arguments_assert(arguments, [
         js_node_is_arrow_function_expression,
@@ -35,6 +36,6 @@ export function js_arrow_function_expression_functionify(node, name) {
     let statements = js_function_declaration_to_statements(function_expression);
     list_add(statements, return_statement);
     let args = object_property_get(body, js_node_property_arguments());
-    object_property_change(function_expression, js_node_property_arguments(), args);
+    object_property_change(function_expression, js_node_property_params(), args);
     object_replace(node, function_expression);
 }
