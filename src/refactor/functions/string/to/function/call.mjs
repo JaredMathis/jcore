@@ -10,19 +10,24 @@ import { js_node_is_literal } from '../../../../../js/node/is/literal.mjs';
 import { js_nodes_each } from '../../../../../js/nodes/each.mjs';
 import { file_js_all_map_args_if_function } from '../../../../../file/js/all/map/args/if/function.mjs';
 import { refactor_import_fix } from '../../../../import/fix.mjs';
-export async function refactor_functions_string_to_function_call(function_name, string_value) {
+import { js_function_declaration_to_name } from '../../../../../js/function/declaration/to/name.mjs';
+export async function refactor_functions_string_to_function_call(function_name_replacement, string_value) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo
     ]);
     await file_js_all_map_args_if_function(async function logic(args) {
-        console.log({args})
+        let {function_declaration} = args;
+        let function_name = js_function_declaration_to_name(function_declaration);
+        if (equal(function_name, function_name_replacement)) {
+            return;
+        }
         let c = changed(change => {
             let {parsed} = args;
             js_nodes_each(parsed, js_node_is_literal, n => {
                 let value = object_property_get(n, js_node_property_value());
                 if (equal(value, string_value)) {
-                    let replacement = js_parse_call_expression(function_name);
+                    let replacement = js_parse_call_expression(function_name_replacement);
                     object_replace(n, replacement);
                     change();
                 }
