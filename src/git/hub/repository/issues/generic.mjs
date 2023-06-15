@@ -4,6 +4,8 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function git_hub_repository_issues_generic(fn, args, api_args_to_merge, verb) {
     arguments_assert(arguments, [
         arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo,
         arguments_assert_todo
     ]);
     let api_path = `/repos/{owner}/{repo}/issues`;
