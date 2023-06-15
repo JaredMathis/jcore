@@ -18,6 +18,6 @@ export async function refactor_input_swap_last_to(args) {
     let index_next = add_1(index);
     for (let i of range_from(index_next, index_last)) {
         let index_previous = subtract_1(i);
-        await refactor_input_swap_generic(index_previous, i);
+        await refactor_input_swap_generic(index_previous, i, args);
     }
 }
