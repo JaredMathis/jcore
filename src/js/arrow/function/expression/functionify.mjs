@@ -1,3 +1,4 @@
+import { js_return_statement_argument_change } from '../../../return/statement/argument/change.mjs';
 import { js_code_return_statement } from '../../../code/return/statement.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { log } from '../../../../log.mjs';
@@ -9,6 +10,8 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_parse_expression } from '../../../parse/expression.mjs';
 import { string_a } from '../../../../string/a.mjs';
 import { js_parse_statement } from '../../../parse/statement.mjs';
+import { assert } from '../../../../assert.mjs';
+import { js_node_is_call_expression } from '../../../node/is/call/expression.mjs';
 export function js_arrow_function_expression_functionify(node, name) {
     arguments_assert(arguments, [
         js_node_is_arrow_function_expression,
@@ -18,6 +21,8 @@ export function js_arrow_function_expression_functionify(node, name) {
     let function_expression = js_parse_expression(function_code);
     let return_statement_code = js_code_return_statement(string_a());
     let return_statement = js_parse_statement(return_statement_code);
+    assert(js_node_is_call_expression(node));
+    js_return_statement_argument_change(return_statement, node);
     console.log({
         node,
         function_expression,
