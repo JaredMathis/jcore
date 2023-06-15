@@ -13,7 +13,7 @@ import { git_ignore_cache } from '../../../ignore/cache.mjs';
 import { git_ignore_add_if_not_exists } from '../../../ignore/add/if/not/exists.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { Octokit } from 'octokit';
-export async function git_hub_repository_issues_generic(args_to_merge) {
+export async function git_hub_repository_issues_generic(api_args_to_merge) {
     arguments_assert(arguments, []);
     await git_ignore_add_if_not_exists(git_ignore_cache());
     let key = function_name_get(git_hub_repository_issues_open);
@@ -31,12 +31,12 @@ export async function git_hub_repository_issues_generic(args_to_merge) {
     const octokit = new Octokit({ auth: token });
     let owner = 'JaredMathis';
     let repository = 'jcore';
-    const args = {
+    const api_args = {
         owner: owner,
         repo: repository
     };
-    object_merge(args_to_merge, args);
-    let issues = await octokit.request('GET /repos/{owner}/{repo}/issues', args);
+    object_merge(api_args_to_merge, api_args);
+    let issues = await octokit.request('GET /repos/{owner}/{repo}/issues', api_args);
     await file_json_write(file_path, issues);
     return issues;
 }
