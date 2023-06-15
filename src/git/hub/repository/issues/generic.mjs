@@ -22,22 +22,19 @@ export async function git_hub_repository_issues_generic(api_args_to_merge) {
     let issues = await lambda(api_args_to_merge);
     await file_json_write(file_path, issues);
     return issues;
-
-    
-async function lambda(api_args_to_merge) {
-    let p = await file_json_read('../private.json');
-    let token = object_property_get(p, 'git_hub_api_token');
-    const octokit = new Octokit({ auth: token });
-    let owner = 'JaredMathis';
-    let repository = 'jcore';
-    const api_args = {
-        owner: owner,
-        repo: repository,
-        per_page: git_hub_page_size()
-    };
-    object_merge(api_args_to_merge, api_args);
-    let issues = await octokit.request('GET /repos/{owner}/{repo}/issues', api_args);
-    return issues;
-}
-
+    async function lambda(api_args_to_merge) {
+        let p = await file_json_read('../private.json');
+        let token = object_property_get(p, 'git_hub_api_token');
+        const octokit = new Octokit({ auth: token });
+        let owner = 'JaredMathis';
+        let repository = 'jcore';
+        const api_args = {
+            owner: owner,
+            repo: repository,
+            per_page: git_hub_page_size()
+        };
+        object_merge(api_args_to_merge, api_args);
+        let issues = await octokit.request('GET /repos/{owner}/{repo}/issues', api_args);
+        return issues;
+    }
 }
