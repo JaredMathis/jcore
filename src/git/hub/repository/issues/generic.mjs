@@ -19,7 +19,7 @@ import { defined_is } from '../../../../defined/is.mjs';
 export async function git_hub_repository_issues_generic(api_args_to_merge) {
     arguments_assert(arguments, [defined_is]);
     await git_ignore_add_if_not_exists(git_ignore_cache());
-    let file_path = git_hub_cache_file_path(git_hub_repository_issues_open);
+    let file_path = git_hub_cache_file_path(git_hub_repository_issues_open, arguments);
     if (await file_exists(file_path)) {
         let result = await file_json_read(file_path);
         return result;
@@ -40,9 +40,8 @@ export async function git_hub_repository_issues_generic(api_args_to_merge) {
     return issues;
 }
 
-function git_hub_cache_file_path(fn) {
+function git_hub_cache_file_path(fn, args) {
     let function_name = function_name_get(fn);
-    let args = arguments;
     let key = [
         function_name,
         args
