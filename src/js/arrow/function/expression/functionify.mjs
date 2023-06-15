@@ -14,6 +14,8 @@ import { js_parse_statement } from '../../../parse/statement.mjs';
 import { assert } from '../../../../assert.mjs';
 import { js_node_is_call_expression } from '../../../node/is/call/expression.mjs';
 import { comment } from '../../../../comment.mjs';
+import { js_function_declaration_to_statements } from '../../../function/declaration/to/statements.mjs';
+import { list_add } from '../../../../list/add.mjs';
 export function js_arrow_function_expression_functionify(node, name) {
     arguments_assert(arguments, [
         js_node_is_arrow_function_expression,
@@ -27,5 +29,7 @@ export function js_arrow_function_expression_functionify(node, name) {
     comment(`If this fails, code needs to handle`);
     assert(js_node_is_call_expression(body));
     js_return_statement_argument_change(return_statement, body);
+    let statements = js_function_declaration_to_statements(function_expression);
+    list_add(statements, return_statement)
     object_replace(node, function_expression);
 }
