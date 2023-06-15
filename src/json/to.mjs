@@ -4,6 +4,10 @@ import { defined_is } from '../defined/is.mjs';
 export function json_to(object) {
     arguments_assert(arguments, [defined_is]);
     const space = ' ';
-    return JSON.stringify(object, null, space);
+    return json_to_generic(object, space);
     metadata([]);
+}
+
+function json_to_generic(object, space) {
+    return JSON.stringify(object, null, space);
 }
