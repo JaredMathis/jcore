@@ -12,6 +12,6 @@ export async function function_input_add_multiple_prefix(function_name, prefix, 
     ]);
     let inputs = string_identifier_multiple_parse(inputs_string);
     let mapped = list_map(inputs, i => string_identifier_parts_from(prefix, i));
-    let result = await function_input_add_multiple_generic(function_name, inputs);
+    let result = await function_input_add_multiple_generic(function_name, mapped);
     return result;
 }
