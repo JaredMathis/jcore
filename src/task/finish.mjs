@@ -10,9 +10,6 @@ import { equal } from '../equal.mjs';
 export async function task_finish() {
     arguments_assert(arguments, []);
     let task_number_hashed = await task_id_get_or_null();
-    if (equal(task_number_hashed, null)) {
-        return 'no current task';
-    }
     let task_number_string = string_prefix_without(task_number_hashed, task_symbol_hash());
     let task_number = integer_parse(task_number_string);
     await task_close(task_number);
