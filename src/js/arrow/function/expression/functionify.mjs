@@ -1,3 +1,4 @@
+import { js_arrow_function_expression_body } from './body.mjs';
 import { js_return_statement_argument_change } from '../../../return/statement/argument/change.mjs';
 import { js_code_return_statement } from '../../../code/return/statement.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
@@ -17,6 +18,7 @@ export function js_arrow_function_expression_functionify(node, name) {
         js_node_is_arrow_function_expression,
         arguments_assert_todo
     ]);
+    let body = js_arrow_function_expression_body(node);
     let function_code = `${ js_keyword_function() } ${ name }${ js_code_parenthesis_surround(``) }${ js_brace_left_right() }`;
     let function_expression = js_parse_expression(function_code);
     let return_statement_code = js_code_return_statement(string_a());
