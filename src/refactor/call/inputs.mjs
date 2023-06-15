@@ -12,11 +12,11 @@ export async function refactor_call_inputs(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_declaration} = args;
     let expression = await js_function_declaration_to_expression_after_arguments_assert(function_declaration);
-    let args = js_call_expression_arguments(expression);
-    assert(list_length_is_0(args));
+    let expression_args = js_call_expression_arguments(expression);
+    assert(list_length_is_0(expression_args));
     let name = js_call_expression_name_get_or_null(expression);
     let inputs = function_inputs(name);
     let mapped = list_map(inputs, js_parse_expression);
-    list_add_multiple(args, mapped);
+    list_add_multiple(expression_args, mapped);
     await refactor_import_fix(args);
 }
