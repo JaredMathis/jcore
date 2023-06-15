@@ -17,10 +17,12 @@ export async function task_git_hub_issues_pull(repository_name) {
     let issues = object_property_data(issues_response);
     comment(`If there's more than 1 page of issues code needs adjusting`);
     assert(list_length(issues) <= git_hub_page_size());
-    let mapped = list_map(issues, issue => object_map(issue, [
-        'number',
-        task_property_title()
-    ]));
+    let mapped = list_map(issues, function task_from_git_hub_issue(issue) {
+            return object_map(issue, [
+            'number',
+            task_property_title()
+        ])
+    });
     let tasks_all_path = version_path_tasks_all_get(repository_name);
     await file_json_overwrite(tasks_all_path, mapped);
 }
