@@ -8,6 +8,7 @@ export async function function_input_add_multiple_prefix(function_name, prefix, 
         arguments_assert_todo,
         arguments_assert_todo
     ]);
+    let inputs = 
     let result = await function_input_add_multiple_generic(function_name, inputs);
     return result;
 }
