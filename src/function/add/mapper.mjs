@@ -30,7 +30,7 @@ export async function function_add_mapper(function_name_suffix) {
     let expression_code = js_code_call_expression_with_args(function_name_get(function_map_with_args), [
         js_code_call_expression_with_args(function_name_get(function_name_get), [function_name_refactor]),
         input,
-        '{}'
+        `{}`
     ]);
     let awaited = js_code_await(expression_code);
     let statement_code = js_code_statement(awaited);
