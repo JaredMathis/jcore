@@ -7,6 +7,7 @@ import { js_parse_statement } from './statement.mjs';
 export function js_parse_expression(code) {
     arguments_assert(arguments, [string_is]);
     let s = js_parse_statement(code);
+    console.log({s})
     let expression = object_property_get(s, js_node_property_expression());
     return expression;
     metadata([]);
