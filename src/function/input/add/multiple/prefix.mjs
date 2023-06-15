@@ -8,7 +8,7 @@ export async function function_input_add_multiple_prefix(function_name, prefix, 
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let result = await function_input_add_multiple_generic(function_name, mapped, map);
+    let result = await function_input_add_multiple_generic(function_name, inputs_string, map);
     return result;
     function map(i) {
         return string_identifier_parts_from(prefix, i);
