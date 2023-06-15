@@ -5,7 +5,7 @@ import { function_map } from '../map.mjs';
 import { function_name_get } from '../name/get.mjs';
 import { js_code_call_expression_with_args } from '../../js/code/call/expression/with/args.mjs';
 import { js_code_statement } from '../../js/code/statement.mjs';
-import { function_add_with_statement } from './with/statement.mjs';
+import { function_add_with_statement_code } from './with/statement/code.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { comment } from '../../comment.mjs';
@@ -30,7 +30,7 @@ export async function function_add_mapper(function_name_suffix) {
     ]);
     let expression = js_parse_expression(expression_code);
     let awaited = js_expression_awaitify(expression);
-    await function_add_with_statement(function_name, js_code_statement(awaited));
+    await function_add_with_statement_code(function_name, js_code_statement(awaited));
     await function_input_add_type(function_name, input, function_name_get(string_identifier_is));
     await function_add_inputs(function_name_refactor, 'args');
 }
