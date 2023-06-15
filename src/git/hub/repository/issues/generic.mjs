@@ -7,13 +7,13 @@ import { file_json_read } from '../../../../file/json/read.mjs';
 import { git_hub_repository_issues_open } from './open.mjs';
 import { git_hub_cached } from '../../cached.mjs';
 import { Octokit } from 'octokit';
-export async function git_hub_repository_issues_generic(api_args_to_merge, verb) {
+export async function git_hub_repository_issues_generic(fn, args, api_args_to_merge, verb) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo
     ]);
     let api_path = `/repos/{owner}/{repo}/issues`;
-    return await git_hub_cached(git_hub_repository_issues_open, arguments, async function lambda() {
+    return await git_hub_cached(fn, args, async function lambda() {
         let p = await file_json_read('../private.json');
         let token = object_property_get(p, 'git_hub_api_token');
         const octokit = new Octokit({ auth: token });
