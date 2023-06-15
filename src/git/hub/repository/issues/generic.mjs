@@ -13,15 +13,7 @@ import { Octokit } from 'octokit';
 import { defined_is } from '../../../../defined/is.mjs';
 export async function git_hub_repository_issues_generic(api_args_to_merge) {
     arguments_assert(arguments, [defined_is]);
-    await git_ignore_add_if_not_exists(git_ignore_cache());
-    let file_path = git_hub_cache_file_path(git_hub_repository_issues_open, arguments);
-    if (await file_exists(file_path)) {
-        let result = await file_json_read(file_path);
-        return result;
-    }
-    let issues = await lambda(api_args_to_merge);
-    await file_json_write(file_path, issues);
-    return issues;
+    return await git_hub_cached(async () => await lambda(api_args_to_merge));
     async function lambda(api_args_to_merge) {
         let p = await file_json_read('../private.json');
         let token = object_property_get(p, 'git_hub_api_token');
