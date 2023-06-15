@@ -7,6 +7,6 @@ import { assert } from '../../../assert.mjs';
 export function js_block_statement_body(function_body) {
     arguments_assert(arguments, [arguments_assert_todo]);
     assert(js_node_is_block_statement(function_body));
-    let function_body_statements = object_property_get(function_body, js_node_property_body());
-    return function_body_statements;
+    let body = object_property_get(function_body, js_node_property_body());
+    return body;
 }
