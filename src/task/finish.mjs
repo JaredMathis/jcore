@@ -8,7 +8,7 @@ import { task_close } from './close.mjs';
 export async function task_finish() {
     arguments_assert(arguments, []);
     let task_number_hashed = await task_id_get();
-    let task_number_string = string_prefix_without(task_number_hashed, '#');
+    let task_number_string = string_prefix_without(task_number_hashed, task_symbol_hash());
     let task_number = integer_parse(task_number_string);
     await task_close(task_number);
     await task_id_remove();

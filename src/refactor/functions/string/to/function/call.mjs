@@ -19,7 +19,6 @@ export async function refactor_functions_string_to_function_call(function_name, 
         js_nodes_each(parsed, js_node_is_literal, n => {
             let value = object_property_get(n, js_node_property_value());
             if (equal(value, string_value)) {
-                console.log({ value });
                 let replacement = js_parse_call_expression(function_name);
                 object_replace(n, replacement);
             }
