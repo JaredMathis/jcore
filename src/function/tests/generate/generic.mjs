@@ -39,9 +39,8 @@ export async function function_tests_generate_generic(function_name) {
         return function_name_to_tests_values(n);
     });
     let names_with_endings_unqiue = list_unique(names_with_endings);
+    console.log({names_with_endings_unqiue})
     if (await list_any_async(names_with_endings_unqiue, async n => !await function_exists(n))) {
-        console.log('a')
-        console.log('a')
         return;
     }
     let dictionary = await list_to_dictionary_async(names_with_endings_unqiue, async key => {
@@ -60,9 +59,6 @@ export async function function_tests_generate_generic(function_name) {
                 let key = function_name_to_tests_values(n);
                 let d = object_property_get(dictionary, key);
                 let value = list_random_item(d);
-                console.log('a')
-                console.log('a')
-                console.log('a')
                 return value;
             });
             let args_json = json_to(args);
