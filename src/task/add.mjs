@@ -9,6 +9,8 @@ import { file_json_read } from '../file/json/read.mjs';
 import { file_json_overwrite } from '../file/json/overwrite.mjs';
 import { file_exists } from '../file/exists.mjs';
 import { list_add } from '../list/add.mjs';
+import { object_property_get } from '../object/property/get.mjs';
+import { task_property_number } from './property/number.mjs';
 export async function task_add(title) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let response = await git_hub_repository_issues_post(title);
@@ -21,5 +23,6 @@ export async function task_add(title) {
     let tasks_all = await file_json_read(tasks_all_path);
     list_add(tasks_all, task);
     await file_json_overwrite(tasks_all);
-    task_id_set_hash();
+    let task_number = object_property_get(task, task_property_number());
+    await task_id_set_hash(task_number);
 }
