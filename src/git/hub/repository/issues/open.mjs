@@ -29,10 +29,11 @@ export async function git_hub_repository_issues_open() {
     const octokit = new Octokit({ auth: token });
     let owner = 'JaredMathis';
     let repository = 'jcore';
-    let issues = await octokit.request('GET /repos/{owner}/{repo}/issues', {
+    const args = {
         owner: owner,
         repo: repository
-    });
+    };
+    let issues = await octokit.request('GET /repos/{owner}/{repo}/issues', args);
     await file_json_write(file_path, issues);
     return issues;
 }
