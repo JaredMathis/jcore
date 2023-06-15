@@ -1,3 +1,4 @@
+import { function_open_vs_code } from '../open/vs/code.mjs';
 import { function_add_with_statements_synchronized } from './with/statements/synchronized.mjs';
 import { js_code_await } from '../../js/code/await.mjs';
 import { function_add_inputs } from './inputs.mjs';
@@ -37,4 +38,5 @@ export async function function_add_mapper(function_name_suffix) {
     let is_async = true;
     await function_add_with_statements_synchronized(function_name, statements, is_async);
     await function_input_add_type(function_name, input, function_name_get(string_identifier_is));
+    await function_open_vs_code(function_name);
 }
