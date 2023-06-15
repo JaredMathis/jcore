@@ -1,3 +1,4 @@
+import { git_hub_page_size } from '../../page/size.mjs';
 import { json_to_minimized } from '../../../../json/to/minimized.mjs';
 import { file_json_write } from '../../../../file/json/write.mjs';
 import { object_merge } from '../../../../object/merge.mjs';
@@ -20,7 +21,10 @@ export async function git_hub_repository_issues_generic(api_args_to_merge) {
     await git_ignore_add_if_not_exists(git_ignore_cache());
     let function_name = function_name_get(git_hub_repository_issues_open);
     let args = arguments;
-    let key = [function_name, args];
+    let key = [
+        function_name,
+        args
+    ];
     let key_json = json_to_minimized(key);
     let file_name = string_base64_to(key_json);
     let file_path = path_join([
@@ -39,7 +43,7 @@ export async function git_hub_repository_issues_generic(api_args_to_merge) {
     const api_args = {
         owner: owner,
         repo: repository,
-        per_page: 100,
+        per_page: git_hub_page_size()
     };
     object_merge(api_args_to_merge, api_args);
     let issues = await octokit.request('GET /repos/{owner}/{repo}/issues', api_args);
