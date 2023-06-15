@@ -39,8 +39,8 @@ export async function function_tests_generate_generic(function_name) {
         return function_name_to_tests_values(n);
     });
     let names_with_endings_unqiue = list_unique(names_with_endings);
-    console.log({names_with_endings_unqiue,predicate_names})
     if (await list_any_async(names_with_endings_unqiue, async n => !await function_exists(n))) {
+        comment(`${arguments_assert} types need filling in`)
         return;
     }
     let dictionary = await list_to_dictionary_async(names_with_endings_unqiue, async key => {
