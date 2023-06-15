@@ -19,6 +19,8 @@ import { object_property_get } from '../../../object/property/get.mjs';
 import { js_node_is_identifier } from '../../../js/node/is/identifier.mjs';
 import { js_node_property_key } from '../../../js/node/property/key.mjs';
 import { js_node_property_value } from '../../../js/node/property/value.mjs';
+import { js_token_brace_left } from '../../../js/token/brace/left.mjs';
+import { js_token_brace_right } from '../../../js/token/brace/right.mjs';
 export function refactor_output_to_object(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
@@ -32,7 +34,7 @@ export function refactor_output_to_object(args) {
     let statements = js_function_declaration_to_statements(function_declaration);
     comment(`If this fails code needs changing - needs to be 1 return statement per function`);
     assert(list_contains(statements, return_single));
-    const return_expression = `{ ${ string_a() } }`;
+    const return_expression = `${ js_token_brace_left() } ${ string_a() } ${ js_token_brace_right() }`;
     let object_code = js_code_return_statement(return_expression);
     let object = js_parse_statement(object_code);
     let arg = js_return_statement_argument_get(object);
