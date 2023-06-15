@@ -23,7 +23,6 @@ export async function function_rename_without_all_refactor(function_name_old, fu
     assert(!equal(function_name_old, function_name_new));
     assert(await function_exists(function_name_old));
     assert(!await function_exists(function_name_new));
-    console.log({ function_name_new });
     assert(!await file_js_all_identifier_exists(function_name_new));
     let all = await function_name_all();
     let tests_prefix_old = function_tests_prefix_get(function_name_old);
