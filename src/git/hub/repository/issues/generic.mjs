@@ -1,3 +1,4 @@
+import { object_property_data } from '../../../../object/property/data.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { object_merge } from '../../../../object/merge.mjs';
@@ -23,6 +24,7 @@ export async function git_hub_repository_issues_generic(api_args_to_merge, verb)
         };
         object_merge(api_args_to_merge, api_args);
         let issues = await octokit.request(`${ verb } /repos/{owner}/{repo}/issues`, api_args);
-        return issues;
+        let data = object_property_data(issues);
+        return data;
     });
 }
