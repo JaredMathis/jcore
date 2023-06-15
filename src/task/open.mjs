@@ -6,5 +6,5 @@ import { task_property_state } from './property/state.mjs';
 export async function task_open() {
     arguments_assert(arguments, []);
     let all = await task_all();
-    list_filter_property(all, task_property_state(), task_property_open());
+    return list_filter_property(all, task_property_state(), task_property_open());
 }
