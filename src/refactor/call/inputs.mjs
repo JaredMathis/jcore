@@ -8,6 +8,8 @@ export async function refactor_call_inputs(args) {
     let {name_new} = args;
     let {function_declaration} = args;
     let expression = await js_function_declaration_to_expression_after_arguments_assert(function_declaration);
-    js_call_expression_name_change(expression, name_new);
+    let args = js_call_expression_arguments(expression);
+    let name = js_call_expression_name_get_or_null(expression);
+    
     await refactor_import_fix(args);
 }
