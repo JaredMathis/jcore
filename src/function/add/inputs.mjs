@@ -8,8 +8,8 @@ export async function function_add_inputs(function_name, inputs_string) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let inputs = string_identifier_multiple_parse(inputs_string);
     await function_add(function_name);
+    let inputs = string_identifier_multiple_parse(inputs_string);
     for (let i of inputs) {
         await function_input_add(function_name, i);
     }
