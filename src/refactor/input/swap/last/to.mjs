@@ -15,7 +15,7 @@ export async function refactor_input_swap_last_to(args) {
     let {function_declaration} = args;
     let params = js_function_declaration_to_params(function_declaration);
     assert(predicate(index, params));
-    for (let i of indices_get()) {
+    for (let i of indices_get(index, params)) {
         let index_previous = subtract_1(i);
         await refactor_input_swap_generic(index_previous, i, args);
     }
