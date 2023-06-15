@@ -9,6 +9,9 @@ export async function git_hub_repository_issues_close(api_args_to_merge, issue_n
         arguments_assert_todo
     ]);
     let verb = 'PATCH';
-    object_merge({ issue_number }, api_args_to_merge);
+    object_merge({
+        issue_number,
+        state: 'closed'
+    }, api_args_to_merge);
     return await git_hub_repository_issues_generic(api_args_to_merge, verb);
 }
