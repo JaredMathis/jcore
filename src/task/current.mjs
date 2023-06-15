@@ -1,3 +1,4 @@
+import { task_id_unhash } from './id/unhash.mjs';
 import { equal } from '../equal.mjs';
 import { metadata } from '../metadata.mjs';
 import { task_id_get_or_null } from './id/get/or/null.mjs';
