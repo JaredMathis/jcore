@@ -27,5 +27,5 @@ export function js_arrow_function_expression_functionify(node, name) {
     comment(`If this fails, code needs to handle`);
     assert(js_node_is_call_expression(body));
     js_return_statement_argument_change(return_statement, body);
-    object_replace(node, return_statement);
+    object_replace(node, function_expression);
 }
