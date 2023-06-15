@@ -5,6 +5,7 @@ import { object_merge } from '../../object/merge.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { file_json_read } from '../../file/json/read.mjs';
 import { git_hub_cached } from './cached.mjs';
+import { list_contains } from '../../list/contains.mjs';
 export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -13,8 +14,10 @@ export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let verbs_no_cache = ['GET'];
-    
+    let verbs_cache = ['GET'];
+    if (!list_contains(verbs_cache, verb)) {
+        return await lambda();
+    }
     return await git_hub_cached(fn, args, lambda);
     async function lambda() {
         let p = await file_json_read('../private.json');
