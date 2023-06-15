@@ -5,4 +5,5 @@ export async function refactor_call_name(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_declaration} = args;
     let statement_arguments_assert = await js_function_declaration_to_statement_arguments_assert(function_declaration);
+    let statements = js_function_declaration_to_statements(function_declaration);
 }
