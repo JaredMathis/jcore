@@ -11,7 +11,7 @@ export async function function_input_add_multiple_generic(function_name, inputs_
     ]);
     let inputs = string_identifier_multiple_parse(inputs_string);
     let mapped = list_map(inputs, mapper);
-    for (let i of inputs) {
-        await function_input_add(function_name, i);
+    for (let m of mapped) {
+        await function_input_add(function_name, m);
     }
 }
