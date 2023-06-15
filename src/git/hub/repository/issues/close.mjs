@@ -1,3 +1,4 @@
+import { task_property_state } from '../../../../task/property/state.mjs';
 import { git_hub_repository_issues_generic } from './generic.mjs';
 import { object_merge } from '../../../../object/merge.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
@@ -11,7 +12,7 @@ export async function git_hub_repository_issues_close(api_args_to_merge, issue_n
     let verb = 'PATCH';
     object_merge({
         issue_number,
-        ['state']: 'closed'
+        [task_property_state()]: 'closed'
     }, api_args_to_merge);
     return await git_hub_repository_issues_generic(api_args_to_merge, verb);
 }
