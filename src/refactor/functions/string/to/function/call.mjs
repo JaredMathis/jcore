@@ -9,6 +9,7 @@ import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_node_is_literal } from '../../../../../js/node/is/literal.mjs';
 import { js_nodes_each } from '../../../../../js/nodes/each.mjs';
 import { file_js_all_map_args_if_function } from '../../../../../file/js/all/map/args/if/function.mjs';
+import { refactor_import_fix } from '../../../../import/fix.mjs';
 export async function refactor_functions_string_to_function_call(function_name, string_value) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -27,6 +28,7 @@ export async function refactor_functions_string_to_function_call(function_name, 
             });
         });
         if (c) {
+            await refactor_import_fix(args);
         }
     });
 }
