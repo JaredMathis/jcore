@@ -19,18 +19,7 @@ import { defined_is } from '../../../../defined/is.mjs';
 export async function git_hub_repository_issues_generic(api_args_to_merge) {
     arguments_assert(arguments, [defined_is]);
     await git_ignore_add_if_not_exists(git_ignore_cache());
-    let function_name = function_name_get(git_hub_repository_issues_open);
-    let args = arguments;
-    let key = [
-        function_name,
-        args
-    ];
-    let key_json = json_to_minimized(key);
-    let file_name = string_base64_to(key_json);
-    let file_path = path_join([
-        git_ignore_cache(),
-        string_add(file_name, file_extension_json())
-    ]);
+    let file_path = git_hub_cache_file_path(git_hub_repository_issues_open);
     if (await file_exists(file_path)) {
         let result = await file_json_read(file_path);
         return result;
@@ -49,4 +38,20 @@ export async function git_hub_repository_issues_generic(api_args_to_merge) {
     let issues = await octokit.request('GET /repos/{owner}/{repo}/issues', api_args);
     await file_json_write(file_path, issues);
     return issues;
+}
+
+function git_hub_cache_file_path(fn) {
+    let function_name = function_name_get(fn);
+    let args = arguments;
+    let key = [
+        function_name,
+        args
+    ];
+    let key_json = json_to_minimized(key);
+    let file_name = string_base64_to(key_json);
+    let file_path = path_join([
+        git_ignore_cache(),
+        string_add(file_name, file_extension_json())
+    ]);
+    return file_path;
 }
