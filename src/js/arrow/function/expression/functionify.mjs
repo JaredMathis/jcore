@@ -35,7 +35,7 @@ export function js_arrow_function_expression_functionify(node, name) {
     js_return_statement_argument_change(return_statement, body);
     let statements = js_function_declaration_to_statements(function_expression);
     list_add(statements, return_statement);
-    let args = object_property_get(node, js_node_property_arguments());
+    let args = object_property_get(node, js_node_property_params());
     object_property_change(function_expression, js_node_property_params(), args);
     object_replace(node, function_expression);
 }
