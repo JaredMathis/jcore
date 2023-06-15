@@ -10,10 +10,10 @@ export async function git_hub_repository_issues_close(api_args_to_merge, issue_n
         defined_is,
         arguments_assert_todo
     ]);
-    let verb = 'PATCH';
     object_merge({
         issue_number,
         [task_property_state()]: task_property_closed()
     }, api_args_to_merge);
+    let verb = 'PATCH';
     return await git_hub_repository_issues_generic(api_args_to_merge, verb);
 }
