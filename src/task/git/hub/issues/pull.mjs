@@ -1,3 +1,4 @@
+import { task_property_title } from '../../../property/title.mjs';
 import { version_path_tasks_all_get } from '../../../../version/path/tasks/all/get.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { object_map } from '../../../../object/map.mjs';
@@ -18,7 +19,7 @@ export async function task_git_hub_issues_pull(repository_name) {
     assert(list_length(issues) <= git_hub_page_size());
     let mapped = list_map(issues, issue => object_map(issue, [
         'number',
-        'title'
+        task_property_title()
     ]));
     let tasks_all_path = version_path_tasks_all_get(repository_name);
     await file_json_overwrite(tasks_all_path, mapped);
