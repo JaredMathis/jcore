@@ -20,11 +20,11 @@ export async function function_add_string_multiple(prefix, keys_unparsed, values
     let keys = string_identifier_multiple_parse(keys_unparsed);
     let values = string_split_comma(values_unparsed);
     assert(equal_by(list_length, keys, values));
-    list_map_async;
-    for (let i of range(list_length(keys))) {
+    let result = await list_map_async(range(list_length(keys)), async i => {
         let key = list_get(keys, i);
         let value = list_get(values, i);
         let function_name = string_identifier_with_prefix(prefix, key);
-        await function_add_string(function_name, value);
-    }
+        return await function_add_string(function_name, value);
+    });
+    return result;
 }
