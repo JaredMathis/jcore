@@ -1,3 +1,4 @@
+import { object_property_data } from '../object/property/data.mjs';
 import { git_hub_repository_issues_post } from '../git/hub/repository/issues/post.mjs';
 import { version_path_tasks_all_get } from '../version/path/tasks/all/get.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
@@ -9,7 +10,8 @@ import { list_add } from '../list/add.mjs';
 import { error } from '../error.mjs';
 export async function task_add(title) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    await git_hub_repository_issues_post(title);
+    let response = await git_hub_repository_issues_post(title);
+    let data = object_property_data(response);
     let tasks_all_path = version_path_tasks_all_get(repository_name);
     if (!await file_exists(tasks_all_path)) {
         await file_json_overwrite(tasks_all_path, []);
