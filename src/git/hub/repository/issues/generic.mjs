@@ -12,6 +12,7 @@ import { function_name_get } from '../../../../function/name/get.mjs';
 import { git_ignore_cache } from '../../../ignore/cache.mjs';
 import { git_ignore_add_if_not_exists } from '../../../ignore/add/if/not/exists.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
+import { Octokit } from 'octokit';
 export async function git_hub_repository_issues_generic(args_to_merge) {
     arguments_assert(arguments, []);
     await git_ignore_add_if_not_exists(git_ignore_cache());
