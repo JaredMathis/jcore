@@ -4,10 +4,13 @@ import { js_node_property_expression } from '../node/property/expression.mjs';
 import { metadata } from '../../metadata.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { js_parse_statement } from './statement.mjs';
+import { js_node_is_function_declaration } from '../node/is/function/declaration.mjs';
 export function js_parse_expression(code) {
     arguments_assert(arguments, [string_is]);
     let s = js_parse_statement(code);
-    console.log({s})
+    if (js_node_is_function_declaration(s)) {
+        return s;
+    }
     let expression = object_property_get(s, js_node_property_expression());
     return expression;
     metadata([]);
