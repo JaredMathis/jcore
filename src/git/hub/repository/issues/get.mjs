@@ -10,6 +10,9 @@ import { defined_is } from '../../../../defined/is.mjs';
 export async function git_hub_repository_issues_get(api_args_to_merge) {
     arguments_assert(arguments, [defined_is]);
     let verb = 'GET';
+    object_merge({
+        per_page: git_hub_page_size()
+    }, api_args);
     return await git_hub_cached(git_hub_repository_issues_open, arguments, async function lambda() {
         let p = await file_json_read('../private.json');
         let token = object_property_get(p, 'git_hub_api_token');
@@ -19,9 +22,6 @@ export async function git_hub_repository_issues_get(api_args_to_merge) {
         const api_args = {
         };
         object_merge(api_args_to_merge, api_args);
-        object_merge({
-            per_page: git_hub_page_size()
-        }, api_args);
         object_merge({
             owner: owner,
             repo: repository,
