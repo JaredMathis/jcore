@@ -21,11 +21,11 @@ export function js_arrow_function_expression_functionify(node, name) {
     let function_expression = js_parse_expression(function_code);
     let return_statement_code = js_code_return_statement(string_a());
     let return_statement = js_parse_statement(return_statement_code);
-    assert(js_node_is_call_expression(node));
-    js_return_statement_argument_change(return_statement, node);
     console.log({
         node,
         function_expression,
         return_statement
     });
+    assert(js_node_is_call_expression(node));
+    js_return_statement_argument_change(return_statement, node);
 }
