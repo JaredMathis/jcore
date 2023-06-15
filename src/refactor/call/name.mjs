@@ -1,18 +1,14 @@
+import { js_function_declaration_to_statement_after_arguments_assert } from '../../js/function/declaration/to/statement/after/arguments/assert.mjs';
 import { refactor_import_fix } from '../import/fix.mjs';
 import { js_call_expression_name_change } from '../../js/call/expression/name/change.mjs';
 import { js_statement_expression_to_expression } from '../../js/statement/expression/to/expression.mjs';
-import { js_function_declaration_to_statements_and_arguments_assert_statement } from '../../js/function/declaration/to/statements/and/arguments/assert/statement.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-import { list_get } from '../../list/get.mjs';
-import { list_index_after } from '../../list/index/after.mjs';
 export async function refactor_call_name(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {name_new} = args;
     let {function_declaration} = args;
-    let {statements, statement_arguments_assert} = await js_function_declaration_to_statements_and_arguments_assert_statement(function_declaration);
-    let index_after = list_index_after(statements, statement_arguments_assert);
-    let statement_after = list_get(statements, index_after);
+    let statement_after = await js_function_declaration_to_statement_after_arguments_assert(function_declaration);
     let expression = js_statement_expression_to_expression(statement_after);
     js_call_expression_name_change(expression, name_new);
     await refactor_import_fix(args);
