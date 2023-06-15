@@ -1,3 +1,4 @@
+import { task_property_open } from './property/open.mjs';
 import { list_filter_property } from '../list/filter/property.mjs';
 import { task_all } from './all.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
