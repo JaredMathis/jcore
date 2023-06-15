@@ -7,5 +7,5 @@ export async function refactor_input_swap(args) {
     let {index_from, index_to} = args;
     let index_from_integer = integer_parse(index_from);
     let index_to_integer = integer_parse(index_to);
-    await refactor_input_swap_generic(index_from_integer, index_to_integer, args);
+    await refactor_input_swap_generic(args, index_from_integer, index_to_integer);
 }

@@ -11,6 +11,6 @@ export async function refactor_input_swap_generic_to(args, predicate, indices_ge
     assert(predicate(index, params));
     for (let i of indices_get(index, params)) {
         let index_previous = subtract_1(i);
-        await refactor_input_swap_generic(index_previous, i, args);
+        await refactor_input_swap_generic(args, index_previous, i);
     }
 }
