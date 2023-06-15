@@ -10,7 +10,7 @@ export async function task_finish() {
     let task_number_hashed = await task_id_get();
     let task_number_string = string_prefix_without(task_number_hashed, '#');
     let task_number = integer_parse(task_number_string);
-    await task_close(task_number_string);
+    await task_close(task_number);
     await task_id_remove();
     metadata([]);
 }
