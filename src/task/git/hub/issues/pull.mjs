@@ -1,4 +1,4 @@
-import { version_path_tasks_get } from '../../../path/tasks/get.mjs';
+import { version_path_tasks_get } from '../../../../version/path/tasks/get.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { object_map } from '../../../../object/map.mjs';
 import { object_property_data } from '../../../../object/property/data.mjs';
@@ -13,7 +13,7 @@ import { path_join } from '../../../../path/join.mjs';
 import { string_add } from '../../../../string/add.mjs';
 import { file_extension_json } from '../../../../file/extension/json.mjs';
 import { file_json_overwrite } from '../../../../file/json/overwrite.mjs';
-export async function version_git_hub_issues_pull(repository_name) {
+export async function task_git_hub_issues_pull(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let issues_response = await git_hub_repository_issues_all();
     let issues = object_property_data(issues_response);
