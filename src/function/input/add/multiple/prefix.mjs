@@ -1,3 +1,4 @@
+import { error } from '../../../../error.mjs';
 import { string_identifier_parts_from } from '../../../../string/identifier/parts/from.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -12,7 +13,7 @@ export async function function_input_add_multiple_prefix(function_name, prefix, 
     ]);
     let inputs = string_identifier_multiple_parse(inputs_string);
     let mapped = list_map(inputs, map);
-    let result = await function_input_add_multiple_generic(function_name, mapped);
+    let result = await function_input_add_multiple_generic(function_name, mapped, error());
     return result;
     function map(i) {
         return string_identifier_parts_from(prefix, i);
