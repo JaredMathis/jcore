@@ -13,6 +13,10 @@ export async function git_hub_repository_issues_generic(fn, args, api_args_to_me
         arguments_assert_todo
     ]);
     let api_path = `/repos/{owner}/{repo}/issues`;
+    return await git_hub_api(fn, args, api_args_to_merge, verb, api_path);
+}
+
+async function git_hub_api(fn, args, api_args_to_merge, verb, api_path) {
     return await git_hub_cached(fn, args, async function lambda() {
         let p = await file_json_read('../private.json');
         let token = object_property_get(p, 'git_hub_api_token');
@@ -24,7 +28,7 @@ export async function git_hub_repository_issues_generic(fn, args, api_args_to_me
             repo: repository
         };
         object_merge(api_args_to_merge, api_args);
-        let issues = await octokit.request(`${ verb } ${ api_path }`, api_args);
+        let issues = await octokit.request(`${verb} ${api_path}`, api_args);
         let data = object_property_data(issues);
         return data;
     });
