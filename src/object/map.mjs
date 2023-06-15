@@ -8,5 +8,5 @@ export function object_map(object, values_without) {
         defined_is,
         list_is
     ]);
-    return object_merge_filtered(object, key => !list_contains(values_without, key), {});
+    return object_merge_filtered(object, key => list_contains(values_without, key), {});
 }
