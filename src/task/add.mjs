@@ -21,12 +21,12 @@ export async function task_add(title) {
         await file_json_overwrite(tasks_all_path, []);
     }
     let tasks_all = await file_json_read(tasks_all_path);
-    lambda(tasks_all);
+    map(tasks_all);
     await file_json_overwrite(tasks_all_path, tasks_all);
     let task_number = object_property_get(task, task_property_number());
     await task_id_set_hash(task_number);
 
-    function lambda(tasks_all) {
+    function map(tasks_all) {
         list_add(tasks_all, task);
     }
 }
