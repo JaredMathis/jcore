@@ -13,7 +13,8 @@ export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    return await git_hub_cached(fn, args, async function lambda() {
+    return await git_hub_cached(fn, args, lambda);
+    async function lambda() {
         let p = await file_json_read('../private.json');
         let token = object_property_get(p, 'git_hub_api_token');
         const octokit = new Octokit({ auth: token });
@@ -27,5 +28,5 @@ export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge) {
         let issues = await octokit.request(`${ verb } ${ api_path }`, api_args);
         let data = object_property_data(issues);
         return data;
-    });
+    }
 }
