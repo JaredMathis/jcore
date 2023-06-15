@@ -1,5 +1,7 @@
+import { function_inputs } from '../../function/inputs.mjs';
+import { js_call_expression_name_get_or_null } from '../../js/call/expression/name/get/or/null.mjs';
+import { js_call_expression_arguments } from '../../js/call/expression/arguments.mjs';
 import { refactor_import_fix } from '../import/fix.mjs';
-import { js_call_expression_name_change } from '../../js/call/expression/name/change.mjs';
 import { js_function_declaration_to_expression_after_arguments_assert } from '../../js/function/declaration/to/expression/after/arguments/assert.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
