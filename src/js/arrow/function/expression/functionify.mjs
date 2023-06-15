@@ -14,7 +14,7 @@ export function js_arrow_function_expression_functionify(node, name) {
     ]);
     let function_code = `${ js_keyword_function() } ${ name }${ js_code_parenthesis_surround(``) }${ js_brace_left_right() }`;
     let function_expression = js_parse_expression(function_code);
-    js_code_return_statement;
+    js_code_return_statement();
     console.log({
         node,
         function_expression
