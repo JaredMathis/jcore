@@ -12,6 +12,6 @@ export async function task_close(task_number) {
     let data = await git_hub_repository_issues_close(task_number);
     await task_map(function map(tasks_all) {
         let task = list_find_property(tasks_all, task_property_number(), task_number);
-        object_property_change(task, task_property_state(), )
+        object_property_change(task, task_property_state(), task_property_closed())
     });
 }
