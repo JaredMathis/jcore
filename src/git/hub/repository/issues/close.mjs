@@ -6,5 +6,5 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function git_hub_repository_issues_close(issue_number) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let api_args_to_merge = { [task_property_state()]: task_property_closed() };
-    return git_hub_repository_issues_patch(issue_number, api_args_to_merge);
+    return git_hub_repository_issues_patch(git_hub_repository_issues_close, arguments, issue_number, api_args_to_merge);
 }
