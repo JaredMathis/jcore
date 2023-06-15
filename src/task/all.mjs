@@ -1,6 +1,7 @@
-import { error } from '../error.mjs';
+import { task_map } from './map.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-export function task_all() {
+export async function task_all() {
     arguments_assert(arguments, []);
-    error('todo: task_all');
+    let result;
+    await task_map();
 }
