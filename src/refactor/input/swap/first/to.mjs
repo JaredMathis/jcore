@@ -13,7 +13,6 @@ export async function refactor_input_swap_first_to(args) {
         return range_from(index_next, index_last);
     }
     function predicate(index, params) {
-        let index_last = list_last_index(params);
-        return index < index_last;
+        return index >= 1;
     }
 }
