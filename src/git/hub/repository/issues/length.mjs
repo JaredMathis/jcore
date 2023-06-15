@@ -7,5 +7,5 @@ export async function git_hub_repository_issues_length() {
     let issues = await git_hub_repository_issues();
     let v = issues;
     let data = object_property_get(v, 'data');
-    return list_length(issues);
+    return list_length(data);
 }
