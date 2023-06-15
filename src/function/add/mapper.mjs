@@ -1,9 +1,9 @@
+import { function_map_with_args } from '../map/with/args.mjs';
 import { function_open_vs_code } from '../open/vs/code.mjs';
 import { function_add_with_statements_synchronized } from './with/statements/synchronized.mjs';
 import { js_code_await } from '../../js/code/await.mjs';
 import { function_add_inputs } from './inputs.mjs';
 import { function_input_add_type } from '../input/add/type.mjs';
-import { function_map } from '../map.mjs';
 import { function_name_get } from '../name/get.mjs';
 import { js_code_call_expression_with_args } from '../../js/code/call/expression/with/args.mjs';
 import { js_code_statement } from '../../js/code/statement.mjs';
@@ -27,9 +27,10 @@ export async function function_add_mapper(function_name_suffix) {
     await function_add_inputs(function_name_refactor, 'args');
     let input = 'function_name';
     comment(` await function_map(function_name_get(refactor_asyncify), function_name_new);`);
-    let expression_code = js_code_call_expression_with_args(function_name_get(function_map), [
+    let expression_code = js_code_call_expression_with_args(function_name_get(function_map_with_args), [
         js_code_call_expression_with_args(function_name_get(function_name_get), [function_name_refactor]),
-        input
+        input,
+        '{}'
     ]);
     let awaited = js_code_await(expression_code);
     let statement_code = js_code_statement(awaited);
