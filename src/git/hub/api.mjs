@@ -13,6 +13,8 @@ export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
+    let verbs_no_cache = ['GET'];
+    
     return await git_hub_cached(fn, args, lambda);
     async function lambda() {
         let p = await file_json_read('../private.json');
