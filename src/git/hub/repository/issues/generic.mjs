@@ -18,7 +18,8 @@ export async function git_hub_repository_issues_generic(api_args_to_merge) {
     arguments_assert(arguments, []);
     await git_ignore_add_if_not_exists(git_ignore_cache());
     let function_name = function_name_get(git_hub_repository_issues_open);
-    let key = [function_name];
+    let args = arguments;
+    let key = [function_name, args];
     let key_json = json_to_minimized(key);
     let file_name = string_base64_to(key_json);
     let file_path = path_join([
