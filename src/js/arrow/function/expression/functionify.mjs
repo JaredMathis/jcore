@@ -12,8 +12,9 @@ export function js_arrow_function_expression_functionify(node, name) {
         js_node_is_arrow_function_expression,
         arguments_assert_todo
     ]);
-    console.log(name)
     let function_code = `${ js_keyword_function() } ${ name }${ js_code_parenthesis_surround(``) }${ js_brace_left_right() }`;
+    console.log({function_code
+    });
     let function_expression = js_parse_expression(function_code);
     console.log({
         node,
