@@ -25,6 +25,7 @@ import { comment } from '../../../comment.mjs';
 import { function_tests_count } from '../count.mjs';
 export async function function_tests_generate_generic(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
+    console.log('asdf')
     let tests_count = await function_tests_count(function_name);
     if (tests_count > 0) {
         return;
