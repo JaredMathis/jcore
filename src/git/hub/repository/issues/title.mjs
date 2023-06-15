@@ -7,6 +7,6 @@ export async function git_hub_repository_issues_title(issue_number, title) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let api_args_to_merges = { [task_property_title()]: title };
+    let api_args_to_merge = { [task_property_title()]: title };
     return git_hub_repository_issues_patch(issue_number, api_args_to_merge);
 }
