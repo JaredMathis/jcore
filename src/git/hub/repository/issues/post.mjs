@@ -4,9 +4,7 @@ import { object_merge } from '../../../../object/merge.mjs';
 import { defined_is } from '../../../../defined/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function git_hub_repository_issues_post(title) {
-    arguments_assert(arguments, [
-        arguments_assert_todo
-    ]);
+    arguments_assert(arguments, [arguments_assert_todo]);
     let api_args_to_merge = {};
     let verb = 'POST';
     object_merge({ title }, api_args_to_merge);
