@@ -8,6 +8,7 @@ export function js_code_call_expression_with_args_code(name, args) {
         string_is,
         string_is
     ]);
-    return `${ name }${ js_token_parenthesis_left() }${ args }${ js_token_parenthesis_right() }`;
+    let surrounded = `${ js_token_parenthesis_left() }${ args }${ js_token_parenthesis_right() }`;
+    return `${ name }${ surrounded }`;
     metadata([]);
 }
