@@ -13,10 +13,13 @@ import { git_ignore_cache } from '../../../ignore/cache.mjs';
 import { git_ignore_add_if_not_exists } from '../../../ignore/add/if/not/exists.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { Octokit } from 'octokit';
+import { json_to } from '../../../../json/to.mjs';
 export async function git_hub_repository_issues_generic(api_args_to_merge) {
     arguments_assert(arguments, []);
     await git_ignore_add_if_not_exists(git_ignore_cache());
-    let key = function_name_get(git_hub_repository_issues_open);
+    let function_name = function_name_get(git_hub_repository_issues_open);
+    let key = [function_name]
+    let key_json = json_to(key);
     let file_name = string_base64_to(key);
     let file_path = path_join([
         git_ignore_cache(),
