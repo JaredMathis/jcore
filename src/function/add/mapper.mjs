@@ -23,6 +23,7 @@ export async function function_add_mapper(function_name_suffix) {
         'refactor',
         function_name_suffix
     ]);
+    await function_add_inputs(function_name_refactor, 'args');
     let input = 'function_name';
     comment(` await function_map(function_name_get(refactor_asyncify), function_name_new);`);
     let expression_code = js_code_call_expression_with_args(function_name_get(function_map), [
@@ -36,5 +37,4 @@ export async function function_add_mapper(function_name_suffix) {
     let is_async = true;
     await function_add_with_statements_synchronized(function_name, statements, is_async);
     await function_input_add_type(function_name, input, function_name_get(string_identifier_is));
-    await function_add_inputs(function_name_refactor, 'args');
 }
