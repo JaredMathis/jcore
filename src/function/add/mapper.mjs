@@ -1,3 +1,4 @@
+import { js_call_expression_awaitify } from '../../js/call/expression/awaitify.mjs';
 import { js_code_statement } from '../../js/code/statement.mjs';
 import { function_add_with_statement } from './with/statement.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
@@ -6,5 +7,5 @@ import { error } from '../../error.mjs';
 export async function function_add_mapper(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let expression = error();
-    return await function_add_with_statement(function_name, js_code_statement(expression));
+    return await function_add_with_statement(function_name, js_code_statement(js_call_expression_awaitify(expression)));
 }
