@@ -8,6 +8,7 @@ import { js_node_is_arrow_function_expression } from '../../../node/is/arrow/fun
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_parse_expression } from '../../../parse/expression.mjs';
 import { string_a } from '../../../../string/a.mjs';
+import { js_parse_statement } from '../../../parse/statement.mjs';
 export function js_arrow_function_expression_functionify(node, name) {
     arguments_assert(arguments, [
         js_node_is_arrow_function_expression,
@@ -16,8 +17,10 @@ export function js_arrow_function_expression_functionify(node, name) {
     let function_code = `${ js_keyword_function() } ${ name }${ js_code_parenthesis_surround(``) }${ js_brace_left_right() }`;
     let function_expression = js_parse_expression(function_code);
     let return_statement_code = js_code_return_statement(string_a());
+    let return_statement = js_parse_statement(return_statement_code);
     console.log({
         node,
-        function_expression
+        function_expression,
+        return_statement
     });
 }
