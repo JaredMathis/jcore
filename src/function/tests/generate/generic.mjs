@@ -1,3 +1,5 @@
+import { function_tests_generated_string } from '../generated/string.mjs';
+import { count } from '../../../count.mjs';
 import { function_to_declaration } from '../../to/declaration.mjs';
 import { function_tests_generate_generic_each } from './generic/each.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
@@ -27,7 +29,7 @@ export async function function_tests_generate_generic(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let tests_count = await function_tests_count(function_name);
     if (tests_count > 0) {
-        log(`tests already exist - not generating`)
+        log(`tests already exist - not generating`);
         return;
     }
     let function_declaration = await function_to_declaration(function_name);
@@ -53,7 +55,7 @@ export async function function_tests_generate_generic(function_name) {
     let count_error = 0;
     log(function_name);
     for (let i of range(count)) {
-        let test_name = function_name + string_function_tests_sub() + 'generated' + function_name_separator() + (i + 1);
+        let test_name = function_name + string_function_tests_sub() + function_tests_generated_string() + function_name_separator() + (i + 1);
         for (let j of range(tries)) {
             let args = list_map(predicate_names, n => {
                 let key = function_name_to_tests_values(n);
@@ -63,7 +65,7 @@ export async function function_tests_generate_generic(function_name) {
             });
             let args_json = json_to(args);
             if (list_contains(args_so_far, args_json)) {
-                console.log('duplicate args')
+                console.log('duplicate args');
                 continue;
             }
             list_add(args_so_far, args_json);
