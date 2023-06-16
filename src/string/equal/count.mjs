@@ -12,10 +12,11 @@ export function string_equal_count(a, b) {
         string_is
     ]);
     return count(c => {
-        let lengths = list_string_lengths([
+        const inputs = [
             a,
             b
-        ]);
+        ];
+        let lengths = list_string_lengths(inputs);
         for (let i of range(list_min(lengths))) {
             let a_i = string_get(a, i);
             let b_i = string_get(b, i);
