@@ -16,7 +16,13 @@ import { object_property_exists } from '../object/property/exists.mjs';
 export async function task_open() {
     arguments_assert(arguments, []);
     let open = await task_open_get();
-    let filtered = list_filter(open, function v(o) {
+    let filtered = list_filter(open, filter);
+    list_sort_property(filtered, task_property_number());
+    let summaries = list_map(filtered, function v_3(o) {
+        return `${ object_property_get(o, task_property_number()) } ${ object_property_get(o, task_property_title()) }`;
+    });
+    return summaries;
+    function filter(o) {
         let body = object_property_get(o, task_property_body());
         if (null_is(body)) {
             return true;
@@ -31,10 +37,5 @@ export async function task_open() {
             }
         }
         return true;
-    });
-    list_sort_property(filtered, task_property_number());
-    let summaries = list_map(filtered, function v_3(o) {
-        return `${ object_property_get(o, task_property_number()) } ${ object_property_get(o, task_property_title()) }`;
-    });
-    return summaries;
+    }
 }
