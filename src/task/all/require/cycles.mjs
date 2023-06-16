@@ -20,6 +20,6 @@ export async function task_all_require_cycles() {
             });
         });
         assert(!list_length_is_0(visited));
-        list_remove_multiple(all, visited);
+        list_remove_multiple(remaining, visited);
     }
 }
