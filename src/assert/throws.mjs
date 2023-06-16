@@ -8,7 +8,7 @@ export function assert_throws(lambda) {
     arguments_assert(arguments, [function_is]);
     assert_arguments_count(arguments, 1);
     let errored = throws(lambda);
-    assert_message(!errored, `Expecting throw`);
+    assert_message(errored, `Expecting throw`);
     return errored;
     metadata([]);
 }
