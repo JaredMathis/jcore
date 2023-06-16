@@ -1,3 +1,4 @@
+import { function_name_get } from '../../name/get.mjs';
 import { function_tests_generated_string_sub } from '../generated/string/sub.mjs';
 import { count } from '../../../count.mjs';
 import { function_to_declaration } from '../../to/declaration.mjs';
@@ -41,7 +42,7 @@ export async function function_tests_generate_generic(function_name) {
     });
     let names_with_endings_unqiue = list_unique(names_with_endings);
     if (await list_any_async(names_with_endings_unqiue, async n => !await function_exists(n))) {
-        error(`${ arguments_assert } types need filling in`);
+        error(`${ function_name_get(arguments_assert) } types need filling in`);
         return;
     }
     let dictionary = await list_to_dictionary_async(names_with_endings_unqiue, async key => {
