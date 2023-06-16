@@ -9,5 +9,5 @@ export async function git_hub_repository_issue_generic(fn, args, api_args_to_mer
         arguments_assert_todo
     ]);
     let api_path = `/repos/{owner}/{repo}/issues/{issue_number}`;
-    return await git_hub_api(fn, args, verb, api_path, api_args_to_merge);
+    return await git_hub_api(fn, args, verb, api_path, api_args_to_merge, no_cache);
 }
