@@ -42,7 +42,7 @@ export async function function_tests_generate_generic(function_name) {
     });
     let names_with_endings_unqiue = list_unique(names_with_endings);
     if (await list_any_async(names_with_endings_unqiue, async n => !await function_exists(n))) {
-        error(`${ function_name_get(arguments_assert) } types need filling in`);
+        error(`${ function_name_get(arguments_assert) } types need filling in ` + names_with_endings_unqiue);
         return;
     }
     let dictionary = await list_to_dictionary_async(names_with_endings_unqiue, async key => {
