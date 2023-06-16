@@ -7,6 +7,6 @@ export async function task_unsub() {
     arguments_assert(arguments, []);
     let available = await task_finish();
     let last = list_last(available);
-    task_set(task_number_get_string(last));
+    await task_set(task_number_get_string(last));
     return available;
 }
