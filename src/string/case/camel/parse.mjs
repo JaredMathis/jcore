@@ -2,7 +2,7 @@ import { string_to_case_lower } from '../../to/case/lower.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { string_sub } from '../../sub.mjs';
-import { list_new_then } from '../../../list/new/then.mjs';
+import { list_adder } from '../../../list/adder.mjs';
 import { list_map_property } from '../../../list/map/property.mjs';
 import { list_filter_property } from '../../../list/filter/property.mjs';
 import { string_case_upper_is } from '../upper/is.mjs';
@@ -27,7 +27,7 @@ export function string_case_camel_parse(input) {
     let filtered = list_filter_property(mapped, property_is_capital, true);
     let indices = list_map_property(filtered, property_index);
     list_add(indices, list_length(characters));
-    let parts = list_new_then(list_new_then_add => {
+    let parts = list_adder(list_new_then_add => {
         let previous = 0;
         for (let index of indices) {
             if (equal(index, 0)) {

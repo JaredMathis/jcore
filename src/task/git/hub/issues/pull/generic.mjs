@@ -1,7 +1,7 @@
 import { list_multiple_combine } from '../../../../../list/multiple/combine.mjs';
 import { equal } from '../../../../../equal.mjs';
 import { add_1 } from '../../../../../add/1.mjs';
-import { list_new_then_async } from '../../../../../list/new/then/async.mjs';
+import { list_adder_async } from '../../../../../list/adder/async.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { file_json_overwrite } from '../../../../../file/json/overwrite.mjs';
@@ -15,7 +15,7 @@ import { version_repository_default } from '../../../../../version/repository/de
 export async function task_git_hub_issues_pull_generic(no_cache) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let repository_name = version_repository_default();
-    let pages = await list_new_then_async(async list_add_then => {
+    let pages = await list_adder_async(async list_add_then => {
         let page = 1;
         let issues;
         do {

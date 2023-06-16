@@ -10,10 +10,10 @@ import { json_invalid } from '../../../../../../json/invalid.mjs';
 import { null_not_is } from '../../../../../../null/not/is.mjs';
 import { task_property_body } from '../../../../../property/body.mjs';
 import { object_property_get } from '../../../../../../object/property/get.mjs';
-import { list_new_then_async } from '../../../../../../list/new/then/async.mjs';
+import { list_adder_async } from '../../../../../../list/adder/async.mjs';
 export async function task_description_to_json_if_unparsable_generic(open) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let result = await list_new_then_async(async list_add_then => {
+    let result = await list_adder_async(async list_add_then => {
         for (let task of open) {
             let task_body_value = object_property_get(task, task_property_body());
             if (null_not_is(task_body_value)) {

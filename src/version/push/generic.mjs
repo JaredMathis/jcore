@@ -35,7 +35,7 @@ import { version_property_commit_latest } from '../property/commit/latest.mjs';
 import { function_name_separator } from '../../function/name/separator.mjs';
 import { version_collection_repository } from '../collection/repository.mjs';
 import { database_firestore_get } from '../../database/firestore/get.mjs';
-import { list_new_then_async } from '../../list/new/then/async.mjs';
+import { list_adder_async } from '../../list/adder/async.mjs';
 import { subtract_1 } from '../../subtract/1.mjs';
 import { list_length } from '../../list/length.mjs';
 export async function version_push_generic(repository_name, preview) {
@@ -43,7 +43,7 @@ export async function version_push_generic(repository_name, preview) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let list_commits = await list_new_then_async(async list_commits_add => {
+    let list_commits = await list_adder_async(async list_commits_add => {
         let db = database_firestore_get();
         let database_collection_name = version_collection_repository(repository_name);
         let fns = function_name_separator();
