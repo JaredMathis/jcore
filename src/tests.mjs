@@ -16,7 +16,7 @@ import { string_to_list_test_generated_4 } from './string/to/list/test/generated
 import { string_to_list_test_generated_3 } from './string/to/list/test/generated/3.mjs';
 import { string_to_list_test_generated_2 } from './string/to/list/test/generated/2.mjs';
 import { string_to_list_test_generated_1 } from './string/to/list/test/generated/1.mjs';
-import { string_swap_test_generated_3 } from './string/swap/test/generated/3.mjs';
+import { string_swap_test_generated_6 } from './string/swap/test/generated/6.mjs';
 import { string_swap_test_generated_2 } from './string/swap/test/generated/2.mjs';
 import { string_swap_test_generated_1 } from './string/swap/test/generated/1.mjs';
 import { string_suffix_without_test_generated_9 } from './string/suffix/without/test/generated/9.mjs';
@@ -666,7 +666,7 @@ export async function tests() {
     await string_suffix_without_test_generated_9();
     await string_swap_test_generated_1();
     await string_swap_test_generated_2();
-    await string_swap_test_generated_3();
+    await string_swap_test_generated_6();
     await string_to_list_test_generated_1();
     await string_to_list_test_generated_2();
     await string_to_list_test_generated_3();

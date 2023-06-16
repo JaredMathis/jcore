@@ -1,11 +1,13 @@
 import { metadata_generated } from '../../../../metadata/generated.mjs';
 import { metadata } from '../../../../metadata.mjs';
-import { string_swap } from '../../../swap.mjs';
-import { assert_throws } from '../../../../assert/throws.mjs';
+import { json_equal } from '../../../../json/equal.mjs';
 import { assert } from '../../../../assert.mjs';
+import { string_swap } from '../../../swap.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
-export function string_swap_test_generated_3() {
+export function string_swap_test_generated_6() {
     arguments_assert(arguments, []);
-    assert(assert_throws(() => string_swap('aa', 3, 2)));
+    let expected = 'aba';
+    let actual = string_swap('aab', 1, 2);
+    assert(json_equal(actual, expected));
     metadata([metadata_generated()]);
 }
