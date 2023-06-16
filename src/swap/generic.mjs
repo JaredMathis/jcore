@@ -10,6 +10,7 @@ export function swap_generic(generic_get, generic_set, list, index_from, index_t
     ]);
     let from = generic_get(list, index_from);
     let to = generic_get(list, index_to);
-    generic_set(list, index_to, from);
-    generic_set(list, index_from, to);
+    list = generic_set(list, index_to, from);
+    list = generic_set(list, index_from, to);
+    return list;
 }
