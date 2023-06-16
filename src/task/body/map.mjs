@@ -10,6 +10,7 @@ import { task_property_body } from '../property/body.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { task_get } from '../get.mjs';
 import { string_is } from '../../string/is.mjs';
+import { function_name_get } from '../../function/name/get.mjs';
 export async function task_body_map(issue_number, map) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -21,7 +22,10 @@ export async function task_body_map(issue_number, map) {
     if (string_is(task_body_value)) {
         if (json_invalid(task_body_value)) {
             let log_path = version_path_log_now_get(repository_name);
-            await file_json_write(tasks_all_path, mapped);
+            await file_json_write(log_path, {
+                function_name: function_name_get(task_body_map),
+                data: { task_body_value }
+            });
         }
     }
     let body_after = json_map_empty_if_null(task_body_value, map);
