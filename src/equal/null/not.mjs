@@ -1,4 +1,4 @@
-import { equal_null } from '../null.mjs';
+import { null_is } from '../../null/is.mjs';
 export function equal_null_not(result) {
-    return !equal_null(result);
+    return !null_is(result);
 }

@@ -1,4 +1,4 @@
-import { equal_null } from '../equal/null.mjs';
+import { null_is } from '../null/is.mjs';
 import { task_get } from './get.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { task_body } from './body.mjs';
@@ -14,7 +14,7 @@ export async function task_description(issue_number, description) {
     ]);
     let t = await task_get(issue_number);
     let body_before = object_property_get(t, task_property_body());
-    if (equal_null(body_before)) {
+    if (null_is(body_before)) {
     }
     let body_parsed = json_from(body_before);
     let body_after = json_to(body_parsed);

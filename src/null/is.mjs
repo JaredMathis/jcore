@@ -1,4 +1,4 @@
 import { equal } from '../equal.mjs';
-export function equal_null(result) {
+export function null_is(result) {
     return equal(result, null);
 }
