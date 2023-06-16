@@ -15,4 +15,5 @@ export async function task_all_require_cycles() {
             list_new_then_add(node);
         });
     });
+    console.log({visited})
 }
