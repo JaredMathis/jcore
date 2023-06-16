@@ -20,5 +20,6 @@ export async function task_requires(task_number_string, task_number_required_str
         object_property_initialize_if_unset(body_parsed, task_body_property_requires(), []);
         let requires = object_property_get(body_parsed, task_body_property_requires());
         let task_number_required = integer_parse(task_number_required_string);
+        list_add_assert_not_exists(requires, task_number_required);
     }
 }
