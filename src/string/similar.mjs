@@ -8,9 +8,10 @@ export function string_similar(a, b) {
         string_is,
         string_is
     ]);
+    let fn = string_similar_remove_single
     let result = [
-        string_similar_remove_single(a, b),
-        string_similar_remove_single(b, a)
+        fn(a, b),
+        fn(b, a)
     ];
     return list_any(result, true_is);
 }
