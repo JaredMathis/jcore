@@ -13,7 +13,7 @@ export function string_similar_swap_adjascent(a, b) {
     ]);
     for (let i of range(subtract_1(string_length(a)))) {
         let i_next = add_1(i);
-        let other = string_swap(a, i);
+        let other = string_swap(a, i, i_next);
         if (equal(other, b)) {
             return true;
         }
