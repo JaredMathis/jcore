@@ -9,7 +9,9 @@ export function version_path_log_now_get(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let log_path = version_path_log_get(repository_name);
     let iso = date_now_iso();
-    string_replace;
+    for (let r of replacements) {
+        string_replace(iso, r, '')
+    }
     console.log({ iso });
     return file_path_json(log_path, 'all');
 }
