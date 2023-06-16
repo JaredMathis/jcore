@@ -9,10 +9,10 @@ export function string_similar(a, b) {
         string_is
     ]);
     const fns = [string_similar_remove_single];
-    for (let f of fns) {
+    for (let fn of fns) {
         let result = [
-            f(a, b),
-            f(b, a)
+            fn(a, b),
+            fn(b, a)
         ];
         if (list_any(result, true_is)) {
             return true;
