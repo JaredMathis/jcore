@@ -1,3 +1,4 @@
+import { list_multiple_combine } from '../../../../../list/multiple/combine.mjs';
 import { equal } from '../../../../../equal.mjs';
 import { add_1 } from '../../../../../add/1.mjs';
 import { list_new_then_async } from '../../../../../list/new/then/async.mjs';
@@ -23,7 +24,7 @@ export async function task_git_hub_issues_pull_generic(no_cache) {
             page = add_1(page);
         } while (equal(list_length(issues), git_hub_page_size()));
     });
-    let issues_combined = list_combine(pages);
+    let issues_combined = list_multiple_combine(pages);
     let mapped = list_map(issues_combined, task_from_git_hub_issue);
     let tasks_all_path = version_path_tasks_all_get(repository_name);
     await file_json_overwrite(tasks_all_path, mapped);
