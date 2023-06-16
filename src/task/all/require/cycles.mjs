@@ -1,4 +1,4 @@
-import { log } from '../../../log.mjs';
+import { list_remove_multiple } from '../../../list/remove/multiple.mjs';
 import { task_current } from '../../current.mjs';
 import { visit } from '../../../visit.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -11,7 +11,7 @@ import { assert } from '../../../assert.mjs';
 export async function task_all_require_cycles() {
     arguments_assert(arguments, []);
     let remaining = await task_all_unsummarized();
-    while(!list_length_is_0(remaining)) {
+    while (!list_length_is_0(remaining)) {
         let task_current = list_first(remaining);
         let visited = list_adder(list_new_then_add => {
             visit(task_current, task => task_requires_get(task), v => {
