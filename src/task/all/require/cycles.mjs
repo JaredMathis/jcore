@@ -24,6 +24,7 @@ export async function task_all_require_cycles() {
                 return filtered;
             }, v => {
                 let {node} = v;
+                console.log({node})
                 list_new_then_add(node);
             });
         });
