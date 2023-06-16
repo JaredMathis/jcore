@@ -1,8 +1,8 @@
+import { list_is } from '../list/is.mjs';
 import { task_requires_get } from './requires/get.mjs';
 import { string_comma } from '../string/comma.mjs';
 import { string_add } from '../string/add.mjs';
 import { js_code_parenthesis_surround } from '../js/code/parenthesis/surround.mjs';
-import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { task_property_title } from './property/title.mjs';
 import { task_property_number } from './property/number.mjs';
@@ -11,8 +11,11 @@ import { list_join } from '../list/join.mjs';
 import { list_add } from '../list/add.mjs';
 import { list_length_is_0 } from '../list/length/is/0.mjs';
 import { task_is } from './is.mjs';
-export function task_summary(task) {
-    arguments_assert(arguments, [task_is]);
+export function task_summary(task, all_unsummarized) {
+    arguments_assert(arguments, [
+        task_is,
+        list_is
+    ]);
     let requires = task_requires_get(task);
     let strings = [];
     const task_number = object_property_get(task, task_property_number());
