@@ -5,5 +5,5 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 export async function list_adder_unique_async(then) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let lambda = list_add_if_not_exists;
-    return list_adder_generic(then, lambda);
+    return await list_adder_generic(then, lambda);
 }
