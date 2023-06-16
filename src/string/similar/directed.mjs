@@ -9,7 +9,8 @@ export function string_similar_directed(a, b) {
         string_is,
         string_is
     ]);
-    for (let i of range(string_length(a))) {
+    const a_length = string_length(a);
+    for (let i of range(a_length)) {
         let other = string_remove_at(a, i);
         if (equal(other, b)) {
             return true;
