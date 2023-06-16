@@ -6,6 +6,6 @@ import { assert } from '../../../../../assert.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export function string_remove_at_test_generated_1() {
     arguments_assert(arguments, []);
-    assert(assert_throws(() => string_remove_at('b', 3)));
+    assert(assert_throws(() => string_remove_at('', 1)));
     metadata([metadata_generated()]);
 }
