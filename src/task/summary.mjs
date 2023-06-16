@@ -19,5 +19,5 @@ export function task_summary(task) {
     list_add(strings, requires_string);
     const title = object_property_get(task, task_property_title());
     list_add(strings, title);
-    return `${ task_number } ${ requires_string } ${ title }`;
+    return list_join(strings, ' ');
 }
