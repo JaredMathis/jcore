@@ -7,8 +7,11 @@ import { list_sort_property } from '../../list/sort/property.mjs';
 import { list_filter } from '../../list/filter.mjs';
 import { task_open_get } from './get.mjs';
 import { function_is } from '../../function/is.mjs';
-export async function task_open_generic(filter_get) {
-    arguments_assert(arguments, [function_is]);
+export async function task_open_generic(filter_get, map) {
+    arguments_assert(arguments, [
+        function_is,
+        function_is
+    ]);
     let open = await task_open_get();
     let filtered = list_filter(open, filter_get(open));
     list_sort_property(filtered, task_property_number());
