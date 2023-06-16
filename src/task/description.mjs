@@ -8,6 +8,7 @@ import { object_property_get } from '../object/property/get.mjs';
 import { task_property_body } from './property/body.mjs';
 import { json_from } from '../json/from.mjs';
 import { json_to } from '../json/to.mjs';
+import { object_property_set } from '../object/property/set.mjs';
 export async function task_description(issue_number, description) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -19,6 +20,7 @@ export async function task_description(issue_number, description) {
         body_before = js_brace_left_right();
     }
     let body_parsed = json_from(body_before);
+    object_property_set(body_parsed, task_body_property_description)
     let body_after = json_to(body_parsed);
     let result = await task_body(issue_number, body_after);
     return result;
