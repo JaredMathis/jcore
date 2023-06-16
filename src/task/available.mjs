@@ -12,7 +12,8 @@ import { task_open_generic } from './open/generic.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 export async function task_available() {
     arguments_assert(arguments, []);
-    return await task_open_generic(filter_get, task_summary);
+    let map = task_summary;
+    return await task_open_generic(filter_get, map);
     function filter_get(open) {
         return function filter(o) {
             let body = object_property_get(o, task_property_body());
