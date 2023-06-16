@@ -13,6 +13,7 @@ export async function task_open_description_to_json_if_unparsable() {
     let result = await list_new_then_async(async list_add_then => {
         for (let t of open) {
             let task_body_value = object_property_get(t, task_property_body());
+            console.log({task_body_value})
             if (throws(() => json_to(task_body_value))) {
                 await task_description(t, task_body_value);
                 list_add_then(object_property_get(t, task_property_number()));
