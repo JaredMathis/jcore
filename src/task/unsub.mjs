@@ -20,5 +20,5 @@ export async function task_unsub() {
     await task_set(last_string);
     let data = await task_current();
     object_merge({data}, result);
-    return data;
+    return result;
 }
