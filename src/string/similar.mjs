@@ -11,10 +11,7 @@ export function string_similar(a, b) {
     ]);
     const fns_commutative = [string_similar_remove_single];
     for (let fn of fns_commutative) {
-        let results = [
-            fn(a, b),
-            fn(b, a)
-        ];
+        let results = results_get(fn);
         if (list_any(results, true_is)) {
             return true;
         }
@@ -23,4 +20,10 @@ export function string_similar(a, b) {
         return true;
     }
     return false;
+    function results_get(fn) {
+        return [
+            fn(a, b),
+            fn(b, a)
+        ];
+    }
 }
