@@ -1,3 +1,4 @@
+import { list_intersection } from '../../../list/intersection.mjs';
 import { list_map_property } from '../../../list/map/property.mjs';
 import { list_remove_until_empty } from '../../../list/remove/until/empty.mjs';
 import { visit } from '../../../visit.mjs';
@@ -19,7 +20,8 @@ export async function task_all_require_cycles() {
             visit(task_number_current, task_number => {
                 let task = list_find_property(all, task_property_number(), task_number);
                 let task_numbers = task_requires_get(task);
-                return task_numbers;
+                let filtered = list_intersection(task_numbers, remaining);
+                return filtered;
             }, v => {
                 let {node} = v;
                 list_new_then_add(node);
