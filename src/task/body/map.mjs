@@ -1,3 +1,4 @@
+import { version_path_log_now_get } from '../../version/path/log/now/get.mjs';
 import { file_json_write } from '../../file/json/write.mjs';
 import { version_repository_default } from '../../version/repository/default.mjs';
 import { json_invalid } from '../../json/invalid.mjs';
@@ -19,6 +20,7 @@ export async function task_body_map(issue_number, map) {
     let task_body_value = object_property_get(t, task_property_body());
     if (string_is(task_body_value)) {
         if (json_invalid(task_body_value)) {
+            let log_path = version_path_log_now_get(repository_name);
             await file_json_write(tasks_all_path, mapped);
         }
     }
