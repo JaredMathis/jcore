@@ -1,3 +1,4 @@
+import { string_equal_except_1 } from './equal/except/1.mjs';
 import { list_each_function_results_any } from '../list/each/function/results/any.mjs';
 import { list_multiple_combine } from '../list/multiple/combine.mjs';
 import { string_similar_swap_adjascent } from './similar/swap/adjascent.mjs';
@@ -13,7 +14,10 @@ export function string_similar(a, b) {
     if (list_each_function_results_any(fns_commutative, results_commutative_get)) {
         return true;
     }
-    const fns = [string_similar_swap_adjascent];
+    const fns = [
+        string_similar_swap_adjascent,
+        string_equal_except_1
+    ];
     if (list_each_function_results_any(fns, results_get)) {
         return true;
     }
