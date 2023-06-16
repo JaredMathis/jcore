@@ -1,3 +1,4 @@
+import { try_catch_throw_async } from '../try/catch/throw/async.mjs';
 import { defined_is } from '../defined/is.mjs';
 import { string_identifier_is } from '../string/identifier/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -14,6 +15,9 @@ export async function function_import(import_meta, function_name) {
     let function_path = function_name_to_file_path(function_name);
     let concated = path_relative_file(__filename, function_path);
     let replaced = js_import_path_normalize(concated);
+    if (false) {
+        await try_catch_throw_async();
+    }
     let imported = await import(replaced);
     return imported;
 }
