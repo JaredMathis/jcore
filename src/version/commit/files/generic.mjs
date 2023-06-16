@@ -1,3 +1,4 @@
+import { date_now_iso } from '../../../date/now/iso.mjs';
 import { version_path_commit } from '../../path/commit.mjs';
 import { version_property_commit_id } from '../../property/commit/id.mjs';
 import { version_list_file_add } from '../../list/file/add.mjs';
@@ -52,7 +53,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         }
     }
     if (!list_length_is_0(writes)) {
-        let when = new Date().toISOString();
+        let when = date_now_iso();
         let commit_id = guid_generate();
         let commit = {
             [version_property_commit_id()]: commit_id,
