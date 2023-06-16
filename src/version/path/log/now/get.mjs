@@ -6,9 +6,10 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function version_path_log_now_get(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let log_path = version_path_log_get(repository_name);
+    const file_name = 'all';
     let tasks_all_path = path_join([
-        log_path,
-        file_name_json('all')
+        tasks_path,
+        file_name_json(file_name)
     ]);
     return tasks_all_path;
 }
