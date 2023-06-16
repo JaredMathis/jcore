@@ -1,4 +1,3 @@
-import { boolean_is } from '../../boolean/is.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { object_property_data } from '../../object/property/data.mjs';
@@ -8,14 +7,13 @@ import { file_json_read } from '../../file/json/read.mjs';
 import { git_hub_cached } from './cached.mjs';
 import { Octokit } from 'octokit';
 import { list_contains } from '../../list/contains.mjs';
-export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge, no_cache) {
+export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo,
         arguments_assert_todo,
         arguments_assert_todo,
-        arguments_assert_todo,
-        boolean_is
+        arguments_assert_todo
     ]);
     let verbs_cache = ['GET'];
     if (!list_contains(verbs_cache, verb)) {
