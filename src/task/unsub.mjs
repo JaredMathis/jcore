@@ -12,7 +12,9 @@ export async function task_unsub() {
     let result = result_empty();
     let required_bys = await task_current_required_bys();
     if (list_length_is_0(required_bys)) {
-        return await task_finish();
+        let data = await task_finish();
+        object_merge({data}, result);
+        return result;
     }
     let last = await list_last(required_bys);
     await task_finish();
