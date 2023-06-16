@@ -12,6 +12,6 @@ export function list_swap(list, index_from, index_to) {
     let generic_set = list_set;
     let from = list_get(list, index_from);
     let to = list_get(list, index_to);
-    list_set(list, index_to, from);
-    list_set(list, index_from, to);
+    generic_set(list, index_to, from);
+    generic_set(list, index_from, to);
 }
