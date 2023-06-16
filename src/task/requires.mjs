@@ -7,13 +7,13 @@ import { string_is } from '../string/is.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { assert } from '../assert.mjs';
-export async function task_requires(issue_number, issue_number_required) {
+export async function task_requires(task_number, task_number_required) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         string_is
     ]);
-    assert(await task_exists(issue_number_required));
-    let result = await task_body_map(issue_number, map);
+    assert(await task_exists(task_number_required));
+    let result = await task_body_map(task_number, map);
     return result;
     function map(body_parsed) {
         object_property_initialize_if_unset(body_parsed, task_body_property_requires(), []);
