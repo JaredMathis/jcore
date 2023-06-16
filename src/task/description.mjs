@@ -17,17 +17,23 @@ export async function task_description(issue_number, description) {
         string_is
     ]);
     let t = await task_get(issue_number);
-    let body_before = object_property_get(t, task_property_body());
-    if (null_is(body_before)) {
+    let task_body_value = object_property_get(t, task_property_body());
+    let body_before;
+    if (null_is(task_body_value)) {
         body_before = js_brace_left_right();
     }
-    let body_parsed = json_from(body_before);
-    map(body_parsed);
-    let body_after = json_to(body_parsed);
+    let body_after = json_map(body_before, map);
     let result = await task_body(issue_number, body_after);
     return result;
 
     function map(body_parsed) {
         object_property_set(body_parsed, task_body_property_description(), description);
     }
+}
+
+function json_map(json_before, map) {
+    let json_parsed = json_from(json_before);
+    map(json_parsed);
+    let json_after = json_to(json_parsed);
+    return json_after;
 }
