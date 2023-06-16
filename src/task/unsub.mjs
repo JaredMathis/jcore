@@ -1,6 +1,6 @@
-import { error } from '../error.mjs';
+import { task_finish } from './finish.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-export function task_unsub() {
+export async function task_unsub() {
     arguments_assert(arguments, []);
-    error('todo: task_unsub');
+    task_finish();
 }
