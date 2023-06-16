@@ -1,3 +1,4 @@
+import { list_adder_async } from '../../../../list/adder/async.mjs';
 import { list_add_property_generic } from '../../../../list/add/property/generic.mjs';
 import { changed } from '../../../../changed.mjs';
 import { list_add_property } from '../../../../list/add/property.mjs';
@@ -11,12 +12,13 @@ export async function file_js_all_identifier_rename(identifier_name_old, identif
         string_identifier_is,
         string_identifier_is
     ]);
-    let file_paths_changed = [];
-    await file_js_all_map_args(function mapper(args) {
-        let changed = js_identifier_rename(args, identifier_name_old, identifier_name_new);
-        if (changed) {
-            list_add_property_generic(list_add_property, file_paths_changed, args, 'file_path');
-        }
+    let file_paths_changed = await list_adder_async(async la => {
+        await file_js_all_map_args(function mapper(args) {
+            let changed = js_identifier_rename(args, identifier_name_old, identifier_name_new);
+            if (changed) {
+                list_add_property_generic(list_add_property, file_paths_changed, args, 'file_path');
+            }
+        });
     });
     return file_paths_changed;
     metadata([]);
