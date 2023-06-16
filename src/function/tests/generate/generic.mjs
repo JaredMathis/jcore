@@ -54,7 +54,6 @@ export async function function_tests_generate_generic(function_name, count) {
     });
     let args_so_far = [];
     let tries = 100;
-    let count = function_tests_generate_count_default();
     let count_error_max = 2;
     let count_error = 0;
     log(function_name);
