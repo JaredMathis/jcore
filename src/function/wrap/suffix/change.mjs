@@ -11,11 +11,12 @@ export async function function_wrap_suffix_change(function_name_to_wrap_without_
         string_identifier_first_not_is,
         string_identifier_first_not_is
     ]);
+    let lambda = string_suffix_replace;
     let function_name_to_wrap = list_join([
         function_name_to_wrap_without_suffix,
         suffix_before
     ], function_name_separator());
-    let function_name_to_add = string_suffix_replace(function_name_to_wrap, suffix_before, suffix_after);
+    let function_name_to_add = lambda(function_name_to_wrap, suffix_before, suffix_after);
     let result = await function_wrap(function_name_to_wrap, function_name_to_add);
     return result;
 }
