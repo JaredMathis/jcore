@@ -5,6 +5,6 @@ import { arguments_assert } from '../arguments/assert.mjs';
 export async function task_all() {
     arguments_assert(arguments, []);
     let all = await task_all_unsummarized();
-    let summaries = list_map(all, task_summary);
+    let summaries = list_map(all, t => task_summary(t));
     return summaries;
 }
