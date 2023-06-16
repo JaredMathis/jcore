@@ -10,8 +10,9 @@ import { task_property_body } from '../property/body.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { task_open_generic } from '../open/generic.mjs';
 import { null_not_is } from '../../null/not/is.mjs';
+import { function_is } from '../../function/is.mjs';
 export async function task_available_generic(map_with_all_unsummarized) {
-    arguments_assert(arguments, [arguments_assert_todo]);
+    arguments_assert(arguments, [function_is]);
     return await task_open_generic(filter_get, map_with_all_unsummarized);
     function filter_get(open) {
         return function filter(o) {
