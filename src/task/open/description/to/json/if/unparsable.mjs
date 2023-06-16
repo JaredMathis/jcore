@@ -4,7 +4,8 @@ import { json_to } from '../../../../../../json/to.mjs';
 export async function task_open_description_to_json_if_unparsable() {
     arguments_assert(arguments, []);
     let open = await task_open_get();
-    for (let o of open) {
+    for (let t of open) {
+        let task_body_value = object_property_get(t, task_property_body());
         try {
             json_to(body);
         } catch (e) {
