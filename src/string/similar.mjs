@@ -8,8 +8,8 @@ export function string_similar(a, b) {
         string_is,
         string_is
     ]);
-    let fn = string_similar_remove_single;
-    for (let f of [fn]) {
+    const fns = [string_similar_remove_single];
+    for (let f of fns) {
         let result = [
             f(a, b),
             f(b, a)
