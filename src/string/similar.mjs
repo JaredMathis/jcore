@@ -27,3 +27,13 @@ export function string_similar(a, b) {
         ];
     }
 }
+
+function string_similar(fns) {
+    for (let fn of fns) {
+        let results = results_get(fn);
+        if (list_any(results, true_is)) {
+            return true;
+        }
+    }
+    return false;
+}
