@@ -4,10 +4,10 @@ import { json_equal } from '../../../../json/equal.mjs';
 import { assert } from '../../../../assert.mjs';
 import { string_similar } from '../../../similar.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
-export function string_similar_test_generated_2() {
+export function string_similar_test_generated_11() {
     arguments_assert(arguments, []);
-    let expected = true;
-    let actual = string_similar('', 'b');
+    let expected = false;
+    let actual = string_similar('a', 'aab');
     assert(json_equal(actual, expected));
     metadata([metadata_generated()]);
 }
