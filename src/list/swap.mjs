@@ -8,7 +8,7 @@ export function list_swap(list, index_from, index_to) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let generic_get;
+    let generic_get = list_get;
     let generic_set;
     let from = list_get(list, index_from);
     let to = list_get(list, index_to);
