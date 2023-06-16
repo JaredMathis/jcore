@@ -1,8 +1,10 @@
+import { task_body_requires } from '../body/requires.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { task_get } from '../get.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 export async function task_requires_get(task_number_string) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let result = await task_get(task_number_string);
-    return result;
+    let task = await task_get(task_number_string);
+    let requires = task_body_requires(task);
+    return requires;
 }
