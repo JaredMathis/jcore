@@ -7,6 +7,7 @@ import { task_all_unsummarized } from '../unsummarized.mjs';
 import { task_requires_get } from '../../requires/get.mjs';
 import { task_property_number } from '../../property/number.mjs';
 import { list_find_property } from '../../../list/find/property.mjs';
+import { list_length_is_0 } from '../../../list/length/is/0.mjs';
 export async function task_all_require_cycles() {
     arguments_assert(arguments, []);
     let all = await task_all_unsummarized();
@@ -16,10 +17,12 @@ export async function task_all_require_cycles() {
             let task = list_find_property(all, task_property_number(), task_number);
             let task_numbers = task_requires_get(task);
             let filtered = list_intersection(task_numbers, task_numbers);
-            console.log({
-                task_number,
-                filtered
-            });
+            if (!list_length_is_0(filtered)) {
+                console.log({
+                    task_number,
+                    filtered
+                });
+            }
             return filtered;
         }, v => {
             let {node} = v;
