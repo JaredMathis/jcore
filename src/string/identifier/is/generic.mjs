@@ -1,7 +1,5 @@
-import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { string_includes } from '../../includes.mjs';
-import { string_underscore } from '../../underscore.mjs';
 import { string_underscore_is } from '../../underscore/is.mjs';
 import { list_last } from '../../../list/last.mjs';
 import { string_letter_is } from '../../letter/is.mjs';
@@ -12,6 +10,7 @@ import { string_is } from '../../is.mjs';
 import { boolean_is } from '../../../boolean/is.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { string_letter_digit_or_underscore_is_generic } from '../../letter/digit/or/underscore/is/generic.mjs';
+import { function_name_separator } from '../../../function/name/separator.mjs';
 export function string_identifier_is_generic(value, enforce_first, enforce_last, allow_underscores) {
     arguments_assert(arguments, [
         defined_is,
@@ -38,7 +37,7 @@ export function string_identifier_is_generic(value, enforce_first, enforce_last,
             return false;
         }
     }
-    let underscore = string_underscore();
+    let underscore = function_name_separator();
     if (string_includes(value, `${ underscore }${ underscore }`)) {
         return false;
     }
