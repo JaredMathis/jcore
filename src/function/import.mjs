@@ -24,9 +24,10 @@ export async function function_import(import_meta, function_name) {
         let all = await function_name_all();
         let similar = list_filter(all, a => string_similar(a, function_name));
         let similar_paths = function_name_list_to_file_path(similar);
-        let fn = log
-        fn(`Did you mean: `);
-        fn(similar_paths);
+        let logs = [`Did you mean: `,similar_paths]
+        for (let message of logs) {
+            log(message);
+        }
     });
     return imported;
 }
