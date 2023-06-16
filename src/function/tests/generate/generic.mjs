@@ -1,4 +1,4 @@
-import { function_tests_generated_string } from '../generated/string.mjs';
+import { function_tests_generated_string_sub } from '../generated/string/sub.mjs';
 import { count } from '../../../count.mjs';
 import { function_to_declaration } from '../../to/declaration.mjs';
 import { function_tests_generate_generic_each } from './generic/each.mjs';
@@ -8,8 +8,6 @@ import { list_add } from '../../../list/add.mjs';
 import { list_contains } from '../../../list/contains.mjs';
 import { json_to } from '../../../json/to.mjs';
 import { list_random_item } from '../../../list/random/item.mjs';
-import { function_name_separator } from '../../name/separator.mjs';
-import { string_function_tests_sub } from '../../../string/function/tests/sub.mjs';
 import { range } from '../../../range.mjs';
 import { log } from '../../../log.mjs';
 import { function_run } from '../../run.mjs';
@@ -55,7 +53,7 @@ export async function function_tests_generate_generic(function_name) {
     let count_error = 0;
     log(function_name);
     for (let i of range(count)) {
-        let test_name = function_name + string_function_tests_sub() + function_tests_generated_string() + function_name_separator() + (i + 1);
+        let test_name = function_name + function_tests_generated_string_sub() + (i + 1);
         for (let j of range(tries)) {
             let args = list_map(predicate_names, n => {
                 let key = function_name_to_tests_values(n);
