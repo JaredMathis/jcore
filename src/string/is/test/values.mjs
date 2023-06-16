@@ -5,7 +5,7 @@ import { string_a } from '../../a.mjs';
 export function string_is_test_values() {
     arguments_assert(arguments, []);
     let aa = `${ string_a() }${ string_a() }`;
-    return list_combine([
+    return list_multiple_combine([
         character_is_test_values(),
         [
             string_empty(),
