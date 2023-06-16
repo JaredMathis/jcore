@@ -7,7 +7,7 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function string_similar_test_generated_8() {
     arguments_assert(arguments, []);
     let expected = false;
-    let actual = string_similar('b', 'a');
+    let actual = string_similar('aab', 'b');
     assert(json_equal(actual, expected));
     metadata([metadata_generated()]);
 }
