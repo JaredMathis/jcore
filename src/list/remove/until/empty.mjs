@@ -5,7 +5,7 @@ import { comment } from '../../../comment.mjs';
 export function list_remove_until_empty(remaining, removals_get) {
     while (!list_length_is_0(remaining)) {
         let removals = removals_get();
-        comment(`This ensures no infinte loops - we make progress each time`)
+        comment(`This ensures no infinte loops - we make progress each time`);
         assert(!list_length_is_0(removals));
         list_remove_multiple(remaining, removals);
     }
