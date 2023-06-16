@@ -1,3 +1,4 @@
+import { function_tests_generate_count_default } from './count/default.mjs';
 import { function_name_get } from '../../name/get.mjs';
 import { function_tests_generated_string_sub } from '../generated/string/sub.mjs';
 import { count } from '../../../count.mjs';
@@ -50,7 +51,7 @@ export async function function_tests_generate_generic(function_name) {
     });
     let args_so_far = [];
     let tries = 100;
-    let count = 10;
+    let count = function_tests_generate_count_default();
     let count_error_max = 2;
     let count_error = 0;
     log(function_name);
