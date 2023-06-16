@@ -9,7 +9,7 @@ export async function file_js_all_identifier_exists(identifier_name) {
     let result = await list_adder_unique_async(async la => {
         await file_js_all_identifiers_each(function lambda(identifiers) {
             for (let i of identifiers) {
-                la(result, i);
+                la(i);
             }
         });
     });
