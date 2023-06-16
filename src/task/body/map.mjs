@@ -1,3 +1,5 @@
+import { file_json_write } from '../../file/json/write.mjs';
+import { version_repository_default } from '../../version/repository/default.mjs';
 import { json_invalid } from '../../json/invalid.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -12,7 +14,7 @@ export async function task_body_map(issue_number, map) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    
+    let repository_name = version_repository_default();
     let t = await task_get(issue_number);
     let task_body_value = object_property_get(t, task_property_body());
     if (string_is(task_body_value)) {
