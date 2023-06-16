@@ -13,5 +13,6 @@ export function task_summary(task) {
     let requires = task_requires_get(task);
     const task_number = object_property_get(task, task_property_number());
     const requires_string = js_code_parenthesis_surround(string_add(`requires: `, list_join(requires, string_comma())));
-    return `${ task_number } ${ requires_string } ${ object_property_get(task, task_property_title()) }`;
+    const title = object_property_get(task, task_property_title());
+    return `${ task_number } ${ requires_string } ${ title }`;
 }
