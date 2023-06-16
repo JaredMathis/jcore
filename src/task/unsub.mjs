@@ -23,5 +23,5 @@ export async function task_unsub() {
     let last_string = string_to(last);
     await task_set(last_string);
     let data = await task_current();
-    return result_data_set(data, result);
+    return result_data_set(result, data);
 }
