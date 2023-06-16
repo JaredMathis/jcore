@@ -9,5 +9,5 @@ import { object_property_get } from '../object/property/get.mjs';
 import { list_join } from '../list/join.mjs';
 export function task_summary(task) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    return `${ object_property_get(task, task_property_number()) } ${ js_code_parenthesis_surround(string_add(`requires: `, list_join(requies, string_comma()))) } ${ object_property_get(task, task_property_title()) }`;
+    return `${ object_property_get(task, task_property_number()) } ${ js_code_parenthesis_surround(string_add(`requires: `, list_join(requires, string_comma()))) } ${ object_property_get(task, task_property_title()) }`;
 }
