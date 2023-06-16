@@ -9,7 +9,8 @@ export function string_similar_remove_single(a, b) {
         string_is,
         string_is
     ]);
-    for (let i of range(string_length(a))) {
+    const range_count = string_length(a);
+    for (let i of range(range_count)) {
         let other = string_remove_at(a, i);
         if (equal(other, b)) {
             return true;
