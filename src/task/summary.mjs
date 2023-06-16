@@ -10,8 +10,9 @@ import { object_property_get } from '../object/property/get.mjs';
 import { list_join } from '../list/join.mjs';
 import { list_add } from '../list/add.mjs';
 import { list_length_is_0 } from '../list/length/is/0.mjs';
+import { task_is } from './is.mjs';
 export function task_summary(task) {
-    arguments_assert(arguments, [arguments_assert_todo]);
+    arguments_assert(arguments, [task_is]);
     let requires = task_requires_get(task);
     let strings = [];
     const task_number = object_property_get(task, task_property_number());
