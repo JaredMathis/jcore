@@ -12,9 +12,6 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_parse_expression } from '../../../parse/expression.mjs';
 import { string_a } from '../../../../string/a.mjs';
 import { js_parse_statement } from '../../../parse/statement.mjs';
-import { assert } from '../../../../assert.mjs';
-import { js_node_is_call_expression } from '../../../node/is/call/expression.mjs';
-import { comment } from '../../../../comment.mjs';
 import { js_function_declaration_to_statements } from '../../../function/declaration/to/statements.mjs';
 import { list_add } from '../../../../list/add.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
@@ -34,8 +31,6 @@ export function js_arrow_function_expression_functionify(node, name) {
     if (js_node_is_block_statement(body)) {
         object_property_change(function_expression, js_node_property_body(), body);
     } else {
-        comment(`If this fails, code needs to handle`);
-        assert(js_node_is_call_expression(body));
         js_return_statement_argument_change(return_statement, body);
         let statements = js_function_declaration_to_statements(function_expression);
         list_add(statements, return_statement);
