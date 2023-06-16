@@ -13,4 +13,5 @@ export function list_set(list, index, value) {
     assert(index >= 0);
     assert(index <= list_length(list));
     list[index] = value;
+    return list;
 }
