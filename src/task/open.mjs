@@ -12,22 +12,22 @@ import { object_property_exists } from '../object/property/exists.mjs';
 export async function task_open() {
     arguments_assert(arguments, []);
     return await task_open_generic(filter_get);
-    function filter_get(open) {
-        return function filter(o) {
-            let body = object_property_get(o, task_property_body());
-            if (null_is(body)) {
-                return true;
-            }
-            let body_parsed = json_from(body);
-            if (object_property_exists(body_parsed, task_body_property_requires())) {
-                let requires = object_property_get(body_parsed, task_body_property_requires());
-                if (list_any(requires, function v_2(r) {
-                        return list_find_property_exists(open, task_property_number(), r);
-                    })) {
-                    return false;
-                }
-            }
+}
+function filter_get(open) {
+    return function filter(o) {
+        let body = object_property_get(o, task_property_body());
+        if (null_is(body)) {
             return true;
-        };
-    }
+        }
+        let body_parsed = json_from(body);
+        if (object_property_exists(body_parsed, task_body_property_requires())) {
+            let requires = object_property_get(body_parsed, task_body_property_requires());
+            if (list_any(requires, function v_2(r) {
+                    return list_find_property_exists(open, task_property_number(), r);
+                })) {
+                return false;
+            }
+        }
+        return true;
+    };
 }
