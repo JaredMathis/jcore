@@ -21,11 +21,14 @@ export async function task_body_map(issue_number, map) {
     let task_body_value = object_property_get(t, task_property_body());
     if (string_is(task_body_value)) {
         if (json_invalid(task_body_value)) {
+            let fn = task_body_map;
+            const message = `Invaild JSON`;
+            const data = { task_body_value };
             let log_path = version_path_log_now_get(repository_name);
             await file_json_write(log_path, {
-                function_name: function_name_get(task_body_map),
-                message: `Invaild JSON`,
-                data: { task_body_value }
+                function_name: function_name_get(fn),
+                message: message,
+                data: data
             });
         }
     }
