@@ -10,10 +10,10 @@ export async function task_body_map_json(issue_number, map) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let lambda = json_map_empty_if_null;
+    let lambda = task_body_value => json_map_empty_if_null(task_body_value, map);
     let task = await task_get(issue_number);
     let task_body_value = object_property_get(task, task_property_body());
-    let body_after = lambda(task_body_value, map);
+    let body_after = lambda(task_body_value);
     let result = await task_body(issue_number, body_after);
     return result;
 }
