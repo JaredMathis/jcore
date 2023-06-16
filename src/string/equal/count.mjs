@@ -17,7 +17,7 @@ export function string_equal_count(a, b) {
         for (let i of range(number_min(a_length, b_length))) {
             let a_i = string_get(a, i);
             let b_i = string_get(b, i);
-            if (equal(a_i), equal(b_i)) {
+            if (equal(a_i, b_i)) {
                 c();
             }
         }
