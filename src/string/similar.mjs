@@ -1,3 +1,4 @@
+import { string_similar_swap_adjascent } from './similar/swap/adjascent.mjs';
 import { true_is } from '../true/is.mjs';
 import { string_is } from './is.mjs';
 import { string_similar_remove_single } from './similar/remove/single.mjs';
@@ -8,7 +9,10 @@ export function string_similar(a, b) {
         string_is,
         string_is
     ]);
-    const fns = [string_similar_remove_single];
+    const fns = [
+        string_similar_remove_single,
+        string_similar_swap_adjascent
+    ];
     for (let fn of fns) {
         let result = [
             fn(a, b),
