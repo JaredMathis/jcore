@@ -11,6 +11,6 @@ export async function task_finish() {
     let task_number_string = task_id_unhash(task_number_hashed);
     await task_close(task_number_string);
     await task_id_remove();
-    return task_open();
+    return await task_open();
     metadata([]);
 }
