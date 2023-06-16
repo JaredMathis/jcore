@@ -1,8 +1,6 @@
 import { directory_read_recursive_generic } from './recursive/generic.mjs';
 import { list_add } from '../../list/add.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-import fs from 'fs';
-import path from 'path';
 import { path_is } from '../../path/is.mjs';
 import { list_is } from '../../list/is.mjs';
 import { noop } from '../../noop.mjs';
