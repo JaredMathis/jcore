@@ -1,3 +1,4 @@
+import { throws } from '../throws.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { assert_arguments_count } from './arguments/count.mjs';
@@ -12,14 +13,4 @@ export function assert_throws(lambda) {
     }
     return errored;
     metadata([]);
-}
-
-function throws(lambda) {
-    let errored = false;
-    try {
-        lambda();
-    } catch (e) {
-        errored = true;
-    }
-    return errored;
 }
