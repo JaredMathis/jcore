@@ -23,6 +23,7 @@ import { object_property_get } from '../../../object/property/get.mjs';
 import { assert } from '../../../assert.mjs';
 import { comment } from '../../../comment.mjs';
 import { function_tests_count } from '../count.mjs';
+import { error } from '../../../error.mjs';
 export async function function_tests_generate_generic(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let tests_count = await function_tests_count(function_name);
@@ -40,7 +41,7 @@ export async function function_tests_generate_generic(function_name) {
     });
     let names_with_endings_unqiue = list_unique(names_with_endings);
     if (await list_any_async(names_with_endings_unqiue, async n => !await function_exists(n))) {
-        comment(`${ arguments_assert } types need filling in`);
+        error(`${ arguments_assert } types need filling in`);
         return;
     }
     let dictionary = await list_to_dictionary_async(names_with_endings_unqiue, async key => {
