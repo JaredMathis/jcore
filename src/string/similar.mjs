@@ -3,6 +3,7 @@ import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { range } from '../range.mjs';
 import { string_length } from './length.mjs';
+import { equal } from '../equal.mjs';
 export function string_similar(a, b) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -10,5 +11,9 @@ export function string_similar(a, b) {
     ]);
     for (let i of range(string_length(a))) {
         let other = string_remove_at(a, i);
+        if (equal(other, b)) {
+            return true;
+        }
     }
+    return false;
 }
