@@ -10,12 +10,12 @@ import { list_find_property } from '../../../list/find/property.mjs';
 export async function task_all_require_cycles() {
     arguments_assert(arguments, []);
     let all = await task_all_unsummarized();
-    let remaining = list_map_property(all, task_property_number());
-    for (let a of all) {
-        visit(a, task_number => {
+    let task_numbers = list_map_property(all, task_property_number());
+    for (let t of task_numbers) {
+        visit(t, task_number => {
             let task = list_find_property(all, task_property_number(), task_number);
             let task_numbers = task_requires_get(task);
-            let filtered = list_intersection(task_numbers, remaining);
+            let filtered = list_intersection(task_numbers, task_numbers);
             console.log({
                 task_number,
                 filtered
@@ -23,7 +23,6 @@ export async function task_all_require_cycles() {
             return filtered;
         }, v => {
             let {node} = v;
-            list_new_then_add(node);
         });
     }
 }
