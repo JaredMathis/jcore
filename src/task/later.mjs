@@ -12,6 +12,21 @@ export async function task_later(title) {
     let data = await git_hub_repository_issues_post(title);
     let task = task_from_git_hub_issue(data);
     await task_map(function map(tasks_all) {
+        
+        await try_catch_throw(async function lambda_try() {
+            for (let w of writes) {
+                const file_path = object_property_get(w, property_file_path);
+                const contents = object_property_get(w, property_contents);
+                await file_json_overwrite(file_path, contents);
+            }
+        }, async function lambda_catch(e) {
+            for (let w of writes) {
+                const file_path = object_property_get(w, property_file_path);
+                if (await file_exists(file_path)) {
+                    await file_delete(file_path);
+                }
+            }
+        });
         assert(!list_find_property_exists(tasks_all, task_property_title(), title));
         list_add(tasks_all, task);
     });
