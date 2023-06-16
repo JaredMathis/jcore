@@ -10,7 +10,7 @@ import { object_property_get } from '../object/property/get.mjs';
 import { list_join } from '../list/join.mjs';
 export function task_summary(task) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let body = object_property_get(o, task_property_body());
+    let body = object_property_get(task, task_property_body());
     if (null_not_is(body)) {
         let body_parsed = json_from(body);
         let requires = task_body_requires(body_parsed);
