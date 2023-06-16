@@ -6,15 +6,20 @@ import { function_is } from '../function/is.mjs';
 export function assert_throws(lambda) {
     arguments_assert(arguments, [function_is]);
     assert_arguments_count(arguments, 1);
+    let errored = throws(lambda);
+    if (!errored) {
+        error(`Expecting throw`);
+    }
+    return errored;
+    metadata([]);
+}
+
+function throws(lambda) {
     let errored = false;
     try {
         lambda();
     } catch (e) {
         errored = true;
     }
-    if (!errored) {
-        error(`Expecting throw`);
-    }
     return errored;
-    metadata([]);
 }
