@@ -6,7 +6,7 @@ export async function try_catch_throw_async(lambda_try, lambda_catch) {
         function_is
     ]);
     try {
-        await lambda_try();
+        return await lambda_try();
     } catch (e) {
         await lambda_catch(e);
         throw e;
