@@ -11,5 +11,5 @@ export function list_add_property(list, object, property_name) {
         string_is
     ]);
     let la = list_add;
-    list_add_property_generic(object, property_name, la, list);
+    list_add_property_generic(la, object, property_name, list);
 }
