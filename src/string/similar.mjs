@@ -10,8 +10,7 @@ export function string_similar(a, b) {
         string_is
     ]);
     const fns = [
-        string_similar_remove_single,
-        string_similar_swap_adjascent
+        string_similar_remove_single
     ];
     for (let fn of fns) {
         let result = [
@@ -21,6 +20,9 @@ export function string_similar(a, b) {
         if (list_any(result, true_is)) {
             return true;
         }
+    }
+    if (string_similar_swap_adjascent(a, b)) {
+        return true;
     }
     return false;
 }
