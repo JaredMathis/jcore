@@ -62,8 +62,8 @@ export async function function_tests_generate_generic(function_name) {
                 return value;
             });
             let args_json = json_to(args);
-            log(args_json)
             if (list_contains(args_so_far, args_json)) {
+                console.log('duplicate args')
                 continue;
             }
             list_add(args_so_far, args_json);
