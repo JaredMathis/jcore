@@ -1,3 +1,4 @@
+import { task_property_body } from './property/body.mjs';
 import { null_is } from '../null/is.mjs';
 import { log } from '../log.mjs';
 import { list_sort_property } from '../list/sort/property.mjs';
@@ -17,6 +18,7 @@ export async function task_open() {
     let all = await task_all();
     let open = list_filter_property(all, task_property_state(), task_property_open());
     let filtered = list_filter(open, o => {
+        let body = object_property_get(o, task_property_body());
         if (null_is(body)) {
             return true;
         }
