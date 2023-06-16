@@ -5,5 +5,5 @@ import { task_properties } from './properties.mjs';
 import { object_property_exists } from '../object/property/exists.mjs';
 export function task_is(t) {
     arguments_assert(arguments, [defined_is]);
-    return list_all(task_properties(), p => object_property_exists(p, t));
+    return list_all(task_properties(), p => object_property_exists(t, p));
 }

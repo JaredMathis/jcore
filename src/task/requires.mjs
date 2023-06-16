@@ -1,3 +1,4 @@
+import { task_available } from './available.mjs';
 import { list_add_assert_exists_not } from '../list/add/assert/exists/not.mjs';
 import { integer_parse } from '../integer/parse.mjs';
 import { object_property_get } from '../object/property/get.mjs';
@@ -16,7 +17,7 @@ export async function task_requires(task_number_string, task_number_required_str
     ]);
     assert(await task_exists(task_number_required_string));
     await task_body_map_json(task_number_string, map);
-    return await tasks_available();
+    return await task_available();
     function map(body_parsed) {
         object_property_initialize_if_unset(body_parsed, task_body_property_requires(), []);
         let requires = object_property_get(body_parsed, task_body_property_requires());
