@@ -1,5 +1,7 @@
-import { arguments_assert } from './arguments/assert.mjs';
+import { metadata_generated } from './metadata/generated.mjs';
+import { metadata } from './metadata.mjs';
 import { function_is } from './function/is.mjs';
+import { arguments_assert } from './arguments/assert.mjs';
 export function throws(lambda) {
     arguments_assert(arguments, [function_is]);
     let errored = false;
@@ -9,4 +11,5 @@ export function throws(lambda) {
         errored = true;
     }
     return errored;
+    metadata([metadata_generated()]);
 }
