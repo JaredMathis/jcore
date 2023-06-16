@@ -12,5 +12,6 @@ export function task_summary(task) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let requires = task_requires_get(task);
     const task_number = object_property_get(task, task_property_number());
-    return `${ task_number } ${ js_code_parenthesis_surround(string_add(`requires: `, list_join(requires, string_comma()))) } ${ object_property_get(task, task_property_title()) }`;
+    const requires_string = js_code_parenthesis_surround(string_add(`requires: `, list_join(requires, string_comma())));
+    return `${ task_number } ${ requires_string } ${ object_property_get(task, task_property_title()) }`;
 }
