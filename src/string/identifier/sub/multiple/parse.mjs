@@ -10,7 +10,7 @@ export function string_identifier_sub_multiple_parse(values, separator) {
         string_is,
         string_is
     ]);
-    let result = string_split(values, string_comma());
+    let result = string_split(values, separator);
     assert(list_all(result, string_identifier_sub_is));
     return result;
 }
