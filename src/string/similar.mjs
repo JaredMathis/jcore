@@ -9,10 +9,8 @@ export function string_similar(a, b) {
         string_is,
         string_is
     ]);
-    const fns = [
-        string_similar_remove_single
-    ];
-    for (let fn of fns) {
+    const fns_commutative = [string_similar_remove_single];
+    for (let fn of fns_commutative) {
         let result = [
             fn(a, b),
             fn(b, a)
