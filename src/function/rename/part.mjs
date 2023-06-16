@@ -3,7 +3,7 @@ import { list_map } from '../../list/map.mjs';
 import { string_identifier_parts_map } from '../../string/identifier/parts/map.mjs';
 import { string_identifier_part_is } from '../../string/identifier/part/is.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
-import { function_rename } from '../rename.mjs';
+import { function_rename_single } from './single.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { equal } from '../../equal.mjs';
 export async function function_rename_part(function_name_old, part_old, part_new) {
@@ -21,6 +21,6 @@ export async function function_rename_part(function_name_old, part_old, part_new
         });
         object_replace(parts, parts_new);
     });
-    let result = await function_rename(function_name_old, function_name_new);
+    let result = await function_rename_single(function_name_old, function_name_new);
     return result;
 }

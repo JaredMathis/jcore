@@ -1,4 +1,4 @@
-import { function_rename } from '../../rename.mjs';
+import { function_rename_single } from '../single.mjs';
 import { string_suffix_replace } from '../../../string/suffix/replace.mjs';
 import { string_identifier_sub_is } from '../../../string/identifier/sub/is.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
@@ -9,5 +9,5 @@ export async function function_rename_suffix_add(function_name_old, suffix) {
         string_identifier_sub_is
     ]);
     let function_name_new = string_suffix_replace(function_name_old, '', suffix);
-    return await function_rename(function_name_old, function_name_new);
+    return await function_rename_single(function_name_old, function_name_new);
 }

@@ -1,5 +1,5 @@
 import { list_swap_last_2 } from '../../../../../list/swap/last/2.mjs';
-import { function_rename } from '../../../../rename.mjs';
+import { function_rename_single } from '../../../single.mjs';
 import { string_identifier_parts_map } from '../../../../../string/identifier/parts/map.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { string_identifier_is } from '../../../../../string/identifier/is.mjs';
@@ -11,5 +11,5 @@ export async function function_rename_parts_swap_last_2(function_name_old) {
         assert(list_length_at_least(parts, 2));
         list_swap_last_2(parts);
     });
-    await function_rename(function_name_old, function_name_new);
+    await function_rename_single(function_name_old, function_name_new);
 }
