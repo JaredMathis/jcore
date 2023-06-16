@@ -76,6 +76,11 @@ import { string_similar_test_generated_3 } from './string/similar/test/generated
 import { string_similar_test_generated_2 } from './string/similar/test/generated/2.mjs';
 import { string_similar_test_generated_10 } from './string/similar/test/generated/10.mjs';
 import { string_similar_test_generated_1 } from './string/similar/test/generated/1.mjs';
+import { string_set_test_generated_4 } from './string/set/test/generated/4.mjs';
+import { string_set_test_generated_3 } from './string/set/test/generated/3.mjs';
+import { string_set_test_generated_2 } from './string/set/test/generated/2.mjs';
+import { string_set_test_generated_10 } from './string/set/test/generated/10.mjs';
+import { string_set_test_generated_1 } from './string/set/test/generated/1.mjs';
 import { string_replace_test_generated_9 } from './string/replace/test/generated/9.mjs';
 import { string_replace_test_generated_8 } from './string/replace/test/generated/8.mjs';
 import { string_replace_test_generated_7 } from './string/replace/test/generated/7.mjs';
@@ -311,6 +316,7 @@ import { error_test_1 } from './error/test/1.mjs';
 import { comment_test_3 } from './comment/test/3.mjs';
 import { comment_test_2 } from './comment/test/2.mjs';
 import { comment_test_1 } from './comment/test/1.mjs';
+import { character_is_test_values } from './character/is/test/values.mjs';
 import { assert_test_5 } from './assert/test/5.mjs';
 import { assert_test_4 } from './assert/test/4.mjs';
 import { assert_test_3 } from './assert/test/3.mjs';
@@ -354,6 +360,7 @@ export async function tests() {
     await assert_test_3();
     await assert_test_4();
     await assert_test_5();
+    await character_is_test_values();
     await comment_test_1();
     await comment_test_2();
     await comment_test_3();
@@ -589,6 +596,11 @@ export async function tests() {
     await string_replace_test_generated_7();
     await string_replace_test_generated_8();
     await string_replace_test_generated_9();
+    await string_set_test_generated_1();
+    await string_set_test_generated_10();
+    await string_set_test_generated_2();
+    await string_set_test_generated_3();
+    await string_set_test_generated_4();
     await string_similar_test_generated_1();
     await string_similar_test_generated_10();
     await string_similar_test_generated_2();
@@ -666,5 +678,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(332 + ' tests ran successfully');
+    log(338 + ' tests ran successfully');
 }
