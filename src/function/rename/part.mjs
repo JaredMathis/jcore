@@ -12,7 +12,7 @@ export async function function_rename_part(function_name_old, part_old, part_new
         string_identifier_part_is
     ]);
     let parts = string_identifier_parts_to(function_name_old);
-    let function_name_new = list_map(parts, p => {
+    let function_name_new_parts = list_map(parts, p => {
         if (equal(p, part_old)) {
             return part_new;
         }
