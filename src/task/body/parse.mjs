@@ -1,4 +1,3 @@
-import { task_body_requires } from './requires.mjs';
 import { json_from } from '../../json/from.mjs';
 import { null_is } from '../../null/is.mjs';
 import { task_property_body } from '../property/body.mjs';
@@ -12,6 +11,5 @@ export function task_body_parse(task) {
         return body;
     }
     let body_parsed = json_from(body);
-    let requires = task_body_requires(body_parsed);
     return body_parsed;
 }
