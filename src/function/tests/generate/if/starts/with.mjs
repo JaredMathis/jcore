@@ -1,3 +1,4 @@
+import { function_tests_generate_count_default } from '../../count/default.mjs';
 import { function_name_all_tests_not } from '../../../../name/all/tests/not.mjs';
 import { function_tests_generate_after } from '../../after.mjs';
 import { function_tests_generate_generic } from '../../generic.mjs';
@@ -10,7 +11,7 @@ export async function function_tests_generate_if_starts_with(prefix) {
     let names = await function_name_all_tests_not();
     let starts_with = list_filter(names, n => string_starts_with(n, prefix));
     for (let function_name of starts_with) {
-        await function_tests_generate_generic(function_name);
+        await function_tests_generate_generic(function_name, function_tests_generate_count_default());
     }
     await function_tests_generate_after();
 }

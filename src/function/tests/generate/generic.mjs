@@ -26,8 +26,11 @@ import { assert } from '../../../assert.mjs';
 import { comment } from '../../../comment.mjs';
 import { function_tests_count } from '../count.mjs';
 import { error } from '../../../error.mjs';
-export async function function_tests_generate_generic(function_name) {
-    arguments_assert(arguments, [arguments_assert_todo]);
+export async function function_tests_generate_generic(function_name, count) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     let tests_count = await function_tests_count(function_name);
     if (tests_count > 0) {
         log(`tests already exist - not generating`);
