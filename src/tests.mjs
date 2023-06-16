@@ -79,6 +79,16 @@ import { string_similar_test_generated_3 } from './string/similar/test/generated
 import { string_similar_test_generated_2 } from './string/similar/test/generated/2.mjs';
 import { string_similar_test_generated_10 } from './string/similar/test/generated/10.mjs';
 import { string_similar_test_generated_1 } from './string/similar/test/generated/1.mjs';
+import { string_similar_swap_adjascent_test_generated_9 } from './string/similar/swap/adjascent/test/generated/9.mjs';
+import { string_similar_swap_adjascent_test_generated_8 } from './string/similar/swap/adjascent/test/generated/8.mjs';
+import { string_similar_swap_adjascent_test_generated_7 } from './string/similar/swap/adjascent/test/generated/7.mjs';
+import { string_similar_swap_adjascent_test_generated_6 } from './string/similar/swap/adjascent/test/generated/6.mjs';
+import { string_similar_swap_adjascent_test_generated_5 } from './string/similar/swap/adjascent/test/generated/5.mjs';
+import { string_similar_swap_adjascent_test_generated_4 } from './string/similar/swap/adjascent/test/generated/4.mjs';
+import { string_similar_swap_adjascent_test_generated_3 } from './string/similar/swap/adjascent/test/generated/3.mjs';
+import { string_similar_swap_adjascent_test_generated_2 } from './string/similar/swap/adjascent/test/generated/2.mjs';
+import { string_similar_swap_adjascent_test_generated_10 } from './string/similar/swap/adjascent/test/generated/10.mjs';
+import { string_similar_swap_adjascent_test_generated_1 } from './string/similar/swap/adjascent/test/generated/1.mjs';
 import { string_set_test_generated_4 } from './string/set/test/generated/4.mjs';
 import { string_set_test_generated_3 } from './string/set/test/generated/3.mjs';
 import { string_set_test_generated_2 } from './string/set/test/generated/2.mjs';
@@ -604,6 +614,16 @@ export async function tests() {
     await string_set_test_generated_2();
     await string_set_test_generated_3();
     await string_set_test_generated_4();
+    await string_similar_swap_adjascent_test_generated_1();
+    await string_similar_swap_adjascent_test_generated_10();
+    await string_similar_swap_adjascent_test_generated_2();
+    await string_similar_swap_adjascent_test_generated_3();
+    await string_similar_swap_adjascent_test_generated_4();
+    await string_similar_swap_adjascent_test_generated_5();
+    await string_similar_swap_adjascent_test_generated_6();
+    await string_similar_swap_adjascent_test_generated_7();
+    await string_similar_swap_adjascent_test_generated_8();
+    await string_similar_swap_adjascent_test_generated_9();
     await string_similar_test_generated_1();
     await string_similar_test_generated_10();
     await string_similar_test_generated_2();
@@ -684,5 +704,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(341 + ' tests ran successfully');
+    log(351 + ' tests ran successfully');
 }
