@@ -9,6 +9,7 @@ import { task_property_body } from '../property/body.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { task_get } from '../get.mjs';
 import { string_is } from '../../string/is.mjs';
+import { object_property_set } from '../../object/property/set.mjs';
 export async function task_body_map(issue_number, map) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -23,6 +24,7 @@ export async function task_body_map(issue_number, map) {
             const message = `Invaild JSON`;
             const data = { task };
             await version_log(repository_name, fn, arguments, message, data);
+            object_property_set(task, task_property_body(), null);
         }
     }
     let body_after = json_map_empty_if_null(task_body_value, map);
