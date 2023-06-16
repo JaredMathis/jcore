@@ -1,3 +1,4 @@
+import { subtract_1 } from '../../../subtract/1.mjs';
 import { equal } from '../../../equal.mjs';
 import { string_remove_at } from '../../remove/at.mjs';
 import { string_length } from '../../length.mjs';
@@ -9,7 +10,7 @@ export function string_similar_swap_adjascent(a, b) {
         string_is,
         string_is
     ]);
-    for (let i of range(string_length(a))) {
+    for (let i of range(subtract_1(string_length(a)))) {
         let other = string_remove_at(a, i);
         if (equal(other, b)) {
             return true;
