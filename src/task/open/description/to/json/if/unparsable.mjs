@@ -1,5 +1,5 @@
+import { json_from_throws } from '../../../../../../json/from/throws.mjs';
 import { string_to } from '../../../../../../string/to.mjs';
-import { throws } from '../../../../../../throws.mjs';
 import { list_new_then_async } from '../../../../../../list/new/then/async.mjs';
 import { task_description } from '../../../../../description.mjs';
 import { task_property_body } from '../../../../../property/body.mjs';
@@ -7,7 +7,6 @@ import { object_property_get } from '../../../../../../object/property/get.mjs';
 import { task_open_get } from '../../../../get.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { task_property_number } from '../../../../../property/number.mjs';
-import { json_from } from '../../../../../../json/from.mjs';
 import { null_not_is } from '../../../../../../null/not/is.mjs';
 export async function task_open_description_to_json_if_unparsable() {
     arguments_assert(arguments, []);
@@ -16,7 +15,7 @@ export async function task_open_description_to_json_if_unparsable() {
         for (let t of open) {
             let task_body_value = object_property_get(t, task_property_body());
             if (null_not_is(task_body_value)) {
-                if (throws(() => json_from(task_body_value))) {
+                if (json_from_throws(task_body_value)) {
                     let t_number = object_property_get(t, task_property_number());
                     let t_number_string = string_to(t_number);
                     await task_description(t_number_string, task_body_value);
