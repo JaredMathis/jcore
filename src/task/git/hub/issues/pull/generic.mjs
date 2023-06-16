@@ -12,7 +12,7 @@ export async function task_git_hub_issues_pull_generic(no_cache) {
     let repository_name = version_repository_default();
     let issues = await git_hub_repository_issues_all(no_cache);
     comment(`If there's more than 1 page of issues code needs adjusting`);
-    assert(list_length(issues) <= git_hub_page_size());
+    assert(list_length(issues) < git_hub_page_size());
     let mapped = list_map(issues, task_from_git_hub_issue);
     let tasks_all_path = version_path_tasks_all_get(repository_name);
     await file_json_overwrite(tasks_all_path, mapped);
