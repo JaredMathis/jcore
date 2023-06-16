@@ -14,7 +14,7 @@ export function string_similar(a, b) {
         return true;
     }
     const fns = [string_similar_swap_adjascent];
-    if (string_similar_swap_adjascent(a, b)) {
+    if (list_each_function_results_any(fns, results_get)) {
         return true;
     }
     return false;
