@@ -16,14 +16,13 @@ export async function task_all_require_cycles() {
         visit(t, task_number => {
             let task = list_find_property(all, task_property_number(), task_number);
             let task_numbers = task_requires_get(task);
-            let filtered = list_intersection(task_numbers, task_numbers);
-            if (!list_length_is_0(filtered)) {
+            if (!list_length_is_0(task_numbers)) {
                 console.log({
                     task_number,
-                    filtered
+                    task_numbers
                 });
             }
-            return filtered;
+            return task_numbers;
         }, v => {
             let {node} = v;
         });
