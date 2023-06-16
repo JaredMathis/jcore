@@ -26,11 +26,14 @@ import { assert } from '../../../assert.mjs';
 import { comment } from '../../../comment.mjs';
 import { function_tests_count } from '../count.mjs';
 import { error } from '../../../error.mjs';
-export async function function_tests_generate_generic(function_name, count) {
+import { string_is } from '../../../string/is.mjs';
+import { integer_parse } from '../../../integer/parse.mjs';
+export async function function_tests_generate_generic(function_name, count_string) {
     arguments_assert(arguments, [
         arguments_assert_todo,
-        arguments_assert_todo
+        string_is
     ]);
+    let count = integer_parse(count_string);
     let tests_count = await function_tests_count(function_name);
     if (tests_count > 0) {
         log(`tests already exist - not generating`);
