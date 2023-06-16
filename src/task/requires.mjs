@@ -1,3 +1,4 @@
+import { task_body_property_requires } from './body/property/requires.mjs';
 import { object_property_initialize_if_unset } from '../object/property/initialize/if/unset.mjs';
 import { task_exists } from './exists.mjs';
 import { task_body_property_description } from './body/property/description.mjs';
