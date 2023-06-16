@@ -1,3 +1,4 @@
+import { character_is } from '../character/is.mjs';
 import { error } from '../error.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { string_is } from './is.mjs';
