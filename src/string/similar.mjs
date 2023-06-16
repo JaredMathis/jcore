@@ -10,7 +10,7 @@ export function string_similar(a, b) {
         string_is
     ]);
     let fn = string_similar_remove_single;
-    for (let f of list_single_item(f)) {
+    for (let f of list_single_item(fn)) {
         let result = [
             fn(a, b),
             fn(b, a)
