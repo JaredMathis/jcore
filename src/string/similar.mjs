@@ -28,7 +28,7 @@ export function string_similar(a, b) {
     }
 }
 
-function string_similar(fns) {
+function list_each_function_results_any(fns) {
     for (let fn of fns) {
         let results = results_get(fn);
         if (list_any(results, true_is)) {
