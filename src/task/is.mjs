@@ -1,4 +1,3 @@
-import { log } from '../log.mjs';
 import { list_all } from '../list/all.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { defined_is } from '../defined/is.mjs';
@@ -8,11 +7,6 @@ export function task_is(t) {
     arguments_assert(arguments, [defined_is]);
     return list_all(task_properties(), p => {
         let value = object_property_exists(t, p);
-        console.log({
-            t,
-            p,
-            value
-        });
         return value;
     });
 }
