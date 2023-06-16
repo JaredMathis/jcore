@@ -14,7 +14,8 @@ export async function task_all_require_cycles() {
         let task_current = list_first(remaining);
         let visited = list_adder(list_new_then_add => {
             visit(task_current, task => {
-                return task_requires_get(task);
+                let task_numbers = task_requires_get(task);
+                return task_numbers;
             }, v => {
                 let {node} = v;
                 list_new_then_add(node);
