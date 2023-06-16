@@ -4,7 +4,7 @@ import { string_difference_removed } from '../removed.mjs';
 import { list_add_multiple } from '../../../list/add/multiple.mjs';
 import { string_left_right_property_right } from '../../left/right/property/right.mjs';
 import { string_left_right_property_left } from '../../left/right/property/left.mjs';
-import { string_left_right } from '../../left/right.mjs';
+import { string_split_at } from '../../split/at.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { string_empty_not_is } from '../../empty/not/is.mjs';
 import { string_sub_max_property_right_index } from '../../sub/max/property/right/index.mjs';
@@ -42,10 +42,10 @@ export function string_difference_get_recursive(left, right, left_offset, right_
         }
         return result;
     }
-    let left_lr = string_left_right(left, left_index, offset);
+    let left_lr = string_split_at(left, left_index, offset);
     let left_left = object_property_get(left_lr, string_left_right_property_left());
     let left_right = object_property_get(left_lr, string_left_right_property_right());
-    let right_lr = string_left_right(right, right_index, offset);
+    let right_lr = string_split_at(right, right_index, offset);
     let right_left = object_property_get(right_lr, string_left_right_property_left());
     let right_right = object_property_get(right_lr, string_left_right_property_right());
     let left_result = string_difference_get_recursive(left_left, right_left, left_offset, right_offset);

@@ -4,7 +4,7 @@ import { list_sort_property_generic } from '../../list/sort/property/generic.mjs
 import { list_filter_property } from '../../list/filter/property.mjs';
 import { string_left_right_property_right } from '../left/right/property/right.mjs';
 import { string_left_right_property_left } from '../left/right/property/left.mjs';
-import { string_left_right } from '../left/right.mjs';
+import { string_split_at } from '../split/at.mjs';
 import { string_difference_added } from './added.mjs';
 import { string_difference_removed } from './removed.mjs';
 import { string_difference_property_position } from './property/position.mjs';
@@ -39,7 +39,7 @@ export function string_difference_apply(string_old, hunks) {
     for (let m of removals) {
         let position = object_property_get(m, string_difference_property_position());
         let removed = object_property_get(m, string_difference_property_removed());
-        let lr = string_left_right(value, position, removed);
+        let lr = string_split_at(value, position, removed);
         let left = object_property_get(lr, string_left_right_property_left());
         let right = object_property_get(lr, string_left_right_property_right());
         let value_new = `${ left }${ right }`;
@@ -48,7 +48,7 @@ export function string_difference_apply(string_old, hunks) {
     for (let m of addeds) {
         let position = object_property_get(m, string_difference_property_position());
         let added = object_property_get(m, string_difference_property_added());
-        let lr = string_left_right(value, position, 0);
+        let lr = string_split_at(value, position, 0);
         let left = object_property_get(lr, string_left_right_property_left());
         let right = object_property_get(lr, string_left_right_property_right());
         let value_new = `${ left }${ added }${ right }`;
