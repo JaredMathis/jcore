@@ -3,5 +3,5 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function task_git_hub_issues_pull() {
     arguments_assert(arguments, []);
     const no_cache = true;
-    await task_git_hub_issues_pull_generic(no_cache);
+    return await task_git_hub_issues_pull_generic(no_cache);
 }
