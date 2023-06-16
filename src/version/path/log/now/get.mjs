@@ -1,3 +1,4 @@
+import { function_name_separator } from '../../../../function/name/separator.mjs';
 import { string_replace } from '../../../../string/replace.mjs';
 import { log } from '../../../../log.mjs';
 import { date_now_iso } from '../../../../date/now/iso.mjs';
@@ -9,9 +10,14 @@ export function version_path_log_now_get(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let log_path = version_path_log_get(repository_name);
     let iso = date_now_iso();
-    for (let r of replacements) {
-        string_replace(iso, r, '')
+    for (let r of [
+            '-',
+            ':',
+            '.'
+        ]) {
+        iso = string_replace(iso, r, function_name_separator());
     }
+    iso = string_replace(iso, 'Z', '');
     console.log({ iso });
     return file_path_json(log_path, 'all');
 }
