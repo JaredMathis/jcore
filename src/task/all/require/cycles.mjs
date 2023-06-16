@@ -13,7 +13,9 @@ export async function task_all_require_cycles() {
     function removals_get() {
         let task_current = list_first(remaining);
         let visited = list_adder(list_new_then_add => {
-            visit(task_current, task => task_requires_get(task), v => {
+            visit(task_current, task => {
+                return task_requires_get(task);
+            }, v => {
                 let {node} = v;
                 list_new_then_add(node);
             });
