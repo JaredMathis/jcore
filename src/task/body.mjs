@@ -10,6 +10,6 @@ export async function task_body(issue_number, body) {
     ]);
     let result = await git_hub_repository_issue_title(issue_number, body);
     const property_name = task_property_body();
-    await task_property_set_local(task_number_string, property_name, body);
+    await task_property_set_local(issue_number, property_name, body);
     return result;
 }
