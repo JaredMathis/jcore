@@ -11,11 +11,11 @@ export function string_similar(a, b) {
     ]);
     const fns_commutative = [string_similar_remove_single];
     for (let fn of fns_commutative) {
-        let result = [
+        let results = [
             fn(a, b),
             fn(b, a)
         ];
-        if (list_any(result, true_is)) {
+        if (list_any(results, true_is)) {
             return true;
         }
     }
