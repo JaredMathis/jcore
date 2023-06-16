@@ -1,3 +1,4 @@
+import { lambda_get } from '../../../../../../../lambda/get.mjs';
 import { arguments_assert_todo } from '../../../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../../../arguments/assert.mjs';
 import { task_description } from '../../../../../../description.mjs';
@@ -20,7 +21,7 @@ export async function task_open_description_to_json_if_unparsable_generic(open) 
                     let t_number = object_property_get(task, task_property_number());
                     let t_number_string = string_to(t_number);
                     log({ task });
-                    await task_body_map_generic(t_number_string, current => null);
+                    await task_body_map_generic(t_number_string, lambda_get(null));
                     await task_description(t_number_string, task_body_value);
                     list_add_then(t_number);
                 }
