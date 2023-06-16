@@ -1,3 +1,5 @@
+import { function_name_list_to_file_path } from './name/list/to/file/path.mjs';
+import { string_similar } from '../string/similar.mjs';
 import { function_name_all } from './name/all.mjs';
 import { try_catch_throw_async } from '../try/catch/throw/async.mjs';
 import { defined_is } from '../defined/is.mjs';
@@ -20,6 +22,7 @@ export async function function_import(import_meta, function_name) {
     let imported = await try_catch_throw_async(async () => await import(replaced), async e => {
         let all = await function_name_all();
         let similar = list_filter(all, a => string_similar(a, function_name));
+        let similar_paths = function_name_list_to_file_path(result);
     });
     return imported;
 }
