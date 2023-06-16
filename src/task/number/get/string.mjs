@@ -5,7 +5,7 @@ import { task_property_number } from '../../property/number.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
 export function task_number_get_string(task) {
     arguments_assert(arguments, [task_is]);
-    let sub_number = object_property_get(task, task_property_number());
-    let sub_number_string = string_to(sub_number);
-    return sub_number_string;
+    let task_number = object_property_get(task, task_property_number());
+    let task_number_string = string_to(task_number);
+    return task_number_string;
 }
