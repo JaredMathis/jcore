@@ -1,6 +1,5 @@
+import { task_required_bys } from './required/bys.mjs';
 import { object_keys_each } from '../object/keys/each.mjs';
-import { list_contains } from '../list/contains.mjs';
-import { list_adder } from '../list/adder.mjs';
 import { list_is } from '../list/is.mjs';
 import { task_requires_get } from './requires/get.mjs';
 import { string_comma } from '../string/comma.mjs';
@@ -20,15 +19,7 @@ export function task_summary(task, all_unsummarized) {
         list_is
     ]);
     let task_number = object_property_get(task, task_property_number());
-    let required_bys = list_adder(list_new_then_add => {
-        for (let other of all_unsummarized) {
-            let other_requires = task_requires_get(other);
-            if (list_contains(other_requires, task_number)) {
-                let other_task_number = object_property_get(other, task_property_number());
-                list_new_then_add(other_task_number);
-            }
-        }
-    });
+    let required_bys = task_required_bys(task_number, all_unsummarized);
     let requires = task_requires_get(task);
     let strings = [];
     list_add(strings, task_number);
