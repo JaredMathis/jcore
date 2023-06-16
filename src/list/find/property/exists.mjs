@@ -1,4 +1,4 @@
-import { equal_null_not } from '../../../equal/null/not.mjs';
+import { null_not_is } from '../../../null/not/is.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { list_find_property_or_null } from './or/null.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -9,5 +9,5 @@ export function list_find_property_exists(list, property_name, property_value) {
         arguments_assert_todo
     ]);
     let result = list_find_property_or_null(list, property_name, property_value);
-    return equal_null_not(result);
+    return null_not_is(result);
 }
