@@ -1,5 +1,4 @@
-import { version_path_log_now_get } from '../../version/path/log/now/get.mjs';
-import { file_json_write } from '../../file/json/write.mjs';
+import { version_log } from '../../version/log.mjs';
 import { version_repository_default } from '../../version/repository/default.mjs';
 import { json_invalid } from '../../json/invalid.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
@@ -10,7 +9,6 @@ import { task_property_body } from '../property/body.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { task_get } from '../get.mjs';
 import { string_is } from '../../string/is.mjs';
-import { function_name_get } from '../../function/name/get.mjs';
 export async function task_body_map(issue_number, map) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -24,12 +22,7 @@ export async function task_body_map(issue_number, map) {
             let fn = task_body_map;
             const message = `Invaild JSON`;
             const data = { task_body_value };
-            let log_path = version_path_log_now_get(repository_name);
-            await file_json_write(log_path, {
-                function_name: function_name_get(fn),
-                message: message,
-                data: data
-            });
+            await version_log(repository_name, fn, message, data);
         }
     }
     let body_after = json_map_empty_if_null(task_body_value, map);
