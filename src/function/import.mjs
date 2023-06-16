@@ -10,6 +10,7 @@ import { path_relative_file } from '../path/relative/file.mjs';
 import { function_name_to_file_path } from './name/to/file/path.mjs';
 import { js_import_meta_to_file_path } from '../js/import/meta/to/file/path.mjs';
 import { list_filter } from '../list/filter.mjs';
+import { log } from '../log.mjs';
 export async function function_import(import_meta, function_name) {
     arguments_assert(arguments, [
         defined_is,
@@ -23,6 +24,8 @@ export async function function_import(import_meta, function_name) {
         let all = await function_name_all();
         let similar = list_filter(all, a => string_similar(a, function_name));
         let similar_paths = function_name_list_to_file_path(result);
+        log(`Did you mean: `);
+        log(similar_paths);
     });
     return imported;
 }
