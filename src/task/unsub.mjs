@@ -1,3 +1,5 @@
+import { result_data_set } from '../result/data/set.mjs';
+import { result_empty } from '../result/empty.mjs';
 import { task_set } from './set.mjs';
 import { task_current_required_bys } from './current/required/bys.mjs';
 import { task_finish } from './finish.mjs';
@@ -13,7 +15,7 @@ export async function task_unsub() {
     let required_bys = await task_current_required_bys();
     if (list_length_is_0(required_bys)) {
         let data = await task_finish();
-        object_merge({data}, result);
+        object_merge({ data }, result);
         return result;
     }
     let last = await list_last(required_bys);
@@ -21,6 +23,5 @@ export async function task_unsub() {
     let last_string = string_to(last);
     await task_set(last_string);
     let data = await task_current();
-    object_merge({data}, result);
-    return result;
+    return result_data_set(data, result);
 }
