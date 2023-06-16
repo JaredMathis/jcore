@@ -19,8 +19,11 @@ export function string_similar(a, b) {
     return false;
     function results_commutative_get(fn) {
         return list_multiple_combine([
-            [fn(a, b)],
+            results_get(fn),
             [fn(b, a)]
         ]);
+    }
+    function results_get(fn) {
+        return [fn(a, b)];
     }
 }
