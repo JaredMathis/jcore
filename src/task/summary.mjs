@@ -10,6 +10,10 @@ import { object_property_get } from '../object/property/get.mjs';
 import { list_join } from '../list/join.mjs';
 export function task_summary(task) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let requires = task_body_requires();
+    let body = object_property_get(o, task_property_body());
+    if (null_not_is(body)) {
+        let body_parsed = json_from(body);
+        let requires = task_body_requires(body_parsed);
+    }
     return `${ object_property_get(task, task_property_number()) } ${ js_code_parenthesis_surround(string_add(`requires: `, list_join(requires, string_comma()))) } ${ object_property_get(task, task_property_title()) }`;
 }
