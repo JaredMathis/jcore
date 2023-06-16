@@ -6,6 +6,7 @@ import { list_last } from '../list/last.mjs';
 import { task_current } from './current.mjs';
 import { string_to } from '../string/to.mjs';
 import { list_length_is_0 } from '../list/length/is/0.mjs';
+import { object_merge } from '../object/merge.mjs';
 export async function task_unsub() {
     arguments_assert(arguments, []);
     let result = result_empty();
@@ -18,5 +19,6 @@ export async function task_unsub() {
     let last_string = string_to(last);
     await task_set(last_string);
     let data = await task_current();
+    object_merge({data}, result);
     return data;
 }
