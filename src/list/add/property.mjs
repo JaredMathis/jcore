@@ -12,5 +12,5 @@ export function list_add_property(list, object, property_name) {
     ]);
     let la = list_add;
     let property_value = object_property_get(object, property_name);
-    list_add(list, property_value);
+    la(list, property_value);
 }
