@@ -12,5 +12,5 @@ export async function function_tests_generated(function_name) {
         let parts = string_identifier_parts_to(r);
         return list_contains(parts, function_tests_generated_string());
     });
-    return result;
+    return generated;
 }
