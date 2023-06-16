@@ -19,7 +19,7 @@ export async function function_rename_part(function_name_old, part_old, part_new
             }
             return p;
         });
-        object_replace(parts_new, parts);
+        object_replace(parts, parts_new);
     });
     let result = await function_rename(function_name_old, function_name_new);
     return result;
