@@ -1,3 +1,5 @@
+import { list_min } from '../../list/min.mjs';
+import { list_string_lengths } from '../../list/string/lengths.mjs';
 import { count } from '../../count.mjs';
 import { number_min } from '../../number/min.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -12,6 +14,11 @@ export function string_equal_count(a, b) {
         string_is
     ]);
     return count(c => {
+        let lengths = list_string_lengths([
+            a,
+            b
+        ]);
+        list_min(lengths);
         let a_length = string_length(a);
         let b_length = string_length(b);
         for (let i of range(number_min(a_length, b_length))) {
