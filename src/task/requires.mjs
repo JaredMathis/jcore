@@ -15,6 +15,7 @@ export async function task_requires(issue_number, issue_number_required) {
     let result = await task_body_map(issue_number, map);
     return result;
     function map(body_parsed) {
+        object_property_initialize_if_unset(body_parsed)
         object_property_set(body_parsed, task_body_property_description(), issue_number_required);
     }
 }
