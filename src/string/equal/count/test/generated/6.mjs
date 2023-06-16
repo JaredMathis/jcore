@@ -6,8 +6,8 @@ import { string_equal_count } from '../../../count.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export function string_equal_count_test_generated_6() {
     arguments_assert(arguments, []);
-    let expected = 0;
-    let actual = string_equal_count('a', 'b');
+    let expected = 1;
+    let actual = string_equal_count('a', 'aab');
     assert(json_equal(actual, expected));
     metadata([metadata_generated()]);
 }
