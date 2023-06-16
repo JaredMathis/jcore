@@ -1,4 +1,4 @@
-import { task_body_map_json } from '../../../../../body/map/json.mjs';
+import { task_description } from '../../../../../description.mjs';
 import { task_body_map_generic } from '../../../../../body/map/generic.mjs';
 import { log } from '../../../../../../log.mjs';
 import { json_invalid } from '../../../../../../json/invalid.mjs';
@@ -22,7 +22,7 @@ export async function task_open_description_to_json_if_unparsable() {
                     let t_number_string = string_to(t_number);
                     console.log({ task });
                     await task_body_map_generic(t_number_string, current => null);
-                    await task_body_map_json(t_number_string, task_body_value);
+                    await task_description(t_number_string, task_body_value);
                     list_add_then(t_number);
                 }
             }
