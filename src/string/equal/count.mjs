@@ -9,6 +9,7 @@ export function string_equal_count(a, b) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
+    counter;
     let a_length = string_length(a);
     let b_length = string_length(b);
     for (let i of range(number_min(a_length, b_length))) {
