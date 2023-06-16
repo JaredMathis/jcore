@@ -1,6 +1,6 @@
-import { task_open_description_to_json_if_unparsable_generic } from './generic.mjs';
-import { arguments_assert } from '../../../../../../../arguments/assert.mjs';
-export async function task_open_description_to_json_if_unparsable_bugs() {
+import { task_description_to_json_if_unparsable_generic } from './generic.mjs';
+import { arguments_assert } from '../../../../../../arguments/assert.mjs';
+export async function task_description_to_json_if_unparsable_bugs() {
     arguments_assert(arguments, []);
     let bugs = [
         {
@@ -16,5 +16,5 @@ export async function task_open_description_to_json_if_unparsable_bugs() {
             body: 'release should run all tests, enforce all rules'
         }
     ];
-    return await task_open_description_to_json_if_unparsable_generic(bugs);
+    return await task_description_to_json_if_unparsable_generic(bugs);
 }
