@@ -11,5 +11,5 @@ export function string_swap(list, index_from, index_to) {
     ]);
     let generic_get = list_get;
     let generic_set = list_set;
-    swap_generic(generic_get, generic_set, list, index_from, index_to);
+    return swap_generic(generic_get, generic_set, list, index_from, index_to);
 }
