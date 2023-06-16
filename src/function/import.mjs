@@ -23,9 +23,10 @@ export async function function_import(import_meta, function_name) {
     let imported = await try_catch_throw_async(async () => await import(replaced), async e => {
         let all = await function_name_all();
         let similar = list_filter(all, a => string_similar(a, function_name));
-        let similar_paths = function_name_list_to_file_path(result);
-        log(`Did you mean: `);
-        log(similar_paths);
+        let similar_paths = function_name_list_to_file_path(similar);
+        let fn = log
+        fn(`Did you mean: `);
+        fn(similar_paths);
     });
     return imported;
 }
