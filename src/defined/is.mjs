@@ -1,6 +1,5 @@
-import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
-import { arguments_assert } from '../arguments/assert.mjs';
+import { assert_arguments_count } from '../assert/arguments/count.mjs';
 export function defined_is(variable) {
-    arguments_assert(arguments, [arguments_assert_todo]);
+    assert_arguments_count(arguments, 1);
     return typeof variable !== 'undefined';
 }
