@@ -1,3 +1,4 @@
+import { true_is } from '../true/is.mjs';
 import { string_is } from './is.mjs';
 import { string_similar_directed } from './similar/directed.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -7,6 +8,9 @@ export function string_similar(a, b) {
         string_is,
         string_is
     ]);
-    let result = [string_similar_directed(a, b), string_similar_directed(b, a)]
+    let result = [
+        string_similar_directed(a, b),
+        string_similar_directed(b, a)
+    ];
     return list_any(result, true_is);
 }
