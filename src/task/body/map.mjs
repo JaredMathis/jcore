@@ -24,6 +24,7 @@ export async function task_body_map(issue_number, map) {
             let log_path = version_path_log_now_get(repository_name);
             await file_json_write(log_path, {
                 function_name: function_name_get(task_body_map),
+                message: `Invaild JSON`,
                 data: { task_body_value }
             });
         }
