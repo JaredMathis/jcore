@@ -76,6 +76,10 @@ import { string_replace_test_generated_3 } from './string/replace/test/generated
 import { string_replace_test_generated_2 } from './string/replace/test/generated/2.mjs';
 import { string_replace_test_generated_10 } from './string/replace/test/generated/10.mjs';
 import { string_replace_test_generated_1 } from './string/replace/test/generated/1.mjs';
+import { string_remove_at_test_generated_4 } from './string/remove/at/test/generated/4.mjs';
+import { string_remove_at_test_generated_3 } from './string/remove/at/test/generated/3.mjs';
+import { string_remove_at_test_generated_2 } from './string/remove/at/test/generated/2.mjs';
+import { string_remove_at_test_generated_1 } from './string/remove/at/test/generated/1.mjs';
 import { string_prefix_without_test_generated_9 } from './string/prefix/without/test/generated/9.mjs';
 import { string_prefix_without_test_generated_8 } from './string/prefix/without/test/generated/8.mjs';
 import { string_prefix_without_test_generated_7 } from './string/prefix/without/test/generated/7.mjs';
@@ -557,6 +561,10 @@ export async function tests() {
     await string_prefix_without_test_generated_7();
     await string_prefix_without_test_generated_8();
     await string_prefix_without_test_generated_9();
+    await string_remove_at_test_generated_1();
+    await string_remove_at_test_generated_2();
+    await string_remove_at_test_generated_3();
+    await string_remove_at_test_generated_4();
     await string_replace_test_generated_1();
     await string_replace_test_generated_10();
     await string_replace_test_generated_2();
@@ -634,5 +642,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(316 + ' tests ran successfully');
+    log(320 + ' tests ran successfully');
 }
