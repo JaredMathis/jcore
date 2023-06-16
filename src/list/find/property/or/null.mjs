@@ -7,6 +7,6 @@ export function list_find_property_or_null(list, property_name, property_value) 
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let or_null = false;
+    let or_null = true;
     return list_find_property_generic(list, property_name, property_value, or_null);
 }
