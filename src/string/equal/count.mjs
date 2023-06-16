@@ -1,3 +1,4 @@
+import { count } from '../../count.mjs';
 import { number_min } from '../../number/min.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -9,7 +10,8 @@ export function string_equal_count(a, b) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    counter;
+    count(c => {
+    });
     let a_length = string_length(a);
     let b_length = string_length(b);
     for (let i of range(number_min(a_length, b_length))) {
