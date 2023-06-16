@@ -18,6 +18,5 @@ export function version_path_log_now_get(repository_name) {
         iso = string_replace(iso, r, function_name_separator());
     }
     iso = string_replace(iso, 'Z', '');
-    console.log({ iso });
-    return file_path_json(log_path, 'all');
+    return file_path_json(log_path, iso);
 }
