@@ -9,7 +9,7 @@ import { error } from '../../../../error.mjs';
 import { log } from '../../../../log.mjs';
 import { assert } from '../../../../assert.mjs';
 import { js_code_call_expression_statement_with_args_code } from '../../../../js/code/call/expression/statement/with/args/code.mjs';
-import { throws } from '../../../../throws.mjs';
+import { assert_throws } from '../../../../assert/throws.mjs';
 import { function_name_get } from '../../../name/get.mjs';
 import { js_code_call_expression_with_args_code } from '../../../../js/code/call/expression/with/args/code.mjs';
 import { js_code_call_expression_with_args } from '../../../../js/code/call/expression/with/args.mjs';
@@ -34,7 +34,7 @@ export async function function_tests_generate_generic_each(function_name, test_n
     let statements_code;
     let statement_assert;
     if (has_error) {
-        let ce_throws = js_code_call_expression_with_args_code(function_name_get(throws), `() => ${ ce_function }`);
+        let ce_throws = js_code_call_expression_with_args_code(function_name_get(assert_throws), `() => ${ ce_function }`);
         statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_throws);
         statements_code = [statement_assert];
         log({

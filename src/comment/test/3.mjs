@@ -1,9 +1,9 @@
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { comment } from '../../comment.mjs';
-import { throws } from '../../throws.mjs';
+import { assert_throws } from '../../assert/throws.mjs';
 export function comment_test_3() {
     arguments_assert(arguments, []);
-    throws(() => comment('test', 'extra argument'));
+    assert_throws(() => comment('test', 'extra argument'));
     metadata([]);
 }
