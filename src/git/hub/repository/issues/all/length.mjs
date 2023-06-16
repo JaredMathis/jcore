@@ -3,6 +3,6 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { git_hub_repository_issues_all } from '../all.mjs';
 export async function git_hub_repository_issues_all_length() {
     arguments_assert(arguments, []);
-    let issues = await git_hub_repository_issues_all(no_cache);
+    let issues = await git_hub_repository_issues_all(no_cache, page);
     return list_length(issues);
 }
