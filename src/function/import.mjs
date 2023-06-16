@@ -16,7 +16,6 @@ export async function function_import(import_meta, function_name) {
     let concated = path_relative_file(__filename, function_path);
     let replaced = js_import_path_normalize(concated);
     let imported = await try_catch_throw_async(async () => await import(replaced), async e => {
-
     });
     return imported;
 }
