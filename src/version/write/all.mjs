@@ -13,18 +13,26 @@ export async function version_write_all(writes) {
         assert(!await file_exists(file_path));
     }
     try {
-        for (let w of writes) {
-            const file_path = object_property_get(w, property_file_path);
-            const contents = object_property_get(w, property_contents);
-            await file_json_overwrite(file_path, contents);
-        }
+        await lambda_try();
     } catch (e) {
+        await lambda_catch(e);
+        throw e;
+    }
+
+    async function lambda_catch(e) {
         for (let w of writes) {
             const file_path = object_property_get(w, property_file_path);
             if (await file_exists(file_path)) {
                 await file_delete(file_path);
             }
         }
-        throw e;
+    }
+
+    async function lambda_try() {
+        for (let w of writes) {
+            const file_path = object_property_get(w, property_file_path);
+            const contents = object_property_get(w, property_contents);
+            await file_json_overwrite(file_path, contents);
+        }
     }
 }
