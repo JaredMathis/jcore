@@ -1,13 +1,14 @@
 import { string_set } from './set.mjs';
 import { string_get } from './get.mjs';
 import { swap_generic } from '../swap/generic.mjs';
-import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
+import { string_is } from './is.mjs';
+import { integer_is } from '../integer/is.mjs';
 export function string_swap(list, index_from, index_to) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
-        arguments_assert_todo,
-        arguments_assert_todo
+        string_is,
+        integer_is,
+        integer_is
     ]);
     let generic_get = string_get;
     let generic_set = string_set;
