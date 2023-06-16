@@ -8,15 +8,13 @@ import { list_last } from '../list/last.mjs';
 import { task_current } from './current.mjs';
 import { string_to } from '../string/to.mjs';
 import { list_length_is_0 } from '../list/length/is/0.mjs';
-import { object_merge } from '../object/merge.mjs';
 export async function task_unsub() {
     arguments_assert(arguments, []);
     let result = result_empty();
     let required_bys = await task_current_required_bys();
     if (list_length_is_0(required_bys)) {
         let data = await task_finish();
-        object_merge({ data }, result);
-        return result;
+        return result_data_set(result, data);
     }
     let last = await list_last(required_bys);
     await task_finish();
