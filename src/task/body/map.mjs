@@ -12,10 +12,12 @@ export async function task_body_map(issue_number, map) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
+    
     let t = await task_get(issue_number);
     let task_body_value = object_property_get(t, task_property_body());
     if (string_is(task_body_value)) {
         if (json_invalid(task_body_value)) {
+            await file_json_write(tasks_all_path, mapped);
         }
     }
     let body_after = json_map_empty_if_null(task_body_value, map);
