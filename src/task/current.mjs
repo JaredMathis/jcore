@@ -17,7 +17,8 @@ export async function task_current() {
     let task_number_string = task_id_unhash(task_number_hashed);
     let task_number = integer_parse(task_number_string);
     let all = await task_all();
-    let filtered = list_filter_property(all, task_property_number(), task_number);
+    const property_name = task_property_number();
+    let filtered = list_filter_property(all, property_name, task_number);
     let result = list_single(filtered);
     return result;
     metadata([]);
