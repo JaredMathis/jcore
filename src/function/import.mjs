@@ -7,6 +7,7 @@ import { js_import_path_normalize } from '../js/import/path/normalize.mjs';
 import { path_relative_file } from '../path/relative/file.mjs';
 import { function_name_to_file_path } from './name/to/file/path.mjs';
 import { js_import_meta_to_file_path } from '../js/import/meta/to/file/path.mjs';
+import { list_filter } from '../list/filter.mjs';
 export async function function_import(import_meta, function_name) {
     arguments_assert(arguments, [
         defined_is,
@@ -18,6 +19,7 @@ export async function function_import(import_meta, function_name) {
     let replaced = js_import_path_normalize(concated);
     let imported = await try_catch_throw_async(async () => await import(replaced), async e => {
         let all = await function_name_all();
+        let similar = list_filter(all, a => string_similar(a, function_name));
     });
     return imported;
 }
