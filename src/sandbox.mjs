@@ -31,7 +31,6 @@ export async function sandbox() {
     await version_push(repository_name);
     return;
     let file_size_max = await version_repository_file_size_max(repository_name);
-    console.log({ file_size_max });
     return;
     return;
     const collection_path = 'cities';
@@ -40,7 +39,6 @@ export async function sandbox() {
     await database_set(collection_path, document_path, document_data);
     return;
     let differences = await version_sync_local_preview(repository_name);
-    console.log(differences);
     return;
     await tests();
     let fn1 = string_difference_get;
@@ -54,7 +52,6 @@ export async function sandbox() {
             right
         ];
         let result1 = fn1(...args1);
-        console.log({ result1 });
         let args2 = [
             left,
             result1

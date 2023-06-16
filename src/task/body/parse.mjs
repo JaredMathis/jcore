@@ -10,7 +10,6 @@ export function task_body_parse(task) {
     if (null_is(body)) {
         return body;
     }
-    console.log({ body });
     let body_parsed = json_from(body);
     return body_parsed;
 }
