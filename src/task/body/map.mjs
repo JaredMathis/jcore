@@ -15,14 +15,14 @@ export async function task_body_map(issue_number, map) {
         arguments_assert_todo
     ]);
     let repository_name = version_repository_default();
-    let t = await task_get(issue_number);
-    let task_body_value = object_property_get(t, task_property_body());
+    let task = await task_get(issue_number);
+    let task_body_value = object_property_get(task, task_property_body());
     if (string_is(task_body_value)) {
         if (json_invalid(task_body_value)) {
             let fn = task_body_map;
             const message = `Invaild JSON`;
-            const data = { task_body_value };
-            await version_log(repository_name, fn, message, data);
+            const data = { task };
+            await version_log(repository_name, fn, arguments, message, data);
         }
     }
     let body_after = json_map_empty_if_null(task_body_value, map);
