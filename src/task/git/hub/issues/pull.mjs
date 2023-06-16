@@ -12,7 +12,7 @@ import { file_json_overwrite } from '../../../../file/json/overwrite.mjs';
 export async function task_git_hub_issues_pull() {
     arguments_assert(arguments, []);
     let repository_name = version_repository_default();
-    let issues = await git_hub_repository_issues_all(no_cache);
+    let issues = await git_hub_repository_issues_all(true);
     comment(`If there's more than 1 page of issues code needs adjusting`);
     assert(list_length(issues) <= git_hub_page_size());
     let mapped = list_map(issues, task_from_git_hub_issue);
