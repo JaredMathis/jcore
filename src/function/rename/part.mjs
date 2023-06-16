@@ -1,3 +1,4 @@
+import { string_identifier_parts_map } from '../../string/identifier/parts/map.mjs';
 import { string_identifier_parts_to } from '../../string/identifier/parts/to.mjs';
 import { string_identifier_part_is } from '../../string/identifier/part/is.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
@@ -18,6 +19,7 @@ export async function function_rename_part(function_name_old, part_old, part_new
         }
         return p;
     });
+    string_identifier_parts_map();
     let result = await function_rename(function_name_old, function_name_new);
     return result;
 }
