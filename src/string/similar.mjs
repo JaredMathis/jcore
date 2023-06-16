@@ -10,7 +10,7 @@ export function string_similar(a, b) {
         string_is
     ]);
     const fns_commutative = [string_similar_remove_single];
-    if (list_each_function_results_any(fns_commutative, results_get)) {
+    if (list_each_function_results_any(fns_commutative, results_commutative_get)) {
         return true;
     }
 
@@ -18,7 +18,7 @@ export function string_similar(a, b) {
         return true;
     }
     return false;
-    function results_get(fn) {
+    function results_commutative_get(fn) {
         return [
             fn(a, b),
             fn(b, a)
