@@ -8,5 +8,5 @@ export function list_add_property_generic(la, object, property_name) {
         arguments_assert_todo
     ]);
     let property_value = object_property_get(object, property_name);
-    la(list, property_value);
+    la(property_value);
 }
