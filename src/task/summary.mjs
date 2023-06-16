@@ -11,5 +11,6 @@ import { list_join } from '../list/join.mjs';
 export function task_summary(task) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let requires = task_requires_get(task);
-    return `${ object_property_get(task, task_property_number()) } ${ js_code_parenthesis_surround(string_add(`requires: `, list_join(requires, string_comma()))) } ${ object_property_get(task, task_property_title()) }`;
+    const task_number = object_property_get(task, task_property_number());
+    return `${ task_number } ${ js_code_parenthesis_surround(string_add(`requires: `, list_join(requires, string_comma()))) } ${ object_property_get(task, task_property_title()) }`;
 }
