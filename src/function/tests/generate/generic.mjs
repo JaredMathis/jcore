@@ -27,6 +27,7 @@ export async function function_tests_generate_generic(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let tests_count = await function_tests_count(function_name);
     if (tests_count > 0) {
+        log(`tests already exist - not generating`)
         return;
     }
     let function_declaration = await function_to_declaration(function_name);
