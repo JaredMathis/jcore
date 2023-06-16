@@ -15,8 +15,8 @@ export async function task_requires(task_number_string, task_number_required_str
         string_is
     ]);
     assert(await task_exists(task_number_required_string));
-    let result = await task_body_map_json(task_number_string, map);
-    return result;
+    await task_body_map_json(task_number_string, map);
+    return await tasks_available();
     function map(body_parsed) {
         object_property_initialize_if_unset(body_parsed, task_body_property_requires(), []);
         let requires = object_property_get(body_parsed, task_body_property_requires());
