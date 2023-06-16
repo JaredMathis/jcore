@@ -16,7 +16,7 @@ import { object_property_exists } from '../object/property/exists.mjs';
 export async function task_open() {
     arguments_assert(arguments, []);
     let open = await task_open_get();
-    let filtered = list_filter(open, o => {
+    let filtered = list_filter(open, function v(o) {
         let body = object_property_get(o, task_property_body());
         if (null_is(body)) {
             return true;
@@ -24,13 +24,17 @@ export async function task_open() {
         let body_parsed = json_from(body);
         if (object_property_exists(body_parsed, task_body_property_requires())) {
             let requires = object_property_get(body_parsed, task_body_property_requires());
-            if (list_any(requires, r => list_find_property_exists(open, task_property_number(), r))) {
+            if (list_any(requires, function v_2(r) {
+                    return list_find_property_exists(open, task_property_number(), r);
+                })) {
                 return false;
             }
         }
         return true;
     });
     list_sort_property(filtered, task_property_number());
-    let summaries = list_map(filtered, o => `${ object_property_get(o, task_property_number()) } ${ object_property_get(o, task_property_title()) }`);
+    let summaries = list_map(filtered, function v_3(o) {
+        return `${ object_property_get(o, task_property_number()) } ${ object_property_get(o, task_property_title()) }`;
+    });
     return summaries;
 }
