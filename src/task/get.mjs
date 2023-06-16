@@ -10,6 +10,6 @@ export async function task_get(task_number_string) {
     let task_number = integer_parse(task_number_string);
     let all = await task_all();
     const property_name = task_property_number();
-    let result = list_find_property(all, property_name, task_number);
+    let result = lambda(all, property_name, task_number);
     return result;
 }
