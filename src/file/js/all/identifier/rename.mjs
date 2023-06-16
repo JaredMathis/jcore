@@ -16,7 +16,7 @@ export async function file_js_all_identifier_rename(identifier_name_old, identif
         await file_js_all_map_args(function mapper(args) {
             let changed = js_identifier_rename(args, identifier_name_old, identifier_name_new);
             if (changed) {
-                list_add_property_generic(list_add_property, file_paths_changed, args, 'file_path');
+                list_add_property_generic(la, args, 'file_path');
             }
         });
     });
