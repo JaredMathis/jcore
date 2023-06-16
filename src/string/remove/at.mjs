@@ -10,6 +10,6 @@ export function string_remove_at(s, index) {
     ]);
     comment(`we're removing a single character so 1`);
     let offset = 1;
-    let result = string_left_right(s, index, offset);
+    let {left, right} = string_left_right(s, index, offset);
     return result;
 }
