@@ -11,4 +11,5 @@ export async function task_add(title) {
     let task_number = object_property_get(task, task_property_number());
     let task_number_string = string_to(task_number);
     await task_set(task_number_string);
+    return task;
 }
