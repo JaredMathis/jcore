@@ -10,6 +10,7 @@ export function list_add_property(list, object, property_name) {
         defined_is,
         string_is
     ]);
+    let la = list_add;
     let property_value = object_property_get(object, property_name);
     list_add(list, property_value);
 }
