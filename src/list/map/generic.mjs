@@ -1,3 +1,4 @@
+import { defined_is } from '../../defined/is.mjs';
 import { metadata_generated } from '../../metadata/generated.mjs';
 import { metadata } from '../../metadata.mjs';
 import { result_property_success_get } from '../../result/property/success/get.mjs';
@@ -12,11 +13,12 @@ import { boolean_is } from '../../boolean/is.mjs';
 import { function_is } from '../../function/is.mjs';
 import { list_is } from '../is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-export function list_map_generic(list, lambda, allow_error_mapping) {
+export function list_map_generic(list, lambda, allow_error_mapping, value_on_error_mapping) {
     arguments_assert(arguments, [
         list_is,
         function_is,
-        boolean_is
+        boolean_is,
+        defined_is
     ]);
     return list_adder(la => {
         list_each_with_index(list, (element, index) => {
