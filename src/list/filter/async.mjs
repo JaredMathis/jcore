@@ -12,7 +12,8 @@ export async function list_filter_async(array, filter) {
     return await list_adder_async(async la => {
         await list_each_with_index_async(array, async (element, index) => {
             if (await filter(element)) {
-                la(result, element);
+                let added = element;
+                la(result, added);
             }
         });
     });
