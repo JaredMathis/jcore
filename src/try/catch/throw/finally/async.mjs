@@ -1,4 +1,3 @@
-import { noop } from '../../../../noop.mjs';
 import { function_is } from '../../../../function/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function try_catch_throw_finally_async(lambda_try, lambda_catch, lambda_finally) {
@@ -7,7 +6,6 @@ export async function try_catch_throw_finally_async(lambda_try, lambda_catch, la
         function_is,
         function_is
     ]);
-    let lambda_finally = noop;
     try {
         return await lambda_try();
     } catch (e) {
