@@ -1,3 +1,6 @@
+import { list_first } from '../first.mjs';
+import { list_length_is_1 } from '../length/is/1.mjs';
+import { assert } from '../../assert.mjs';
 import { function_is } from '../../function/is.mjs';
 import { list_is } from '../is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
