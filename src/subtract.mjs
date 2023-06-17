@@ -1,9 +1,9 @@
 import { arguments_assert } from './arguments/assert.mjs';
-import { string_is } from './string/is.mjs';
+import { number_is } from './number/is.mjs';
 export function subtract(a, b) {
     arguments_assert(arguments, [
-        string_is,
-        string_is
+        number_is,
+        number_is
     ]);
     return a - b;
 }
