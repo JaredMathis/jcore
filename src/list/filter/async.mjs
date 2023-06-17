@@ -10,7 +10,7 @@ export async function list_filter_async(array, filter) {
         function_is
     ]);
     let result = [];
-    await list_each_with_index_async(array, async element => {
+    await list_each_with_index_async(array, async (element, index) => {
         if (await filter(element)) {
             list_add(result, element);
         }
