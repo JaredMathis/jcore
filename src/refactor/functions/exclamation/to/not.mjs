@@ -1,3 +1,4 @@
+import { js_node_property_arguments_get } from '../../../../js/node/property/arguments/get.mjs';
 import { not } from '../../../../not.mjs';
 import { js_parse_call_expression } from '../../../../js/parse/call/expression.mjs';
 import { js_node_property_argument_get } from '../../../../js/node/property/argument/get.mjs';
@@ -10,7 +11,7 @@ import { file_js_all_map_args_if_function } from '../../../../file/js/all/map/ar
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { equal } from '../../../../equal.mjs';
 import { function_name_get } from '../../../../function/name/get.mjs';
-import { log } from '../../../../log.mjs';
+import { list_add } from '../../../../list/add.mjs';
 export async function refactor_functions_exclamation_to_not() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
@@ -20,7 +21,8 @@ export async function refactor_functions_exclamation_to_not() {
             if (equal(operator, js_token_exclamation())) {
                 let argument = js_node_property_argument_get(n);
                 let call_expression = js_parse_call_expression(function_name_get(not));
-                log(call_expression)
+                let args = js_node_property_arguments_get(call_expression);
+                list_add(args, argument);
             }
         });
     });
