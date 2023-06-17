@@ -23,6 +23,7 @@ import { list_index_of } from '../../../../../list/index/of.mjs';
 import { string_a } from '../../../../../string/a.mjs';
 import { error } from '../../../../../error.mjs';
 import { js_parse_statement } from '../../../../../js/parse/statement.mjs';
+import { list_single } from '../../../../../list/single.mjs';
 export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
@@ -56,6 +57,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                             let assignment_code = js_code_statement_assignment(id, string_a());
                             let assignment = js_parse_statement(assignment_code);
                             let declarations = js_node_property_declarations_get(assignment);
+                            let declaration = list_single(declarations);
                             log({ assignment });
                             error();
                             if (false) {
