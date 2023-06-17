@@ -21,7 +21,7 @@ export async function list_map_generic_async(list, lambda, allow_error_mapping) 
                 return await lambda(element, index);
             });
             if (not(allow_error_mapping)) {
-                assert(result_property_success_get(allow_error_mapping));
+                assert(result_property_success_get(result));
             } else {
                 if (result_unsuccess_is(result)) {
                 }
