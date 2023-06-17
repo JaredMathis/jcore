@@ -29,7 +29,6 @@ import { list_single } from '../../../../../list/single.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
 import { assert_message } from '../../../../../assert/message.mjs';
 import { list_map } from '../../../../../list/map.mjs';
-import { js_node_type_get } from '../../../../../js/node/type/get.mjs';
 export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
