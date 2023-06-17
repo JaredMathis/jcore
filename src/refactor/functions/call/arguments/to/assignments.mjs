@@ -54,7 +54,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                     if (js_node_is_program(parent_list_next)) {
                         return;
                     }
-                    assert_message(js_node_is_block_statement(parent_list_next), json_to({s:list_map_try(stack_reversed, js_node_property_type_get)}));
+                    assert_message(js_node_is_block_statement(parent_list_next), json_to({ s: list_map_try(stack_reversed, js_node_property_type_get) }));
                     let parent_list = list_get(stack_reversed, parent_list_index);
                     let node_index = list_index_of(parent_list, node);
                     let args = js_node_property_arguments_get(expression);
