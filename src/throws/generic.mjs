@@ -5,6 +5,7 @@ import { result_unsuccess } from '../result/unsuccess.mjs';
 import { result_empty } from '../result/empty.mjs';
 import { function_is } from '../function/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
+import { defined_is } from '../defined/is.mjs';
 export function throws_generic(lambda) {
     arguments_assert(arguments, [function_is]);
     let result = result_empty();
@@ -14,7 +15,9 @@ export function throws_generic(lambda) {
     } catch (e) {
         result_unsuccess(result);
     }
-    result_property_data_set(result, lambda_result);
+    if (defined_is(lambda_result)) {
+        result_property_data_set(result, lambda_result);
+    }
     return result;
     metadata([metadata_generated()]);
 }
