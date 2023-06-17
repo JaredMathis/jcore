@@ -45,6 +45,7 @@ export function refactor_call_arguments_to_assignments(args) {
         let stack = object_property_get(v, 'stack');
         refactor_call_expression_to_assignments(node);
         function refactor_call_expression_to_assignments(expression) {
+            console.log({expression})
             if (js_node_is_expression_statement(expression)) {
                 let child = js_node_property_expression_get(expression);
                 return refactor_call_expression_to_assignments(child);
