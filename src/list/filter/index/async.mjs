@@ -1,3 +1,4 @@
+import { argument_binary_second } from '../../../argument/binary/second.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { list_filter_generic_async } from '../generic/async.mjs';
 import { function_is } from '../../../function/is.mjs';
@@ -8,9 +9,6 @@ export async function list_filter_index_async(array, filter) {
         list_is,
         function_is
     ]);
-    function added_get(element, index) {
-        return index;
-    }
-    return await list_filter_generic_async(array, filter, added_get);
+    return await list_filter_generic_async(array, filter, argument_binary_second);
     metadata([]);
 }
