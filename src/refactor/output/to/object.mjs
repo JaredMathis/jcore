@@ -7,7 +7,7 @@ import { js_code_return_statement } from '../../../js/code/return/statement.mjs'
 import { js_node_property_properties } from '../../../js/node/property/properties.mjs';
 import { js_function_declaration_to_statements } from '../../../js/function/declaration/to/statements.mjs';
 import { comment } from '../../../comment.mjs';
-import { js_node_is_return_statment } from '../../../js/node/is/return/statment.mjs';
+import { js_node_is_return_statement } from '../../../js/node/is/return/statement.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { assert } from '../../../assert.mjs';
@@ -24,7 +24,7 @@ import { js_token_brace_right } from '../../../js/token/brace/right.mjs';
 export function refactor_output_to_object(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
-    let returns = js_nodes_get(parsed, js_node_is_return_statment);
+    let returns = js_nodes_get(parsed, js_node_is_return_statement);
     comment(`If this fails code needs changing`);
     assert(list_length_is_1(returns));
     let return_single = list_single(returns);
