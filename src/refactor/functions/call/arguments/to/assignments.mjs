@@ -1,4 +1,3 @@
-import { list_find_first_index_after } from '../../../../../list/find/first/index/after.mjs';
 import { js_node_is_variable_declaration } from '../../../../../js/node/is/variable/declaration.mjs';
 import { json_to } from '../../../../../json/to.mjs';
 import { list_map_try } from '../../../../../list/map/try.mjs';
@@ -40,9 +39,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                 if (js_node_is_call_expression(expression)) {
                     let stack_reversed = list_reversed_get(stack);
                     let index_starting_at = 0;
-                    let parent_list_index = list_find_first_index_after(stack_reversed, list_is, 0);
-                    let parent_list_index_next = add_1(parent_list_index);
-                    let parent_list_next = list_get(stack_reversed, parent_list_index_next);
+                    let {parent_list_next, parent_list_index} = list_find_first_after(stack_reversed);
                     if (js_node_is_program(parent_list_next)) {
                         return;
                     }
@@ -74,6 +71,15 @@ export async function refactor_functions_call_arguments_to_assignments() {
                 }
             });
         });
+        function list_find_first_after(stack_reversed) {
+            let parent_list_index = list_find_first_after(stack_reversed, list_is, 0);
+            let parent_list_index_next = add_1(parent_list_index);
+            let parent_list_next = list_get(stack_reversed, parent_list_index_next);
+            return {
+                parent_list_next,
+                parent_list_index
+            };
+        }
     });
     metadata([]);
 }
