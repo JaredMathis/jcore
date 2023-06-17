@@ -48,6 +48,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                     refactor_call_expression_to_assignments();
                 }
                 if (js_node_is_assignment_expression(expression)) {
+                    let right = js_node_property_right_get(expression);
                     error(json_to({ expression }));
                 }
                 function refactor_call_expression_to_assignments() {
