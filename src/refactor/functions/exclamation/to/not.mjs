@@ -1,3 +1,4 @@
+import { js_node_property_operator_get } from '../../../../js/node/property/operator/get.mjs';
 import { js_node_is_unary_expression } from '../../../../js/node/is/unary/expression.mjs';
 import { js_nodes_each } from '../../../../js/nodes/each.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -8,6 +9,8 @@ export async function refactor_functions_exclamation_to_not() {
     await file_js_all_map_args_if_function(async function logic(args) {
         let {parsed} = args;
         js_nodes_each(parsed, js_node_is_unary_expression, n => {
+            if (js_node_property_operator_get()) {
+            }
         });
     });
     metadata([]);
