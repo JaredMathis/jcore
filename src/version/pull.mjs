@@ -1,3 +1,4 @@
+import { not } from '../not.mjs';
 import { file_json_write } from '../file/json/write.mjs';
 import { version_path_file_next } from './path/file/next.mjs';
 import { version_property_file_path } from './property/file/path.mjs';
@@ -49,7 +50,7 @@ export async function version_pull(repository_name) {
             for (let part of parts) {
                 let part_file_path = object_property_get(part, version_property_file_path());
                 let part_path = await version_path_file_next(repository_name, part_file_path);
-                assert(!(await file_exists(part_path)));
+                assert(not(await file_exists(part_path)));
                 await file_json_write(part_path, part);
             }
         }

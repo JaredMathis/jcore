@@ -1,3 +1,4 @@
+import { not } from '../../not.mjs';
 import { string_difference_apply } from '../../string/difference/apply.mjs';
 import { string_empty } from '../../string/empty.mjs';
 import { list_add } from '../../list/add.mjs';
@@ -24,7 +25,7 @@ export async function version_file_contents(repository_name, file_path) {
     let version_path;
     while (true) {
         version_path = version_path_file_get(repository_name, file_path, version);
-        if (!(await file_exists(version_path))) {
+        if (not(await file_exists(version_path))) {
             break;
         }
         let before_object = await file_json_read(version_path);

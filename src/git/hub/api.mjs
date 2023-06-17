@@ -1,3 +1,4 @@
+import { not } from '../../not.mjs';
 import { boolean_is } from '../../boolean/is.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -18,7 +19,7 @@ export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge, n
         boolean_is
     ]);
     let verbs_cache = ['GET'];
-    if (!(list_contains(verbs_cache, verb))) {
+    if (not(list_contains(verbs_cache, verb))) {
         return await lambda();
     }
     return await git_hub_cached(fn, args, lambda);

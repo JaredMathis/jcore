@@ -1,3 +1,4 @@
+import { not } from '../../../../not.mjs';
 import { list_multiple_summary } from '../../../../list/multiple/summary.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -25,7 +26,7 @@ export async function version_sync_local_preview_generic(repository_name) {
     });
     function todo(contents, existing, file_path) {
         let hunks = string_difference_get(contents, existing);
-        if (!(list_empty(hunks))) {
+        if (not(list_empty(hunks))) {
             list_add(differences, {
                 file_path,
                 hunks

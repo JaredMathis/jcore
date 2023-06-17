@@ -1,3 +1,4 @@
+import { not } from '../../../../../not.mjs';
 import { log } from '../../../../../log.mjs';
 import { function_callers_arguments_assert_auto_multiple_list } from './multiple/list.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
@@ -14,5 +15,5 @@ export async function function_callers_arguments_assert_auto_recursive(root) {
             result_previous,
             result
         });
-    } while (!(json_equal(result, result_previous)));
+    } while (not(json_equal(result, result_previous)));
 }

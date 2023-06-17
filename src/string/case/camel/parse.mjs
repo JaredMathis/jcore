@@ -1,3 +1,4 @@
+import { not } from '../../../not.mjs';
 import { string_to_case_lower } from '../../to/case/lower.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -34,7 +35,7 @@ export function string_case_camel_parse(input) {
                 continue;
             }
             let part = string_sub(input, previous, index);
-            if (!(equal(part, string_empty()))) {
+            if (not(equal(part, string_empty()))) {
                 list_new_then_add(part);
             }
             previous = index;

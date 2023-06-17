@@ -1,3 +1,4 @@
+import { not } from '../not.mjs';
 import { path_is } from '../path/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
@@ -11,7 +12,7 @@ export async function file_rename(file_path_old, file_path_new) {
         path_is
     ]);
     assert(await path_exists(file_path_old));
-    assert(!(await path_exists(file_path_new)));
+    assert(not(await path_exists(file_path_new)));
     await path_parent_exists_ensure(file_path_new);
     await fs.promises.rename(file_path_old, file_path_new);
     metadata([]);

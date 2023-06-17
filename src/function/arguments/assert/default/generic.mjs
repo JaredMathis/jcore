@@ -1,3 +1,4 @@
+import { not } from '../../../../not.mjs';
 import { object_property_exists } from '../../../../object/property/exists.mjs';
 import { tautology } from '../../../../tautology.mjs';
 import { js_identifier_counts } from '../../../../js/identifier/counts.mjs';
@@ -20,7 +21,7 @@ export async function function_arguments_assert_default_generic(on_equals) {
     arguments_assert(arguments, [function_is]);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await function_names_each_filter(logic, function_name => {
-        let result = !(list_contains(excludes, function_name));
+        let result = not(list_contains(excludes, function_name));
         return result;
     });
     async function logic(args) {

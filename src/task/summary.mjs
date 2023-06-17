@@ -1,3 +1,4 @@
+import { not } from '../not.mjs';
 import { task_required_bys } from './required/bys.mjs';
 import { object_keys_each } from '../object/keys/each.mjs';
 import { list_is } from '../list/is.mjs';
@@ -28,7 +29,7 @@ export function task_summary(task, all_unsummarized) {
         required_bys
     };
     object_keys_each(lists, (list, list_name) => {
-        if (!(list_empty(list))) {
+        if (not(list_empty(list))) {
             const list_string = js_code_parenthesis_surround(string_add(`${ list_name }: `, list_join(list, string_comma())));
             list_add(strings, list_string);
         }

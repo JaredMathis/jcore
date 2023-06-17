@@ -1,3 +1,4 @@
+import { not } from '../../not.mjs';
 import { metadata_generated } from '../../metadata/generated.mjs';
 import { metadata } from '../../metadata.mjs';
 import { visit_throws } from './async.mjs';
@@ -9,7 +10,7 @@ export function visit_throws_not(root, children_get) {
         defined_is,
         function_is
     ]);
-    let result = !(visit_throws(root, children_get));
+    let result = not(visit_throws(root, children_get));
     return result;
     metadata([metadata_generated()]);
 }

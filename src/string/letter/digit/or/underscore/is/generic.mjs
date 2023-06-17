@@ -1,3 +1,4 @@
+import { not } from '../../../../../../not.mjs';
 import { string_underscore_is } from '../../../../../underscore/is.mjs';
 import { string_digit_is } from '../../../../../digit/is.mjs';
 import { string_letter_is } from '../../../../is.mjs';
@@ -10,7 +11,7 @@ export function string_letter_digit_or_underscore_is_generic(c, allow_underscore
         string_is,
         boolean_is
     ]);
-    if (!(string_length_is_1(c))) {
+    if (not(string_length_is_1(c))) {
         return false;
     }
     if (string_letter_is(c)) {

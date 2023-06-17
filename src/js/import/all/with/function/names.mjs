@@ -1,3 +1,4 @@
+import { not } from '../../../../../not.mjs';
 import { js_node_is_program } from '../../../../node/is/program.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../metadata.mjs';
@@ -21,15 +22,15 @@ export async function js_import_all_with_function_names(parsed) {
     let import_name_all = [];
     for (let i of import_all) {
         let source = object_property_get(i, js_node_property_source());
-        if (!(js_node_is_literal(source))) {
+        if (not(js_node_is_literal(source))) {
             continue;
         }
         let specifiers = object_property_get(i, 'specifiers');
-        if (!(list_length_is_1(specifiers))) {
+        if (not(list_length_is_1(specifiers))) {
             continue;
         }
         let specifier = list_first(specifiers);
-        if (!(js_node_is_import_specifier(specifier))) {
+        if (not(js_node_is_import_specifier(specifier))) {
             continue;
         }
         let properties = [
@@ -37,7 +38,7 @@ export async function js_import_all_with_function_names(parsed) {
             'local'
         ];
         let values = list_map(properties, p => object_property_get(specifier, p));
-        if (list_any(values, v => !(js_node_is_identifier(v)))) {
+        if (list_any(values, v => not(js_node_is_identifier(v)))) {
             continue;
         }
         let first = list_first(values);
@@ -45,7 +46,7 @@ export async function js_import_all_with_function_names(parsed) {
         if (list_any(values, v => object_property_get(v, 'name') !== first_name)) {
             continue;
         }
-        if (!(list_contains(function_names, first_name))) {
+        if (not(list_contains(function_names, first_name))) {
             continue;
         }
         list_add(import_name_all, {

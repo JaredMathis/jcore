@@ -1,3 +1,4 @@
+import { not } from '../../../not.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { refactor_multiple } from '../../multiple.mjs';
 import { function_auto_after_refactors_first } from '../../../function/auto/after/refactors/first.mjs';
@@ -27,7 +28,7 @@ export async function refactor_functions_to_files(args) {
         return;
     }
     for (let n of function_names_new) {
-        assert(!(await function_exists(n)));
+        assert(not(await function_exists(n)));
     }
     for (let fd of function_declarations_to_export) {
         let function_name = js_function_declaration_to_name(fd);

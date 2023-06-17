@@ -1,6 +1,6 @@
+import { not } from '../not.mjs';
 import { function_is } from '../function/is.mjs';
 import { list_is } from './is.mjs';
-import { error } from '../error.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 export function list_all(list, predicate) {
     arguments_assert(arguments, [
@@ -8,7 +8,7 @@ export function list_all(list, predicate) {
         function_is
     ]);
     for (let a of list) {
-        if (!(predicate(a))) {
+        if (not(predicate(a))) {
             return false;
         }
     }

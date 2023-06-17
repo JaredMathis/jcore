@@ -1,4 +1,4 @@
-import { js_call_expression_awaitify } from '../js/call/expression/awaitify.mjs';
+import { not } from '../not.mjs';
 import { js_callable_multiple_assert_not } from '../js/callable/multiple/assert/not.mjs';
 import { function_naming_suffix_async } from '../function/naming/suffix/async.mjs';
 import { js_call_expression_name_get_or_null } from '../js/call/expression/name/get/or/null.mjs';
@@ -28,6 +28,6 @@ export async function refactor_asyncify(args) {
     for (let f of function_calls) {
         let name = js_call_expression_name_get_or_null(f);
         comment(`If this assert fails - look into why a non-async function (presumably) is calling a function that ends with async`);
-        assert(!(string_ends_with(name, suffix)));
+        assert(not(string_ends_with(name, suffix)));
     }
 }

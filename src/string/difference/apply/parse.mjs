@@ -1,3 +1,4 @@
+import { not } from '../../../not.mjs';
 import { count } from '../../../count.mjs';
 import { string_difference_property_removed } from '../property/removed.mjs';
 import { equal } from '../../../equal.mjs';
@@ -48,7 +49,7 @@ export function string_difference_apply_parse(hunk) {
         assert(count >= 1);
         object_property_initialize(result, string_difference_property_removed(), count);
     } else if (equal(operation, string_difference_added())) {
-        assert(!(string_length_is_0(after)));
+        assert(not(string_length_is_0(after)));
         object_property_initialize(result, string_difference_property_added(), after);
     } else {
         error();

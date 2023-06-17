@@ -1,3 +1,4 @@
+import { not } from '../../../../not.mjs';
 import { string_a } from '../../../../string/a.mjs';
 import { refactor_import_fix } from '../../../import/fix.mjs';
 import { js_nodes_get } from '../../../../js/nodes/get.mjs';
@@ -17,7 +18,7 @@ export async function refactor_string_to_function_call(args) {
     let t = string_a();
     let ce = js_parse_call_expression(replacement_function_name);
     let literals = js_nodes_get(parsed, js_node_is_literal);
-    assert(!(list_empty(literals)));
+    assert(not(list_empty(literals)));
     for (let n of literals) {
         let literal_value = object_property_get(n, js_node_property_value());
         if (equal(literal_value, string_value)) {

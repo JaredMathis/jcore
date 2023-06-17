@@ -1,3 +1,4 @@
+import { not } from '../../not.mjs';
 import { string_is } from '../../string/is.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -11,7 +12,7 @@ export function object_property_initialize(object, property_name, initial_value)
         string_is,
         defined_is
     ]);
-    assert(!(object_property_exists(object, property_name)));
+    assert(not(object_property_exists(object, property_name)));
     object_property_set(object, property_name, initial_value);
     metadata([]);
 }

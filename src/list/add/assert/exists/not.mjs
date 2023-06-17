@@ -1,3 +1,4 @@
+import { not } from '../../../../not.mjs';
 import { defined_is } from '../../../../defined/is.mjs';
 import { list_is } from '../../../is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -10,7 +11,7 @@ export function list_add_assert_exists_not(stack, node) {
         list_is,
         defined_is
     ]);
-    assert(!(list_contains(stack, node)));
+    assert(not(list_contains(stack, node)));
     list_add(stack, node);
     metadata([]);
 }

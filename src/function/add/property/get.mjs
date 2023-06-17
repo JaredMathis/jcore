@@ -1,3 +1,4 @@
+import { not } from '../../../not.mjs';
 import { function_add_string_prefix } from '../string/prefix.mjs';
 import { js_code_return_statement } from '../../../js/code/return/statement.mjs';
 import { function_input_add_type } from '../../input/add/type.mjs';
@@ -21,7 +22,7 @@ export async function function_add_property_get(property_prefix, property_name) 
         'property',
         property_name
     ], function_name_separator());
-    if (!(await function_exists(property_name_fn_get))) {
+    if (not(await function_exists(property_name_fn_get))) {
         await function_add_string_prefix(property_prefix, property_name);
     }
     let expression_code = js_code_call_expression_object_property_get(property_prefix, js_code_call_expression(property_name_fn_get));

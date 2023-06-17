@@ -1,3 +1,4 @@
+import { not } from '../../../not.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { list_is } from '../../../list/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -8,5 +9,5 @@ export function json_to_keys_exclude(value, excluded) {
         defined_is,
         list_is
     ]);
-    object_merge_filtered(value, key => !(list_contains(excluded, key)), {});
+    object_merge_filtered(value, key => not(list_contains(excluded, key)), {});
 }

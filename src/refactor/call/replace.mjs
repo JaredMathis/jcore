@@ -1,3 +1,4 @@
+import { not } from '../../not.mjs';
 import { js_node_property_name } from '../../js/node/property/name.mjs';
 import { refactor_import_fix } from '../import/fix.mjs';
 import { js_node_is_identifier } from '../../js/node/is/identifier.mjs';
@@ -13,7 +14,7 @@ export async function refactor_call_replace(args) {
     let {parsed} = args;
     js_visit_nodes_call_expression_name_equal(parsed, function_name_called_old, n => {
         let callee = object_property_get(n, js_node_property_callee());
-        if (!(js_node_is_identifier(callee))) {
+        if (not(js_node_is_identifier(callee))) {
             return;
         }
         object_property_set(callee, js_node_property_name(), function_name_called_new);

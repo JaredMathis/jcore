@@ -1,3 +1,4 @@
+import { not } from '../../../../not.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_node_property_raw } from '../../../node/property/raw.mjs';
@@ -12,7 +13,7 @@ export function js_literal_value_raw_set(source, normalized) {
         arguments_assert_todo
     ]);
     object_property_set(source, js_node_property_value(), normalized);
-    assert(!(string_includes(normalized, '\'')));
+    assert(not(string_includes(normalized, '\'')));
     let raw = js_code_expression_string(normalized);
     object_property_set(source, js_node_property_raw(), raw);
 }

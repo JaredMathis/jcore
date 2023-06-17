@@ -1,3 +1,4 @@
+import { not } from '../../../not.mjs';
 import { js_code_call_expression_statement_with_args_code } from '../../../js/code/call/expression/statement/with/args/code.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -15,13 +16,13 @@ export async function refactor_metadata_missing_add(args) {
     let {function_declaration} = args;
     let already_exists = false;
     let statements = js_function_declaration_to_statements(function_declaration);
-    if (!(list_empty(statements))) {
+    if (not(list_empty(statements))) {
         let last_statement = list_last(statements);
         js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
             already_exists = true;
         });
     }
-    if (!(already_exists)) {
+    if (not(already_exists)) {
         const name = function_name_get(metadata);
         const call_args = '[]';
         let metadata_new_code = js_code_call_expression_statement_with_args_code(name, call_args);

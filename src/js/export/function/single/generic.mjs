@@ -1,3 +1,4 @@
+import { not } from '../../../../not.mjs';
 import { js_node_is_program } from '../../../node/is/program.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -35,7 +36,7 @@ export function js_export_function_single_generic(parsed, or_null) {
             error(`Multiple exports? Look into this: ` + names);
         }
     }
-    if (!(value_set_is(result))) {
+    if (not(value_set_is(result))) {
         const export_single = list_single(exports_existing);
         const declaration = js_export_declaration_get(export_single);
         if (js_node_is_function_declaration(declaration)) {
