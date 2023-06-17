@@ -1,3 +1,5 @@
+import { result_unsuccess_is } from '../../../result/unsuccess/is.mjs';
+import { throws_generic } from '../../../throws/generic.mjs';
 import { list_adder_async } from '../../adder/async.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { list_each_with_index_async } from '../../each/with/index/async.mjs';
@@ -10,7 +12,12 @@ export async function list_map_generic_async(list, lambda) {
     ]);
     return await list_adder_async(async la => {
         await list_each_with_index_async(list, async (element, index) => {
-            let mapped = await lambda(element, index);
+            let result = throws_generic(async () => {
+                return await lambda(element, index);
+            });
+            if (result_unsuccess_is(result)) {
+            }
+            let mapped = result_property_data_get(result);
             la(result, mapped);
         });
     });
