@@ -8,7 +8,7 @@ export async function throws_generic_async(lambda) {
     let result = result_empty();
     let lambda_result;
     try {
-        lambda_result = lambda();
+        lambda_result = await lambda();
     } catch (e) {
         result_unsuccess(result);
     }
