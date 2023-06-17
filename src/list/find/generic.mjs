@@ -16,6 +16,7 @@ export function list_find_generic(list, predicate, or_null, single, lambda_list_
         function_is,
         integer_is
     ]);
+    let sub = list_sub;
     let filtered = lambda_list_filter(list, predicate);
     if (or_null) {
         if (list_empty(filtered)) {
