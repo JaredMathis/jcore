@@ -1,4 +1,4 @@
-import { list_sort } from '../../../../../list/sort.mjs';
+import { list_sort_string } from '../../../../../list/sort/string.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { js_visit_nodes_types_get } from '../../../../../js/visit/nodes/types/get.mjs';
 import { file_js_all_map_args_if_function } from '../../map/args/if/function.mjs';
@@ -15,7 +15,7 @@ export async function file_js_all_nodes_types_get() {
             }
         });
     });
-    list_sort(result);
+    list_sort_string(result);
     return result;
     metadata([]);
 }
