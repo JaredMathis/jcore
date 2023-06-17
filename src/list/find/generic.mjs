@@ -7,7 +7,8 @@ import { list_is } from '../is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_empty } from '../empty.mjs';
 import { boolean_is } from '../../boolean/is.mjs';
-export function list_find_generic(list, predicate, or_null, single, lambda_list_filter, index_after) {
+import { list_skip } from '../skip.mjs';
+export function list_find_generic(list, predicate, or_null, single, lambda_list_filter, index_starting_at) {
     arguments_assert(arguments, [
         list_is,
         function_is,
@@ -16,7 +17,7 @@ export function list_find_generic(list, predicate, or_null, single, lambda_list_
         function_is,
         integer_is
     ]);
-    let sub = list_sub;
+    let skipped = list_skip(index_starting_at);
     let filtered = lambda_list_filter(list, predicate);
     if (or_null) {
         if (list_empty(filtered)) {
