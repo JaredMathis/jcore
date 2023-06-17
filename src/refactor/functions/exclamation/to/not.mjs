@@ -6,6 +6,7 @@ import { metadata } from '../../../../metadata.mjs';
 import { file_js_all_map_args_if_function } from '../../../../file/js/all/map/args/if/function.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { equal } from '../../../../equal.mjs';
+import { log } from '../../../../log.mjs';
 export async function refactor_functions_exclamation_to_not() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
@@ -13,6 +14,7 @@ export async function refactor_functions_exclamation_to_not() {
         js_nodes_each(parsed, js_node_is_unary_expression, n => {
             let operator = js_node_property_operator_get(n);
             if (equal(operator, js_token_exclamation())) {
+                log(n)
             }
         });
     });
