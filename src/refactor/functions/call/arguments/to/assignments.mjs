@@ -72,7 +72,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                             let declaration = list_single(declarations);
                             js_variable_declarator_init_change(declaration, object_copy_shallow(node));
                             object_replace(arg, js_parse_expression(id));
-                            list_add_after(parent_list, node);
+                            list_add_after(parent_list, assignment, node);
                             if (false) {
                                 change();
                             }
