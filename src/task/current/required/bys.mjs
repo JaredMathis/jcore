@@ -1,4 +1,4 @@
-import { result_property_success } from '../../../result/property/success.mjs';
+import { result_property_success_get } from '../../../result/property/success/get.mjs';
 import { assert } from '../../../assert.mjs';
 import { result_data_get } from '../../../result/data/get.mjs';
 import { list_sort } from '../../../list/sort.mjs';
