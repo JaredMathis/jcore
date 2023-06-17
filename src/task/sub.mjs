@@ -10,7 +10,7 @@ import { result_property_success } from '../result/property/success.mjs';
 export async function task_sub(title) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let current_result = await task_current();
-    assert(result_property_success())
+    assert(result_property_success(current_result));
     let current = result_data_get(current_result);
     let current_number_string = task_number_get_string(current);
     let sub = await task_add(title);
