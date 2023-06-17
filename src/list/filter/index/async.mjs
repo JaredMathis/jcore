@@ -9,7 +9,7 @@ export async function list_filter_index_async(array, filter) {
         function_is
     ]);
     function added_get(element, index) {
-        return element;
+        return index;
     }
     return await list_filter_generic_async(array, filter, added_get);
     metadata([]);
