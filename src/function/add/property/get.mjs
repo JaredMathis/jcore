@@ -6,9 +6,8 @@ import { js_code_statement } from '../../../js/code/statement.mjs';
 import { list_join } from '../../../list/join.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
 import { function_name_separator } from '../../name/separator.mjs';
-export async function function_add_property_get(function_name, property_prefix, property_name) {
+export async function function_add_property_get(property_prefix, property_name) {
     arguments_assert(arguments, [
-        string_identifier_is,
         string_identifier_is,
         string_identifier_is
     ]);
