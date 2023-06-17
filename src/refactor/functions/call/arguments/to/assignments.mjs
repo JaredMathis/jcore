@@ -13,9 +13,11 @@ export async function refactor_functions_call_arguments_to_assignments() {
             let {parsed} = args;
             js_nodes_each(parsed, js_node_is_expression_statement, n => {
                 let expression = js_node_property_expression_get(n);
-                log(expression);
-                if (false) {
-                    change();
+                if (js_node_is_call_expression(expression)) {
+                    log(expression);
+                    if (false) {
+                        change();
+                    }
                 }
             });
         });
