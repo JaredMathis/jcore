@@ -14,7 +14,7 @@ export async function list_map_async(list, mapper) {
         let result = throws_generic(async () => {
             return await mapper(element);
         });
-        if (result_unsuccess_is()) {
+        if (result_unsuccess_is(result)) {
         }
         return result;
     };
