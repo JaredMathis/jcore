@@ -49,6 +49,9 @@ export async function refactor_functions_call_arguments_to_assignments() {
                         return;
                     }
                     if (js_node_is_variable_declaration(parent_list_next)) {
+                        let list_find_first_after_result = list_find_first_after(stack_reversed, add_1(parent_list_index));
+                        let parent_list_next = object_property_get(list_find_first_after_result, 'next');
+                        let parent_list_index = object_property_get(list_find_first_after_result, 'index');
                         return;
                     }
                     assert_message(js_node_is_block_statement(parent_list_next), json_to({
