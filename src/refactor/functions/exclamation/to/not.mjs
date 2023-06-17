@@ -16,17 +16,20 @@ import { list_add } from '../../../../list/add.mjs';
 export async function refactor_functions_exclamation_to_not() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
-        let {parsed} = args;
-        js_nodes_each(parsed, js_node_is_unary_expression, n => {
-            let operator = js_node_property_operator_get(n);
-            if (equal(operator, js_token_exclamation())) {
-                let argument = js_node_property_argument_get(n);
-                let call_expression = js_parse_call_expression(function_name_get(not));
-                let args = js_node_property_arguments_get(call_expression);
-                list_add(args, argument);
-                object_replace(n, call_expression);
-            }
-        });
+        let c = changed(change => {
+            let {parsed} = args;
+            js_nodes_each(parsed, js_node_is_unary_expression, n => {
+                let operator = js_node_property_operator_get(n);
+                if (equal(operator, js_token_exclamation())) {
+                    let argument = js_node_property_argument_get(n);
+                    let call_expression = js_parse_call_expression(function_name_get(not));
+                    let args = js_node_property_arguments_get(call_expression);
+                    list_add(args, argument);
+                    object_replace(n, call_expression);
+                    change();
+                }
+            });
+        })
     });
     metadata([]);
 }
