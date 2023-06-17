@@ -5,7 +5,7 @@ import { list_adder_unique_async } from '../../../../../list/adder/unique/async.
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export async function file_js_all_nodes_types_get() {
     arguments_assert(arguments, []);
-    return await list_adder_unique_async(async la => {
+    let result = await list_adder_unique_async(async la => {
         await file_js_all_map_args_if_function(async function logic(args) {
             let {parsed} = args;
             let types = js_visit_nodes_types_get(parsed);
@@ -14,5 +14,6 @@ export async function file_js_all_nodes_types_get() {
             }
         });
     });
+    return result;
     metadata([]);
 }
