@@ -11,7 +11,7 @@ export async function task_current() {
         return 'no current task';
     }
     let task_number_string = task_number_unhash(task_number_hashed);
-    let result = await task_get(task_number_string);
-    return result;
+    let data = await task_get(task_number_string);
+    return data;
     metadata([]);
 }

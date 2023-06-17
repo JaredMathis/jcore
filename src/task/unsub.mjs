@@ -1,3 +1,4 @@
+import { result_unsuccess } from '../result/unsuccess.mjs';
 import { result_data_set } from '../result/data/set.mjs';
 import { result_empty } from '../result/empty.mjs';
 import { task_set } from './set.mjs';
@@ -13,6 +14,7 @@ export async function task_unsub() {
     let result = result_empty();
     let required_bys = await task_current_required_bys();
     if (list_length_is_0(required_bys)) {
+        result_unsuccess(result);
         let data = await task_finish();
         return result_data_set(result, data);
     }
