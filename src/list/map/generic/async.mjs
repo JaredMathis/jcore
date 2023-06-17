@@ -7,7 +7,6 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { list_each_with_index_async } from '../../each/with/index/async.mjs';
 import { list_is } from '../../is.mjs';
 import { function_is } from '../../../function/is.mjs';
-import { not } from '../../../not.mjs';
 import { assert } from '../../../assert.mjs';
 export async function list_map_generic_async(list, lambda, allow_error_mapping) {
     arguments_assert(arguments, [
@@ -21,12 +20,12 @@ export async function list_map_generic_async(list, lambda, allow_error_mapping) 
                 return await lambda(element, index);
             });
             let mapped;
-            if (not(allow_error_mapping)) {
-                assert(result_property_success_get(result));
-                mapped = result_property_data_get(result);
-            } else {
+            if (allow_error_mapping) {
                 if (result_unsuccess_is(result)) {
                 }
+            } else {
+                assert(result_property_success_get(result));
+                mapped = result_property_data_get(result);
             }
             la(result, mapped);
         });
