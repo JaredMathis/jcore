@@ -27,7 +27,6 @@ export async function task_unsub() {
     await task_set(last_string);
     let current_result = await task_current();
     assert(result_property_success(current_result));
-    assert(current_result);
     let current = result_data_get(current_result);
     return result_data_set(result, current);
 }
