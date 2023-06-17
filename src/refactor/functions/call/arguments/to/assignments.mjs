@@ -1,4 +1,3 @@
-import { json_to } from '../../../../../json/to.mjs';
 import { object_copy_shallow } from '../../../../../object/copy/shallow.mjs';
 import { js_variable_declarator_init_change } from '../../../../../js/variable/declarator/init/change.mjs';
 import { js_node_property_declarations_get } from '../../../../../js/node/property/declarations/get.mjs';
@@ -28,6 +27,8 @@ import { js_parse_statement } from '../../../../../js/parse/statement.mjs';
 import { list_single } from '../../../../../list/single.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
 import { assert_message } from '../../../../../assert/message.mjs';
+import { list_map } from '../../../../../list/map.mjs';
+import { js_node_type_get } from '../../../../../js/node/type/get.mjs';
 export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
@@ -52,7 +53,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                     if (js_node_is_program(parent_list_next)) {
                         return;
                     }
-                    assert_message(js_node_is_block_statement(parent_list_next), json_to(parent_list_next));
+                    assert_message(js_node_is_block_statement(parent_list_next), list_map(stack_reversed, js_node_type_get));
                     let parent_list = list_get(stack_reversed, parent_list_index);
                     let node_index = list_index_of(parent_list, node);
                     let args = js_node_property_arguments_get(expression);
