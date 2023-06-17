@@ -1,3 +1,4 @@
+import { js_node_is_assignment_expression } from '../../../../../js/node/is/assignment/expression.mjs';
 import { list_adder_unique_async } from '../../../../../list/adder/unique/async.mjs';
 import { error } from '../../../../../error.mjs';
 import { list_find_first_index_after } from '../../../../../list/find/first/index/after.mjs';
@@ -46,7 +47,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                 if (js_node_is_call_expression(expression)) {
                     refactor_call_expression_to_assignments();
                 }
-                if (js_node_is_variable_declaration(expression)) {
+                if (js_node_is_assignment_expression(expression)) {
                     error('here');
                 }
                 function refactor_call_expression_to_assignments() {
