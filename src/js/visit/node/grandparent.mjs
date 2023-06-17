@@ -1,10 +1,12 @@
-import { add } from '../../../add.mjs';
-import { list_get_end } from '../../../list/get/end.mjs';
-import { js_node_is } from '../../node/is.mjs';
-import { list_filter } from '../../../list/filter.mjs';
+import { js_visit_node_ancestor } from './ancestor.mjs';
+import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 export function js_visit_node_grandparent(stack, grandparent_index) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     const offset = 2;
-    let stack_nodes = list_filter(stack, js_node_is);
-    let grandparent = list_get_end(stack_nodes, add(grandparent_index, offset));
+    let grandparent = js_visit_node_ancestor(stack, grandparent_index, offset);
     return grandparent;
 }
