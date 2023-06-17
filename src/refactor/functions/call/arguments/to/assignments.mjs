@@ -11,7 +11,6 @@ import { list_reversed_get } from '../../../../../list/reversed/get.mjs';
 import { js_node_property_arguments_get } from '../../../../../js/node/property/arguments/get.mjs';
 import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
 import { js_node_property_expression_get } from '../../../../../js/node/property/expression/get.mjs';
-import { log } from '../../../../../log.mjs';
 import { js_node_is_expression_statement } from '../../../../../js/node/is/expression/statement.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { refactor_import_fix_if_changed } from '../../../../import/fix/if/changed.mjs';
@@ -25,7 +24,6 @@ import { add_1 } from '../../../../../add/1.mjs';
 import { js_node_is_program } from '../../../../../js/node/is/program.mjs';
 import { list_index_of } from '../../../../../list/index/of.mjs';
 import { string_a } from '../../../../../string/a.mjs';
-import { error } from '../../../../../error.mjs';
 import { js_parse_statement } from '../../../../../js/parse/statement.mjs';
 import { list_single } from '../../../../../list/single.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
@@ -39,18 +37,10 @@ export async function refactor_functions_call_arguments_to_assignments() {
                 let {node, stack} = v;
                 let expression = js_node_property_expression_get(node);
                 if (js_node_is_call_expression(expression)) {
-                    if (false)
-                        log({
-                            unparsed,
-                            node,
-                            stack
-                        });
                     let stack_reversed = list_reversed_get(stack);
                     let parent_list_index = list_find_first_index(stack_reversed, list_is);
                     let parent_list_index_next = add_1(parent_list_index);
                     let parent_list_next = list_get(stack_reversed, parent_list_index_next);
-                    if (false)
-                        log({ parent_list_next });
                     if (js_node_is_program(parent_list_next)) {
                         return;
                     }
@@ -68,10 +58,6 @@ export async function refactor_functions_call_arguments_to_assignments() {
                             let declaration = list_single(declarations);
                             js_variable_declarator_init_change(declaration, object_copy_shallow(node));
                             object_replace(node, assignment);
-                            if (false) {
-                                log({ declaration });
-                                error();
-                            }
                             if (false) {
                                 change();
                             }
