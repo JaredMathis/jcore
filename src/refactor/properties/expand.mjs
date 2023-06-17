@@ -1,6 +1,6 @@
 import { refactor_import_fix } from '../import/fix.mjs';
 import { log_json } from '../../log/json.mjs';
-import { js_code_call_expression_with_args_code as js_code_call_expression_object_property_get } from '../../js/code/call/expression/with/args/code.mjs';
+import { js_code_call_expression_with_args_code } from '../../js/code/call/expression/with/args/code.mjs';
 import { list_add_after } from '../../list/add/after.mjs';
 import { object_replace } from '../../object/replace.mjs';
 import { js_code_statement_assignment } from '../../js/code/statement/assignment.mjs';
