@@ -1,3 +1,5 @@
+import { js_node_property_argument_get } from '../../../../../js/node/property/argument/get.mjs';
+import { js_node_is_await_expression } from '../../../../../js/node/is/await/expression.mjs';
 import { not } from '../../../../../not.mjs';
 import { js_node_property_right_get } from '../../../../../js/node/property/right/get.mjs';
 import { js_node_is_assignment_expression } from '../../../../../js/node/is/assignment/expression.mjs';
@@ -44,13 +46,16 @@ export async function refactor_functions_call_arguments_to_assignments() {
                 let node = object_property_get(v, 'node');
                 let stack = object_property_get(v, 'stack');
                 let expression = js_node_property_expression_get(node);
-                if (!refactor_call_expression_to_assignments(expression)) {
+                refactor_call_expression_to_assignments(expression);
+                function refactor_call_expression_to_assignments(expression) {
                     if (js_node_is_assignment_expression(expression)) {
                         let right = js_node_property_right_get(expression);
-                        refactor_call_expression_to_assignments(right);
+                        return refactor_call_expression_to_assignments(right);
                     }
-                }
-                function refactor_call_expression_to_assignments(expression) {
+                    if (js_node_is_await_expression(expression)) {
+                        let argument = js_node_property_argument_get(expression);
+                        return refactor_call_expression_to_assignments(argument);
+                    }
                     if (not(js_node_is_call_expression(expression))) {
                         return false;
                     }
