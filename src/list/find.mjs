@@ -1,3 +1,4 @@
+import { list_filter } from './filter.mjs';
 import { function_is } from '../function/is.mjs';
 import { list_is } from './is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -9,6 +10,6 @@ export function list_find(list, predicate) {
         function_is
     ]);
     let or_null = false;
-    return list_find_generic(list, predicate, or_null, true);
+    return list_find_generic(list, predicate, or_null, true, list_filter);
     metadata([]);
 }
