@@ -26,6 +26,7 @@ import { string_a } from '../../../../../string/a.mjs';
 import { error } from '../../../../../error.mjs';
 import { js_parse_statement } from '../../../../../js/parse/statement.mjs';
 import { list_single } from '../../../../../list/single.mjs';
+import { object_replace } from '../../../../../object/replace.mjs';
 export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
@@ -35,16 +36,18 @@ export async function refactor_functions_call_arguments_to_assignments() {
                 let {node, stack} = v;
                 let expression = js_node_property_expression_get(node);
                 if (js_node_is_call_expression(expression)) {
-                    log({
-                        unparsed,
-                        node,
-                        stack
-                    });
+                    if (false)
+                        log({
+                            unparsed,
+                            node,
+                            stack
+                        });
                     let stack_reversed = list_reversed_get(stack);
                     let parent_list_index = list_find_first_index(stack_reversed, list_is);
                     let parent_list_index_next = add_1(parent_list_index);
                     let parent_list_next = list_get(stack_reversed, parent_list_index_next);
-                    log({ parent_list_next });
+                    if (false)
+                        log({ parent_list_next });
                     if (js_node_is_program(parent_list_next)) {
                         return;
                     }
@@ -61,7 +64,9 @@ export async function refactor_functions_call_arguments_to_assignments() {
                             let declarations = js_node_property_declarations_get(assignment);
                             let declaration = list_single(declarations);
                             js_variable_declarator_init_change(declaration, object_copy_shallow(node));
-                            log({ declaration });
+                            object_replace(node, assignment);
+                            if (false)
+                                log({ declaration });
                             error();
                             if (false) {
                                 change();
