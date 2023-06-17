@@ -48,7 +48,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                     refactor_call_expression_to_assignments();
                 }
                 if (js_node_is_assignment_expression(expression)) {
-                    error('here');
+                    error({ expression });
                 }
                 function refactor_call_expression_to_assignments() {
                     let stack_reversed = list_reversed_get(stack);
