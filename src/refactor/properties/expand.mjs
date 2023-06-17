@@ -1,12 +1,11 @@
+import { js_code_call_expression_object_property_get } from '../../js/code/call/expression/object/property/get.mjs';
+import { changed } from '../../changed.mjs';
 import { refactor_import_fix } from '../import/fix.mjs';
-import { log_json } from '../../log/json.mjs';
-import { js_code_call_expression_with_args_code } from '../../js/code/call/expression/with/args/code.mjs';
 import { list_add_after } from '../../list/add/after.mjs';
 import { object_replace } from '../../object/replace.mjs';
 import { js_code_statement_assignment } from '../../js/code/statement/assignment.mjs';
 import { js_identifier_name_next } from '../../js/identifier/name/next.mjs';
 import { js_code_expression_string } from '../../js/code/expression/string.mjs';
-import { js_code_join_comma } from '../../js/code/join/comma.mjs';
 import { js_node_property_declarations } from '../../js/node/property/declarations.mjs';
 import { js_property_identifier_name } from '../../js/property/identifier/name.mjs';
 import { js_node_property_value } from '../../js/node/property/value.mjs';
@@ -22,7 +21,6 @@ import { js_node_is_object_pattern } from '../../js/node/is/object/pattern.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
-import { function_name_get } from '../../function/name/get.mjs';
 import { list_length_is_1 } from '../../list/length/is/1.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
@@ -62,14 +60,4 @@ export async function refactor_properties_expand(args) {
     if (changed) {
         await refactor_import_fix(args);
     }
-}
-
-function js_code_call_expression_object_property_get(identifier_code, property_code) {
-    let args = [
-        identifier_code,
-        property_code
-    ];
-    let args_code = js_code_join_comma(args);
-    let after_let = js_code_call_expression_with_args_code(function_name_get(object_property_get), args_code);
-    return after_let;
 }
