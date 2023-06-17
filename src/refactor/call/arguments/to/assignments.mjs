@@ -44,13 +44,13 @@ export function refactor_call_arguments_to_assignments(args) {
         let expression = js_node_property_expression_get(node);
         refactor_call_expression_to_assignments(expression);
         function refactor_call_expression_to_assignments(expression) {
+            console.log({expression})
             if (js_node_is_assignment_expression(expression)) {
                 let right = js_node_property_right_get(expression);
                 return refactor_call_expression_to_assignments(right);
             }
             if (js_node_is_await_expression(expression)) {
                 let argument = js_node_property_argument_get(expression);
-                console.log('here')
                 return refactor_call_expression_to_assignments(argument);
             }
             if (not(js_node_is_call_expression(expression))) {
