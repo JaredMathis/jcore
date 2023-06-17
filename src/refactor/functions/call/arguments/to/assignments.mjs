@@ -72,12 +72,12 @@ export async function refactor_functions_call_arguments_to_assignments() {
             });
         });
         function list_find_first_after(stack_reversed) {
-            let parent_list_index = list_find_first_after(stack_reversed, list_is, 0);
-            let parent_list_index_next = add_1(parent_list_index);
+            let index = list_find_first_after(stack_reversed, list_is, 0);
+            let parent_list_index_next = add_1(index);
             let parent_list_next = list_get(stack_reversed, parent_list_index_next);
             return {
                 parent_list_next,
-                parent_list_index
+                parent_list_index: index
             };
         }
     });
