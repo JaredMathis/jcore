@@ -23,7 +23,11 @@ export async function refactor_functions_string_to_function_call(function_name_r
         if (equal(function_name, function_name_replacement)) {
             return;
         }
-        let c = changed(function v(change) {
+        let c = changed(changed_lambda);
+        if (c) {
+            await refactor_import_fix(args);
+        }
+        function changed_lambda(change) {
             let {parsed} = args;
             js_nodes_each(parsed, js_node_is_literal, function v_2(n) {
                 let value = object_property_get(n, js_node_property_value());
@@ -33,9 +37,6 @@ export async function refactor_functions_string_to_function_call(function_name_r
                     change();
                 }
             });
-        });
-        if (c) {
-            await refactor_import_fix(args);
         }
     });
 }
