@@ -6,7 +6,7 @@ import { js_function_declaration_to_expression_after_arguments_assert } from '..
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { assert } from '../../assert.mjs';
-import { list_length_is_0 } from '../../list/length/is/0.mjs';
+import { list_empty } from '../../list/empty.mjs';
 import { list_map } from '../../list/map.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
 import { list_add_multiple } from '../../list/add/multiple.mjs';
@@ -15,7 +15,7 @@ export async function refactor_call_inputs(args) {
     let {function_declaration} = args;
     let expression = await js_function_declaration_to_expression_after_arguments_assert(function_declaration);
     let expression_args = js_call_expression_arguments(expression);
-    assert(list_length_is_0(expression_args));
+    assert(list_empty(expression_args));
     let name = js_call_expression_name_get_or_null(expression);
     let inputs = await function_inputs(name);
     let mapped = list_map(inputs, js_parse_expression);

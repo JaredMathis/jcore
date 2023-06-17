@@ -13,7 +13,7 @@ import { error } from '../../../../error.mjs';
 import { list_map } from '../../../../list/map.mjs';
 import { js_function_declaration_to_name } from '../../../function/declaration/to/name.mjs';
 import { list_length_multiple } from '../../../../list/length/multiple.mjs';
-import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
+import { list_empty } from '../../../../list/empty.mjs';
 import { boolean_is } from '../../../../boolean/is.mjs';
 export function js_export_function_single_generic(parsed, or_null) {
     arguments_assert(arguments, [
@@ -23,7 +23,7 @@ export function js_export_function_single_generic(parsed, or_null) {
     let result = value_new();
     let exports_existing = js_exports(parsed);
     if (or_null) {
-        if (list_length_is_0(exports_existing)) {
+        if (list_empty(exports_existing)) {
             value_set(result, null);
         }
         if (list_length_multiple(exports_existing)) {

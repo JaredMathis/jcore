@@ -8,14 +8,14 @@ import { metadata } from '../../../metadata.mjs';
 import { function_name_get } from '../../../function/name/get.mjs';
 import { js_statement_if_metadata } from '../../../js/statement/if/metadata.mjs';
 import { list_last } from '../../../list/last.mjs';
-import { list_length_is_0 } from '../../../list/length/is/0.mjs';
+import { list_empty } from '../../../list/empty.mjs';
 import { js_function_declaration_to_statements } from '../../../js/function/declaration/to/statements.mjs';
 export async function refactor_metadata_missing_add(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration} = args;
     let already_exists = false;
     let statements = js_function_declaration_to_statements(function_declaration);
-    if (!list_length_is_0(statements)) {
+    if (!list_empty(statements)) {
         let last_statement = list_last(statements);
         js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
             already_exists = true;

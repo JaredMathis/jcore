@@ -4,7 +4,7 @@ import { string_underscore_is } from '../../underscore/is.mjs';
 import { list_last } from '../../../list/last.mjs';
 import { string_letter_is } from '../../letter/is.mjs';
 import { list_first } from '../../../list/first.mjs';
-import { list_length_is_0 } from '../../../list/length/is/0.mjs';
+import { list_empty } from '../../../list/empty.mjs';
 import { string_to_list } from '../../to/list.mjs';
 import { string_is } from '../../is.mjs';
 import { boolean_is } from '../../../boolean/is.mjs';
@@ -22,7 +22,7 @@ export function string_identifier_is_generic(value, enforce_first, enforce_last,
         return false;
     }
     let list = string_to_list(value);
-    if (list_length_is_0(list)) {
+    if (list_empty(list)) {
         return false;
     }
     if (enforce_first) {

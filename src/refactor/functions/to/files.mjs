@@ -7,7 +7,7 @@ import { function_name_get } from '../../../function/name/get.mjs';
 import { function_add_with_declaration } from '../../../function/add/with/declaration.mjs';
 import { list_remove_multiple } from '../../../list/remove/multiple.mjs';
 import { function_map } from '../../../function/map.mjs';
-import { list_length_is_0 } from '../../../list/length/is/0.mjs';
+import { list_empty } from '../../../list/empty.mjs';
 import { function_exists } from '../../../function/exists.mjs';
 import { js_function_declarations_to_names } from '../../../js/function/declarations/to/names.mjs';
 import { js_node_is_function_declaration } from '../../../js/node/is/function/declaration.mjs';
@@ -23,7 +23,7 @@ export async function refactor_functions_to_files(args) {
     let without_imports = js_without_imports(parsed);
     let function_declarations_to_export = list_filter(without_imports, js_node_is_function_declaration);
     let function_names_new = js_function_declarations_to_names(function_declarations_to_export);
-    if (list_length_is_0(function_names_new)) {
+    if (list_empty(function_names_new)) {
         return;
     }
     for (let n of function_names_new) {

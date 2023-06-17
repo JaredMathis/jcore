@@ -11,7 +11,7 @@ import { task_property_number } from './property/number.mjs';
 import { object_property_get } from '../object/property/get.mjs';
 import { list_join } from '../list/join.mjs';
 import { list_add } from '../list/add.mjs';
-import { list_length_is_0 } from '../list/length/is/0.mjs';
+import { list_empty } from '../list/empty.mjs';
 import { task_is } from './is.mjs';
 export function task_summary(task, all_unsummarized) {
     arguments_assert(arguments, [
@@ -28,7 +28,7 @@ export function task_summary(task, all_unsummarized) {
         required_bys
     };
     object_keys_each(lists, (list, list_name) => {
-        if (!list_length_is_0(list)) {
+        if (!list_empty(list)) {
             const list_string = js_code_parenthesis_surround(string_add(`${ list_name }: `, list_join(list, string_comma())));
             list_add(strings, list_string);
         }

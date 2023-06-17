@@ -13,7 +13,7 @@ import { string_difference_apply_parse } from './apply/parse.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { string_is } from '../is.mjs';
 import { list_is } from '../../list/is.mjs';
-import { list_length_is_0 } from '../../list/length/is/0.mjs';
+import { list_empty } from '../../list/empty.mjs';
 import { list_map } from '../../list/map.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { equal } from '../../equal.mjs';
@@ -26,7 +26,7 @@ export function string_difference_apply(string_old, hunks) {
         string_is,
         list_is
     ]);
-    if (list_length_is_0(hunks)) {
+    if (list_empty(hunks)) {
         return string_old;
     }
     let mapped = list_map(hunks, string_difference_apply_parse);

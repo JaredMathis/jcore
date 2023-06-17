@@ -10,13 +10,13 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { list_last } from '../list/last.mjs';
 import { task_current } from './current.mjs';
 import { string_to } from '../string/to.mjs';
-import { list_length_is_0 } from '../list/length/is/0.mjs';
+import { list_empty } from '../list/empty.mjs';
 import { assert } from '../assert.mjs';
 export async function task_unsub() {
     arguments_assert(arguments, []);
     let result = result_empty();
     let required_bys = await task_current_required_bys();
-    if (list_length_is_0(required_bys)) {
+    if (list_empty(required_bys)) {
         result_unsuccess(result);
         let data = await task_finish();
         return result_data_set(result, data);

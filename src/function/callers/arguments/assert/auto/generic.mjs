@@ -1,3 +1,4 @@
+import { changed } from '../../../../../changed.mjs';
 import { js_call_expression_arguments } from '../../../../../js/call/expression/arguments.mjs';
 import { js_visit_nodes_call_expression_name_equal } from '../../../../../js/visit/nodes/call/expression/name/equal.mjs';
 import { js_node_property_end } from '../../../../../js/node/property/end.mjs';
@@ -22,7 +23,7 @@ import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs'
 import { assert } from '../../../../../assert.mjs';
 import { list_each_with_index_async } from '../../../../../list/each/with/index/async.mjs';
 import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../../../../../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
-import { list_length_is_0 } from '../../../../../list/length/is/0.mjs';
+import { list_empty } from '../../../../../list/empty.mjs';
 import { js_node_property_params } from '../../../../../js/node/property/params.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { equal } from '../../../../../equal.mjs';
@@ -43,7 +44,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         let c_parsed = object_property_get(c_args, 'parsed');
         let c_function_declaration = object_property_get(c_args, 'function_declaration');
         let c_params = object_property_get(c_function_declaration, js_node_property_params());
-        if (list_length_is_0(c_params)) {
+        if (list_empty(c_params)) {
             return true;
         }
         let c_arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(c_function_declaration);

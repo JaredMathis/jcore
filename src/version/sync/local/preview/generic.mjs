@@ -2,7 +2,7 @@ import { list_multiple_summary } from '../../../../list/multiple/summary.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { list_add } from '../../../../list/add.mjs';
-import { list_length_is_0 } from '../../../../list/length/is/0.mjs';
+import { list_empty } from '../../../../list/empty.mjs';
 import { string_difference_get } from '../../../../string/difference/get.mjs';
 import { version_file_contents_each } from '../../../file/contents/each.mjs';
 import { version_removals } from '../../../removals.mjs';
@@ -25,7 +25,7 @@ export async function version_sync_local_preview_generic(repository_name) {
     });
     function todo(contents, existing, file_path) {
         let hunks = string_difference_get(contents, existing);
-        if (!list_length_is_0(hunks)) {
+        if (!list_empty(hunks)) {
             list_add(differences, {
                 file_path,
                 hunks

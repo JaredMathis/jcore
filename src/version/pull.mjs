@@ -4,7 +4,6 @@ import { version_property_file_path } from './property/file/path.mjs';
 import { list_remove_multiple_property_exists } from '../list/remove/multiple/property/exists.mjs';
 import { version_property_commit_id } from './property/commit/id.mjs';
 import { version_path_commit } from './path/commit.mjs';
-import { log } from '../log.mjs';
 import { database_reference_get_data } from '../database/reference/get/data.mjs';
 import { database_value_get } from '../database/value/get.mjs';
 import { database_reference } from '../database/reference.mjs';
@@ -22,7 +21,7 @@ import { add_1 } from '../add/1.mjs';
 import { list_single } from '../list/single.mjs';
 import { version_property_part_id } from './property/part/id.mjs';
 import { assert } from '../assert.mjs';
-import { list_length_is_0 } from '../list/length/is/0.mjs';
+import { list_empty } from '../list/empty.mjs';
 import { file_exists } from '../file/exists.mjs';
 export async function version_pull(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
@@ -44,7 +43,7 @@ export async function version_pull(repository_name) {
             let commit = list_single(commits);
             const property_part_id = version_property_part_id();
             let parts = list_remove_multiple_property_exists(commit_value, property_part_id);
-            assert(list_length_is_0(commit_value));
+            assert(list_empty(commit_value));
             let commit_path = version_path_commit(repository_name, commit_version);
             await file_json_write(commit_path, commit);
             for (let part of parts) {

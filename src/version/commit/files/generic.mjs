@@ -12,7 +12,7 @@ import { add_1 } from '../../../add/1.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { guid_generate } from '../../../guid/generate.mjs';
 import { version_property_path } from '../../property/path.mjs';
-import { list_length_is_0 } from '../../../list/length/is/0.mjs';
+import { list_empty } from '../../../list/empty.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
 import { version_property_hunks } from '../../property/hunks.mjs';
 import { git_ignore_filter } from '../../../git/ignore/filter.mjs';
@@ -37,7 +37,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
     for (let file_path of filtered) {
         let difference = await difference_get(repository_name, file_path);
         let hunks = object_property_get(difference, property_hunks);
-        if (!list_length_is_0(hunks)) {
+        if (!list_empty(hunks)) {
             let difference_path = object_property_get(difference, version_property_path());
             let part_id = guid_generate();
             list_add(parts, part_id);
@@ -52,7 +52,7 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             list_add(writes, difference_write);
         }
     }
-    if (!list_length_is_0(writes)) {
+    if (!list_empty(writes)) {
         let when = date_now_iso();
         let commit_id = guid_generate();
         let commit = {

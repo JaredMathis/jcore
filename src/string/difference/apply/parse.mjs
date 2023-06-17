@@ -1,3 +1,4 @@
+import { count } from '../../../count.mjs';
 import { string_difference_property_removed } from '../property/removed.mjs';
 import { equal } from '../../../equal.mjs';
 import { string_difference_property_added } from '../property/added.mjs';
@@ -13,7 +14,7 @@ import { string_difference_removed } from '../removed.mjs';
 import { string_difference_added } from '../added.mjs';
 import { error } from '../../../error.mjs';
 import { list_filter } from '../../../list/filter.mjs';
-import { list_length_is_0 } from '../../../list/length/is/0.mjs';
+import { list_empty } from '../../../list/empty.mjs';
 import { integer_parse } from '../../../integer/parse.mjs';
 import { add_1 } from '../../../add/1.mjs';
 import { string_length } from '../../length.mjs';
@@ -29,7 +30,7 @@ export function string_difference_apply_parse(hunk) {
     ];
     let indexes = list_map(operations, o => string_index_of_try(hunk, o));
     let valid = list_filter(indexes, string_index_of_try_valid);
-    if (list_length_is_0(valid)) {
+    if (list_empty(valid)) {
         error();
     }
     let valid_min = list_min(valid);
