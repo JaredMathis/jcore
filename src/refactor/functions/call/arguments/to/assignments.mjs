@@ -21,6 +21,7 @@ import { js_node_is_program } from '../../../../../js/node/is/program.mjs';
 import { list_index_of } from '../../../../../list/index/of.mjs';
 import { string_a } from '../../../../../string/a.mjs';
 import { error } from '../../../../../error.mjs';
+import { js_parse_statement } from '../../../../../js/parse/statement.mjs';
 export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
@@ -51,8 +52,9 @@ export async function refactor_functions_call_arguments_to_assignments() {
                     for (let arg of args_reversed) {
                         if (js_node_is_call_expression(arg)) {
                             let id = js_identifier_name_next(parsed);
-                            let assignment = js_code_statement_assignment(id, string_a());
-                            log({ assignment });
+                            let assignment_code = js_code_statement_assignment(id, string_a());
+                            let assignment = js_parse_statement(assignment_code);
+                            log({ assignment: assignment_code });
                             error();
                             if (false) {
                                 change();
