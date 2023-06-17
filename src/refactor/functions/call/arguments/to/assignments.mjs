@@ -46,7 +46,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                     let args_reversed = list_reversed_get(args);
                     for (let arg of args_reversed) {
                         if (js_node_is_call_expression(arg)) {
-                            js_identifier_name_next();
+                            let id = js_identifier_name_next(parsed);
                             log(arg);
                             if (false) {
                                 change();
