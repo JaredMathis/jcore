@@ -36,10 +36,10 @@ export async function refactor_functions_call_arguments_to_assignments() {
                     let parent_list_index = list_find_first_index(stack_reversed, list_is);
                     let parent_list_index_next = add_1(parent_list_index);
                     let parent_list_next = list_get(stack_reversed, parent_list_index_next);
-                    if(js_node_is_program(parent_list_index)) {
+                    log({ parent_list_next });
+                    if (js_node_is_program(parent_list_index)) {
                         return;
                     }
-                    log({ parent_list_next });
                     assert(js_node_is_block_statement(parent_list_next));
                     for (let arg of args_reversed) {
                         if (js_node_is_call_expression(arg)) {
