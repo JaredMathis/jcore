@@ -1,3 +1,4 @@
+import { string_to } from '../../string/to.mjs';
 import { task_property_number_get } from '../property/number/get.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { task_later } from '../later.mjs';
@@ -8,8 +9,9 @@ export async function task_later_before(task_number_string, title) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let task = await task_later(title);
-    let task_number = task_property_number_get(task);
-    await task_requires(task_number_string);
-    return task;
+    let task_other = await task_later(title);
+    let task_number_other = task_property_number_get(task_other);
+    let task_number_string_other = string_to(task_number_other);
+    await task_requires(task_number_string_other, task_number_string);
+    return task_other;
 }
