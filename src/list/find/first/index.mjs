@@ -10,6 +10,6 @@ export function list_find_first_index(list, predicate) {
         function_is
     ]);
     let or_null = false;
-    return list_find_generic(list, predicate, or_null, true, list_filter_index);
+    return list_find_generic(list, predicate, or_null, false, list_filter_index);
     metadata([]);
 }
