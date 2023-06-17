@@ -1,4 +1,4 @@
-import { js_visit_node_grandparent } from '../../../../../js/visit/node/grandparent.mjs';
+import { js_visit_node_ancestor } from '../../../../../js/visit/node/ancestor.mjs';
 import { list_reversed_get } from '../../../../../list/reversed/get.mjs';
 import { js_node_property_arguments_get } from '../../../../../js/node/property/arguments/get.mjs';
 import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
@@ -26,7 +26,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                         node,
                         stack
                     });
-                    let grandparent = js_visit_node_grandparent(stack, 0);
+                    let grandparent = js_visit_node_ancestor(stack, 0);
                     log({ grandparent });
                     for (let arg of reversed) {
                         if (js_node_is_call_expression(arg)) {
