@@ -1,3 +1,4 @@
+import { list_each_with_index_async } from '../each/with/index/async.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { list_add } from '../add.mjs';
@@ -13,6 +14,13 @@ export async function list_filter_async(array, filter) {
         if (await filter(a)) {
             list_add(result, a);
         }
+    }
+    if (false) {
+        await list_each_with_index_async(array, async a => {
+            if (await filter(a)) {
+                list_add(result, a);
+            }
+        });
     }
     return result;
     metadata([]);
