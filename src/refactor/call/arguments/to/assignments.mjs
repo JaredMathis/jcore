@@ -1,3 +1,5 @@
+import { js_node_property_init_get } from '../../../../js/node/property/init/get.mjs';
+import { js_declarations_single } from '../../../../js/declarations/single.mjs';
 import { add_1 } from '../../../../add/1.mjs';
 import { list_is } from '../../../../list/is.mjs';
 import { list_find_first_index_after } from '../../../../list/find/first/index/after.mjs';
@@ -49,6 +51,7 @@ export function refactor_call_arguments_to_assignments(args) {
             }
             if (js_node_is_variable_declaration(expression)) {
                 let declaration = js_declarations_single(expression);
+                let init = js_node_property_init_get(declaration);
                 return refactor_call_expression_to_assignments(child);
             }
             if (js_node_is_assignment_expression(expression)) {
