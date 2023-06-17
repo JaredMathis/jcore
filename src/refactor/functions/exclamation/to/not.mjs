@@ -1,3 +1,4 @@
+import { object_replace } from '../../../../object/replace.mjs';
 import { js_node_property_arguments_get } from '../../../../js/node/property/arguments/get.mjs';
 import { not } from '../../../../not.mjs';
 import { js_parse_call_expression } from '../../../../js/parse/call/expression.mjs';
@@ -23,6 +24,7 @@ export async function refactor_functions_exclamation_to_not() {
                 let call_expression = js_parse_call_expression(function_name_get(not));
                 let args = js_node_property_arguments_get(call_expression);
                 list_add(args, argument);
+                object_replace(n, call_expression);
             }
         });
     });
