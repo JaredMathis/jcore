@@ -40,6 +40,7 @@ import { js_visit_nodes_filter } from '../../../../js/visit/nodes/filter.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
+import { js_node_is } from '../../../../js/node/is.mjs';
 export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = object_property_get(args, 'parsed');
@@ -49,7 +50,11 @@ export function refactor_call_arguments_to_assignments(args) {
             let node = object_property_get(v, 'node');
             let stack = object_property_get(v, 'stack');
             refactor_call_expression_to_assignments(node);
-            function refactor_call_expression_to_assignments(expression) {
+            function refactor_call_expression_to_assignments(expression, expression_parent) {
+                arguments_assert(arguments, [
+                    js_node_is,
+                    js_node_is
+                ]);
                 if (js_node_is_expression_statement(expression)) {
                     let child = js_node_property_expression_get(expression);
                     return refactor_call_expression_to_assignments(child);
