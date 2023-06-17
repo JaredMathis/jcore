@@ -19,6 +19,10 @@ export async function task_requires(task_number_string, task_number_required_str
     return await task_available();
     function map(body_parsed) {
         let requires = task_body_requires(body_parsed);
+        requires_map(requires);
+    }
+
+    function requires_map(requires) {
         list_add_assert_exists_not(requires, task_number_required);
     }
 }
