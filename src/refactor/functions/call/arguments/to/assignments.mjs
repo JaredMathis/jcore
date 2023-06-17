@@ -26,8 +26,6 @@ export async function refactor_functions_call_arguments_to_assignments() {
                 let {node, stack} = v;
                 let expression = js_node_property_expression_get(node);
                 if (js_node_is_call_expression(expression)) {
-                    let args = js_node_property_arguments_get(expression);
-                    let args_reversed = list_reversed_get(args);
                     log({
                         unparsed,
                         node,
@@ -43,6 +41,8 @@ export async function refactor_functions_call_arguments_to_assignments() {
                     }
                     assert(js_node_is_block_statement(parent_list_next));
                     let node_index = list_index_of(parent_list_next, node);
+                    let args = js_node_property_arguments_get(expression);
+                    let args_reversed = list_reversed_get(args);
                     for (let arg of args_reversed) {
                         if (js_node_is_call_expression(arg)) {
                             log(arg);
