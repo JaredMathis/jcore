@@ -50,6 +50,7 @@ export function refactor_call_arguments_to_assignments(args) {
             }
             if (js_node_is_await_expression(expression)) {
                 let argument = js_node_property_argument_get(expression);
+                console.log('here')
                 return refactor_call_expression_to_assignments(argument);
             }
             if (not(js_node_is_call_expression(expression))) {
