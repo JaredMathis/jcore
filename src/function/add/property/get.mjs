@@ -7,6 +7,8 @@ import { js_code_statement } from '../../../js/code/statement.mjs';
 import { list_join } from '../../../list/join.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
 import { function_name_separator } from '../../name/separator.mjs';
+import { function_name_get } from '../../name/get.mjs';
+import { defined_is } from '../../../defined/is.mjs';
 export async function function_add_property_get(property_prefix, property_name) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -24,6 +26,6 @@ export async function function_add_property_get(property_prefix, property_name) 
         'get'
     ], function_name_separator());
     let result = await function_add_with_statement_code(function_name, statement_code);
-    function_input_add_type();
+    await function_input_add_type(function_name, property_prefix, function_name_get(defined_is));
     return result;
 }
