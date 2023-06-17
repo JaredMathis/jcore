@@ -41,6 +41,7 @@ import { object_property_get } from '../../../../object/property/get.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_node_is } from '../../../../js/node/is.mjs';
+import { defined_is } from '../../../../defined/is.mjs';
 export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = object_property_get(args, 'parsed');
@@ -49,15 +50,15 @@ export function refactor_call_arguments_to_assignments(args) {
         js_visit_nodes_filter(parsed, n => js_node_is_expression_statement(n) || js_node_is_variable_declaration(n) || js_node_is_return_statement(n), v => {
             let node = object_property_get(v, 'node');
             let stack = object_property_get(v, 'stack');
-            refactor_call_expression_to_assignments(node);
+            refactor_call_expression_to_assignments(node, null);
             function refactor_call_expression_to_assignments(expression, expression_parent) {
                 arguments_assert(arguments, [
                     js_node_is,
-                    js_node_is
+                    defined_is
                 ]);
                 if (js_node_is_expression_statement(expression)) {
                     let child = js_node_property_expression_get(expression);
-                    return refactor_call_expression_to_assignments(child);
+                    return refactor_call_expression_to_assignments(child, expression);
                 }
                 if (js_node_is_variable_declaration(expression)) {
                     let declaration = js_declarations_single(expression);
@@ -65,22 +66,22 @@ export function refactor_call_arguments_to_assignments(args) {
                     if (null_is(init)) {
                         return;
                     }
-                    return refactor_call_expression_to_assignments(init);
+                    return refactor_call_expression_to_assignments(init, declaration);
                 }
                 if (js_node_is_assignment_expression(expression)) {
                     let right = js_node_property_right_get(expression);
-                    return refactor_call_expression_to_assignments(right);
+                    return refactor_call_expression_to_assignments(right, expression);
                 }
                 if (js_node_is_await_expression(expression)) {
                     let argument = js_node_property_argument_get(expression);
-                    return refactor_call_expression_to_assignments(argument);
+                    return refactor_call_expression_to_assignments(argument, expression);
                 }
                 if (js_node_is_return_statement(expression)) {
                     let argument = js_return_statement_argument_get(expression);
                     if (null_is(argument)) {
                         return;
                     }
-                    return refactor_call_expression_to_assignments(argument);
+                    return refactor_call_expression_to_assignments(argument, expression);
                 }
                 if (not(js_node_is_call_expression(expression))) {
                     return false;
@@ -114,7 +115,11 @@ export function refactor_call_arguments_to_assignments(args) {
                     }
                 }
                 if (js_node_is_return_statement(node)) {
-                    replace(expression);
+                    if (js_node_is_await_expression(expression_parent)) {
+                        replace(expression_parent);
+                    } else {
+                        replace(expression);
+                    }
                 }
                 return true;
                 function replace(arg) {
