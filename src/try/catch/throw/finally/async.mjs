@@ -1,7 +1,7 @@
 import { noop } from '../../../../noop.mjs';
 import { function_is } from '../../../../function/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
-export async function try_catch_throw_async(lambda_try, lambda_catch) {
+export async function try_catch_throw_finally_async(lambda_try, lambda_catch) {
     arguments_assert(arguments, [
         function_is,
         function_is
