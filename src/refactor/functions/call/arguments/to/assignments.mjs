@@ -58,7 +58,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                             let assignment = js_parse_statement(assignment_code);
                             let declarations = js_node_property_declarations_get(assignment);
                             let declaration = list_single(declarations);
-                            log({ assignment });
+                            log({ declaration });
                             error();
                             if (false) {
                                 change();
