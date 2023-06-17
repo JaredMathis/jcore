@@ -1,6 +1,6 @@
-import { argument_binary_second } from '../../argument/binary/second.mjs';
 import { metadata_generated } from '../../metadata/generated.mjs';
 import { metadata } from '../../metadata.mjs';
+import { argument_binary_second } from '../../argument/binary/second.mjs';
 import { list_filter_generic } from './generic.mjs';
 import { function_is } from '../../function/is.mjs';
 import { list_is } from '../is.mjs';
