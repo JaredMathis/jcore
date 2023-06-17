@@ -40,74 +40,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     return await list_adder_unique_async(async la => {
         await file_js_all_map_args_if_function(async function logic(args) {
-            let parsed = object_property_get(args, 'parsed');
-            let unparsed = object_property_get(args, 'unparsed');
-            js_visit_nodes_filter(parsed, js_node_is_expression_statement, v => {
-                let node = object_property_get(v, 'node');
-                let stack = object_property_get(v, 'stack');
-                let expression = js_node_property_expression_get(node);
-                refactor_call_expression_to_assignments(expression);
-                function refactor_call_expression_to_assignments(expression) {
-                    if (js_node_is_assignment_expression(expression)) {
-                        let right = js_node_property_right_get(expression);
-                        return refactor_call_expression_to_assignments(right);
-                    }
-                    if (js_node_is_await_expression(expression)) {
-                        let argument = js_node_property_argument_get(expression);
-                        return refactor_call_expression_to_assignments(argument);
-                    }
-                    if (not(js_node_is_call_expression(expression))) {
-                        return false;
-                    }
-                    let stack_reversed = list_reversed_get(stack);
-                    let index_starting_at = 0;
-                    let list_find_first_after_result = list_find_first_after(stack_reversed, index_starting_at);
-                    let parent_list_next = object_property_get(list_find_first_after_result, 'next');
-                    let parent_list_index = object_property_get(list_find_first_after_result, 'index');
-                    if (js_node_is_program(parent_list_next)) {
-                        return false;
-                    }
-                    if (js_node_is_variable_declaration(parent_list_next)) {
-                        list_find_first_after_result = list_find_first_after(stack_reversed, parent_list_index);
-                        parent_list_next = object_property_get(list_find_first_after_result, 'next');
-                        parent_list_index = object_property_get(list_find_first_after_result, 'index');
-                        return false;
-                    }
-                    let v_2 = json_to({
-                        s: list_map_try(stack_reversed, js_node_property_type_get),
-                        n: js_node_property_type_get(parent_list_next)
-                    });
-                    let v_3 = js_node_is_block_statement(parent_list_next);
-                    assert_message(v_3, v_2);
-                    let parent_list = list_get(stack_reversed, parent_list_index);
-                    let args = js_node_property_arguments_get(expression);
-                    let args_reversed = list_reversed_get(args);
-                    for (let arg of args_reversed) {
-                        if (js_node_is_call_expression(arg)) {
-                            let id = js_identifier_name_next(parsed);
-                            let assignment_code = js_code_statement_assignment(id, string_a());
-                            let assignment = js_parse_statement(assignment_code);
-                            let declarations = js_node_property_declarations_get(assignment);
-                            let declaration = list_single(declarations);
-                            let v_4 = object_copy_shallow(arg);
-                            js_variable_declarator_init_change(declaration, v_4);
-                            let v_5 = js_parse_expression(id);
-                            object_replace(arg, v_5);
-                            list_add_before(parent_list, assignment, node);
-                        }
-                    }
-                    return true;
-                }
-            });
-            function list_find_first_after(stack_reversed, index_starting_at) {
-                let index = list_find_first_index_after(stack_reversed, list_is, index_starting_at);
-                let index_next = add_1(index);
-                let next = list_get(stack_reversed, index_next);
-                return {
-                    next,
-                    index
-                };
-            }
+            
         });
     });
     metadata([]);
