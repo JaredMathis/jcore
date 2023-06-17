@@ -30,6 +30,7 @@ import { js_parse_statement } from '../../../../../js/parse/statement.mjs';
 import { list_single } from '../../../../../list/single.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
 import { assert_message } from '../../../../../assert/message.mjs';
+import { js_parse_expression } from '../../../../../js/parse/expression.mjs';
 export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
@@ -71,7 +72,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                             let declarations = js_node_property_declarations_get(assignment);
                             let declaration = list_single(declarations);
                             js_variable_declarator_init_change(declaration, object_copy_shallow(node));
-                            object_replace(node, assignment);
+                            object_replace(arg, js_parse_expression(id));
                             if (false) {
                                 change();
                             }
