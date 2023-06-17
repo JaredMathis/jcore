@@ -1,3 +1,4 @@
+import { boolean_is } from '../../../boolean/is.mjs';
 import { result_unsuccess_is } from '../../../result/unsuccess/is.mjs';
 import { throws_generic } from '../../../throws/generic.mjs';
 import { list_adder_async } from '../../adder/async.mjs';
@@ -5,10 +6,11 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { list_each_with_index_async } from '../../each/with/index/async.mjs';
 import { list_is } from '../../is.mjs';
 import { function_is } from '../../../function/is.mjs';
-export async function list_map_generic_async(list, lambda) {
+export async function list_map_generic_async(list, lambda, allow_error_mapping) {
     arguments_assert(arguments, [
         list_is,
-        function_is
+        function_is,
+        boolean_is
     ]);
     return await list_adder_async(async la => {
         await list_each_with_index_async(list, async (element, index) => {

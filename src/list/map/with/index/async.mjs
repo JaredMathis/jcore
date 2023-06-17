@@ -8,6 +8,6 @@ export async function list_map_with_index_async(list, mapper) {
         list_is,
         function_is
     ]);
-    return await list_map_generic_async(list, mapper);
+    return await list_map_generic_async(list, mapper, false);
     metadata([]);
 }
