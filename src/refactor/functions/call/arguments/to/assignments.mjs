@@ -1,3 +1,5 @@
+import { not } from '../../../../../not.mjs';
+import { js_node_property_right_get } from '../../../../../js/node/property/right/get.mjs';
 import { js_node_is_assignment_expression } from '../../../../../js/node/is/assignment/expression.mjs';
 import { list_adder_unique_async } from '../../../../../list/adder/unique/async.mjs';
 import { error } from '../../../../../error.mjs';
