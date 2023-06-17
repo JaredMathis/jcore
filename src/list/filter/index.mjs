@@ -1,3 +1,4 @@
+import { argument_binary_second } from '../../argument/binary/second.mjs';
 import { metadata_generated } from '../../metadata/generated.mjs';
 import { metadata } from '../../metadata.mjs';
 import { list_filter_generic } from './generic.mjs';
@@ -11,7 +12,4 @@ export function list_filter_index(array, filter) {
     ]);
     return list_filter_generic(array, filter, argument_binary_second);
     metadata([metadata_generated()]);
-}
-function argument_binary_second(first, second) {
-    return second;
 }
