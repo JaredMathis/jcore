@@ -54,7 +54,9 @@ export function refactor_call_arguments_to_assignments(args) {
             if (js_node_is_variable_declaration(expression)) {
                 let declaration = js_declarations_single(expression);
                 let init = js_node_property_init_get(declaration);
-                log({declaration})
+                if (null_is(init)) {
+                    return;
+                }
                 return refactor_call_expression_to_assignments(init);
             }
             if (js_node_is_assignment_expression(expression)) {
