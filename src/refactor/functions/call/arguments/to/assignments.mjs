@@ -1,3 +1,4 @@
+import { js_code_statement_assignment } from '../../../../../js/code/statement/assignment.mjs';
 import { js_identifier_name_next } from '../../../../../js/identifier/name/next.mjs';
 import { list_find_first_index } from '../../../../../list/find/first/index.mjs';
 import { list_reversed_get } from '../../../../../list/reversed/get.mjs';
@@ -47,6 +48,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                     for (let arg of args_reversed) {
                         if (js_node_is_call_expression(arg)) {
                             let id = js_identifier_name_next(parsed);
+                            js_code_statement_assignment(id, ``);
                             log(arg);
                             if (false) {
                                 change();
