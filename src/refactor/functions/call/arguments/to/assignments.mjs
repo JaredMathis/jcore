@@ -1,3 +1,4 @@
+import { error } from '../../../../../error.mjs';
 import { js_node_is_variable_declarator } from '../../../../../js/node/is/variable/declarator.mjs';
 import { list_find_first_index_after } from '../../../../../list/find/first/index/after.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
@@ -44,7 +45,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                 refactor_call_expression_to_assignments();
             }
             if (js_node_is_variable_declarator(expression)) {
-                refactor_call_expression_to_assignments();
+                error('here');
             }
             function refactor_call_expression_to_assignments() {
                 let stack_reversed = list_reversed_get(stack);
