@@ -18,6 +18,10 @@ export async function function_add_property_get(property_prefix, property_name) 
     ], function_name_separator());
     let expression_code = js_code_call_expression_object_property_get(property_prefix, js_code_call_expression(property_name_fn_get));
     let statement_code = js_code_statement(expression_code);
+    let function_name = list_join([
+        property_name_fn_get,
+        'get'
+    ], function_name_separator());
     let result = await function_add_with_statement_code(function_name, statement_code);
     return result;
 }
