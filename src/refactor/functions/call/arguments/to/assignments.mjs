@@ -1,3 +1,4 @@
+import { js_identifier_name_next } from '../../../../../js/identifier/name/next.mjs';
 import { list_find_first_index } from '../../../../../list/find/first/index.mjs';
 import { list_reversed_get } from '../../../../../list/reversed/get.mjs';
 import { js_node_property_arguments_get } from '../../../../../js/node/property/arguments/get.mjs';
@@ -45,6 +46,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                     let args_reversed = list_reversed_get(args);
                     for (let arg of args_reversed) {
                         if (js_node_is_call_expression(arg)) {
+                            js_identifier_name_next();
                             log(arg);
                             if (false) {
                                 change();
