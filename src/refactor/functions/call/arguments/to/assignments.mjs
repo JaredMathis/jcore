@@ -1,3 +1,4 @@
+import { list_find_first_index_after } from '../../../../../list/find/first/index/after.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_node_is_variable_declaration } from '../../../../../js/node/is/variable/declaration.mjs';
 import { json_to } from '../../../../../json/to.mjs';
@@ -49,9 +50,9 @@ export async function refactor_functions_call_arguments_to_assignments() {
                         return;
                     }
                     if (js_node_is_variable_declaration(parent_list_next)) {
-                        let list_find_first_after_result = list_find_first_after(stack_reversed, add_1(parent_list_index));
-                        let parent_list_next = object_property_get(list_find_first_after_result, 'next');
-                        let parent_list_index = object_property_get(list_find_first_after_result, 'index');
+                        list_find_first_after_result = list_find_first_after(stack_reversed, parent_list_index);
+                        parent_list_next = object_property_get(list_find_first_after_result, 'next');
+                        parent_list_index = object_property_get(list_find_first_after_result, 'index');
                         return;
                     }
                     assert_message(js_node_is_block_statement(parent_list_next), json_to({
@@ -80,7 +81,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
             });
         });
         function list_find_first_after(stack_reversed, index_starting_at) {
-            let index = list_find_first_after(stack_reversed, list_is, index_starting_at);
+            let index = list_find_first_index_after(stack_reversed, list_is, index_starting_at);
             let index_next = add_1(index);
             let next = list_get(stack_reversed, index_next);
             return {
