@@ -1,4 +1,4 @@
-import { subtract } from '../../subtract.mjs';
+import { string_compare } from '../../string/compare.mjs';
 import { identity } from '../../identity.mjs';
 import { list_sort_generic } from './generic.mjs';
 import { list_is } from '../is.mjs';
