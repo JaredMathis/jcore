@@ -43,15 +43,15 @@ export async function refactor_functions_call_arguments_to_assignments() {
                 let node = object_property_get(v, 'node');
                 let stack = object_property_get(v, 'stack');
                 let expression = js_node_property_expression_get(node);
-                la(js_node_property_type_get(expression));
-                if (js_node_is_call_expression(expression)) {
-                    refactor_call_expression_to_assignments(expression);
-                }
+                refactor_call_expression_to_assignments(expression);
                 if (js_node_is_assignment_expression(expression)) {
                     let right = js_node_property_right_get(expression);
                     error(json_to({ expression }));
                 }
                 function refactor_call_expression_to_assignments(expression) {
+                    if (not(js_node_is_call_expression(expression))) {
+                        return;
+                    }
                     let stack_reversed = list_reversed_get(stack);
                     let index_starting_at = 0;
                     let list_find_first_after_result = list_find_first_after(stack_reversed, index_starting_at);
