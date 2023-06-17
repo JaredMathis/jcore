@@ -20,17 +20,17 @@ export async function function_rename_without_all_refactor(function_name_old, fu
         string_identifier_is,
         string_identifier_is
     ]);
-    assert(!equal(function_name_old, function_name_new));
+    assert(not(equal(function_name_old, function_name_new)));
     assert(await function_exists(function_name_old));
-    assert(!await function_exists(function_name_new));
-    assert(!await file_js_all_identifier_exists(function_name_new));
+    assert(not(await function_exists(function_name_new)));
+    assert(not(await file_js_all_identifier_exists(function_name_new)));
     let all = await function_name_all();
     let tests_prefix_old = function_tests_prefix_get(function_name_old);
     let tests_old = list_filter(all, a => string_starts_with(a, tests_prefix_old));
     let tests_prefix_new = function_tests_prefix_get(function_name_new);
     let tests_renames = list_to_dictionary(tests_old, t => string_prefix_replace(t, tests_prefix_old, tests_prefix_new));
     for (let to of object_properties(tests_renames)) {
-        assert(!await function_exists(to));
+        assert(not(await function_exists(to)));
     }
     await function_rename_file_path(function_name_old, function_name_new);
     for (let from of object_keys(tests_renames)) {

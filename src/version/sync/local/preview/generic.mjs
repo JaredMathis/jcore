@@ -25,7 +25,7 @@ export async function version_sync_local_preview_generic(repository_name) {
     });
     function todo(contents, existing, file_path) {
         let hunks = string_difference_get(contents, existing);
-        if (!list_empty(hunks)) {
+        if (not(list_empty(hunks))) {
             list_add(differences, {
                 file_path,
                 hunks

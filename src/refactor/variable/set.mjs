@@ -18,19 +18,19 @@ export async function refactor_variable_set(args) {
     let {identifier, value} = args;
     let {parsed} = args;
     const predicate = n => {
-        if (!js_node_is_variable_declaration(n)) {
+        if (not(js_node_is_variable_declaration(n))) {
             return false;
         }
         let declarations = object_property_get(n, js_node_property_declarations());
-        if (!list_length_is_1(declarations)) {
+        if (not(list_length_is_1(declarations))) {
             return false;
         }
         let declaration = list_single(declarations);
-        if (!js_node_is_variable_declarator(declaration)) {
+        if (not(js_node_is_variable_declarator(declaration))) {
             return false;
         }
         let id = object_property_get(declaration, js_node_property_id());
-        if (!js_node_is_identifier(id)) {
+        if (not(js_node_is_identifier(id))) {
             return false;
         }
         return equal(object_property_get(id, js_property_name()), identifier);

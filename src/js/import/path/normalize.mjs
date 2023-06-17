@@ -11,7 +11,7 @@ comment(`path.normalize slashes one way. However import statements in mjs requir
 export function js_import_path_normalize(import_path) {
     arguments_assert(arguments, [path_is]);
     let result = string_replace(import_path, directory_separator(), js_directory_separator());
-    if (!string_starts_with(result, directory_current())) {
+    if (not(string_starts_with(result, directory_current()))) {
         return `${ directory_current() }${ js_directory_separator() }` + result;
     }
     return result;

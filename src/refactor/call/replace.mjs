@@ -13,7 +13,7 @@ export async function refactor_call_replace(args) {
     let {parsed} = args;
     js_visit_nodes_call_expression_name_equal(parsed, function_name_called_old, n => {
         let callee = object_property_get(n, js_node_property_callee());
-        if (!js_node_is_identifier(callee)) {
+        if (not(js_node_is_identifier(callee))) {
             return;
         }
         object_property_set(callee, js_node_property_name(), function_name_called_new);

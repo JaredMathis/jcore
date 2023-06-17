@@ -15,7 +15,7 @@ export async function js_mapper_args_to_metadata_args(args) {
         missing = true;
     } else {
         let last_statement = list_last(statements);
-        if (!js_statement_metadata_is(last_statement)) {
+        if (not(js_statement_metadata_is(last_statement))) {
             missing = true;
         }
     }

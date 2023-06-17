@@ -24,7 +24,7 @@ export async function git_pacp_with_message(commit_message, sync) {
         command_commit
     ];
     let c_result = await git_commands_sync_add_run(sync, commands);
-    if (!c_result.success) {
+    if (not(c_result.success)) {
         if (c_result.command === command_commit) {
             let result = result_empty();
             result.inner = c_result;

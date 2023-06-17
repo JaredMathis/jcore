@@ -13,7 +13,7 @@ export async function refactor_console_to_function(args) {
     arguments_assert(arguments, [js_mapper_args_is]);
     let {parsed, file_path} = args;
     let exports_existing = js_exports(parsed);
-    if (!list_empty(exports_existing)) {
+    if (not(list_empty(exports_existing))) {
         return;
     }
     let body = js_body_get(parsed);

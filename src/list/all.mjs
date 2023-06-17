@@ -8,7 +8,7 @@ export function list_all(list, predicate) {
         function_is
     ]);
     for (let a of list) {
-        if (!predicate(a)) {
+        if (not(predicate(a))) {
             return false;
         }
     }

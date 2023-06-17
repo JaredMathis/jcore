@@ -27,7 +27,7 @@ export async function refactor_functions_to_files(args) {
         return;
     }
     for (let n of function_names_new) {
-        assert(!await function_exists(n));
+        assert(not(await function_exists(n)));
     }
     for (let fd of function_declarations_to_export) {
         let function_name = js_function_declaration_to_name(fd);

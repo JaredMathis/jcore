@@ -11,7 +11,7 @@ export async function task_current_required_bys() {
     arguments_assert(arguments, []);
     let all_unsummarized = await task_all_unsummarized();
     let current_result = await task_current();
-    if (!result_property_success_get(current_result)) {
+    if (not(result_property_success_get(current_result))) {
         return [];
     }
     let current = result_data_get(current_result);

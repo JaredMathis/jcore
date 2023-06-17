@@ -6,5 +6,5 @@ export function equal_not(a, b) {
         defined_is,
         defined_is
     ]);
-    return !equal(a, b);
+    return not(equal(a, b));
 }
