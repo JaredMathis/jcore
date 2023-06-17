@@ -1,6 +1,6 @@
 import { not } from '../../../not.mjs';
 import { result_property_success_get } from '../../../result/property/success/get.mjs';
-import { result_data_get } from '../../../result/data/get.mjs';
+import { result_property_data_get } from '../../../result/property/data/get.mjs';
 import { list_sort } from '../../../list/sort.mjs';
 import { task_required_bys } from '../../required/bys.mjs';
 import { task_current } from '../../current.mjs';
@@ -15,7 +15,7 @@ export async function task_current_required_bys() {
     if (not(result_property_success_get(current_result))) {
         return [];
     }
-    let current = result_data_get(current_result);
+    let current = result_property_data_get(current_result);
     let task_number = object_property_get(current, task_property_number());
     let required_bys = task_required_bys(task_number, all_unsummarized);
     list_sort(required_bys);

@@ -36,7 +36,7 @@ export function list_map_generic(list, lambda, allow_error_mapping, value_on_err
                         assert(result_property_success_get(result));
                     }
                 }))) {
-                mapped = result_property_data_get(result);
+                mapped = result_property_data_get1(result);
             }
             la(result, mapped);
         });
