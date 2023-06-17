@@ -1,3 +1,4 @@
+import { list_adder_async } from '../adder/async.mjs';
 import { list_each_with_index_async } from '../each/with/index/async.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
@@ -10,6 +11,7 @@ export async function list_filter_async(array, filter) {
         function_is
     ]);
     let result = [];
+    list_adder_async();
     await list_each_with_index_async(array, async (element, index) => {
         if (await filter(element)) {
             list_add(result, element);
