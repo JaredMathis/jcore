@@ -11,6 +11,6 @@ export async function list_map_try_async(list, mapper) {
     let lambda = async (element, index) => {
         return await mapper(element);
     };
-    return await list_map_generic_async(list, lambda, false, null);
+    return await list_map_generic_async(list, lambda, true, null);
     metadata([]);
 }
