@@ -47,7 +47,7 @@ export async function refactor_properties_expand(args) {
                         for (let property of properties) {
                             let key = js_property_identifier_name(property, js_node_property_key());
                             let local = js_property_identifier_name(property, js_node_property_value());
-                            let after_let = js_code_call_expression_object_property_get(v, key);
+                            let after_let = js_code_call_expression_object_property_get(v, js_code_expression_string(property_name));
                             let statement_code = js_code_statement_assignment(local, after_let);
                             let statement = js_parse_statement(statement_code);
                             list_add_after(function_body_statements, statement, previous);
@@ -64,10 +64,10 @@ export async function refactor_properties_expand(args) {
     }
 }
 
-function js_code_call_expression_object_property_get(identifier_name, property_name) {
+function js_code_call_expression_object_property_get(identifier_code, property_code) {
     let args = [
-        identifier_name,
-        js_code_expression_string(property_name)
+        identifier_code,
+        property_code
     ];
     let args_code = js_code_join_comma(args);
     let after_let = js_code_call_expression_object_property_get(function_name_get(object_property_get), args_code);
