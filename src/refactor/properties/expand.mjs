@@ -1,6 +1,6 @@
 import { refactor_import_fix } from '../import/fix.mjs';
 import { log_json } from '../../log/json.mjs';
-import { js_code_call_expression_with_args_code } from '../../js/code/call/expression/with/args/code.mjs';
+import { js_code_call_expression_with_args_code as js_code_call_expression_object_property_get } from '../../js/code/call/expression/with/args/code.mjs';
 import { list_add_after } from '../../list/add/after.mjs';
 import { object_replace } from '../../object/replace.mjs';
 import { js_code_statement_assignment } from '../../js/code/statement/assignment.mjs';
@@ -47,12 +47,7 @@ export async function refactor_properties_expand(args) {
                         for (let property of properties) {
                             let key = js_property_identifier_name(property, js_node_property_key());
                             let local = js_property_identifier_name(property, js_node_property_value());
-                            let args = [
-                                v,
-                                js_code_expression_string(key)
-                            ];
-                            let args_code = js_code_join_comma(args);
-                            let after_let = js_code_call_expression_with_args_code(function_name_get(object_property_get), args_code);
+                            let after_let = js_code_call_expression_object_property_get(v, key);
                             let statement_code = js_code_statement_assignment(local, after_let);
                             let statement = js_parse_statement(statement_code);
                             list_add_after(function_body_statements, statement, previous);
@@ -67,4 +62,14 @@ export async function refactor_properties_expand(args) {
     if (changed) {
         await refactor_import_fix(args);
     }
+}
+
+function js_code_call_expression_object_property_get(identifier_name, property_name) {
+    let args = [
+        identifier_name,
+        js_code_expression_string(property_name)
+    ];
+    let args_code = js_code_join_comma(args);
+    let after_let = js_code_call_expression_object_property_get(function_name_get(object_property_get), args_code);
+    return after_let;
 }
