@@ -18,13 +18,16 @@ export async function function_add_property_get(property_prefix, property_name) 
         string_identifier_is,
         string_identifier_is
     ]);
-    let property_name_fn_get = string_identifier_combine([
+    let property_name_fn_get_prefix = string_identifier_combine([
         property_prefix,
-        'property',
+        'property'
+    ]);
+    let property_name_fn_get = string_identifier_combine([
+        property_name_fn_get_prefix,
         property_name
     ]);
     if (not(await function_exists(property_name_fn_get))) {
-        await function_add_string_prefix(property_prefix, property_name);
+        await function_add_string_prefix(property_name_fn_get_prefix, property_name);
     }
     let expression_code = js_code_call_expression_object_property_get(property_prefix, js_code_call_expression(property_name_fn_get));
     let statement_code = js_code_return_statement(expression_code);
