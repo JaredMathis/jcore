@@ -7,8 +7,8 @@ export async function task_later_before(task_number_string, title) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let result = await task_later(title);
+    let task = await task_later(title);
     task_property_number_get()
     await task_requires(task_number_string);
-    return result;
+    return task;
 }
