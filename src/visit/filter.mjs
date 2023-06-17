@@ -15,7 +15,7 @@ export function visit_filter(root, children_get, filter, lambda) {
     function lambda_local(v) {
         let node = object_property_get(v, 'node');
         if (filter(node)) {
-            lambda(v);
+            return lambda(v);
         }
     }
     metadata([]);
