@@ -1,4 +1,4 @@
-import { list_find_first } from '../../../../../list/find/first.mjs';
+import { list_find_index } from '../../../../../list/find/index.mjs';
 import { list_reversed_get } from '../../../../../list/reversed/get.mjs';
 import { js_node_property_arguments_get } from '../../../../../js/node/property/arguments/get.mjs';
 import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
@@ -27,7 +27,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                         node,
                         stack
                     });
-                    let parent_list = list_find_first(stack, list_is);
+                    let parent_list = list_find_index(stack, list_is);
                     for (let arg of reversed) {
                         if (js_node_is_call_expression(arg)) {
                             log(arg);
