@@ -1,3 +1,4 @@
+import { list_adder_unique_async } from '../../../../../list/adder/unique/async.mjs';
 import { error } from '../../../../../error.mjs';
 import { list_find_first_index_after } from '../../../../../list/find/first/index/after.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
@@ -31,7 +32,6 @@ import { object_replace } from '../../../../../object/replace.mjs';
 import { assert_message } from '../../../../../assert/message.mjs';
 import { js_parse_expression } from '../../../../../js/parse/expression.mjs';
 import { list_add_before } from '../../../../../list/add/before.mjs';
-import { js_node_type_get } from '../../../../../js/node/type/get.mjs';
 export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     return await list_adder_unique_async(async la => {
@@ -42,7 +42,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                 let node = object_property_get(v, 'node');
                 let stack = object_property_get(v, 'stack');
                 let expression = js_node_property_expression_get(node);
-                la(js_node_type_get(expression))
+                la(js_node_property_type_get(expression));
                 if (js_node_is_call_expression(expression)) {
                     refactor_call_expression_to_assignments();
                 }
@@ -99,6 +99,6 @@ export async function refactor_functions_call_arguments_to_assignments() {
                 };
             }
         });
-    })
+    });
     metadata([]);
 }
