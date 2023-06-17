@@ -7,7 +7,7 @@ export function throws(lambda) {
     let result
     let errored = false;
     try {
-        lambda();
+        result = lambda();
     } catch (e) {
         errored = true;
     }
