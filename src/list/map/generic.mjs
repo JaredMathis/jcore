@@ -39,7 +39,7 @@ export function list_map_generic(list, lambda, allow_error_mapping, value_on_err
                 }))) {
                 mapped = result_property_data_get(result);
             }
-            la(result, mapped);
+            la(mapped);
         });
     });
     metadata([metadata_generated()]);
