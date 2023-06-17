@@ -10,18 +10,11 @@ export async function list_filter_async(array, filter) {
         function_is
     ]);
     let result = [];
-    for (let a of array) {
+    await list_each_with_index_async(array, async a => {
         if (await filter(a)) {
             list_add(result, a);
         }
-    }
-    if (false) {
-        await list_each_with_index_async(array, async a => {
-            if (await filter(a)) {
-                list_add(result, a);
-            }
-        });
-    }
+    });
     return result;
     metadata([]);
 }
