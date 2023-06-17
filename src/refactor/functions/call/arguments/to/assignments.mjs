@@ -13,14 +13,14 @@ export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
         await refactor_import_fix_if_changed(args, change => {
-            let {parsed, parent} = args;
+            let {parsed} = args;
             js_visit_nodes_filter(parsed, js_node_is_expression_statement, v => {
-                let {node} = v;
+                let {node, grandparent} = v;
                 let expression = js_node_property_expression_get(node);
                 if (js_node_is_call_expression(expression)) {
                     let args = js_node_property_arguments_get(expression);
                     let reversed = list_reversed_get(args);
-                    log({ parent });
+                    log({ v });
                     for (let arg of reversed) {
                         if (js_node_is_call_expression(arg)) {
                             log(arg);
