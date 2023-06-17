@@ -1,3 +1,4 @@
+import { js_return_statement_argument_get } from '../../../../js/return/statement/argument/get.mjs';
 import { js_node_is_return_statement } from '../../../../js/node/is/return/statement.mjs';
 import { null_is } from '../../../../null/is.mjs';
 import { js_node_property_init_get } from '../../../../js/node/property/init/get.mjs';
@@ -67,6 +68,10 @@ export function refactor_call_arguments_to_assignments(args) {
             }
             if (js_node_is_await_expression(expression)) {
                 let argument = js_node_property_argument_get(expression);
+                return refactor_call_expression_to_assignments(argument);
+            }
+            if (js_node_is_return_statement(expression)) {
+                let argument = js_return_statement_argument_get(expression);
                 return refactor_call_expression_to_assignments(argument);
             }
             if (not(js_node_is_call_expression(expression))) {
