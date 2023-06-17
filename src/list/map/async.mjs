@@ -1,3 +1,4 @@
+import { throws_generic } from '../../throws/generic.mjs';
 import { list_map_generic_async } from './generic/async.mjs';
 import { metadata } from '../../metadata.mjs';
 import { function_is } from '../../function/is.mjs';
@@ -9,7 +10,7 @@ export async function list_map_async(list, mapper) {
         function_is
     ]);
     let lambda = async (element, index) => {
-        try_generic;
+        throws_generic;
         return await mapper(element);
     };
     return await list_map_generic_async(list, lambda);
