@@ -1,3 +1,4 @@
+import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_node_is_variable_declaration } from '../../../../../js/node/is/variable/declaration.mjs';
 import { json_to } from '../../../../../json/to.mjs';
 import { list_map_try } from '../../../../../list/map/try.mjs';
@@ -32,14 +33,20 @@ export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
         await refactor_import_fix_if_changed(args, change => {
-            let {parsed, unparsed} = args;
+            let v_2 = args;
+            let parsed = object_property_get(v_2, 'parsed');
+            let unparsed = object_property_get(v_2, 'unparsed');
             js_visit_nodes_filter(parsed, js_node_is_expression_statement, v => {
-                let {node, stack} = v;
+                let v_3 = v;
+                let node = object_property_get(v_3, 'node');
+                let stack = object_property_get(v_3, 'stack');
                 let expression = js_node_property_expression_get(node);
                 if (js_node_is_call_expression(expression)) {
                     let stack_reversed = list_reversed_get(stack);
                     let index_starting_at = 0;
-                    let {next:parent_list_next, index:parent_list_index} = list_find_first_after(stack_reversed);
+                    let v_4 = list_find_first_after(stack_reversed);
+                    let parent_list_next = object_property_get(v_4, 'next');
+                    let parent_list_index = object_property_get(v_4, 'index');
                     if (js_node_is_program(parent_list_next)) {
                         return;
                     }
