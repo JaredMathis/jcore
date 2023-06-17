@@ -10,13 +10,12 @@ export function throws(lambda) {
     arguments_assert(arguments, [function_is]);
     let result = result_empty();
     let lambda_result;
-    let errored = false;
     try {
         lambda_result = lambda();
     } catch (e) {
         result_unsuccess(result);
     }
-    leterrored = not(result_property_success_get(result));
+    let errored = not(result_property_success_get(result));
     return errored;
     metadata([metadata_generated()]);
 }
