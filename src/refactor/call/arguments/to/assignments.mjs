@@ -1,3 +1,4 @@
+import { log } from '../../../../log.mjs';
 import { changed_while } from '../../../../changed/while.mjs';
 import { js_return_statement_argument_get } from '../../../../js/return/statement/argument/get.mjs';
 import { js_node_is_return_statement } from '../../../../js/node/is/return/statement.mjs';
@@ -40,6 +41,7 @@ import { js_visit_nodes_filter } from '../../../../js/visit/nodes/filter.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
+import { assert } from '../../../../assert.mjs';
 export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = object_property_get(args, 'parsed');
@@ -72,11 +74,13 @@ export function refactor_call_arguments_to_assignments(args) {
                 }
                 if (js_node_is_return_statement(expression)) {
                     let argument = js_return_statement_argument_get(expression);
+                    console.log({ argument });
                     if (null_is(argument)) {
                         return;
                     }
                     return refactor_call_expression_to_assignments(argument);
                 }
+                assert(js_node_is_call_expression(expression));
                 if (not(js_node_is_call_expression(expression))) {
                     return false;
                 }
