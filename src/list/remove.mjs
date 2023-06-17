@@ -13,6 +13,6 @@ export function list_remove(list, element) {
     ]);
     let index = list_index_of_single(list, element);
     list_remove_at(list, index);
-    assert(not(list_contains(list, element)));
+    assert(!(list_contains(list, element)));
     metadata([]);
 }

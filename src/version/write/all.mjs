@@ -14,7 +14,7 @@ export async function version_write_all(writes) {
     let property_contents = version_property_contents();
     for (let w of writes) {
         const file_path = object_property_get(w, property_file_path);
-        assert(not(await file_exists(file_path)));
+        assert(!(await file_exists(file_path)));
     }
     await try_catch_throw(async function lambda_try() {
         for (let w of writes) {

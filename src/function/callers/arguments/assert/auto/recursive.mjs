@@ -14,5 +14,5 @@ export async function function_callers_arguments_assert_auto_recursive(root) {
             result_previous,
             result
         });
-    } while (not(json_equal(result, result_previous)));
+    } while (!(json_equal(result, result_previous)));
 }

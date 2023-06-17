@@ -18,7 +18,7 @@ export function string_identifier_is_generic(value, enforce_first, enforce_last,
         boolean_is,
         boolean_is
     ]);
-    if (not(string_is(value))) {
+    if (!(string_is(value))) {
         return false;
     }
     let list = string_to_list(value);
@@ -27,7 +27,7 @@ export function string_identifier_is_generic(value, enforce_first, enforce_last,
     }
     if (enforce_first) {
         let first = list_first(list);
-        if (not(string_letter_is(first))) {
+        if (!(string_letter_is(first))) {
             return false;
         }
     }
@@ -42,7 +42,7 @@ export function string_identifier_is_generic(value, enforce_first, enforce_last,
         return false;
     }
     for (let c of list) {
-        if (not(string_letter_digit_or_underscore_is_generic(c, allow_underscores))) {
+        if (!(string_letter_digit_or_underscore_is_generic(c, allow_underscores))) {
             return false;
         }
     }

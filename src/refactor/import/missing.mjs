@@ -22,7 +22,7 @@ export async function refactor_import_missing(args) {
     comment(`Identifiers that are also function names`);
     let identifier_function_names = list_filter(identifiers, i => list_contains(function_names, i));
     comment(`Identifiers missing an import`);
-    let missing = list_filter(identifier_function_names, i => not(list_contains(import_name_all, i)));
+    let missing = list_filter(identifier_function_names, i => !(list_contains(import_name_all, i)));
     let exported_function_names = js_exported_function_names(parsed);
     let without = list_without_multiple(missing, exported_function_names);
     let import_new_all = list_map(without, js_function_name_to_import);

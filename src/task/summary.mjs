@@ -28,7 +28,7 @@ export function task_summary(task, all_unsummarized) {
         required_bys
     };
     object_keys_each(lists, (list, list_name) => {
-        if (not(list_empty(list))) {
+        if (!(list_empty(list))) {
             const list_string = js_code_parenthesis_surround(string_add(`${ list_name }: `, list_join(list, string_comma())));
             list_add(strings, list_string);
         }

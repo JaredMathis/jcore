@@ -41,14 +41,14 @@ export async function function_tests_generate_generic(function_name, count_strin
     }
     let function_declaration = await function_to_declaration(function_name);
     comment(`To generate code for an async function this code needs changing`);
-    assert(not(object_property_get(function_declaration, js_keyword_async())));
+    assert(!(object_property_get(function_declaration, js_keyword_async())));
     let predicate = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let predicate_names = list_map(predicate, p => object_property_get(p, 'name'));
     let names_with_endings = list_map(predicate_names, n => {
         return function_name_to_tests_values(n);
     });
     let names_with_endings_unqiue = list_unique(names_with_endings);
-    if (await list_any_async(names_with_endings_unqiue, async n => not(await function_exists(n)))) {
+    if (await list_any_async(names_with_endings_unqiue, async n => !(await function_exists(n)))) {
         error(`${ function_name_get(arguments_assert) } types need filling in ` + names_with_endings_unqiue);
         return;
     }

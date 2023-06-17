@@ -9,7 +9,7 @@ export function visit_throws_not(root, children_get) {
         defined_is,
         function_is
     ]);
-    let result = not(visit_throws(root, children_get));
+    let result = !(visit_throws(root, children_get));
     return result;
     metadata([metadata_generated()]);
 }

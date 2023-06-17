@@ -55,7 +55,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             assert(js_node_is_identifier(c_arg));
             let c_predicate_name = object_property_get(c_arg, js_node_property_name());
             let default_name = function_name_get(arguments_assert_predicate_default());
-            if (not(equal(c_predicate_name, default_name))) {
+            if (!(equal(c_predicate_name, default_name))) {
                 return false;
             }
             let changed = false;
@@ -77,11 +77,11 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 let {node} = v;
                 let ce_args = js_call_expression_arguments_get(node);
                 list_each_with_index(ce_args, (ce_arg, ce_arg_index) => {
-                    if (not(js_node_is_identifier(ce_arg))) {
+                    if (!(js_node_is_identifier(ce_arg))) {
                         return;
                     }
                     const ce_arg_name = object_property_get(ce_arg, 'name');
-                    if (not(equal(c_param_name, ce_arg_name))) {
+                    if (!(equal(c_param_name, ce_arg_name))) {
                         return;
                     }
                     if (ce_arg !== null) {
@@ -91,7 +91,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                             js_node_property_start(),
                             js_node_property_end()
                         ]);
-                        if (not(identical)) {
+                        if (!(identical)) {
                             list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
                             changed = true;
                         }
@@ -102,7 +102,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 await refactor_import_fix(c_args);
                 list_add_if_not_exists(result, c_function_name);
             }
-            return not(changed);
+            return !(changed);
         });
     }
 }

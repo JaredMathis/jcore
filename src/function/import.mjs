@@ -24,7 +24,7 @@ export async function function_import(import_meta, function_name) {
     let imported = await try_catch_throw_async(async () => await import(replaced), async e => {
         let all = await function_name_all();
         let similar = list_filter(all, a => string_similar(a, function_name));
-        if (not(list_empty(similar))) {
+        if (!(list_empty(similar))) {
             let similar_paths = function_name_list_to_file_path(similar);
             log_multiple([
                 `Did you mean: `,

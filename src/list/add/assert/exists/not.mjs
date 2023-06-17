@@ -10,7 +10,7 @@ export function list_add_assert_exists_not(stack, node) {
         list_is,
         defined_is
     ]);
-    assert(not(list_contains(stack, node)));
+    assert(!(list_contains(stack, node)));
     list_add(stack, node);
     metadata([]);
 }

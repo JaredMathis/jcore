@@ -15,13 +15,13 @@ export async function refactor_functions_arguments_assert_missing_add() {
         let {function_declaration} = args;
         let exists = false;
         let statements = js_function_declaration_to_statements(function_declaration);
-        if (not(list_empty(statements))) {
+        if (!(list_empty(statements))) {
             let statement_first = list_first(statements);
             js_node_call_expression_statement_if_name_equal(statement_first, function_name_get(arguments_assert), function on_name_equal() {
                 exists = true;
             });
         }
-        if (not(exists)) {
+        if (!(exists)) {
             let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
             refactor_arguments_assert_add_no_check(function_declaration, excludes);
             await refactor_import_fix(args);

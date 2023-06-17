@@ -4,7 +4,7 @@ import { assert_arguments_count } from '../assert/arguments/count.mjs';
 import { error } from '../error.mjs';
 export function string_is(value) {
     assert_arguments_count(arguments, 1);
-    if (not(defined_is(value))) {
+    if (!(defined_is(value))) {
         error('invalid value');
     }
     return typeof value === 'string';

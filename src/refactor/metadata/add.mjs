@@ -8,7 +8,7 @@ import { refactor_metadata_add_named } from './add/named.mjs';
 export async function refactor_metadata_add(args) {
     arguments_assert(arguments, [defined_is]);
     let name = object_property_get(args, 'metadata_name');
-    assert(not(string_starts_with(name, metadata_prefix())));
+    assert(!(string_starts_with(name, metadata_prefix())));
     let prefixed = `${ metadata_prefix() }${ name }`;
     await refactor_metadata_add_named(args, prefixed);
 }

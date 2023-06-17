@@ -17,7 +17,7 @@ export function string_equal_except_1(a, b) {
         b
     ]);
     let unique = list_unique(lengths);
-    if (not(list_length_is_1(unique))) {
+    if (!(list_length_is_1(unique))) {
         return false;
     }
     let equal_count = string_equal_count(a, b);

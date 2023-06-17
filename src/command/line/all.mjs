@@ -9,7 +9,7 @@ export async function command_line_all(commands) {
     let result = result_empty();
     for (let c of commands) {
         let c_result = await command_line_try(c);
-        if (not(c_result.success)) {
+        if (!(c_result.success)) {
             log(`Command failed: ${ c }`);
             log(c_result.stdout);
             return c_result;

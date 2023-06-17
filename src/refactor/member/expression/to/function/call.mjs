@@ -19,7 +19,7 @@ export async function refactor_member_expression_to_function_call(args) {
     js_visit_nodes_filter(parsed, js_node_is_member_expression, v => {
         let node = object_property_get(v, 'node');
         let property = object_property_get(node, 'property');
-        if (not(js_node_is_identifier(property))) {
+        if (!(js_node_is_identifier(property))) {
             return;
         }
         let property_name = object_property_get(property, js_node_property_name());

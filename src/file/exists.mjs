@@ -6,7 +6,7 @@ import { path_exists } from '../path/exists.mjs';
 import { assert } from '../assert.mjs';
 export async function file_exists(file_path) {
     arguments_assert(arguments, [path_is]);
-    if (not(await path_exists(file_path))) {
+    if (!(await path_exists(file_path))) {
         return false;
     }
     assert(await file_is(file_path));

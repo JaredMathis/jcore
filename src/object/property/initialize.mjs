@@ -11,7 +11,7 @@ export function object_property_initialize(object, property_name, initial_value)
         string_is,
         defined_is
     ]);
-    assert(not(object_property_exists(object, property_name)));
+    assert(!(object_property_exists(object, property_name)));
     object_property_set(object, property_name, initial_value);
     metadata([]);
 }

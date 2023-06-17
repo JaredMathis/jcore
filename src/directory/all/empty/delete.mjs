@@ -10,7 +10,7 @@ export async function directory_all_empty_delete() {
     arguments_assert(arguments, []);
     let result = await directory_read_directories(directory_current_to_source());
     for (let directory_path of result) {
-        if (not(await path_exists(directory_path))) {
+        if (!(await path_exists(directory_path))) {
             continue;
         }
         await directory_delete_if_empty_recursive(directory_path);

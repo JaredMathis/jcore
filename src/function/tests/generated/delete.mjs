@@ -7,7 +7,7 @@ import { tests_generate } from '../../../tests/generate.mjs';
 export async function function_tests_generated_delete(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let generateds = await function_tests_generated(function_name);
-    if (not(list_empty(generateds))) {
+    if (!(list_empty(generateds))) {
         for (let g of generateds) {
             await function_delete(g);
         }

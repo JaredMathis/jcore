@@ -10,7 +10,7 @@ export function string_letter_digit_or_underscore_is_generic(c, allow_underscore
         string_is,
         boolean_is
     ]);
-    if (not(string_length_is_1(c))) {
+    if (!(string_length_is_1(c))) {
         return false;
     }
     if (string_letter_is(c)) {

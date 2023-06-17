@@ -6,5 +6,5 @@ export function implies(b1, b2) {
         boolean_is,
         boolean_is
     ]);
-    return not(b1) || b2;
+    return !(b1) || b2;
 }

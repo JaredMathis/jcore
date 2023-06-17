@@ -18,7 +18,7 @@ export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge, n
         boolean_is
     ]);
     let verbs_cache = ['GET'];
-    if (not(list_contains(verbs_cache, verb))) {
+    if (!(list_contains(verbs_cache, verb))) {
         return await lambda();
     }
     return await git_hub_cached(fn, args, lambda);
