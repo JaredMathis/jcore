@@ -43,7 +43,7 @@ export async function refactor_properties_expand(args) {
                         let properties = object_property_get(node, js_node_property_properties());
                         object_replace(node, js_parse_expression(v));
                         for (let property of properties) {
-                            let key = js_property_identifier_name(property, js_node_property_key());
+                            let property_name = js_property_identifier_name(property, js_node_property_key());
                             let local = js_property_identifier_name(property, js_node_property_value());
                             let after_let = js_code_call_expression_object_property_get(v, js_code_expression_string(property_name));
                             let statement_code = js_code_statement_assignment(local, after_let);
