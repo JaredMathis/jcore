@@ -9,7 +9,7 @@ export async function list_map_async(list, mapper) {
         function_is
     ]);
     let lambda = async (element, index) => {
-        return await mapper(element)
+        return await mapper(element);
     };
     return await list_map_generic_async(list, lambda);
     metadata([]);

@@ -1,6 +1,6 @@
 import { metadata_generated } from '../metadata/generated.mjs';
 import { metadata } from '../metadata.mjs';
-import { result_data_set } from '../result/data/set.mjs';
+import { result_property_data_set } from '../result/property/data/set.mjs';
 import { result_unsuccess } from '../result/unsuccess.mjs';
 import { result_empty } from '../result/empty.mjs';
 import { function_is } from '../function/is.mjs';
@@ -14,7 +14,7 @@ export function throws_generic(lambda) {
     } catch (e) {
         result_unsuccess(result);
     }
-    result_data_set(result, lambda_result);
+    result_property_data_set(result, lambda_result);
     return result;
     metadata([metadata_generated()]);
 }

@@ -1,4 +1,4 @@
-import { result_data_set } from '../../result/data/set.mjs';
+import { result_property_data_set } from '../../result/property/data/set.mjs';
 import { result_unsuccess } from '../../result/unsuccess.mjs';
 import { result_empty } from '../../result/empty.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -12,6 +12,6 @@ export async function throws_generic_async(lambda) {
     } catch (e) {
         result_unsuccess(result);
     }
-    result_data_set(result, lambda_result);
+    result_property_data_set(result, lambda_result);
     return result;
 }
