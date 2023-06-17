@@ -7,16 +7,5 @@ export async function try_catch_throw_async(lambda_try, lambda_catch) {
         function_is,
         function_is
     ]);
-    if (false) {
-        try_catch_throw_finally_async;
-    }
-    let lambda_finally = noop;
-    try {
-        return await lambda_try();
-    } catch (e) {
-        await lambda_catch(e);
-        throw e;
-    } finally {
-        await lambda_finally();
-    }
+    return await try_catch_throw_finally_async(lambda_try, lambda_catch, noop);
 }
