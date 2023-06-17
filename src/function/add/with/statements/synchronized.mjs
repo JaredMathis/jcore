@@ -23,8 +23,11 @@ export async function function_add_with_statements_synchronized(function_name, s
     if (is_async) {
         js_function_declaration_async_add(fd);
     }
-    let result = await function_write(function_name, parsed);
+    let file_path = await function_write(function_name, parsed);
     await function_auto_after(function_name);
-    return result;
+    return {
+        function_name,
+        file_path
+    };
     metadata([]);
 }
