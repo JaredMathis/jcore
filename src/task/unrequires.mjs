@@ -8,7 +8,7 @@ export async function task_unrequires(task_number_string, task_number_required_s
         arguments_assert_todo,
         string_is
     ]);
-    await task_requires_generic(task_number_string, task_number_required_string, requires_map);
+    return await task_requires_generic(task_number_string, task_number_required_string, requires_map);
     function requires_map(requires, task_number_required) {
         list_remove(requires, task_number_required);
     }
