@@ -54,7 +54,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                             let id = js_identifier_name_next(parsed);
                             let assignment_code = js_code_statement_assignment(id, string_a());
                             let assignment = js_parse_statement(assignment_code);
-                            log({ assignment: assignment_code });
+                            log({ assignment });
                             error();
                             if (false) {
                                 change();
