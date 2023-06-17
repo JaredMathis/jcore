@@ -44,7 +44,8 @@ export async function refactor_functions_call_arguments_to_assignments() {
                         return;
                     }
                     assert(js_node_is_block_statement(parent_list_next));
-                    let node_index = list_index_of(parent_list_next, node);
+                    let parent_list = list_get(stack_reversed, parent_list_index);
+                    let node_index = list_index_of(parent_list, node);
                     let args = js_node_property_arguments_get(expression);
                     let args_reversed = list_reversed_get(args);
                     for (let arg of args_reversed) {
