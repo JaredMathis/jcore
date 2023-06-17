@@ -1,3 +1,4 @@
+import { argument_binary_first } from '../../argument/binary/first.mjs';
 import { list_filter_generic_async } from './generic/async.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
@@ -8,9 +9,6 @@ export async function list_filter_async(array, filter) {
         list_is,
         function_is
     ]);
-    function added_get(element, index) {
-        return element;
-    }
-    return await list_filter_generic_async(array, filter, added_get);
+    return await list_filter_generic_async(array, filter, argument_binary_first);
     metadata([]);
 }
