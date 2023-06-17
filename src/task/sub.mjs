@@ -1,4 +1,3 @@
-import { result_empty } from '../result/empty.mjs';
 import { task_number_get_string } from './number/get/string.mjs';
 import { task_current } from './current.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
@@ -7,7 +6,6 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { task_requires } from './requires.mjs';
 export async function task_sub(title) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let result = result_empty();
     let current = await task_current();
     let current_number_string = task_number_get_string(current);
     let sub = await task_add(title);
