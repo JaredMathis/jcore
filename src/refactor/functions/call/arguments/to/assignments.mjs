@@ -18,6 +18,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                 let expression = js_node_property_expression_get(n);
                 if (js_node_is_call_expression(expression)) {
                     let args = js_node_property_arguments_get(expression);
+                    let args_reversed = list_copy(args);
                     for (let arg of args) {
                         if (js_node_is_call_expression(arg)) {
                             log(arg);
