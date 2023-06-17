@@ -113,7 +113,7 @@ export function refactor_call_arguments_to_assignments(args) {
                     }
                 }
                 if (js_node_is_return_statement(node)) {
-                    replace(expression, expression);
+                    replace(expression);
                 }
                 return true;
                 function replace(arg) {
