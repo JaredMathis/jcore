@@ -1,3 +1,4 @@
+import { js_node_is_unary_expression } from '../../../../js/node/is/unary/expression.mjs';
 import { js_nodes_each } from '../../../../js/nodes/each.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { file_js_all_map_args_if_function } from '../../../../file/js/all/map/args/if/function.mjs';
@@ -6,7 +7,8 @@ export async function refactor_functions_exclamation_to_not() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
         let {parsed} = args;
-        js_nodes_each(parsed);
+        js_nodes_each(parsed, js_node_is_unary_expression, n => {
+        });
     });
     metadata([]);
 }
