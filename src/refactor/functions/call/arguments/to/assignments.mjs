@@ -1,3 +1,5 @@
+import { object_copy_shallow } from '../../../../../object/copy/shallow.mjs';
+import { js_variable_declarator_init_change } from '../../../../../js/variable/declarator/init/change.mjs';
 import { js_node_property_declarations_get } from '../../../../../js/node/property/declarations/get.mjs';
 import { js_code_statement_assignment } from '../../../../../js/code/statement/assignment.mjs';
 import { js_identifier_name_next } from '../../../../../js/identifier/name/next.mjs';
@@ -58,6 +60,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                             let assignment = js_parse_statement(assignment_code);
                             let declarations = js_node_property_declarations_get(assignment);
                             let declaration = list_single(declarations);
+                            js_variable_declarator_init_change(declaration, object_copy_shallow(node));
                             log({ declaration });
                             error();
                             if (false) {
