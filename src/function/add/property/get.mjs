@@ -1,3 +1,4 @@
+import { function_input_add_type } from '../../input/add/type.mjs';
 import { js_code_call_expression_object_property_get } from '../../../js/code/call/expression/object/property/get.mjs';
 import { function_add_with_statement_code } from '../with/statement/code.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -23,6 +24,6 @@ export async function function_add_property_get(property_prefix, property_name) 
         'get'
     ], function_name_separator());
     let result = await function_add_with_statement_code(function_name, statement_code);
-    function_input_add_type()
+    function_input_add_type();
     return result;
 }
