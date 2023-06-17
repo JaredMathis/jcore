@@ -1,3 +1,4 @@
+import { js_node_property_operator } from '../operator.mjs';
 import { defined_is } from '../../../../defined/is.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
