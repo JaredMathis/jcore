@@ -5,6 +5,6 @@ export async function changed_while_async(lambda) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let result;
     do {
-        result = changed(lambda);
+        result = await changed_async(lambda);
     } while (result);
 }
