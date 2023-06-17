@@ -1,3 +1,4 @@
+import { refactor_import_fix_if_changed } from '../../../import/fix/if/changed.mjs';
 import { object_replace } from '../../../../object/replace.mjs';
 import { js_node_property_arguments_get } from '../../../../js/node/property/arguments/get.mjs';
 import { not } from '../../../../not.mjs';
@@ -16,7 +17,7 @@ import { list_add } from '../../../../list/add.mjs';
 export async function refactor_functions_exclamation_to_not() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
-        let c = changed(change => {
+        await refactor_import_fix_if_changed(args, change => {
             let {parsed} = args;
             js_nodes_each(parsed, js_node_is_unary_expression, n => {
                 let operator = js_node_property_operator_get(n);
@@ -29,7 +30,7 @@ export async function refactor_functions_exclamation_to_not() {
                     change();
                 }
             });
-        })
+        });
     });
     metadata([]);
 }
