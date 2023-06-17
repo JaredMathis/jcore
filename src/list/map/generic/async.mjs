@@ -8,11 +8,10 @@ export async function list_map_generic_async(list, lambda) {
         list_is,
         function_is
     ]);
-    await list_adder_async(async la => {
+    return await list_adder_async(async la => {
         await list_each_with_index_async(list, async (element, index) => {
             let mapped = await lambda(element, index);
             la(result, mapped);
         });
     });
-    return result;
 }
