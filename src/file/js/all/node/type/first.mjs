@@ -10,13 +10,10 @@ export async function file_js_all_node_type_first(node_type) {
     let result;
     await file_js_all_map_args_if_function(async function logic(args) {
         let {parsed} = args;
-        let types = js_nodes_each(parsed, n => js_node_is_type(n, node_type), n => {
+        js_nodes_each(parsed, n => js_node_is_type(n, node_type), n => {
             result = n;
             return true;
         });
-        for (let t of types) {
-            la(t);
-        }
     });
     return result;
     metadata([]);
