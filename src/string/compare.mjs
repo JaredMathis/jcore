@@ -1,10 +1,9 @@
-import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
-import { error } from '../error.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
+import { string_is } from './is.mjs';
 export function string_compare(a, b) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
-        arguments_assert_todo
+        string_is,
+        string_is
     ]);
-    error('todo: string_compare');
+    return a.localeCompare(b);
 }
