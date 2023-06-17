@@ -39,7 +39,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                 if (js_node_is_call_expression(expression)) {
                     let stack_reversed = list_reversed_get(stack);
                     let index_starting_at = 0;
-                    let {parent_list_next, parent_list_index} = list_find_first_after(stack_reversed);
+                    let {next:parent_list_next, index:parent_list_index} = list_find_first_after(stack_reversed);
                     if (js_node_is_program(parent_list_next)) {
                         return;
                     }
@@ -76,8 +76,8 @@ export async function refactor_functions_call_arguments_to_assignments() {
             let index_next = add_1(index);
             let next = list_get(stack_reversed, index_next);
             return {
-                parent_list_next: next,
-                parent_list_index: index
+                next,
+                index
             };
         }
     });
