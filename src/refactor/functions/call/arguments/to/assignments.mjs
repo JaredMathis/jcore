@@ -1,4 +1,4 @@
-import { list_find_index } from '../../../../../list/find/index.mjs';
+import { list_find_first_index } from '../../../../../list/find/first/index.mjs';
 import { list_reversed_get } from '../../../../../list/reversed/get.mjs';
 import { js_node_property_arguments_get } from '../../../../../js/node/property/arguments/get.mjs';
 import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
@@ -13,6 +13,8 @@ import { js_visit_nodes_filter } from '../../../../../js/visit/nodes/filter.mjs'
 import { list_is } from '../../../../../list/is.mjs';
 import { add_1 } from '../../../../../add/1.mjs';
 import { list_get } from '../../../../../list/get.mjs';
+import { assert } from '../../../../../assert.mjs';
+import { js_node_is_block_statement } from '../../../../../js/node/is/block/statement.mjs';
 export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
@@ -33,6 +35,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                     let parent_list_index_next = add_1(parent_list_index);
                     let parent_list_next = list_get(stack, parent_list_index_next);
                     log({ parent_list_next });
+                    assert(js_node_is_block_statement(parent_list_next))
                     for (let arg of reversed) {
                         if (js_node_is_call_expression(arg)) {
                             log(arg);
