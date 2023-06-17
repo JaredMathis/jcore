@@ -47,6 +47,10 @@ export function refactor_call_arguments_to_assignments(args) {
                 let child = js_node_property_expression_get(expression);
                 return refactor_call_expression_to_assignments(child);
             }
+            if (js_node_is_variable_declaration(expression)) {
+                let declaration = js_declarations_single(expression);
+                return refactor_call_expression_to_assignments(child);
+            }
             if (js_node_is_assignment_expression(expression)) {
                 let right = js_node_property_right_get(expression);
                 return refactor_call_expression_to_assignments(right);
