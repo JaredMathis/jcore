@@ -18,7 +18,7 @@ export function list_find_generic(list, predicate, or_null, single, lambda_list_
         integer_is
     ]);
     let skipped = list_skip(index_starting_at);
-    let filtered = lambda_list_filter(list, predicate);
+    let filtered = lambda_list_filter(skipped, predicate);
     if (or_null) {
         if (list_empty(filtered)) {
             return null;
