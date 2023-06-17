@@ -10,6 +10,6 @@ export async function refactor_functions_function_add_string_and_replace(functio
         string_is
     ]);
     await function_add_string(function_name, string_value);
-    await refactor_functions_string_to_function_call(function_name, string_value);
+    await refactor_functions_string_to_function_call(string_value, function_name);
     metadata([]);
 }
