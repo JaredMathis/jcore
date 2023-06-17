@@ -1,3 +1,5 @@
+import { js_node_property_arguments_get } from '../../../../../js/node/property/arguments/get.mjs';
+import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
 import { js_node_property_expression_get } from '../../../../../js/node/property/expression/get.mjs';
 import { log } from '../../../../../log.mjs';
 import { js_node_is_expression_statement } from '../../../../../js/node/is/expression/statement.mjs';
@@ -14,9 +16,14 @@ export async function refactor_functions_call_arguments_to_assignments() {
             js_nodes_each(parsed, js_node_is_expression_statement, n => {
                 let expression = js_node_property_expression_get(n);
                 if (js_node_is_call_expression(expression)) {
-                    log(expression);
-                    if (false) {
-                        change();
+                    let args = js_node_property_arguments_get(expression);
+                    for (let arg of args) {
+                        if (js_node_is_call_expression(arg)) {
+                            log(arg);
+                            if (false) {
+                                change();
+                            }
+                        }
                     }
                 }
             });
