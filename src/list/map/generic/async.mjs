@@ -1,3 +1,4 @@
+import { result_property_data_get } from '../../../result/property/data/get.mjs';
 import { not } from '../../../not.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { result_property_success_get } from '../../../result/property/success/get.mjs';
@@ -34,7 +35,7 @@ export async function list_map_generic_async(list, lambda, allow_error_mapping, 
                         assert(result_property_success_get(result));
                     }
                 }))) {
-                mapped = result_property_data_get1(result);
+                mapped = result_property_data_get(result);
             }
             la(result, mapped);
         });

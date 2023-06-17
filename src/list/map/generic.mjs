@@ -1,3 +1,4 @@
+import { result_property_data_get } from '../../result/property/data/get.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { metadata_generated } from '../../metadata/generated.mjs';
 import { metadata } from '../../metadata.mjs';
@@ -36,7 +37,7 @@ export function list_map_generic(list, lambda, allow_error_mapping, value_on_err
                         assert(result_property_success_get(result));
                     }
                 }))) {
-                mapped = result_property_data_get1(result);
+                mapped = result_property_data_get(result);
             }
             la(result, mapped);
         });
