@@ -9,9 +9,9 @@ export function list_filter_index(array, filter) {
         list_is,
         function_is
     ]);
-    function added_get(element, index) {
-        return index;
+    function argument_binary_second(first, second) {
+        return second;
     }
-    return list_filter_generic(array, filter, added_get);
+    return list_filter_generic(array, filter, argument_binary_second);
     metadata([metadata_generated()]);
 }
