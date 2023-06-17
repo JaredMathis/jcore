@@ -1,3 +1,4 @@
+import { string_identifier_combine } from '../../../string/identifier/combine.mjs';
 import { not } from '../../../not.mjs';
 import { function_add_string_prefix } from '../string/prefix.mjs';
 import { js_code_return_statement } from '../../../js/code/return/statement.mjs';
@@ -17,11 +18,11 @@ export async function function_add_property_get(property_prefix, property_name) 
         string_identifier_is,
         string_identifier_is
     ]);
-    let property_name_fn_get = list_join([
+    let property_name_fn_get = string_identifier_combine([
         property_prefix,
         'property',
         property_name
-    ], function_name_separator());
+    ]);
     if (not(await function_exists(property_name_fn_get))) {
         await function_add_string_prefix(property_prefix, property_name);
     }
