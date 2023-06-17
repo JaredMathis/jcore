@@ -1,4 +1,4 @@
-import { result_property_success } from '../result/property/success.mjs';
+import { result_property_success_get } from '../result/property/success/get.mjs';
 import { result_data_get } from '../result/data/get.mjs';
 import { result_unsuccess } from '../result/unsuccess.mjs';
 import { result_data_set } from '../result/data/set.mjs';
@@ -26,7 +26,7 @@ export async function task_unsub() {
     let last_string = string_to(last);
     await task_set(last_string);
     let current_result = await task_current();
-    assert(result_property_success(current_result));
+    assert(result_property_success_get(current_result));
     let current = result_data_get(current_result);
     return result_data_set(result, current);
 }
