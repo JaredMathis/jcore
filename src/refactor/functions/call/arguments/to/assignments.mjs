@@ -11,7 +11,6 @@ import { file_js_all_map_args_if_function } from '../../../../../file/js/all/map
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { js_visit_nodes_filter } from '../../../../../js/visit/nodes/filter.mjs';
 import { list_is } from '../../../../../list/is.mjs';
-import { add_1 } from '../../../../../add/1.mjs';
 import { list_get } from '../../../../../list/get.mjs';
 import { assert } from '../../../../../assert.mjs';
 import { js_node_is_block_statement } from '../../../../../js/node/is/block/statement.mjs';
@@ -35,7 +34,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                     let stack_reversed = list_reversed_get(stack);
                     let parent_list_index = list_find_first_index(stack_reversed, list_is);
                     let parent_list_index_next = subtract_1(parent_list_index);
-                    let parent_list_next = list_get(stack, parent_list_index_next);
+                    let parent_list_next = list_get(stack_reversed, parent_list_index_next);
                     log({ parent_list_next });
                     assert(js_node_is_block_statement(parent_list_next));
                     for (let arg of args_reversed) {
