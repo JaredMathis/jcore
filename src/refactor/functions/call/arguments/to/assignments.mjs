@@ -1,3 +1,4 @@
+import { list_find_first_index_after } from '../../../../../list/find/first/index/after.mjs';
 import { js_node_is_variable_declaration } from '../../../../../js/node/is/variable/declaration.mjs';
 import { json_to } from '../../../../../json/to.mjs';
 import { list_map_try } from '../../../../../list/map/try.mjs';
@@ -7,7 +8,6 @@ import { js_variable_declarator_init_change } from '../../../../../js/variable/d
 import { js_node_property_declarations_get } from '../../../../../js/node/property/declarations/get.mjs';
 import { js_code_statement_assignment } from '../../../../../js/code/statement/assignment.mjs';
 import { js_identifier_name_next } from '../../../../../js/identifier/name/next.mjs';
-import { list_find_first_index } from '../../../../../list/find/first/index.mjs';
 import { list_reversed_get } from '../../../../../list/reversed/get.mjs';
 import { js_node_property_arguments_get } from '../../../../../js/node/property/arguments/get.mjs';
 import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
@@ -39,7 +39,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                 let expression = js_node_property_expression_get(node);
                 if (js_node_is_call_expression(expression)) {
                     let stack_reversed = list_reversed_get(stack);
-                    let parent_list_index = list_find_first_index(stack_reversed, list_is);
+                    let parent_list_index = list_find_first_index_after(stack_reversed, list_is);
                     let parent_list_index_next = add_1(parent_list_index);
                     let parent_list_next = list_get(stack_reversed, parent_list_index_next);
                     if (js_node_is_program(parent_list_next)) {
