@@ -32,7 +32,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                         stack
                     });
                     let stack_reversed = list_reversed_get(stack);
-                    let parent_list_index = list_find_first_index(stack, list_is);
+                    let parent_list_index = list_find_first_index(stack_reversed, list_is);
                     let parent_list_index_next = add_1(parent_list_index);
                     let parent_list_next = list_get(stack, parent_list_index_next);
                     log({ parent_list_next });
