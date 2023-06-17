@@ -8,6 +8,6 @@ export function list_find_or_null(list, predicate) {
         function_is
     ]);
     let or_null = true;
-    let result = list_find_generic(list, predicate, or_null);
+    let result = list_find_generic(list, predicate, or_null, true);
     return result;
 }

@@ -7,10 +7,11 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_empty } from '../empty.mjs';
 import { list_filter } from '../filter.mjs';
 import { boolean_is } from '../../boolean/is.mjs';
-export function list_find_generic(list, predicate, or_null) {
+export function list_find_generic(list, predicate, or_null, single) {
     arguments_assert(arguments, [
         list_is,
         function_is,
+        boolean_is,
         boolean_is
     ]);
     let filtered = list_filter(list, predicate);
