@@ -74,9 +74,9 @@ export async function refactor_functions_call_arguments_to_assignments() {
         function list_find_first_after(stack_reversed) {
             let index = list_find_first_after(stack_reversed, list_is, 0);
             let index_next = add_1(index);
-            let parent_list_next = list_get(stack_reversed, index_next);
+            let next = list_get(stack_reversed, index_next);
             return {
-                parent_list_next,
+                parent_list_next: next,
                 parent_list_index: index
             };
         }
