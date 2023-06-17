@@ -14,7 +14,8 @@ export function list_find_generic(list, predicate, or_null, single) {
         boolean_is,
         boolean_is
     ]);
-    let filtered = list_filter(list, predicate);
+    let filter_lambda = list_filter;
+    let filtered = filter_lambda(list, predicate);
     if (or_null) {
         if (list_empty(filtered)) {
             return null;
