@@ -18,14 +18,8 @@ export async function function_add_property_get(property_prefix, property_name) 
         string_identifier_is,
         string_identifier_is
     ]);
-    let property_name_fn_get_prefix = string_identifier_combine([
-        property_prefix,
-        'property'
-    ]);
-    let property_name_fn_get = string_identifier_combine([
-        property_name_fn_get_prefix,
-        property_name
-    ]);
+    let property_name_fn_get_prefix = string_identifier_combine(property_prefix, 'property');
+    let property_name_fn_get = string_identifier_combine(property_name_fn_get_prefix, property_name);
     if (not(await function_exists(property_name_fn_get))) {
         await function_add_string_prefix(property_name_fn_get_prefix, property_name);
     }
