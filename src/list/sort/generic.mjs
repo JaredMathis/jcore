@@ -12,7 +12,7 @@ export function list_sort_generic(list, value_get, reverse, compare) {
         boolean_is,
         function_is
     ]);
-    list.sort((a, b) => subtract(value_get(a), value_get(b)));
+    list.sort((a, b) => compare(value_get(a), value_get(b)));
     if (reverse) {
         list_reverse(list);
     }
