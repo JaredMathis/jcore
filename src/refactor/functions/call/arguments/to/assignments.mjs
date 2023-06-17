@@ -1,3 +1,4 @@
+import { js_node_property_declarations_get } from '../../../../../js/node/property/declarations/get.mjs';
 import { js_code_statement_assignment } from '../../../../../js/code/statement/assignment.mjs';
 import { js_identifier_name_next } from '../../../../../js/identifier/name/next.mjs';
 import { list_find_first_index } from '../../../../../list/find/first/index.mjs';
@@ -54,6 +55,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                             let id = js_identifier_name_next(parsed);
                             let assignment_code = js_code_statement_assignment(id, string_a());
                             let assignment = js_parse_statement(assignment_code);
+                            let declarations = js_node_property_declarations_get(assignment);
                             log({ assignment });
                             error();
                             if (false) {
