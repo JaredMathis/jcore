@@ -16,6 +16,7 @@ import { assert } from '../../../../../assert.mjs';
 import { js_node_is_block_statement } from '../../../../../js/node/is/block/statement.mjs';
 import { add_1 } from '../../../../../add/1.mjs';
 import { js_node_is_program } from '../../../../../js/node/is/program.mjs';
+import { list_index_of } from '../../../../../list/index/of.mjs';
 export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
@@ -37,10 +38,11 @@ export async function refactor_functions_call_arguments_to_assignments() {
                     let parent_list_index_next = add_1(parent_list_index);
                     let parent_list_next = list_get(stack_reversed, parent_list_index_next);
                     log({ parent_list_next });
-                    if (js_node_is_program(parent_list_index)) {
+                    if (js_node_is_program(parent_list_next)) {
                         return;
                     }
                     assert(js_node_is_block_statement(parent_list_next));
+                    let node_index = list_index_of(parent_list_next, node);
                     for (let arg of args_reversed) {
                         if (js_node_is_call_expression(arg)) {
                             log(arg);
