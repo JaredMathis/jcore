@@ -1,5 +1,4 @@
 import { try_catch_finally_async } from '../../try/catch/finally/async.mjs';
-import { arguments_assert } from '../../arguments/assert.mjs';
 import { git_rhh } from '../rhh.mjs';
 import { metadata } from '../../metadata.mjs';
 import { function_run_arguments } from '../../function/run/arguments.mjs';
