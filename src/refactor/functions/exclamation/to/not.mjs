@@ -12,7 +12,6 @@ export async function refactor_functions_exclamation_to_not() {
         js_nodes_each(parsed, js_node_is_unary_expression, n => {
             let operator = js_node_property_operator_get(n);
             if (equal(operator, '!')) {
-
             }
         });
     });
