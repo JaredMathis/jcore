@@ -97,7 +97,7 @@ export function refactor_call_arguments_to_assignments(args) {
             for (let arg of args_reversed) {
                 let arg_root = arg;
                 if (js_node_is_await_expression(arg)) {
-                    arg = js_node_property_argument_get(expression);
+                    arg = js_node_property_argument_get(arg);
                 }
                 if (js_node_is_call_expression(arg)) {
                     let id = js_identifier_name_next(parsed);
