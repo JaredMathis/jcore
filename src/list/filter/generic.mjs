@@ -14,7 +14,7 @@ export function list_filter_generic(array, filter, added_get) {
         list_each_with_index(array, (element, index) => {
             if (filter(element)) {
                 let added = added_get(element, index);
-                la(result, added);
+                la(added);
             }
         });
     });
