@@ -1,4 +1,3 @@
-import { log } from '../../../../log.mjs';
 import { changed_while } from '../../../../changed/while.mjs';
 import { js_return_statement_argument_get } from '../../../../js/return/statement/argument/get.mjs';
 import { js_node_is_return_statement } from '../../../../js/node/is/return/statement.mjs';
@@ -73,7 +72,6 @@ export function refactor_call_arguments_to_assignments(args) {
                 }
                 if (js_node_is_return_statement(expression)) {
                     let argument = js_return_statement_argument_get(expression);
-                    console.log({ argument });
                     if (null_is(argument)) {
                         return;
                     }
