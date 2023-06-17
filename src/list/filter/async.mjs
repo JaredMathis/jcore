@@ -9,10 +9,13 @@ export async function list_filter_async(array, filter) {
         list_is,
         function_is
     ]);
+    function added_get(element, index) {
+        return element;
+    }
     return await list_adder_async(async la => {
         await list_each_with_index_async(array, async (element, index) => {
             if (await filter(element)) {
-                let added = element;
+                let added = added_get(element, index);
                 la(result, added);
             }
         });
