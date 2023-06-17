@@ -41,10 +41,10 @@ export function refactor_call_arguments_to_assignments(args) {
     js_visit_nodes_filter(parsed, n => js_node_is_expression_statement(n) || js_node_is_variable_declaration(n), v => {
         let node = object_property_get(v, 'node');
         let stack = object_property_get(v, 'stack');
-        refactor_call_expression_to_assignments(expression);
+        refactor_call_expression_to_assignments(node);
         function refactor_call_expression_to_assignments(expression) {
             if (js_node_is_expression_statement(expression)) {
-                let child = js_node_property_expression_get(node);
+                let child = js_node_property_expression_get(expression);
                 return refactor_call_expression_to_assignments(child);
             }
             if (js_node_is_assignment_expression(expression)) {
