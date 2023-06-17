@@ -10,6 +10,6 @@ export function list_find(list, predicate) {
         function_is
     ]);
     let or_null = false;
-    return list_find_generic(list, predicate, or_null, true, list_filter);
+    return list_find_generic(list, predicate, or_null, true, list_filter, 0);
     metadata([]);
 }
