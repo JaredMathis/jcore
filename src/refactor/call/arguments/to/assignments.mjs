@@ -119,9 +119,9 @@ export function refactor_call_arguments_to_assignments(args) {
                         let v_5 = js_parse_expression(id);
                         object_replace(arg_root, v_5);
                         list_add_before(parent_list, assignment, node);
+                        c();
                     }
                 }
-                c();
                 return true;
             }
         });
