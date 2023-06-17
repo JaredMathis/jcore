@@ -9,6 +9,7 @@ export async function list_map_async(list, mapper) {
         function_is
     ]);
     let lambda = async (element, index) => {
+        try_generic;
         return await mapper(element);
     };
     return await list_map_generic_async(list, lambda);
