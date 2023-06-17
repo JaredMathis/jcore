@@ -1,4 +1,4 @@
-import { js_visit_node_ancestor } from '../../../../../js/visit/node/ancestor.mjs';
+import { list_find_first } from '../../../../../list/find/first.mjs';
 import { list_reversed_get } from '../../../../../list/reversed/get.mjs';
 import { js_node_property_arguments_get } from '../../../../../js/node/property/arguments/get.mjs';
 import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
@@ -10,6 +10,7 @@ import { refactor_import_fix_if_changed } from '../../../../import/fix/if/change
 import { file_js_all_map_args_if_function } from '../../../../../file/js/all/map/args/if/function.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { js_visit_nodes_filter } from '../../../../../js/visit/nodes/filter.mjs';
+import { list_is } from '../../../../../list/is.mjs';
 export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
@@ -26,8 +27,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                         node,
                         stack
                     });
-                    let grandparent = js_visit_node_ancestor(stack, 0);
-                    log({ grandparent });
+                    let parent_list = list_find_first(stack, list_is);
                     for (let arg of reversed) {
                         if (js_node_is_call_expression(arg)) {
                             log(arg);
