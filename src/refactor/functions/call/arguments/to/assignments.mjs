@@ -1,3 +1,4 @@
+import { list_reverse } from '../../../../../list/reverse.mjs';
 import { list_add_multiple } from '../../../../../list/add/multiple.mjs';
 import { js_node_property_arguments_get } from '../../../../../js/node/property/arguments/get.mjs';
 import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
@@ -21,6 +22,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                     let args = js_node_property_arguments_get(expression);
                     let args_reversed = [];
                     list_add_multiple(args_reversed, args);
+                    list_reverse(args_reversed);
                     for (let arg of args) {
                         if (js_node_is_call_expression(arg)) {
                             log(arg);
