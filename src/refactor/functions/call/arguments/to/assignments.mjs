@@ -24,13 +24,13 @@ import { list_get } from '../../../../../list/get.mjs';
 import { js_node_is_block_statement } from '../../../../../js/node/is/block/statement.mjs';
 import { add_1 } from '../../../../../add/1.mjs';
 import { js_node_is_program } from '../../../../../js/node/is/program.mjs';
-import { list_index_of } from '../../../../../list/index/of.mjs';
 import { string_a } from '../../../../../string/a.mjs';
 import { js_parse_statement } from '../../../../../js/parse/statement.mjs';
 import { list_single } from '../../../../../list/single.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
 import { assert_message } from '../../../../../assert/message.mjs';
 import { js_parse_expression } from '../../../../../js/parse/expression.mjs';
+import { list_add_after } from '../../../../../list/add/after.mjs';
 export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
@@ -61,7 +61,6 @@ export async function refactor_functions_call_arguments_to_assignments() {
                         n: js_node_property_type_get(parent_list_next)
                     }));
                     let parent_list = list_get(stack_reversed, parent_list_index);
-                    let node_index = list_index_of(parent_list, node);
                     let args = js_node_property_arguments_get(expression);
                     let args_reversed = list_reversed_get(args);
                     for (let arg of args_reversed) {
@@ -73,6 +72,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                             let declaration = list_single(declarations);
                             js_variable_declarator_init_change(declaration, object_copy_shallow(node));
                             object_replace(arg, js_parse_expression(id));
+                            list_add_after(parent_list, node);
                             if (false) {
                                 change();
                             }
