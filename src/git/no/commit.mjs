@@ -4,7 +4,6 @@ import { git_rhh } from '../rhh.mjs';
 import { metadata } from '../../metadata.mjs';
 import { function_run_arguments } from '../../function/run/arguments.mjs';
 export async function git_no_commit() {
-    arguments_assert(arguments, []);
     let args = arguments;
     let result = await try_catch_finally_async(async () => {
         await function_run_arguments(args);
