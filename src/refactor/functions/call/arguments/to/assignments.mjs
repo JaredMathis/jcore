@@ -31,6 +31,7 @@ import { object_replace } from '../../../../../object/replace.mjs';
 import { assert_message } from '../../../../../assert/message.mjs';
 import { js_parse_expression } from '../../../../../js/parse/expression.mjs';
 import { list_add_after } from '../../../../../list/add/after.mjs';
+import { list_add_before } from '../../../../../list/add/before.mjs';
 export async function refactor_functions_call_arguments_to_assignments() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
@@ -72,7 +73,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
                             let declaration = list_single(declarations);
                             js_variable_declarator_init_change(declaration, object_copy_shallow(node));
                             object_replace(arg, js_parse_expression(id));
-                            list_add_after(parent_list, assignment, node);
+                            list_add_before(parent_list, assignment, node);
                             if (false) {
                                 change();
                             }
