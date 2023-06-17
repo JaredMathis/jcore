@@ -1,3 +1,4 @@
+import { js_node_property_expression_get } from '../../../../../js/node/property/expression/get.mjs';
 import { log } from '../../../../../log.mjs';
 import { js_node_is_expression_statement } from '../../../../../js/node/is/expression/statement.mjs';
 import { metadata } from '../../../../../metadata.mjs';
@@ -11,7 +12,8 @@ export async function refactor_functions_call_arguments_to_assignments() {
         await refactor_import_fix_if_changed(args, change => {
             let {parsed} = args;
             js_nodes_each(parsed, js_node_is_expression_statement, n => {
-                log(n);
+                let expression = js_node_property_expression_get(n);
+                log(expression);
                 if (false) {
                     change();
                 }
