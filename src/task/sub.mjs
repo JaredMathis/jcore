@@ -5,12 +5,12 @@ import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { task_add } from './add.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { task_requires } from './requires.mjs';
-import { result_property_success } from '../result/property/success.mjs';
+import { result_property_success_get } from '../result/property/success/get.mjs';
 export async function task_sub(title) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let sub = await task_add(title);
     let current_result = await task_current();
-    if (result_property_success(current_result)) {
+    if (result_property_success_get(current_result)) {
         let current = result_data_get(current_result);
         let current_number_string = task_number_get_string(current);
         let sub_number_string = task_number_get_string(sub);
