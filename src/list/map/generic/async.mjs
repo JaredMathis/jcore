@@ -20,13 +20,14 @@ export async function list_map_generic_async(list, lambda, allow_error_mapping) 
             let result = throws_generic(async () => {
                 return await lambda(element, index);
             });
+            let mapped;
             if (not(allow_error_mapping)) {
                 assert(result_property_success_get(result));
+                mapped = result_property_data_get(result);
             } else {
                 if (result_unsuccess_is(result)) {
                 }
             }
-            let mapped = result_property_data_get(result);
             la(result, mapped);
         });
     });
