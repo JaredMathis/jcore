@@ -20,7 +20,9 @@ export function list_find_generic(list, predicate, or_null, single) {
             return null;
         }
     }
-    assert(list_length_is_1(filtered));
+    if (single) {
+        assert(list_length_is_1(filtered));
+    }
     let result = list_first(filtered);
     return result;
 }
