@@ -5,7 +5,6 @@ import { function_is } from '../../function/is.mjs';
 import { list_is } from '../is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_empty } from '../empty.mjs';
-import { list_filter } from '../filter.mjs';
 import { boolean_is } from '../../boolean/is.mjs';
 export function list_find_generic(list, predicate, or_null, single, lambda_list_filter) {
     arguments_assert(arguments, [
@@ -15,7 +14,7 @@ export function list_find_generic(list, predicate, or_null, single, lambda_list_
         boolean_is,
         function_is
     ]);
-    let filtered = list_filter(list, predicate);
+    let filtered = lambda_list_filter(list, predicate);
     if (or_null) {
         if (list_empty(filtered)) {
             return null;
