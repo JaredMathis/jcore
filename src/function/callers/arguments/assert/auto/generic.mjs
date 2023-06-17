@@ -1,5 +1,5 @@
 import { changed } from '../../../../../changed.mjs';
-import { js_call_expression_arguments } from '../../../../../js/call/expression/arguments.mjs';
+import { js_call_expression_arguments_get } from '../../../../../js/call/expression/arguments/get.mjs';
 import { js_visit_nodes_call_expression_name_equal } from '../../../../../js/visit/nodes/call/expression/name/equal.mjs';
 import { js_node_property_end } from '../../../../../js/node/property/end.mjs';
 import { js_node_property_start } from '../../../../../js/node/property/start.mjs';
@@ -75,7 +75,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             }
             js_visit_nodes_call_expression_name_equal(c_parsed, function_name, v => {
                 let {node} = v;
-                let ce_args = js_call_expression_arguments(node);
+                let ce_args = js_call_expression_arguments_get(node);
                 list_each_with_index(ce_args, (ce_arg, ce_arg_index) => {
                     if (!js_node_is_identifier(ce_arg)) {
                         return;
