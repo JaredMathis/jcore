@@ -10,5 +10,6 @@ export async function try_catch_throw_async(lambda_try, lambda_catch) {
     } catch (e) {
         await lambda_catch(e);
         throw e;
+    } finally {
     }
 }
