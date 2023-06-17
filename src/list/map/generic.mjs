@@ -13,12 +13,13 @@ import { boolean_is } from '../../boolean/is.mjs';
 import { function_is } from '../../function/is.mjs';
 import { list_is } from '../is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-export function list_map_generic(list, lambda, allow_error_mapping, value_on_error_mapping) {
+export function list_map_generic(list, lambda, allow_error_mapping, value_on_error_mapping, allow_error_mapping) {
     arguments_assert(arguments, [
         list_is,
         function_is,
         boolean_is,
-        defined_is
+        defined_is,
+        boolean_is
     ]);
     return list_adder(la => {
         list_each_with_index(list, (element, index) => {
