@@ -11,10 +11,10 @@ import { js_nodes_each } from '../../../../../js/nodes/each.mjs';
 import { file_js_all_map_args_if_function } from '../../../../../file/js/all/map/args/if/function.mjs';
 import { js_function_declaration_to_name } from '../../../../../js/function/declaration/to/name.mjs';
 import { string_identifier_is } from '../../../../../string/identifier/is.mjs';
-export async function refactor_functions_string_to_function_call(string_value, function_name_replacement) {
+export async function refactor_functions_string_to_function_call(function_name_replacement, string_value) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
-        string_identifier_is
+        string_identifier_is,
+        arguments_assert_todo
     ]);
     await file_js_all_map_args_if_function(async function logic(args) {
         let {function_declaration} = args;
