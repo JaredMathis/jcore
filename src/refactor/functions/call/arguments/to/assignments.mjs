@@ -14,6 +14,7 @@ export async function refactor_functions_call_arguments_to_assignments() {
     await file_js_all_map_args_if_function(async function logic(args) {
         await refactor_import_fix_if_changed(args, change => {
             let {parsed, file_path, parent} = args;
+            log({ args });
             log(file_path);
             js_nodes_each(parsed, js_node_is_expression_statement, n => {
                 let expression = js_node_property_expression_get(n);
