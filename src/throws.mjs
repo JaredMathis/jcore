@@ -4,6 +4,7 @@ import { function_is } from './function/is.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 export function throws(lambda) {
     arguments_assert(arguments, [function_is]);
+    let result
     let errored = false;
     try {
         lambda();
