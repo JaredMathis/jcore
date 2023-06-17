@@ -108,18 +108,19 @@ export function refactor_call_arguments_to_assignments(args) {
                 let args = js_node_property_arguments_get(expression);
                 let args_reversed = list_reversed_get(args);
                 for (let arg of args_reversed) {
+                    if (js_node_is_call_expression(arg)) {
+                        replace(arg);
+                    }
+                }
+                if (js_node_is_return_statement(node)) {
+                    replace(expression, expression);
+                }
+                return true;
+                function replace(arg) {
                     let arg_root = arg;
                     if (js_node_is_await_expression(arg)) {
                         arg = js_node_property_argument_get(arg);
                     }
-                    if (js_node_is_call_expression(arg)) {
-                        replace(arg, arg_root);
-                    }
-                }
-                if (js_node_is_return_statement(node)) {
-                }
-                return true;
-                function replace(arg, arg_root) {
                     let id = js_identifier_name_next(parsed);
                     let assignment_code = js_code_statement_assignment(id, string_a());
                     let assignment = js_parse_statement(assignment_code);
