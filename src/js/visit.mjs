@@ -14,11 +14,11 @@ export function js_visit(parsed, filter, lambda) {
     ]);
     let root;
     if (false)
-    if (js_node_is_program(parsed)) {
-        root = js_body_get(parsed);
-    } else {
-        root = parsed;
-    }
+        if (js_node_is_program(parsed)) {
+            root = js_body_get(parsed);
+        } else {
+            root = parsed;
+        }
     visit_filter(parsed, node => object_properties(node), filter, lambda);
     metadata([]);
 }
