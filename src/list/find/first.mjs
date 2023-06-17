@@ -9,6 +9,6 @@ export function list_find_first(list, predicate) {
         function_is
     ]);
     let or_null = false;
-    return list_find_generic(list, predicate, or_null, true);
+    return list_find_generic(list, predicate, or_null, false);
     metadata([]);
 }
