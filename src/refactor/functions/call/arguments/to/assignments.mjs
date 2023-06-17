@@ -1,3 +1,4 @@
+import { list_add_multiple } from '../../../../../list/add/multiple.mjs';
 import { js_node_property_arguments_get } from '../../../../../js/node/property/arguments/get.mjs';
 import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
 import { js_node_property_expression_get } from '../../../../../js/node/property/expression/get.mjs';
