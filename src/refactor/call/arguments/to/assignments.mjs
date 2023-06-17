@@ -42,7 +42,7 @@ export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = object_property_get(args, 'parsed');
     let unparsed = object_property_get(args, 'unparsed');
-    js_visit_nodes_filter(parsed, n => js_node_is_expression_statement(n) || js_node_is_variable_declaration(n), v => {
+    js_visit_nodes_filter(parsed, n => js_node_is_expression_statement(n) || js_node_is_variable_declaration(n) || js_node_is_return_statement(n), v => {
         let node = object_property_get(v, 'node');
         let stack = object_property_get(v, 'stack');
         refactor_call_expression_to_assignments(node);
