@@ -27,6 +27,7 @@ export async function function_add_mapper(function_name_suffix) {
     let function_name_suffix_parts_first = list_first(function_name_suffix_parts)
     const prefix_function = 'function';
     const prefix_refactor = 'refactor';
+    let prefixes = [prefix_function, prefix_refactor]
     assert()
     let function_name = list_multiple_combine([
         prefix_function
