@@ -1,3 +1,4 @@
+import { list_single } from '../../list/single.mjs';
 import { js_function_declaration_to_params_names } from '../../js/function/declaration/to/params/names.mjs';
 import { function_to_declaration } from '../to/declaration.mjs';
 import { js_code_function_declaration_to_statement_assignment } from '../../js/code/function/declaration/to/statement/assignment.mjs';
@@ -21,6 +22,6 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
         let {identifier, statements_code} = args;
         comment(`The index we'll add at`);
         let index = 1;
-        js_code_function_declaration_to_statement_assignment();
+        js_code_function_declaration_to_statement_assignment(function_declaration_map, list_single(identifier));
     });
 }
