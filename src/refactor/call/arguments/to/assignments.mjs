@@ -152,15 +152,15 @@ export function refactor_call_arguments_to_assignments(args) {
                 c();
             }
         }
-    });
 
-    function list_find_first_start_at(stack_reversed, index_starting_at) {
-        let index = list_find_first_index_starting_at(stack_reversed, list_is, index_starting_at);
-        let index_next = add_1(index);
-        let next = list_get(stack_reversed, index_next);
-        return {
-            next,
-            index
-        };
-    }
+        function list_find_first_start_at(stack_reversed, index_starting_at) {
+            let index = list_find_first_index_starting_at(stack_reversed, list_is, index_starting_at);
+            let index_next = add_1(index);
+            let next = list_get(stack_reversed, index_next);
+            return {
+                next,
+                index
+            };
+        }
+    });
 }
