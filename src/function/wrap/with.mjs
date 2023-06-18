@@ -13,8 +13,8 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
         string_identifier_is,
         string_identifier_is
     ]);
-    let function_declaration = await function_to_declaration(function_name_map);
-    let function_name_map_inputs = js_function_declaration_to_params_names(function_declaration);
+    let function_declaration_map = await function_to_declaration(function_name_map);
+    let function_name_map_inputs = js_function_declaration_to_params_names(function_declaration_map);
     comment(`a mapping function must have 1 input (and 1 output)`);
     assert(list_length_is_1(function_name_map_inputs));
     await function_wrap_generic(function_name_to_wrap, function_name_to_add, function map(args) {
