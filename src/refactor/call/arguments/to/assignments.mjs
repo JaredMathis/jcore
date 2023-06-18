@@ -119,41 +119,41 @@ export function refactor_call_arguments_to_assignments(args) {
                 lambda(stack_reversed, node, expression, parent_list, c);
             }
         });
+        function lambda(stack_reversed, node, expression, parent_list, c) {
+            let args = js_node_property_arguments_get(expression);
+            for (let arg of args) {
+                if (js_node_is_call_expression(arg) || js_node_is_await_expression(arg)) {
+                    replace(arg);
+                }
+            }
+            if (js_node_is_return_statement(node)) {
+                let expression_parent = list_get(stack_reversed, 1);
+                if (js_node_is_await_expression(expression_parent)) {
+                    replace(expression_parent);
+                } else {
+                    replace(expression);
+                }
+            }
+            function replace(arg) {
+                let arg_root = arg;
+                if (js_node_is_await_expression(arg)) {
+                    arg = js_node_property_argument_get(arg);
+                }
+                let id = js_identifier_name_next(parsed);
+                let v_16 = string_a();
+                let assignment_code = js_code_statement_assignment(id, v_16);
+                let assignment = js_parse_statement(assignment_code);
+                let declarations = js_node_property_declarations_get(assignment);
+                let declaration = list_single(declarations);
+                let v_4 = object_copy_shallow(arg_root);
+                js_variable_declarator_init_change(declaration, v_4);
+                let v_5 = js_parse_expression(id);
+                object_replace(arg_root, v_5);
+                list_add_before(parent_list, assignment, node);
+                c();
+            }
+        }
     });
-    function lambda(stack_reversed, node, expression, parent_list, c) {
-        let args = js_node_property_arguments_get(expression);
-        for (let arg of args) {
-            if (js_node_is_call_expression(arg) || js_node_is_await_expression(arg)) {
-                replace(arg);
-            }
-        }
-        if (js_node_is_return_statement(node)) {
-            let expression_parent = list_get(stack_reversed, 1);
-            if (js_node_is_await_expression(expression_parent)) {
-                replace(expression_parent);
-            } else {
-                replace(expression);
-            }
-        }
-        function replace(arg) {
-            let arg_root = arg;
-            if (js_node_is_await_expression(arg)) {
-                arg = js_node_property_argument_get(arg);
-            }
-            let id = js_identifier_name_next(parsed);
-            let v_16 = string_a();
-            let assignment_code = js_code_statement_assignment(id, v_16);
-            let assignment = js_parse_statement(assignment_code);
-            let declarations = js_node_property_declarations_get(assignment);
-            let declaration = list_single(declarations);
-            let v_4 = object_copy_shallow(arg_root);
-            js_variable_declarator_init_change(declaration, v_4);
-            let v_5 = js_parse_expression(id);
-            object_replace(arg_root, v_5);
-            list_add_before(parent_list, assignment, node);
-            c();
-        }
-    }
 
     function list_find_first_start_at(stack_reversed, index_starting_at) {
         let index = list_find_first_index_starting_at(stack_reversed, list_is, index_starting_at);
