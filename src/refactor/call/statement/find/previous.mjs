@@ -1,3 +1,4 @@
+import { js_node_call_expression_if_name_equal } from '../../../../js/node/call/expression/if/name/equal.mjs';
 import { list_index_of } from '../../../../list/index/of.mjs';
 import { js_unparse } from '../../../../js/unparse.mjs';
 import { js_visit_call_statements } from '../../../../js/visit/call/statements.mjs';
@@ -10,15 +11,19 @@ import { list_get } from '../../../../list/get.mjs';
 import { error } from '../../../../error.mjs';
 export function refactor_call_statement_find_previous(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
+    let {function_name_find} = args;
     let function_name = js_mapper_args_to_function_name(args);
     log(function_name);
     js_visit_call_statements(args, (stack_reversed, node, expression, parent_list) => {
-        let node_string = js_unparse(node);
-        log(node_string);
-        let index = list_index_of(parent_list, node);
-        let index_previous = subtract_1(index);
-        let previous = list_get(parent_list, index_previous);
-        error();
+        js_node_call_expression_if_name_equal(node, function_name_find, () => {
+            let node_string = js_unparse(node);
+            log(node_string);
+            let index = list_index_of(parent_list, node);
+            let index_previous = subtract_1(index);
+            let previous = list_get(parent_list, index_previous);
+            log(js_unparse(previous));
+            error();
+        });
     });
     log('');
 }
