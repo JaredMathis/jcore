@@ -7,6 +7,6 @@ export function log_multiple(list) {
     let mapper = identity;
     for (let element of list) {
         let mapped = mapper(element);
-        log(element);
+        log(mapped);
     }
 }
