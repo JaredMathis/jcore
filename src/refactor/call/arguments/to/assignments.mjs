@@ -1,3 +1,6 @@
+import { list_copy_shallow_add_multiple } from '../../../../list/copy/shallow/add/multiple.mjs';
+import { list_copy_shallow_add } from '../../../../list/copy/shallow/add.mjs';
+import { log } from '../../../../log.mjs';
 import { changed_while } from '../../../../changed/while.mjs';
 import { js_return_statement_argument_get } from '../../../../js/return/statement/argument/get.mjs';
 import { js_node_is_return_statement } from '../../../../js/node/is/return/statement.mjs';
@@ -42,7 +45,6 @@ import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_node_is } from '../../../../js/node/is.mjs';
 import { defined_is } from '../../../../defined/is.mjs';
-import { list_add } from '../../../../list/add.mjs';
 export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = object_property_get(args, 'parsed');
@@ -67,8 +69,10 @@ export function refactor_call_arguments_to_assignments(args) {
                     if (null_is(init)) {
                         return;
                     }
-                    
-                    return refactor_call_expression_to_assignments(init, list_copy_shallow_add_multiple(refactor_stack, [declaration,init]));
+                    return refactor_call_expression_to_assignments(init, list_copy_shallow_add_multiple(refactor_stack, [
+                        declaration,
+                        init
+                    ]));
                 }
                 if (js_node_is_assignment_expression(expression)) {
                     let right = js_node_property_right_get(expression);
@@ -96,7 +100,10 @@ export function refactor_call_arguments_to_assignments(args) {
                 if (js_node_is_program(parent_list_next)) {
                     return false;
                 }
-                console.log({parent_list_next, expression})
+                console.log({
+                    parent_list_next,
+                    expression
+                });
                 if (js_node_is_variable_declaration(parent_list_next)) {
                     list_find_first_after_result = list_find_first_after(stack_reversed, parent_list_index);
                     parent_list_next = object_property_get(list_find_first_after_result, 'next');
@@ -140,7 +147,6 @@ export function refactor_call_arguments_to_assignments(args) {
                     c();
                 }
             }
-
         });
     });
     function list_find_first_after(stack_reversed, index_starting_at) {
@@ -152,14 +158,4 @@ export function refactor_call_arguments_to_assignments(args) {
             index
         };
     }
-}
-function list_copy_shallow_add_multiple(refactor_stack, multiple) {
-    let refactor_stack_child = object_copy_shallow(refactor_stack);
-    for (let m of multiple) {
-        list_add(refactor_stack_child, child);
-    }
-    return refactor_stack_child;
-}
-function list_copy_shallow_add(refactor_stack, child) {
-    return list_copy_shallow_add_multiple(refactor_stack, list_single_item(child));
 }
