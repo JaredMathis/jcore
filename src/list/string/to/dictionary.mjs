@@ -8,7 +8,9 @@ export function list_string_to_dictionary(list, element_to_value) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    function element_to_key(){}
+    function element_to_key(element){
+        return element;
+    }
     let dictionary = {};
     for (let element of list) {
         let key = element;
