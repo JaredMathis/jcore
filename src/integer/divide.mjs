@@ -5,5 +5,5 @@ export function integer_divide(a, b) {
         integer_is,
         integer_is
     ]);
-    return a % b;
+    return a / b;
 }
