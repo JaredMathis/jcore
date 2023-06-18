@@ -26,12 +26,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let identifier = 'result';
     let inputs = js_function_declaration_to_params_names(function_declaration);
-    let is_async = js_function_declaration_async_is(function_declaration);
-    let statement_first_code = js_code_call_expression_with_args(function_name_to_wrap, inputs);
-    if (is_async) {
-        statement_first_code = js_code_await(statement_first_code);
-    }
-    statement_first_code = js_code_statement_assignment(identifier, statement_first_code);
+    let { statement_first_code, is_async } = newFunction(function_declaration, function_name_to_wrap, inputs, identifier);
     let statement_second_code = js_code_return_statement(identifier);
     let statements_code = [
         statement_first_code,
@@ -50,4 +45,14 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
         await function_input_add_type(function_name_to_add, input, arguments_assert_arg_name);
     });
     await function_open_vs_code(function_name_to_add);
+}
+
+function newFunction(function_declaration, function_name_to_wrap, inputs, identifier) {
+    let is_async = js_function_declaration_async_is(function_declaration);
+    let statement_first_code = js_code_call_expression_with_args(function_name_to_wrap, inputs);
+    if (is_async) {
+        statement_first_code = js_code_await(statement_first_code);
+    }
+    statement_first_code = js_code_statement_assignment(identifier, statement_first_code);
+    return { statement_first_code, is_async };
 }
