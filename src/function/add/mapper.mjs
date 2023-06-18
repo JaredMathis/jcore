@@ -1,6 +1,5 @@
 import { string_identifier_parts_from_combine } from '../../string/identifier/parts/from/combine.mjs';
 import { function_add_with_call_expression_synchronized } from './with/call/expression/synchronized.mjs';
-import { string_identifier_parts_from } from '../../string/identifier/parts/from.mjs';
 import { js_brace_left_right } from '../../js/brace/left/right.mjs';
 import { function_map_with_args } from '../map/with/args.mjs';
 import { function_open_vs_code } from '../open/vs/code.mjs';
@@ -16,7 +15,6 @@ import { list_contains } from '../../list/contains.mjs';
 import { string_split } from '../../string/split.mjs';
 import { function_name_separator } from '../name/separator.mjs';
 import { assert_message } from '../../assert/message.mjs';
-import { list_multiple_combine } from '../../list/multiple/combine.mjs';
 export async function function_add_mapper(function_name_suffix) {
     arguments_assert(arguments, [string_identifier_is]);
     let v_3 = function_name_separator();
@@ -29,11 +27,10 @@ export async function function_add_mapper(function_name_suffix) {
         prefix_refactor
     ];
     assert_message(!list_contains(prefixes, function_name_suffix_parts_first), `Cannot start with: ` + prefixes);
-    let v_4 = list_multiple_combine([
+    let function_name = string_identifier_parts_from_combine([
         [prefix_function],
         function_name_suffix_parts
     ]);
-    let function_name = string_identifier_parts_from(v_4);
     const list_with_multiple_lists = [
         [prefix_refactor],
         function_name_suffix_parts
