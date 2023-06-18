@@ -21,7 +21,7 @@ export async function function_add_mapper(function_name_suffix) {
     let function_name_suffix_parts = string_split(function_name_suffix, v_3);
     let function_name_suffix_parts_first = list_first(function_name_suffix_parts);
     const prefix_function = 'function';
-    const prefix_refactor = 'refactor';
+    const prefix_refactor = refactor_prefix();
     let prefixes = [
         prefix_function,
         prefix_refactor
@@ -31,11 +31,7 @@ export async function function_add_mapper(function_name_suffix) {
         [prefix_function],
         function_name_suffix_parts
     ]);
-    const list_with_multiple_lists = [
-        [prefix_refactor],
-        function_name_suffix_parts
-    ];
-    let function_name_refactor = string_identifier_parts_from_combine(list_with_multiple_lists);
+    let function_name_refactor = refactor_function_name_from_parts(prefix_refactor, function_name_suffix_parts);
     await function_add_inputs(function_name_refactor, 'args');
     let input = 'function_name';
     comment(` await function_map(function_name_get(refactor_asyncify), function_name_new);`);
@@ -50,4 +46,17 @@ export async function function_add_mapper(function_name_suffix) {
     let v_2 = function_name_get(string_identifier_is);
     await function_input_add_type(function_name, input, v_2);
     await function_open_vs_code(function_name);
+}
+
+function refactor_prefix() {
+    return 'refactor';
+}
+
+function refactor_function_name_from_parts(prefix_refactor, function_name_suffix_parts) {
+    const list_with_multiple_lists = [
+        [prefix_refactor],
+        function_name_suffix_parts
+    ];
+    let function_name_refactor = string_identifier_parts_from_combine(list_with_multiple_lists);
+    return function_name_refactor;
 }
