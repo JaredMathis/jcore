@@ -46,11 +46,12 @@ export async function function_add_mapper(function_name_suffix) {
     let input = 'function_name';
     comment(` await function_map(function_name_get(refactor_asyncify), function_name_new);`);
     let v = function_name_get(function_map_with_args);
-    let expression_code = js_code_call_expression_with_args(v, [
+    const expression_code_args = [
         js_code_call_expression_with_args(function_name_get(function_name_get), [function_name_refactor]),
         input,
         js_brace_left_right()
-    ]);
+    ];
+    let expression_code = js_code_call_expression_with_args(v, expression_code_args);
     let awaited = js_code_await(expression_code);
     let statement_code = js_code_statement(awaited);
     let statement = js_parse_statement(statement_code);
