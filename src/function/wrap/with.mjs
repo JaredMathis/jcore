@@ -1,3 +1,4 @@
+import { js_code_function_declaration_to_statement_assignment } from '../../js/code/function/declaration/to/statement/assignment.mjs';
 import { function_inputs } from '../inputs.mjs';
 import { function_wrap_generic } from './generic.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
@@ -18,6 +19,6 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
         let {identifier, statements_code} = args;
         comment(`The index we'll add at`);
         let index = 1;
-        
+        js_code_function_declaration_to_statement_assignment();
     });
 }
