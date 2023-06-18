@@ -1,3 +1,4 @@
+import { object_keys_each } from '../../../../object/keys/each.mjs';
 import { list_adder_async } from '../../../../list/adder/async.mjs';
 import { list_add_property_generic } from '../../../../list/add/property/generic.mjs';
 import { changed } from '../../../../changed.mjs';
@@ -14,11 +15,12 @@ export async function file_js_all_identifier_rename(identifier_name_old, identif
     let renames = { [identifier_name_old]: identifier_name_new };
     let file_paths_changed = await list_adder_async(async la => {
         await file_js_all_map_args(function mapper(args) {
-            object_properties_each;
-            let changed = js_identifier_rename(args, identifier_name_old, identifier_name_new);
-            if (changed) {
-                list_add_property_generic(la, args, 'file_path');
-            }
+            object_keys_each(renames, (identifier_name_new, identifier_name_old) => {
+                let changed = js_identifier_rename(args, identifier_name_old, identifier_name_new);
+                if (changed) {
+                    list_add_property_generic(la, args, 'file_path');
+                }
+            });
         });
     });
     return file_paths_changed;
