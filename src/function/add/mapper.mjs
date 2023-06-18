@@ -19,11 +19,11 @@ import { function_name_separator } from '../name/separator.mjs';
 import { assert_message } from '../../assert/message.mjs';
 export async function function_add_mapper(function_name_suffix) {
     arguments_assert(arguments, [string_identifier_is]);
+    const prefix_function = 'function';
     let v_3 = function_name_separator();
     let function_name_suffix_parts = string_split(function_name_suffix, v_3);
     let function_name_refactor = refactor_function_name_from_parts(function_name_suffix_parts);
     await function_add_inputs(function_name_refactor, 'args');
-    const prefix_function = 'function';
     const prefix_refactor = refactor_prefix();
     let prefixes = [
         prefix_function,
