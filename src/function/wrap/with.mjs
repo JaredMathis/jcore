@@ -1,5 +1,6 @@
+import { js_function_declaration_to_params_names } from '../../js/function/declaration/to/params/names.mjs';
+import { function_to_declaration } from '../to/declaration.mjs';
 import { js_code_function_declaration_to_statement_assignment } from '../../js/code/function/declaration/to/statement/assignment.mjs';
-import { function_inputs } from '../inputs.mjs';
 import { function_wrap_generic } from './generic.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -12,7 +13,8 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
         string_identifier_is,
         string_identifier_is
     ]);
-    let function_name_map_inputs = await function_inputs(function_name_map);
+    let function_declaration = await function_to_declaration(function_name_map);
+    let function_name_map_inputs = js_function_declaration_to_params_names(function_declaration);
     comment(`a mapping function must have 1 input (and 1 output)`);
     assert(list_length_is_1(function_name_map_inputs));
     await function_wrap_generic(function_name_to_wrap, function_name_to_add, function map(args) {
