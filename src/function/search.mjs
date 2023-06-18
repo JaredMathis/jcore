@@ -14,11 +14,11 @@ export async function function_search(query) {
     let parts = string_identifier_sub_multiple_parse(query, v);
     const all = await function_name_all_tests_not();
     let function_names = list_filter(all, function list_filter_predicate(candidate) {
-        let v_2 = list_all(parts, function list_all_each(part) {
-            let v_6 = string_includes(candidate, part);
-            return v_6;
+        let all_parts_included = list_all(parts, function list_all_each(part) {
+            let included = string_includes(candidate, part);
+            return included;
         });
-        return v_2;
+        return all_parts_included;
     });
     let dictionary = list_to_dictionary(function_names, function v_5(key) {
         let v_7 = function_name_to_file_path(key);
