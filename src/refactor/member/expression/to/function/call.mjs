@@ -1,5 +1,5 @@
 import { not } from '../../../../../not.mjs';
-import { changed } from '../../../../../changed.mjs';
+import { at_least_once } from '../../../../../at/least/once.mjs';
 import { defined_is } from '../../../../../defined/is.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { function_auto_after_refactors_invoke } from '../../../../../function/auto/after/refactors/invoke.mjs';
@@ -16,7 +16,7 @@ import { list_add } from '../../../../../list/add.mjs';
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
 export async function refactor_member_expression_to_function_call(args) {
     arguments_assert(arguments, [defined_is]);
-    let changed = false;
+    let at_least_once = false;
     let {parsed} = args;
     js_visit_nodes_filter(parsed, js_node_is_member_expression, function v_4(v) {
         let node = object_property_get(v, 'node');
@@ -36,9 +36,9 @@ export async function refactor_member_expression_to_function_call(args) {
         let v_3 = js_node_property_arguments();
         let node_args = object_property_get(node, v_3);
         list_add(node_args, object);
-        changed = true;
+        at_least_once = true;
     });
-    if (changed) {
+    if (at_least_once) {
         await function_auto_after_refactors_invoke(args);
     }
     metadata([]);

@@ -1,5 +1,5 @@
 import { not } from '../../../../../not.mjs';
-import { changed } from '../../../../../changed.mjs';
+import { at_least_once } from '../../../../../at/least/once.mjs';
 import { js_call_expression_arguments_get } from '../../../../../js/call/expression/arguments/get.mjs';
 import { js_visit_nodes_call_expression_name_equal } from '../../../../../js/visit/nodes/call/expression/name/equal.mjs';
 import { js_node_property_end } from '../../../../../js/node/property/end.mjs';
@@ -64,7 +64,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             if (not(equal(c_predicate_name, default_name))) {
                 return false;
             }
-            let changed = false;
+            let at_least_once = false;
             let assignment_exists = false;
             js_visit_nodes_filter(c_parsed, js_node_is_assignment_expression, function v_9(v) {
                 let {node} = v;
@@ -78,7 +78,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 }
             });
             if (assignment_exists === true) {
-                return changed;
+                return at_least_once;
             }
             js_visit_nodes_call_expression_name_equal(c_parsed, function_name, function v_10(v) {
                 let {node} = v;
@@ -100,16 +100,16 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                         ]);
                         if (not(identical)) {
                             list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
-                            changed = true;
+                            at_least_once = true;
                         }
                     }
                 });
             });
-            if (changed) {
+            if (at_least_once) {
                 await refactor_import_fix(c_args);
                 list_add_if_not_exists(result, c_function_name);
             }
-            let v_8 = not(changed);
+            let v_8 = not(at_least_once);
             return v_8;
         });
     }

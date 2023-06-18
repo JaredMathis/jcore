@@ -1,6 +1,6 @@
 import { list_copy_shallow_add_multiple } from '../../../../list/copy/shallow/add/multiple.mjs';
 import { list_copy_shallow_add } from '../../../../list/copy/shallow/add.mjs';
-import { changed_while } from '../../../../changed/while.mjs';
+import { at_least_once_while } from '../../../../at/least/once/while.mjs';
 import { js_return_statement_argument_get } from '../../../../js/return/statement/argument/get.mjs';
 import { js_node_is_return_statement } from '../../../../js/node/is/return/statement.mjs';
 import { null_is } from '../../../../null/is.mjs';
@@ -44,12 +44,11 @@ import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_node_is } from '../../../../js/node/is.mjs';
 import { defined_is } from '../../../../defined/is.mjs';
-import { js_unparse } from '../../../../js/unparse.mjs';
 export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = object_property_get(args, 'parsed');
     let unparsed = object_property_get(args, 'unparsed');
-    changed_while(function v_17(c) {
+    at_least_once_while(function v_17(c) {
         js_visit_nodes_filter(parsed, function v_18(n) {
             return js_node_is_expression_statement(n) || js_node_is_variable_declaration(n) || js_node_is_return_statement(n);
         }, function v_19(v) {
