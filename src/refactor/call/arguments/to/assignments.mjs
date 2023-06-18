@@ -111,8 +111,7 @@ export function refactor_call_arguments_to_assignments(args) {
                 }));
                 let parent_list = list_get(stack_reversed, parent_list_index);
                 let args = js_node_property_arguments_get(expression);
-                let args_reversed = list_reversed_get(args);
-                for (let arg of args_reversed) {
+                for (let arg of args) {
                     if (js_node_is_call_expression(arg) || js_node_is_await_expression(arg)) {
                         replace(arg);
                     }
