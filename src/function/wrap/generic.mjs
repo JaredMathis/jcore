@@ -49,6 +49,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
 }
 
 function newFunction(function_declaration, function_name_to_wrap, inputs, identifier) {
+    let function_name = js_function_declaration_to_name(function_declaration)
     let is_async = js_function_declaration_async_is(function_declaration);
     let statement_first_code = js_code_call_expression_with_args(function_name_to_wrap, inputs);
     if (is_async) {
