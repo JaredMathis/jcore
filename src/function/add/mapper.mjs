@@ -16,19 +16,20 @@ import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { list_single_item } from '../../list/single/item.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
 import { list_get } from '../../list/get.mjs';
+import { list_multiple_combine } from '../../list/multiple/combine.mjs';
 export async function function_add_mapper(function_name_suffix) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let function_name_suffix_parts = string_identifier_parts_from([
         function_name_suffix
     ])
-    let function_name = string_identifier_parts_from([
-        'function',
-        function_name_suffix
-    ]);
-    let function_name_refactor = string_identifier_parts_from([
-        'refactor',
-        function_name_suffix
-    ]);
+    let function_name = list_multiple_combine([
+        'function'
+    ],
+    function_name_suffix_parts);
+    let function_name_refactor = list_multiple_combine([
+        'refactor'
+    ],
+    function_name_suffix_parts);
     await function_add_inputs(function_name_refactor, 'args');
     let input = 'function_name';
     comment(` await function_map(function_name_get(refactor_asyncify), function_name_new);`);
