@@ -1,4 +1,4 @@
-import { list_property_length } from '../../list/property/length.mjs';
+import { list_clear } from '../../list/clear.mjs';
 import { function_wrap_generic_identifier_result } from './generic/identifier/result.mjs';
 import { js_code_return_statement } from '../../js/code/return/statement.mjs';
 import { js_code_function_declaration_to_statement_assignment_wrapped } from '../../js/code/function/declaration/to/statement/assignment/wrapped.mjs';
@@ -15,7 +15,6 @@ import { list_length_is_1 } from '../../list/length/is/1.mjs';
 import { comment } from '../../comment.mjs';
 import { list_last_index } from '../../list/last/index.mjs';
 import { list_last_remove } from '../../list/last/remove.mjs';
-import { object_property_change } from '../../object/property/change.mjs';
 export async function function_wrap_with(function_name_to_wrap, function_name_to_add, function_name_map) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -38,6 +37,6 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
             js_code_function_declaration_to_statement_assignment_wrapped(function_declaration, identifier),
             js_code_return_statement(identifier)
         ];
-        object_property_change(statements_code, list_property_length(), 0);
+        list_clear(statements_code);
     });
 }
