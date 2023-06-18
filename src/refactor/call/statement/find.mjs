@@ -9,4 +9,5 @@ export function refactor_call_statement_find(args) {
         let node_string = js_unparse(node);
         log(node_string);
     });
+    log('')
 }
