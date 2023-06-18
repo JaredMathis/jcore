@@ -7,6 +7,8 @@ export function integer_divide(a, b) {
         integer_is,
         integer_is
     ]);
-    assert(integer_zero_not_is(a));
-    return a / b;
+    assert(integer_zero_not_is(b));
+    let result = a / b;
+    assert(integer_is(result));
+    return result;
 }

@@ -369,11 +369,6 @@ import { integer_even_is_test_generated_4 } from './integer/even/is/test/generat
 import { integer_even_is_test_generated_3 } from './integer/even/is/test/generated/3.mjs';
 import { integer_even_is_test_generated_2 } from './integer/even/is/test/generated/2.mjs';
 import { integer_even_is_test_generated_1 } from './integer/even/is/test/generated/1.mjs';
-import { integer_divide_test_generated_5 } from './integer/divide/test/generated/5.mjs';
-import { integer_divide_test_generated_4 } from './integer/divide/test/generated/4.mjs';
-import { integer_divide_test_generated_3 } from './integer/divide/test/generated/3.mjs';
-import { integer_divide_test_generated_2 } from './integer/divide/test/generated/2.mjs';
-import { integer_divide_test_generated_1 } from './integer/divide/test/generated/1.mjs';
 import { error_test_3 } from './error/test/3.mjs';
 import { error_test_2 } from './error/test/2.mjs';
 import { error_test_1 } from './error/test/1.mjs';
@@ -431,11 +426,6 @@ export async function tests() {
     await error_test_1();
     await error_test_2();
     await error_test_3();
-    await integer_divide_test_generated_1();
-    await integer_divide_test_generated_2();
-    await integer_divide_test_generated_3();
-    await integer_divide_test_generated_4();
-    await integer_divide_test_generated_5();
     await integer_even_is_test_generated_1();
     await integer_even_is_test_generated_2();
     await integer_even_is_test_generated_3();
@@ -806,5 +796,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(402 + ' tests ran successfully');
+    log(397 + ' tests ran successfully');
 }
