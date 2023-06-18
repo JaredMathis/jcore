@@ -56,10 +56,14 @@ export async function function_add_mapper(function_name_suffix) {
     let awaited = js_code_await(expression_code);
     let statement_code = js_code_statement(awaited);
     let is_async = true;
-    let statement = js_parse_statement(statement_code);
-    let statements = list_single_item(statement);
-    await function_add_with_statements_synchronized(function_name, statements, is_async);
+    await function_add_with_statement_synchronized(statement_code, function_name, is_async);
     let v_2 = function_name_get(string_identifier_is);
     await function_input_add_type(function_name, input, v_2);
     await function_open_vs_code(function_name);
+}
+
+async function function_add_with_statement_synchronized(statement_code, function_name, is_async) {
+    let statement = js_parse_statement(statement_code);
+    let statements = list_single_item(statement);
+    await function_add_with_statements_synchronized(function_name, statements, is_async);
 }
