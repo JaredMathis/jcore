@@ -17,7 +17,8 @@ export function file_js_path_all_to_name(file_js_paths) {
     let directory_source_result = directory_source();
     let mapped2 = list_map(mapped, a => {
         assert(list_first(a) === directory_source_result);
-        return list_skip_first(a);
+        let v = list_skip_first(a);
+        return v;
     });
     let mapped3 = list_map(mapped2, a => list_join(a, function_name_separator()));
     let mapped4 = list_map(mapped3, a => string_suffix_without(a, function_extension()));

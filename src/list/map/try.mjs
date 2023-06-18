@@ -10,8 +10,10 @@ export function list_map_try(list, mapper) {
         function_is
     ]);
     let lambda = (element, index) => {
-        return mapper(element);
+        let v = mapper(element);
+        return v;
     };
-    return list_map_generic(list, lambda, true, null);
+    let v_2 = list_map_generic(list, lambda, true, null);
+    return v_2;
     metadata([metadata_generated()]);
 }

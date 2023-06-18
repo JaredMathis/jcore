@@ -6,7 +6,8 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { task_is } from '../is.mjs';
 export function task_body_parse(task) {
     arguments_assert(arguments, [task_is]);
-    let body = object_property_get(task, task_property_body());
+    let v = task_property_body();
+    let body = object_property_get(task, v);
     if (null_is(body)) {
         return body;
     }

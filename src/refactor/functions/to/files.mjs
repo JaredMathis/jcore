@@ -28,14 +28,17 @@ export async function refactor_functions_to_files(args) {
         return;
     }
     for (let n of function_names_new) {
-        assert(not(await function_exists(n)));
+        let v_3 = await function_exists(n);
+        let v = not(v_3);
+        assert(v);
     }
     for (let fd of function_declarations_to_export) {
         let function_name = js_function_declaration_to_name(fd);
         await function_add_with_declaration(function_name, fd);
     }
     for (let n of function_names_new) {
-        await function_map(function_name_get(refactor_import_fix), n);
+        let v_2 = function_name_get(refactor_import_fix);
+        await function_map(v_2, n);
     }
     let body = js_body_get(parsed);
     list_remove_multiple(body, function_declarations_to_export);

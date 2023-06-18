@@ -4,5 +4,7 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { string_split } from '../split.mjs';
 export function string_split_comma(values) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    return string_split(values, string_comma());
+    let v = string_comma();
+    let v_2 = string_split(values, v);
+    return v_2;
 }

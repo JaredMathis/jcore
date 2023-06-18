@@ -7,6 +7,7 @@ export function string_identifier_part_is(value) {
     let enforce_first = false;
     let enforce_last = true;
     const allow_underscores = false;
-    return string_identifier_is_generic(value, enforce_first, enforce_last, allow_underscores);
+    let v = string_identifier_is_generic(value, enforce_first, enforce_last, allow_underscores);
+    return v;
     metadata([]);
 }

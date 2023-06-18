@@ -13,11 +13,13 @@ export async function refactor_call_replace(args) {
     let {function_name_called_old, function_name_called_new} = args;
     let {parsed} = args;
     js_visit_nodes_call_expression_name_equal(parsed, function_name_called_old, n => {
-        let callee = object_property_get(n, js_node_property_callee());
+        let v = js_node_property_callee();
+        let callee = object_property_get(n, v);
         if (not(js_node_is_identifier(callee))) {
             return;
         }
-        object_property_set(callee, js_node_property_name(), function_name_called_new);
+        let v_2 = js_node_property_name();
+        object_property_set(callee, v_2, function_name_called_new);
     });
     await refactor_import_fix(args);
 }

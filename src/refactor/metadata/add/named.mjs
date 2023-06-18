@@ -15,6 +15,7 @@ export async function refactor_metadata_add_named(args, metadata_function_name) 
     let metadata_args = await js_mapper_args_to_metadata_args(args);
     let metadata_function_parsed = js_parse_call_expression(metadata_function_name);
     comment(`If this fails, the code needs enhancing to handle more complex scenarios`);
-    assert(list_empty(metadata_args));
+    let v = list_empty(metadata_args);
+    assert(v);
     list_add(metadata_args, metadata_function_parsed);
 }

@@ -7,5 +7,7 @@ export function js_code_call_expression_statement_with_args_code(name, call_args
         string_is,
         string_is
     ]);
-    return js_code_statement(js_code_call_expression_with_args_code(name, call_args));
+    let v = js_code_call_expression_with_args_code(name, call_args);
+    let v_2 = js_code_statement(v);
+    return v_2;
 }

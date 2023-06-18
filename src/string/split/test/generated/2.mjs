@@ -8,6 +8,7 @@ export function string_split_test_generated_2() {
     arguments_assert(arguments, []);
     let expected = ['b'];
     let actual = string_split('b', 'aab');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

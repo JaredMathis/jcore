@@ -12,7 +12,8 @@ export function js_function_declaration_statements_initialize(fd, function_body_
         list_is
     ]);
     let function_body_statements_old = js_function_declaration_to_statements(fd);
-    assert(list_empty(function_body_statements_old));
+    let v = list_empty(function_body_statements_old);
+    assert(v);
     list_add_multiple(function_body_statements_old, function_body_statements_new);
     metadata([]);
 }

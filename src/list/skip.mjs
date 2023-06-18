@@ -9,6 +9,8 @@ export function list_skip(list, skip_count) {
         list_is,
         integer_is
     ]);
-    return list_slice(list, skip_count, list_length(list));
+    let v = list_length(list);
+    let v_2 = list_slice(list, skip_count, v);
+    return v_2;
     metadata([]);
 }

@@ -3,5 +3,6 @@ import { error } from '../../error.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 export function string_base64_to(input) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    return btoa(input);
+    let v = btoa(input);
+    return v;
 }

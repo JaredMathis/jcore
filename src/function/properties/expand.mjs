@@ -5,5 +5,6 @@ import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 export async function function_properties_expand(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
-    await function_map_with_args(function_name_get(refactor_properties_expand), function_name, {});
+    let v = function_name_get(refactor_properties_expand);
+    await function_map_with_args(v, function_name, {});
 }

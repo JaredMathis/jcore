@@ -8,6 +8,7 @@ export function string_set_test_generated_10() {
     arguments_assert(arguments, []);
     let expected = 'a';
     let actual = string_set('b', 0, 'a');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

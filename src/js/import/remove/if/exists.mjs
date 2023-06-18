@@ -14,6 +14,7 @@ export function js_import_remove_if_exists(parsed, imports, function_name) {
     ]);
     let import_to_remove = list_find_or_null(imports, i => object_property_get(i, 'name') === function_name);
     if (import_to_remove !== null) {
-        js_imports_remove_generic(parsed, list_single_item(import_to_remove));
+        let v = list_single_item(import_to_remove);
+        js_imports_remove_generic(parsed, v);
     }
 }

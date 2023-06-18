@@ -5,6 +5,7 @@ import { js_code_call_expression_with_args_code } from './expression/with/args/c
 export function js_code_call_expression(name) {
     arguments_assert(arguments, [string_is]);
     let args = ``;
-    return js_code_call_expression_with_args_code(name, args);
+    let v = js_code_call_expression_with_args_code(name, args);
+    return v;
     metadata([]);
 }

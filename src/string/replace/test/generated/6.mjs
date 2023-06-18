@@ -8,6 +8,7 @@ export function string_replace_test_generated_6() {
     arguments_assert(arguments, []);
     let expected = 'aa';
     let actual = string_replace('aa', 'b', 'aab');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

@@ -11,8 +11,10 @@ export async function tasks_open_generic(filter_get, map_with_all_unsummarized) 
         function_is
     ]);
     let {open, all} = await tasks_open_all_unsummarized();
-    let filtered = list_filter(open, filter_get(open));
-    list_sort_property(filtered, task_property_number());
+    let v = filter_get(open);
+    let filtered = list_filter(open, v);
+    let v_2 = task_property_number();
+    list_sort_property(filtered, v_2);
     let summaries = list_map(filtered, f => map_with_all_unsummarized(f, all));
     return summaries;
 }

@@ -14,7 +14,8 @@ export function string_sub(input, start, end) {
     ]);
     let list = string_to_list(input);
     let sliced = list_slice(list, start, end);
-    let result = list_join(sliced, string_empty());
+    let v = string_empty();
+    let result = list_join(sliced, v);
     return result;
     metadata([]);
 }

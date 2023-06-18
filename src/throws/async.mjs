@@ -6,6 +6,7 @@ import { throws_generic_async } from './generic/async.mjs';
 export async function throws_async(lambda) {
     arguments_assert(arguments, [function_is]);
     let result = await throws_generic_async(lambda);
-    let errored = not(result_property_success_get(result));
+    let v = result_property_success_get(result);
+    let errored = not(v);
     return errored;
 }

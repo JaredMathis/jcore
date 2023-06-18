@@ -6,7 +6,8 @@ import { object_property_get } from '../../object/property/get.mjs';
 import { data_get } from '../../data/get.mjs';
 export async function git_pacp_generic(sync) {
     let data = await data_get();
-    let task_id = object_property_get(data, task_property_id());
+    let v = task_property_id();
+    let task_id = object_property_get(data, v);
     let initial = data_git_commit_message_initial();
     assert(task_id !== initial);
     let commit_message = task_id;

@@ -28,7 +28,8 @@ export async function function_add_mapper(function_name_suffix) {
     await function_add_inputs(function_name_refactor, 'args');
     let input = 'function_name';
     comment(` await function_map(function_name_get(refactor_asyncify), function_name_new);`);
-    let expression_code = js_code_call_expression_with_args(function_name_get(function_map_with_args), [
+    let v = function_name_get(function_map_with_args);
+    let expression_code = js_code_call_expression_with_args(v, [
         js_code_call_expression_with_args(function_name_get(function_name_get), [function_name_refactor]),
         input,
         js_brace_left_right()
@@ -39,6 +40,7 @@ export async function function_add_mapper(function_name_suffix) {
     let statements = list_single_item(statement);
     let is_async = true;
     await function_add_with_statements_synchronized(function_name, statements, is_async);
-    await function_input_add_type(function_name, input, function_name_get(string_identifier_is));
+    let v_2 = function_name_get(string_identifier_is);
+    await function_input_add_type(function_name, input, v_2);
     await function_open_vs_code(function_name);
 }

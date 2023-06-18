@@ -7,8 +7,10 @@ export async function refactor_input_swap_generic_to(args, predicate, indices_ge
     let {index} = args;
     let {function_declaration} = args;
     let params = js_function_declaration_to_params(function_declaration);
-    assert(list_index_valid(params, index));
-    assert(predicate(index, params));
+    let v = list_index_valid(params, index);
+    assert(v);
+    let v_2 = predicate(index, params);
+    assert(v_2);
     for (let i of indices_get(index, params)) {
         let index_previous = subtract_1(i);
         await refactor_input_swap_generic(args, index_previous, i);

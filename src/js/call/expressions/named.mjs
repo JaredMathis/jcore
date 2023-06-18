@@ -8,7 +8,8 @@ export function js_call_expressions_named(parsed, name_expected) {
         js_node_is_program,
         defined_is
     ]);
-    return list_adder(then);
+    let v = list_adder(then);
+    return v;
     function then(list_new_then_add) {
         js_visit_nodes_call_expression_name_equal(parsed, name_expected, list_new_then_add);
     }

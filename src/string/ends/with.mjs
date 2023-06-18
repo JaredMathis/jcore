@@ -6,6 +6,7 @@ export function string_ends_with(input, suffix) {
         string_is,
         string_is
     ]);
-    return input.endsWith(suffix);
+    let v = input.endsWith(suffix);
+    return v;
     metadata([]);
 }

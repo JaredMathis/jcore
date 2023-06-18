@@ -7,6 +7,7 @@ import { object_property_get } from '../../../object/property/get.mjs';
 export async function data_key_value_get(key) {
     arguments_assert(arguments, [string_is]);
     let data = await data_get();
-    return object_property_get(data, key);
+    let v = object_property_get(data, key);
+    return v;
     metadata([]);
 }

@@ -15,8 +15,10 @@ export function version_path_log_now_get(repository_name) {
             ':',
             '.'
         ]) {
-        iso = string_replace(iso, r, function_name_separator());
+        let v = function_name_separator();
+        iso = string_replace(iso, r, v);
     }
     iso = string_replace(iso, 'Z', '');
-    return file_path_json(log_path, iso);
+    let v_2 = file_path_json(log_path, iso);
+    return v_2;
 }

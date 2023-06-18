@@ -12,7 +12,8 @@ export async function version_output(repository_name, directory_output_name) {
         string_identifier_is
     ]);
     let file_paths = await directory_read_current();
-    let repository_sub_path = version_path_sub_get(repository_name, version_path_outputs());
+    let v = version_path_outputs();
+    let repository_sub_path = version_path_sub_get(repository_name, v);
     await version_output_generic(repository_name, file_paths, lambda);
     async function lambda(file_path, contents) {
         let file_path_output = path_join([

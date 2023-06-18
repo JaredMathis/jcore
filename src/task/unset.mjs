@@ -6,7 +6,8 @@ import { data_map } from '../data/map.mjs';
 export async function task_unset() {
     arguments_assert(arguments, []);
     await data_map(data => {
-        object_property_remove(data, task_property_id());
+        let v = task_property_id();
+        object_property_remove(data, v);
     });
     metadata([]);
 }

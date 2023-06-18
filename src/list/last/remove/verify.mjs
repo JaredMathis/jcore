@@ -11,6 +11,7 @@ export function list_last_remove_verify(list, last_expected) {
         defined_is
     ]);
     let last_actual = list_last_remove(list);
-    assert(equal(last_expected, last_actual));
+    let v = equal(last_expected, last_actual);
+    assert(v);
     metadata([]);
 }

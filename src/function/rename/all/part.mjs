@@ -11,7 +11,9 @@ export async function function_rename_all_part(part_old, part_new) {
         string_identifier_part_is,
         string_identifier_part_is
     ]);
-    assert(not(equal(part_old, part_new)));
+    let v_2 = equal(part_old, part_new);
+    let v = not(v_2);
+    assert(v);
     await function_rename_part_generic(part_old, parts_map);
     function parts_map(parts) {
         let index = list_index_of_single(parts, part_old);

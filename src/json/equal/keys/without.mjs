@@ -11,5 +11,6 @@ export function json_equal_keys_without(a, b, values_without) {
     ]);
     let filtered_a = object_map_without(a, values_without);
     let filtered_b = object_map_without(b, values_without);
-    return json_equal(filtered_a, filtered_b);
+    let v = json_equal(filtered_a, filtered_b);
+    return v;
 }

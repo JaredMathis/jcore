@@ -8,5 +8,8 @@ export function equal_by(map, a, b) {
         defined_is,
         defined_is
     ]);
-    return equal(map(a), map(b));
+    let v = map(a);
+    let v_2 = map(b);
+    let v_3 = equal(v, v_2);
+    return v_3;
 }

@@ -13,7 +13,8 @@ export async function js_function_declaration_to_statement_arguments_assert(func
     let exists = false;
     if (not(list_empty(statements))) {
         let statement_first = list_first(statements);
-        js_node_call_expression_statement_if_name_equal(statement_first, function_name_get(arguments_assert), function on_name_equal() {
+        let v = function_name_get(arguments_assert);
+        js_node_call_expression_statement_if_name_equal(statement_first, v, function on_name_equal() {
             exists = true;
         });
     }
@@ -21,5 +22,6 @@ export async function js_function_declaration_to_statement_arguments_assert(func
         let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
         refactor_arguments_assert_add_no_check(function_declaration, excludes);
     }
-    return js_function_delcaration_to_statement_first(function_declaration);
+    let v_2 = js_function_delcaration_to_statement_first(function_declaration);
+    return v_2;
 }

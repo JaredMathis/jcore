@@ -28,9 +28,12 @@ export function string_difference_get_recursive(left, right, left_offset, right_
         return result;
     }
     let max = string_sub_max(left, right);
-    let offset = object_property_get(max, string_sub_max_property_offset());
-    let left_index = object_property_get(max, string_sub_max_property_left_index());
-    let right_index = object_property_get(max, string_sub_max_property_right_index());
+    let v = string_sub_max_property_offset();
+    let offset = object_property_get(max, v);
+    let v_2 = string_sub_max_property_left_index();
+    let left_index = object_property_get(max, v_2);
+    let v_3 = string_sub_max_property_right_index();
+    let right_index = object_property_get(max, v_3);
     if (offset === 0) {
         if (string_empty_not_is(left)) {
             const position = left_index + left_offset;
@@ -43,11 +46,15 @@ export function string_difference_get_recursive(left, right, left_offset, right_
         return result;
     }
     let left_lr = string_split_at(left, left_index, offset);
-    let left_left = object_property_get(left_lr, string_split_at_property_left());
-    let left_right = object_property_get(left_lr, string_split_at_property_right());
+    let v_4 = string_split_at_property_left();
+    let left_left = object_property_get(left_lr, v_4);
+    let v_5 = string_split_at_property_right();
+    let left_right = object_property_get(left_lr, v_5);
     let right_lr = string_split_at(right, right_index, offset);
-    let right_left = object_property_get(right_lr, string_split_at_property_left());
-    let right_right = object_property_get(right_lr, string_split_at_property_right());
+    let v_6 = string_split_at_property_left();
+    let right_left = object_property_get(right_lr, v_6);
+    let v_7 = string_split_at_property_right();
+    let right_right = object_property_get(right_lr, v_7);
     let left_result = string_difference_get_recursive(left_left, right_left, left_offset, right_offset);
     list_add_multiple(result, left_result);
     let right_result = string_difference_get_recursive(left_right, right_right, left_offset + offset + left_index, right_offset + offset + right_index);

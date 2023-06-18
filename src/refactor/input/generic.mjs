@@ -28,6 +28,7 @@ export async function refactor_input_generic(args, function_declaration, args_ad
     object_merge(args_additional, args_additional_merge);
     let callers = await function_callers_names(function_name);
     for (let caller of callers) {
-        await function_map_with_args(function_name_get(refactor_input_caller_generic), caller, args_additional_merge);
+        let v = function_name_get(refactor_input_caller_generic);
+        await function_map_with_args(v, caller, args_additional_merge);
     }
 }

@@ -26,19 +26,23 @@ export function refactor_output_to_object(args) {
     let {parsed, function_declaration} = args;
     let returns = js_nodes_get(parsed, js_node_is_return_statement);
     comment(`If this fails code needs changing`);
-    assert(list_length_is_1(returns));
+    let v = list_length_is_1(returns);
+    assert(v);
     let return_single = list_single(returns);
     let return_single_argument = js_return_statement_argument_get(return_single);
     comment(`Needs to be identifier - maybe convert to identifier in the future if not`);
-    assert(js_node_is_identifier(return_single_argument));
+    let v_2 = js_node_is_identifier(return_single_argument);
+    assert(v_2);
     let statements = js_function_declaration_to_statements(function_declaration);
     comment(`If this fails code needs changing - needs to be 1 return statement per function`);
-    assert(list_contains(statements, return_single));
+    let v_3 = list_contains(statements, return_single);
+    assert(v_3);
     const return_expression = `${ js_token_brace_left() } ${ string_a() } ${ js_token_brace_right() }`;
     let object_code = js_code_return_statement(return_expression);
     let object = js_parse_statement(object_code);
     let arg = js_return_statement_argument_get(object);
-    let properties = object_property_get(arg, js_node_property_properties());
+    let v_4 = js_node_property_properties();
+    let properties = object_property_get(arg, v_4);
     let property_single = list_single(properties);
     for (let property of [
             js_node_property_key(),

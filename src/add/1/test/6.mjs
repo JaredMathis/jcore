@@ -5,7 +5,9 @@ import { equal } from '../../../equal.mjs';
 import { assert } from '../../../assert.mjs';
 export function add_1_test_6() {
     arguments_assert(arguments, []);
-    assert(equal(add_1(-3), -2));
+    let v_2 = add_1(-3);
+    let v = equal(v_2, -2);
+    assert(v);
     metadata([
         1,
         1,

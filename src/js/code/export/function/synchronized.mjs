@@ -14,7 +14,8 @@ export function js_code_export_function_synchronized(function_name, is_async, fu
         string_is
     ]);
     const at_least = 1;
-    assert(string_length_at_least(function_name, at_least));
+    let v = string_length_at_least(function_name, at_least);
+    assert(v);
     let async_code = string_empty();
     if (is_async) {
         async_code = js_keyword_async();

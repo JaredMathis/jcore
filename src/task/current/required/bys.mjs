@@ -16,7 +16,8 @@ export async function task_current_required_bys() {
         return [];
     }
     let current = result_property_data_get(current_result);
-    let task_number = object_property_get(current, task_property_number());
+    let v = task_property_number();
+    let task_number = object_property_get(current, v);
     let required_bys = task_required_bys(task_number, all_unsummarized);
     list_sort(required_bys);
     return required_bys;

@@ -6,6 +6,8 @@ import { js_node_is_function_declaration } from '../../../../../node/is/function
 export async function js_mapper_args_to_statement_arguments_assert(args) {
     arguments_assert(arguments, [js_mapper_args_is]);
     let {function_declaration} = args;
-    assert(js_node_is_function_declaration(function_declaration));
-    return await js_function_declaration_to_statement_arguments_assert(function_declaration);
+    let v = js_node_is_function_declaration(function_declaration);
+    assert(v);
+    let v_2 = await js_function_declaration_to_statement_arguments_assert(function_declaration);
+    return v_2;
 }

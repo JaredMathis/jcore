@@ -7,5 +7,6 @@ export async function git_hub_repository_issue_close(issue_number) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let api_args_to_merge = { [task_property_state()]: task_property_closed() };
     let no_cache = true;
-    return git_hub_repository_issue_patch(git_hub_repository_issue_close, arguments, issue_number, api_args_to_merge, no_cache);
+    let v = git_hub_repository_issue_patch(git_hub_repository_issue_close, arguments, issue_number, api_args_to_merge, no_cache);
+    return v;
 }

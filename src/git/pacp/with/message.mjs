@@ -18,7 +18,8 @@ export async function git_pacp_with_message(commit_message, sync) {
         boolean_is
     ]);
     let args = command_line_args_skipped();
-    list_remove_while_first_equals(args, function_name_get(git));
+    let v = function_name_get(git);
+    list_remove_while_first_equals(args, v);
     let args_message = list_join(args, ' ');
     const command_commit = `${ git_command_name() } commit -m "${ commit_message } ${ args_message }"`;
     let commands = [

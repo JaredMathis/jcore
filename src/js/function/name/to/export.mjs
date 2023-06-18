@@ -6,6 +6,7 @@ import { js_code_export_function } from '../../../code/export/function.mjs';
 export function js_function_name_to_export(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let function_statements_code = string_empty();
-    return js_code_export_function(function_name, function_statements_code);
+    let v = js_code_export_function(function_name, function_statements_code);
+    return v;
     metadata([]);
 }

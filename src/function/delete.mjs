@@ -7,7 +7,8 @@ import { assert } from '../assert.mjs';
 import { function_name_to_file_path } from './name/to/file/path.mjs';
 export async function function_delete(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
-    assert(await function_exists(function_name));
+    let v = await function_exists(function_name);
+    assert(v);
     let file_path = function_name_to_file_path(function_name);
     await file_delete(file_path);
     metadata([]);

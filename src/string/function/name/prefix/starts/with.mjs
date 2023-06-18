@@ -9,6 +9,8 @@ export function string_function_name_prefix_starts_with(candidate, function_name
         string_is,
         string_identifier_is
     ]);
-    return string_starts_with(candidate, string_function_name_prefix(function_name));
+    let v = string_function_name_prefix(function_name);
+    let v_2 = string_starts_with(candidate, v);
+    return v_2;
     metadata([]);
 }

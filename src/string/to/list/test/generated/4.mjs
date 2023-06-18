@@ -12,6 +12,7 @@ export function string_to_list_test_generated_4() {
         'b'
     ];
     let actual = string_to_list('aab');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

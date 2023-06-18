@@ -10,6 +10,7 @@ export function js_mapper_with_function_declaration_get(mapper) {
         if (function_declaration !== null) {
             object_merge({ function_declaration }, args);
         }
-        return await mapper(args);
+        let v = await mapper(args);
+        return v;
     };
 }

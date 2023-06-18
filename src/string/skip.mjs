@@ -10,6 +10,7 @@ export function string_skip(input, index_start) {
         integer_is
     ]);
     let length = string_length(input);
-    return string_sub(input, index_start, length);
+    let v = string_sub(input, index_start, length);
+    return v;
     metadata([]);
 }

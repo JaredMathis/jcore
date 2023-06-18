@@ -7,7 +7,8 @@ import { string_is } from '../string/is.mjs';
 export function integer_parse(input) {
     arguments_assert(arguments, [string_is]);
     let result = integer_parse_try(input);
-    assert(number_nan_is_not(result));
+    let v = number_nan_is_not(result);
+    assert(v);
     return result;
     metadata([]);
 }

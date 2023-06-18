@@ -12,6 +12,7 @@ export function string_difference_apply_parse_test_3() {
         'text': 'def'
     };
     let actual = string_difference_apply_parse('10+def');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

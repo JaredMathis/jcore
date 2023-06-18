@@ -6,6 +6,7 @@ export function string_split(input, separator) {
         string_is,
         string_is
     ]);
-    return input.split(separator);
+    let v = input.split(separator);
+    return v;
     metadata([]);
 }

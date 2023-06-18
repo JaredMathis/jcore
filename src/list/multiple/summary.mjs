@@ -10,7 +10,8 @@ export function list_multiple_summary(lists) {
         let fn = list_length;
         let suffix = function_name_without_prefix(fn, prefix);
         let length = fn(list);
-        object_property_initialize(result, string_add(list_name, suffix), length);
+        let v = string_add(list_name, suffix);
+        object_property_initialize(result, v, length);
     });
     return result;
 }

@@ -11,10 +11,12 @@ import { js_function_declaration_to_statements } from '../function/declaration/t
 export function js_parse_statements(code) {
     arguments_assert(arguments, [string_is]);
     let is_async = true;
-    let unparsed = js_code_export_function_synchronized(string_a(), is_async, code);
+    let v = string_a();
+    let unparsed = js_code_export_function_synchronized(v, is_async, code);
     let parsed = js_parse(unparsed);
     let export_single = js_export_single(parsed);
-    let fd = object_property_get(export_single, js_node_property_declaration());
+    let v_2 = js_node_property_declaration();
+    let fd = object_property_get(export_single, v_2);
     let statements = js_function_declaration_to_statements(fd);
     return statements;
     metadata([]);

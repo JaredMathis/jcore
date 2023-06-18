@@ -14,6 +14,7 @@ export function string_difference_apply_test_1() {
         '16-7',
         '19+a'
     ]);
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

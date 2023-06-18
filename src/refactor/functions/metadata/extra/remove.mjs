@@ -14,7 +14,9 @@ export async function refactor_functions_metadata_extra_remove() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async function logic(args) {
         let last_metadata_args = js_mapper_args_to_metadata_args(args);
-        let remaining = list_take(statements, subtract_1(list_length(statements)));
+        let v_2 = list_length(statements);
+        let v = subtract_1(v_2);
+        let remaining = list_take(statements, v);
         let removals = list_filter(remaining, js_statement_metadata_is);
         for (let r of removals) {
             let expression_args = js_statement_metadata_args_get(r);

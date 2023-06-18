@@ -23,13 +23,16 @@ export async function function_add_property_get(property_prefix, property_name) 
     if (not(await function_exists(property_name_fn_get))) {
         await function_add_string_prefix(property_name_fn_get_prefix, property_name);
     }
-    let expression_code = js_code_call_expression_object_property_get(property_prefix, js_code_call_expression(property_name_fn_get));
+    let v = js_code_call_expression(property_name_fn_get);
+    let expression_code = js_code_call_expression_object_property_get(property_prefix, v);
     let statement_code = js_code_return_statement(expression_code);
+    let v_2 = function_name_separator();
     let function_name = list_join([
         property_name_fn_get,
         'get'
-    ], function_name_separator());
+    ], v_2);
     let result = await function_add_with_statement_code(function_name, statement_code);
-    await function_input_add_type(function_name, property_prefix, function_name_get(defined_is));
+    let v_3 = function_name_get(defined_is);
+    await function_input_add_type(function_name, property_prefix, v_3);
     return result;
 }

@@ -10,7 +10,9 @@ export function string_similar_remove_single(a, b) {
     ]);
     const range_count = string_length(a);
     function other_get(i) {
-        return string_remove_at(a, i);
+        let v = string_remove_at(a, i);
+        return v;
     }
-    return string_similar_generic(other_get, range_count, b);
+    let v_2 = string_similar_generic(other_get, range_count, b);
+    return v_2;
 }

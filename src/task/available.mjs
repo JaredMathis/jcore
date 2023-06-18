@@ -4,5 +4,6 @@ import { arguments_assert } from '../arguments/assert.mjs';
 export async function task_available() {
     arguments_assert(arguments, []);
     let map = task_summary;
-    return await task_available_generic(map);
+    let v = await task_available_generic(map);
+    return v;
 }

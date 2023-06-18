@@ -8,6 +8,7 @@ export function list_contains_not(list, element) {
         list_is,
         defined_is
     ]);
-    let result = not(list_contains(list, element));
+    let v = list_contains(list, element);
+    let result = not(v);
     return result;
 }

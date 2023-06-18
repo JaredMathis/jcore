@@ -28,9 +28,11 @@ export function refactor_arguments_assert_add_no_check(function_declaration, exc
         return;
     }
     let statements = js_function_declaration_to_statements(function_declaration);
-    let params = object_property_get(function_declaration, js_node_property_params());
+    let v = js_node_property_params();
+    let params = object_property_get(function_declaration, v);
     let params_length = list_length(params);
-    let params_mapped = list_map(range(params_length), i => function_name_get(arguments_assert_predicate_default()));
+    let v_2 = range(params_length);
+    let params_mapped = list_map(v_2, i => function_name_get(arguments_assert_predicate_default()));
     let params_joined = js_code_join_comma(params_mapped);
     let params_code = `${ `[` }${ params_joined }${ `]` }`;
     let params2 = [

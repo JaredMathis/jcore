@@ -5,5 +5,7 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { tautology } from '../tautology.mjs';
 export async function tasks_open() {
     arguments_assert(arguments, []);
-    return await tasks_open_generic(lambda_get(tautology), task_summary);
+    let v = lambda_get(tautology);
+    let v_2 = await tasks_open_generic(v, task_summary);
+    return v_2;
 }

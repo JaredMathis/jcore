@@ -24,16 +24,19 @@ export async function tests_generate() {
     let test_names = await function_all_tests();
     let mapped = list_map(test_names, n => {
         const awaited = js_code_call_expression_statement(n);
-        return js_code_await(awaited);
+        let v = js_code_await(awaited);
+        return v;
     });
     list_add(mapped, `${ function_name_get(log) }(${ list_length(mapped) } + ' tests ran successfully')`);
-    let code = list_join(mapped, string_new_line());
+    let v_2 = string_new_line();
+    let code = list_join(mapped, v_2);
     let statements = js_parse_statements(code);
     if (await file_exists(file_path)) {
         await file_delete(file_path);
     }
     let is_async = true;
     await function_add_with_statements_synchronized(function_name, statements, is_async);
-    await function_map(function_name_get(refactor_import_fix), function_name);
+    let v_3 = function_name_get(refactor_import_fix);
+    await function_map(v_3, function_name);
     metadata([]);
 }

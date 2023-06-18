@@ -7,6 +7,7 @@ export function string_replace(input, from, to) {
         string_is,
         string_is
     ]);
-    return input.replaceAll(from, to);
+    let v = input.replaceAll(from, to);
+    return v;
     metadata([]);
 }

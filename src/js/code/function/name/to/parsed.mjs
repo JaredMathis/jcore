@@ -5,6 +5,8 @@ import { js_function_name_to_export } from '../../../../function/name/to/export.
 import { js_parse } from '../../../../parse.mjs';
 export function js_code_function_name_to_parsed(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
-    return js_parse(js_function_name_to_export(function_name));
+    let v = js_function_name_to_export(function_name);
+    let v_2 = js_parse(v);
+    return v_2;
     metadata([]);
 }

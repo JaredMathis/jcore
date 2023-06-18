@@ -8,6 +8,7 @@ export function string_letter_digit_or_underscore_is_test_5() {
     arguments_assert(arguments, []);
     let expected = true;
     let actual = string_letter_digit_or_underscore_is('d');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

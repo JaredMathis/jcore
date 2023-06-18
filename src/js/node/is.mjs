@@ -9,6 +9,8 @@ export function js_node_is(candidate) {
     if (not(candidate)) {
         return false;
     }
-    return object_property_exists(candidate, js_node_property_type());
+    let v = js_node_property_type();
+    let v_2 = object_property_exists(candidate, v);
+    return v_2;
     metadata([]);
 }

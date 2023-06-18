@@ -11,7 +11,8 @@ export function js_parse_expression(code) {
     if (js_node_is_function_declaration(s)) {
         return s;
     }
-    let expression = object_property_get(s, js_node_property_expression());
+    let v = js_node_property_expression();
+    let expression = object_property_get(s, v);
     return expression;
     metadata([]);
 }

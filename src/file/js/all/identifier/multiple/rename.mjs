@@ -18,7 +18,8 @@ export async function file_js_all_identifier_multiple_rename(dictionary) {
         values
     ];
     let concat = list_multiple_combine(concats);
-    assert(list_unique_is(concat));
+    let v = list_unique_is(concat);
+    assert(v);
     let file_paths_changed = [];
     await file_js_all_map_args(function mapper(args) {
         let changed = js_identifier_multiple_rename(dictionary, args);

@@ -43,6 +43,7 @@ export function js_export_function_single_generic(parsed, or_null) {
             value_set(result, declaration);
         }
     }
-    return value_get(result);
+    let v = value_get(result);
+    return v;
     metadata([]);
 }

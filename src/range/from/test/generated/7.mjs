@@ -8,6 +8,7 @@ export function range_from_test_generated_7() {
     arguments_assert(arguments, []);
     let expected = [-2];
     let actual = range_from(-2, -2);
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

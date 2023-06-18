@@ -9,5 +9,6 @@ export function list_find_property_exists(list, property_name, property_value) {
         arguments_assert_todo
     ]);
     let result = list_find_property_or_null(list, property_name, property_value);
-    return null_not_is(result);
+    let v = null_not_is(result);
+    return v;
 }

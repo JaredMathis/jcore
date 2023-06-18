@@ -16,5 +16,6 @@ export async function git_hub_repository_issues_get(api_args_to_merge, no_cache,
         per_page: git_hub_page_size(),
         page
     }, api_args_to_merge);
-    return await git_hub_repository_issues_generic(git_hub_repository_issues_get, arguments, api_args_to_merge, verb, no_cache);
+    let v = await git_hub_repository_issues_generic(git_hub_repository_issues_get, arguments, api_args_to_merge, verb, no_cache);
+    return v;
 }

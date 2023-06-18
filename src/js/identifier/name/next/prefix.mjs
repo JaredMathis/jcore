@@ -13,7 +13,8 @@ export function js_identifier_name_next_prefix(parsed, identifier_next_prefix) {
     let identifiers = js_identifiers(parsed);
     let c = 2;
     while (list_contains(identifiers, identifier_next)) {
-        identifier_next = string_identifier_combine(identifier_next_prefix, string_to(c));
+        let v = string_to(c);
+        identifier_next = string_identifier_combine(identifier_next_prefix, v);
         c++;
     }
     return identifier_next;

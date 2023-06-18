@@ -6,7 +6,8 @@ import { assert } from '../assert.mjs';
 import { object_property_get } from '../object/property/get.mjs';
 export function value_get(value_object) {
     arguments_assert(arguments, [defined_is]);
-    assert(value_set_is(value_object));
+    let v = value_set_is(value_object);
+    assert(v);
     let value = object_property_get(value_object, 'value');
     return value;
     metadata([]);

@@ -8,6 +8,7 @@ export function string_sub_test_generated_7() {
     arguments_assert(arguments, []);
     let expected = 'a';
     let actual = string_sub('aa', 1, 2);
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

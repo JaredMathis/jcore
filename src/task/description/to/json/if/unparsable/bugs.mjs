@@ -16,5 +16,6 @@ export async function task_description_to_json_if_unparsable_bugs() {
             body: 'release should run all tests, enforce all rules'
         }
     ];
-    return await task_description_to_json_if_unparsable_generic(bugs);
+    let v = await task_description_to_json_if_unparsable_generic(bugs);
+    return v;
 }

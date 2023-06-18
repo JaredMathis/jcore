@@ -5,5 +5,6 @@ export function string_compare(a, b) {
         string_is,
         string_is
     ]);
-    return a.localeCompare(b);
+    let v = a.localeCompare(b);
+    return v;
 }

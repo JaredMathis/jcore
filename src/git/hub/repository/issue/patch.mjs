@@ -13,5 +13,6 @@ export async function git_hub_repository_issue_patch(fn, args, issue_number, api
     ]);
     object_merge({ issue_number }, api_args_to_merge);
     let verb = 'PATCH';
-    return await git_hub_repository_issue_generic(fn, args, api_args_to_merge, verb, no_cache);
+    let v = await git_hub_repository_issue_generic(fn, args, api_args_to_merge, verb, no_cache);
+    return v;
 }

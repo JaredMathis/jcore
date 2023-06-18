@@ -4,5 +4,7 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 export function result_property_success_get(result) {
     arguments_assert(arguments, [defined_is]);
-    return object_property_get(result, result_property_success());
+    let v = result_property_success();
+    let v_2 = object_property_get(result, v);
+    return v_2;
 }

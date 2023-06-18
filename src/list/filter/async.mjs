@@ -9,6 +9,7 @@ export async function list_filter_async(array, filter) {
         list_is,
         function_is
     ]);
-    return await list_filter_generic_async(array, filter, argument_binary_first);
+    let v = await list_filter_generic_async(array, filter, argument_binary_first);
+    return v;
     metadata([]);
 }

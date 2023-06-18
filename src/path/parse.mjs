@@ -3,5 +3,6 @@ import path from 'path';
 import { path_is } from './is.mjs';
 export function path_parse(input) {
     arguments_assert(arguments, [path_is]);
-    return path.parse(input);
+    let v = path.parse(input);
+    return v;
 }

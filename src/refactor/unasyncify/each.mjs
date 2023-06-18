@@ -9,7 +9,8 @@ export function refactor_unasyncify_each(v) {
     arguments_assert(arguments, [js_mapper_args_is]);
     let {node} = v;
     if (js_node_is_await_expression(node)) {
-        let arg = object_property_get(node, js_node_property_argument());
+        let v_2 = js_node_property_argument();
+        let arg = object_property_get(node, v_2);
         object_replace(node, arg);
     }
     metadata([]);

@@ -8,6 +8,7 @@ export function string_suffix_without_test_generated_4() {
     arguments_assert(arguments, []);
     let expected = '';
     let actual = string_suffix_without('a', 'a');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

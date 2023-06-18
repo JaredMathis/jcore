@@ -25,7 +25,8 @@ export function list_find_generic(list, predicate, or_null, single, lambda_list_
         }
     }
     if (single) {
-        assert(list_length_is_1(filtered));
+        let v = list_length_is_1(filtered);
+        assert(v);
     }
     let result = list_first(filtered);
     return result;

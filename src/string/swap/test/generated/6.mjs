@@ -8,6 +8,7 @@ export function string_swap_test_generated_6() {
     arguments_assert(arguments, []);
     let expected = 'aba';
     let actual = string_swap('aab', 1, 2);
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

@@ -4,6 +4,7 @@ import { metadata } from '../../../metadata.mjs';
 import { list_length_is_value } from './value.mjs';
 export function list_length_is_1(specifiers) {
     arguments_assert(arguments, [list_is]);
-    return list_length_is_value(specifiers, 1);
+    let v = list_length_is_value(specifiers, 1);
+    return v;
     metadata([]);
 }

@@ -9,5 +9,7 @@ export async function function_add_with_statement_code(function_name, statement_
         arguments_assert_todo
     ]);
     let statement = js_parse_statement(statement_code);
-    return await function_add_with_statements(function_name, list_single_item(statement));
+    let v = list_single_item(statement);
+    let v_2 = await function_add_with_statements(function_name, v);
+    return v_2;
 }

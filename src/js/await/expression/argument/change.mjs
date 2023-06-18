@@ -9,7 +9,9 @@ export function js_await_expression_argument_change(object, value) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    assert(js_node_is_await_expression(object));
-    let arg = object_property_change(object, js_node_property_argument(), value);
+    let v = js_node_is_await_expression(object);
+    assert(v);
+    let v_2 = js_node_property_argument();
+    let arg = object_property_change(object, v_2, value);
     return arg;
 }

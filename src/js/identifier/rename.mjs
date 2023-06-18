@@ -9,7 +9,8 @@ export function js_identifier_rename(args, identifier_name_old, identifier_name_
         string_identifier_is,
         string_identifier_is
     ]);
-    return js_identifier_rename_if(args, should_rename, name_new_get);
+    let v = js_identifier_rename_if(args, should_rename, name_new_get);
+    return v;
     metadata([]);
     function should_rename(name) {
         return name === identifier_name_old;

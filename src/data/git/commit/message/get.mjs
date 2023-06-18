@@ -7,6 +7,9 @@ import { data_get } from '../../../get.mjs';
 export async function data_git_commit_message_get() {
     arguments_assert(arguments, []);
     let data = await data_get();
-    return object_property_get_initialize(data, task_property_id(), data_git_commit_message_initial());
+    let v = task_property_id();
+    let v_2 = data_git_commit_message_initial();
+    let v_3 = object_property_get_initialize(data, v, v_2);
+    return v_3;
     metadata([]);
 }

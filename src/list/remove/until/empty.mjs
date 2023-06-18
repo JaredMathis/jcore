@@ -7,7 +7,9 @@ export function list_remove_until_empty(remaining, removals_get) {
     while (not(list_empty(remaining))) {
         let removals = removals_get();
         comment(`This ensures no infinte loops - we make progress each time`);
-        assert(not(list_empty(removals)));
+        let v_2 = list_empty(removals);
+        let v = not(v_2);
+        assert(v);
         list_remove_multiple(remaining, removals);
     }
 }

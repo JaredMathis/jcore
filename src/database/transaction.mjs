@@ -6,5 +6,6 @@ export async function database_transaction(db, transaction_lambda) {
         arguments_assert_todo,
         function_is
     ]);
-    return await db.runTransaction(transaction_lambda);
+    let v = await db.runTransaction(transaction_lambda);
+    return v;
 }

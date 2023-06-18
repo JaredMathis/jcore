@@ -7,9 +7,12 @@ import { try_catch } from '../try/catch.mjs';
 import escodegen from 'escodegen';
 export function js_unparse(parsed) {
     arguments_assert(arguments, [defined_is]);
-    return try_catch(js_parse, lambda, json_to(parsed));
+    let v = json_to(parsed);
+    let v_2 = try_catch(js_parse, lambda, v);
+    return v_2;
     function lambda() {
-        return escodegen.generate(parsed);
+        let v_3 = escodegen.generate(parsed);
+        return v_3;
     }
     metadata([]);
 }

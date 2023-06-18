@@ -5,5 +5,6 @@ import { arguments_assert } from '../arguments/assert.mjs';
 export async function task_close(task_number_string) {
     arguments_assert(arguments, [arguments_assert_todo]);
     const property_value = task_property_closed();
-    return await task_state_change(task_number_string, property_value);
+    let v = await task_state_change(task_number_string, property_value);
+    return v;
 }

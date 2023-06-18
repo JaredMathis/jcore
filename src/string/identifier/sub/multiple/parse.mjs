@@ -11,6 +11,7 @@ export function string_identifier_sub_multiple_parse(values, separator) {
         string_is
     ]);
     let result = string_split(values, separator);
-    assert(list_all(result, string_identifier_sub_is));
+    let v = list_all(result, string_identifier_sub_is);
+    assert(v);
     return result;
 }

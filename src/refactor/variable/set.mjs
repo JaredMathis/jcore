@@ -22,7 +22,8 @@ export async function refactor_variable_set(args) {
         if (not(js_node_is_variable_declaration(n))) {
             return false;
         }
-        let declarations = object_property_get(n, js_node_property_declarations());
+        let v = js_node_property_declarations();
+        let declarations = object_property_get(n, v);
         if (not(list_length_is_1(declarations))) {
             return false;
         }
@@ -30,11 +31,15 @@ export async function refactor_variable_set(args) {
         if (not(js_node_is_variable_declarator(declaration))) {
             return false;
         }
-        let id = object_property_get(declaration, js_node_property_id());
+        let v_2 = js_node_property_id();
+        let id = object_property_get(declaration, v_2);
         if (not(js_node_is_identifier(id))) {
             return false;
         }
-        return equal(object_property_get(id, js_property_name()), identifier);
+        let v_5 = js_property_name();
+        let v_3 = object_property_get(id, v_5);
+        let v_4 = equal(v_3, identifier);
+        return v_4;
     };
     let nodes = js_nodes_get(parsed, predicate);
     let match = list_single(nodes);

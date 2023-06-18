@@ -5,6 +5,7 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 export async function function_dependencies_non_recursive(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let recursive = false;
-    return await function_dependencies_generic(function_name, recursive);
+    let v = await function_dependencies_generic(function_name, recursive);
+    return v;
     metadata([]);
 }

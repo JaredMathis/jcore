@@ -11,5 +11,6 @@ export async function git_hub_repository_issue_comments_generic(fn, args, api_ar
         boolean_is
     ]);
     let api_path = `/repos/{owner}/{repo}/issues/{issue_number}/comments`;
-    return await git_hub_api(fn, args, verb, api_path, api_args_to_merge, no_cache);
+    let v = await git_hub_api(fn, args, verb, api_path, api_args_to_merge, no_cache);
+    return v;
 }

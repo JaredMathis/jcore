@@ -10,8 +10,10 @@ export function string_prefix_without(input, prefix) {
         string_is,
         string_is
     ]);
-    assert(string_starts_with(input, prefix));
+    let v = string_starts_with(input, prefix);
+    assert(v);
     let length = string_length(prefix);
-    return string_skip(input, length);
+    let v_2 = string_skip(input, length);
+    return v_2;
     metadata([]);
 }

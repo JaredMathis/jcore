@@ -8,5 +8,6 @@ export async function function_metadata_add(function_name, metadata_name) {
         string_identifier_is,
         string_identifier_is
     ]);
-    await function_map_with_args(function_name_get(refactor_metadata_add), function_name, { metadata_name });
+    let v = function_name_get(refactor_metadata_add);
+    await function_map_with_args(v, function_name, { metadata_name });
 }

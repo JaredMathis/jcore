@@ -13,6 +13,7 @@ export function string_difference_apply_test_2() {
         '12+bbb',
         '9-3'
     ]);
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

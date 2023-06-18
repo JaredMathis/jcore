@@ -5,6 +5,8 @@ import { list_last_index } from './last/index.mjs';
 import { list_get } from './get.mjs';
 export function list_last(list) {
     arguments_assert(arguments, [list_is]);
-    return list_get(list, list_last_index(list));
+    let v = list_last_index(list);
+    let v_2 = list_get(list, v);
+    return v_2;
     metadata([]);
 }

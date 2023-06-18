@@ -5,5 +5,6 @@ import { function_map } from '../map.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 export async function function_call_add(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
-    await function_map(function_name_get(refactor_call_add), function_name);
+    let v = function_name_get(refactor_call_add);
+    await function_map(v, function_name);
 }

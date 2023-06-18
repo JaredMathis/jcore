@@ -4,5 +4,6 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export async function task_description_to_json_if_unparsable() {
     arguments_assert(arguments, []);
     let all = await task_all_unsummarized();
-    return await task_description_to_json_if_unparsable_generic(all);
+    let v = await task_description_to_json_if_unparsable_generic(all);
+    return v;
 }

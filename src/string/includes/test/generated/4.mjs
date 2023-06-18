@@ -8,6 +8,7 @@ export function string_includes_test_generated_4() {
     arguments_assert(arguments, []);
     let expected = true;
     let actual = string_includes('aab', 'aa');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

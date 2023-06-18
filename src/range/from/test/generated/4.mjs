@@ -13,6 +13,7 @@ export function range_from_test_generated_4() {
         1
     ];
     let actual = range_from(-2, 1);
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

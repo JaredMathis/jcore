@@ -15,9 +15,11 @@ export async function task_requires_generic(task_number_string, task_number_requ
         function_is
     ]);
     let task_number_required = integer_parse(task_number_required_string);
-    assert(await task_exists(task_number_required_string));
+    let v = await task_exists(task_number_required_string);
+    assert(v);
     await task_body_map_json(task_number_string, map);
-    return await task_available();
+    let v_2 = await task_available();
+    return v_2;
     function map(body_parsed) {
         let requires = task_body_requires(body_parsed);
         requires_map(requires, task_number_required);

@@ -7,6 +7,7 @@ import { function_tests_all } from './all.mjs';
 export async function function_tests_count(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let tests = await function_tests_all(function_name);
-    return list_length(tests);
+    let v = list_length(tests);
+    return v;
     metadata([]);
 }

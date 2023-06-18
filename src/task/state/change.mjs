@@ -8,5 +8,6 @@ export async function task_state_change(task_number_string, property_value) {
     await git_hub_repository_issue_close(task_number);
     const property_name = task_property_state();
     await task_property_set_local(task_number_string, property_name, property_value);
-    return await task_available();
+    let v = await task_available();
+    return v;
 }

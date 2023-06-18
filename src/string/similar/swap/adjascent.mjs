@@ -10,11 +10,13 @@ export function string_similar_swap_adjascent(a, b) {
         string_is,
         string_is
     ]);
-    const range_count = subtract_1(string_length(a));
+    let v = string_length(a);
+    const range_count = subtract_1(v);
     function other_get(i) {
         let i_next = add_1(i);
         let other = string_swap(a, i, i_next);
         return other;
     }
-    return string_similar_generic(other_get, range_count, b);
+    let v_2 = string_similar_generic(other_get, range_count, b);
+    return v_2;
 }

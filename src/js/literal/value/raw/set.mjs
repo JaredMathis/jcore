@@ -12,8 +12,12 @@ export function js_literal_value_raw_set(source, normalized) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    object_property_set(source, js_node_property_value(), normalized);
-    assert(not(string_includes(normalized, '\'')));
+    let v = js_node_property_value();
+    object_property_set(source, v, normalized);
+    let v_4 = string_includes(normalized, '\'');
+    let v_2 = not(v_4);
+    assert(v_2);
     let raw = js_code_expression_string(normalized);
-    object_property_set(source, js_node_property_raw(), raw);
+    let v_3 = js_node_property_raw();
+    object_property_set(source, v_3, raw);
 }

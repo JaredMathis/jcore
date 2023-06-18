@@ -10,6 +10,7 @@ export async function git_remove(path) {
     let result = await command_line_try(`${ git_command_name() } rm -r --cached ${ path }`);
     if (not(result.success)) {
         let expected = `fatal: pathspec '${ path }' did not match any files\n`;
-        assert(equal(result.stderr, expected));
+        let v = equal(result.stderr, expected);
+        assert(v);
     }
 }

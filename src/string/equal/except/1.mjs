@@ -24,5 +24,6 @@ export function string_equal_except_1(a, b) {
     let equal_count = string_equal_count(a, b);
     let length = list_single(unique);
     let difference = subtract(length, equal_count);
-    return equal(difference, 1);
+    let v = equal(difference, 1);
+    return v;
 }

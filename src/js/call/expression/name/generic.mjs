@@ -10,6 +10,7 @@ export function js_call_expression_name_generic(ce, or_null) {
         boolean_is
     ]);
     const property_name = js_node_property_callee();
-    return js_if_identifier_then_name_or_null(ce, property_name, or_null);
+    let v = js_if_identifier_then_name_or_null(ce, property_name, or_null);
+    return v;
     metadata([]);
 }

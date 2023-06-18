@@ -5,5 +5,6 @@ import { function_run } from '../run.mjs';
 export async function function_auto_run(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     await function_auto(function_name);
-    return await function_run(function_name, []);
+    let v = await function_run(function_name, []);
+    return v;
 }

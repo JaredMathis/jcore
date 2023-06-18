@@ -7,7 +7,8 @@ import { assert } from '../../assert.mjs';
 export async function file_js_parse(file_path) {
     arguments_assert(arguments, [path_is]);
     let {parsed} = await file_js_parse_with_unparsed(file_path);
-    assert(js_node_is(parsed));
+    let v = js_node_is(parsed);
+    assert(v);
     return parsed;
     metadata([]);
 }

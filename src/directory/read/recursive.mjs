@@ -9,7 +9,8 @@ export async function directory_read_recursive(dir, path_list) {
         path_is,
         list_is
     ]);
-    return await directory_read_recursive_generic(dir, path_list, noop, on_file);
+    let v = await directory_read_recursive_generic(dir, path_list, noop, on_file);
+    return v;
     async function on_file(path_list, file_path) {
         list_add(path_list, file_path);
     }

@@ -19,7 +19,8 @@ export async function refactor_import_path_fix(args) {
         let relative = path_relative_file(file_path, function_path);
         let normalized = js_import_path_normalize(relative);
         let i = object_property_get(iw, 'import');
-        let source = object_property_get(i, js_node_property_source());
+        let v = js_node_property_source();
+        let source = object_property_get(i, v);
         js_literal_value_raw_set(source, normalized);
     }
     metadata([]);

@@ -19,12 +19,16 @@ export async function function_add_string_multiple(prefix, keys_unparsed, values
     ]);
     let keys = string_identifier_multiple_parse(keys_unparsed);
     let values = string_split_comma(values_unparsed);
-    assert(equal_by(list_length, keys, values));
-    let result = await list_map_async(range(list_length(keys)), async i => {
+    let v = equal_by(list_length, keys, values);
+    assert(v);
+    let v_4 = list_length(keys);
+    let v_2 = range(v_4);
+    let result = await list_map_async(v_2, async i => {
         let key = list_get(keys, i);
         let value = list_get(values, i);
         let function_name = string_identifier_combine(prefix, key);
-        return await function_add_string(function_name, value);
+        let v_3 = await function_add_string(function_name, value);
+        return v_3;
     });
     return result;
 }

@@ -8,6 +8,7 @@ export function string_similar_test_generated_17() {
     arguments_assert(arguments, []);
     let expected = false;
     let actual = string_similar('aa', 'b');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

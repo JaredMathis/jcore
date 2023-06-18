@@ -6,6 +6,7 @@ import { assert } from '../../../../assert.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function range_from_test_generated_8() {
     arguments_assert(arguments, []);
-    assert(assert_throws(() => range_from(1, 0)));
+    let v = assert_throws(() => range_from(1, 0));
+    assert(v);
     metadata([metadata_generated()]);
 }

@@ -10,7 +10,8 @@ export function object_property_get_or(object, property_name, or_value) {
         arguments_assert_todo
     ]);
     if (object_property_exists(object, property_name)) {
-        return object_property_get(object, property_name);
+        let v = object_property_get(object, property_name);
+        return v;
     }
     return or_value;
     metadata([]);

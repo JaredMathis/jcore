@@ -7,6 +7,7 @@ import { error } from '../../../../error.mjs';
 export async function function_add_with_body_error(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let error_statement_code = `${ function_name_get(error) }('todo: ${ function_name }');`;
-    return await function_add_with_statement_code(function_name, error_statement_code);
+    let v = await function_add_with_statement_code(function_name, error_statement_code);
+    return v;
     metadata([]);
 }

@@ -5,8 +5,10 @@ import { task_properties } from './properties.mjs';
 import { object_property_exists } from '../object/property/exists.mjs';
 export function task_is(t) {
     arguments_assert(arguments, [defined_is]);
-    return list_all(task_properties(), p => {
+    let v = task_properties();
+    let v_2 = list_all(v, p => {
         let value = object_property_exists(t, p);
         return value;
     });
+    return v_2;
 }

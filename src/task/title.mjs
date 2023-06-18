@@ -12,5 +12,6 @@ export async function task_title(issue_number, title) {
     await git_hub_repository_issue_title(issue_number, title);
     const property_name = task_property_title();
     await task_property_set_local(issue_number, property_name, title);
-    return await task_available();
+    let v = await task_available();
+    return v;
 }

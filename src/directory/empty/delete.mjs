@@ -6,7 +6,8 @@ import { path_is } from '../../path/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 export async function directory_empty_delete(directory_path) {
     arguments_assert(arguments, [path_is]);
-    assert(await directory_empty_is(directory_path));
+    let v = await directory_empty_is(directory_path);
+    assert(v);
     await directory_delete(directory_path);
     metadata([]);
 }

@@ -13,7 +13,8 @@ export function function_name_to_file_path(function_name) {
     let directory_source_result = directory_source();
     let parts = string_identifier_parts_to(function_name);
     list_add_beginning(parts, directory_source_result);
-    list_add_beginning(parts, directory_current());
+    let v = directory_current();
+    list_add_beginning(parts, v);
     list_last_map(parts, last => last + function_extension());
     let joined = path_join(parts);
     return joined;

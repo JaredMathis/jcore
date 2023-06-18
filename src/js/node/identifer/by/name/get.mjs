@@ -11,7 +11,8 @@ export function js_node_identifer_by_name_get(node, node_identifier_name) {
         string_identifier_is
     ]);
     let id = object_property_get(node, node_identifier_name);
-    assert(js_node_is_identifier(id));
+    let v = js_node_is_identifier(id);
+    assert(v);
     return id;
     metadata([]);
 }

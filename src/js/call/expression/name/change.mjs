@@ -12,7 +12,8 @@ export function js_call_expression_name_change(ce, name_new) {
     ]);
     let or_null = false;
     const property_name = js_node_property_callee();
-    return js_if_identifier_or_null_generic(ce, property_name, or_null, lambda);
+    let v = js_if_identifier_or_null_generic(ce, property_name, or_null, lambda);
+    return v;
     function lambda(property) {
         let name = js_identifier_name_change(property, name_new);
         return name;

@@ -14,6 +14,8 @@ export function list_remove(list, element) {
     ]);
     let index = list_index_of_single(list, element);
     list_remove_at(list, index);
-    assert(not(list_contains(list, element)));
+    let v_2 = list_contains(list, element);
+    let v = not(v_2);
+    assert(v);
     metadata([]);
 }

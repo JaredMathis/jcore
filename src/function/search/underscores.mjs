@@ -7,7 +7,8 @@ import { string_replace } from '../../string/replace.mjs';
 export async function function_search_underscores(query) {
     arguments_assert(arguments, [string_is]);
     let underscore = function_name_separator();
-    let replaced = string_replace(query, underscore, function_search_delimeter());
+    let v = function_search_delimeter();
+    let replaced = string_replace(query, underscore, v);
     let result = await function_search(replaced);
     return result;
 }

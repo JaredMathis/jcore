@@ -6,6 +6,7 @@ import { assert_throws } from '../../../../assert/throws.mjs';
 import { assert } from '../../../../assert.mjs';
 export function string_sub_test_generated_2() {
     arguments_assert(arguments, []);
-    assert(assert_throws(() => string_sub('aab', -2, -1)));
+    let v = assert_throws(() => string_sub('aab', -2, -1));
+    assert(v);
     metadata([metadata_generated()]);
 }

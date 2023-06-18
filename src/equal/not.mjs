@@ -7,5 +7,7 @@ export function equal_not(a, b) {
         defined_is,
         defined_is
     ]);
-    return not(equal(a, b));
+    let v = equal(a, b);
+    let v_2 = not(v);
+    return v_2;
 }

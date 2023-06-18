@@ -1,3 +1,4 @@
 export function database_reference_data(info) {
-    return info.data();
+    let v = info.data();
+    return v;
 }

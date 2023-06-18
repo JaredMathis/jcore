@@ -8,6 +8,7 @@ export async function js_function_declaration_to_statement_arguments_assert_args
     arguments_assert(arguments, [js_node_is_function_declaration]);
     const arguments_assert_args = await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
     let array_expression = list_get(arguments_assert_args, 1);
-    let args = object_property_get(array_expression, js_node_property_elements());
+    let v = js_node_property_elements();
+    let args = object_property_get(array_expression, v);
     return args;
 }

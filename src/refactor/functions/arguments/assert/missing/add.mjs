@@ -18,7 +18,8 @@ export async function refactor_functions_arguments_assert_missing_add() {
         let statements = js_function_declaration_to_statements(function_declaration);
         if (not(list_empty(statements))) {
             let statement_first = list_first(statements);
-            js_node_call_expression_statement_if_name_equal(statement_first, function_name_get(arguments_assert), function on_name_equal() {
+            let v = function_name_get(arguments_assert);
+            js_node_call_expression_statement_if_name_equal(statement_first, v, function on_name_equal() {
                 exists = true;
             });
         }

@@ -4,6 +4,7 @@ import path from 'path';
 import { list_is } from '../list/is.mjs';
 export function path_join(paths) {
     arguments_assert(arguments, [list_is]);
-    return path.join(...paths);
+    let v = path.join(...paths);
+    return v;
     metadata([]);
 }

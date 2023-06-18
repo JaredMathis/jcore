@@ -16,10 +16,12 @@ export async function tests_name_next(function_name) {
     const prefix = function_tests_prefix_get(function_name);
     let function_name_tests = list_filter(functions_all, f => string_starts_with(f, prefix));
     let tests_ids_all = list_map(function_name_tests, t => {
-        return string_function_name_to_tests_id(function_name, t);
+        let v = string_function_name_to_tests_id(function_name, t);
+        return v;
     });
     let tests_ids_all_numeric = list_filter(tests_ids_all, id => {
-        return integer_parsable(id);
+        let v_2 = integer_parsable(id);
+        return v_2;
     });
     let test_ids_all_number = list_map(tests_ids_all_numeric, integer_parse);
     let max = list_max_or_0(test_ids_all_number);

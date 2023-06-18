@@ -6,5 +6,6 @@ export function string_difference_get(left, right) {
         string_is,
         string_is
     ]);
-    return string_difference_get_recursive(left, right, 0, 0);
+    let v = string_difference_get_recursive(left, right, 0, 0);
+    return v;
 }

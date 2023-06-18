@@ -15,6 +15,7 @@ export function string_difference_get_test_20() {
         '15+bbbbbaabbbbbba'
     ];
     let actual = string_difference_get('abaaabaaaaaba', 'bbbaaabbaaabbbabbbbbaabbbbbba');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

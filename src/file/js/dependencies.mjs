@@ -8,7 +8,8 @@ export async function file_js_dependencies(file_path) {
     arguments_assert(arguments, [path_is]);
     let result = [];
     await visit_ignore_duplicates_async(file_path, async node => {
-        return await file_js_dependencies_non_recursive(node);
+        let v_2 = await file_js_dependencies_non_recursive(node);
+        return v_2;
     }, v => {
         let {node} = v;
         list_add(result, node);

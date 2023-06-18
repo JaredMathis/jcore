@@ -16,7 +16,8 @@ export function js_identifier_rename_if(args, should_rename, name_new_get) {
         let node = object_property_get(v, 'node');
         let name = object_property_get(node, 'name');
         if (should_rename(name)) {
-            object_property_set(node, 'name', name_new_get(name));
+            let v_2 = name_new_get(name);
+            object_property_set(node, 'name', v_2);
             changed = true;
         }
     });

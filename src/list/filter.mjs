@@ -10,6 +10,7 @@ export function list_filter(array, filter) {
         list_is,
         function_is
     ]);
-    return list_filter_generic(array, filter, argument_binary_first);
+    let v = list_filter_generic(array, filter, argument_binary_first);
+    return v;
     metadata([metadata_generated()]);
 }

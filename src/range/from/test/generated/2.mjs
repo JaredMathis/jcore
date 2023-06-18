@@ -11,6 +11,7 @@ export function range_from_test_generated_2() {
         0
     ];
     let actual = range_from(-1, 0);
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

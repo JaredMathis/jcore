@@ -4,6 +4,7 @@ import path from 'path';
 import { path_is } from './is.mjs';
 export function path_resolve(file_path) {
     arguments_assert(arguments, [path_is]);
-    return path.resolve(file_path);
+    let v = path.resolve(file_path);
+    return v;
     metadata([]);
 }

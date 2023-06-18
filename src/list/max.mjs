@@ -6,6 +6,7 @@ import { identity } from '../identity.mjs';
 export function list_max(list) {
     arguments_assert(arguments, [list_is]);
     let compare = (current, found) => current > found;
-    return list_compare_generic(list, identity, compare);
+    let v = list_compare_generic(list, identity, compare);
+    return v;
     metadata([]);
 }

@@ -8,6 +8,7 @@ export function list_intersection(left, right) {
         list_is,
         list_is
     ]);
-    return list_filter(left, l => list_contains(right, l));
+    let v = list_filter(left, l => list_contains(right, l));
+    return v;
     metadata([]);
 }

@@ -5,5 +5,6 @@ export function number_min(a, b) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    return Math.min(a, b);
+    let v = Math.min(a, b);
+    return v;
 }

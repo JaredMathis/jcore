@@ -7,6 +7,7 @@ export function list_contains(list, element) {
         list_is,
         defined_is
     ]);
-    return list.includes(element);
+    let v = list.includes(element);
+    return v;
     metadata([]);
 }

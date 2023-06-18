@@ -9,7 +9,8 @@ export function list_get(list, index) {
         list_is,
         integer_is
     ]);
-    assert(object_property_exists(list, index));
+    let v = object_property_exists(list, index);
+    assert(v);
     return list[index];
     metadata([]);
 }

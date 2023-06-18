@@ -19,7 +19,8 @@ export function task_summary(task, all_unsummarized) {
         task_is,
         list_is
     ]);
-    let task_number = object_property_get(task, task_property_number());
+    let v = task_property_number();
+    let task_number = object_property_get(task, v);
     let required_bys = task_required_bys(task_number, all_unsummarized);
     let requires = task_requires_get(task);
     let strings = [];
@@ -30,11 +31,16 @@ export function task_summary(task, all_unsummarized) {
     };
     object_keys_each(lists, (list, list_name) => {
         if (not(list_empty(list))) {
-            const list_string = js_code_parenthesis_surround(string_add(`${ list_name }: `, list_join(list, string_comma())));
+            let v_6 = string_comma();
+            let v_5 = list_join(list, v_6);
+            let v_2 = string_add(`${ list_name }: `, v_5);
+            const list_string = js_code_parenthesis_surround(v_2);
             list_add(strings, list_string);
         }
     });
-    const title = object_property_get(task, task_property_title());
+    let v_3 = task_property_title();
+    const title = object_property_get(task, v_3);
     list_add(strings, title);
-    return list_join(strings, ' ');
+    let v_4 = list_join(strings, ' ');
+    return v_4;
 }

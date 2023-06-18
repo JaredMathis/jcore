@@ -6,6 +6,7 @@ import { string_case_camel_parse } from '../parse.mjs';
 export function string_case_camel_to_snake(input) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = string_case_camel_parse(input);
-    let snake = list_join(parsed, function_name_separator());
+    let v = function_name_separator();
+    let snake = list_join(parsed, v);
     return snake;
 }

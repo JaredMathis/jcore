@@ -9,7 +9,8 @@ export async function list_each_with_index_async(list, lambda) {
         list_is,
         function_is
     ]);
-    const r = range(list_length(list));
+    let v = list_length(list);
+    const r = range(v);
     for (let index of r) {
         let element = list_get(list, index);
         await lambda(element, index);

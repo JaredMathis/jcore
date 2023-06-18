@@ -16,9 +16,11 @@ export async function version_commit_files_all_removals_generic(repository_name,
     let writes = await version_commit_files_generic(repository_name, removals, commit_data, difference_get);
     return writes;
     async function difference_get(repository_name, file_path) {
-        return await version_file_difference_generic(repository_name, file_path, contents_new_get);
+        let v = await version_file_difference_generic(repository_name, file_path, contents_new_get);
+        return v;
     }
     function contents_new_get() {
-        return string_empty();
+        let v_2 = string_empty();
+        return v_2;
     }
 }

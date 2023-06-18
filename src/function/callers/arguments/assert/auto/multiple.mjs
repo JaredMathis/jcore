@@ -7,5 +7,6 @@ export async function function_callers_arguments_assert_auto_multiple() {
         'file_js_all_identifier_rename',
         'file_js_identifier_rename'
     ];
-    return await function_callers_arguments_assert_auto_multiple_list(multiple, result);
+    let v = await function_callers_arguments_assert_auto_multiple_list(multiple, result);
+    return v;
 }

@@ -20,9 +20,11 @@ export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge, n
     ]);
     let verbs_cache = ['GET'];
     if (not(list_contains(verbs_cache, verb))) {
-        return await lambda();
+        let v = await lambda();
+        return v;
     }
-    return await git_hub_cached(fn, args, lambda);
+    let v_2 = await git_hub_cached(fn, args, lambda);
+    return v_2;
     async function lambda() {
         let p = await file_json_read('../private.json');
         let token = object_property_get(p, 'git_hub_api_token');

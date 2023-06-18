@@ -8,6 +8,7 @@ export function string_digit_is_test_9() {
     arguments_assert(arguments, []);
     let expected = true;
     let actual = string_digit_is('7');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

@@ -6,7 +6,8 @@ import { integer_parse } from '../../../integer/parse.mjs';
 export async function task_property_set_local(task_number_string, property_name, property_value) {
     let task_number = integer_parse(task_number_string);
     await task_map(function map(tasks_all) {
-        let task = list_find_property(tasks_all, task_property_number(), task_number);
+        let v = task_property_number();
+        let task = list_find_property(tasks_all, v, task_number);
         object_property_change(task, property_name, property_value);
     });
 }

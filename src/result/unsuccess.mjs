@@ -5,6 +5,7 @@ import { result_property_success } from './property/success.mjs';
 import { object_property_change } from '../object/property/change.mjs';
 export function result_unsuccess(result) {
     arguments_assert(arguments, [defined_is]);
-    object_property_change(result, result_property_success(), false);
+    let v = result_property_success();
+    object_property_change(result, v, false);
     metadata([]);
 }

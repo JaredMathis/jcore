@@ -6,5 +6,7 @@ import { task_property_title } from '../property/title.mjs';
 export async function task_title_get(task_number_string) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let task = await task_get(task_number_string);
-    return object_property_get(task, task_property_title());
+    let v = task_property_title();
+    let v_2 = object_property_get(task, v);
+    return v_2;
 }

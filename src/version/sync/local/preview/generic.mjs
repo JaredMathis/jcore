@@ -33,9 +33,10 @@ export async function version_sync_local_preview_generic(repository_name) {
             });
         }
     }
-    return list_multiple_summary({
+    let v = list_multiple_summary({
         differences,
         removals
     });
+    return v;
     ;
 }

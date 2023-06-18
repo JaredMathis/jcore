@@ -15,7 +15,8 @@ export async function refactor_call_inputs(args) {
     let {function_declaration} = args;
     let expression = await js_function_declaration_to_expression_after_arguments_assert(function_declaration);
     let expression_args = js_call_expression_arguments_get(expression);
-    assert(list_empty(expression_args));
+    let v = list_empty(expression_args);
+    assert(v);
     let name = js_call_expression_name_get_or_null(expression);
     let inputs = await function_inputs(name);
     let mapped = list_map(inputs, js_parse_expression);

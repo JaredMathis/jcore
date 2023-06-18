@@ -39,7 +39,8 @@ export function string_difference_apply_parse(hunk) {
     let position = integer_parse(position_string);
     const valid_min_add_1 = add_1(valid_min);
     let operation = string_sub(hunk, valid_min, valid_min_add_1);
-    let after = string_sub(hunk, valid_min_add_1, string_length(hunk));
+    let v = string_length(hunk);
+    let after = string_sub(hunk, valid_min_add_1, v);
     const result = {
         [string_difference_property_position()]: position,
         [string_difference_property_operation()]: operation
@@ -47,10 +48,14 @@ export function string_difference_apply_parse(hunk) {
     if (equal(operation, string_difference_removed())) {
         let count = integer_parse(after);
         assert(count >= 1);
-        object_property_initialize(result, string_difference_property_removed(), count);
+        let v_2 = string_difference_property_removed();
+        object_property_initialize(result, v_2, count);
     } else if (equal(operation, string_difference_added())) {
-        assert(not(string_length_is_0(after)));
-        object_property_initialize(result, string_difference_property_added(), after);
+        let v_5 = string_length_is_0(after);
+        let v_3 = not(v_5);
+        assert(v_3);
+        let v_4 = string_difference_property_added();
+        object_property_initialize(result, v_4, after);
     } else {
         error();
     }

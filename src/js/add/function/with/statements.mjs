@@ -15,7 +15,8 @@ export function js_add_function_with_statements(parsed, function_name, statement
         list_is
     ]);
     let body = js_body_get(parsed);
-    let export_statement = js_parse_statement(js_function_name_to_export(function_name));
+    let v = js_function_name_to_export(function_name);
+    let export_statement = js_parse_statement(v);
     list_add(body, export_statement);
     js_exported_function_declaration_single_statements_initialize(parsed, statements);
     metadata([]);

@@ -10,7 +10,8 @@ export function try_catch(fn, lambda, error_message) {
         string_empty_not_is
     ]);
     try {
-        return lambda();
+        let v = lambda();
+        return v;
     } catch (e) {
         error_caught(fn, e, error_message);
     }

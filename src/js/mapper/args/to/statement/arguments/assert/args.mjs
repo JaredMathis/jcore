@@ -8,6 +8,7 @@ export async function js_mapper_args_to_statement_arguments_assert_args(function
     arguments_assert(arguments, [js_node_is_function_declaration]);
     let arguments_assert_statement = await js_mapper_args_to_statement_arguments_assert({ function_declaration });
     let arguments_assert_call_expression = js_statement_expression_to_expression(arguments_assert_statement);
-    const arguments_assert_args = object_property_get(arguments_assert_call_expression, js_node_property_arguments());
+    let v = js_node_property_arguments();
+    const arguments_assert_args = object_property_get(arguments_assert_call_expression, v);
     return arguments_assert_args;
 }

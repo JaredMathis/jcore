@@ -11,8 +11,11 @@ export async function file_rename(file_path_old, file_path_new) {
         path_is,
         path_is
     ]);
-    assert(await path_exists(file_path_old));
-    assert(not(await path_exists(file_path_new)));
+    let v = await path_exists(file_path_old);
+    assert(v);
+    let v_3 = await path_exists(file_path_new);
+    let v_2 = not(v_3);
+    assert(v_2);
     await path_parent_exists_ensure(file_path_new);
     await fs.promises.rename(file_path_old, file_path_new);
     metadata([]);

@@ -3,6 +3,7 @@ import { metadata } from '../../metadata.mjs';
 import { string_is } from '../../string/is.mjs';
 export function integer_parse_try(input) {
     arguments_assert(arguments, [string_is]);
-    return parseInt(input, 10);
+    let v = parseInt(input, 10);
+    return v;
     metadata([]);
 }

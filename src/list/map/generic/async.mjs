@@ -19,10 +19,11 @@ export async function list_map_generic_async(list, lambda, allow_error_mapping, 
         boolean_is,
         defined_is
     ]);
-    return await list_adder_async(async la => {
+    let v = await list_adder_async(async la => {
         await list_each_with_index_async(list, async (element, index) => {
             let result = throws_generic(async () => {
-                return await lambda(element, index);
+                let v_2 = await lambda(element, index);
+                return v_2;
             });
             let mapped;
             if (not(changed(c => {
@@ -32,7 +33,8 @@ export async function list_map_generic_async(list, lambda, allow_error_mapping, 
                             c();
                         }
                     } else {
-                        assert(result_property_success_get(result));
+                        let v_3 = result_property_success_get(result);
+                        assert(v_3);
                     }
                 }))) {
                 mapped = result_property_data_get(result);
@@ -40,4 +42,5 @@ export async function list_map_generic_async(list, lambda, allow_error_mapping, 
             la(result, mapped);
         });
     });
+    return v;
 }

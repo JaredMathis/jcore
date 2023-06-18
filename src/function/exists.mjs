@@ -6,6 +6,7 @@ import { path_exists } from '../path/exists.mjs';
 export async function function_exists(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let function_path = function_name_to_file_path(function_name);
-    return await path_exists(function_path);
+    let v = await path_exists(function_path);
+    return v;
     metadata([]);
 }

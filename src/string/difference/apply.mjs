@@ -30,27 +30,46 @@ export function string_difference_apply(string_old, hunks) {
         return string_old;
     }
     let mapped = list_map(hunks, string_difference_apply_parse);
-    let removals = list_filter_property(mapped, string_difference_property_operation(), string_difference_removed());
-    list_sort_property_generic(removals, string_difference_property_position(), true);
-    let addeds = list_filter_property(mapped, string_difference_property_operation(), string_difference_added());
-    assert(equal(list_length(mapped), add(list_length(removals), list_length(addeds))));
-    list_sort_property_generic(addeds, string_difference_property_position(), false);
+    let v = string_difference_property_operation();
+    let v_2 = string_difference_removed();
+    let removals = list_filter_property(mapped, v, v_2);
+    let v_3 = string_difference_property_position();
+    list_sort_property_generic(removals, v_3, true);
+    let v_4 = string_difference_property_operation();
+    let v_5 = string_difference_added();
+    let addeds = list_filter_property(mapped, v_4, v_5);
+    let v_16 = list_length(mapped);
+    let v_18 = list_length(removals);
+    let v_19 = list_length(addeds);
+    let v_17 = add(v_18, v_19);
+    let v_6 = equal(v_16, v_17);
+    assert(v_6);
+    let v_7 = string_difference_property_position();
+    list_sort_property_generic(addeds, v_7, false);
     let value = string_old;
     for (let m of removals) {
-        let position = object_property_get(m, string_difference_property_position());
-        let removed = object_property_get(m, string_difference_property_removed());
+        let v_8 = string_difference_property_position();
+        let position = object_property_get(m, v_8);
+        let v_9 = string_difference_property_removed();
+        let removed = object_property_get(m, v_9);
         let lr = string_split_at(value, position, removed);
-        let left = object_property_get(lr, string_split_at_property_left());
-        let right = object_property_get(lr, string_split_at_property_right());
+        let v_10 = string_split_at_property_left();
+        let left = object_property_get(lr, v_10);
+        let v_11 = string_split_at_property_right();
+        let right = object_property_get(lr, v_11);
         let value_new = `${ left }${ right }`;
         value = value_new;
     }
     for (let m of addeds) {
-        let position = object_property_get(m, string_difference_property_position());
-        let added = object_property_get(m, string_difference_property_added());
+        let v_12 = string_difference_property_position();
+        let position = object_property_get(m, v_12);
+        let v_13 = string_difference_property_added();
+        let added = object_property_get(m, v_13);
         let lr = string_split_at(value, position, 0);
-        let left = object_property_get(lr, string_split_at_property_left());
-        let right = object_property_get(lr, string_split_at_property_right());
+        let v_14 = string_split_at_property_left();
+        let left = object_property_get(lr, v_14);
+        let v_15 = string_split_at_property_right();
+        let right = object_property_get(lr, v_15);
         let value_new = `${ left }${ added }${ right }`;
         value = value_new;
     }

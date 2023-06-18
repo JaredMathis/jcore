@@ -9,10 +9,12 @@ import { git_ignore_path } from './path.mjs';
 export async function git_ignore_lines() {
     let gitignore_file_path = git_ignore_path();
     if (not(await file_exists(gitignore_file_path))) {
-        await file_write(gitignore_file_path, string_empty());
+        let v = string_empty();
+        await file_write(gitignore_file_path, v);
     }
     let contents = await file_read(gitignore_file_path);
-    let lines = string_split(contents, string_new_line());
+    let v_2 = string_new_line();
+    let lines = string_split(contents, v_2);
     return {
         lines,
         contents

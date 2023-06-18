@@ -11,7 +11,8 @@ export function object_property_change(f, property_name, value) {
         string_is,
         defined_is
     ]);
-    assert(object_property_exists(f, property_name));
+    let v = object_property_exists(f, property_name);
+    assert(v);
     object_property_set(f, property_name, value);
     metadata([]);
 }

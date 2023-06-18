@@ -14,5 +14,6 @@ export async function function_unasyncify_generic(function_name, ending) {
     let function_name_result = string_suffix_without(function_name, ending);
     await function_delete_if_exists(function_name_result);
     await function_copy(function_name, function_name_result);
-    await function_map(function_name_get(refactor_unasyncify), function_name_result);
+    let v = function_name_get(refactor_unasyncify);
+    await function_map(v, function_name_result);
 }

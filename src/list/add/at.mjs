@@ -11,7 +11,8 @@ export function list_add_at(list, value, index) {
         defined_is,
         integer_is
     ]);
-    assert(list_index_valid(list, index));
+    let v = list_index_valid(list, index);
+    assert(v);
     const delete_count = 0;
     list.splice(index, delete_count, value);
     metadata([]);

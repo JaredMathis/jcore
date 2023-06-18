@@ -6,9 +6,11 @@ import { function_tests_filtered } from './filtered.mjs';
 import { list_filter } from '../../list/filter.mjs';
 export async function function_tests_all(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
-    return await function_tests_filtered(filter);
+    let v = await function_tests_filtered(filter);
+    return v;
     function filter(all) {
-        return list_filter(all, a => string_function_name_prefix_starts_with(a, function_name));
+        let v_2 = list_filter(all, a => string_function_name_prefix_starts_with(a, function_name));
+        return v_2;
     }
     metadata([]);
 }

@@ -6,6 +6,7 @@ import { list_length } from '../length.mjs';
 export function list_last_index(list) {
     arguments_assert(arguments, [list_is]);
     const l = list_length(list);
-    return subtract_1(l);
+    let v = subtract_1(l);
+    return v;
     metadata([]);
 }

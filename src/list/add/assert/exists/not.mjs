@@ -11,7 +11,9 @@ export function list_add_assert_exists_not(stack, node) {
         list_is,
         defined_is
     ]);
-    assert(not(list_contains(stack, node)));
+    let v_2 = list_contains(stack, node);
+    let v = not(v_2);
+    assert(v);
     list_add(stack, node);
     metadata([]);
 }

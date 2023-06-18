@@ -7,6 +7,7 @@ import { arguments_assert } from '../arguments/assert.mjs';
 export function list_adder(then) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let lambda = list_add;
-    return list_adder_generic(then, lambda);
+    let v = list_adder_generic(then, lambda);
+    return v;
     metadata([metadata_generated()]);
 }

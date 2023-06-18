@@ -7,5 +7,6 @@ export async function git_hub_repository_issues_all(no_cache, page) {
         boolean_is,
         integer_is
     ]);
-    return await git_hub_repository_issues_get({ state: 'all' }, no_cache, page);
+    let v = await git_hub_repository_issues_get({ state: 'all' }, no_cache, page);
+    return v;
 }

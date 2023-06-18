@@ -8,6 +8,7 @@ export function string_get(s, index) {
         string_is,
         integer_is
     ]);
-    assert(object_property_exists(s, index));
+    let v = object_property_exists(s, index);
+    assert(v);
     return s[index];
 }

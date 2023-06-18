@@ -1,3 +1,4 @@
 export function json_to_generic(object, space) {
-    return JSON.stringify(object, null, space);
+    let v = JSON.stringify(object, null, space);
+    return v;
 }

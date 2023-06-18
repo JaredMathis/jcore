@@ -26,16 +26,20 @@ export function js_arrow_function_expression_functionify(node, name) {
     let body = js_arrow_function_expression_body(node);
     let function_code = `${ js_keyword_function() } ${ name }${ js_code_parenthesis_surround(``) }${ js_brace_left_right() }`;
     let function_expression = js_parse_expression(function_code);
-    let return_statement_code = js_code_return_statement(string_a());
+    let v = string_a();
+    let return_statement_code = js_code_return_statement(v);
     let return_statement = js_parse_statement(return_statement_code);
     if (js_node_is_block_statement(body)) {
-        object_property_change(function_expression, js_node_property_body(), body);
+        let v_2 = js_node_property_body();
+        object_property_change(function_expression, v_2, body);
     } else {
         js_return_statement_argument_change(return_statement, body);
         let statements = js_function_declaration_to_statements(function_expression);
         list_add(statements, return_statement);
     }
-    let args = object_property_get(node, js_node_property_params());
-    object_property_change(function_expression, js_node_property_params(), args);
+    let v_3 = js_node_property_params();
+    let args = object_property_get(node, v_3);
+    let v_4 = js_node_property_params();
+    object_property_change(function_expression, v_4, args);
     object_replace(node, function_expression);
 }

@@ -6,5 +6,6 @@ export function database_reference_create(transaction, reference, document_data)
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    return transaction.create(reference, document_data);
+    let v = transaction.create(reference, document_data);
+    return v;
 }

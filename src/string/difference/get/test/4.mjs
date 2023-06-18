@@ -8,6 +8,7 @@ export function string_difference_get_test_4() {
     arguments_assert(arguments, []);
     let expected = [];
     let actual = string_difference_get('abc', 'abc');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

@@ -61,7 +61,9 @@ export function refactor_call_arguments_to_assignments(args) {
                 ]);
                 if (js_node_is_expression_statement(expression)) {
                     let child = js_node_property_expression_get(expression);
-                    return refactor_call_expression_to_assignments(child, list_copy_shallow_add(refactor_stack, child));
+                    let v_2 = list_copy_shallow_add(refactor_stack, child);
+                    let v_3 = refactor_call_expression_to_assignments(child, v_2);
+                    return v_3;
                 }
                 if (js_node_is_variable_declaration(expression)) {
                     let declaration = js_declarations_single(expression);
@@ -69,25 +71,33 @@ export function refactor_call_arguments_to_assignments(args) {
                     if (null_is(init)) {
                         return;
                     }
-                    return refactor_call_expression_to_assignments(init, list_copy_shallow_add_multiple(refactor_stack, [
+                    let v_6 = list_copy_shallow_add_multiple(refactor_stack, [
                         declaration,
                         init
-                    ]));
+                    ]);
+                    let v_7 = refactor_call_expression_to_assignments(init, v_6);
+                    return v_7;
                 }
                 if (js_node_is_assignment_expression(expression)) {
                     let right = js_node_property_right_get(expression);
-                    return refactor_call_expression_to_assignments(right, list_copy_shallow_add(refactor_stack, right));
+                    let v_8 = list_copy_shallow_add(refactor_stack, right);
+                    let v_9 = refactor_call_expression_to_assignments(right, v_8);
+                    return v_9;
                 }
                 if (js_node_is_await_expression(expression)) {
                     let argument = js_node_property_argument_get(expression);
-                    return refactor_call_expression_to_assignments(argument, list_copy_shallow_add(refactor_stack, argument));
+                    let v_10 = list_copy_shallow_add(refactor_stack, argument);
+                    let v_11 = refactor_call_expression_to_assignments(argument, v_10);
+                    return v_11;
                 }
                 if (js_node_is_return_statement(expression)) {
                     let argument = js_return_statement_argument_get(expression);
                     if (null_is(argument)) {
                         return;
                     }
-                    return refactor_call_expression_to_assignments(argument, list_copy_shallow_add(refactor_stack, argument));
+                    let v_12 = list_copy_shallow_add(refactor_stack, argument);
+                    let v_13 = refactor_call_expression_to_assignments(argument, v_12);
+                    return v_13;
                 }
                 if (not(js_node_is_call_expression(expression))) {
                     return false;
@@ -105,10 +115,12 @@ export function refactor_call_arguments_to_assignments(args) {
                     parent_list_next = object_property_get(list_find_first_after_result, 'next');
                     parent_list_index = object_property_get(list_find_first_after_result, 'index');
                 }
-                assert_message(js_node_is_block_statement(parent_list_next), json_to({
+                let v_14 = js_node_is_block_statement(parent_list_next);
+                let v_15 = json_to({
                     s: list_map_try(stack_reversed, js_node_property_type_get),
                     n: js_node_property_type_get(parent_list_next)
-                }));
+                });
+                assert_message(v_14, v_15);
                 let parent_list = list_get(stack_reversed, parent_list_index);
                 let args = js_node_property_arguments_get(expression);
                 for (let arg of args) {
@@ -131,7 +143,8 @@ export function refactor_call_arguments_to_assignments(args) {
                         arg = js_node_property_argument_get(arg);
                     }
                     let id = js_identifier_name_next(parsed);
-                    let assignment_code = js_code_statement_assignment(id, string_a());
+                    let v_16 = string_a();
+                    let assignment_code = js_code_statement_assignment(id, v_16);
                     let assignment = js_parse_statement(assignment_code);
                     let declarations = js_node_property_declarations_get(assignment);
                     let declaration = list_single(declarations);

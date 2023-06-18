@@ -6,6 +6,7 @@ export function string_starts_with(input, search) {
         string_is,
         string_is
     ]);
-    return input.startsWith(search);
+    let v = input.startsWith(search);
+    return v;
     metadata([]);
 }

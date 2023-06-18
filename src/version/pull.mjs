@@ -44,13 +44,17 @@ export async function version_pull(repository_name) {
             let commit = list_single(commits);
             const property_part_id = version_property_part_id();
             let parts = list_remove_multiple_property_exists(commit_value, property_part_id);
-            assert(list_empty(commit_value));
+            let v = list_empty(commit_value);
+            assert(v);
             let commit_path = version_path_commit(repository_name, commit_version);
             await file_json_write(commit_path, commit);
             for (let part of parts) {
-                let part_file_path = object_property_get(part, version_property_file_path());
+                let v_2 = version_property_file_path();
+                let part_file_path = object_property_get(part, v_2);
                 let part_path = await version_path_file_next(repository_name, part_file_path);
-                assert(not(await file_exists(part_path)));
+                let v_4 = await file_exists(part_path);
+                let v_3 = not(v_4);
+                assert(v_3);
                 await file_json_write(part_path, part);
             }
         }

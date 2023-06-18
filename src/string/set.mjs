@@ -11,9 +11,10 @@ export function string_set(input, index, value) {
         integer_is,
         character_is
     ]);
-    return string_add_multiple([
+    let v = string_add_multiple([
         string_take(input, index),
         value,
         string_skip(input, index + 1)
     ]);
+    return v;
 }

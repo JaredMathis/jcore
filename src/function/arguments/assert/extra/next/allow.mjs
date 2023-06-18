@@ -7,6 +7,7 @@ import { metadata_prefix } from '../../../../../metadata/prefix.mjs';
 export async function function_arguments_assert_extra_next_allow() {
     arguments_assert(arguments, []);
     let next_function_name = await function_arguments_assert_extra_next();
-    let without_prefix = function_name_without_prefix(metadata_arguments_assert_extra_allow, metadata_prefix());
+    let v = metadata_prefix();
+    let without_prefix = function_name_without_prefix(metadata_arguments_assert_extra_allow, v);
     await function_metadata_add(next_function_name, without_prefix);
 }

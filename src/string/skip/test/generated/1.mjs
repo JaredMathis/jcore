@@ -6,6 +6,7 @@ import { assert_throws } from '../../../../assert/throws.mjs';
 import { assert } from '../../../../assert.mjs';
 export function string_skip_test_generated_1() {
     arguments_assert(arguments, []);
-    assert(assert_throws(() => string_skip('b', -1)));
+    let v = assert_throws(() => string_skip('b', -1));
+    assert(v);
     metadata([metadata_generated()]);
 }

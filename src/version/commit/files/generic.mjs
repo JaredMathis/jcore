@@ -39,7 +39,8 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         let difference = await difference_get(repository_name, file_path);
         let hunks = object_property_get(difference, property_hunks);
         if (not(list_empty(hunks))) {
-            let difference_path = object_property_get(difference, version_property_path());
+            let v = version_property_path();
+            let difference_path = object_property_get(difference, v);
             let part_id = guid_generate();
             list_add(parts, part_id);
             let difference_write = {

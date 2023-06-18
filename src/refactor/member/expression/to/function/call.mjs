@@ -24,7 +24,8 @@ export async function refactor_member_expression_to_function_call(args) {
         if (not(js_node_is_identifier(property))) {
             return;
         }
-        let property_name = object_property_get(property, js_node_property_name());
+        let v_2 = js_node_property_name();
+        let property_name = object_property_get(property, v_2);
         if (property_name !== 'name') {
             return;
         }
@@ -32,7 +33,8 @@ export async function refactor_member_expression_to_function_call(args) {
         const name = function_name_get(function_name_get);
         let expression = js_parse_call_expression(name);
         object_replace(node, expression);
-        let node_args = object_property_get(node, js_node_property_arguments());
+        let v_3 = js_node_property_arguments();
+        let node_args = object_property_get(node, v_3);
         list_add(node_args, object);
         changed = true;
     });

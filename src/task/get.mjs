@@ -5,5 +5,6 @@ import { list_find_property } from '../list/find/property.mjs';
 export async function task_get(task_number_string) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let lambda = list_find_property;
-    return await task_get_generic(task_number_string, lambda);
+    let v = await task_get_generic(task_number_string, lambda);
+    return v;
 }

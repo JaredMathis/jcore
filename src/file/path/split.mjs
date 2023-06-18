@@ -6,6 +6,7 @@ import { path_is } from '../../path/is.mjs';
 export function file_path_split(file_path) {
     arguments_assert(arguments, [path_is]);
     let ds = directory_separator();
-    return string_split(file_path, ds);
+    let v = string_split(file_path, ds);
+    return v;
     metadata([]);
 }

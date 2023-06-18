@@ -8,6 +8,7 @@ export async function visit_throws_not_async(root, children_get) {
         defined_is,
         function_is
     ]);
-    let result = not(await visit_throws_async(root, children_get));
+    let v = await visit_throws_async(root, children_get);
+    let result = not(v);
     return result;
 }

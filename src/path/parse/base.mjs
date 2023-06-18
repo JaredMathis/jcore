@@ -6,5 +6,6 @@ import { object_property_get } from '../../object/property/get.mjs';
 export function path_parse_base(file_path) {
     arguments_assert(arguments, [path_is]);
     let parsed = path_parse(file_path);
-    return object_property_get(parsed, 'base');
+    let v = object_property_get(parsed, 'base');
+    return v;
 }

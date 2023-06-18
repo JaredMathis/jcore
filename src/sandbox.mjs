@@ -57,7 +57,8 @@ export async function sandbox() {
             result1
         ];
         let result2 = fn2(...args2);
-        assert(equal(right, result2));
+        let v_2 = equal(right, result2);
+        assert(v_2);
         list_add(pairs, {
             args1,
             args2
@@ -73,7 +74,8 @@ export async function sandbox() {
         let result = '';
         for (let index of range(random_between(8, 16))) {
             let c = random_get() > 0.5 ? 'a' : 'b';
-            let m = string_multiply(c, random_between(1, 3));
+            let v_3 = random_between(1, 3);
+            let m = string_multiply(c, v_3);
             result = result + m;
         }
         return result;

@@ -7,6 +7,7 @@ export function result_property_data_set(result, data) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    object_property_set(result, result_property_data(), data);
+    let v = result_property_data();
+    object_property_set(result, v, data);
     return result;
 }

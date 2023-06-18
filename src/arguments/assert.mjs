@@ -8,7 +8,8 @@ import { error } from '../error.mjs';
 import { log } from '../log.mjs';
 export function arguments_assert(args, predicates) {
     assert_arguments_count(arguments, 2);
-    assert(list_is(predicates));
+    let v = list_is(predicates);
+    assert(v);
     assert_arguments_count(args, predicates.length);
     for (let i of range(predicates.length)) {
         const value = args[i];

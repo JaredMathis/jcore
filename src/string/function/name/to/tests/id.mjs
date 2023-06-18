@@ -11,6 +11,7 @@ export function string_function_name_to_tests_id(function_name, t) {
         string_identifier_sub_is
     ]);
     let function_tests_prefix = function_tests_prefix_get(function_name);
-    return string_prefix_without(t, function_tests_prefix);
+    let v = string_prefix_without(t, function_tests_prefix);
+    return v;
     metadata([]);
 }

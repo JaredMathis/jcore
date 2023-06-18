@@ -8,6 +8,7 @@ export function string_length_is_0_test_generated_2() {
     arguments_assert(arguments, []);
     let expected = false;
     let actual = string_length_is_0('aab');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

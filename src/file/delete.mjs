@@ -6,7 +6,8 @@ import { assert } from '../assert.mjs';
 import fs from 'fs';
 export async function file_delete(file_path) {
     arguments_assert(arguments, [path_is]);
-    assert(await file_exists(file_path));
+    let v = await file_exists(file_path);
+    assert(v);
     await fs.promises.rm(file_path);
     metadata([]);
 }

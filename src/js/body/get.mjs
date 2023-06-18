@@ -5,6 +5,8 @@ import { object_property_get } from '../../object/property/get.mjs';
 import { js_node_is_program } from '../node/is/program.mjs';
 export function js_body_get(parsed) {
     arguments_assert(arguments, [js_node_is_program]);
-    return object_property_get(parsed, js_node_property_body());
+    let v = js_node_property_body();
+    let v_2 = object_property_get(parsed, v);
+    return v_2;
     metadata([]);
 }

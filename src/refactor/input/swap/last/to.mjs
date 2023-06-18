@@ -10,7 +10,8 @@ export async function refactor_input_swap_last_to(args) {
     function indices_get(index, params) {
         let index_next = add_1(index);
         let index_last = list_last_index(params);
-        return range_from(index_next, index_last);
+        let v = range_from(index_next, index_last);
+        return v;
     }
     function predicate(index, params) {
         let index_last = list_last_index(params);

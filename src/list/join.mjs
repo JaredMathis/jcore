@@ -7,6 +7,7 @@ export function list_join(list, separator) {
         list_is,
         string_is
     ]);
-    return list.join(separator);
+    let v = list.join(separator);
+    return v;
     metadata([]);
 }

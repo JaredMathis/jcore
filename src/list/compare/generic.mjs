@@ -13,10 +13,12 @@ export function list_compare_generic(list, value_get, compare) {
     ]);
     let result = list_first(list);
     let found = value_get(result);
-    assert(number_is(found));
+    let v = number_is(found);
+    assert(v);
     for (let element of list) {
         let current = value_get(element);
-        assert(number_is(current));
+        let v_2 = number_is(current);
+        assert(v_2);
         if (compare(current, found)) {
             result = element;
             found = current;

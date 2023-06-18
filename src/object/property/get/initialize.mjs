@@ -11,6 +11,7 @@ export function object_property_get_initialize(data, property_name, intial_value
         defined_is
     ]);
     object_property_initialize_if_unset(data, property_name, intial_value);
-    return object_property_get(data, property_name);
+    let v = object_property_get(data, property_name);
+    return v;
     metadata([]);
 }

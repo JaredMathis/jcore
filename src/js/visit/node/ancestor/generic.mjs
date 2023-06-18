@@ -11,6 +11,7 @@ export function js_visit_node_ancestor_generic(stack, grandparent_index, offset)
         arguments_assert_todo
     ]);
     let stack_nodes = list_filter(stack, js_node_is);
-    let ancestor = list_get_end(stack_nodes, add(grandparent_index, offset));
+    let v = add(grandparent_index, offset);
+    let ancestor = list_get_end(stack_nodes, v);
     return ancestor;
 }

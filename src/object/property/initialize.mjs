@@ -12,7 +12,9 @@ export function object_property_initialize(object, property_name, initial_value)
         string_is,
         defined_is
     ]);
-    assert(not(object_property_exists(object, property_name)));
+    let v_2 = object_property_exists(object, property_name);
+    let v = not(v_2);
+    assert(v);
     object_property_set(object, property_name, initial_value);
     metadata([]);
 }

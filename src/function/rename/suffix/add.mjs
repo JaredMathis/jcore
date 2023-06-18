@@ -9,9 +9,11 @@ export async function function_rename_suffix_add(function_name_old, suffix) {
         string_identifier_is,
         string_identifier_sub_is
     ]);
+    let v = function_name_separator();
     let function_name_new = list_join([
         function_name_old,
         suffix
-    ], function_name_separator());
-    return await function_rename_single(function_name_old, function_name_new);
+    ], v);
+    let v_2 = await function_rename_single(function_name_old, function_name_new);
+    return v_2;
 }

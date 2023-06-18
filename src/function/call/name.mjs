@@ -9,5 +9,6 @@ export async function function_call_name(function_name, name_new) {
         string_identifier_is,
         arguments_assert_todo
     ]);
-    await function_map_with_args(function_name_get(refactor_call_name), function_name, { name_new });
+    let v = function_name_get(refactor_call_name);
+    await function_map_with_args(v, function_name, { name_new });
 }

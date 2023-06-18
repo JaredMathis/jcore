@@ -5,5 +5,6 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
 export async function function_output_to_object(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
-    await function_map(function_name_get(refactor_output_to_object), function_name);
+    let v = function_name_get(refactor_output_to_object);
+    await function_map(v, function_name);
 }

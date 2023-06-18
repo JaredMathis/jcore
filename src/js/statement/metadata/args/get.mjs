@@ -9,10 +9,12 @@ import { assert } from '../../../../assert.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 export function js_statement_metadata_args_get(statement) {
     arguments_assert(arguments, [js_node_is]);
-    assert(js_statement_metadata_is(statement));
+    let v = js_statement_metadata_is(statement);
+    assert(v);
     let last_args = js_statement_expression_arguments_get(statement);
     let array = list_single(last_args);
-    let metadata_args = object_property_get(array, js_node_property_elements());
+    let v_2 = js_node_property_elements();
+    let metadata_args = object_property_get(array, v_2);
     return metadata_args;
     metadata([]);
 }

@@ -58,24 +58,32 @@ export async function version_push_generic(repository_name, preview) {
             let info_data = await database_reference_get_data(transaction, info_refererence);
             let property_commit_latest_value = object_property_get(info_data, property_commit_latest);
             comment('if this fails then local code is out of sync with server');
-            assert(equal(property_commit_latest_data_value, property_commit_latest_value));
+            let v = equal(property_commit_latest_data_value, property_commit_latest_value);
+            assert(v);
             let repository_files_path = version_path_files_get(repository_name);
             let files = await directory_read_json(repository_files_path);
             let repository_commits_path = version_path_commits_get(repository_name);
             let commits = await directory_read_json(repository_commits_path);
             let last_index = list_last_index(commits);
             await list_each_with_index_async(commits, async (commit, index) => {
-                let commit_path = object_property_get(commit, directory_property_file_path());
-                let commit_vesion = list_single(version_commits_path_to_integer(list_single_item(commit_path)));
+                let v_2 = directory_property_file_path();
+                let commit_path = object_property_get(commit, v_2);
+                let v_10 = list_single_item(commit_path);
+                let v_3 = version_commits_path_to_integer(v_10);
+                let commit_vesion = list_single(v_3);
                 if (commit_vesion <= property_commit_latest_value) {
                     return;
                 }
-                let commit_json = object_property_get(commit, directory_property_json());
-                let commit_parts = object_property_get(commit_json, version_property_parts());
+                let v_4 = directory_property_json();
+                let commit_json = object_property_get(commit, v_4);
+                let v_5 = version_property_parts();
+                let commit_parts = object_property_get(commit_json, v_5);
                 let commit_files = list_single_item(commit_json);
                 for (let file of files) {
-                    let file_json = object_property_get(file, directory_property_json());
-                    let part_id = object_property_get(file_json, version_property_part_id());
+                    let v_6 = directory_property_json();
+                    let file_json = object_property_get(file, v_6);
+                    let v_7 = version_property_part_id();
+                    let part_id = object_property_get(file_json, v_7);
                     if (list_contains(commit_parts, part_id)) {
                         list_add(commit_files, file_json);
                     }
@@ -88,7 +96,8 @@ export async function version_push_generic(repository_name, preview) {
                     return;
                 }
                 let document_path_commit = version_document_path_commit(commit_vesion);
-                database_create(db, transaction, database_collection_name, document_path_commit, database_value(commit_files));
+                let v_8 = database_value(commit_files);
+                database_create(db, transaction, database_collection_name, document_path_commit, v_8);
                 if (equal(index, last_index)) {
                     database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_vesion);
                     await data_key_value_set(property_commit_latest_data, commit_vesion);
@@ -99,7 +108,8 @@ export async function version_push_generic(repository_name, preview) {
             }
             let latest_files = await version_push_latest(repository_name);
             let latest_refererence = database_reference(db, database_collection_name, property_commit_latest);
-            await database_reference_set(transaction, latest_refererence, database_value(latest_files));
+            let v_9 = database_value(latest_files);
+            await database_reference_set(transaction, latest_refererence, v_9);
         });
     });
     return list_commits;

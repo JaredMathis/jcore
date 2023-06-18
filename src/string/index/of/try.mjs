@@ -6,6 +6,7 @@ export function string_index_of_try(input, search) {
         string_is,
         string_is
     ]);
-    return input.indexOf(search);
+    let v = input.indexOf(search);
+    return v;
     metadata([]);
 }

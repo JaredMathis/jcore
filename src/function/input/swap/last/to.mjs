@@ -11,5 +11,6 @@ export async function function_input_swap_last_to(function_name, index_string) {
         arguments_assert_todo
     ]);
     let index = integer_parse(index_string);
-    await function_map_with_args(function_name_get(refactor_input_swap_last_to), function_name, { index });
+    let v = function_name_get(refactor_input_swap_last_to);
+    await function_map_with_args(v, function_name, { index });
 }

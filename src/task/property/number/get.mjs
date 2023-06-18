@@ -4,5 +4,7 @@ import { object_property_get } from '../../../object/property/get.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 export function task_property_number_get(task) {
     arguments_assert(arguments, [defined_is]);
-    return object_property_get(task, task_property_number());
+    let v = task_property_number();
+    let v_2 = object_property_get(task, v);
+    return v_2;
 }

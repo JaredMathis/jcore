@@ -7,9 +7,10 @@ export function function_auto_after_refactors() {
     arguments_assert(arguments, []);
     let first = function_auto_after_refactors_first();
     let second = [refactor_functions_to_files];
-    return list_multiple_combine([
+    let v = list_multiple_combine([
         first,
         second
     ]);
+    return v;
     metadata([]);
 }

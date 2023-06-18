@@ -11,7 +11,7 @@ export function string_equal_count(a, b) {
         string_is,
         string_is
     ]);
-    return count(c => {
+    let v = count(c => {
         const inputs = [
             a,
             b
@@ -25,4 +25,5 @@ export function string_equal_count(a, b) {
             }
         }
     });
+    return v;
 }

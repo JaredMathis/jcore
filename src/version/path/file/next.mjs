@@ -17,7 +17,8 @@ export async function version_path_file_next(repository_name, file_path) {
         let paths = await directory_read(repository_file_directory_path);
         mapped = list_map(paths, file_path => {
             let without_prefix = string_prefix_without(file_path, repository_file_directory_path + directory_separator());
-            let without_suffix = string_suffix_without(without_prefix, file_extension_json());
+            let v = file_extension_json();
+            let without_suffix = string_suffix_without(without_prefix, v);
             let version = integer_parse(without_suffix);
             return version;
         });

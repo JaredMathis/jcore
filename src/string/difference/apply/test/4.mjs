@@ -13,6 +13,7 @@ export function string_difference_apply_test_4() {
         '17-1',
         '31+b'
     ]);
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

@@ -9,6 +9,7 @@ export function js_code_export_function(function_name, function_statements_code)
         string_is
     ]);
     let is_async = false;
-    return js_code_export_function_synchronized(function_name, is_async, function_statements_code);
+    let v = js_code_export_function_synchronized(function_name, is_async, function_statements_code);
+    return v;
     metadata([]);
 }

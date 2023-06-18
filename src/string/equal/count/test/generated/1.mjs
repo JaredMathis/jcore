@@ -8,6 +8,7 @@ export function string_equal_count_test_generated_1() {
     arguments_assert(arguments, []);
     let expected = 2;
     let actual = string_equal_count('aa', 'aab');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

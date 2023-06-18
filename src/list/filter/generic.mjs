@@ -10,7 +10,7 @@ export function list_filter_generic(array, filter, added_get) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    return list_adder(la => {
+    let v = list_adder(la => {
         list_each_with_index(array, (element, index) => {
             if (filter(element)) {
                 let added = added_get(element, index);
@@ -18,5 +18,6 @@ export function list_filter_generic(array, filter, added_get) {
             }
         });
     });
+    return v;
     metadata([metadata_generated()]);
 }

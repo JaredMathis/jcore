@@ -21,7 +21,8 @@ export async function js_import_all_with_function_names(parsed) {
     let import_all = js_import_all(parsed);
     let import_name_all = [];
     for (let i of import_all) {
-        let source = object_property_get(i, js_node_property_source());
+        let v_2 = js_node_property_source();
+        let source = object_property_get(i, v_2);
         if (not(js_node_is_literal(source))) {
             continue;
         }

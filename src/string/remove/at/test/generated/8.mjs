@@ -8,6 +8,7 @@ export function string_remove_at_test_generated_8() {
     arguments_assert(arguments, []);
     let expected = 'a';
     let actual = string_remove_at('aa', 0);
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

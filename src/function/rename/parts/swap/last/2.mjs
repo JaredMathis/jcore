@@ -8,7 +8,8 @@ import { list_length_at_least } from '../../../../../list/length/at/least.mjs';
 export async function function_rename_parts_swap_last_2(function_name_old) {
     arguments_assert(arguments, [string_identifier_is]);
     let function_name_new = string_identifier_parts_map(function_name_old, function map(parts) {
-        assert(list_length_at_least(parts, 2));
+        let v = list_length_at_least(parts, 2);
+        assert(v);
         list_swap_last_2(parts);
     });
     await function_rename_single(function_name_old, function_name_new);

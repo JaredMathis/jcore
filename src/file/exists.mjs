@@ -10,7 +10,8 @@ export async function file_exists(file_path) {
     if (not(await path_exists(file_path))) {
         return false;
     }
-    assert(await file_is(file_path));
+    let v = await file_is(file_path);
+    assert(v);
     return true;
     metadata([]);
 }

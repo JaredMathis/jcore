@@ -21,10 +21,11 @@ export function list_map_generic(list, lambda, allow_error_mapping, value_on_err
         boolean_is,
         defined_is
     ]);
-    return list_adder(la => {
+    let v = list_adder(la => {
         list_each_with_index(list, (element, index) => {
             let result = throws_generic(() => {
-                return lambda(element, index);
+                let v_2 = lambda(element, index);
+                return v_2;
             });
             let mapped;
             if (not(changed(c => {
@@ -34,7 +35,8 @@ export function list_map_generic(list, lambda, allow_error_mapping, value_on_err
                             c();
                         }
                     } else {
-                        assert(result_property_success_get(result));
+                        let v_3 = result_property_success_get(result);
+                        assert(v_3);
                     }
                 }))) {
                 mapped = result_property_data_get(result);
@@ -42,5 +44,6 @@ export function list_map_generic(list, lambda, allow_error_mapping, value_on_err
             la(mapped);
         });
     });
+    return v;
     metadata([metadata_generated()]);
 }

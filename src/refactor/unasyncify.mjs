@@ -21,7 +21,8 @@ export async function refactor_unasyncify(args) {
     let {parsed, function_declaration} = args;
     let callables = js_nodes_get(parsed, js_node_is_callable);
     for (let callable of callables) {
-        object_property_change(callable, js_keyword_async(), false);
+        let v = js_keyword_async();
+        object_property_change(callable, v, false);
     }
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     await refactor_metadata_generated_add_function(args);

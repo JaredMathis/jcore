@@ -33,19 +33,25 @@ export async function refactor_properties_expand(args) {
         if (js_node_is_variable_declarator(parent)) {
             let grandparent = js_visit_node_grandparent(stack, 0);
             if (js_node_is_variable_declaration(grandparent)) {
-                let declarations = object_property_get(grandparent, js_node_property_declarations());
+                let v_2 = js_node_property_declarations();
+                let declarations = object_property_get(grandparent, v_2);
                 if (list_length_is_1(declarations)) {
                     let grandparent_great = js_visit_node_grandparent(stack, 1);
                     if (js_node_is_block_statement(grandparent_great)) {
                         let function_body_statements = js_block_statement_body(grandparent_great);
                         let previous = grandparent;
                         let v = js_identifier_name_next(parsed);
-                        let properties = object_property_get(node, js_node_property_properties());
-                        object_replace(node, js_parse_expression(v));
+                        let v_3 = js_node_property_properties();
+                        let properties = object_property_get(node, v_3);
+                        let v_4 = js_parse_expression(v);
+                        object_replace(node, v_4);
                         for (let property of properties) {
-                            let property_name = js_property_identifier_name(property, js_node_property_key());
-                            let local = js_property_identifier_name(property, js_node_property_value());
-                            let after_let = js_code_call_expression_object_property_get(v, js_code_expression_string(property_name));
+                            let v_5 = js_node_property_key();
+                            let property_name = js_property_identifier_name(property, v_5);
+                            let v_6 = js_node_property_value();
+                            let local = js_property_identifier_name(property, v_6);
+                            let v_7 = js_code_expression_string(property_name);
+                            let after_let = js_code_call_expression_object_property_get(v, v_7);
                             let statement_code = js_code_statement_assignment(local, after_let);
                             let statement = js_parse_statement(statement_code);
                             list_add_after(function_body_statements, statement, previous);

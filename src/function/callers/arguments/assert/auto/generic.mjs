@@ -44,18 +44,23 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
     async function mapper(c_args) {
         let c_parsed = object_property_get(c_args, 'parsed');
         let c_function_declaration = object_property_get(c_args, 'function_declaration');
-        let c_params = object_property_get(c_function_declaration, js_node_property_params());
+        let v_2 = js_node_property_params();
+        let c_params = object_property_get(c_function_declaration, v_2);
         if (list_empty(c_params)) {
             return true;
         }
         let c_arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(c_function_declaration);
         await list_each_with_index_async(c_arguments_assert_args, async function lambda(c_arg, c_arg_index) {
             let c_param = list_get(c_params, c_arg_index);
-            let c_param_name = object_property_get(c_param, js_node_property_name());
+            let v_3 = js_node_property_name();
+            let c_param_name = object_property_get(c_param, v_3);
             comment(`If this isn't true then this code needs changing`);
-            assert(js_node_is_identifier(c_arg));
-            let c_predicate_name = object_property_get(c_arg, js_node_property_name());
-            let default_name = function_name_get(arguments_assert_predicate_default());
+            let v_4 = js_node_is_identifier(c_arg);
+            assert(v_4);
+            let v_5 = js_node_property_name();
+            let c_predicate_name = object_property_get(c_arg, v_5);
+            let v_6 = arguments_assert_predicate_default();
+            let default_name = function_name_get(v_6);
             if (not(equal(c_predicate_name, default_name))) {
                 return false;
             }
@@ -63,7 +68,8 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             let assignment_exists = false;
             js_visit_nodes_filter(c_parsed, js_node_is_assignment_expression, v => {
                 let {node} = v;
-                let left = object_property_get(node, js_node_property_left());
+                let v_7 = js_node_property_left();
+                let left = object_property_get(node, v_7);
                 if (js_node_is_identifier(left)) {
                     if (object_property_get(left, 'name') === c_predicate_name) {
                         comment(`Value has been changed - will not assume predicate can be copied`);
@@ -103,7 +109,8 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 await refactor_import_fix(c_args);
                 list_add_if_not_exists(result, c_function_name);
             }
-            return not(changed);
+            let v_8 = not(changed);
+            return v_8;
         });
     }
 }

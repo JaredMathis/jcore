@@ -1,3 +1,4 @@
 export function random_get() {
-    return Math.random();
+    let v = Math.random();
+    return v;
 }

@@ -9,6 +9,7 @@ export function string_includes(input, search) {
         string_is
     ]);
     const index_try = string_index_of_try(input, search);
-    return string_index_of_try_valid(index_try);
+    let v = string_index_of_try_valid(index_try);
+    return v;
     metadata([]);
 }

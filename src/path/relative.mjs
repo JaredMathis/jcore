@@ -7,6 +7,7 @@ export function path_relative(from, to) {
         path_is,
         path_is
     ]);
-    return path.relative(from, to);
+    let v = path.relative(from, to);
+    return v;
     metadata([]);
 }

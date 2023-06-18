@@ -12,6 +12,7 @@ export function string_difference_apply_parse_test_2() {
         'removed': 2
     };
     let actual = string_difference_apply_parse('3-2');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

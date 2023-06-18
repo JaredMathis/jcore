@@ -8,6 +8,7 @@ export function string_skip_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = 'b';
     let actual = string_skip('aab', 2);
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

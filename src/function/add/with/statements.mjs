@@ -9,6 +9,7 @@ export async function function_add_with_statements(function_name, statements) {
         list_is
     ]);
     let is_async = false;
-    return await function_add_with_statements_synchronized(function_name, statements, is_async);
+    let v = await function_add_with_statements_synchronized(function_name, statements, is_async);
+    return v;
     metadata([]);
 }

@@ -8,7 +8,8 @@ import { task_property_number } from './property/number.mjs';
 export async function task_add(title) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let task = await task_later(title);
-    let task_number = object_property_get(task, task_property_number());
+    let v = task_property_number();
+    let task_number = object_property_get(task, v);
     let task_number_string = string_to(task_number);
     await task_set(task_number_string);
     return task;

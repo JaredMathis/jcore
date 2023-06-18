@@ -19,14 +19,17 @@ export async function task_unsub() {
     if (list_empty(required_bys)) {
         result_unsuccess(result);
         let data = await task_finish();
-        return result_property_data_set(result, data);
+        let v = result_property_data_set(result, data);
+        return v;
     }
     let last = await list_last(required_bys);
     await task_finish();
     let last_string = string_to(last);
     await task_set(last_string);
     let current_result = await task_current();
-    assert(result_property_success_get(current_result));
+    let v_2 = result_property_success_get(current_result);
+    assert(v_2);
     let current = result_property_data_get(current_result);
-    return result_property_data_set(result, current);
+    let v_3 = result_property_data_set(result, current);
+    return v_3;
 }

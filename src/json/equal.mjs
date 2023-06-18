@@ -7,5 +7,6 @@ export function json_equal(a, b) {
         defined_is,
         defined_is
     ]);
-    return equal_by(json_to, a, b);
+    let v = equal_by(json_to, a, b);
+    return v;
 }

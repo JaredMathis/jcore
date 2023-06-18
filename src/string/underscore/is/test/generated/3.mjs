@@ -8,6 +8,7 @@ export function string_underscore_is_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = false;
     let actual = string_underscore_is('');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

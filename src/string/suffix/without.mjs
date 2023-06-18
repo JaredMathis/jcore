@@ -10,8 +10,10 @@ export function string_suffix_without(input, suffix) {
         string_is,
         string_is
     ]);
-    assert(string_ends_with(input, suffix));
+    let v = string_ends_with(input, suffix);
+    assert(v);
     let end = string_length(input) - string_length(suffix);
-    return string_take(input, end);
+    let v_2 = string_take(input, end);
+    return v_2;
     metadata([]);
 }

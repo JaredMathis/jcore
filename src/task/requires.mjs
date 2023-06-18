@@ -8,7 +8,8 @@ export async function task_requires(task_number_string, task_number_required_str
         arguments_assert_todo,
         string_is
     ]);
-    return await task_requires_generic(task_number_string, task_number_required_string, requires_map);
+    let v = await task_requires_generic(task_number_string, task_number_required_string, requires_map);
+    return v;
     function requires_map(requires, task_number_required) {
         list_add_assert_exists_not(requires, task_number_required);
     }

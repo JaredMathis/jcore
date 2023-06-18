@@ -1,5 +1,6 @@
 import { metadata } from '../metadata.mjs';
 export function list_is(candidate) {
-    return Array.isArray(candidate);
+    let v = Array.isArray(candidate);
+    return v;
     metadata([]);
 }

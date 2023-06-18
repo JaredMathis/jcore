@@ -34,8 +34,10 @@ export async function function_tests_generate_generic_each(function_name, test_n
     let statements_code;
     let statement_assert;
     if (has_error) {
-        let ce_throws = js_code_call_expression_with_args_code(function_name_get(assert_throws), `() => ${ ce_function }`);
-        statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_throws);
+        let v = function_name_get(assert_throws);
+        let ce_throws = js_code_call_expression_with_args_code(v, `() => ${ ce_function }`);
+        let v_2 = function_name_get(assert);
+        statement_assert = js_code_call_expression_statement_with_args_code(v_2, ce_throws);
         statements_code = [statement_assert];
         log({
             args,
@@ -43,14 +45,17 @@ export async function function_tests_generate_generic_each(function_name, test_n
         });
     } else {
         let identifier_expected = 'expected';
-        let statement_expected = js_code_statement_assignment(identifier_expected, json_to(expected));
+        let v_3 = json_to(expected);
+        let statement_expected = js_code_statement_assignment(identifier_expected, v_3);
         let identifier_actual = 'actual';
         let statement_function = js_code_statement_assignment(identifier_actual, ce_function);
-        let ce_equal = js_code_call_expression_with_args(function_name_get(json_equal), [
+        let v_4 = function_name_get(json_equal);
+        let ce_equal = js_code_call_expression_with_args(v_4, [
             identifier_actual,
             identifier_expected
         ]);
-        statement_assert = js_code_call_expression_statement_with_args_code(function_name_get(assert), ce_equal);
+        let v_5 = function_name_get(assert);
+        statement_assert = js_code_call_expression_statement_with_args_code(v_5, ce_equal);
         statements_code = [
             statement_expected,
             statement_function,

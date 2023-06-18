@@ -8,6 +8,7 @@ export function string_prefix_replace_test_generated_7() {
     arguments_assert(arguments, []);
     let expected = 'aabaab';
     let actual = string_prefix_replace('aab', '', 'aab');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

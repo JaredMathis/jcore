@@ -6,6 +6,7 @@ import { list_length_equal } from '../length/equal.mjs';
 export function list_unique_is(list) {
     arguments_assert(arguments, [list_is]);
     let u = list_unique(list);
-    return list_length_equal(u, list);
+    let v = list_length_equal(u, list);
+    return v;
     metadata([]);
 }

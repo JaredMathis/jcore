@@ -12,16 +12,21 @@ import { null_not_is } from '../../null/not/is.mjs';
 import { function_is } from '../../function/is.mjs';
 export async function task_available_generic(map_with_all_unsummarized) {
     arguments_assert(arguments, [function_is]);
-    return await tasks_open_generic(filter_get, map_with_all_unsummarized);
+    let v = await tasks_open_generic(filter_get, map_with_all_unsummarized);
+    return v;
     function filter_get(open) {
         return function filter(o) {
-            let body = object_property_get(o, task_property_body());
+            let v_3 = task_property_body();
+            let body = object_property_get(o, v_3);
             if (null_not_is(body)) {
                 let body_parsed = json_from(body);
                 if (object_property_exists(body_parsed, task_body_property_requires())) {
-                    let requires = object_property_get(body_parsed, task_body_property_requires());
+                    let v_4 = task_body_property_requires();
+                    let requires = object_property_get(body_parsed, v_4);
                     if (list_any(requires, function v_2(r) {
-                            return list_find_property_exists(open, task_property_number(), r);
+                            let v_5 = task_property_number();
+                            let v_6 = list_find_property_exists(open, v_5, r);
+                            return v_6;
                         })) {
                         return false;
                     }

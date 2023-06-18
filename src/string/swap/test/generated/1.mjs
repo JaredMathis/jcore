@@ -6,6 +6,7 @@ import { assert } from '../../../../assert.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function string_swap_test_generated_1() {
     arguments_assert(arguments, []);
-    assert(assert_throws(() => string_swap('', 0, 1)));
+    let v = assert_throws(() => string_swap('', 0, 1));
+    assert(v);
     metadata([metadata_generated()]);
 }

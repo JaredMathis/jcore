@@ -8,6 +8,7 @@ export function string_new_line_test_generated_1() {
     arguments_assert(arguments, []);
     let expected = '\n';
     let actual = string_new_line();
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

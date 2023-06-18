@@ -8,6 +8,7 @@ export function string_index_of_try_test_generated_7() {
     arguments_assert(arguments, []);
     let expected = 0;
     let actual = string_index_of_try('b', '');
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

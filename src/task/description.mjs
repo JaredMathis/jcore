@@ -12,6 +12,7 @@ export async function task_description(issue_number, description) {
     let result = await task_body_map_json(issue_number, map);
     return result;
     function map(body_parsed) {
-        object_property_set(body_parsed, task_body_property_description(), description);
+        let v = task_body_property_description();
+        object_property_set(body_parsed, v, description);
     }
 }

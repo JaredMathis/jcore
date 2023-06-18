@@ -4,7 +4,8 @@ import { metadata } from './metadata.mjs';
 import { assert } from './assert.mjs';
 export function range(count) {
     assert_arguments_count(arguments, 1);
-    assert(number_is(count));
+    let v = number_is(count);
+    assert(v);
     let result = [];
     for (let i = 0; i < count; i++) {
         result.push(i);

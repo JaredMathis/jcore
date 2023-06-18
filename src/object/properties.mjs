@@ -14,6 +14,7 @@ export function object_properties(object) {
     if (string_is(object)) {
         return default_value;
     }
-    return Object.values(object);
+    let v = Object.values(object);
+    return v;
     metadata([]);
 }

@@ -5,6 +5,7 @@ import { metadata } from '../metadata.mjs';
 export async function function_dependencies(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let recursive = true;
-    return await function_dependencies_generic(function_name, recursive);
+    let v = await function_dependencies_generic(function_name, recursive);
+    return v;
     metadata([]);
 }
