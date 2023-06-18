@@ -1,3 +1,4 @@
+import { noop } from '../noop.mjs';
 import { function_input_add_type } from './input/add/type.mjs';
 import { list_each_with_index_async } from '../list/each/with/index/async.mjs';
 import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
@@ -21,7 +22,7 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
         string_identifier_is,
         string_identifier_is
     ]);
-    let map = noop
+    let map = noop;
     let function_declaration = await function_to_declaration(function_name_to_wrap);
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let identifier = 'result';
@@ -39,8 +40,8 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
     ];
     let args = {
         identifier,
-        statements_code,
-    }
+        statements_code
+    };
     map(args);
     let statements = list_map(statements_code, js_parse_statement);
     await function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
