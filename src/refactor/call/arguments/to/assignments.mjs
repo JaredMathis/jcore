@@ -116,10 +116,10 @@ export function refactor_call_arguments_to_assignments(args) {
                 let v_14 = js_node_is_block_statement(parent_list_next);
                 assert(v_14);
                 let parent_list = list_get(stack_reversed, parent_list_index);
-                lambda(stack_reversed, node, expression, parent_list, c);
+                lambda(stack_reversed, node, expression, parent_list);
             }
         });
-        function lambda(stack_reversed, node, expression, parent_list, c) {
+        function lambda(stack_reversed, node, expression, parent_list) {
             let args = js_node_property_arguments_get(expression);
             for (let arg of args) {
                 if (js_node_is_call_expression(arg) || js_node_is_await_expression(arg)) {
