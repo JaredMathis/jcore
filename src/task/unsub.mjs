@@ -18,11 +18,10 @@ export async function task_unsub() {
     let r = result_empty();
     let required_bys = await task_current_required_bys();
     const if_check = list_empty(required_bys);
-    await if_else_async(if_check, on_if, async () => {
+    return await if_else_async(if_check, on_if, async () => {
         let last_string = list_last_string_to(required_bys);
         await on_else(last_string);
     });
-    return result;
     async function on_else(last_string) {
         await task_finish();
         await task_set(last_string);
@@ -31,12 +30,12 @@ export async function task_unsub() {
         assert(v_2);
         let current = result_property_data_get(current_result);
         let v_3 = result_property_data_set(r, current);
-        result = v_3;
+        return v_3;
     }
     async function on_if() {
         result_unsuccess(r);
         let data = await task_finish();
         let v = result_property_data_set(r, data);
-        result = v;
+        return v;
     }
 }
