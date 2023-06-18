@@ -61,7 +61,7 @@ export function refactor_call_arguments_to_assignments(args) {
                     let child = js_node_property_expression_get(expression);
                     let refactor_stack_child = object_copy_shallow(refactor_stack);
                     list_add(refactor_stack_child, child)
-                    return refactor_call_expression_to_assignments(child, expression);
+                    return refactor_call_expression_to_assignments(child, refactor_stack_child);
                 }
                 if (js_node_is_variable_declaration(expression)) {
                     let declaration = js_declarations_single(expression);
