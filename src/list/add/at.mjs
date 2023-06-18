@@ -12,6 +12,7 @@ export function list_add_at(list, value, index) {
         integer_is
     ]);
     let v = list_index_valid(list, index);
+    console.log({index})
     assert(v);
     const delete_count = 0;
     list.splice(index, delete_count, value);
