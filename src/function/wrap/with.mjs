@@ -29,13 +29,9 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
         let {function_declaration, statements_code} = args;
         let identifier_result = function_wrap_generic_identifier_result();
         const identifier_mapped = 'mapped';
-        assert(list_length_is_value(statements_code, 2));
-        comment(`The index we'll add at`);
-        let index = list_last_index(statements_code);
-        list_last_remove(statements_code);
-        let mapped = js_code_function_declaration_to_statement_assignment(function_declaration_map, list_single(identifier_result), identifier_mapped);
         let statements_code_new = [
-            js_code_function_declaration_to_statement_assignment_wrapped(function_declaration, identifier_result),
+            js_code_function_declaration_to_statement_assignment_wrapped(function_declaration, identifier_mapped),
+            js_code_function_declaration_to_statement_assignment(function_declaration_map, list_single(identifier_mapped), identifier_result),
             js_code_return_statement(identifier_result)
         ];
         list_replace(statements_code, statements_code_new);
