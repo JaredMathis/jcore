@@ -1,3 +1,4 @@
+import { list_remove } from '../../../../list/remove.mjs';
 import { js_function_declaration_to_statement_arguments_assert } from '../../../../js/function/declaration/to/statement/arguments/assert.mjs';
 import { js_node_property_body_to_block_statement_body_statements } from '../../../../js/node/property/body/to/block/statement/body/statements.mjs';
 import { log_multiple_map } from '../../../../log/multiple/map.mjs';
@@ -17,6 +18,7 @@ export async function refactor_call_statement_find_previous(args) {
     let {function_name_find, function_declaration_find} = args;
     let statement_arguments_assert = await js_function_declaration_to_statement_arguments_assert(function_declaration_find);
     let function_name_find_statements = js_node_property_body_to_block_statement_body_statements(function_declaration_find);
+    list_remove(function_name_find_statements, statement_arguments_assert);
     log({ function_name_find_statements });
     error();
     let function_name = js_mapper_args_to_function_name(args);
