@@ -6,6 +6,7 @@ export function log_multiple(list) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let mapper = identity;
     for (let element of list) {
+        let mapped = mapper(element);
         log(element);
     }
 }
