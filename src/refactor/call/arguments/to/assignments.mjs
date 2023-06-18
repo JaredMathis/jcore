@@ -1,3 +1,4 @@
+import { object_property_get } from '../../../../object/property/get.mjs';
 import { js_visit_call_statements } from '../../../../js/visit/call/statements.mjs';
 import { occurs_while } from '../../../../occurs/while.mjs';
 import { js_node_is_return_statement } from '../../../../js/node/is/return/statement.mjs';
@@ -21,8 +22,9 @@ import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
+    let parsed = object_property_get(args, 'parsed');
     occurs_while(function v_17(c) {
-        let parsed = js_visit_call_statements(args, call_each);
+        js_visit_call_statements(args, call_each);
         function call_each(stack_reversed, node, expression, parent_list) {
             let args = js_node_property_arguments_get(expression);
             for (let arg of args) {

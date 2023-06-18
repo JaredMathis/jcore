@@ -111,5 +111,4 @@ export function js_visit_call_statements(args, call_each) {
             };
         }
     });
-    return parsed;
 }
