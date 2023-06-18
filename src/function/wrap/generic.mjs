@@ -26,7 +26,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let identifier = 'result';
     let inputs = js_function_declaration_to_params_names(function_declaration);
-    let statement_first_code = newFunction(function_declaration, function_name_to_wrap, inputs, identifier);
+    let statement_first_code = newFunction(function_declaration, inputs, identifier);
     let statement_second_code = js_code_return_statement(identifier);
     let statements_code = [
         statement_first_code,
@@ -48,10 +48,10 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     await function_open_vs_code(function_name_to_add);
 }
 
-function newFunction(function_declaration, function_name_to_wrap, inputs, identifier) {
+function newFunction(function_declaration, inputs, identifier) {
     let function_name = js_function_declaration_to_name(function_declaration)
     let is_async = js_function_declaration_async_is(function_declaration);
-    let statement_first_code = js_code_call_expression_with_args(function_name_to_wrap, inputs);
+    let statement_first_code = js_code_call_expression_with_args(function_name, inputs);
     if (is_async) {
         statement_first_code = js_code_await(statement_first_code);
     }
