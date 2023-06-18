@@ -28,11 +28,11 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
     await function_wrap_generic(function_name_to_wrap, function_name_to_add, function map(args) {
         let {function_declaration, statements_code} = args;
         let identifier_result = function_wrap_generic_identifier_result();
+        const identifier_mapped = 'mapped';
         assert(list_length_is_value(statements_code, 2));
         comment(`The index we'll add at`);
         let index = list_last_index(statements_code);
         list_last_remove(statements_code);
-        const identifier_mapped = 'mapped';
         let mapped = js_code_function_declaration_to_statement_assignment(function_declaration_map, list_single(identifier_result), identifier_mapped);
         let statements_code_new = [
             js_code_function_declaration_to_statement_assignment_wrapped(function_declaration, identifier_result),
