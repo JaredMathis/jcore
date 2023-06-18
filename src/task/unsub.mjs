@@ -17,7 +17,8 @@ export async function task_unsub() {
     let result;
     let r = result_empty();
     let required_bys = await task_current_required_bys();
-    if (list_empty(required_bys)) {
+    const if_check = list_empty(required_bys);
+    if (if_check) {
         await on_if();
     } else {
         await on_else();
