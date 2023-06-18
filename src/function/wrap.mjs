@@ -37,6 +37,11 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
         statement_first_code,
         statement_second_code
     ];
+    let args = {
+        identifier,
+        statements_code,
+    }
+    map(args);
     let statements = list_map(statements_code, js_parse_statement);
     await function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
     await list_each_with_index_async(inputs, async (input, index) => {
