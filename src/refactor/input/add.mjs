@@ -7,7 +7,7 @@ import { function_name_get } from '../../function/name/get.mjs';
 import { list_add } from '../../list/add.mjs';
 export async function refactor_input_add(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let {input_name, input_type} = args;
+    let {input_name, input_type, input_index} = args;
     let {function_declaration, input_value_default} = args;
     await refactor_input_generic(args, function_declaration, args_additional_get, params_change, arguments_assert_args_change);
     function arguments_assert_args_change(arguments_assert_args) {
