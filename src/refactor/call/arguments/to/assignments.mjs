@@ -59,8 +59,7 @@ export function refactor_call_arguments_to_assignments(args) {
                 ]);
                 if (js_node_is_expression_statement(expression)) {
                     let child = js_node_property_expression_get(expression);
-                    let refactor_stack_child = object_copy_shallow(refactor_stack);
-                    list_add(refactor_stack_child, child)
+                    let refactor_stack_child = list_copy_shallow_add(refactor_stack, child);
                     return refactor_call_expression_to_assignments(child, refactor_stack_child);
                 }
                 if (js_node_is_variable_declaration(expression)) {
@@ -140,6 +139,12 @@ export function refactor_call_arguments_to_assignments(args) {
                     list_add_before(parent_list, assignment, node);
                     c();
                 }
+            }
+
+            function list_copy_shallow_add(refactor_stack, child) {
+                let refactor_stack_child = object_copy_shallow(refactor_stack);
+                list_add(refactor_stack_child, child);
+                return refactor_stack_child;
             }
         });
     });
