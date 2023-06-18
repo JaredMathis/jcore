@@ -8,5 +8,5 @@ export async function function_wrap(function_name_to_wrap, function_name_to_add)
         string_identifier_is
     ]);
     let map = noop;
-    await function_wrap_generic(function_name_to_wrap, map, function_name_to_add);
+    await function_wrap_generic(function_name_to_wrap, function_name_to_add, map);
 }

@@ -1,3 +1,5 @@
+import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { function_open_vs_code } from '../open/vs/code.mjs';
 import { function_input_add_type } from '../input/add/type.mjs';
 import { js_identifier_name_get } from '../../js/identifier/name/get.mjs';
@@ -14,7 +16,12 @@ import { js_function_declaration_async_is } from '../../js/function/declaration/
 import { js_function_declaration_to_params_names } from '../../js/function/declaration/to/params/names.mjs';
 import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
 import { function_to_declaration } from '../to/declaration.mjs';
-export async function function_wrap_generic(function_name_to_wrap, map, function_name_to_add) {
+export async function function_wrap_generic(function_name_to_wrap, function_name_to_add, map) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     let function_declaration = await function_to_declaration(function_name_to_wrap);
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let identifier = 'result';
