@@ -1,3 +1,5 @@
+import { list_last_string_to } from '../list/last/string/to.mjs';
+import { if_else_async } from '../if/else/async.mjs';
 import { result_property_success_get } from '../result/property/success/get.mjs';
 import { result_property_data_get } from '../result/property/data/get.mjs';
 import { result_unsuccess } from '../result/unsuccess.mjs';
@@ -7,9 +9,7 @@ import { task_set } from './set.mjs';
 import { task_current_required_bys } from './current/required/bys.mjs';
 import { task_finish } from './finish.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-import { list_last } from '../list/last.mjs';
 import { task_current } from './current.mjs';
-import { string_to } from '../string/to.mjs';
 import { list_empty } from '../list/empty.mjs';
 import { assert } from '../assert.mjs';
 export async function task_unsub() {
@@ -18,13 +18,8 @@ export async function task_unsub() {
     let r = result_empty();
     let required_bys = await task_current_required_bys();
     const if_check = list_empty(required_bys);
-    if (if_check) {
-        await on_if();
-    } else {
-        await on_else();
-    }
+    await if_else_async(if_check, on_if, on_else);
     return result;
-
     async function on_else() {
         let last_string = list_last_string_to(required_bys);
         await task_finish();
@@ -36,17 +31,10 @@ export async function task_unsub() {
         let v_3 = result_property_data_set(r, current);
         result = v;
     }
-
     async function on_if() {
         result_unsuccess(r);
         let data = await task_finish();
         let v = result_property_data_set(r, data);
         result = v;
     }
-}
-
-function list_last_string_to(required_bys) {
-    let last = list_last(required_bys);
-    let last_string = string_to(last);
-    return last_string;
 }
