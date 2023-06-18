@@ -28,6 +28,6 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
         comment(`The index we'll add at`);
         let index = list_last_index(statements_code);
         list_last_remove(statements_code)
-        js_code_function_declaration_to_statement_assignment(function_declaration_map, list_single(identifier));
+        let mapped = js_code_function_declaration_to_statement_assignment(function_declaration_map, list_single(identifier));
     });
 }
