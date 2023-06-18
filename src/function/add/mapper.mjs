@@ -17,11 +17,13 @@ import { list_single_item } from '../../list/single/item.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
 import { list_get } from '../../list/get.mjs';
 import { list_multiple_combine } from '../../list/multiple/combine.mjs';
+import { list_first } from '../../list/first.mjs';
 export async function function_add_mapper(function_name_suffix) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let function_name_suffix_parts = string_identifier_parts_from([
         function_name_suffix
     ])
+    let function_name_suffix_parts_first = list_first(function_name_suffix_parts)
     let function_name = list_multiple_combine([
         'function'
     ],
