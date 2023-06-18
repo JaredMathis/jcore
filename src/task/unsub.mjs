@@ -14,12 +14,12 @@ import { list_empty } from '../list/empty.mjs';
 import { assert } from '../assert.mjs';
 export async function task_unsub() {
     arguments_assert(arguments, []);
-    let result = result_empty();
+    let r = result_empty();
     let required_bys = await task_current_required_bys();
     if (list_empty(required_bys)) {
-        result_unsuccess(result);
+        result_unsuccess(r);
         let data = await task_finish();
-        let v = result_property_data_set(result, data);
+        let v = result_property_data_set(r, data);
         return v;
     } else {
         let last_string = list_last_string_to(required_bys);
@@ -29,7 +29,7 @@ export async function task_unsub() {
         let v_2 = result_property_success_get(current_result);
         assert(v_2);
         let current = result_property_data_get(current_result);
-        let v_3 = result_property_data_set(result, current);
+        let v_3 = result_property_data_set(r, current);
         return v_3;
     }
 }
