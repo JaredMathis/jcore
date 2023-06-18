@@ -25,9 +25,5 @@ export function search_generic(candidates, query, candidate_to_string) {
         });
         return all_parts_included;
     });
-    let dictionary = list_string_to_dictionary(candidates_matching, function value_get(key) {
-        let value = function_name_to_file_path(key);
-        return value;
-    });
     return dictionary;
 }
