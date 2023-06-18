@@ -60,8 +60,8 @@ export function refactor_call_arguments_to_assignments(args) {
                 if (js_node_is_expression_statement(expression)) {
                     let child = js_node_property_expression_get(expression);
                     let v_2 = list_copy_shallow_add(refactor_stack, child);
-                    let v_3 = refactor_call_expression_to_assignments(child, v_2);
-                    return v_3;
+                    refactor_call_expression_to_assignments(child, v_2);
+                    return;
                 }
                 if (js_node_is_variable_declaration(expression)) {
                     let declaration = js_declarations_single(expression);
@@ -73,20 +73,20 @@ export function refactor_call_arguments_to_assignments(args) {
                         declaration,
                         init
                     ]);
-                    let v_7 = refactor_call_expression_to_assignments(init, v_6);
-                    return v_7;
+                    refactor_call_expression_to_assignments(init, v_6);
+                    return;
                 }
                 if (js_node_is_assignment_expression(expression)) {
                     let right = js_node_property_right_get(expression);
                     let v_8 = list_copy_shallow_add(refactor_stack, right);
-                    let v_9 = refactor_call_expression_to_assignments(right, v_8);
-                    return v_9;
+                    refactor_call_expression_to_assignments(right, v_8);
+                    return;
                 }
                 if (js_node_is_await_expression(expression)) {
                     let argument = js_node_property_argument_get(expression);
                     let v_10 = list_copy_shallow_add(refactor_stack, argument);
-                    let v_11 = refactor_call_expression_to_assignments(argument, v_10);
-                    return v_11;
+                    refactor_call_expression_to_assignments(argument, v_10);
+                    return;
                 }
                 if (js_node_is_return_statement(expression)) {
                     let argument = js_return_statement_argument_get(expression);
@@ -98,7 +98,7 @@ export function refactor_call_arguments_to_assignments(args) {
                     return v_13;
                 }
                 if (not(js_node_is_call_expression(expression))) {
-                    return false;
+                    return;
                 }
                 let stack_reversed = list_reversed_get(refactor_stack);
                 let index_starting_at = 0;
@@ -106,7 +106,7 @@ export function refactor_call_arguments_to_assignments(args) {
                 let parent_list_next = object_property_get(list_find_first_after_result, 'next');
                 let parent_list_index = object_property_get(list_find_first_after_result, 'index');
                 if (js_node_is_program(parent_list_next)) {
-                    return false;
+                    return;
                 }
                 if (js_node_is_variable_declaration(parent_list_next)) {
                     list_find_first_after_result = list_find_first_start_at(stack_reversed, parent_list_index);
