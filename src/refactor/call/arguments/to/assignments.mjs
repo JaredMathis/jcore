@@ -58,7 +58,7 @@ export function refactor_call_arguments_to_assignments(args) {
                     js_node_is,
                     defined_is
                 ]);
-                log ('here')
+                console.log ('here')
                 if (js_node_is_expression_statement(expression)) {
                     let child = js_node_property_expression_get(expression);
                     return refactor_call_expression_to_assignments(child, list_copy_shallow_add(refactor_stack, child));
