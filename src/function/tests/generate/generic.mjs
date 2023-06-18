@@ -46,17 +46,21 @@ export async function function_tests_generate_generic(function_name, count_strin
     let v = not(v_4);
     assert(v);
     let predicate = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
-    let predicate_names = list_map(predicate, p => object_property_get(p, 'name'));
-    let names_with_endings = list_map(predicate_names, n => {
+    let predicate_names = list_map(predicate, function v_6(p) {
+        return object_property_get(p, 'name');
+    });
+    let names_with_endings = list_map(predicate_names, function v_7(n) {
         let v_2 = function_name_to_tests_values(n);
         return v_2;
     });
     let names_with_endings_unqiue = list_unique(names_with_endings);
-    if (await list_any_async(names_with_endings_unqiue, async n => not(await function_exists(n)))) {
+    if (await list_any_async(names_with_endings_unqiue, async function v_8(n) {
+            return not(await function_exists(n));
+        })) {
         error(`${ function_name_get(arguments_assert) } types need filling in ` + names_with_endings_unqiue);
         return;
     }
-    let dictionary = await list_to_dictionary_async(names_with_endings_unqiue, async key => {
+    let dictionary = await list_to_dictionary_async(names_with_endings_unqiue, async function v_9(key) {
         let v_3 = await function_run(key, []);
         return v_3;
     });
@@ -68,7 +72,7 @@ export async function function_tests_generate_generic(function_name, count_strin
     for (let i of range(count)) {
         let test_name = function_name + function_tests_generated_string_sub() + (i + 1);
         for (let j of range(tries)) {
-            let args = list_map(predicate_names, n => {
+            let args = list_map(predicate_names, function v_10(n) {
                 let key = function_name_to_tests_values(n);
                 let d = object_property_get(dictionary, key);
                 let value = list_random_item(d);
@@ -79,7 +83,7 @@ export async function function_tests_generate_generic(function_name, count_strin
                 continue;
             }
             list_add(args_so_far, args_json);
-            await function_tests_generate_generic_each(function_name, test_name, args, () => {
+            await function_tests_generate_generic_each(function_name, test_name, args, function v_11() {
                 count_error++;
                 if (count_error > count_error_max) {
                     return true;

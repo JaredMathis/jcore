@@ -14,12 +14,14 @@ export async function tests_name_next(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let functions_all = await function_name_all();
     const prefix = function_tests_prefix_get(function_name);
-    let function_name_tests = list_filter(functions_all, f => string_starts_with(f, prefix));
-    let tests_ids_all = list_map(function_name_tests, t => {
+    let function_name_tests = list_filter(functions_all, function v_3(f) {
+        return string_starts_with(f, prefix);
+    });
+    let tests_ids_all = list_map(function_name_tests, function v_4(t) {
         let v = string_function_name_to_tests_id(function_name, t);
         return v;
     });
-    let tests_ids_all_numeric = list_filter(tests_ids_all, id => {
+    let tests_ids_all_numeric = list_filter(tests_ids_all, function v_5(id) {
         let v_2 = integer_parsable(id);
         return v_2;
     });

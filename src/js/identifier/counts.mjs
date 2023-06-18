@@ -13,7 +13,7 @@ comment(`This does not count "hasOwnProperty" for now`);
 export function js_identifier_counts(parsed) {
     arguments_assert(arguments, [js_node_is]);
     let result = {};
-    js_visit_nodes_identifier(parsed, v => {
+    js_visit_nodes_identifier(parsed, function v_3(v) {
         let node = object_property_get(v, 'node');
         let invalid_names = ['hasOwnProperty'];
         let r = object_property_get(node, 'name');

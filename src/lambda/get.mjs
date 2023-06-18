@@ -1,3 +1,5 @@
 export function lambda_get(value) {
-    return input => value;
+    return function v(input) {
+        return value;
+    };
 }

@@ -19,7 +19,7 @@ export function string_case_camel_parse(input) {
     let characters = string_to_list(input);
     const property_is_capital = 'is_capital';
     const property_index = 'index';
-    let mapped = list_map_with_index(characters, (c, index) => {
+    let mapped = list_map_with_index(characters, function v_2(c, index) {
         return {
             [property_is_capital]: string_case_upper_is(c),
             [property_index]: index
@@ -29,7 +29,7 @@ export function string_case_camel_parse(input) {
     let indices = list_map_property(filtered, property_index);
     let v = list_length(characters);
     list_add(indices, v);
-    let parts = list_adder(list_new_then_add => {
+    let parts = list_adder(function v_3(list_new_then_add) {
         let previous = 0;
         for (let index of indices) {
             if (equal(index, 0)) {

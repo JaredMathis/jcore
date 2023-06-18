@@ -18,7 +18,7 @@ export async function refactor_member_expression_to_function_call(args) {
     arguments_assert(arguments, [defined_is]);
     let changed = false;
     let {parsed} = args;
-    js_visit_nodes_filter(parsed, js_node_is_member_expression, v => {
+    js_visit_nodes_filter(parsed, js_node_is_member_expression, function v_4(v) {
         let node = object_property_get(v, 'node');
         let property = object_property_get(node, 'property');
         if (not(js_node_is_identifier(property))) {

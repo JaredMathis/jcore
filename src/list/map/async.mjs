@@ -8,7 +8,7 @@ export async function list_map_async(list, mapper) {
         list_is,
         function_is
     ]);
-    let lambda = async (element, index) => {
+    let lambda = async function v_3(element, index) {
         let v = await mapper(element);
         return v;
     };

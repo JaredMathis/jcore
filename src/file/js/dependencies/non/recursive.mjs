@@ -18,19 +18,19 @@ export async function file_js_dependencies_non_recursive(file_path) {
     arguments_assert(arguments, [path_is]);
     let parsed = await file_js_parse(file_path);
     let imports = js_import_all(parsed);
-    let mapped = list_map(imports, i => {
+    let mapped = list_map(imports, function v_6(i) {
         let v = js_node_property_source();
         let source = object_property_get(i, v);
         let v_2 = js_node_property_value();
         let path_relative_to_file_path = object_property_get(source, v_2);
         return path_relative_to_file_path;
     });
-    let filtered = list_filter(mapped, p => {
+    let filtered = list_filter(mapped, function v_7(p) {
         let v_3 = directory_current();
         let v_4 = string_starts_with(p, v_3);
         return v_4;
     });
-    let mapped2 = list_map(filtered, path_relative_to_file_path => {
+    let mapped2 = list_map(filtered, function v_8(path_relative_to_file_path) {
         let path_full = path_join([
             path_parent(file_path),
             path_relative_to_file_path

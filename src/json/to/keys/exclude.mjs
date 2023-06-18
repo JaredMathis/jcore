@@ -9,5 +9,7 @@ export function json_to_keys_exclude(value, excluded) {
         defined_is,
         list_is
     ]);
-    object_merge_filtered(value, key => not(list_contains(excluded, key)), {});
+    object_merge_filtered(value, function v(key) {
+        return not(list_contains(excluded, key));
+    }, {});
 }

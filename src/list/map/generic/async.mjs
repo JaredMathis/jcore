@@ -19,14 +19,14 @@ export async function list_map_generic_async(list, lambda, allow_error_mapping, 
         boolean_is,
         defined_is
     ]);
-    let v = await list_adder_async(async la => {
-        await list_each_with_index_async(list, async (element, index) => {
-            let result = throws_generic(async () => {
+    let v = await list_adder_async(async function v_4(la) {
+        await list_each_with_index_async(list, async function v_5(element, index) {
+            let result = throws_generic(async function v_6() {
                 let v_2 = await lambda(element, index);
                 return v_2;
             });
             let mapped;
-            if (not(changed(c => {
+            if (not(changed(function v_7(c) {
                     if (allow_error_mapping) {
                         if (result_unsuccess_is(result)) {
                             mapped = value_on_error_mapping;

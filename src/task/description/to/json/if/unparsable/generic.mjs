@@ -13,7 +13,7 @@ import { object_property_get } from '../../../../../../object/property/get.mjs';
 import { list_adder_async } from '../../../../../../list/adder/async.mjs';
 export async function task_description_to_json_if_unparsable_generic(open) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let result = await list_adder_async(async list_add_then => {
+    let result = await list_adder_async(async function v_4(list_add_then) {
         for (let task of open) {
             let v = task_property_body();
             let task_body_value = object_property_get(task, v);

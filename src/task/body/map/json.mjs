@@ -8,7 +8,9 @@ export async function task_body_map_json(issue_number, map) {
         string_is,
         function_is
     ]);
-    let lambda = task_body_value => json_map_empty_if_null(task_body_value, map);
+    let lambda = function v(task_body_value) {
+        return json_map_empty_if_null(task_body_value, map);
+    };
     let result = await task_body_map_generic(issue_number, lambda);
     return result;
 }

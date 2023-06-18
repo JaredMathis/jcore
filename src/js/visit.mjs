@@ -19,6 +19,8 @@ export function js_visit(parsed, filter, lambda) {
         } else {
             root = parsed;
         }
-    visit_filter(parsed, node => object_properties(node), filter, lambda);
+    visit_filter(parsed, function v(node) {
+        return object_properties(node);
+    }, filter, lambda);
     metadata([]);
 }

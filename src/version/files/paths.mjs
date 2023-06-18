@@ -18,7 +18,13 @@ export async function version_files_paths(repository_name) {
         paths = [];
     }
     let dc = directory_current();
-    let mapped = list_map(paths, p => dc + string_prefix_without(p, repository_files_path));
-    let files_committed = list_filter(mapped, m1 => list_all(mapped, m2 => implies(string_starts_with(m2, m1), equal(m1, m2))));
+    let mapped = list_map(paths, function v(p) {
+        return dc + string_prefix_without(p, repository_files_path);
+    });
+    let files_committed = list_filter(mapped, function v_2(m1) {
+        return list_all(mapped, function v_3(m2) {
+            return implies(string_starts_with(m2, m1), equal(m1, m2));
+        });
+    });
     return files_committed;
 }

@@ -10,7 +10,7 @@ export function js_identifier_multiple_rename(dictionary, args) {
         js_mapper_args_is
     ]);
     let changed = false;
-    object_keys_each(dictionary, (to, from) => {
+    object_keys_each(dictionary, function v(to, from) {
         if (js_identifier_rename(args, from, to)) {
             changed = true;
         }

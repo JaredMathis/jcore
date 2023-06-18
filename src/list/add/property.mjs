@@ -10,6 +10,8 @@ export function list_add_property(list, object, property_name) {
         defined_is,
         string_is
     ]);
-    let la = element => list_add(list, element);
+    let la = function v(element) {
+        return list_add(list, element);
+    };
     list_add_property_generic(la, object, property_name);
 }

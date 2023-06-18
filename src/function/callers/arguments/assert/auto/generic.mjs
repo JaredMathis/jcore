@@ -66,7 +66,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             }
             let changed = false;
             let assignment_exists = false;
-            js_visit_nodes_filter(c_parsed, js_node_is_assignment_expression, v => {
+            js_visit_nodes_filter(c_parsed, js_node_is_assignment_expression, function v_9(v) {
                 let {node} = v;
                 let v_7 = js_node_property_left();
                 let left = object_property_get(node, v_7);
@@ -80,10 +80,10 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             if (assignment_exists === true) {
                 return changed;
             }
-            js_visit_nodes_call_expression_name_equal(c_parsed, function_name, v => {
+            js_visit_nodes_call_expression_name_equal(c_parsed, function_name, function v_10(v) {
                 let {node} = v;
                 let ce_args = js_call_expression_arguments_get(node);
-                list_each_with_index(ce_args, (ce_arg, ce_arg_index) => {
+                list_each_with_index(ce_args, function v_11(ce_arg, ce_arg_index) {
                     if (not(js_node_is_identifier(ce_arg))) {
                         return;
                     }

@@ -23,7 +23,7 @@ export async function tests_generate() {
     let function_name = tests_name();
     let file_path = function_name_to_file_path(function_name);
     let test_names = await function_all_tests();
-    let mapped = list_map(test_names, n => {
+    let mapped = list_map(test_names, function v_4(n) {
         const awaited = js_code_call_expression_statement(n);
         let v = js_code_await(awaited);
         return v;

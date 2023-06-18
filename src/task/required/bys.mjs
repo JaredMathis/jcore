@@ -10,7 +10,7 @@ export function task_required_bys(task_number, all_unsummarized) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let v = list_adder(list_new_then_add => {
+    let v = list_adder(function v_3(list_new_then_add) {
         for (let other of all_unsummarized) {
             let other_requires = task_requires_get(other);
             if (list_contains(other_requires, task_number)) {

@@ -5,7 +5,7 @@ import { list_length } from '../length.mjs';
 import { object_keys_each } from '../../object/keys/each.mjs';
 export function list_multiple_summary(lists) {
     let result = {};
-    object_keys_each(lists, (list, list_name) => {
+    object_keys_each(lists, function v_2(list, list_name) {
         let prefix = `list`;
         let fn = list_length;
         let suffix = function_name_without_prefix(fn, prefix);

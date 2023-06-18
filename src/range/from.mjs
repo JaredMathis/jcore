@@ -15,6 +15,8 @@ export function range_from(from, to) {
     let difference = subtract(to, from);
     let value = add_1(difference);
     let ranged = range(value);
-    let mapped = list_map(ranged, r => add(r, from));
+    let mapped = list_map(ranged, function v(r) {
+        return add(r, from);
+    });
     return mapped;
 }

@@ -34,9 +34,13 @@ export async function function_rename_without_all_refactor(function_name_old, fu
     assert(v_4);
     let all = await function_name_all();
     let tests_prefix_old = function_tests_prefix_get(function_name_old);
-    let tests_old = list_filter(all, a => string_starts_with(a, tests_prefix_old));
+    let tests_old = list_filter(all, function v_10(a) {
+        return string_starts_with(a, tests_prefix_old);
+    });
     let tests_prefix_new = function_tests_prefix_get(function_name_new);
-    let tests_renames = list_to_dictionary(tests_old, t => string_prefix_replace(t, tests_prefix_old, tests_prefix_new));
+    let tests_renames = list_to_dictionary(tests_old, function v_11(t) {
+        return string_prefix_replace(t, tests_prefix_old, tests_prefix_new);
+    });
     for (let to of object_properties(tests_renames)) {
         let v_9 = await function_exists(to);
         let v_5 = not(v_9);

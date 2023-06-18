@@ -11,7 +11,7 @@ export function list_map(list, mapper) {
         function_is
     ]);
     let result = [];
-    list_each_with_index(list, (element, index) => {
+    list_each_with_index(list, function v(element, index) {
         let mapped = mapper(element);
         list_add(result, mapped);
     });

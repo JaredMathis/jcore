@@ -28,7 +28,7 @@ export function js_export_function_single_generic(parsed, or_null) {
             value_set(result, null);
         }
         if (list_length_multiple(exports_existing)) {
-            let names = list_map(exports_existing, e => {
+            let names = list_map(exports_existing, function v_2(e) {
                 const declaration = js_export_declaration_get(e);
                 let name = js_function_declaration_to_name(declaration);
                 return name;

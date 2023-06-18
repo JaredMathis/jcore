@@ -7,13 +7,15 @@ import { arguments_assert } from '../../assert.mjs';
 export function arguments_assert_test_2() {
     arguments_assert(arguments, []);
     comment('Too few predicates');
-    assert_throws(() => arguments_assert([
-        1,
-        2,
-        3
-    ], [
-        integer_is,
-        integer_is
-    ]));
+    assert_throws(function v() {
+        return arguments_assert([
+            1,
+            2,
+            3
+        ], [
+            integer_is,
+            integer_is
+        ]);
+    });
     metadata([metadata_arguments_assert_extra_allow()]);
 }

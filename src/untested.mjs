@@ -9,7 +9,9 @@ export async function untested() {
     arguments_assert(arguments, []);
     let maximum_untested_display = 10;
     let function_names = await function_name_all_tests_not();
-    let filtered = await list_filter_async(function_names, async f => await function_tests_count(f) === 0);
+    let filtered = await list_filter_async(function_names, async function v(f) {
+        return await function_tests_count(f) === 0;
+    });
     let limited = list_take(filtered, maximum_untested_display);
     for (let function_name of limited) {
         log(function_name);

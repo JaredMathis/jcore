@@ -9,7 +9,7 @@ export function js_visit_nodes_filter(parsed, predicate, lambda) {
         function_is,
         function_is
     ]);
-    js_visit(parsed, node => {
+    js_visit(parsed, function v(node) {
         return js_node_is(node) && predicate(node);
     }, lambda);
     metadata([]);

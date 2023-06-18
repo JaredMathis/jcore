@@ -8,7 +8,9 @@ export function object_map(object, values_without) {
         defined_is,
         list_is
     ]);
-    let lambda = key => list_contains(values_without, key);
+    let lambda = function v_2(key) {
+        return list_contains(values_without, key);
+    };
     let v = object_map_generic(object, lambda);
     return v;
 }

@@ -12,8 +12,8 @@ export async function function_rename_part(function_name_old, part_old, part_new
         string_identifier_part_is,
         string_identifier_part_is
     ]);
-    let function_name_new = string_identifier_parts_map(function_name_old, parts => {
-        let parts_new = list_map(parts, p => {
+    let function_name_new = string_identifier_parts_map(function_name_old, function v(parts) {
+        let parts_new = list_map(parts, function v_2(p) {
             if (equal(p, part_old)) {
                 return part_new;
             }

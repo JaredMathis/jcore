@@ -21,7 +21,7 @@ export async function version_sync_local_preview_generic(repository_name) {
         todo(contents, existing, file_path);
     }
     let removals = await version_removals(repository_name, file_paths);
-    await version_file_contents_each(repository_name, removals, async (file_path, contents) => {
+    await version_file_contents_each(repository_name, removals, async function v_2(file_path, contents) {
         todo(contents, '', file_path);
     });
     function todo(contents, existing, file_path) {

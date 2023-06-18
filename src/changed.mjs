@@ -5,7 +5,7 @@ import { arguments_assert } from './arguments/assert.mjs';
 export function changed(lambda) {
     arguments_assert(arguments, [function_is]);
     let result = false;
-    lambda(() => {
+    lambda(function v() {
         result = true;
     });
     return result;

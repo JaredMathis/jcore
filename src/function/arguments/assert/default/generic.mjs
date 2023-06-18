@@ -20,7 +20,7 @@ import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 export async function function_arguments_assert_default_generic(on_equals) {
     arguments_assert(arguments, [function_is]);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
-    await function_names_each_filter(logic, function_name => {
+    await function_names_each_filter(logic, function v_5(function_name) {
         let v = list_contains(excludes, function_name);
         let result = not(v);
         return result;

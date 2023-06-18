@@ -28,7 +28,7 @@ export async function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
     let changed = false;
     let {function_declaration, parsed} = args;
-    js_visit_nodes_filter(parsed, js_node_is_object_pattern, v => {
+    js_visit_nodes_filter(parsed, js_node_is_object_pattern, function v_8(v) {
         let {stack, parent, node} = v;
         if (js_node_is_variable_declarator(parent)) {
             let grandparent = js_visit_node_grandparent(stack, 0);

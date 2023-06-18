@@ -6,7 +6,9 @@ import { assert } from '../../../../assert.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function string_set_test_generated_4() {
     arguments_assert(arguments, []);
-    let v = assert_throws(() => string_set('aab', -2, 'a'));
+    let v = assert_throws(function v_2() {
+        return string_set('aab', -2, 'a');
+    });
     assert(v);
     metadata([metadata_generated()]);
 }

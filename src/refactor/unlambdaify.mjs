@@ -7,5 +7,7 @@ import { arguments_assert } from '../arguments/assert.mjs';
 export function refactor_unlambdaify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
-    js_nodes_each(parsed, js_node_is_arrow_function_expression, n => js_arrow_function_expression_functionify(n, js_identifier_name_next(parsed)));
+    js_nodes_each(parsed, js_node_is_arrow_function_expression, function v(n) {
+        return js_arrow_function_expression_functionify(n, js_identifier_name_next(parsed));
+    });
 }

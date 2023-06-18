@@ -15,7 +15,7 @@ import { version_repository_default } from '../../../../../version/repository/de
 export async function task_git_hub_issues_pull_generic(no_cache) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let repository_name = version_repository_default();
-    let pages = await list_adder_async(async list_add_then => {
+    let pages = await list_adder_async(async function v(list_add_then) {
         let page = 1;
         let issues;
         do {

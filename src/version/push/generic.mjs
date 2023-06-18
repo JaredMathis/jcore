@@ -43,16 +43,16 @@ export async function version_push_generic(repository_name, preview) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let list_commits = await list_adder_async(async list_commits_add => {
+    let list_commits = await list_adder_async(async function v_11(list_commits_add) {
         let db = database_firestore_get();
         let database_collection_name = version_collection_repository(repository_name);
         let fns = function_name_separator();
         let property_commit_latest = version_property_commit_latest();
         let info_refererence = database_document_info_reference(db, database_collection_name);
-        await database_transaction(db, async transaction => {
+        await database_transaction(db, async function v_12(transaction) {
             await database_reference_set_if_not_exists(transaction, info_refererence, { [property_commit_latest]: 0 });
         });
-        await database_transaction(db, async transaction => {
+        await database_transaction(db, async function v_13(transaction) {
             const property_commit_latest_data = `${ database_collection_name }${ fns }${ property_commit_latest }`;
             let property_commit_latest_data_value = await data_key_value_get(property_commit_latest_data);
             let info_data = await database_reference_get_data(transaction, info_refererence);
@@ -65,7 +65,7 @@ export async function version_push_generic(repository_name, preview) {
             let repository_commits_path = version_path_commits_get(repository_name);
             let commits = await directory_read_json(repository_commits_path);
             let last_index = list_last_index(commits);
-            await list_each_with_index_async(commits, async (commit, index) => {
+            await list_each_with_index_async(commits, async function v_14(commit, index) {
                 let v_2 = directory_property_file_path();
                 let commit_path = object_property_get(commit, v_2);
                 let v_10 = list_single_item(commit_path);

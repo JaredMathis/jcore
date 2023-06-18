@@ -8,5 +8,7 @@ export function js_visit_nodes_call_expression_name_equal(parsed, name_expected,
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    js_nodes_each(parsed, node => js_node_call_expression_name_equal(node, name_expected), lambda);
+    js_nodes_each(parsed, function v(node) {
+        return js_node_call_expression_name_equal(node, name_expected);
+    }, lambda);
 }

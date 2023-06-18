@@ -13,15 +13,21 @@ import { file_path_split } from '../../../../path/split.mjs';
 import { list_map } from '../../../../../list/map.mjs';
 export function file_js_path_all_to_name(file_js_paths) {
     arguments_assert(arguments, [list_is]);
-    let mapped = list_map(file_js_paths, a => file_path_split(a));
+    let mapped = list_map(file_js_paths, function v_2(a) {
+        return file_path_split(a);
+    });
     let directory_source_result = directory_source();
-    let mapped2 = list_map(mapped, a => {
+    let mapped2 = list_map(mapped, function v_3(a) {
         assert(list_first(a) === directory_source_result);
         let v = list_skip_first(a);
         return v;
     });
-    let mapped3 = list_map(mapped2, a => list_join(a, function_name_separator()));
-    let mapped4 = list_map(mapped3, a => string_suffix_without(a, function_extension()));
+    let mapped3 = list_map(mapped2, function v_4(a) {
+        return list_join(a, function_name_separator());
+    });
+    let mapped4 = list_map(mapped3, function v_5(a) {
+        return string_suffix_without(a, function_extension());
+    });
     return mapped4;
     metadata([]);
 }

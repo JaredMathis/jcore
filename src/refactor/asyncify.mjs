@@ -23,7 +23,9 @@ export async function refactor_asyncify(args) {
     let function_names = await function_name_all();
     let function_names_dictionary = list_to_dictionary(function_names, identity);
     let calls = js_nodes_get(parsed, js_node_is_call_expression);
-    let function_calls = list_filter(calls, ce => object_property_exists(function_names_dictionary, js_call_expression_name_get_or_null(ce)));
+    let function_calls = list_filter(calls, function v_3(ce) {
+        return object_property_exists(function_names_dictionary, js_call_expression_name_get_or_null(ce));
+    });
     let suffix = function_naming_suffix_async();
     for (let f of function_calls) {
         let name = js_call_expression_name_get_or_null(f);

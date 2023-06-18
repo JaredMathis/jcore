@@ -16,8 +16,10 @@ export async function git_ignore_filter(file_paths) {
         gil,
         list_single_item('.git')
     ]);
-    let filtered = list_filter(file_paths, f => {
-        let v = list_all(filter, g => not(string_starts_with(f, g + directory_separator())) && not(equal(f, g)));
+    let filtered = list_filter(file_paths, function v_2(f) {
+        let v = list_all(filter, function v_3(g) {
+            return not(string_starts_with(f, g + directory_separator())) && not(equal(f, g));
+        });
         return v;
     });
     return filtered;

@@ -7,7 +7,7 @@ export async function directory_read_contents(repository_directory) {
     let file_paths = await directory_read(repository_directory);
     let property_contents = directory_property_contents();
     let property_file_path = directory_property_file_path();
-    let mapped = await list_map_async(file_paths, async file_path => {
+    let mapped = await list_map_async(file_paths, async function v(file_path) {
         let contents = await file_read(file_path);
         return {
             [property_contents]: contents,

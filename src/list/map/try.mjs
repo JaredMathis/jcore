@@ -9,7 +9,7 @@ export function list_map_try(list, mapper) {
         list_is,
         function_is
     ]);
-    let lambda = (element, index) => {
+    let lambda = function v_3(element, index) {
         let v = mapper(element);
         return v;
     };

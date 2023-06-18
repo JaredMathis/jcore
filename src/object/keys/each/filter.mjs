@@ -9,8 +9,8 @@ export function object_keys_each_filter(object, predicate) {
         defined_is,
         function_is
     ]);
-    let result = list_adder(list_new_then_add => {
-        let lambda = (value, key) => {
+    let result = list_adder(function v(list_new_then_add) {
+        let lambda = function v_2(value, key) {
             if (predicate(value, key)) {
                 list_new_then_add(key);
             }

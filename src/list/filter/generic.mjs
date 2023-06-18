@@ -10,8 +10,8 @@ export function list_filter_generic(array, filter, added_get) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let v = list_adder(la => {
-        list_each_with_index(array, (element, index) => {
+    let v = list_adder(function v_2(la) {
+        list_each_with_index(array, function v_3(element, index) {
             if (filter(element)) {
                 let added = added_get(element, index);
                 la(added);

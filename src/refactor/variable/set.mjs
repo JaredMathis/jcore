@@ -18,7 +18,7 @@ export async function refactor_variable_set(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {identifier, value} = args;
     let {parsed} = args;
-    const predicate = n => {
+    const predicate = function v_6(n) {
         if (not(js_node_is_variable_declaration(n))) {
             return false;
         }

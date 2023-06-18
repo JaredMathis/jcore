@@ -22,9 +22,13 @@ export async function function_import(import_meta, function_name) {
     let function_path = function_name_to_file_path(function_name);
     let concated = path_relative_file(__filename, function_path);
     let replaced = js_import_path_normalize(concated);
-    let imported = await try_catch_throw_async(async () => await import(replaced), async e => {
+    let imported = await try_catch_throw_async(async function v() {
+        return await import(replaced);
+    }, async function v_2(e) {
         let all = await function_name_all();
-        let similar = list_filter(all, a => string_similar(a, function_name));
+        let similar = list_filter(all, function v_3(a) {
+            return string_similar(a, function_name);
+        });
         if (not(list_empty(similar))) {
             let similar_paths = function_name_list_to_file_path(similar);
             log_multiple([

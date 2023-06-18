@@ -38,13 +38,19 @@ export async function js_import_all_with_function_names(parsed) {
             'imported',
             'local'
         ];
-        let values = list_map(properties, p => object_property_get(specifier, p));
-        if (list_any(values, v => not(js_node_is_identifier(v)))) {
+        let values = list_map(properties, function v_3(p) {
+            return object_property_get(specifier, p);
+        });
+        if (list_any(values, function v_4(v) {
+                return not(js_node_is_identifier(v));
+            })) {
             continue;
         }
         let first = list_first(values);
         let first_name = object_property_get(first, 'name');
-        if (list_any(values, v => object_property_get(v, 'name') !== first_name)) {
+        if (list_any(values, function v_5(v) {
+                return object_property_get(v, 'name') !== first_name;
+            })) {
             continue;
         }
         if (not(list_contains(function_names, first_name))) {

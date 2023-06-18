@@ -23,7 +23,7 @@ export async function function_add_string_multiple(prefix, keys_unparsed, values
     assert(v);
     let v_4 = list_length(keys);
     let v_2 = range(v_4);
-    let result = await list_map_async(v_2, async i => {
+    let result = await list_map_async(v_2, async function v_5(i) {
         let key = list_get(keys, i);
         let value = list_get(values, i);
         let function_name = string_identifier_combine(prefix, key);

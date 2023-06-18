@@ -29,7 +29,9 @@ export function string_difference_apply_parse(hunk) {
         string_difference_removed(),
         string_difference_added()
     ];
-    let indexes = list_map(operations, o => string_index_of_try(hunk, o));
+    let indexes = list_map(operations, function v_6(o) {
+        return string_index_of_try(hunk, o);
+    });
     let valid = list_filter(indexes, string_index_of_try_valid);
     if (list_empty(valid)) {
         error();

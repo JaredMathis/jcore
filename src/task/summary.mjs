@@ -29,7 +29,7 @@ export function task_summary(task, all_unsummarized) {
         requires,
         required_bys
     };
-    object_keys_each(lists, (list, list_name) => {
+    object_keys_each(lists, function v_7(list, list_name) {
         if (not(list_empty(list))) {
             let v_6 = string_comma();
             let v_5 = list_join(list, v_6);

@@ -13,6 +13,8 @@ export async function function_rename_prefix_change(function_name_old_without_pr
         prefix_old,
         function_name_old_without_prefix
     ];
-    let function_name_old_to_new = function_name_old => string_prefix_replace(function_name_old, prefix_old, prefix_new);
+    let function_name_old_to_new = function v(function_name_old) {
+        return string_prefix_replace(function_name_old, prefix_old, prefix_new);
+    };
     await function_rename_suffix_generic(function_name_old_parts, function_name_old_to_new);
 }

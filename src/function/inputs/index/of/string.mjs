@@ -10,7 +10,9 @@ export async function function_inputs_index_of_string(function_name, input_name)
         arguments_assert_todo
     ]);
     let inputs = await function_inputs(function_name);
-    let index = list_find_index(inputs, i => equal(i, input_name));
+    let index = list_find_index(inputs, function v(i) {
+        return equal(i, input_name);
+    });
     let index_string = string_to(index);
     return index_string;
 }

@@ -12,7 +12,9 @@ export function js_import_remove_if_exists(parsed, imports, function_name) {
         list_is,
         string_identifier_is
     ]);
-    let import_to_remove = list_find_or_null(imports, i => object_property_get(i, 'name') === function_name);
+    let import_to_remove = list_find_or_null(imports, function v_2(i) {
+        return object_property_get(i, 'name') === function_name;
+    });
     if (import_to_remove !== null) {
         let v = list_single_item(import_to_remove);
         js_imports_remove_generic(parsed, v);

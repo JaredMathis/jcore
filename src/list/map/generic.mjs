@@ -21,14 +21,14 @@ export function list_map_generic(list, lambda, allow_error_mapping, value_on_err
         boolean_is,
         defined_is
     ]);
-    let v = list_adder(la => {
-        list_each_with_index(list, (element, index) => {
-            let result = throws_generic(() => {
+    let v = list_adder(function v_4(la) {
+        list_each_with_index(list, function v_5(element, index) {
+            let result = throws_generic(function v_6() {
                 let v_2 = lambda(element, index);
                 return v_2;
             });
             let mapped;
-            if (not(changed(c => {
+            if (not(changed(function v_7(c) {
                     if (allow_error_mapping) {
                         if (result_unsuccess_is(result)) {
                             mapped = value_on_error_mapping;
