@@ -59,8 +59,7 @@ export function refactor_call_arguments_to_assignments(args) {
                 ]);
                 if (js_node_is_expression_statement(expression)) {
                     let child = js_node_property_expression_get(expression);
-                    let refactor_stack_child = list_copy_shallow_add(refactor_stack, child);
-                    return refactor_call_expression_to_assignments(child, refactor_stack_child);
+                    return refactor_call_expression_to_assignments(child,  list_copy_shallow_add(refactor_stack, child));
                 }
                 if (js_node_is_variable_declaration(expression)) {
                     let declaration = js_declarations_single(expression);
