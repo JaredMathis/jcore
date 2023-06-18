@@ -1,3 +1,5 @@
+import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
+import { arguments_assert } from '../arguments/assert.mjs';
 import { function_name_to_file_path } from '../function/name/to/file/path.mjs';
 import { value_get } from '../value/get.mjs';
 import { list_to_dictionary } from '../list/to/dictionary.mjs';
@@ -6,7 +8,11 @@ import { list_all } from '../list/all.mjs';
 import { list_filter } from '../list/filter.mjs';
 import { string_identifier_sub_multiple_parse } from '../string/identifier/sub/multiple/parse.mjs';
 import { function_search_delimeter } from '../function/search/delimeter.mjs';
-export function search_generic(query, candidates) {
+export function search_generic(candidates, query) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     let fsd = function_search_delimeter();
     let parts = string_identifier_sub_multiple_parse(query, fsd);
     let candidates_matching = list_filter(candidates, function list_filter_predicate(candidate) {
