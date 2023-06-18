@@ -160,7 +160,6 @@ import { string_length_is_0_test_generated_4 } from './string/length/is/0/test/g
 import { string_length_is_0_test_generated_3 } from './string/length/is/0/test/generated/3.mjs';
 import { string_length_is_0_test_generated_2 } from './string/length/is/0/test/generated/2.mjs';
 import { string_length_is_0_test_generated_1 } from './string/length/is/0/test/generated/1.mjs';
-import { string_is_test_values } from './string/is/test/values.mjs';
 import { string_index_of_try_test_generated_9 } from './string/index/of/try/test/generated/9.mjs';
 import { string_index_of_try_test_generated_8 } from './string/index/of/try/test/generated/8.mjs';
 import { string_index_of_try_test_generated_7 } from './string/index/of/try/test/generated/7.mjs';
@@ -352,7 +351,6 @@ import { integer_mod_test_generated_3 } from './integer/mod/test/generated/3.mjs
 import { integer_mod_test_generated_2 } from './integer/mod/test/generated/2.mjs';
 import { integer_mod_test_generated_10 } from './integer/mod/test/generated/10.mjs';
 import { integer_mod_test_generated_1 } from './integer/mod/test/generated/1.mjs';
-import { integer_is_test_values } from './integer/is/test/values.mjs';
 import { integer_half_test_generated_5 } from './integer/half/test/generated/5.mjs';
 import { integer_half_test_generated_4 } from './integer/half/test/generated/4.mjs';
 import { integer_half_test_generated_3 } from './integer/half/test/generated/3.mjs';
@@ -376,7 +374,6 @@ import { error_test_1 } from './error/test/1.mjs';
 import { comment_test_3 } from './comment/test/3.mjs';
 import { comment_test_2 } from './comment/test/2.mjs';
 import { comment_test_1 } from './comment/test/1.mjs';
-import { character_is_test_values } from './character/is/test/values.mjs';
 import { assert_test_5 } from './assert/test/5.mjs';
 import { assert_test_4 } from './assert/test/4.mjs';
 import { assert_test_3 } from './assert/test/3.mjs';
@@ -420,7 +417,6 @@ export async function tests() {
     await assert_test_3();
     await assert_test_4();
     await assert_test_5();
-    await character_is_test_values();
     await comment_test_1();
     await comment_test_2();
     await comment_test_3();
@@ -444,7 +440,6 @@ export async function tests() {
     await integer_half_test_generated_3();
     await integer_half_test_generated_4();
     await integer_half_test_generated_5();
-    await integer_is_test_values();
     await integer_mod_test_generated_1();
     await integer_mod_test_generated_10();
     await integer_mod_test_generated_2();
@@ -636,7 +631,6 @@ export async function tests() {
     await string_index_of_try_test_generated_7();
     await string_index_of_try_test_generated_8();
     await string_index_of_try_test_generated_9();
-    await string_is_test_values();
     await string_length_is_0_test_generated_1();
     await string_length_is_0_test_generated_2();
     await string_length_is_0_test_generated_3();
@@ -798,5 +792,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(398 + ' tests ran successfully');
+    log(395 + ' tests ran successfully');
 }
