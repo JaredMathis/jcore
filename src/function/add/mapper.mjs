@@ -20,6 +20,7 @@ import { list_contains } from '../../list/contains.mjs';
 import { string_split } from '../../string/split.mjs';
 import { function_name_separator } from '../name/separator.mjs';
 import { assert_message } from '../../assert/message.mjs';
+import { string_identifier_parts_to } from '../../string/identifier/parts/to.mjs';
 export async function function_add_mapper(function_name_suffix) {
     arguments_assert(arguments, [string_identifier_is]);
     let function_name_suffix_parts = string_split(function_name_suffix, function_name_separator());
@@ -31,8 +32,8 @@ export async function function_add_mapper(function_name_suffix) {
         prefix_refactor
     ];
     assert_message(!list_contains(prefixes, function_name_suffix_parts_first), `Cannot start with: ` + prefixes);
-    let function_name = list_multiple_combine([[prefix_function], function_name_suffix_parts]);
-    let function_name_refactor = list_multiple_combine([[prefix_refactor], function_name_suffix_parts]);
+    let function_name = string_identifier_parts_from([[prefix_function], function_name_suffix_parts]);
+    let function_name_refactor = string_identifier_parts_from([[prefix_refactor], function_name_suffix_parts]);
     await function_add_inputs(function_name_refactor, 'args');
     let input = 'function_name';
     comment(` await function_map(function_name_get(refactor_asyncify), function_name_new);`);
