@@ -1,3 +1,5 @@
+import { refactor_function_name_from_parts } from '../../refactor/function/name/from/parts.mjs';
+import { refactor_prefix } from '../../refactor/prefix.mjs';
 import { string_identifier_parts_from_combine } from '../../string/identifier/parts/from/combine.mjs';
 import { function_add_with_call_expression_synchronized } from './with/call/expression/synchronized.mjs';
 import { js_brace_left_right } from '../../js/brace/left/right.mjs';
@@ -46,17 +48,4 @@ export async function function_add_mapper(function_name_suffix) {
     let v_2 = function_name_get(string_identifier_is);
     await function_input_add_type(function_name, input, v_2);
     await function_open_vs_code(function_name);
-}
-
-function refactor_prefix() {
-    return 'refactor';
-}
-
-function refactor_function_name_from_parts(function_name_suffix_parts) {
-    const list_with_multiple_lists = [
-        [refactor_prefix()],
-        function_name_suffix_parts
-    ];
-    let function_name_refactor = string_identifier_parts_from_combine(list_with_multiple_lists);
-    return function_name_refactor;
 }
