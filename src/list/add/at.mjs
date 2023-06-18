@@ -13,7 +13,6 @@ export function list_add_at(list, value, index) {
         defined_is,
         integer_is
     ]);
-    console.log({list,index})
     let v = list_index_valid(list, index) || equal(index, list_length(list));
     assert(v);
     const delete_count = 0;
