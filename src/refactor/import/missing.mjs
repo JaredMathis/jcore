@@ -12,7 +12,7 @@ import { list_add_beginning_multiple } from '../../list/add/beginning/multiple.m
 import { js_function_name_to_import } from '../../js/function/name/to/import.mjs';
 import { js_import_all_to_function_name } from '../../js/import/all/to/function/name.mjs';
 import { js_exported_function_names } from '../../js/exported/function/names.mjs';
-import { js_body_get } from '../../js/body/get.mjs';
+import { js_program_body_get } from '../../js/program/body/get.mjs';
 import { js_mapper_args_is } from '../../js/mapper/args/is.mjs';
 export async function refactor_import_missing(args) {
     arguments_assert(arguments, [js_mapper_args_is]);
@@ -34,7 +34,7 @@ export async function refactor_import_missing(args) {
     let exported_function_names = js_exported_function_names(parsed);
     let without = list_without_multiple(missing, exported_function_names);
     let import_new_all = list_map(without, js_function_name_to_import);
-    let body = js_body_get(parsed);
+    let body = js_program_body_get(parsed);
     list_add_beginning_multiple(body, import_new_all);
     metadata([]);
 }
