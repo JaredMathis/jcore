@@ -342,12 +342,6 @@ import { range_from_test_generated_3 } from './range/from/test/generated/3.mjs';
 import { range_from_test_generated_2 } from './range/from/test/generated/2.mjs';
 import { range_from_test_generated_10 } from './range/from/test/generated/10.mjs';
 import { range_from_test_generated_1 } from './range/from/test/generated/1.mjs';
-import { number_zero_is_test_generated_6 } from './number/zero/is/test/generated/6.mjs';
-import { number_zero_is_test_generated_5 } from './number/zero/is/test/generated/5.mjs';
-import { number_zero_is_test_generated_4 } from './number/zero/is/test/generated/4.mjs';
-import { number_zero_is_test_generated_3 } from './number/zero/is/test/generated/3.mjs';
-import { number_zero_is_test_generated_2 } from './number/zero/is/test/generated/2.mjs';
-import { number_zero_is_test_generated_1 } from './number/zero/is/test/generated/1.mjs';
 import { integer_mod_test_generated_9 } from './integer/mod/test/generated/9.mjs';
 import { integer_mod_test_generated_8 } from './integer/mod/test/generated/8.mjs';
 import { integer_mod_test_generated_7 } from './integer/mod/test/generated/7.mjs';
@@ -461,12 +455,6 @@ export async function tests() {
     await integer_mod_test_generated_7();
     await integer_mod_test_generated_8();
     await integer_mod_test_generated_9();
-    await number_zero_is_test_generated_1();
-    await number_zero_is_test_generated_2();
-    await number_zero_is_test_generated_3();
-    await number_zero_is_test_generated_4();
-    await number_zero_is_test_generated_5();
-    await number_zero_is_test_generated_6();
     await range_from_test_generated_1();
     await range_from_test_generated_10();
     await range_from_test_generated_2();
@@ -810,5 +798,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(404 + ' tests ran successfully');
+    log(398 + ' tests ran successfully');
 }
