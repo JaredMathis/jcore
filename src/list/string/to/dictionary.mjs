@@ -1,3 +1,4 @@
+import { identity } from '../../../identity.mjs';
 import { metadata_generated } from '../../../metadata/generated.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { object_property_initialize } from '../../../object/property/initialize.mjs';
@@ -8,9 +9,7 @@ export function list_string_to_dictionary(list, element_to_value) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    function element_to_key(element){
-        return element;
-    }
+    let element_to_key = identity;
     let dictionary = {};
     for (let element of list) {
         let key = element_to_key(element);
