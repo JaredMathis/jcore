@@ -7,10 +7,10 @@ import { function_auto_after } from './auto/after.mjs';
 import { function_exists } from './exists.mjs';
 import { function_add } from './add.mjs';
 import { function_open_vs_code } from './open/vs/code.mjs';
-import { assert } from '../assert.mjs';
+import { assert_message } from '../assert/message.mjs';
 export async function function_auto(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
-    assert(not(string_repeat_is(function_name)));
+    assert_message(not(string_repeat_is(function_name)), `The function name has repetition - could be typo - code needs changing to bypass`);
     if (not(await function_exists(function_name))) {
         await function_add(function_name);
     } else {
