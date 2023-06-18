@@ -15,9 +15,9 @@ export async function function_rename_suffix_change(function_name_old_without_su
         function_name_old_without_suffix,
         suffix_old
     ];
-    let lambda = function_name_old => string_suffix_replace(function_name_old, suffix_old, suffix_new)
+    let function_name_old_to_new = function_name_old => string_suffix_replace(function_name_old, suffix_old, suffix_new)
     let v = function_name_separator();
     let function_name_old = list_join(function_name_old_parts, v);
-    let function_name_new = lambda(function_name_old);
+    let function_name_new = function_name_old_to_new(function_name_old);
     await function_rename_single(function_name_old, function_name_new);
 }
