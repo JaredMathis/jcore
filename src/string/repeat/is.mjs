@@ -7,9 +7,6 @@ import { string_split_at } from '../split/at.mjs';
 export function string_repeat_is(input) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let length = string_length(input);
-    if (integer_odd_is(length)) {
-        return false;
-    }
     let half = integer_divide_evenly(length, 2);
     string_split_at();
 }
