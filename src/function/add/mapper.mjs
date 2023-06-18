@@ -39,8 +39,8 @@ export async function function_add_mapper(function_name_suffix) {
         function_name_suffix_parts
     ]);
     let input = 'function_name';
-    const expression_code_args = lambda(function_name_refactor);
-    function lambda(function_name_refactor) {
+    const expression_code_args = expression_code_args_get(function_name_refactor);
+    function expression_code_args_get(function_name_refactor) {
         const expression_code_args = [
             js_code_call_expression_with_args(function_name_get(function_name_get), [function_name_refactor]),
             input,
