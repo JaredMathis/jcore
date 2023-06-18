@@ -31,7 +31,7 @@ export async function task_unsub() {
         assert(v_2);
         let current = result_property_data_get(current_result);
         let v_3 = result_property_data_set(r, current);
-        result = v;
+        result = v_3;
     }
     async function on_if() {
         result_unsuccess(r);
