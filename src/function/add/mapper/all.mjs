@@ -13,5 +13,5 @@ export async function function_add_mapper_all(function_name_suffix) {
         return expression_code_args;
     }
     const prefix_function = 'function';
-    let input = await function_add_mapper_generic(prefix_function, function_name_suffix, function_name_to_call, expression_code_args_get, noop);
+    await function_add_mapper_generic(prefix_function, function_name_suffix, function_name_to_call, expression_code_args_get, noop);
 }
