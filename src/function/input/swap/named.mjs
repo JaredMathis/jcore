@@ -8,8 +8,8 @@ export async function function_input_swap_named(function_name, input_name_from, 
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let index_from = function_inputs_index_of_string(input_name_from);
-    let index_to = function_inputs_index_of_string(input_name_to);
+    let index_from = await function_inputs_index_of_string(function_name, input_name_from);
+    let index_to = await function_inputs_index_of_string(function_name, input_name_to);
     let result = await function_input_swap(function_name, index_from, index_to);
     return result;
 }
