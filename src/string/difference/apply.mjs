@@ -1,3 +1,4 @@
+import { string_split_at } from '../split/at.mjs';
 import { string_difference_property_added } from './property/added.mjs';
 import { value_new } from '../../value/new.mjs';
 import { list_sort_property_generic } from '../../list/sort/property/generic.mjs';
@@ -65,7 +66,7 @@ export function string_difference_apply(string_old, hunks) {
         let position = object_property_get(m, v_12);
         let v_13 = string_difference_property_added();
         let added = object_property_get(m, v_13);
-        let lr = string_split_at_skip(value, position, 0);
+        let lr = string_split_at(value, position);
         let v_14 = string_split_at_property_left();
         let left = object_property_get(lr, v_14);
         let v_15 = string_split_at_property_right();
