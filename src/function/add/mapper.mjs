@@ -48,7 +48,7 @@ export async function function_add_mapper(function_name_suffix) {
         js_brace_left_right()
     ];
     let function_name_to_call = function_name_get(fn);
-    await function_add_with_call_expression_synchronized(function_name_to_call, expression_code_args, function_name);
+    await function_add_with_call_expression_synchronized(function_name, function_name_to_call, expression_code_args);
     let v_2 = function_name_get(string_identifier_is);
     await function_input_add_type(function_name, input, v_2);
     await function_open_vs_code(function_name);
