@@ -6,6 +6,6 @@ export function integer_half(a, b) {
         integer_is,
         integer_is
     ]);
-    let result = integer_divide(a, b);
+    let result = integer_divide(a, 2);
     return result;
 }
