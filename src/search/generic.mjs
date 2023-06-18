@@ -18,8 +18,9 @@ export function search_generic(candidates, query, candidate_to_string) {
     let fsd = function_search_delimeter();
     let parts = string_identifier_sub_multiple_parse(query, fsd);
     let candidates_matching = list_filter(candidates, function list_filter_predicate(candidate) {
+        let candidate_as_string = candidate_to_string(candidate);
         let all_parts_included = list_all(parts, function list_all_each(part) {
-            let included = string_includes(candidate, part);
+            let included = string_includes(candidate_as_string, part);
             return included;
         });
         return all_parts_included;
