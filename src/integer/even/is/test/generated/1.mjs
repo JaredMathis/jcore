@@ -6,8 +6,8 @@ import { integer_even_is } from '../../../is.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export function integer_even_is_test_generated_1() {
     arguments_assert(arguments, []);
-    let expected = 0;
-    let actual = integer_even_is(0);
+    let expected = true;
+    let actual = integer_even_is(2);
     assert(json_equal(actual, expected));
     metadata([metadata_generated()]);
 }
