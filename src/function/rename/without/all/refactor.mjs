@@ -1,6 +1,6 @@
 import { not } from '../../../../not.mjs';
 import { equal } from '../../../../equal.mjs';
-import { list_to_dictionary } from '../../../../list/to/dictionary.mjs';
+import { list_string_to_dictionary } from '../../../../list/string/to/dictionary.mjs';
 import { string_starts_with } from '../../../../string/starts/with.mjs';
 import { list_filter } from '../../../../list/filter.mjs';
 import { function_tests_prefix_get } from '../../../tests/prefix/get.mjs';
@@ -39,7 +39,7 @@ export async function function_rename_without_all_refactor(function_name_old, fu
         return v_12;
     });
     let tests_prefix_new = function_tests_prefix_get(function_name_new);
-    let tests_renames = list_to_dictionary(tests_old, function v_11(t) {
+    let tests_renames = list_string_to_dictionary(tests_old, function v_11(t) {
         let v_13 = string_prefix_replace(t, tests_prefix_old, tests_prefix_new);
         return v_13;
     });

@@ -13,7 +13,7 @@ import { list_random_item } from '../../../list/random/item.mjs';
 import { range } from '../../../range.mjs';
 import { log } from '../../../log.mjs';
 import { function_run } from '../../run.mjs';
-import { list_to_dictionary_async } from '../../../list/to/dictionary/async.mjs';
+import { list_string_to_dictionary_async } from '../../../list/string/to/dictionary/async.mjs';
 import { function_exists } from '../../exists.mjs';
 import { list_any_async } from '../../../list/any/async.mjs';
 import { list_unique } from '../../../list/unique.mjs';
@@ -63,7 +63,7 @@ export async function function_tests_generate_generic(function_name, count_strin
         error(`${ function_name_get(arguments_assert) } types need filling in ` + names_with_endings_unqiue);
         return;
     }
-    let dictionary = await list_to_dictionary_async(names_with_endings_unqiue, async function v_9(key) {
+    let dictionary = await list_string_to_dictionary_async(names_with_endings_unqiue, async function v_9(key) {
         let v_3 = await function_run(key, []);
         return v_3;
     });
