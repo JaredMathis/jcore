@@ -13,6 +13,6 @@ export async function function_add_mapper_all(function_name_suffix) {
         const expression_code_args = [function_name_refactor];
         return expression_code_args;
     }
-    const prefix_function = js_keyword_function();
+    const prefix_function = `${ js_keyword_function() }s`;
     await function_add_mapper_generic(prefix_function, function_name_suffix, function_name_to_call, expression_code_args_get, noop);
 }
