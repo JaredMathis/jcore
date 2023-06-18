@@ -67,23 +67,23 @@ export function refactor_call_arguments_to_assignments(args) {
                     if (null_is(init)) {
                         return;
                     }
-                    list_copy_shallow_add(refactor_stack, child)
-                    return refactor_call_expression_to_assignments(init, declaration);
+                    
+                    return refactor_call_expression_to_assignments(init, list_copy_shallow_add_multiple(refactor_stack, [declaration,init]));
                 }
                 if (js_node_is_assignment_expression(expression)) {
                     let right = js_node_property_right_get(expression);
-                    return refactor_call_expression_to_assignments(right, expression);
+                    return refactor_call_expression_to_assignments(right, list_copy_shallow_add(refactor_stack, right));
                 }
                 if (js_node_is_await_expression(expression)) {
                     let argument = js_node_property_argument_get(expression);
-                    return refactor_call_expression_to_assignments(argument, expression);
+                    return refactor_call_expression_to_assignments(argument, list_copy_shallow_add(refactor_stack, argument));
                 }
                 if (js_node_is_return_statement(expression)) {
                     let argument = js_return_statement_argument_get(expression);
                     if (null_is(argument)) {
                         return;
                     }
-                    return refactor_call_expression_to_assignments(argument, expression);
+                    return refactor_call_expression_to_assignments(argument, list_copy_shallow_add(refactor_stack, argument));
                 }
                 if (not(js_node_is_call_expression(expression))) {
                     return false;
