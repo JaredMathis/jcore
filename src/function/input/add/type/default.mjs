@@ -1,4 +1,4 @@
-import { function_input_add_generic } from '../generic.mjs';
+import { function_input_add_generic_last } from '../generic/last.mjs';
 import { string_is } from '../../../../string/is.mjs';
 import { string_identifier_is } from '../../../../string/identifier/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -9,6 +9,5 @@ export async function function_input_add_type_default(function_name, input_name,
         string_identifier_is,
         string_is
     ]);
-    const input_index = await function_input_last_index(function_name);
-    await function_input_add_generic(function_name, input_name, input_type, input_value_default, input_index);
+    await function_input_add_generic_last(function_name, input_name, input_type, input_value_default);
 }
