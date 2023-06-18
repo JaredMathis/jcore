@@ -23,8 +23,8 @@ export async function task_unsub() {
         return v;
     }
     let last = await list_last(required_bys);
-    await task_finish();
     let last_string = string_to(last);
+    await task_finish();
     await task_set(last_string);
     let current_result = await task_current();
     let v_2 = result_property_success_get(current_result);
