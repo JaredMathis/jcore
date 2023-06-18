@@ -98,7 +98,6 @@ export function refactor_call_arguments_to_assignments(args) {
                     list_find_first_after_result = list_find_first_after(stack_reversed, parent_list_index);
                     parent_list_next = object_property_get(list_find_first_after_result, 'next');
                     parent_list_index = object_property_get(list_find_first_after_result, 'index');
-                    return false;
                 }
                 let v_2 = json_to({
                     s: list_map_try(stack_reversed, js_node_property_type_get),
