@@ -8,6 +8,7 @@ export function integer_half_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = -1;
     let actual = integer_half(-2);
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

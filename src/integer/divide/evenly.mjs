@@ -7,8 +7,10 @@ export function integer_divide_evenly(a, b) {
         integer_is,
         integer_is
     ]);
-    assert(integer_zero_not_is(b));
+    let v = integer_zero_not_is(b);
+    assert(v);
     let result = a / b;
-    assert(integer_is(result));
+    let v_2 = integer_is(result);
+    assert(v_2);
     return result;
 }

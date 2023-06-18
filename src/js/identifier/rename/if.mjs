@@ -11,7 +11,7 @@ export function js_identifier_rename_if(args, should_rename, name_new_get) {
         function_is,
         function_is
     ]);
-    return changed(c => {
+    let v_3 = changed(c => {
         let parsed = object_property_get(args, 'parsed');
         js_visit_nodes_identifier(parsed, v => {
             let node = object_property_get(v, 'node');
@@ -23,4 +23,5 @@ export function js_identifier_rename_if(args, should_rename, name_new_get) {
             }
         });
     });
+    return v_3;
 }

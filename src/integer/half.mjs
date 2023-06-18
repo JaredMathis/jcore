@@ -5,7 +5,8 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { assert } from '../assert.mjs';
 export function integer_half(a) {
     arguments_assert(arguments, [integer_is]);
-    assert(integer_even_is(a));
+    let v = integer_even_is(a);
+    assert(v);
     let result = integer_divide_evenly(a, 2);
     return result;
 }

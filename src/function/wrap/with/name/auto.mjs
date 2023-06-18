@@ -8,10 +8,11 @@ export async function function_wrap_with_name_auto(function_name_to_wrap, functi
         string_identifier_is,
         string_identifier_is
     ]);
+    let v = function_name_separator();
     let function_name_to_add = list_join([
         function_name_to_wrap,
         function_name_map
-    ], function_name_separator());
+    ], v);
     let result = await function_wrap_with(function_name_to_wrap, function_name_to_add, function_name_map);
     return result;
 }

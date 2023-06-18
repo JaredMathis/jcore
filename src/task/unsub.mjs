@@ -12,7 +12,8 @@ import { assert } from '../assert.mjs';
 export async function task_unsub() {
     arguments_assert(arguments, []);
     let r = result_empty();
-    return await task_unsub_generic(on_if, on_else);
+    let v_4 = await task_unsub_generic(on_if, on_else);
+    return v_4;
     async function on_else(last_string) {
         await task_finish();
         await task_set(last_string);

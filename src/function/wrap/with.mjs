@@ -21,7 +21,8 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
     let function_declaration_map = await function_to_declaration(function_name_map);
     let function_name_map_inputs = js_function_declaration_to_params_names(function_declaration_map);
     comment(`a mapping function must have 1 input (and 1 output)`);
-    assert(list_length_is_1(function_name_map_inputs));
+    let v = list_length_is_1(function_name_map_inputs);
+    assert(v);
     await function_wrap_generic(function_name_to_wrap, function_name_to_add, function map(args) {
         let {function_declaration, statements_code} = args;
         let identifier_result = function_wrap_generic_identifier_result();

@@ -8,6 +8,7 @@ export async function file_js_all_identifier_rename(identifier_name_old, identif
         string_identifier_is
     ]);
     let renames = { [identifier_name_old]: identifier_name_new };
-    return await file_js_all_identifier_multiple(renames);
+    let v = await file_js_all_identifier_multiple(renames);
+    return v;
     metadata([]);
 }

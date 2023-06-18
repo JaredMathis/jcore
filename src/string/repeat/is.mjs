@@ -15,5 +15,6 @@ export function string_repeat_is(input) {
     let half = integer_divide_evenly(length, 2);
     let split = string_split_at(input, half);
     let values = object_properties(split);
-    return list_all_equal(values);
+    let v = list_all_equal(values);
+    return v;
 }

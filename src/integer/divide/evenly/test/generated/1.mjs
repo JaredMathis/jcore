@@ -8,6 +8,7 @@ export function integer_divide_evenly_test_generated_1() {
     arguments_assert(arguments, []);
     let expected = -2;
     let actual = integer_divide_evenly(-2, 1);
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

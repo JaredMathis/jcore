@@ -8,6 +8,7 @@ export function integer_mod_test_generated_5() {
     arguments_assert(arguments, []);
     let expected = 1;
     let actual = integer_mod(1, 3);
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }

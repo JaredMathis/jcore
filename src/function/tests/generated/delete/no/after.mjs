@@ -9,7 +9,8 @@ import { assert } from '../../../../../assert.mjs';
 import { function_exists } from '../../../../exists.mjs';
 export async function function_tests_generated_delete_no_after(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
-    assert(await function_exists(function_name));
+    let v = await function_exists(function_name);
+    assert(v);
     let generateds = await function_tests_generated(function_name);
     if (not(list_empty(generateds))) {
         for (let g of generateds) {

@@ -8,6 +8,7 @@ export function integer_even_is_test_generated_2() {
     arguments_assert(arguments, []);
     let expected = false;
     let actual = integer_even_is(3);
-    assert(json_equal(actual, expected));
+    let v = json_equal(actual, expected);
+    assert(v);
     metadata([metadata_generated()]);
 }
