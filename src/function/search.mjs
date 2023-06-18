@@ -13,9 +13,9 @@ export async function function_search(query) {
     let v = function_search_delimeter();
     let parts = string_identifier_sub_multiple_parse(query, v);
     const all = await function_name_all_tests_not();
-    let function_names = list_filter(all, function v_3(a) {
+    let function_names = list_filter(all, function v_3(candidate) {
         let v_2 = list_all(parts, function v_4(p) {
-            let v_6 = string_includes(a, p);
+            let v_6 = string_includes(candidate, p);
             return v_6;
         });
         return v_2;
