@@ -1,3 +1,4 @@
+import { null_not_is } from '../../../../null/not/is.mjs';
 import { list_find_or_null } from '../../../../list/find/or/null.mjs';
 import { list_remove } from '../../../../list/remove.mjs';
 import { js_function_declaration_to_statement_arguments_assert } from '../../../../js/function/declaration/to/statement/arguments/assert.mjs';
@@ -22,6 +23,9 @@ export async function refactor_call_statement_find_previous(args) {
     let function_name_find_statements = js_node_property_body_to_block_statement_body_statements(function_declaration_find);
     list_remove(function_name_find_statements, statement_arguments_assert);
     let return_statement = list_find_or_null(function_name_find_statements, js_node_is_return_statement);
+    if (null_not_is(return_statement)) {
+        list_remove(function_name_find_statements, return_statement);
+    }
     log({ function_name_find_statements });
     error();
     let function_name = js_mapper_args_to_function_name(args);
