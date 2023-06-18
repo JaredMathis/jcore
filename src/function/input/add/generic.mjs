@@ -16,6 +16,7 @@ export async function function_input_add_generic(function_name, input_name, inpu
     await function_map_with_args(v, function_name, {
         input_name,
         input_value_default,
-        input_type
+        input_type,
+        input_index
     });
 }
