@@ -20,9 +20,9 @@ export async function function_search(query) {
         });
         return all_parts_included;
     });
-    let dictionary = list_to_dictionary(candidates_matching, function key_get(key) {
-        let v_7 = function_name_to_file_path(key);
-        return v_7;
+    let dictionary = list_to_dictionary(candidates_matching, function value_get(key) {
+        let value = function_name_to_file_path(key);
+        return value;
     });
     return dictionary;
 }
