@@ -1,3 +1,4 @@
+import { list_property_length } from '../../list/property/length.mjs';
 import { function_wrap_generic_identifier_result } from './generic/identifier/result.mjs';
 import { js_code_return_statement } from '../../js/code/return/statement.mjs';
 import { js_code_function_declaration_to_statement_assignment_wrapped } from '../../js/code/function/declaration/to/statement/assignment/wrapped.mjs';
@@ -37,6 +38,6 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
             js_code_function_declaration_to_statement_assignment_wrapped(function_declaration, identifier),
             js_code_return_statement(identifier)
         ];
-        object_property_change(statements_code, 'length', 0);
+        object_property_change(statements_code, list_property_length(), 0);
     });
 }
