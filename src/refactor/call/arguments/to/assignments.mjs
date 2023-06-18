@@ -1,3 +1,4 @@
+import { assert } from '../../../../assert.mjs';
 import { list_copy_shallow_add_multiple } from '../../../../list/copy/shallow/add/multiple.mjs';
 import { list_copy_shallow_add } from '../../../../list/copy/shallow/add.mjs';
 import { at_least_once_while } from '../../../../at/least/once/while.mjs';
@@ -22,11 +23,7 @@ import { js_code_statement_assignment } from '../../../../js/code/statement/assi
 import { js_identifier_name_next } from '../../../../js/identifier/name/next.mjs';
 import { js_node_property_arguments_get } from '../../../../js/node/property/arguments/get.mjs';
 import { list_get } from '../../../../list/get.mjs';
-import { assert_message } from '../../../../assert/message.mjs';
 import { js_node_is_block_statement } from '../../../../js/node/is/block/statement.mjs';
-import { js_node_property_type_get } from '../../../../js/node/property/type/get.mjs';
-import { list_map_try } from '../../../../list/map/try.mjs';
-import { json_to } from '../../../../json/to.mjs';
 import { js_node_is_variable_declaration } from '../../../../js/node/is/variable/declaration.mjs';
 import { js_node_is_program } from '../../../../js/node/is/program.mjs';
 import { list_reversed_get } from '../../../../list/reversed/get.mjs';
@@ -117,11 +114,7 @@ export function refactor_call_arguments_to_assignments(args) {
                     parent_list_index = object_property_get(list_find_first_after_result, 'index');
                 }
                 let v_14 = js_node_is_block_statement(parent_list_next);
-                let v_15 = json_to({
-                    s: list_map_try(stack_reversed, js_node_property_type_get),
-                    n: js_node_property_type_get(parent_list_next)
-                });
-                assert_message(v_14, v_15);
+                assert(v_14);
                 let parent_list = list_get(stack_reversed, parent_list_index);
                 let args = js_node_property_arguments_get(expression);
                 for (let arg of args) {
