@@ -9,5 +9,6 @@ export function js_statements_refactorable(left, right) {
         list_is
     ]);
     if (not(equal_by(list_length, left, right))) {
+        return false;
     }
 }
