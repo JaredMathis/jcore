@@ -113,7 +113,7 @@ export function refactor_call_arguments_to_assignments(args) {
                 let args = js_node_property_arguments_get(expression);
                 let args_reversed = list_reversed_get(args);
                 for (let arg of args_reversed) {
-                    if (js_node_is_call_expression(arg)) {
+                    if (js_node_is_call_expression(arg) || js_node_is_await_expression(arg)) {
                         replace(arg);
                     }
                 }
