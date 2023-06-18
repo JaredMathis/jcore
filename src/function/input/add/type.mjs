@@ -9,5 +9,5 @@ export async function function_input_add_type(function_name, input_name, input_t
         string_identifier_is
     ]);
     let input_value_default = function_input_value_default();
-    await function_input_add_generic(function_name, input_name, input_type, input_value_default);
+    await function_input_add_generic(function_name, input_name, input_type, input_value_default, 0);
 }
