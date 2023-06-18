@@ -93,14 +93,14 @@ export function refactor_call_arguments_to_assignments(args) {
                 }
                 let stack_reversed = list_reversed_get(refactor_stack);
                 let index_starting_at = 0;
-                let list_find_first_after_result = list_find_first_after(stack_reversed, index_starting_at);
+                let list_find_first_after_result = list_find_first_start_at(stack_reversed, index_starting_at);
                 let parent_list_next = object_property_get(list_find_first_after_result, 'next');
                 let parent_list_index = object_property_get(list_find_first_after_result, 'index');
                 if (js_node_is_program(parent_list_next)) {
                     return false;
                 }
                 if (js_node_is_variable_declaration(parent_list_next)) {
-                    list_find_first_after_result = list_find_first_after(stack_reversed, parent_list_index);
+                    list_find_first_after_result = list_find_first_start_at(stack_reversed, parent_list_index);
                     parent_list_next = object_property_get(list_find_first_after_result, 'next');
                     parent_list_index = object_property_get(list_find_first_after_result, 'index');
                 }
@@ -144,7 +144,7 @@ export function refactor_call_arguments_to_assignments(args) {
             }
         });
     });
-    function list_find_first_after(stack_reversed, index_starting_at) {
+    function list_find_first_start_at(stack_reversed, index_starting_at) {
         let index = list_find_first_index_starting_at(stack_reversed, list_is, index_starting_at);
         let index_next = add_1(index);
         let next = list_get(stack_reversed, index_next);
