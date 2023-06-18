@@ -33,11 +33,12 @@ export async function function_add_mapper(function_name_suffix) {
         function_name_suffix_parts
     ]);
     let function_name = string_identifier_parts_from(v_4);
-    let v_5 = list_multiple_combine([
+    const list_with_multiple_lists = [
         [prefix_refactor],
         function_name_suffix_parts
-    ]);
-    let function_name_refactor = string_identifier_parts_from(v_5);
+    ];
+    let combined = list_multiple_combine(list_with_multiple_lists);
+    let function_name_refactor = string_identifier_parts_from(combined);
     await function_add_inputs(function_name_refactor, 'args');
     let input = 'function_name';
     comment(` await function_map(function_name_get(refactor_asyncify), function_name_new);`);
