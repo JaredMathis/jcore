@@ -1,3 +1,4 @@
+import { function_wrap_generic_result } from './generic/result.mjs';
 import { js_code_function_declaration_to_statement_assignment } from '../../js/code/function/declaration/to/statement/assignment.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -22,7 +23,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     ]);
     let function_declaration = await function_to_declaration(function_name_to_wrap);
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
-    let identifier = 'result';
+    let identifier = function_wrap_generic_result();
     let inputs = js_function_declaration_to_params_names(function_declaration);
     let statement_first_code = js_code_function_declaration_to_statement_assignment(function_declaration, inputs, identifier);
     let statement_second_code = js_code_return_statement(identifier);
