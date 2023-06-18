@@ -18,10 +18,12 @@ export async function task_unsub() {
     let r = result_empty();
     let required_bys = await task_current_required_bys();
     const if_check = list_empty(required_bys);
-    await if_else_async(if_check, on_if, on_else);
-    return result;
-    async function on_else() {
+    await if_else_async(if_check, on_if, () => {
         let last_string = list_last_string_to(required_bys);
+        await on_else(last_string);
+    });
+    return result;
+    async function on_else(last_string) {
         await task_finish();
         await task_set(last_string);
         let current_result = await task_current();
