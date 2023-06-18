@@ -6,6 +6,6 @@ import { assert } from '../../../../../assert.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export function string_repeat_is_test_generated_2() {
     arguments_assert(arguments, []);
-    assert(assert_throws(() => string_repeat_is('aa')));
+    assert(assert_throws(() => string_repeat_is('a')));
     metadata([metadata_generated()]);
 }
