@@ -1,6 +1,5 @@
 import { list_copy_shallow_add_multiple } from '../../../../list/copy/shallow/add/multiple.mjs';
 import { list_copy_shallow_add } from '../../../../list/copy/shallow/add.mjs';
-import { log } from '../../../../log.mjs';
 import { changed_while } from '../../../../changed/while.mjs';
 import { js_return_statement_argument_get } from '../../../../js/return/statement/argument/get.mjs';
 import { js_node_is_return_statement } from '../../../../js/node/is/return/statement.mjs';
@@ -9,7 +8,7 @@ import { js_node_property_init_get } from '../../../../js/node/property/init/get
 import { js_declarations_single } from '../../../../js/declarations/single.mjs';
 import { add_1 } from '../../../../add/1.mjs';
 import { list_is } from '../../../../list/is.mjs';
-import { list_find_first_index_after } from '../../../../list/find/first/index/after.mjs';
+import { list_find_first_index_starting_at } from '../../../../list/find/first/index/starting/at.mjs';
 import { list_add_before } from '../../../../list/add/before.mjs';
 import { object_replace } from '../../../../object/replace.mjs';
 import { js_parse_expression } from '../../../../js/parse/expression.mjs';
@@ -146,7 +145,7 @@ export function refactor_call_arguments_to_assignments(args) {
         });
     });
     function list_find_first_after(stack_reversed, index_starting_at) {
-        let index = list_find_first_index_after(stack_reversed, list_is, index_starting_at);
+        let index = list_find_first_index_starting_at(stack_reversed, list_is, index_starting_at);
         let index_next = add_1(index);
         let next = list_get(stack_reversed, index_next);
         return {
