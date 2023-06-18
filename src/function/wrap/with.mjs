@@ -7,5 +7,10 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
         string_identifier_is,
         string_identifier_is
     ]);
-    await function_wrap_generic(function_name_to_wrap, function_name_to_add, noop);
+    await function_wrap_generic(function_name_to_wrap, function_name_to_add, function map(args) {
+        let {
+            identifier,
+            statements_code
+        } = args;
+    });
 }
