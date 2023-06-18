@@ -1,3 +1,4 @@
+import { integer_divide_evenly } from '../../integer/divide/evenly.mjs';
 import { integer_odd_is } from '../../integer/odd/is.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -9,5 +10,6 @@ export function string_repeat_is(input) {
     if (integer_odd_is(length)) {
         return false;
     }
+    let half = integer_divide_evenly(length, 2);
     string_split_at();
 }
