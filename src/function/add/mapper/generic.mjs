@@ -11,7 +11,7 @@ import { function_add_inputs } from '../inputs.mjs';
 import { refactor_function_name_from_parts } from '../../../refactor/function/name/from/parts.mjs';
 import { string_split } from '../../../string/split.mjs';
 import { function_name_separator } from '../../name/separator.mjs';
-export async function function_add_mapper_generic(prefix_function, function_name_suffix, expression_code_args_get, function_name_to_call, add_after) {
+export async function function_add_mapper_generic(prefix_function, function_name_suffix, function_name_to_call, expression_code_args_get, add_after) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo,
