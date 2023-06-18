@@ -3,7 +3,6 @@ import { js_list_add_identifier } from '../../js/list/add/identifier.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
-import { function_name_get } from '../../function/name/get.mjs';
 import { list_add } from '../../list/add.mjs';
 export async function refactor_input_add(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
