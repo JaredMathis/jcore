@@ -59,7 +59,7 @@ export function refactor_call_arguments_to_assignments(args) {
                 ]);
                 if (js_node_is_expression_statement(expression)) {
                     let child = js_node_property_expression_get(expression);
-                    return refactor_call_expression_to_assignments(child,  list_copy_shallow_add(refactor_stack, child));
+                    return refactor_call_expression_to_assignments(child, list_copy_shallow_add(refactor_stack, child));
                 }
                 if (js_node_is_variable_declaration(expression)) {
                     let declaration = js_declarations_single(expression);
@@ -67,6 +67,7 @@ export function refactor_call_arguments_to_assignments(args) {
                     if (null_is(init)) {
                         return;
                     }
+                    list_copy_shallow_add(refactor_stack, child)
                     return refactor_call_expression_to_assignments(init, declaration);
                 }
                 if (js_node_is_assignment_expression(expression)) {
@@ -140,11 +141,6 @@ export function refactor_call_arguments_to_assignments(args) {
                 }
             }
 
-            function list_copy_shallow_add(refactor_stack, child) {
-                let refactor_stack_child = object_copy_shallow(refactor_stack);
-                list_add(refactor_stack_child, child);
-                return refactor_stack_child;
-            }
         });
     });
     function list_find_first_after(stack_reversed, index_starting_at) {
@@ -156,4 +152,14 @@ export function refactor_call_arguments_to_assignments(args) {
             index
         };
     }
+}
+function list_copy_shallow_add_multiple(refactor_stack, multiple) {
+    let refactor_stack_child = object_copy_shallow(refactor_stack);
+    for (let m of multiple) {
+        list_add(refactor_stack_child, child);
+    }
+    return refactor_stack_child;
+}
+function list_copy_shallow_add(refactor_stack, child) {
+    return list_copy_shallow_add_multiple(refactor_stack, list_single_item(child));
 }
