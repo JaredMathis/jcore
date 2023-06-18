@@ -12,5 +12,6 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
             identifier,
             statements_code
         } = args;
+        let index = 1;
     });
 }
