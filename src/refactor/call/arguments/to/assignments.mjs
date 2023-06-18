@@ -118,7 +118,7 @@ export function refactor_call_arguments_to_assignments(args) {
                         replace(arg);
                     }
                 }
-                if (js_node_is_return_statement(node)) {
+                if (js_node_is_return_statement(node) || js_node_is_variable_declaration(node)) {
                     let expression_parent = list_get(stack_reversed, 1);
                     if (js_node_is_await_expression(expression_parent)) {
                         replace(expression_parent);
