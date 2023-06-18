@@ -12,15 +12,15 @@ export async function function_search(query) {
     arguments_assert(arguments, [string_is]);
     let v = function_search_delimeter();
     let parts = string_identifier_sub_multiple_parse(query, v);
-    const all = await function_name_all_tests_not();
-    let function_names = list_filter(all, function list_filter_predicate(candidate) {
+    const candidates = await function_name_all_tests_not();
+    let candidates_matching = list_filter(candidates, function list_filter_predicate(candidate) {
         let all_parts_included = list_all(parts, function list_all_each(part) {
             let included = string_includes(candidate, part);
             return included;
         });
         return all_parts_included;
     });
-    let dictionary = list_to_dictionary(function_names, function v_5(key) {
+    let dictionary = list_to_dictionary(candidates_matching, function v_5(key) {
         let v_7 = function_name_to_file_path(key);
         return v_7;
     });
