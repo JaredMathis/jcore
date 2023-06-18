@@ -1,5 +1,6 @@
-import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
-import { error } from '../../error.mjs';
+import { list_length } from '../../list/length.mjs';
+import { equal_by } from '../../equal/by.mjs';
+import { not } from '../../not.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_is } from '../../list/is.mjs';
 export function js_statements_refactorable(left, right) {
@@ -7,5 +8,6 @@ export function js_statements_refactorable(left, right) {
         list_is,
         list_is
     ]);
-    error('todo: js_statements_refactorable');
+    if (not(equal_by(list_length, left, right))) {
+    }
 }
