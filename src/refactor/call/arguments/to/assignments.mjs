@@ -130,7 +130,6 @@ export function refactor_call_arguments_to_assignments(args) {
                         replace(expression);
                     }
                 }
-                return;
                 function replace(arg) {
                     let arg_root = arg;
                     if (js_node_is_await_expression(arg)) {
