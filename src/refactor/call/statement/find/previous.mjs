@@ -13,11 +13,11 @@ export function refactor_call_statement_find_previous(args) {
     let function_name = js_mapper_args_to_function_name(args);
     log(function_name);
     js_visit_call_statements(args, (stack_reversed, node, expression, parent_list) => {
+        let node_string = js_unparse(node);
+        log(node_string);
         let index = list_index_of(parent_list, node);
         let index_previous = subtract_1(index);
         let previous = list_get(parent_list, index_previous);
-        let node_string = js_unparse(node);
-        log(node_string);
         error();
     });
     log('');
