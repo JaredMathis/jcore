@@ -32,7 +32,8 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     ];
     let args = {
         identifier,
-        statements_code
+        statements_code,
+        function_declaration
     };
     map(args);
     let statements = list_map(statements_code, js_parse_statement);
