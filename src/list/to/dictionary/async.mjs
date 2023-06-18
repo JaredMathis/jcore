@@ -9,8 +9,8 @@ export async function list_to_dictionary_async(list, element_to_key, element_to_
     ]);
     let dictionary = {};
     for (let element of list) {
-        let key = element_to_key(element);
-        let value = element_to_value(element);
+        let key = await element_to_key(element);
+        let value = await element_to_value(element);
         object_property_initialize(dictionary, key, value);
     }
     return dictionary;
