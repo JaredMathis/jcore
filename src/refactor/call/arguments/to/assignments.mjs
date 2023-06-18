@@ -117,6 +117,15 @@ export function refactor_call_arguments_to_assignments(args) {
                 let parent_list = list_get(stack_reversed, parent_list_index);
                 call_each(stack_reversed, node, expression, parent_list);
             }
+            function list_find_first_start_at(stack_reversed, index_starting_at) {
+                let index = list_find_first_index_starting_at(stack_reversed, list_is, index_starting_at);
+                let index_next = add_1(index);
+                let next = list_get(stack_reversed, index_next);
+                return {
+                    next,
+                    index
+                };
+            }
         });
         function call_each(stack_reversed, node, expression, parent_list) {
             let args = js_node_property_arguments_get(expression);
@@ -151,16 +160,6 @@ export function refactor_call_arguments_to_assignments(args) {
                 list_add_before(parent_list, assignment, node);
                 c();
             }
-        }
-
-        function list_find_first_start_at(stack_reversed, index_starting_at) {
-            let index = list_find_first_index_starting_at(stack_reversed, list_is, index_starting_at);
-            let index_next = add_1(index);
-            let next = list_get(stack_reversed, index_next);
-            return {
-                next,
-                index
-            };
         }
     });
 }
