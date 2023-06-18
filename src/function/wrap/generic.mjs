@@ -1,5 +1,5 @@
+import { js_code_function_declaration_to_statement_assignment_wrapped } from '../../js/code/function/declaration/to/statement/assignment/wrapped.mjs';
 import { function_wrap_generic_result } from './generic/result.mjs';
-import { js_code_function_declaration_to_statement_assignment } from '../../js/code/function/declaration/to/statement/assignment.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { function_open_vs_code } from '../open/vs/code.mjs';
@@ -24,8 +24,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     let function_declaration = await function_to_declaration(function_name_to_wrap);
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let identifier = function_wrap_generic_result();
-    let inputs = js_function_declaration_to_params_names(function_declaration);
-    let statement_first_code = js_code_function_declaration_to_statement_assignment(function_declaration, inputs, identifier);
+    let statement_first_code = js_code_function_declaration_to_statement_assignment_wrapped(function_declaration, identifier);
     let statement_second_code = js_code_return_statement(identifier);
     let statements_code = [
         statement_first_code,
@@ -39,6 +38,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     let statements = list_map(statements_code, js_parse_statement);
     let is_async = js_function_declaration_async_is(function_declaration);
     await function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
+    let inputs = js_function_declaration_to_params_names(function_declaration);
     await list_each_with_index_async(inputs, async (input, index) => {
         let arguments_assert_arg = list_get(arguments_assert_args, index);
         let arguments_assert_arg_name = js_identifier_name_get(arguments_assert_arg);
