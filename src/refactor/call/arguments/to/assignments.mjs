@@ -43,8 +43,8 @@ import { js_node_is } from '../../../../js/node/is.mjs';
 import { defined_is } from '../../../../defined/is.mjs';
 export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let parsed = object_property_get(args, 'parsed');
     at_least_once_while(function v_17(c) {
+        let parsed = object_property_get(args, 'parsed');
         js_visit_nodes_filter(parsed, function v_18(n) {
             return js_node_is_expression_statement(n) || js_node_is_variable_declaration(n) || js_node_is_return_statement(n);
         }, function v_19(v) {
