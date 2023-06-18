@@ -8,7 +8,6 @@ export async function function_input_add_type(function_name, input_name, input_t
         string_identifier_is,
         string_identifier_is
     ]);
-    const input_index = await function_input_last_index(function_name);
     let input_value_default = function_input_value_default();
-    await function_input_add_generic(function_name, input_name, input_type, input_value_default, input_index);
+    await function_input_add_generic_last(function_name, input_name, input_type, input_value_default);
 }
