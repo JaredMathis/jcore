@@ -15,29 +15,23 @@ import { string_identifier_parts_from } from '../../string/identifier/parts/from
 import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { list_single_item } from '../../list/single/item.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
-import { list_get } from '../../list/get.mjs';
 import { list_multiple_combine } from '../../list/multiple/combine.mjs';
 import { list_first } from '../../list/first.mjs';
 import { assert } from '../../assert.mjs';
 import { list_contains } from '../../list/contains.mjs';
 export async function function_add_mapper(function_name_suffix) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let function_name_suffix_parts = string_identifier_parts_from([
-        function_name_suffix
-    ])
-    let function_name_suffix_parts_first = list_first(function_name_suffix_parts)
+    let function_name_suffix_parts = string_identifier_parts_from([function_name_suffix]);
+    let function_name_suffix_parts_first = list_first(function_name_suffix_parts);
     const prefix_function = 'function';
     const prefix_refactor = 'refactor';
-    let prefixes = [prefix_function, prefix_refactor]
-    assert(!list_contains(prefixes, function_name_suffix_parts_first))
-    let function_name = list_multiple_combine([
-        prefix_function
-    ],
-    function_name_suffix_parts);
-    let function_name_refactor = list_multiple_combine([
+    let prefixes = [
+        prefix_function,
         prefix_refactor
-    ],
-    function_name_suffix_parts);
+    ];
+    assert(!list_contains(prefixes, function_name_suffix_parts_first));
+    let function_name = list_multiple_combine([prefix_function], function_name_suffix_parts);
+    let function_name_refactor = list_multiple_combine([prefix_refactor], function_name_suffix_parts);
     await function_add_inputs(function_name_refactor, 'args');
     let input = 'function_name';
     comment(` await function_map(function_name_get(refactor_asyncify), function_name_new);`);
