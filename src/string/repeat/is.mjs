@@ -7,5 +7,6 @@ export function string_repeat_is(input) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let length = string_length(input);
     if (not(integer_even_is(length))) {
+        return false;
     }
 }
