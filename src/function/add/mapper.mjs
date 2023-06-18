@@ -15,8 +15,12 @@ import { string_identifier_parts_from } from '../../string/identifier/parts/from
 import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { list_single_item } from '../../list/single/item.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
+import { list_get } from '../../list/get.mjs';
 export async function function_add_mapper(function_name_suffix) {
     arguments_assert(arguments, [arguments_assert_todo]);
+    let function_name_suffix_parts = string_identifier_parts_from([
+        function_name_suffix
+    ])
     let function_name = string_identifier_parts_from([
         'function',
         function_name_suffix
