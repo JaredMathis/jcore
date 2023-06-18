@@ -136,7 +136,7 @@ export function refactor_call_arguments_to_assignments(args) {
                     let assignment = js_parse_statement(assignment_code);
                     let declarations = js_node_property_declarations_get(assignment);
                     let declaration = list_single(declarations);
-                    let v_4 = object_copy_shallow(arg);
+                    let v_4 = object_copy_shallow(arg_root);
                     js_variable_declarator_init_change(declaration, v_4);
                     let v_5 = js_parse_expression(id);
                     object_replace(arg_root, v_5);
@@ -145,7 +145,6 @@ export function refactor_call_arguments_to_assignments(args) {
                 }
             }
         });
-        console.log(js_unparse(parsed))
     });
     function list_find_first_start_at(stack_reversed, index_starting_at) {
         let index = list_find_first_index_starting_at(stack_reversed, list_is, index_starting_at);
