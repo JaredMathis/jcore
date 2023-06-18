@@ -1,3 +1,4 @@
+import { js_keyword_function } from '../../../js/keyword/function.mjs';
 import { file_js_all_map_args_if_function } from '../../../file/js/all/map/args/if/function.mjs';
 import { function_add_mapper_generic } from './generic.mjs';
 import { function_name_get } from '../../name/get.mjs';
@@ -12,6 +13,6 @@ export async function function_add_mapper_all(function_name_suffix) {
         const expression_code_args = [function_name_refactor];
         return expression_code_args;
     }
-    const prefix_function = 'function';
+    const prefix_function = js_keyword_function();
     await function_add_mapper_generic(prefix_function, function_name_suffix, function_name_to_call, expression_code_args_get, noop);
 }
