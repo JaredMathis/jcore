@@ -44,6 +44,7 @@ import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_node_is } from '../../../../js/node/is.mjs';
 import { defined_is } from '../../../../defined/is.mjs';
+import { js_unparse } from '../../../../js/unparse.mjs';
 export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = object_property_get(args, 'parsed');
@@ -58,7 +59,6 @@ export function refactor_call_arguments_to_assignments(args) {
                     js_node_is,
                     defined_is
                 ]);
-                console.log ('here')
                 if (js_node_is_expression_statement(expression)) {
                     let child = js_node_property_expression_get(expression);
                     return refactor_call_expression_to_assignments(child, list_copy_shallow_add(refactor_stack, child));
@@ -145,6 +145,7 @@ export function refactor_call_arguments_to_assignments(args) {
                 }
             }
         });
+        console.log(js_unparse(parsed))
     });
     function list_find_first_start_at(stack_reversed, index_starting_at) {
         let index = list_find_first_index_starting_at(stack_reversed, list_is, index_starting_at);
