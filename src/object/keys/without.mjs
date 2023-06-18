@@ -11,7 +11,8 @@ export function object_keys_without(value, excluded) {
     ]);
     let all = object_properties(value);
     let filtered = list_filter(all, function v_2(v) {
-        return equal_not(v, excluded);
+        let v_3 = equal_not(v, excluded);
+        return v_3;
     });
     return filtered;
 }

@@ -6,7 +6,8 @@ export async function refactor_input_remove_at(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {input_index} = args;
     let lambda = function v(list) {
-        return list_remove_at(list, input_index);
+        let v_2 = list_remove_at(list, input_index);
+        return v_2;
     };
     await refactor_input_generic_simple(args, lambda);
 }

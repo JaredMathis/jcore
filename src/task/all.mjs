@@ -6,7 +6,8 @@ export async function task_all() {
     arguments_assert(arguments, []);
     let all_unsummarized = await task_all_unsummarized();
     let summaries = list_map(all_unsummarized, function v(t) {
-        return task_summary(t, all_unsummarized);
+        let v_2 = task_summary(t, all_unsummarized);
+        return v_2;
     });
     return summaries;
 }

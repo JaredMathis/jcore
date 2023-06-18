@@ -22,11 +22,14 @@ export async function refactor_import_missing(args) {
     let function_names = await function_name_all();
     comment(`Identifiers that are also function names`);
     let identifier_function_names = list_filter(identifiers, function v(i) {
-        return list_contains(function_names, i);
+        let v_3 = list_contains(function_names, i);
+        return v_3;
     });
     comment(`Identifiers missing an import`);
     let missing = list_filter(identifier_function_names, function v_2(i) {
-        return not(list_contains(import_name_all, i));
+        let v_4 = list_contains(import_name_all, i);
+        let v_5 = not(v_4);
+        return v_5;
     });
     let exported_function_names = js_exported_function_names(parsed);
     let without = list_without_multiple(missing, exported_function_names);

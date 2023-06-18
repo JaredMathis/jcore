@@ -7,7 +7,8 @@ import { assert } from '../../../../../assert.mjs';
 export function string_suffix_without_test_generated_3() {
     arguments_assert(arguments, []);
     let v = assert_throws(function v_2() {
-        return string_suffix_without('a', 'b');
+        let v_3 = string_suffix_without('a', 'b');
+        return v_3;
     });
     assert(v);
     metadata([metadata_generated()]);

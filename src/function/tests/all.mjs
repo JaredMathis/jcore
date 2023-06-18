@@ -10,7 +10,8 @@ export async function function_tests_all(function_name) {
     return v;
     function filter(all) {
         let v_2 = list_filter(all, function v_3(a) {
-            return string_function_name_prefix_starts_with(a, function_name);
+            let v_4 = string_function_name_prefix_starts_with(a, function_name);
+            return v_4;
         });
         return v_2;
     }

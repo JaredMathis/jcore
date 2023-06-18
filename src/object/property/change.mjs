@@ -14,7 +14,9 @@ export function object_property_change(f, property_name, value) {
         defined_is
     ]);
     let before = object_property_get(f, property_name);
-    assert(not(equal(before, value)));
+    let v_2 = equal(before, value);
+    let v = not(v_2);
+    assert(v);
     object_property_set(f, property_name, value);
     metadata([]);
 }

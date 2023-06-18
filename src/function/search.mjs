@@ -15,12 +15,14 @@ export async function function_search(query) {
     const all = await function_name_all_tests_not();
     let function_names = list_filter(all, function v_3(a) {
         let v_2 = list_all(parts, function v_4(p) {
-            return string_includes(a, p);
+            let v_6 = string_includes(a, p);
+            return v_6;
         });
         return v_2;
     });
     let dictionary = list_to_dictionary(function_names, function v_5(key) {
-        return function_name_to_file_path(key);
+        let v_7 = function_name_to_file_path(key);
+        return v_7;
     });
     return dictionary;
 }

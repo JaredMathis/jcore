@@ -11,7 +11,8 @@ export async function file_js_all_node_type_first(node_type) {
     await file_js_all_map_args_if_function(async function logic(args) {
         let {parsed} = args;
         js_nodes_each(parsed, function v(n) {
-            return js_node_is_type(n, node_type);
+            let v_3 = js_node_is_type(n, node_type);
+            return v_3;
         }, function v_2(n) {
             result = n;
             return true;

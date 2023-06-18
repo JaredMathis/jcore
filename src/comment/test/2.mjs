@@ -5,7 +5,8 @@ import { assert_throws } from '../../assert/throws.mjs';
 export function comment_test_2() {
     arguments_assert(arguments, []);
     assert_throws(function v() {
-        return comment();
+        let v_2 = comment();
+        return v_2;
     });
     metadata([]);
 }

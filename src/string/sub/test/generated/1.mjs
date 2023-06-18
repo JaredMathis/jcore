@@ -7,7 +7,8 @@ import { assert } from '../../../../assert.mjs';
 export function string_sub_test_generated_1() {
     arguments_assert(arguments, []);
     let v = assert_throws(function v_2() {
-        return string_sub('a', -1, -1);
+        let v_3 = string_sub('a', -1, -1);
+        return v_3;
     });
     assert(v);
     metadata([metadata_generated()]);

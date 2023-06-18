@@ -27,7 +27,8 @@ export async function function_import(import_meta, function_name) {
     }, async function v_2(e) {
         let all = await function_name_all();
         let similar = list_filter(all, function v_3(a) {
-            return string_similar(a, function_name);
+            let v_4 = string_similar(a, function_name);
+            return v_4;
         });
         if (not(list_empty(similar))) {
             let similar_paths = function_name_list_to_file_path(similar);

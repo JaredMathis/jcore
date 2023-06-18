@@ -10,7 +10,8 @@ export async function function_tests_generate_if_starts_with(prefix) {
     arguments_assert(arguments, [string_identifier_sub_is]);
     let names = await function_name_all_tests_not();
     let starts_with = list_filter(names, function v_2(n) {
-        return string_starts_with(n, prefix);
+        let v_3 = string_starts_with(n, prefix);
+        return v_3;
     });
     for (let function_name of starts_with) {
         let v = function_tests_generate_count_default();

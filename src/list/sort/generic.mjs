@@ -13,7 +13,10 @@ export function list_sort_generic(list, value_get, reverse, compare) {
         function_is
     ]);
     list.sort(function v(a, b) {
-        return compare(value_get(a), value_get(b));
+        let v_2 = value_get(a);
+        let v_3 = value_get(b);
+        let v_4 = compare(v_2, v_3);
+        return v_4;
     });
     if (reverse) {
         list_reverse(list);

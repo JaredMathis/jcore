@@ -10,7 +10,9 @@ export function list_without_multiple(list, values) {
         list_is
     ]);
     let v = list_filter(list, function v_2(element) {
-        return not(list_contains(values, element));
+        let v_3 = list_contains(values, element);
+        let v_4 = not(v_3);
+        return v_4;
     });
     return v;
     metadata([]);

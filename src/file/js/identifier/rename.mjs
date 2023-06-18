@@ -11,7 +11,8 @@ export async function file_js_identifier_rename(file_path, identifier_name_old, 
         string_identifier_is
     ]);
     await file_js_map_args(file_path, function v(args) {
-        return js_identifier_rename(args, identifier_name_old, identifier_name_new);
+        let v_2 = js_identifier_rename(args, identifier_name_old, identifier_name_new);
+        return v_2;
     });
     metadata([]);
 }

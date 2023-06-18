@@ -7,7 +7,8 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function string_set_test_generated_3() {
     arguments_assert(arguments, []);
     let v = assert_throws(function v_2() {
-        return string_set('b', -2, 'b');
+        let v_3 = string_set('b', -2, 'b');
+        return v_3;
     });
     assert(v);
     metadata([metadata_generated()]);

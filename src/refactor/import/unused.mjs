@@ -13,7 +13,8 @@ export async function refactor_import_unused(args) {
     let parsed = object_property_get(args, 'parsed');
     let imports = await js_import_all_with_function_names(parsed);
     let import_name_all = list_map(imports, function v(w) {
-        return object_property_get(w, 'name');
+        let v_2 = object_property_get(w, 'name');
+        return v_2;
     });
     let counts = js_identifier_counts(parsed);
     let twices = object_keys_each_filter(counts, function is_two(value, key) {

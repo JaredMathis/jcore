@@ -7,7 +7,8 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function string_swap_test_generated_2() {
     arguments_assert(arguments, []);
     let v = assert_throws(function v_2() {
-        return string_swap('b', 1, 1);
+        let v_3 = string_swap('b', 1, 1);
+        return v_3;
     });
     assert(v);
     metadata([metadata_generated()]);

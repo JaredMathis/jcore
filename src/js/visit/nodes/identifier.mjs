@@ -10,7 +10,8 @@ export function js_visit_nodes_identifier(parsed, lambda) {
         function_is
     ]);
     js_visit_nodes_filter(parsed, function v(node) {
-        return js_node_is_identifier(node);
+        let v_2 = js_node_is_identifier(node);
+        return v_2;
     }, lambda);
     metadata([]);
 }

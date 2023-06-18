@@ -8,7 +8,8 @@ export function js_import_all(parsed) {
     arguments_assert(arguments, [js_node_is_program]);
     let body = js_body_get(parsed);
     let import_all = list_filter(body, function v(b) {
-        return js_node_is_import_declaration(b);
+        let v_2 = js_node_is_import_declaration(b);
+        return v_2;
     });
     return import_all;
     metadata([]);

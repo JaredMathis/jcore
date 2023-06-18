@@ -15,7 +15,8 @@ export async function tests_name_next(function_name) {
     let functions_all = await function_name_all();
     const prefix = function_tests_prefix_get(function_name);
     let function_name_tests = list_filter(functions_all, function v_3(f) {
-        return string_starts_with(f, prefix);
+        let v_6 = string_starts_with(f, prefix);
+        return v_6;
     });
     let tests_ids_all = list_map(function_name_tests, function v_4(t) {
         let v = string_function_name_to_tests_id(function_name, t);

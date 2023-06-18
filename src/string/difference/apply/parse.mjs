@@ -30,7 +30,8 @@ export function string_difference_apply_parse(hunk) {
         string_difference_added()
     ];
     let indexes = list_map(operations, function v_6(o) {
-        return string_index_of_try(hunk, o);
+        let v_7 = string_index_of_try(hunk, o);
+        return v_7;
     });
     let valid = list_filter(indexes, string_index_of_try_valid);
     if (list_empty(valid)) {

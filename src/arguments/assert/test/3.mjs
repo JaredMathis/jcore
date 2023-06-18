@@ -8,10 +8,11 @@ export function arguments_assert_test_3() {
     arguments_assert(arguments, []);
     comment('Too many predicates');
     assert_throws(function v() {
-        return arguments_assert([1], [
+        let v_2 = arguments_assert([1], [
             integer_is,
             integer_is
         ]);
+        return v_2;
     });
     metadata([metadata_arguments_assert_extra_allow()]);
 }

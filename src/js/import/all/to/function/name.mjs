@@ -8,7 +8,8 @@ export async function js_import_all_to_function_name(parsed) {
     arguments_assert(arguments, [js_node_is_program]);
     let with_function_names = await js_import_all_with_function_names(parsed);
     let result = list_map(with_function_names, function v(w) {
-        return object_property_get(w, 'name');
+        let v_2 = object_property_get(w, 'name');
+        return v_2;
     });
     return result;
     metadata([]);

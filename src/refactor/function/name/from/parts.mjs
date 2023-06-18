@@ -5,5 +5,6 @@ import { refactor_prefix } from '../../../prefix.mjs';
 export function refactor_function_name_from_parts(function_name_suffix_parts) {
     arguments_assert(arguments, [arguments_assert_todo]);
     const prefix = refactor_prefix();
-    return function_name_from_parts_and_prefix(prefix, function_name_suffix_parts);
+    let v = function_name_from_parts_and_prefix(prefix, function_name_suffix_parts);
+    return v;
 }

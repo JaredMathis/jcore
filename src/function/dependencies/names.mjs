@@ -7,7 +7,8 @@ export async function function_dependencies_names(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let dependencies = await function_dependencies(function_name);
     let dependencies_names = list_map(dependencies, function v(d) {
-        return object_property_get(d, 'function_name');
+        let v_2 = object_property_get(d, 'function_name');
+        return v_2;
     });
     return dependencies_names;
 }

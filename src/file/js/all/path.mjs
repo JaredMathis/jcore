@@ -10,7 +10,9 @@ export async function file_js_all_path() {
     let v = directory_current_to_source();
     let result = await directory_read(v);
     let filtered = list_filter(result, function v_2(a) {
-        return string_ends_with(a, function_extension());
+        let v_3 = function_extension();
+        let v_4 = string_ends_with(a, v_3);
+        return v_4;
     });
     return filtered;
     metadata([]);

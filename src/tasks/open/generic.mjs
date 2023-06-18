@@ -16,7 +16,8 @@ export async function tasks_open_generic(filter_get, map_with_all_unsummarized) 
     let v_2 = task_property_number();
     list_sort_property(filtered, v_2);
     let summaries = list_map(filtered, function v_3(f) {
-        return map_with_all_unsummarized(f, all);
+        let v_4 = map_with_all_unsummarized(f, all);
+        return v_4;
     });
     return summaries;
 }

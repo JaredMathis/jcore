@@ -14,7 +14,8 @@ export async function function_rename_suffix_change(function_name_old_without_su
         suffix_old
     ];
     let function_name_old_to_new = function v(function_name_old) {
-        return string_suffix_replace(function_name_old, suffix_old, suffix_new);
+        let v_2 = string_suffix_replace(function_name_old, suffix_old, suffix_new);
+        return v_2;
     };
     await function_rename_suffix_generic(function_name_old_parts, function_name_old_to_new);
 }

@@ -22,9 +22,13 @@ export async function version_files_paths(repository_name) {
         return dc + string_prefix_without(p, repository_files_path);
     });
     let files_committed = list_filter(mapped, function v_2(m1) {
-        return list_all(mapped, function v_3(m2) {
-            return implies(string_starts_with(m2, m1), equal(m1, m2));
+        let v_4 = list_all(mapped, function v_3(m2) {
+            let v_5 = string_starts_with(m2, m1);
+            let v_6 = equal(m1, m2);
+            let v_7 = implies(v_5, v_6);
+            return v_7;
         });
+        return v_4;
     });
     return files_committed;
 }

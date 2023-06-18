@@ -14,7 +14,8 @@ import { list_map } from '../../../../../list/map.mjs';
 export function file_js_path_all_to_name(file_js_paths) {
     arguments_assert(arguments, [list_is]);
     let mapped = list_map(file_js_paths, function v_2(a) {
-        return file_path_split(a);
+        let v_6 = file_path_split(a);
+        return v_6;
     });
     let directory_source_result = directory_source();
     let mapped2 = list_map(mapped, function v_3(a) {
@@ -23,10 +24,14 @@ export function file_js_path_all_to_name(file_js_paths) {
         return v;
     });
     let mapped3 = list_map(mapped2, function v_4(a) {
-        return list_join(a, function_name_separator());
+        let v_7 = function_name_separator();
+        let v_8 = list_join(a, v_7);
+        return v_8;
     });
     let mapped4 = list_map(mapped3, function v_5(a) {
-        return string_suffix_without(a, function_extension());
+        let v_9 = function_extension();
+        let v_10 = string_suffix_without(a, v_9);
+        return v_10;
     });
     return mapped4;
     metadata([]);

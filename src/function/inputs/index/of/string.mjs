@@ -11,7 +11,8 @@ export async function function_inputs_index_of_string(function_name, input_name)
     ]);
     let inputs = await function_inputs(function_name);
     let index = list_find_index(inputs, function v(i) {
-        return equal(i, input_name);
+        let v_2 = equal(i, input_name);
+        return v_2;
     });
     let index_string = string_to(index);
     return index_string;

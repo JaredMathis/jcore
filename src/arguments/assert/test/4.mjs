@@ -8,7 +8,8 @@ export function arguments_assert_test_4() {
     arguments_assert(arguments, []);
     comment('wrong type (string is not a number)');
     assert_throws(function v() {
-        return arguments_assert([`1`], [integer_is]);
+        let v_2 = arguments_assert([`1`], [integer_is]);
+        return v_2;
     });
     metadata([metadata_arguments_assert_extra_allow()]);
 }

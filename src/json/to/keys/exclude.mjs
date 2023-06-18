@@ -10,6 +10,8 @@ export function json_to_keys_exclude(value, excluded) {
         list_is
     ]);
     object_merge_filtered(value, function v(key) {
-        return not(list_contains(excluded, key));
+        let v_2 = list_contains(excluded, key);
+        let v_3 = not(v_2);
+        return v_3;
     }, {});
 }

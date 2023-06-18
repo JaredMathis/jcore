@@ -7,5 +7,6 @@ export async function function_input_add_generic_default_index(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let inputs = await function_inputs(function_name);
     const input_index = list_last_index(inputs);
-    return add_1(input_index);
+    let v = add_1(input_index);
+    return v;
 }

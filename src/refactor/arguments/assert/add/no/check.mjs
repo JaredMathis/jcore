@@ -33,7 +33,9 @@ export function refactor_arguments_assert_add_no_check(function_declaration, exc
     let params_length = list_length(params);
     let v_2 = range(params_length);
     let params_mapped = list_map(v_2, function v_3(i) {
-        return function_name_get(arguments_assert_predicate_default());
+        let v_4 = arguments_assert_predicate_default();
+        let v_5 = function_name_get(v_4);
+        return v_5;
     });
     let params_joined = js_code_join_comma(params_mapped);
     let params_code = `${ `[` }${ params_joined }${ `]` }`;

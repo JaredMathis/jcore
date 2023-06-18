@@ -5,10 +5,11 @@ import { assert_arguments_count } from '../../../assert/arguments/count.mjs';
 export function arguments_count_test_4() {
     arguments_assert(arguments, []);
     assert_throws(function v() {
-        return assert_arguments_count([
+        let v_2 = assert_arguments_count([
             1,
             2
         ], 3);
+        return v_2;
     });
     metadata([]);
 }

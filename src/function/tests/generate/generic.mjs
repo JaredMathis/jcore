@@ -47,7 +47,8 @@ export async function function_tests_generate_generic(function_name, count_strin
     assert(v);
     let predicate = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let predicate_names = list_map(predicate, function v_6(p) {
-        return object_property_get(p, 'name');
+        let v_12 = object_property_get(p, 'name');
+        return v_12;
     });
     let names_with_endings = list_map(predicate_names, function v_7(n) {
         let v_2 = function_name_to_tests_values(n);
@@ -55,7 +56,9 @@ export async function function_tests_generate_generic(function_name, count_strin
     });
     let names_with_endings_unqiue = list_unique(names_with_endings);
     if (await list_any_async(names_with_endings_unqiue, async function v_8(n) {
-            return not(await function_exists(n));
+            let v_13 = await function_exists(n);
+            let v_14 = not(v_13);
+            return v_14;
         })) {
         error(`${ function_name_get(arguments_assert) } types need filling in ` + names_with_endings_unqiue);
         return;

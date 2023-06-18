@@ -9,7 +9,8 @@ export async function refactor_input_swap_generic(args, index_from, index_to) {
         arguments_assert_todo
     ]);
     let lambda = function v(list) {
-        return list_swap(list, index_from, index_to);
+        let v_2 = list_swap(list, index_from, index_to);
+        return v_2;
     };
     await refactor_input_generic_simple(args, lambda);
 }

@@ -20,7 +20,8 @@ export function js_visit(parsed, filter, lambda) {
             root = parsed;
         }
     visit_filter(parsed, function v(node) {
-        return object_properties(node);
+        let v_2 = object_properties(node);
+        return v_2;
     }, filter, lambda);
     metadata([]);
 }

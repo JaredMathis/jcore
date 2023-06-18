@@ -7,7 +7,8 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function integer_half_test_generated_2() {
     arguments_assert(arguments, []);
     let v = assert_throws(function v_2() {
-        return integer_half(-1);
+        let v_3 = integer_half(-1);
+        return v_3;
     });
     assert(v);
     metadata([metadata_generated()]);

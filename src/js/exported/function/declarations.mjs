@@ -11,7 +11,8 @@ export function js_exported_function_declarations(parsed) {
     let exports = js_exports(parsed);
     let declarations = list_map(exports, js_export_declaration_get);
     let filtered = list_filter(declarations, function v(d) {
-        return js_node_is_function_declaration(d);
+        let v_2 = js_node_is_function_declaration(d);
+        return v_2;
     });
     return filtered;
     metadata([]);

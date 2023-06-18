@@ -7,7 +7,8 @@ import { assert } from '../../../../../assert.mjs';
 export function string_prefix_replace_test_generated_2() {
     arguments_assert(arguments, []);
     let v = assert_throws(function v_2() {
-        return string_prefix_replace('aa', 'b', 'b');
+        let v_3 = string_prefix_replace('aa', 'b', 'b');
+        return v_3;
     });
     assert(v);
     metadata([metadata_generated()]);

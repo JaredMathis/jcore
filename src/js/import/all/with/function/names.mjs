@@ -39,10 +39,13 @@ export async function js_import_all_with_function_names(parsed) {
             'local'
         ];
         let values = list_map(properties, function v_3(p) {
-            return object_property_get(specifier, p);
+            let v_6 = object_property_get(specifier, p);
+            return v_6;
         });
         if (list_any(values, function v_4(v) {
-                return not(js_node_is_identifier(v));
+                let v_7 = js_node_is_identifier(v);
+                let v_8 = not(v_7);
+                return v_8;
             })) {
             continue;
         }
