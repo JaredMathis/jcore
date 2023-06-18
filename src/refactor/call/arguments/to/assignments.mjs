@@ -58,6 +58,7 @@ export function refactor_call_arguments_to_assignments(args) {
                     js_node_is,
                     defined_is
                 ]);
+                log ('here')
                 if (js_node_is_expression_statement(expression)) {
                     let child = js_node_property_expression_get(expression);
                     return refactor_call_expression_to_assignments(child, list_copy_shallow_add(refactor_stack, child));
@@ -111,7 +112,6 @@ export function refactor_call_arguments_to_assignments(args) {
                 let parent_list = list_get(stack_reversed, parent_list_index);
                 let args = js_node_property_arguments_get(expression);
                 let args_reversed = list_reversed_get(args);
-                console.log({expression})
                 for (let arg of args_reversed) {
                     if (js_node_is_call_expression(arg)) {
                         replace(arg);
