@@ -3,5 +3,5 @@ import { error } from '../../error.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 export function refactor_call_find(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    error('todo: refactor_call_find');
+    let {function_name} = args;
 }
