@@ -26,6 +26,5 @@ export async function function_add_mapper(function_name_suffix) {
     let fn = function_map_with_args;
     let function_name_to_call = function_name_get(fn);
     const prefix_function = 'function';
-    comment(`above this means input into brand new function`);
     let input = await function_add_mapper_generic(function_name_suffix, prefix_function, expression_code_args_get, function_name_to_call, add_after);
 }
