@@ -1,3 +1,4 @@
+import { error } from '../../error.mjs';
 import { refactor_input_generic } from './generic.mjs';
 import { js_list_add_identifier } from '../../js/list/add/identifier.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
@@ -14,7 +15,7 @@ export async function refactor_input_add(args) {
         list_add(arguments_assert_args, type);
     }
     function params_change(params) {
-        js_list_add_identifier(params, input_name);
+        js_list_add_identifier(params, input_name, error());
     }
     function args_additional_get() {
         let input_value_expression = js_parse_expression(input_value_default);
