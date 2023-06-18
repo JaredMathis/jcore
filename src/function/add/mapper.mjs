@@ -54,7 +54,7 @@ function refactor_prefix() {
 
 function refactor_function_name_from_parts(prefix_refactor, function_name_suffix_parts) {
     const list_with_multiple_lists = [
-        [prefix_refactor],
+        [refactor_prefix()],
         function_name_suffix_parts
     ];
     let function_name_refactor = string_identifier_parts_from_combine(list_with_multiple_lists);
