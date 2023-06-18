@@ -12,7 +12,7 @@ export function list_string_to_dictionary(list, element_to_value) {
     for (let element of list) {
         let key = element;
         let value = element_to_value(element);
-        object_property_initialize(dictionary, element, value);
+        object_property_initialize(dictionary, key, value);
     }
     return dictionary;
     metadata([metadata_generated()]);
