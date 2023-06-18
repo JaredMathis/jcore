@@ -1,9 +1,6 @@
 import { function_is } from '../function/is.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-import { function_name_to_file_path } from '../function/name/to/file/path.mjs';
-import { value_get } from '../value/get.mjs';
-import { list_string_to_dictionary } from '../list/string/to/dictionary.mjs';
 import { string_includes } from '../string/includes.mjs';
 import { list_all } from '../list/all.mjs';
 import { list_filter } from '../list/filter.mjs';
@@ -25,5 +22,5 @@ export function search_generic(candidates, query, candidate_to_string) {
         });
         return all_parts_included;
     });
-    return dictionary;
+    return candidates_matching;
 }
