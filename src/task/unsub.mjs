@@ -14,6 +14,7 @@ import { list_empty } from '../list/empty.mjs';
 import { assert } from '../assert.mjs';
 export async function task_unsub() {
     arguments_assert(arguments, []);
+    let result;
     let r = result_empty();
     let required_bys = await task_current_required_bys();
     if (list_empty(required_bys)) {
