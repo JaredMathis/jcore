@@ -45,7 +45,8 @@ export async function function_add_mapper(function_name_suffix) {
     await function_add_inputs(function_name_refactor, 'args');
     let input = 'function_name';
     comment(` await function_map(function_name_get(refactor_asyncify), function_name_new);`);
-    let v = function_name_get(function_map_with_args);
+    let fn = function_map_with_args;
+    let v = function_name_get(fn);
     const expression_code_args = [
         js_code_call_expression_with_args(function_name_get(function_name_get), [function_name_refactor]),
         input,
