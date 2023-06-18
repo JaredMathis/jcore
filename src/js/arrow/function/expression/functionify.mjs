@@ -28,6 +28,7 @@ export function js_arrow_function_expression_functionify(node, name) {
     let body = js_arrow_function_expression_body(node);
     let function_code = `${ js_keyword_function() } ${ name }${ js_code_parenthesis_surround(``) }${ js_brace_left_right() }`;
     let function_expression = js_parse_expression(function_code);
+    js_function_declaration_async_add(function_expression)
     let v = string_a();
     let return_statement_code = js_code_return_statement(v);
     let return_statement = js_parse_statement(return_statement_code);
