@@ -94,6 +94,7 @@ export function refactor_call_arguments_to_assignments(args) {
                 if (js_node_is_program(parent_list_next)) {
                     return false;
                 }
+                console.log({parent_list_next})
                 if (js_node_is_variable_declaration(parent_list_next)) {
                     list_find_first_after_result = list_find_first_after(stack_reversed, parent_list_index);
                     parent_list_next = object_property_get(list_find_first_after_result, 'next');
