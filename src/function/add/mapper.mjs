@@ -19,6 +19,8 @@ import { function_name_separator } from '../name/separator.mjs';
 import { assert_message } from '../../assert/message.mjs';
 export async function function_add_mapper(function_name_suffix) {
     arguments_assert(arguments, [string_identifier_is]);
+    let fn = function_map_with_args;
+    let function_name_to_call = function_name_get(fn);
     const prefix_function = 'function';
     let v_3 = function_name_separator();
     let function_name_suffix_parts = string_split(function_name_suffix, v_3);
@@ -36,13 +38,11 @@ export async function function_add_mapper(function_name_suffix) {
         function_name_suffix_parts
     ]);
     let input = 'function_name';
-    let fn = function_map_with_args;
     const expression_code_args = [
         js_code_call_expression_with_args(function_name_get(function_name_get), [function_name_refactor]),
         input,
         js_brace_left_right()
     ];
-    let function_name_to_call = function_name_get(fn);
     await function_add_with_call_expression_synchronized(function_name_function, function_name_to_call, expression_code_args);
     let v_2 = function_name_get(string_identifier_is);
     await function_input_add_type(function_name_function, input, v_2);
