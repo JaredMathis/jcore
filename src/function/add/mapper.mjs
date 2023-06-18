@@ -25,13 +25,13 @@ export async function function_add_mapper(function_name_suffix) {
         function_name_suffix
     ])
     let function_name_suffix_parts_first = list_first(function_name_suffix_parts)
-    assert()
     const prefix_function = 'function';
+    const prefix_refactor = 'refactor';
+    assert()
     let function_name = list_multiple_combine([
         prefix_function
     ],
     function_name_suffix_parts);
-    const prefix_refactor = 'refactor';
     let function_name_refactor = list_multiple_combine([
         prefix_refactor
     ],
