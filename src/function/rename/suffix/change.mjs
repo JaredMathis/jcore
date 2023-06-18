@@ -12,10 +12,11 @@ export async function function_rename_suffix_change(function_name_old_without_su
         string_identifier_sub_is
     ]);
     let v = function_name_separator();
-    let function_name_old = list_join([
+    const function_name_old_parts = [
         function_name_old_without_suffix,
         suffix_old
-    ], v);
+    ];
+    let function_name_old = list_join(function_name_old_parts, v);
     let function_name_new = string_suffix_replace(function_name_old, suffix_old, suffix_new);
     await function_rename_single(function_name_old, function_name_new);
 }
