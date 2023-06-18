@@ -11,6 +11,8 @@ import { function_add_inputs } from '../inputs.mjs';
 import { refactor_function_name_from_parts } from '../../../refactor/function/name/from/parts.mjs';
 import { string_split } from '../../../string/split.mjs';
 import { function_name_separator } from '../../name/separator.mjs';
+import { not } from '../../../not.mjs';
+import { function_exists } from '../../exists.mjs';
 export async function function_add_mapper_generic(prefix_function, function_name_suffix, function_name_to_call, expression_code_args_get, add_after) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -22,7 +24,9 @@ export async function function_add_mapper_generic(prefix_function, function_name
     let v_3 = function_name_separator();
     let function_name_suffix_parts = string_split(function_name_suffix, v_3);
     let function_name_refactor = refactor_function_name_from_parts(function_name_suffix_parts);
-    await function_add_inputs(function_name_refactor, 'args');
+    if (not(await function_exists(function_name_refactor))) {
+        await function_add_inputs(function_name_refactor, 'args');
+    }
     const prefix_refactor = refactor_prefix();
     let prefixes = [
         prefix_function,
