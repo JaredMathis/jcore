@@ -28,7 +28,7 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
     await function_wrap_generic(function_name_to_wrap, function_name_to_add, function map(args) {
         let {function_declaration, statements_code} = args;
         let identifier_result = function_wrap_generic_identifier_result();
-        const identifier_mapped = 'mapped';
+        const identifier_mapped = 'result_to_be_mapped';
         let statements_code_new = [
             js_code_function_declaration_to_statement_assignment_wrapped(function_declaration, identifier_mapped),
             js_code_function_declaration_to_statement_assignment(function_declaration_map, list_single(identifier_mapped), identifier_result),
