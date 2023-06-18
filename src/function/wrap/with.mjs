@@ -18,5 +18,6 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
         let {identifier, statements_code} = args;
         comment(`The index we'll add at`);
         let index = 1;
+        
     });
 }
