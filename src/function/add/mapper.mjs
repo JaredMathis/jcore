@@ -39,11 +39,15 @@ export async function function_add_mapper(function_name_suffix) {
         function_name_suffix_parts
     ]);
     let input = 'function_name';
-    const expression_code_args = [
-        js_code_call_expression_with_args(function_name_get(function_name_get), [function_name_refactor]),
-        input,
-        js_brace_left_right()
-    ];
+    const expression_code_args = lambda(function_name_refactor);
+    function lambda(function_name_refactor) {
+	const expression_code_args = [
+	        js_code_call_expression_with_args(function_name_get(function_name_get), [function_name_refactor]),
+	        input,
+	        js_brace_left_right()
+	    ];
+        return expression_code_args
+}
     await function_add_with_call_expression_synchronized(function_name_function, function_name_to_call, expression_code_args);
     let v_2 = function_name_get(string_identifier_is);
     await function_input_add_type(function_name_function, input, v_2);
