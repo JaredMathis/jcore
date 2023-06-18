@@ -1,3 +1,4 @@
+import { tests_name } from './name.mjs';
 import { js_code_await } from '../js/code/await.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
@@ -19,7 +20,7 @@ import { list_add } from '../list/add.mjs';
 import { list_length } from '../list/length.mjs';
 export async function tests_generate() {
     arguments_assert(arguments, []);
-    let function_name = 'tests';
+    let function_name = tests_name();
     let file_path = function_name_to_file_path(function_name);
     let test_names = await function_all_tests();
     let mapped = list_map(test_names, n => {
