@@ -13,7 +13,7 @@ import { string_split } from '../../../string/split.mjs';
 import { function_name_separator } from '../../name/separator.mjs';
 import { not } from '../../../not.mjs';
 import { function_exists } from '../../exists.mjs';
-export async function function_add_mapper_generic(prefix_function, function_name_suffix, function_name_to_call, expression_code_args_get, add_after) {
+export async function function_add_mapper_generic(prefix, function_name_suffix, function_name_to_call, expression_code_args_get, add_after) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo,
@@ -29,13 +29,13 @@ export async function function_add_mapper_generic(prefix_function, function_name
     }
     const prefix_refactor = refactor_prefix();
     let prefixes = [
-        prefix_function,
+        prefix,
         prefix_refactor
     ];
     let function_name_suffix_parts_first = list_first(function_name_suffix_parts);
     assert_message(!list_contains(prefixes, function_name_suffix_parts_first), `Cannot start with: ` + prefixes);
     let function_name_function = string_identifier_parts_from_combine([
-        [prefix_function],
+        [prefix],
         function_name_suffix_parts
     ]);
     const expression_code_args = expression_code_args_get(function_name_refactor);
