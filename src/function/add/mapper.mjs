@@ -32,7 +32,7 @@ export async function function_add_mapper(function_name_suffix) {
     ];
     assert_message(!list_contains(prefixes, function_name_suffix_parts_first), `Cannot start with: ` + prefixes);
     let function_name = list_multiple_combine([[prefix_function], function_name_suffix_parts]);
-    let function_name_refactor = list_multiple_combine([prefix_refactor], function_name_suffix_parts);
+    let function_name_refactor = list_multiple_combine([[prefix_refactor], function_name_suffix_parts]);
     await function_add_inputs(function_name_refactor, 'args');
     let input = 'function_name';
     comment(` await function_map(function_name_get(refactor_asyncify), function_name_new);`);
