@@ -4,6 +4,7 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { equal } from '../../equal.mjs';
 export function integer_even_is(a) {
     arguments_assert(arguments, [integer_is]);
+    const expected = 0;
     let result_mod = integer_mod(a, 2);
-    return equal(result_mod, 0);
+    return equal(result_mod, expected);
 }
