@@ -1,19 +1,15 @@
+import { function_add_with_call_expression_synchronized } from './with/call/expression/synchronized.mjs';
 import { string_identifier_parts_from } from '../../string/identifier/parts/from.mjs';
 import { js_brace_left_right } from '../../js/brace/left/right.mjs';
 import { function_map_with_args } from '../map/with/args.mjs';
 import { function_open_vs_code } from '../open/vs/code.mjs';
-import { function_add_with_statements_synchronized } from './with/statements/synchronized.mjs';
-import { js_code_await } from '../../js/code/await.mjs';
 import { function_add_inputs } from './inputs.mjs';
 import { function_input_add_type } from '../input/add/type.mjs';
 import { function_name_get } from '../name/get.mjs';
 import { js_code_call_expression_with_args } from '../../js/code/call/expression/with/args.mjs';
-import { js_code_statement } from '../../js/code/statement.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { comment } from '../../comment.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
-import { list_single_item } from '../../list/single/item.mjs';
-import { js_parse_statement } from '../../js/parse/statement.mjs';
 import { list_first } from '../../list/first.mjs';
 import { list_contains } from '../../list/contains.mjs';
 import { string_split } from '../../string/split.mjs';
@@ -56,18 +52,4 @@ export async function function_add_mapper(function_name_suffix) {
     let v_2 = function_name_get(string_identifier_is);
     await function_input_add_type(function_name, input, v_2);
     await function_open_vs_code(function_name);
-}
-
-async function function_add_with_call_expression_synchronized(function_name_to_call, expression_code_args, function_name) {
-    let expression_code = js_code_call_expression_with_args(function_name_to_call, expression_code_args);
-    let awaited = js_code_await(expression_code);
-    let statement_code = js_code_statement(awaited);
-    let is_async = true;
-    await function_add_with_statement_synchronized(statement_code, function_name, is_async);
-}
-
-async function function_add_with_statement_synchronized(statement_code, function_name, is_async) {
-    let statement = js_parse_statement(statement_code);
-    let statements = list_single_item(statement);
-    await function_add_with_statements_synchronized(function_name, statements, is_async);
 }
