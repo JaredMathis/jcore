@@ -20,15 +20,15 @@ import { assert_message } from '../../assert/message.mjs';
 export async function function_add_mapper(function_name_suffix) {
     arguments_assert(arguments, [string_identifier_is]);
     const prefix_function = 'function';
-    let prefixes = [
-        prefix_function,
-        prefix_refactor
-    ];
     let v_3 = function_name_separator();
     let function_name_suffix_parts = string_split(function_name_suffix, v_3);
     let function_name_refactor = refactor_function_name_from_parts(function_name_suffix_parts);
     await function_add_inputs(function_name_refactor, 'args');
     const prefix_refactor = refactor_prefix();
+    let prefixes = [
+        prefix_function,
+        prefix_refactor
+    ];
     let function_name_suffix_parts_first = list_first(function_name_suffix_parts);
     assert_message(!list_contains(prefixes, function_name_suffix_parts_first), `Cannot start with: ` + prefixes);
     let function_name_function = string_identifier_parts_from_combine([
