@@ -20,7 +20,7 @@ export async function task_unsub() {
     const if_check = list_empty(required_bys);
     return await if_else_async(if_check, on_if, async () => {
         let last_string = list_last_string_to(required_bys);
-        await on_else(last_string);
+        return await on_else(last_string);
     });
     async function on_else(last_string) {
         await task_finish();
