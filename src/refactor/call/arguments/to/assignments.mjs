@@ -112,6 +112,7 @@ export function refactor_call_arguments_to_assignments(args) {
                 let parent_list = list_get(stack_reversed, parent_list_index);
                 let args = js_node_property_arguments_get(expression);
                 let args_reversed = list_reversed_get(args);
+                console.log({expression})
                 for (let arg of args_reversed) {
                     if (js_node_is_call_expression(arg)) {
                         replace(arg);
