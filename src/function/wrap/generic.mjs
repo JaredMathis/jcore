@@ -26,7 +26,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let identifier = 'result';
     let inputs = js_function_declaration_to_params_names(function_declaration);
-    let { statement_first_code, is_async } = newFunction(function_declaration, function_name_to_wrap, inputs, identifier);
+    let { statement_first_code } = newFunction(function_declaration, function_name_to_wrap, inputs, identifier);
     let statement_second_code = js_code_return_statement(identifier);
     let statements_code = [
         statement_first_code,
@@ -38,6 +38,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     };
     map(args);
     let statements = list_map(statements_code, js_parse_statement);
+    let is_async = js_function_declaration_async_is(function_declaration);
     await function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
     await list_each_with_index_async(inputs, async (input, index) => {
         let arguments_assert_arg = list_get(arguments_assert_args, index);
