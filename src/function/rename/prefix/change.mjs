@@ -1,7 +1,5 @@
+import { function_rename_suffix_generic } from '../suffix/generic.mjs';
 import { string_prefix_replace } from '../../../string/prefix/replace.mjs';
-import { function_rename_single } from '../single.mjs';
-import { list_join } from '../../../list/join.mjs';
-import { function_name_separator } from '../../name/separator.mjs';
 import { string_identifier_sub_is } from '../../../string/identifier/sub/is.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -11,11 +9,10 @@ export async function function_rename_prefix_change(function_name_old_without_pr
         string_identifier_sub_is,
         string_identifier_sub_is
     ]);
-    let v = function_name_separator();
-    let function_name_old = list_join([
+    const function_name_old_parts = [
         prefix_old,
         function_name_old_without_prefix
-    ], v);
-    let function_name_new = string_prefix_replace(function_name_old, prefix_old, prefix_new);
-    await function_rename_single(function_name_old, function_name_new);
+    ];
+    let function_name_old_to_new = function_name_old => string_prefix_replace(function_name_old, prefix_old, prefix_new);
+    await function_rename_suffix_generic(function_name_old_parts, function_name_old_to_new);
 }
