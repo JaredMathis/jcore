@@ -21,7 +21,7 @@ export async function task_unsub() {
         result_unsuccess(r);
         let data = await task_finish();
         let v = result_property_data_set(r, data);
-        return v;
+        result = v;
     } else {
         let last_string = list_last_string_to(required_bys);
         await task_finish();
@@ -31,8 +31,9 @@ export async function task_unsub() {
         assert(v_2);
         let current = result_property_data_get(current_result);
         let v_3 = result_property_data_set(r, current);
-        return v_3;
+        result = v;
     }
+    return result;
 }
 
 function list_last_string_to(required_bys) {
