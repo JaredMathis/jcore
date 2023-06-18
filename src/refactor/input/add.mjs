@@ -15,7 +15,7 @@ export async function refactor_input_add(args) {
         list_add(arguments_assert_args, type);
     }
     function params_change(params) {
-        js_list_add_identifier(params, input_name, error());
+        js_list_add_identifier(params, input_name, input_index);
     }
     function args_additional_get() {
         let input_value_expression = js_parse_expression(input_value_default);
