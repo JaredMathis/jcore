@@ -11,6 +11,7 @@ import { comment } from '../../comment.mjs';
 import { list_get } from '../../list/get.mjs';
 import { list_last } from '../../list/last.mjs';
 import { list_last_index } from '../../list/last/index.mjs';
+import { list_last_remove } from '../../list/last/remove.mjs';
 export async function function_wrap_with(function_name_to_wrap, function_name_to_add, function_name_map) {
     arguments_assert(arguments, [
         string_identifier_is,
@@ -24,9 +25,9 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
     await function_wrap_generic(function_name_to_wrap, function_name_to_add, function map(args) {
         let {identifier, statements_code} = args;
         assert(list_length_is_value(statements_code, 2))
-        let return_statement = list_last(statements_code);
         comment(`The index we'll add at`);
         let index = list_last_index(statements_code);
+        list_last_remove(statements_code)
         js_code_function_declaration_to_statement_assignment(function_declaration_map, list_single(identifier));
     });
 }
