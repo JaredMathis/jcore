@@ -359,6 +359,10 @@ import { integer_mod_test_generated_2 } from './integer/mod/test/generated/2.mjs
 import { integer_mod_test_generated_10 } from './integer/mod/test/generated/10.mjs';
 import { integer_mod_test_generated_1 } from './integer/mod/test/generated/1.mjs';
 import { integer_is_test_values } from './integer/is/test/values.mjs';
+import { integer_half_test_generated_6 } from './integer/half/test/generated/6.mjs';
+import { integer_half_test_generated_3 } from './integer/half/test/generated/3.mjs';
+import { integer_half_test_generated_2 } from './integer/half/test/generated/2.mjs';
+import { integer_half_test_generated_1 } from './integer/half/test/generated/1.mjs';
 import { integer_even_is_test_generated_6 } from './integer/even/is/test/generated/6.mjs';
 import { integer_even_is_test_generated_5 } from './integer/even/is/test/generated/5.mjs';
 import { integer_even_is_test_generated_4 } from './integer/even/is/test/generated/4.mjs';
@@ -438,6 +442,10 @@ export async function tests() {
     await integer_even_is_test_generated_4();
     await integer_even_is_test_generated_5();
     await integer_even_is_test_generated_6();
+    await integer_half_test_generated_1();
+    await integer_half_test_generated_2();
+    await integer_half_test_generated_3();
+    await integer_half_test_generated_6();
     await integer_is_test_values();
     await integer_mod_test_generated_1();
     await integer_mod_test_generated_10();
@@ -798,5 +806,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(398 + ' tests ran successfully');
+    log(402 + ' tests ran successfully');
 }
