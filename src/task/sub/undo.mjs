@@ -16,6 +16,6 @@ export async function task_sub_undo() {
     let previous = await task_unsub_preview();
     const current_number = task_number_get_string(current);
     const previous_number = task_number_get_string(previous);
-    await task_unrequires(current_number, previous_number);
+    await task_unrequires(previous_number, current_number);
     await task_set(previous_number);
 }
