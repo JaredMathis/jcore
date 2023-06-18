@@ -6,7 +6,7 @@ import { string_identifier_is } from '../../../../string/identifier/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { function_write } from '../../../write.mjs';
-import { js_function_declaration_async_add } from '../../../../js/function/declaration/async/add.mjs';
+import { js_function_declaration_asyncify } from '../../../../js/function/declaration/asyncify.mjs';
 import { js_function_declaration_statements_initialize } from '../../../../js/function/declaration/statements/initialize.mjs';
 import { js_parse } from '../../../../js/parse.mjs';
 import { js_function_name_to_export } from '../../../../js/function/name/to/export.mjs';
@@ -21,7 +21,7 @@ export async function function_add_with_statements_synchronized(function_name, s
     let fd = js_export_function_single(parsed);
     js_function_declaration_statements_initialize(fd, statements);
     if (is_async) {
-        js_function_declaration_async_add(fd);
+        js_function_declaration_asyncify(fd);
     }
     let file_path = await function_write(function_name, parsed);
     await function_auto_after(function_name);
