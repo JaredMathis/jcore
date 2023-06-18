@@ -19,6 +19,7 @@ import { list_get } from '../../list/get.mjs';
 import { list_multiple_combine } from '../../list/multiple/combine.mjs';
 import { list_first } from '../../list/first.mjs';
 import { assert } from '../../assert.mjs';
+import { list_contains } from '../../list/contains.mjs';
 export async function function_add_mapper(function_name_suffix) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let function_name_suffix_parts = string_identifier_parts_from([
@@ -28,7 +29,7 @@ export async function function_add_mapper(function_name_suffix) {
     const prefix_function = 'function';
     const prefix_refactor = 'refactor';
     let prefixes = [prefix_function, prefix_refactor]
-    assert()
+    assert(!list_contains(prefixes, function_name_suffix_parts_first))
     let function_name = list_multiple_combine([
         prefix_function
     ],
