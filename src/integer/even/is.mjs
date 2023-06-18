@@ -6,6 +6,6 @@ export function integer_even_is(a, b) {
         integer_is,
         integer_is
     ]);
-    let result = integer_mod(a, b);
+    let result = integer_mod(a, 2);
     return result;
 }
