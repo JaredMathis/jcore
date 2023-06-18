@@ -16,6 +16,7 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
     assert(list_length_is_1(function_name_map_inputs));
     await function_wrap_generic(function_name_to_wrap, function_name_to_add, function map(args) {
         let {identifier, statements_code} = args;
+        comment(`The index we'll add at`);
         let index = 1;
     });
 }
