@@ -22,7 +22,7 @@ export async function function_add_mapper(function_name_suffix) {
     let fn = function_map_with_args;
     let function_name_to_call = function_name_get(fn);
     const prefix_function = 'function';
-    comment(`above this means input into brand new function`)
+    comment(`above this means input into brand new function`);
     let v_3 = function_name_separator();
     let function_name_suffix_parts = string_split(function_name_suffix, v_3);
     let function_name_refactor = refactor_function_name_from_parts(function_name_suffix_parts);
@@ -41,13 +41,13 @@ export async function function_add_mapper(function_name_suffix) {
     let input = 'function_name';
     const expression_code_args = lambda(function_name_refactor);
     function lambda(function_name_refactor) {
-	const expression_code_args = [
-	        js_code_call_expression_with_args(function_name_get(function_name_get), [function_name_refactor]),
-	        input,
-	        js_brace_left_right()
-	    ];
-        return expression_code_args
-}
+        const expression_code_args = [
+            js_code_call_expression_with_args(function_name_get(function_name_get), [function_name_refactor]),
+            input,
+            js_brace_left_right()
+        ];
+        return expression_code_args;
+    }
     await function_add_with_call_expression_synchronized(function_name_function, function_name_to_call, expression_code_args);
     let v_2 = function_name_get(string_identifier_is);
     await function_input_add_type(function_name_function, input, v_2);
