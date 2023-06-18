@@ -31,7 +31,7 @@ export async function function_add_mapper(function_name_suffix) {
         [prefix_function],
         function_name_suffix_parts
     ]);
-    let function_name_refactor = refactor_function_name_from_parts(prefix_refactor, function_name_suffix_parts);
+    let function_name_refactor = refactor_function_name_from_parts(function_name_suffix_parts);
     await function_add_inputs(function_name_refactor, 'args');
     let input = 'function_name';
     comment(` await function_map(function_name_get(refactor_asyncify), function_name_new);`);
@@ -52,7 +52,7 @@ function refactor_prefix() {
     return 'refactor';
 }
 
-function refactor_function_name_from_parts(prefix_refactor, function_name_suffix_parts) {
+function refactor_function_name_from_parts(function_name_suffix_parts) {
     const list_with_multiple_lists = [
         [refactor_prefix()],
         function_name_suffix_parts
