@@ -1,5 +1,4 @@
-import { equal } from '../equal.mjs';
-import { not } from '../not.mjs';
+import { integer_zero_not_is } from './zero/not/is.mjs';
 import { integer_is } from './is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { assert } from '../assert.mjs';
@@ -8,6 +7,6 @@ export function integer_divide(a, b) {
         integer_is,
         integer_is
     ]);
-    assert(not(equal(a, 0)));
+    assert(integer_zero_not_is(a));
     return a / b;
 }
