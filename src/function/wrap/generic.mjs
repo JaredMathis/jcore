@@ -48,13 +48,13 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     await function_open_vs_code(function_name_to_add);
 }
 
-function newFunction(function_declaration, inputs, identifier) {
+function newFunction(function_declaration, inputs, identifier_to_assign_to) {
     let function_name = js_function_declaration_to_name(function_declaration)
     let is_async = js_function_declaration_async_is(function_declaration);
     let statement_first_code = js_code_call_expression_with_args(function_name, inputs);
     if (is_async) {
         statement_first_code = js_code_await(statement_first_code);
     }
-    statement_first_code = js_code_statement_assignment(identifier, statement_first_code);
+    statement_first_code = js_code_statement_assignment(identifier_to_assign_to, statement_first_code);
     return statement_first_code;
 }
