@@ -22,6 +22,7 @@ export async function function_add_mapper(function_name_suffix) {
     let fn = function_map_with_args;
     let function_name_to_call = function_name_get(fn);
     const prefix_function = 'function';
+    comment(`above this means input into brand new function`)
     let v_3 = function_name_separator();
     let function_name_suffix_parts = string_split(function_name_suffix, v_3);
     let function_name_refactor = refactor_function_name_from_parts(function_name_suffix_parts);
