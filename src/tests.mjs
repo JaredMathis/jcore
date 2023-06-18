@@ -105,6 +105,7 @@ import { string_replace_test_generated_2 } from './string/replace/test/generated
 import { string_replace_test_generated_10 } from './string/replace/test/generated/10.mjs';
 import { string_replace_test_generated_1 } from './string/replace/test/generated/1.mjs';
 import { string_repeat_is_test_generated_5 } from './string/repeat/is/test/generated/5.mjs';
+import { string_repeat_is_test_generated_4 } from './string/repeat/is/test/generated/4.mjs';
 import { string_repeat_is_test_generated_3 } from './string/repeat/is/test/generated/3.mjs';
 import { string_repeat_is_test_generated_2 } from './string/repeat/is/test/generated/2.mjs';
 import { string_repeat_is_test_generated_1 } from './string/repeat/is/test/generated/1.mjs';
@@ -696,6 +697,7 @@ export async function tests() {
     await string_repeat_is_test_generated_1();
     await string_repeat_is_test_generated_2();
     await string_repeat_is_test_generated_3();
+    await string_repeat_is_test_generated_4();
     await string_repeat_is_test_generated_5();
     await string_replace_test_generated_1();
     await string_replace_test_generated_10();
@@ -802,5 +804,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(400 + ' tests ran successfully');
+    log(401 + ' tests ran successfully');
 }
