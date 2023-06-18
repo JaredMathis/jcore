@@ -16,7 +16,12 @@ export async function task_unsub() {
     arguments_assert(arguments, []);
     let result = result_empty();
     let required_bys = await task_current_required_bys();
-    if (!list_empty(required_bys)) {
+    if (list_empty(required_bys)) {
+        result_unsuccess(result);
+        let data = await task_finish();
+        let v = result_property_data_set(result, data);
+        return v;
+    } else {
         let last_string = list_last_string_to(required_bys);
         await task_finish();
         await task_set(last_string);
@@ -26,11 +31,6 @@ export async function task_unsub() {
         let current = result_property_data_get(current_result);
         let v_3 = result_property_data_set(result, current);
         return v_3;
-    } else {
-        result_unsuccess(result);
-        let data = await task_finish();
-        let v = result_property_data_set(result, data);
-        return v;
     }
 }
 
