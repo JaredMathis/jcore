@@ -18,11 +18,13 @@ export async function task_unsub() {
     let r = result_empty();
     let required_bys = await task_current_required_bys();
     if (list_empty(required_bys)) {
-        result_unsuccess(r);
-        let data = await task_finish();
-        let v = result_property_data_set(r, data);
-        result = v;
+        await on_if();
     } else {
+        await on_else();
+    }
+    return result;
+
+    async function on_else() {
         let last_string = list_last_string_to(required_bys);
         await task_finish();
         await task_set(last_string);
@@ -33,7 +35,13 @@ export async function task_unsub() {
         let v_3 = result_property_data_set(r, current);
         result = v;
     }
-    return result;
+
+    async function on_if() {
+        result_unsuccess(r);
+        let data = await task_finish();
+        let v = result_property_data_set(r, data);
+        result = v;
+    }
 }
 
 function list_last_string_to(required_bys) {
