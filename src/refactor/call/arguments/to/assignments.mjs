@@ -42,6 +42,7 @@ import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_node_is } from '../../../../js/node/is.mjs';
 import { defined_is } from '../../../../defined/is.mjs';
+import { list_add } from '../../../../list/add.mjs';
 export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = object_property_get(args, 'parsed');
@@ -50,14 +51,16 @@ export function refactor_call_arguments_to_assignments(args) {
         js_visit_nodes_filter(parsed, n => js_node_is_expression_statement(n) || js_node_is_variable_declaration(n) || js_node_is_return_statement(n), v => {
             let node = object_property_get(v, 'node');
             let stack = object_property_get(v, 'stack');
-            refactor_call_expression_to_assignments(node, null);
-            function refactor_call_expression_to_assignments(expression, expression_parent) {
+            refactor_call_expression_to_assignments(node, stack);
+            function refactor_call_expression_to_assignments(expression, refactor_stack) {
                 arguments_assert(arguments, [
                     js_node_is,
                     defined_is
                 ]);
                 if (js_node_is_expression_statement(expression)) {
                     let child = js_node_property_expression_get(expression);
+                    let refactor_stack_child = object_copy_shallow(refactor_stack);
+                    list_add(refactor_stack_child, child)
                     return refactor_call_expression_to_assignments(child, expression);
                 }
                 if (js_node_is_variable_declaration(expression)) {
