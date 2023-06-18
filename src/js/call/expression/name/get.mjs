@@ -7,6 +7,6 @@ export function js_call_expression_name_get(ce, or_null) {
         js_node_is_call_expression,
         boolean_is
     ]);
-    let result = js_call_expression_name_generic(ce, or_null);
+    let result = js_call_expression_name_generic(ce, false);
     return result;
 }
