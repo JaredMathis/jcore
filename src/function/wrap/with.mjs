@@ -21,7 +21,7 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
     await function_wrap_generic(function_name_to_wrap, function_name_to_add, function map(args) {
         let {identifier, statements_code} = args;
         comment(`The index we'll add at`);
-        let index = 1;
+        assert(list_length_is_value(statements_code, 2))
         js_code_function_declaration_to_statement_assignment(function_declaration_map, list_single(identifier));
     });
 }
