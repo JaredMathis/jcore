@@ -1,5 +1,5 @@
+import { function_input_add_generic_last } from './generic/last.mjs';
 import { function_input_value_default } from '../value/default.mjs';
-import { function_input_add_generic } from './generic.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 export async function function_input_add_type(function_name, input_name, input_type) {
