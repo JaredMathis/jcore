@@ -10,5 +10,6 @@ export async function function_input_add(function_name, input_name) {
     ]);
     let input_value_default = function_input_value_default();
     let v = function_name_get(arguments_assert_todo);
-    await function_input_add_generic(function_name, input_name, v, input_value_default, 0);
+    const input_index = 0;
+    await function_input_add_generic(function_name, input_name, v, input_value_default, input_index);
 }
