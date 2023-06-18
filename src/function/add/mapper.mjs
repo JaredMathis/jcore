@@ -5,7 +5,6 @@ import { function_input_add_type } from '../input/add/type.mjs';
 import { function_name_get } from '../name/get.mjs';
 import { js_code_call_expression_with_args } from '../../js/code/call/expression/with/args.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-import { comment } from '../../comment.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
 export async function function_add_mapper(function_name_suffix) {
     arguments_assert(arguments, [string_identifier_is]);
@@ -26,5 +25,5 @@ export async function function_add_mapper(function_name_suffix) {
     let fn = function_map_with_args;
     let function_name_to_call = function_name_get(fn);
     const prefix_function = 'function';
-    let input = await function_add_mapper_generic(function_name_suffix, prefix_function, expression_code_args_get, function_name_to_call, add_after);
+    let input = await function_add_mapper_generic(prefix_function, function_name_suffix, expression_code_args_get, function_name_to_call, add_after);
 }
