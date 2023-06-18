@@ -9,8 +9,6 @@ export function refactor_call_find(args) {
     let {function_name} = args;
     let {parsed} = args;
     js_visit_nodes_call_expression_name_equal(parsed, function_name, function v_3(n) {
-        let v = js_node_property_callee();
-        let callee = object_property_get(n, v);
-        console.log(callee);
+        console.log({ args });
     });
 }
