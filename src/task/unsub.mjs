@@ -22,8 +22,7 @@ export async function task_unsub() {
         let v = result_property_data_set(result, data);
         return v;
     }
-    let last = list_last(required_bys);
-    let last_string = string_to(last);
+    let last_string = list_last_string_to(required_bys);
     await task_finish();
     await task_set(last_string);
     let current_result = await task_current();
@@ -32,4 +31,10 @@ export async function task_unsub() {
     let current = result_property_data_get(current_result);
     let v_3 = result_property_data_set(result, current);
     return v_3;
+}
+
+function list_last_string_to(required_bys) {
+    let last = list_last(required_bys);
+    let last_string = string_to(last);
+    return last_string;
 }
