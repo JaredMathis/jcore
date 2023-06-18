@@ -9,5 +9,6 @@ export function object_merge(from, to) {
         defined_is
     ]);
     object_merge_filtered(from, tautology, to);
+    return to;
     metadata([]);
 }
