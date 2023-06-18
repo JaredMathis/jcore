@@ -24,7 +24,7 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
     comment(`a mapping function must have 1 input (and 1 output)`);
     assert(list_length_is_1(function_name_map_inputs));
     await function_wrap_generic(function_name_to_wrap, function_name_to_add, function map(args) {
-        let {identifier, statements_code} = args;
+        let {function_declaration, statements_code} = args;
         assert(list_length_is_value(statements_code, 2));
         comment(`The index we'll add at`);
         let index = list_last_index(statements_code);

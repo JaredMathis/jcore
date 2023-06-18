@@ -1,5 +1,5 @@
 import { js_code_function_declaration_to_statement_assignment_wrapped } from '../../js/code/function/declaration/to/statement/assignment/wrapped.mjs';
-import { function_wrap_generic_result } from './generic/result.mjs';
+import { function_wrap_generic_identifier_result } from './generic/identifier/result.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { function_open_vs_code } from '../open/vs/code.mjs';
@@ -23,13 +23,12 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     ]);
     let function_declaration = await function_to_declaration(function_name_to_wrap);
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
-    let identifier = function_wrap_generic_result();
+    let identifier = function_wrap_generic_identifier_result();
     let statements_code = [
         js_code_function_declaration_to_statement_assignment_wrapped(function_declaration, identifier),
         js_code_return_statement(identifier)
     ];
     let args = {
-        identifier,
         statements_code,
         function_declaration
     };
