@@ -51,15 +51,19 @@ export async function function_add_mapper(function_name_suffix) {
         input,
         js_brace_left_right()
     ];
-    let v = function_name_get(fn);
-    let expression_code = js_code_call_expression_with_args(v, expression_code_args);
+    let function_name_to_call = function_name_get(fn);
+    await function_add_with_call_expression_synchronized(function_name_to_call, expression_code_args, function_name);
+    let v_2 = function_name_get(string_identifier_is);
+    await function_input_add_type(function_name, input, v_2);
+    await function_open_vs_code(function_name);
+}
+
+async function function_add_with_call_expression_synchronized(function_name_to_call, expression_code_args, function_name) {
+    let expression_code = js_code_call_expression_with_args(function_name_to_call, expression_code_args);
     let awaited = js_code_await(expression_code);
     let statement_code = js_code_statement(awaited);
     let is_async = true;
     await function_add_with_statement_synchronized(statement_code, function_name, is_async);
-    let v_2 = function_name_get(string_identifier_is);
-    await function_input_add_type(function_name, input, v_2);
-    await function_open_vs_code(function_name);
 }
 
 async function function_add_with_statement_synchronized(statement_code, function_name, is_async) {
