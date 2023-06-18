@@ -46,10 +46,10 @@ export async function function_add_mapper(function_name_suffix) {
         [prefix_function],
         function_name_suffix_parts
     ]);
-    let input = 'function_name';
     const expression_code_args = expression_code_args_get(function_name_refactor);
     await function_add_with_call_expression_synchronized(function_name_function, function_name_to_call, expression_code_args);
     let v_2 = function_name_get(string_identifier_is);
+    let input = 'function_name';
     await function_input_add_type(function_name_function, input, v_2);
     await function_open_vs_code(function_name_function);
 }
