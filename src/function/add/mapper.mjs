@@ -55,9 +55,9 @@ export async function function_add_mapper(function_name_suffix) {
     let expression_code = js_code_call_expression_with_args(v, expression_code_args);
     let awaited = js_code_await(expression_code);
     let statement_code = js_code_statement(awaited);
+    let is_async = true;
     let statement = js_parse_statement(statement_code);
     let statements = list_single_item(statement);
-    let is_async = true;
     await function_add_with_statements_synchronized(function_name, statements, is_async);
     let v_2 = function_name_get(string_identifier_is);
     await function_input_add_type(function_name, input, v_2);
