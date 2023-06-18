@@ -1,4 +1,4 @@
-import { at_least_once } from '../../../../../at/least/once.mjs';
+import { occurs } from '../../../../../occurs.mjs';
 import { list_add_property } from '../../../../../list/add/property.mjs';
 import { defined_is } from '../../../../../defined/is.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
@@ -23,8 +23,8 @@ export async function file_js_all_identifier_multiple_rename(dictionary) {
     assert(v);
     let file_paths_changed = [];
     await file_js_all_map_args(function mapper(args) {
-        let at_least_once = js_identifier_multiple_rename(dictionary, args);
-        if (at_least_once) {
+        let occurs = js_identifier_multiple_rename(dictionary, args);
+        if (occurs) {
             list_add_property(file_paths_changed, args, 'file_path');
         }
     });

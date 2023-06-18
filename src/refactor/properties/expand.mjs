@@ -1,5 +1,5 @@
 import { js_code_call_expression_object_property_get } from '../../js/code/call/expression/object/property/get.mjs';
-import { at_least_once } from '../../at/least/once.mjs';
+import { occurs } from '../../occurs.mjs';
 import { refactor_import_fix } from '../import/fix.mjs';
 import { list_add_after } from '../../list/add/after.mjs';
 import { object_replace } from '../../object/replace.mjs';
@@ -26,7 +26,7 @@ import { js_parse_statement } from '../../js/parse/statement.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
 export async function refactor_properties_expand(args) {
     arguments_assert(arguments, [defined_is]);
-    let at_least_once = false;
+    let occurs = false;
     let {function_declaration, parsed} = args;
     js_visit_nodes_filter(parsed, js_node_is_object_pattern, function v_8(v) {
         let {stack, parent, node} = v;
@@ -56,14 +56,14 @@ export async function refactor_properties_expand(args) {
                             let statement = js_parse_statement(statement_code);
                             list_add_after(function_body_statements, statement, previous);
                             previous = statement;
-                            at_least_once = true;
+                            occurs = true;
                         }
                     }
                 }
             }
         }
     });
-    if (at_least_once) {
+    if (occurs) {
         await refactor_import_fix(args);
     }
 }

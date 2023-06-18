@@ -1,4 +1,4 @@
-import { at_least_once } from '../../../at/least/once.mjs';
+import { occurs } from '../../../occurs.mjs';
 import { js_mapper_args_is } from '../../mapper/args/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { object_property_set } from '../../../object/property/set.mjs';
@@ -11,7 +11,7 @@ export function js_identifier_rename_if(args, should_rename, name_new_get) {
         function_is,
         function_is
     ]);
-    let v_3 = at_least_once(function v_4(c) {
+    let v_3 = occurs(function v_4(c) {
         let parsed = object_property_get(args, 'parsed');
         js_visit_nodes_identifier(parsed, function v_5(v) {
             let node = object_property_get(v, 'node');

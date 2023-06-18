@@ -1,4 +1,4 @@
-import { at_least_once } from '../../../at/least/once.mjs';
+import { occurs } from '../../../occurs.mjs';
 import { js_mapper_args_is } from '../../mapper/args/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
@@ -10,12 +10,12 @@ export function js_identifier_multiple_rename(dictionary, args) {
         defined_is,
         js_mapper_args_is
     ]);
-    let at_least_once = false;
+    let occurs = false;
     object_keys_each(dictionary, function v(to, from) {
         if (js_identifier_rename(args, from, to)) {
-            at_least_once = true;
+            occurs = true;
         }
     });
-    return at_least_once;
+    return occurs;
     metadata([]);
 }

@@ -5,7 +5,7 @@ import { metadata } from '../../metadata.mjs';
 import { result_property_success_get } from '../../result/property/success/get.mjs';
 import { assert } from '../../assert.mjs';
 import { result_unsuccess_is } from '../../result/unsuccess/is.mjs';
-import { at_least_once } from '../../at/least/once.mjs';
+import { occurs } from '../../occurs.mjs';
 import { not } from '../../not.mjs';
 import { throws_generic } from '../../throws/generic.mjs';
 import { list_each_with_index } from '../each/with/index.mjs';
@@ -28,7 +28,7 @@ export function list_map_generic(list, lambda, allow_error_mapping, value_on_err
                 return v_2;
             });
             let mapped;
-            if (not(at_least_once(function v_7(c) {
+            if (not(occurs(function v_7(c) {
                     if (allow_error_mapping) {
                         if (result_unsuccess_is(result)) {
                             mapped = value_on_error_mapping;

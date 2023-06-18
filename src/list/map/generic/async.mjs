@@ -11,7 +11,7 @@ import { list_each_with_index_async } from '../../each/with/index/async.mjs';
 import { list_is } from '../../is.mjs';
 import { function_is } from '../../../function/is.mjs';
 import { assert } from '../../../assert.mjs';
-import { at_least_once } from '../../../at/least/once.mjs';
+import { occurs } from '../../../occurs.mjs';
 export async function list_map_generic_async(list, lambda, allow_error_mapping, value_on_error_mapping) {
     arguments_assert(arguments, [
         list_is,
@@ -26,7 +26,7 @@ export async function list_map_generic_async(list, lambda, allow_error_mapping, 
                 return v_2;
             });
             let mapped;
-            if (not(at_least_once(function v_7(c) {
+            if (not(occurs(function v_7(c) {
                     if (allow_error_mapping) {
                         if (result_unsuccess_is(result)) {
                             mapped = value_on_error_mapping;
