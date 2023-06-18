@@ -10,8 +10,8 @@ import { list_to_dictionary } from '../list/to/dictionary.mjs';
 import { function_name_to_file_path } from './name/to/file/path.mjs';
 export async function function_search(query) {
     arguments_assert(arguments, [string_is]);
-    let v = function_search_delimeter();
-    let parts = string_identifier_sub_multiple_parse(query, v);
+    let fsd = function_search_delimeter();
+    let parts = string_identifier_sub_multiple_parse(query, fsd);
     const candidates = await function_name_all_tests_not();
     let candidates_matching = list_filter(candidates, function list_filter_predicate(candidate) {
         let all_parts_included = list_all(parts, function list_all_each(part) {
