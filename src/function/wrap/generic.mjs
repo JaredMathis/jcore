@@ -17,6 +17,8 @@ import { js_function_declaration_to_params_names } from '../../js/function/decla
 import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
 import { function_to_declaration } from '../to/declaration.mjs';
 import { list_contains } from '../../list/contains.mjs';
+import { function_name_get } from '../name/get.mjs';
+import { defined_is } from '../../defined/is.mjs';
 export async function function_wrap_generic(function_name_to_wrap, function_name_to_add, map) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -47,7 +49,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     await list_each_with_index_async(inputs, async function v(input, index) {
         let input_type;
         if (dependency_is) {
-
+            input_type = function_name_get(defined_is)
         } else {
             let arguments_assert_arg = list_get(arguments_assert_args, index);
             input_type = js_identifier_name_get(arguments_assert_arg);
