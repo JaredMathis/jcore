@@ -58,7 +58,10 @@ export async function refactor_call_statement_find_replaceify(args) {
             if (!js_statements_refactorable(statements, function_name_find_statements)) {
                 return;
             }
-            let statement_to_remove = list_take_without_last(statements);
+            let statements_to_remove = list_take_without_last(statements);
+            for (let s of statements_to_remove) {
+                list_remove(parent_list, s);
+            }
         });
     });
 }
