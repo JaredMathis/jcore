@@ -9,6 +9,5 @@ export function list_last_index(list) {
     const length = list_length(list);
     let length_minus_1 = subtract_1(length);
     return length_minus_1;
-    list_length_subtract_1;
     metadata([]);
 }
