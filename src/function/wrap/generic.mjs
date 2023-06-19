@@ -45,6 +45,10 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     await function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
     let inputs = js_function_declaration_to_params_names(function_declaration);
     await list_each_with_index_async(inputs, async function v(input, index) {
+        let input_type;
+        if (dependency_is) {
+
+        }
         let arguments_assert_arg = list_get(arguments_assert_args, index);
         let arguments_assert_arg_name = js_identifier_name_get(arguments_assert_arg);
         await function_input_add_type(function_name_to_add, input, arguments_assert_arg_name);
