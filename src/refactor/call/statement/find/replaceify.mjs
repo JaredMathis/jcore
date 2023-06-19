@@ -1,6 +1,6 @@
+import { js_node_property_params_get } from '../../../../js/node/property/params/get.mjs';
 import { refactor_import_fix_if_changed } from '../../../import/fix/if/changed.mjs';
 import { js_parse_identifier } from '../../../../js/parse/identifier.mjs';
-import { js_node_property_arguments_get } from '../../../../js/node/property/arguments/get.mjs';
 import { list_replace } from '../../../../list/replace.mjs';
 import { js_call_expression_name_change } from '../../../../js/call/expression/name/change.mjs';
 import { js_function_declaration_to_params_names } from '../../../../js/function/declaration/to/params/names.mjs';
@@ -84,7 +84,7 @@ export async function refactor_call_statement_find_replaceify(args) {
                     list_remove(parent_list, s);
                 }
                 js_call_expression_name_change(expression, function_name_find);
-                let args = js_node_property_arguments_get(expression);
+                let args = js_node_property_params_get(function_declaration_find);
                 list_replace(args, list_map(args, a => {
                     let name_before = js_identifier_name_get(a);
                     let name_after = object_property_get(refactorable_data, name_before);
