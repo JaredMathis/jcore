@@ -22,6 +22,7 @@ import { list_get } from '../../../../list/get.mjs';
 import { error } from '../../../../error.mjs';
 import { js_node_is_return_statement } from '../../../../js/node/is/return/statement.mjs';
 import { list_last } from '../../../../list/last.mjs';
+import { js_identifier_name_get } from '../../../../js/identifier/name/get.mjs';
 export async function refactor_call_statement_find_previous(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name_find, function_declaration_find} = args;
@@ -37,10 +38,11 @@ export async function refactor_call_statement_find_previous(args) {
     if (null_not_is(return_statement)) {
         if (js_node_is_variable_declaration(function_name_find_statements_last)) {
             let declaration = js_declarations_single(function_name_find_statements_last);
-            let id_name = js_id_get(declaration);
+            let id = js_id_get(declaration);
+            let name = js_identifier_name_get(id);
             log({
-                declaration,
-                id_name
+                return_statement,
+                name
             });
         }
     }
