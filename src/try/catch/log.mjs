@@ -20,11 +20,11 @@ export function try_catch_log(fn, lambda, error_message) {
 }
 
 function try_catch(lambda, on_error) {
-    let v;
+    let result;
     try {
-        v = lambda();
+        result = lambda();
     } catch (e) {
-        v = on_error(e);
+        result = on_error(e);
     }
-    return v;
+    return result;
 }
