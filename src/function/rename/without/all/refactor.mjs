@@ -16,11 +16,13 @@ import { string_prefix_replace } from '../../../../string/prefix/replace.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { object_keys } from '../../../../object/keys.mjs';
 import { object_properties } from '../../../../object/properties.mjs';
+import { log } from '../../../../log.mjs';
 export async function function_rename_without_all_refactor(function_name_old, function_name_new) {
     arguments_assert(arguments, [
         string_identifier_is,
         string_identifier_is
     ]);
+    log('a');
     let v = equal_not(function_name_old, function_name_new);
     assert(v);
     let v_2 = await function_exists(function_name_old);
@@ -37,6 +39,7 @@ export async function function_rename_without_all_refactor(function_name_old, fu
         let v_12 = string_starts_with(a, tests_prefix_old);
         return v_12;
     });
+    log('a');
     let tests_prefix_new = function_tests_prefix_get(function_name_new);
     let tests_renames = list_string_to_dictionary(tests_old, function v_11(t) {
         let v_13 = string_prefix_replace(t, tests_prefix_old, tests_prefix_new);
@@ -52,6 +55,7 @@ export async function function_rename_without_all_refactor(function_name_old, fu
         let to = object_property_get(tests_renames, from);
         await function_rename_file_path(from, to);
     }
+    log('a');
     return tests_renames;
     metadata([]);
 }
