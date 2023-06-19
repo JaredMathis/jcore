@@ -21,7 +21,7 @@ export async function function_rename_without_all_refactor(function_name_old, fu
         string_identifier_is,
         string_identifier_is
     ]);
-    let v = equal_not(v_6);
+    let v = equal_not(function_name_old, function_name_new);
     assert(v);
     let v_2 = await function_exists(function_name_old);
     assert(v_2);
