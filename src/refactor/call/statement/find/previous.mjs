@@ -26,10 +26,10 @@ export async function refactor_call_statement_find_previous(args) {
     let function_name_find_statements = js_node_property_body_to_block_statement_body_statements(function_declaration_find);
     list_remove(function_name_find_statements, statement_arguments_assert);
     let return_statement = list_find_or_null(function_name_find_statements, js_node_is_return_statement);
+    let function_name_find_statements_last = list_last(function_name_find_statements);
     if (null_not_is(return_statement)) {
         list_remove(function_name_find_statements, return_statement);
     }
-    let function_name_find_statements_last = list_last(function_name_find_statements);
     let function_name_find_statements_last_name = js_call_statement_name(function_name_find_statements_last);
     let function_name = js_mapper_args_to_function_name(args);
     js_visit_call_statements(args, (stack_reversed, node, expression, parent_list) => {
