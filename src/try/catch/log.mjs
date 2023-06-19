@@ -9,9 +9,8 @@ export function try_catch_log(fn, lambda, error_message) {
         function_is,
         string_empty_not_is
     ]);
-    let v
-    try_catch(lambda, on_error);
-    return v;
+    let result = try_catch(lambda, on_error);
+    return result;
     metadata([]);
 
     function on_error(e) {
