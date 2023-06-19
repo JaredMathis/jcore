@@ -27,9 +27,9 @@ export function js_node_identifiers_replaceify(node, replacements) {
                     return;
                 }
                 let {node} = v;
-                lambda();
+                lambda(node);
 
-                function lambda() {
+                function lambda(node) {
                     let existing = js_identifier_name_get(node);
                     let replacement = next();
                     object_property_ensure(dictionary, existing, replacement);
