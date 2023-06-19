@@ -21,7 +21,6 @@ import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { subtract_1 } from '../../../../subtract/1.mjs';
 import { list_get } from '../../../../list/get.mjs';
-import { error } from '../../../../error.mjs';
 import { js_node_is_return_statement } from '../../../../js/node/is/return/statement.mjs';
 import { list_last } from '../../../../list/last.mjs';
 import { js_identifier_name_get } from '../../../../js/identifier/name/get.mjs';
@@ -51,7 +50,6 @@ export async function refactor_call_statement_find_previous(args) {
     let function_name = js_mapper_args_to_function_name(args);
     js_visit_call_statements(args, (stack_reversed, node, expression, parent_list) => {
         js_node_call_expression_if_name_equal(expression, function_name_find_statements_last_name, () => {
-            let node_string = js_unparse(expression);
             let index = list_index_of(parent_list, node);
             let index_previous = subtract_1(index);
             let previous = list_get(parent_list, index_previous);
@@ -59,17 +57,15 @@ export async function refactor_call_statement_find_previous(args) {
                 previous,
                 node
             ];
-            return;
+            if (!js_statements_refactorable(statements, function_name_find_statements)) {
+                return;
+            }
             log({
                 function_name,
                 function_name_find
             });
             log_multiple_map(statements, js_unparse);
             log('');
-            if (!js_statements_refactorable(statements, function_name_find_statements)) {
-                return;
-            }
-            error();
         });
     });
 }
