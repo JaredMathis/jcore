@@ -6,7 +6,7 @@ import { js_node_is_identifier } from '../is/identifier.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { js_node_is_call_expression } from '../is/call/expression.mjs';
-export function js_node_identifiers_replacify(node, replacements) {
+export function js_node_identifiers_replaceify(node, replacements) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         list_is
