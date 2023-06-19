@@ -20,8 +20,8 @@ export function js_node_identifiers_replaceify(node_left, node_right) {
         js_visit_identifiers_not_call_expressions(node_left, node => {
             let existing = js_identifier_name_get(node);
             la(existing);
-        })
-    })
+        });
+    });
     let result = result_empty();
     let dictionary = {};
     if (list_consume_try(replacements, next => {
