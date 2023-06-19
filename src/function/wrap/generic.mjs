@@ -48,10 +48,11 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
         let input_type;
         if (dependency_is) {
 
+        } else {
+            let arguments_assert_arg = list_get(arguments_assert_args, index);
+            input_type = js_identifier_name_get(arguments_assert_arg);
         }
-        let arguments_assert_arg = list_get(arguments_assert_args, index);
-        let arguments_assert_arg_name = js_identifier_name_get(arguments_assert_arg);
-        await function_input_add_type(function_name_to_add, input, arguments_assert_arg_name);
+        await function_input_add_type(function_name_to_add, input, input_type);
     });
     await function_open_vs_code(function_name_to_add);
 }
