@@ -30,6 +30,7 @@ export async function function_rename_without_all_refactor(function_name_old, fu
     let v_7 = await function_exists(function_name_new);
     let v_3 = not(v_7);
     assert(v_3);
+    log('a');
     let v_8 = await file_js_all_identifier_exists(function_name_new);
     let v_4 = not(v_8);
     assert(v_4);
