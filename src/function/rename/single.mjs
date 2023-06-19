@@ -8,9 +8,6 @@ export async function function_rename_single(function_name_old, function_name_ne
         string_identifier_is,
         string_identifier_is
     ]);
-    log('a');
     await function_rename_no_open(function_name_old, function_name_new);
-    log('a');
     await function_open_vs_code(function_name_new);
-    log('a');
 }
