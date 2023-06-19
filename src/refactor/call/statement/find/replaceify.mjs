@@ -83,9 +83,10 @@ export async function refactor_call_statement_find_replaceify(args) {
             js_call_expression_name_change(expression, function_name_find);
             log({ expression });
             let args = js_node_property_arguments_get(expression);
-            list_replace(args, list_map(args, p => {
-                let name_before = js_identifier_name_get(p);
+            list_replace(args, list_map(args, a => {
+                let name_before = js_identifier_name_get(a);
                 let name_after = object_property_get(refactorable_data, name_before);
+                let p_after = 
             }));
         });
     });
