@@ -1,5 +1,4 @@
 import { object_copy_json } from '../../object/copy/json.mjs';
-import { list_elements_all_equal } from '../../list/elements/all/equal.mjs';
 import { js_node_identifiers } from '../node/identifiers.mjs';
 import { list_length } from '../../list/length.mjs';
 import { equal_by } from '../../equal/by.mjs';
@@ -22,7 +21,7 @@ export function js_statements_refactorable(left, right) {
         let right_i = list_get(right, index);
         let left_identifiers = js_node_identifiers(left_i);
         let right_identifiers = js_node_identifiers(right_i);
-        if (not(list_elements_all_equal_by(left_identifiers, right_identifiers))) {
+        if (not(equal_by(list_length, left_identifiers, right_identifiers))) {
             return false;
         }
         let left_i_copy = object_copy_json(left_i);
