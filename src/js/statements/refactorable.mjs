@@ -40,7 +40,8 @@ export function js_statements_refactorable(left, right) {
         }
         let left_i_copy = object_copy_json(left_i);
         const replaceify = js_node_identifiers_replaceify(left_i_copy, right_identifiers);
-        let replaceify_data = result_property_data_get();
+        let replaceify_data = result_property_data_get(replaceify);
+        object_properties_each();
         if (!result_property_success(replaceify)) {
             result_unsuccess(result);
             return result;
