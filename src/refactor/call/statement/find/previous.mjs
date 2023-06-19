@@ -42,7 +42,9 @@ export async function refactor_call_statement_find_previous(args) {
                 previous,
                 node
             ];
-            js_statements_refactorable(statements, function_name_find_statements);
+            if (!js_statements_refactorable(statements, function_name_find_statements)) {
+                return;
+            }
             log({
                 function_name,
                 function_name_find
