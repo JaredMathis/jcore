@@ -1,5 +1,4 @@
 import { function_is } from '../function/is.mjs';
-import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { string_includes } from '../string/includes.mjs';
 import { list_all } from '../list/all.mjs';
@@ -8,11 +7,11 @@ import { string_identifier_sub_multiple_parse } from '../string/identifier/sub/m
 import { function_search_delimeter } from '../function/search/delimeter.mjs';
 import { list_is } from '../list/is.mjs';
 import { string_is } from '../string/is.mjs';
-export function search_generic(candidates, query, candidate_to_string) {
+export function search_generic(candidates, candidate_to_string, query) {
     arguments_assert(arguments, [
         list_is,
-        string_is,
-        function_is
+        function_is,
+        string_is
     ]);
     let query_map = function v(query) {
         let fsd = function_search_delimeter();
@@ -24,7 +23,6 @@ export function search_generic(candidates, query, candidate_to_string) {
         return candidate_as_string_matches(candidate_as_string, parts);
     });
     return candidates_matching;
-
     function candidate_as_string_matches(candidate_as_string, parts) {
         let all_parts_included = list_all(parts, function list_all_each(part) {
             let included = string_includes(candidate_as_string, part);
