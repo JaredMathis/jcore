@@ -10,12 +10,11 @@ import { js_node_is_variable_declaration } from '../../../../node/is/variable/de
 import { js_node_is_program } from '../../../../node/is/program.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { list_reversed_get } from '../../../../../list/reversed/get.mjs';
-export function js_visit_stack_to_ancestor_list(refactor_stack, lambda) {
+export function js_visit_stack_to_ancestor_list(stack_reversed, lambda) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let stack_reversed = list_reversed_get(refactor_stack);
     let index_starting_at = 0;
     let list_find_first_after_result = list_find_first_start_at(stack_reversed, index_starting_at);
     let parent_list_next = object_property_get(list_find_first_after_result, 'next');
