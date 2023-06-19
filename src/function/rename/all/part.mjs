@@ -1,5 +1,4 @@
-import { not } from '../../../not.mjs';
-import { equal } from '../../../equal.mjs';
+import { equal_not } from '../../../equal/not.mjs';
 import { list_set } from '../../../list/set.mjs';
 import { list_index_of_single } from '../../../list/index/of/single.mjs';
 import { function_rename_part_generic } from '../part/generic.mjs';
@@ -11,8 +10,7 @@ export async function function_rename_all_part(part_old, part_new) {
         string_identifier_part_is,
         string_identifier_part_is
     ]);
-    let v_2 = equal(part_old, part_new);
-    let v = not(v_2);
+    let v = equal_not(part_old, part_new);
     assert(v);
     await function_rename_part_generic(part_old, parts_map);
     function parts_map(parts) {
