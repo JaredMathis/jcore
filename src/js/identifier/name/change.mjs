@@ -5,10 +5,8 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { object_property_change } from '../../../object/property/change.mjs';
 export function js_identifier_name_change(identifier, name_new) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
+        js_node_is_identifier,
         arguments_assert_todo
     ]);
-    let v = js_node_is_identifier(identifier);
-    assert(v);
     object_property_change(identifier, 'name', name_new);
 }
