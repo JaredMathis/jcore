@@ -5,7 +5,7 @@ import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { object_property_get } from '../object/property/get.mjs';
 import { task_property_number } from './property/number.mjs';
-export async function task_add(title) {
+export async function task_now(title) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let task = await task_later(title);
     let v = task_property_number();

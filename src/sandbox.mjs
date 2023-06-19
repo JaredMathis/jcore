@@ -27,9 +27,7 @@ import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
-
     return;
-
     let repository_name = version_repository_default();
     await version_push(repository_name);
     return;
