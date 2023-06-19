@@ -27,5 +27,4 @@ export function js_node_assign_and_replace(expression_to_replace, parsed, ancest
     let v_5 = js_parse_expression(id);
     object_replace(expression_to_replace_root, v_5);
     list_add_before(ancestor_list, assignment, add_assignment_before_node);
-    return expression_to_replace;
 }
