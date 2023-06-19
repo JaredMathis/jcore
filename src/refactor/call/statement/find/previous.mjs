@@ -34,6 +34,7 @@ export async function refactor_call_statement_find_previous(args) {
     if (null_not_is(return_statement)) {
         if (js_node_is_variable_declaration(function_name_find_statements_last)) {
             let declaration = js_declarations_single(function_name_find_statements_last)
+            log({declaration});
         }
     }
     let function_name = js_mapper_args_to_function_name(args);
