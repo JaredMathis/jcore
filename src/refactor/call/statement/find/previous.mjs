@@ -1,6 +1,6 @@
+import { js_code_function_name_to_export } from '../../../../js/code/function/name/to/export.mjs';
 import { js_export_single } from '../../../../js/export/single.mjs';
 import { js_function_declaration_to_statements } from '../../../../js/function/declaration/to/statements.mjs';
-import { js_code_function_named } from '../../../../js/code/function/named.mjs';
 import { js_statements_refactorable } from '../../../../js/statements/refactorable.mjs';
 import { js_call_expression_name_get } from '../../../../js/call/expression/name/get.mjs';
 import { null_not_is } from '../../../../null/not/is.mjs';
@@ -38,7 +38,7 @@ export async function refactor_call_statement_find_previous(args) {
         list_remove(function_name_find_statements, return_statement);
     }
     let function_name_find_statements_last = list_last(function_name_find_statements);
-    let program = js_parse(js_code_function_named(string_a()));
+    let program = js_parse(js_code_function_name_to_export(string_a()));
     let program_fd = js_export_single(program);
     let program_statements = js_function_declaration_to_statements(program_fd);
     list_add(program_statements, function_name_find_statements_last);
@@ -50,7 +50,7 @@ export async function refactor_call_statement_find_previous(args) {
     });
     let function_name_find_statements_last_name = list_single(function_name_find_statements_last_names);
     log({ function_name_find_statements_last_name });
-    error()
+    error();
     let function_name = js_mapper_args_to_function_name(args);
     js_visit_call_statements(args, (stack_reversed, node, expression, parent_list) => {
         js_node_call_expression_if_name_equal(expression, function_name_find, () => {
