@@ -26,6 +26,7 @@ import { list_last } from '../../../../list/last.mjs';
 import { js_identifier_name_get } from '../../../../js/identifier/name/get.mjs';
 import { assert } from '../../../../assert.mjs';
 import { comment } from '../../../../comment.mjs';
+import { list_last_index } from '../../../../list/last/index.mjs';
 export async function refactor_call_statement_find_replaceify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name_find, function_declaration_find} = args;
@@ -60,6 +61,7 @@ export async function refactor_call_statement_find_replaceify(args) {
             if (!js_statements_refactorable(statements, function_name_find_statements)) {
                 return;
             }
+            let statement_to_remove = list_take(statements, list_last_index(list_take));
         });
     });
 }
