@@ -27,7 +27,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     ]);
     let function_declaration = await function_to_declaration(function_name_to_wrap);
     let dependencies = await function_dependencies_names_arguments_assert();
-    let dependency_is = list_contains(dependencies, function_name_to_wrap)
+    let dependency_is = list_contains(dependencies, function_name_to_wrap);
     let arguments_assert_args;
     if (!dependency_is) {
         arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
@@ -49,7 +49,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     await list_each_with_index_async(inputs, async function v(input, index) {
         let input_type;
         if (dependency_is) {
-            input_type = function_name_get(defined_is)
+            input_type = function_name_get(defined_is);
         } else {
             let arguments_assert_arg = list_get(arguments_assert_args, index);
             input_type = js_identifier_name_get(arguments_assert_arg);
