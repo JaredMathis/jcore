@@ -7,6 +7,6 @@ export async function function_copy_suffix_remove(function_name_old, function_na
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let function_name_new = string_identifier_suffix_remove(function_name_suffix, function_name_old);
+    let function_name_new = string_identifier_suffix_remove(function_name_old, function_name_suffix);
     await function_copy(function_name_old, function_name_new);
 }

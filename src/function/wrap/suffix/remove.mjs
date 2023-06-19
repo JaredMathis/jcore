@@ -8,7 +8,7 @@ export async function function_wrap_suffix_remove(function_name_to_wrap_without_
         string_identifier_is,
         string_identifier_first_not_is
     ]);
-    let function_name_to_wrap = string_identifier_suffix_remove(suffix_to_remove, function_name_to_wrap_without_suffix);
+    let function_name_to_wrap = string_identifier_suffix_remove(function_name_to_wrap_without_suffix, suffix_to_remove);
     let result = await function_wrap(function_name_to_wrap, function_name_to_wrap_without_suffix);
     return result;
 }
