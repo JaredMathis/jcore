@@ -6,11 +6,9 @@ import { file_read } from '../../../read.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function file_js_parse_with_unparsed(file_path) {
     arguments_assert(arguments, [path_is]);
-    if (false)
-        log('before');
+    log('before');
     let unparsed = await file_read(file_path);
-    if (false)
-        log('after');
+    log('after');
     let parsed = js_parse(unparsed);
     return {
         unparsed,
