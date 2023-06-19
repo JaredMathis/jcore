@@ -6,9 +6,10 @@ import { list_all } from '../list/all.mjs';
 import { list_filter } from '../list/filter.mjs';
 import { string_identifier_sub_multiple_parse } from '../string/identifier/sub/multiple/parse.mjs';
 import { function_search_delimeter } from '../function/search/delimeter.mjs';
+import { list_is } from '../list/is.mjs';
 export function search_generic(candidates, query, candidate_to_string) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
+        list_is,
         arguments_assert_todo,
         function_is
     ]);
