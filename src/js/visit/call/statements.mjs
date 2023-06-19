@@ -81,10 +81,10 @@ export function js_visit_call_statements(args, call_each) {
             if (not(js_node_is_call_expression(expression))) {
                 return;
             }
+            let stack_reversed = list_reversed_get(refactor_stack);
             function lambda(ancestor_list) {
                 call_each(stack_reversed, node, expression, ancestor_list);
             }
-            let stack_reversed = list_reversed_get(refactor_stack);
             js_visit_stack_to_ancestor_list(refactor_stack, lambda);
         }
     });
