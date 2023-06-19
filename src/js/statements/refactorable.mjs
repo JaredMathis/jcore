@@ -1,3 +1,4 @@
+import { js_identifier_name_get } from '../identifier/name/get.mjs';
 import { list_length } from '../../list/length.mjs';
 import { equal_by } from '../../equal/by.mjs';
 import { not } from '../../not.mjs';
