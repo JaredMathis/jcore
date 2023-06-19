@@ -23,7 +23,7 @@ import { object_property_get } from '../../object/property/get.mjs';
 import { list_length_is_1 } from '../../list/length/is/1.mjs';
 import { js_parse_statement } from '../../js/parse/statement.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
-export async function refactor_properties_expand(args) {
+export async function refactor_destructure_expand(args) {
     arguments_assert(arguments, [defined_is]);
     refactor_import_fix_if_changed(args, o => {
         let {function_declaration, parsed} = args;
