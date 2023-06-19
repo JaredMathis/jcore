@@ -5,7 +5,6 @@ import { string_is } from '../../../string/is.mjs';
 export async function task_current_title_append(title_additional) {
     arguments_assert(arguments, [string_is]);
     let task_number_string = await task_get_get_string();
-    console.log({task_number_string})
     await task_title_append(task_number_string, title_additional);
     return result;
 }
