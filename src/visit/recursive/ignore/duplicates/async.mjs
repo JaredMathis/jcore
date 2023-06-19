@@ -1,6 +1,6 @@
 import { list_is } from '../../../../list/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
-import { list_last_remove_verify } from '../../../../list/last/remove/verify.mjs';
+import { list_remove_last_verify } from '../../../../list/remove/last/verify.mjs';
 import { list_add_assert_exists_not } from '../../../../list/add/assert/exists/not.mjs';
 import { list_add } from '../../../../list/add.mjs';
 import { list_contains } from '../../../../list/contains.mjs';
@@ -34,5 +34,5 @@ export async function visit_recursive_ignore_duplicates_async(node, children_get
     for (let c of children) {
         await visit_recursive_ignore_duplicates_async(c, children_get, lambda, stack, visited, ignore_duplicates);
     }
-    list_last_remove_verify(stack, node);
+    list_remove_last_verify(stack, node);
 }

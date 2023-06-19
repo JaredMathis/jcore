@@ -11,5 +11,4 @@ export async function task_property_change_local(task_number_string, property_na
     await task_map_local(task_number_string, function map(task) {
         object_property_change(task, property_name, property_value);
     });
-    
 }
