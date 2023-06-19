@@ -83,7 +83,7 @@ export async function refactor_call_statement_find_replaceify(args) {
             js_call_expression_name_change(expression, function_name_find);
             log({ expression });
             let args = js_node_property_arguments_get(expression);
-            list_replace(args, list_map(args, p => object_property_get(refactorable_data, p)));
+            list_replace(args, list_map(args, p => { return object_property_get(refactorable_data, p) }));
         });
     });
 }
