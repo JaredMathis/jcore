@@ -1,15 +1,13 @@
-import { not } from '../../not.mjs';
+import { list_empty_not } from '../../list/empty/not.mjs';
 import { git_exclude } from '../exclude.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { assert } from '../../assert.mjs';
-import { list_empty } from '../../list/empty.mjs';
 import { git_ignore_lines } from '../ignore/lines.mjs';
 import { path_exists } from '../../path/exists.mjs';
 export async function git_exclude_ignore() {
     arguments_assert(arguments, []);
     let {lines} = await git_ignore_lines();
-    let v_2 = list_empty(lines);
-    let v = not(v_2);
+    let v = list_empty_not(lines);
     assert(v);
     for (let line of lines) {
         if (await path_exists(line)) {
