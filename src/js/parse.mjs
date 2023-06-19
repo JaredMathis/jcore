@@ -7,6 +7,7 @@ import { string_empty_not_is } from '../string/empty/not/is.mjs';
 export function js_parse(unparsed) {
     arguments_assert(arguments, [string_is]);
     let error_message = unparsed;
+    if (false)
     if (string_empty_not_is()) {
 
     }
