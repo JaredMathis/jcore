@@ -21,11 +21,11 @@ export function search_generic(candidates, query, candidate_to_string) {
     let parts = query_map(query);
     let candidates_matching = list_filter(candidates, function list_filter_predicate(candidate) {
         let candidate_as_string = candidate_to_string(candidate);
-        return newFunction(candidate_as_string);
+        return candidate_as_string_matches(candidate_as_string);
     });
     return candidates_matching;
 
-    function newFunction(candidate_as_string) {
+    function candidate_as_string_matches(candidate_as_string) {
         let all_parts_included = list_all(parts, function list_all_each(part) {
             let included = string_includes(candidate_as_string, part);
             return included;
