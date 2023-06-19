@@ -37,6 +37,7 @@ import { list_map } from '../../../../list/map.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { result_property_data_get } from '../../../../result/property/data/get.mjs';
 import { error } from '../../../../error.mjs';
+import { json_to } from '../../../../json/to.mjs';
 export async function refactor_call_statement_find_replaceify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name_find} = args;
@@ -86,7 +87,7 @@ export async function refactor_call_statement_find_replaceify(args) {
                 }
                 js_call_expression_name_change(expression, function_name_find);
                 let args = js_node_property_params_get(function_declaration_find);
-                log({args,refactorable_data})
+                log({args,refactorable_data,j:json_to(function_declaration_find)})
                 list_replace(args, list_map(args, a => {
                     let name_before = js_identifier_name_get(a);
                     let name_after = object_property_get(refactorable_data, name_before);
