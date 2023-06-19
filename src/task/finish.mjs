@@ -10,7 +10,7 @@ export async function task_finish() {
     arguments_assert(arguments, []);
     let task_number_hashed = await task_id_get_or_null();
     let task_number_string = task_number_unhash(task_number_hashed);
-    let task = await task_get();
+    let task = await task_get(task_number_string);
     await task_close(task_number_string);
     await task_unset();
     let v = await task_available();
