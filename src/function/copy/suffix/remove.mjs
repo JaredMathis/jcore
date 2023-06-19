@@ -2,13 +2,13 @@ import { string_identifier_parts_from } from '../../../string/identifier/parts/f
 import { function_copy } from '../../copy.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
-export async function function_copy_suffix_remove(function_name_old, function_name_suffix) {
+export async function function_copy_suffix_remove(function_name_new, function_name_suffix) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let function_name_new = string_identifier_parts_from([
-        function_name_old,
+    let function_name_old = string_identifier_parts_from([
+        function_name_new,
         function_name_suffix
     ]);
     await function_copy(function_name_old, function_name_new);
