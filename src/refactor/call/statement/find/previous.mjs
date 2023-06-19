@@ -1,3 +1,5 @@
+import { js_declarations_single } from '../../../../js/declarations/single.mjs';
+import { js_node_is_variable_declaration } from '../../../../js/node/is/variable/declaration.mjs';
 import { js_call_statement_name } from '../../../../js/call/statement/name.mjs';
 import { js_statements_refactorable } from '../../../../js/statements/refactorable.mjs';
 import { null_not_is } from '../../../../null/not/is.mjs';
@@ -33,8 +35,8 @@ export async function refactor_call_statement_find_previous(args) {
     let function_name_find_statements_last_name = js_call_statement_name(function_name_find_statements_last);
     if (null_not_is(return_statement)) {
         if (js_node_is_variable_declaration(function_name_find_statements_last)) {
-            let declaration = js_declarations_single(function_name_find_statements_last)
-            log({declaration});
+            let declaration = js_declarations_single(function_name_find_statements_last);
+            log({ declaration });
         }
     }
     let function_name = js_mapper_args_to_function_name(args);
