@@ -29,19 +29,15 @@ export async function function_rename_without_all_refactor(function_name_old, fu
     let v_7 = await function_exists(function_name_new);
     let v_3 = not(v_7);
     assert(v_3);
-    log('a');
     let v_8 = await file_js_all_identifier_exists(function_name_new);
     let v_4 = not(v_8);
-    log('a');
     assert(v_4);
     let all = await function_name_all();
-    log('a');
     let tests_prefix_old = function_tests_prefix_get(function_name_old);
     let tests_old = list_filter(all, function v_10(a) {
         let v_12 = string_starts_with(a, tests_prefix_old);
         return v_12;
     });
-    log('a');
     let tests_prefix_new = function_tests_prefix_get(function_name_new);
     let tests_renames = list_string_to_dictionary(tests_old, function v_11(t) {
         let v_13 = string_prefix_replace(t, tests_prefix_old, tests_prefix_new);
@@ -57,7 +53,6 @@ export async function function_rename_without_all_refactor(function_name_old, fu
         let to = object_property_get(tests_renames, from);
         await function_rename_file_path(from, to);
     }
-    log('a');
     return tests_renames;
     metadata([]);
 }
