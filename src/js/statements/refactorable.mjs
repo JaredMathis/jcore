@@ -53,6 +53,5 @@ export function js_statements_refactorable(left, right) {
             return result;
         }
     }
-    log('');
     return result;
 }
