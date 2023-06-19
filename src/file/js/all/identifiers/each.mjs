@@ -11,6 +11,8 @@ export async function file_js_all_identifiers_each(lambda) {
         log(file_path);
         let parsed = await file_js_parse(file_path);
         let identifiers = js_identifiers(parsed);
+        log('state')
         lambda(identifiers, file_path);
+        log('finish')
     }
 }
