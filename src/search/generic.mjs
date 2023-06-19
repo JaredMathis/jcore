@@ -16,7 +16,7 @@ export function search_generic(candidates, candidate_to_string, query) {
     let parts = query_map(query);
     let candidates_matching = list_filter(candidates, function list_filter_predicate(candidate) {
         let candidate_as_string = candidate_to_string(candidate);
-        return candidate_as_string_matches(candidate_as_string, parts);
+        return search_candidate_as_string_matches(candidate_as_string, parts);
     });
     return candidates_matching;
 }
@@ -24,7 +24,7 @@ function query_map(query) {
     let fsd = function_search_delimeter();
     return string_identifier_sub_multiple_parse(query, fsd);
 }
-function candidate_as_string_matches(candidate_as_string, parts) {
+function search_candidate_as_string_matches(candidate_as_string, parts) {
     let all_parts_included = list_all(parts, function list_all_each(part) {
         let included = string_includes(candidate_as_string, part);
         return included;
