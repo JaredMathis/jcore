@@ -3,9 +3,8 @@ import { function_name_get } from '../../name/get.mjs';
 import { function_input_value_default } from '../value/default.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
-export async function function_input_add_first(function_name, input_name, input_index) {
+export async function function_input_add_first(function_name, input_name) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
         arguments_assert_todo,
         arguments_assert_todo
     ]);
