@@ -49,7 +49,7 @@ export function refactor_call_arguments_to_assignments(args) {
 }
 
 function newFunction(expression_to_replace, parsed, ancestor_list, node) {
-    let arg_root = expression_to_replace;
+    let expression_to_replace_root = expression_to_replace;
     if (js_node_is_await_expression(expression_to_replace)) {
         expression_to_replace = js_node_property_argument_get(expression_to_replace);
     }
@@ -59,10 +59,10 @@ function newFunction(expression_to_replace, parsed, ancestor_list, node) {
     let assignment = js_parse_statement(assignment_code);
     let declarations = js_node_property_declarations_get(assignment);
     let declaration = list_single(declarations);
-    let v_4 = object_copy_shallow(arg_root);
+    let v_4 = object_copy_shallow(expression_to_replace_root);
     js_variable_declarator_init_change(declaration, v_4);
     let v_5 = js_parse_expression(id);
-    object_replace(arg_root, v_5);
+    object_replace(expression_to_replace_root, v_5);
     list_add_before(ancestor_list, assignment, node);
     return expression_to_replace;
 }
