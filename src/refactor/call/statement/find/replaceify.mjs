@@ -1,5 +1,5 @@
+import { js_node_property_arguments_get } from '../../../../js/node/property/arguments/get.mjs';
 import { list_replace } from '../../../../list/replace.mjs';
-import { js_node_property_params_get } from '../../../../js/node/property/params/get.mjs';
 import { js_call_expression_name_change } from '../../../../js/call/expression/name/change.mjs';
 import { js_function_declaration_to_params_names } from '../../../../js/function/declaration/to/params/names.mjs';
 import { result_property_success_get } from '../../../../result/property/success/get.mjs';
@@ -29,7 +29,6 @@ import { list_last } from '../../../../list/last.mjs';
 import { js_identifier_name_get } from '../../../../js/identifier/name/get.mjs';
 import { assert } from '../../../../assert.mjs';
 import { comment } from '../../../../comment.mjs';
-import { error } from '../../../../error.mjs';
 import { log } from '../../../../log.mjs';
 import { equal } from '../../../../equal.mjs';
 import { list_map } from '../../../../list/map.mjs';
@@ -82,8 +81,8 @@ export async function refactor_call_statement_find_replaceify(args) {
                 list_remove(parent_list, s);
             }
             js_call_expression_name_change(expression, function_name_find);
-            log({expression})
-            let params = js_node_property_params_get(expression);
+            log({ expression });
+            let params = js_node_property_arguments_get(expression);
             list_replace(params, list_map(params, p => object_property_get(refactorable_data, p)));
         });
     });
