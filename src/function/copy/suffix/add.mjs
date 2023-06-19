@@ -5,6 +5,7 @@ import { function_copy_suffix_change } from './change.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { list_add_beginning } from '../../../list/add/beginning.mjs';
 import { string_identifier_parts_to } from '../../../string/identifier/parts/to.mjs';
+import { json_to } from '../../../json/to.mjs';
 export async function function_copy_suffix_add(function_name_old, function_name_suffix) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -14,7 +15,8 @@ export async function function_copy_suffix_add(function_name_old, function_name_
     let function_name_old_parts = string_identifier_parts_to(function_name_old);
     list_remove_last_verify_multiple(function_name_old_parts, function_name_suffix_parts);
     let function_name_prefix = string_identifier_parts_from(function_name_old_parts);
-    list_add_beginning(function_name_suffix_parts, function_name_suffix_from);
+    list_add_beginning(function_name_suffix_parts, function_name_prefix);
     let function_name_suffix_to = string_identifier_parts_from(function_name_suffix_parts);
+    error(json_to({function_name_prefix, function_name_suffix_from, function_name_suffix_to}))
     await function_copy_suffix_change(function_name_prefix, function_name_suffix_from, function_name_suffix_to);
 }
