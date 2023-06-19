@@ -1,4 +1,3 @@
-import { assert } from '../assert.mjs';
 import { list_empty } from './empty.mjs';
 import { function_is } from '../function/is.mjs';
 import { list_is } from './is.mjs';
@@ -9,6 +8,14 @@ export function list_consume(list, lambda) {
         list_is,
         function_is
     ]);
-    lambda(() => list_first_remove(list));
-    assert(list_empty(list));
+    let exceeded = false;
+    lambda(() => {
+        if (list_empty(list)) {
+            exceeded = true;
+            return null;
+        } else {
+            return list_first_remove(list);
+        }
+    });
+    return !exceeded && list_empty(list);
 }
