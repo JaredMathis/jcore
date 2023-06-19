@@ -5,5 +5,5 @@ import { equal } from '../../../equal.mjs';
 export function list_elements_all_equal(values) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let lambda = equal;
-    return list_elements_all_equal_generic(values, lambda);
+    return list_elements_all_equal_generic(lambda, values);
 }
