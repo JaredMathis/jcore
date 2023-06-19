@@ -18,7 +18,7 @@ export async function function_add_with_statements_synchronized(function_name, s
         list_is,
         boolean_is
     ]);
-    assert(!await function_exists(function_name))
+    assert(!await function_exists(function_name));
     const code = js_code_function_name_to_export(function_name);
     let parsed = js_parse(code);
     let fd = js_export_function_single(parsed);
