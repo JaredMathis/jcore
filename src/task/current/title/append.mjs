@@ -1,9 +1,12 @@
+import { string_to } from '../../../string/to.mjs';
 import { task_id_get } from '../../id/get.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { task_title_append } from '../../title/append.mjs';
-export async function task_current_title_append() {
-    arguments_assert(arguments, []);
+import { string_is } from '../../../string/is.mjs';
+export async function task_current_title_append(title_additional) {
+    arguments_assert(arguments, [string_is]);
     let task_number = await task_id_get();
-    await task_title_append(task_number);
+    let task_number_string = string_to(task_number);
+    await task_title_append(task_number, title_additional);
     return result;
 }
