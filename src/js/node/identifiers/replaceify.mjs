@@ -20,7 +20,6 @@ export function js_node_identifiers_replaceify(node, replacements) {
     ]);
     let result = result_empty();
     let dictionary = {};
-    log('here2');
     if (list_consume_try(replacements, next => {
             js_visit_nodes_filter(node, js_node_is_identifier, v => {
                 let {parent} = v;

@@ -36,6 +36,7 @@ export function js_statements_refactorable(left, right) {
             return result;
         }
         let left_i_copy = object_copy_json(left_i);
+        log_multiple([left_identifiers, right_identifiers])
         const replaceify = js_node_identifiers_replaceify(left_i_copy, right_identifiers);
         if (!result_property_success_get(replaceify)) {
             result_unsuccess(result);
