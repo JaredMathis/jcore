@@ -8,8 +8,8 @@ export async function task_property_change_local(task_number_string, property_na
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    await task_map_local(task_number_string, map);
-    function map(task) {
+    await task_map_local(task_number_string, function map(task) {
         object_property_change(task, property_name, property_value);
-    }
+    });
+    
 }
