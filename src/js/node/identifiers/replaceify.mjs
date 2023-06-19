@@ -28,14 +28,14 @@ export function js_node_identifiers_replaceify(node, replacements) {
                 }
                 let {node} = v;
                 lambda(node);
-
-                function lambda(node) {
-                    let existing = js_identifier_name_get(node);
-                    let replacement = next();
-                    object_property_ensure(dictionary, existing, replacement);
-                    js_identifier_name_change(node, replacement);
-                }
             });
+
+            function lambda(node) {
+                let existing = js_identifier_name_get(node);
+                let replacement = next();
+                object_property_ensure(dictionary, existing, replacement);
+                js_identifier_name_change(node, replacement);
+            }
         })) {
         log('here');
         result_property_data_set(result, dictionary);
