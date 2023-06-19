@@ -6,6 +6,7 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_identifiers } from '../../../../js/identifiers.mjs';
 import { file_js_parse } from '../../parse.mjs';
 import { file_js_all_path } from '../path.mjs';
+import { speed_now } from '../../../../speed/now.mjs';
 export async function file_js_all_identifiers_each(lambda) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let all = await file_js_all_path();
@@ -13,6 +14,7 @@ export async function file_js_all_identifiers_each(lambda) {
         let s = speed_start();
         let parsed = await file_js_parse(file_path);
         let previous = speed_property_previous_get(s);
+        let now = speed_now();
         const t1 = performance.now() - previous;
         let identifiers = js_identifiers(parsed);
         const t2 = performance.now() - t1;
