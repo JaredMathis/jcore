@@ -99,15 +99,15 @@ export function js_visit_call_statements(args, call_each) {
                 let parent_list = list_get(stack_reversed, parent_list_index);
                 call_each(stack_reversed, node, expression, parent_list);
             }
-        }
-        function list_find_first_start_at(stack_reversed, index_starting_at) {
-            let index = list_find_first_index_starting_at(stack_reversed, list_is, index_starting_at);
-            let index_next = add_1(index);
-            let next = list_get(stack_reversed, index_next);
-            return {
-                next,
-                index
-            };
+            function list_find_first_start_at(stack_reversed, index_starting_at) {
+                let index = list_find_first_index_starting_at(stack_reversed, list_is, index_starting_at);
+                let index_next = add_1(index);
+                let next = list_get(stack_reversed, index_next);
+                return {
+                    next,
+                    index
+                };
+            }
         }
     });
 }
