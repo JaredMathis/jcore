@@ -16,6 +16,6 @@ export async function file_js_all_identifiers_each(lambda) {
         const t2 = performance.now();
         lambda(identifiers, file_path);
         const t3 = performance.now();
-        log_multiple([t0, t1, t2, t3])
+        log({t0, t1, t2, t3})
     }
 }
