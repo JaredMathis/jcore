@@ -1,3 +1,4 @@
+import { js_node_is } from '../is.mjs';
 import { js_identifier_name_change } from '../../identifier/name/change.mjs';
 import { list_consume } from '../../../list/consume.mjs';
 import { list_is } from '../../../list/is.mjs';
@@ -14,7 +15,7 @@ export function js_node_identifiers_replaceify(node, replacements) {
     list_consume(replacements, next => {
         js_visit_nodes_filter(node, js_node_is_identifier, v => {
             let {parent} = v;
-            if (js_node_is_call_expression(parent)) {
+            if (js_node_is(parent) && js_node_is_call_expression(parent)) {
                 return;
             }
             let {node} = v;
