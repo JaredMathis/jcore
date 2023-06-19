@@ -48,7 +48,7 @@ export function refactor_call_arguments_to_assignments(args) {
     });
 }
 
-function newFunction(expression_to_replace, parsed, ancestor_list, node) {
+function newFunction(expression_to_replace, parsed, ancestor_list, add_before_node) {
     let expression_to_replace_root = expression_to_replace;
     if (js_node_is_await_expression(expression_to_replace)) {
         expression_to_replace = js_node_property_argument_get(expression_to_replace);
@@ -63,6 +63,6 @@ function newFunction(expression_to_replace, parsed, ancestor_list, node) {
     js_variable_declarator_init_change(declaration, v_4);
     let v_5 = js_parse_expression(id);
     object_replace(expression_to_replace_root, v_5);
-    list_add_before(ancestor_list, assignment, node);
+    list_add_before(ancestor_list, assignment, add_before_node);
     return expression_to_replace;
 }
