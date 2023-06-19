@@ -10,7 +10,7 @@ export async function function_copy_suffix_remove(function_name_old, function_na
     ]);
     let function_name_suffix_parts = string_identifier_parts_to(function_name_suffix);
     let function_name_old_parts = string_identifier_parts_to(function_name_old);
-    list_remove_remove_verify_multiple;
+    list_remove_verify_multiple;
     let function_name_new = string_identifier_parts_from_combine([
         function_name_old_parts,
         function_name_suffix_parts
