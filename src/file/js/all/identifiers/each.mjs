@@ -8,10 +8,10 @@ export async function file_js_all_identifiers_each(lambda) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let all = await file_js_all_path();
     for (let file_path of all) {
-        log('state')
         let parsed = await file_js_parse(file_path);
+        log('state')
         let identifiers = js_identifiers(parsed);
-        lambda(identifiers, file_path);
         log('finish')
+        lambda(identifiers, file_path);
     }
 }
