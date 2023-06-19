@@ -42,7 +42,6 @@ export async function function_add_mapper_generic(prefix, function_name_suffix, 
     ]);
     const expression_code_args = expression_code_args_get(function_name_refactor);
     await function_add_with_call_expression_synchronized(function_name_function, function_name_to_call, expression_code_args);
-    let input = await add_after(function_name_function);
+    await add_after(function_name_function);
     await function_open_vs_code(function_name_function);
-    return input;
 }
