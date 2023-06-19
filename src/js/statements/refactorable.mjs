@@ -1,3 +1,4 @@
+import { log } from '../../log.mjs';
 import { js_identifier_name_get } from '../identifier/name/get.mjs';
 import { list_length } from '../../list/length.mjs';
 import { equal_by } from '../../equal/by.mjs';
@@ -21,7 +22,8 @@ export function js_statements_refactorable(left, right) {
         let left_identifiers = list_addder(la => {
             let {node} = v;
             let name = js_identifier_name_get(node);
-            `js_identifers_each(left_i, )`;
+            la(name);
         });
+        log({ left_identifiers });
     }
 }
