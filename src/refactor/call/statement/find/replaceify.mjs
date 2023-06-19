@@ -38,6 +38,7 @@ export async function refactor_call_statement_find_replaceify(args) {
     }
     let function_name_find_statements_last = list_last(function_name_find_statements);
     let function_name_find_statements_last_name = js_call_statement_name(function_name_find_statements_last);
+    console.log({function_name_find_statements_last_name})
     if (null_not_is(return_statement)) {
         if (js_node_is_variable_declaration(function_name_find_statements_last)) {
             let last_declaration = js_declarations_single(function_name_find_statements_last);
