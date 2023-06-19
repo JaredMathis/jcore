@@ -17,6 +17,7 @@ export function refactor_returnify(args) {
         let r = js_visit_stack_to_ancestor_list(stack_reversed, lambda);
         assert(result_property_success_get(r));
         let ancestor_list = result_property_data_get(r);
+        let statement_new = 
         list_add_before(ancestor_list, node, statement_new);
     });
 }

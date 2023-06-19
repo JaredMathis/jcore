@@ -41,23 +41,28 @@ export function refactor_call_arguments_to_assignments(args) {
                 }
             }
             function replace(arg) {
-                let arg_root = arg;
-                if (js_node_is_await_expression(arg)) {
-                    arg = js_node_property_argument_get(arg);
-                }
-                let id = js_identifier_name_next(parsed);
-                let v_16 = string_a();
-                let assignment_code = js_code_statement_assignment(id, v_16);
-                let assignment = js_parse_statement(assignment_code);
-                let declarations = js_node_property_declarations_get(assignment);
-                let declaration = list_single(declarations);
-                let v_4 = object_copy_shallow(arg_root);
-                js_variable_declarator_init_change(declaration, v_4);
-                let v_5 = js_parse_expression(id);
-                object_replace(arg_root, v_5);
-                list_add_before(ancestor_list, assignment, node);
+                arg = newFunction(arg, parsed, ancestor_list, node);
                 c();
             }
         }
     });
+}
+
+function newFunction(arg, parsed, ancestor_list, node) {
+    let arg_root = arg;
+    if (js_node_is_await_expression(arg)) {
+        arg = js_node_property_argument_get(arg);
+    }
+    let id = js_identifier_name_next(parsed);
+    let v_16 = string_a();
+    let assignment_code = js_code_statement_assignment(id, v_16);
+    let assignment = js_parse_statement(assignment_code);
+    let declarations = js_node_property_declarations_get(assignment);
+    let declaration = list_single(declarations);
+    let v_4 = object_copy_shallow(arg_root);
+    js_variable_declarator_init_change(declaration, v_4);
+    let v_5 = js_parse_expression(id);
+    object_replace(arg_root, v_5);
+    list_add_before(ancestor_list, assignment, node);
+    return arg;
 }
