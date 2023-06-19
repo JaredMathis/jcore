@@ -15,7 +15,7 @@ export function refactor_returnify(args) {
     js_visit_nodes_filter(parsed, js_node_is_return_statement, v => {
         let {node, stack} = v;
         let stack_reversed = list_reversed_get(stack);
-        let r = js_visit_stack_to_ancestor_list(stack_reversed, lambda);
+        let r = js_visit_stack_to_ancestor_list(stack_reversed);
         assert(result_property_success_get(r));
         let ancestor_list = result_property_data_get(r);
         let argument = js_node_property_argument_get(node);
