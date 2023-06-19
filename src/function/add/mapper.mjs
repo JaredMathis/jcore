@@ -9,6 +9,7 @@ import { string_identifier_is } from '../../string/identifier/is.mjs';
 import { js_keyword_function } from '../../js/keyword/function.mjs';
 export async function function_add_mapper(function_name_suffix) {
     arguments_assert(arguments, [string_identifier_is]);
+    let input = 'function_name';
     function expression_code_args_get(function_name_refactor) {
         const expression_code_args = [
             js_code_call_expression_with_args(function_name_get(function_name_get), [function_name_refactor]),
@@ -18,7 +19,6 @@ export async function function_add_mapper(function_name_suffix) {
         return expression_code_args;
     }
     async function add_after(function_name_function) {
-        let input = 'function_name';
         let v_2 = function_name_get(string_identifier_is);
         await function_input_add_type(function_name_function, input, v_2);
         return input;
