@@ -3,9 +3,10 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { string_identifier_parts_from } from '../parts/from.mjs';
 import { list_remove_last_verify_multiple } from '../../../list/remove/last/verify/multiple.mjs';
 import { string_identifier_parts_to } from '../parts/to.mjs';
+import { string_identifier_is } from '../is.mjs';
 export function string_identifier_suffix_remove(suffix, before) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
+        string_identifier_is,
         arguments_assert_todo
     ]);
     let suffix_parts = string_identifier_parts_to(suffix);
