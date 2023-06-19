@@ -11,10 +11,11 @@ import { js_identifier_name_get } from '../../identifier/name/get.mjs';
 import { result_unsuccess } from '../../../result/unsuccess.mjs';
 import { result_empty } from '../../../result/empty.mjs';
 import { list_adder } from '../../../list/adder.mjs';
+import { js_node_is } from '../is.mjs';
 export function js_node_identifiers_replaceify(node_left, node_right) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
-        list_is
+        js_node_is,
+        js_node_is
     ]);
     let replacements = list_adder(la => {
         js_visit_identifiers_not_call_expressions(node_right, node => {
