@@ -9,6 +9,7 @@ import { file_js_parse } from '../../parse.mjs';
 import { file_js_all_path } from '../path.mjs';
 import { speed_now } from '../../../../speed/now.mjs';
 import { subtract } from '../../../../subtract.mjs';
+import { list_add } from '../../../../list/add.mjs';
 export async function file_js_all_identifiers_each(lambda) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let all = await file_js_all_path();
@@ -19,6 +20,7 @@ export async function file_js_all_identifiers_each(lambda) {
         let now = speed_now();
         let difference = subtract(now, previous);
         let differences = speed_property_differences_get(s);
+        list_add(differences, difference);
         const t1 = performance.now() - previous;
         let identifiers = js_identifiers(parsed);
         const t2 = performance.now() - t1;
