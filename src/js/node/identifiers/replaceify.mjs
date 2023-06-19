@@ -34,7 +34,6 @@ export function js_node_identifiers_replaceify(node_left, node_right) {
                 js_node_property_name_set(node, replacement);
             }
         })) {
-        log('here');
         result_property_data_set(result, dictionary);
     } else {
         result_unsuccess(result);
