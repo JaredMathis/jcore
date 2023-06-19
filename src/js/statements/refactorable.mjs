@@ -34,7 +34,7 @@ export function js_statements_refactorable(left, right) {
         let right_i = list_get(right, index);
         let left_identifiers = js_node_identifiers(left_i);
         let right_identifiers = js_node_identifiers(right_i);
-        if (not(equal_by(list_length, right_identifiers, left_identifiers))) {
+        if (not(equal_by(list_length, left_identifiers, right_identifiers))) {
             result_unsuccess(result);
             return result;
         }
