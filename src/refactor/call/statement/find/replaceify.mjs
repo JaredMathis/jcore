@@ -26,7 +26,7 @@ import { list_last } from '../../../../list/last.mjs';
 import { js_identifier_name_get } from '../../../../js/identifier/name/get.mjs';
 import { assert } from '../../../../assert.mjs';
 import { comment } from '../../../../comment.mjs';
-export async function refactor_call_statement_find_previous(args) {
+export async function refactor_call_statement_find_replaceify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name_find, function_declaration_find} = args;
     let statement_arguments_assert = await js_function_declaration_to_statement_arguments_assert(function_declaration_find);
