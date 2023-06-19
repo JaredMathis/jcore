@@ -1,3 +1,5 @@
+import { result_property_success } from '../../result/property/success.mjs';
+import { result_property_data_get } from '../../result/property/data/get.mjs';
 import { result_unsuccess } from '../../result/unsuccess.mjs';
 import { js_node_identifiers_replaceify } from '../node/identifiers/replaceify.mjs';
 import { object_copy_json } from '../../object/copy/json.mjs';
@@ -38,6 +40,7 @@ export function js_statements_refactorable(left, right) {
         }
         let left_i_copy = object_copy_json(left_i);
         const replaceify = js_node_identifiers_replaceify(left_i_copy, right_identifiers);
+        let replaceify_data = result_property_data_get();
         if (!result_property_success(replaceify)) {
             result_unsuccess(result);
             return result;
