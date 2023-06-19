@@ -1,3 +1,4 @@
+import { assert } from '../assert.mjs';
 import { list_empty } from './empty.mjs';
 import { function_is } from '../function/is.mjs';
 import { list_is } from './is.mjs';
@@ -9,5 +10,5 @@ export function list_consume(list, lambda) {
         function_is
     ]);
     lambda(() => list_first_remove(list));
-    list_empty(replacements);
+    assert(list_empty(list));
 }
