@@ -1,3 +1,5 @@
+import { equal_by } from '../../../../equal/by.mjs';
+import { js_node_property_argument_get } from '../../../../js/node/property/argument/get.mjs';
 import { js_id_get } from '../../../../js/id/get.mjs';
 import { js_declarations_single } from '../../../../js/declarations/single.mjs';
 import { js_node_is_variable_declaration } from '../../../../js/node/is/variable/declaration.mjs';
@@ -23,6 +25,7 @@ import { error } from '../../../../error.mjs';
 import { js_node_is_return_statement } from '../../../../js/node/is/return/statement.mjs';
 import { list_last } from '../../../../list/last.mjs';
 import { js_identifier_name_get } from '../../../../js/identifier/name/get.mjs';
+import { assert } from '../../../../assert.mjs';
 export async function refactor_call_statement_find_previous(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name_find, function_declaration_find} = args;
@@ -37,13 +40,10 @@ export async function refactor_call_statement_find_previous(args) {
     let function_name_find_statements_last_name = js_call_statement_name(function_name_find_statements_last);
     if (null_not_is(return_statement)) {
         if (js_node_is_variable_declaration(function_name_find_statements_last)) {
-            let declaration = js_declarations_single(function_name_find_statements_last);
-            let id = js_id_get(declaration);
-            let name = js_identifier_name_get(id);
-            log({
-                return_statement,
-                name
-            });
+            let last_declaration = js_declarations_single(function_name_find_statements_last);
+            let last_id = js_id_get(last_declaration);
+            let argument = js_node_property_argument_get(return_statement);
+            assert(equal_by(js_identifier_name_get, last_id, argument));
         }
     }
     let function_name = js_mapper_args_to_function_name(args);
