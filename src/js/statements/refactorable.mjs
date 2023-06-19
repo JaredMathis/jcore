@@ -1,4 +1,4 @@
-import { result_property_success } from '../../result/property/success.mjs';
+import { result_property_success_get } from '../../result/property/success/get.mjs';
 import { result_property_data_get } from '../../result/property/data/get.mjs';
 import { result_unsuccess } from '../../result/unsuccess.mjs';
 import { js_node_identifiers_replaceify } from '../node/identifiers/replaceify.mjs';
@@ -45,7 +45,7 @@ export function js_statements_refactorable(left, right) {
         object_properties_each(replaceify_data, (value, key) => {
             object_property_ensure(dictionary, key, value);
         });
-        if (!result_property_success(replaceify)) {
+        if (!result_property_success_get(replaceify)) {
             result_unsuccess(result);
             return result;
         }

@@ -1,3 +1,4 @@
+import { result_property_success_get } from '../../../../result/property/success/get.mjs';
 import { list_take_without_last } from '../../../../list/take/without/last.mjs';
 import { equal_by } from '../../../../equal/by.mjs';
 import { js_node_property_argument_get } from '../../../../js/node/property/argument/get.mjs';
@@ -24,7 +25,6 @@ import { list_last } from '../../../../list/last.mjs';
 import { js_identifier_name_get } from '../../../../js/identifier/name/get.mjs';
 import { assert } from '../../../../assert.mjs';
 import { comment } from '../../../../comment.mjs';
-import { result_property_success } from '../../../../result/property/success.mjs';
 export async function refactor_call_statement_find_replaceify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name_find, function_declaration_find} = args;
@@ -57,7 +57,7 @@ export async function refactor_call_statement_find_replaceify(args) {
                 node
             ];
             let refactorable = js_statements_refactorable(statements, function_name_find_statements);
-            if (!result_property_success(refactorable)) {
+            if (!result_property_success_get(refactorable)) {
                 return;
             }
             let statements_to_remove = list_take_without_last(statements);
