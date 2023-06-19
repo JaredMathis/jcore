@@ -41,9 +41,9 @@ export async function refactor_call_statement_find_previous(args) {
     let program = js_parse(js_code_function_named(string_a()));
     let program_fd = js_export_single(program);
     let program_statements = js_function_declaration_to_statements(program_fd);
-    list_add(program_statements, return_statement);
+    list_add(program_statements, function_name_find_statements_last);
     let function_name_find_statements_last_names = list_adder(la => {
-        js_visit_call_statements({ parsed: function_name_find_statements_last }, (stack_reversed, node, expression, parent_list) => {
+        js_visit_call_statements({ parsed: program }, (stack_reversed, node, expression, parent_list) => {
             let name = js_call_expression_name_get(expression);
             la(name);
         });
