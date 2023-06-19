@@ -14,8 +14,11 @@ export async function function_rename(function_name_old, function_name_new) {
     ]);
     log('a');
     let starting_withs = await function_name_all_tests_not_starts_with(function_name_old);
+    log('a');
     let v = list_length_is_1(starting_withs);
+    log('a');
     assert_message(v, `Multiple functions exist. Use ${ function_name_get(function_rename_single) } if you're sure or consider ${ function_name_get(function_rename_if_starts_with) }: ` + starting_withs);
+    log('a');
     let result = await function_rename_single(function_name_old, function_name_new);
     return result;
 }
