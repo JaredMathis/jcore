@@ -42,6 +42,7 @@ export async function refactor_call_statement_find_previous(args) {
                 previous,
                 node
             ];
+            `if (js_statements_refactorable)``
             log_multiple_map(statements, js_unparse);
             log('');
             error();

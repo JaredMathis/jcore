@@ -7,13 +7,13 @@ import { object_property_set } from '../../object/property/set.mjs';
 import { list_contains } from '../../list/contains.mjs';
 import { add_1 } from '../../add/1.mjs';
 import { comment } from '../../comment.mjs';
-import { js_visit_nodes_identifier } from '../visit/nodes/identifier.mjs';
+import { js_identifers_each } from '../identifers/each.mjs';
 import { js_node_is } from '../node/is.mjs';
 comment(`This does not count "hasOwnProperty" for now`);
 export function js_identifier_counts(parsed) {
     arguments_assert(arguments, [js_node_is]);
     let result = {};
-    js_visit_nodes_identifier(parsed, function v_3(v) {
+    js_identifers_each(parsed, function v_3(v) {
         let node = object_property_get(v, 'node');
         let invalid_names = ['hasOwnProperty'];
         let r = object_property_get(node, 'name');
