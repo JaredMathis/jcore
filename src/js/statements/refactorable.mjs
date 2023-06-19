@@ -1,3 +1,4 @@
+import { js_node_identifiers_replaceify } from '../node/identifiers/replaceify.mjs';
 import { object_copy_json } from '../../object/copy/json.mjs';
 import { js_node_identifiers } from '../node/identifiers.mjs';
 import { list_length } from '../../list/length.mjs';
