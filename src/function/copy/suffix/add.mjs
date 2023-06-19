@@ -16,6 +16,7 @@ export async function function_copy_suffix_add(function_name_old, function_name_
     ]);
     let function_name_suffix_parts = string_identifier_parts_to(function_name_suffix);
     let function_name_old_parts = string_identifier_parts_to(function_name_old);
+    let function_name_new = string_identifier_parts_from_combine([function_name_old_parts, function_name_suffix_parts])
     error(json_to({function_name_old, function_name_suffix_from, function_name_suffix_to}))
     await function_copy_suffix_change(function_name_old, function_name_suffix_from, function_name_suffix_to);
 }
