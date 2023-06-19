@@ -13,7 +13,7 @@ export function try_catch_log(fn, lambda, error_message) {
     try {
         v = lambda();
     } catch (e) {
-        on_error(e);
+        v = on_error(e);
     }
     return v;
     metadata([]);
