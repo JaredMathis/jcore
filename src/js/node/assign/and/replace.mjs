@@ -1,3 +1,5 @@
+import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { list_add_before } from '../../../../list/add/before.mjs';
 import { object_replace } from '../../../../object/replace.mjs';
 import { js_parse_expression } from '../../../parse/expression.mjs';
@@ -11,7 +13,13 @@ import { string_a } from '../../../../string/a.mjs';
 import { js_identifier_name_next } from '../../../identifier/name/next.mjs';
 import { js_node_property_argument_get } from '../../property/argument/get.mjs';
 import { js_node_is_await_expression } from '../../is/await/expression.mjs';
-export function js_node_assign_and_replace(expression_to_replace, parsed, ancestor_list, add_assignment_before_node) {
+export function js_node_assign_and_replace(parsed, expression_to_replace, ancestor_list, add_assignment_before_node) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     let expression_to_replace_root = expression_to_replace;
     if (js_node_is_await_expression(expression_to_replace)) {
         expression_to_replace = js_node_property_argument_get(expression_to_replace);
