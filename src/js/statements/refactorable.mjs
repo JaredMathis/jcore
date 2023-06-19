@@ -9,6 +9,7 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_is } from '../../list/is.mjs';
 import { range } from '../../range.mjs';
 import { list_get } from '../../list/get.mjs';
+import { js_node_is_identifier } from '../node/is/identifier.mjs';
 export function js_statements_refactorable(left, right) {
     arguments_assert(arguments, [
         list_is,
@@ -21,11 +22,12 @@ export function js_statements_refactorable(left, right) {
     for (let index of range(list_length(left))) {
         let left_i = list_get(left, index);
         let right_i = list_get(right, index);
-        js_nodes_each();
         let left_identifiers = list_adder(la => {
-            let {node} = v;
-            let name = js_identifier_name_get(node);
-            la(name);
+            js_nodes_each(left_i, js_node_is_identifier, v => {
+                let {node} = v;
+                let name = js_identifier_name_get(node);
+                la(name);
+            });
         });
         log({ left_identifiers });
     }
