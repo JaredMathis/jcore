@@ -25,6 +25,7 @@ export function js_node_identifiers_replaceify(node_left, node_right) {
     });
     let result = result_empty();
     let dictionary = {};
+    log({replacements})
     if (list_consume_try(replacements, next => {
             js_visit_identifiers_not_call_expressions(node_left, lambda);
             function lambda(node) {
