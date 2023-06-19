@@ -1,3 +1,4 @@
+import { js_id_get } from '../../../../js/id/get.mjs';
 import { js_declarations_single } from '../../../../js/declarations/single.mjs';
 import { js_node_is_variable_declaration } from '../../../../js/node/is/variable/declaration.mjs';
 import { js_call_statement_name } from '../../../../js/call/statement/name.mjs';
@@ -36,7 +37,11 @@ export async function refactor_call_statement_find_previous(args) {
     if (null_not_is(return_statement)) {
         if (js_node_is_variable_declaration(function_name_find_statements_last)) {
             let declaration = js_declarations_single(function_name_find_statements_last);
-            log({ declaration });
+            let id_name = js_id_get(declaration);
+            log({
+                declaration,
+                id_name
+            });
         }
     }
     let function_name = js_mapper_args_to_function_name(args);
