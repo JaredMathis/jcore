@@ -10,7 +10,10 @@ export function object_property_initialize_if_unset(object, property_name, initi
         string_is,
         defined_is
     ]);
+    let ensure = false;
     if (object_property_exists(object, property_name)) {
+        if (ensure) {
+        }
     } else {
         object_property_initialize(object, property_name, initial_value);
     }
