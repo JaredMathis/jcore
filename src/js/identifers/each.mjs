@@ -9,9 +9,6 @@ export function js_identifers_each(parsed, lambda) {
         js_node_is,
         function_is
     ]);
-    js_visit_nodes_filter(parsed, function v(node) {
-        let v_2 = js_node_is_identifier(node);
-        return v_2;
-    }, lambda);
+    js_visit_nodes_filter(parsed, js_identifers_each, lambda);
     metadata([]);
 }
