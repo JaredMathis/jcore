@@ -32,6 +32,7 @@ export function js_node_identifiers_replaceify(node, replacements) {
                 js_identifier_name_change(node, replacement);
             });
         })) {
+        log('here');
         result_property_data_set(result, dictionary);
     } else {
         result_unsuccess(result);
