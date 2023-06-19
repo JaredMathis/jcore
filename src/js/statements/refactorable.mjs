@@ -9,6 +9,7 @@ import { list_is } from '../../list/is.mjs';
 import { range } from '../../range.mjs';
 import { list_get } from '../../list/get.mjs';
 import { js_unparse } from '../unparse.mjs';
+import { log_multiple } from '../../log/multiple.mjs';
 export function js_statements_refactorable(left, right) {
     arguments_assert(arguments, [
         list_is,
@@ -22,11 +23,14 @@ export function js_statements_refactorable(left, right) {
         let right_i = list_get(right, index);
         let left_identifiers = js_node_identifiers(left_i);
         let right_identifiers = js_node_identifiers(right_i);
+        log_multiple([left_identifiers,right_identifiers])
         if (not(equal_by(list_length, left_identifiers, right_identifiers))) {
             return false;
         }
         let left_i_copy = object_copy_json(left_i);
-        js_node_identifiers_replaceify(left_i_copy, right_identifiers);
+        if (!js_node_identifiers_replaceify(left_i_copy, right_identifiers)) {
+            return false;
+        }
         if (!equal_by(js_unparse, left_i_copy, right_i)) {
             return false;
         }

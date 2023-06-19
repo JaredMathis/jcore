@@ -23,4 +23,5 @@ export function js_node_identifiers_replaceify(node, replacements) {
             js_identifier_name_change(node, n);
         });
     });
+    return false;
 }
