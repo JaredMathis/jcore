@@ -48,10 +48,10 @@ export function refactor_call_arguments_to_assignments(args) {
     });
 }
 
-function newFunction(arg, parsed, ancestor_list, node) {
-    let arg_root = arg;
-    if (js_node_is_await_expression(arg)) {
-        arg = js_node_property_argument_get(arg);
+function newFunction(expression_to_replace, parsed, ancestor_list, node) {
+    let arg_root = expression_to_replace;
+    if (js_node_is_await_expression(expression_to_replace)) {
+        expression_to_replace = js_node_property_argument_get(expression_to_replace);
     }
     let id = js_identifier_name_next(parsed);
     let v_16 = string_a();
@@ -64,5 +64,5 @@ function newFunction(arg, parsed, ancestor_list, node) {
     let v_5 = js_parse_expression(id);
     object_replace(arg_root, v_5);
     list_add_before(ancestor_list, assignment, node);
-    return arg;
+    return expression_to_replace;
 }
