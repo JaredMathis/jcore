@@ -1,14 +1,14 @@
+import { string_empty_is } from '../string/empty/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { try_catch } from '../try/catch.mjs';
 import { Parser } from 'acorn';
 import { string_is } from '../string/is.mjs';
-import { string_empty_not_is } from '../string/empty/not/is.mjs';
 export function js_parse(unparsed) {
     arguments_assert(arguments, [string_is]);
     let error_message = unparsed;
     if (false)
-        if (string_empty_not_is()) {
+        if (string_empty_is()) {
         }
     let v = try_catch(js_parse, lambda, unparsed);
     return v;
