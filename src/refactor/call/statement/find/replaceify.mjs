@@ -27,9 +27,15 @@ import { assert } from '../../../../assert.mjs';
 import { comment } from '../../../../comment.mjs';
 import { error } from '../../../../error.mjs';
 import { log } from '../../../../log.mjs';
+import { equal } from '../../../../equal.mjs';
 export async function refactor_call_statement_find_replaceify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let {function_name_find, function_declaration_find} = args;
+    let {function_name_find} = args;
+    let function_name = js_mapper_args_to_function_name(args);
+    if (equal(function_name, function_name_find)) {
+        return;
+    }
+    let {function_declaration_find} = args;
     let statement_arguments_assert = await js_function_declaration_to_statement_arguments_assert(function_declaration_find);
     let function_name_find_statements = js_node_property_body_to_block_statement_body_statements(function_declaration_find);
     list_remove(function_name_find_statements, statement_arguments_assert);
@@ -48,7 +54,6 @@ export async function refactor_call_statement_find_replaceify(args) {
             assert(equal_by(js_identifier_name_get, last_id, argument));
         }
     }
-    let function_name = js_mapper_args_to_function_name(args);
     js_visit_call_statements(args, (stack_reversed, node, expression, parent_list) => {
         js_node_call_expression_if_name_equal(expression, function_name_find_statements_last_name, () => {
             log(function_name)
