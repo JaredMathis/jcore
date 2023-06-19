@@ -1,3 +1,4 @@
+import { list_replace } from '../../../../list/replace.mjs';
 import { js_node_property_params_get } from '../../../../js/node/property/params/get.mjs';
 import { js_call_expression_name_change } from '../../../../js/call/expression/name/change.mjs';
 import { js_function_declaration_to_params_names } from '../../../../js/function/declaration/to/params/names.mjs';
@@ -31,6 +32,9 @@ import { comment } from '../../../../comment.mjs';
 import { error } from '../../../../error.mjs';
 import { log } from '../../../../log.mjs';
 import { equal } from '../../../../equal.mjs';
+import { list_map } from '../../../../list/map.mjs';
+import { object_property_get } from '../../../../object/property/get.mjs';
+import { result_property_data_get } from '../../../../result/property/data/get.mjs';
 export async function refactor_call_statement_find_replaceify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name_find} = args;
@@ -72,6 +76,7 @@ export async function refactor_call_statement_find_replaceify(args) {
             if (!result_property_success_get(refactorable)) {
                 return;
             }
+            let refactorable_data = result_property_data_get(refactorable);
             error();
             let statements_to_remove = list_take_without_last(statements);
             for (let s of statements_to_remove) {
@@ -79,6 +84,7 @@ export async function refactor_call_statement_find_replaceify(args) {
             }
             js_call_expression_name_change(expression, function_name_find);
             let params = js_node_property_params_get(expression);
+            list_replace(params, list_map(params, p => object_property_get(refactorable_data, p)));
         });
     });
 }
