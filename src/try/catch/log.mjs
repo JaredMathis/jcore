@@ -11,10 +11,10 @@ export function try_catch_log(fn, lambda, error_message) {
     ]);
     try {
         let v = lambda();
-        return v;
     } catch (e) {
         on_error(e);
     }
+    return v;
     metadata([]);
 
     function on_error(e) {
