@@ -16,7 +16,7 @@ export function search_generic(candidates, candidate_to_string, candidate_as_str
     let parts = search_query_map_default(query);
     let candidates_matching = list_filter(candidates, function list_filter_predicate(candidate) {
         let candidate_as_string = candidate_to_string(candidate);
-        return search_candidate_as_string_matches_default(candidate_as_string, parts);
+        return candidate_as_string_matches(candidate_as_string, parts);
     });
     return candidates_matching;
 }
