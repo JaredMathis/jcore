@@ -13,7 +13,7 @@ export async function function_copy_suffix_add(function_name_old, function_name_
     let function_name_suffix_parts = string_identifier_parts_to(function_name_suffix);
     let function_name_old_parts = string_identifier_parts_to(function_name_old);
     for (let part of function_name_suffix_parts) {
-        list_remove_last_verify(function_name_old_parts);
+        list_remove_last_verify(function_name_old_parts, part);
     }
     let function_name_prefix = string_identifier_parts_from(function_name_old_parts);
     list_add_beginning(function_name_suffix_parts, function_name_suffix_from);
