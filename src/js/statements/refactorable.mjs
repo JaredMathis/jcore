@@ -28,7 +28,7 @@ export function js_statements_refactorable(left, right) {
         return result;
     }
     let dictionary = {};
-    result_property_data_set(result, dictionary)
+    result_property_data_set(result, dictionary);
     for (let index of range(list_length(left))) {
         let left_i = list_get(left, index);
         let right_i = list_get(right, index);
