@@ -1,3 +1,4 @@
+import { list_add_before } from '../list/add/before.mjs';
 import { js_visit_stack_to_ancestor_list } from '../js/visit/stack/to/ancestor/list.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -16,5 +17,6 @@ export function refactor_returnify(args) {
         let r = js_visit_stack_to_ancestor_list(stack_reversed, lambda);
         assert(result_property_success_get(r));
         let ancestor_list = result_property_data_get(r);
+        list_add_before(ancestor_list, node, statement_new);
     });
 }
