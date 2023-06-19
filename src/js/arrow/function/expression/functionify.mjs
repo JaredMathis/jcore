@@ -1,3 +1,4 @@
+import { js_code_function_named } from '../../../code/function/named.mjs';
 import { js_function_declaration_asyncify } from '../../../function/declaration/asyncify.mjs';
 import { js_node_property_async_get } from '../../../node/property/async/get.mjs';
 import { js_node_property_body } from '../../../node/property/body.mjs';
@@ -6,9 +7,6 @@ import { js_arrow_function_expression_body } from './body.mjs';
 import { js_return_statement_argument_change } from '../../../return/statement/argument/change.mjs';
 import { js_code_return_statement } from '../../../code/return/statement.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
-import { js_brace_left_right } from '../../../brace/left/right.mjs';
-import { js_code_parenthesis_surround } from '../../../code/parenthesis/surround.mjs';
-import { js_keyword_function } from '../../../keyword/function.mjs';
 import { js_node_is_arrow_function_expression } from '../../../node/is/arrow/function/expression.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_parse_expression } from '../../../parse/expression.mjs';
@@ -27,7 +25,7 @@ export function js_arrow_function_expression_functionify(node, name) {
     ]);
     let is_async = js_node_property_async_get(node);
     let body = js_arrow_function_expression_body(node);
-    let function_code = `${ js_keyword_function() } ${ name }${ js_code_parenthesis_surround(``) }${ js_brace_left_right() }`;
+    let function_code = js_code_function_named(name);
     let function_expression = js_parse_expression(function_code);
     if (is_async) {
         js_function_declaration_asyncify(function_expression);
