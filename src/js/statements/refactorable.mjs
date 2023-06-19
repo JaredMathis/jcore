@@ -1,3 +1,4 @@
+import { js_nodes_each } from '../nodes/each.mjs';
 import { list_adder } from '../../list/adder.mjs';
 import { log } from '../../log.mjs';
 import { js_identifier_name_get } from '../identifier/name/get.mjs';
@@ -20,7 +21,7 @@ export function js_statements_refactorable(left, right) {
     for (let index of range(list_length(left))) {
         let left_i = list_get(left, index);
         let right_i = list_get(right, index);
-        js_nodes_each()
+        js_nodes_each();
         let left_identifiers = list_adder(la => {
             let {node} = v;
             let name = js_identifier_name_get(node);
