@@ -4,6 +4,7 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { assert } from '../../assert.mjs';
 import { list_index_valid } from '../index/valid.mjs';
+import { list_single } from '../single.mjs';
 export function list_remove_at(list, index) {
     arguments_assert(arguments, [
         list_is,
@@ -12,6 +13,7 @@ export function list_remove_at(list, index) {
     let v = list_index_valid(list, index);
     assert(v);
     const delete_count = 1;
-    list.splice(index, delete_count);
+    let deleted = list.splice(index, delete_count);
+    return list_single(deleted);
     metadata([]);
 }
