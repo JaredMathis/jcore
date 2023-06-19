@@ -6,10 +6,6 @@ import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { function_is } from '../../function/is.mjs';
 export function assert_message_lazy(value, message_get) {
-    arguments_assert(arguments, [
-        arguments_assert_todo,
-        arguments_assert_todo
-    ]);
     assert_arguments_count(arguments, 2);
     if (not(function_is(message_get))) {
         error('invalid message_get');
