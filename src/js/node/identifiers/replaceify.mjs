@@ -1,3 +1,4 @@
+import { result_property_data_set } from '../../../result/property/data/set.mjs';
 import { object_property_ensure } from '../../../object/property/ensure.mjs';
 import { list_consume_try } from '../../../list/consume/try.mjs';
 import { js_node_is } from '../is.mjs';
@@ -19,18 +20,20 @@ export function js_node_identifiers_replaceify(node, replacements) {
     let result = result_empty();
     let dictionary = {};
     if (list_consume_try(replacements, next => {
-        js_visit_nodes_filter(node, js_node_is_identifier, v => {
-            let {parent} = v;
-            if (js_node_is(parent) && js_node_is_call_expression(parent)) {
-                return;
-            }
-            let {node} = v;
-            let existing = js_identifier_name_get(node);
-            let replacement = next();
-            object_property_ensure(dictionary, existing, replacement);
-            js_identifier_name_change(node, replacement);
-        });
-    })) {
+            js_visit_nodes_filter(node, js_node_is_identifier, v => {
+                let {parent} = v;
+                if (js_node_is(parent) && js_node_is_call_expression(parent)) {
+                    return;
+                }
+                let {node} = v;
+                let existing = js_identifier_name_get(node);
+                let replacement = next();
+                object_property_ensure(dictionary, existing, replacement);
+                js_identifier_name_change(node, replacement);
+            });
+        })) {
+        result_property_data_set(result, dictionary);
+    } else {
         result_unsuccess(result);
     }
     return result;
