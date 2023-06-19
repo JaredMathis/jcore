@@ -12,6 +12,7 @@ export function js_node_identifiers_replaceify(node, replacements) {
         arguments_assert_todo,
         list_is
     ]);
+    let dictionary = {};
     return list_consume_try(replacements, next => {
         js_visit_nodes_filter(node, js_node_is_identifier, v => {
             let {parent} = v;
