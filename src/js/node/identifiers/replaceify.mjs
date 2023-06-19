@@ -27,10 +27,14 @@ export function js_node_identifiers_replaceify(node, replacements) {
                     return;
                 }
                 let {node} = v;
-                let existing = js_identifier_name_get(node);
-                let replacement = next();
-                object_property_ensure(dictionary, existing, replacement);
-                js_identifier_name_change(node, replacement);
+                lambda();
+
+                function lambda() {
+                    let existing = js_identifier_name_get(node);
+                    let replacement = next();
+                    object_property_ensure(dictionary, existing, replacement);
+                    js_identifier_name_change(node, replacement);
+                }
             });
         })) {
         log('here');
