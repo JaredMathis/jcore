@@ -7,6 +7,7 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_is } from '../../list/is.mjs';
 import { range } from '../../range.mjs';
 import { list_get } from '../../list/get.mjs';
+import { js_unparse } from '../unparse.mjs';
 export function js_statements_refactorable(left, right) {
     arguments_assert(arguments, [
         list_is,
@@ -25,5 +26,10 @@ export function js_statements_refactorable(left, right) {
             return false;
         }
         let left_i_copy = object_copy_json(left_i);
+        js_node_identifiers_replaceify(left_i_copy, right_identifiers);
+        if (!equal_by(js_unparse, left_i_copy, right_i)) {
+            return false;
+        }
     }
+    return true;
 }
