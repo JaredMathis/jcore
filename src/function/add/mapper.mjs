@@ -21,6 +21,7 @@ export async function function_add_mapper(function_name_suffix) {
         let input = 'function_name';
         let v_2 = function_name_get(string_identifier_is);
         await function_input_add_type(function_name_function, input, v_2);
+        return input;
     }
     let fn = function_map_with_args;
     let function_name_to_call = function_name_get(fn);
