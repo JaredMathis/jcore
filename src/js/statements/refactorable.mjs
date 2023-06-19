@@ -32,16 +32,16 @@ export function js_statements_refactorable(left, right) {
     for (let index of range(list_length(left))) {
         let left_i = list_get(left, index);
         let right_i = list_get(right, index);
-        let left_identifiers = js_node_identifiers(right_i);
-        let right_identifiers = js_node_identifiers(left_i);
-        if (not(equal_by(list_length, left_identifiers, right_identifiers))) {
+        let right_identifiers = js_node_identifiers(right_i);
+        let left_identifiers = js_node_identifiers(left_i);
+        if (not(equal_by(list_length, right_identifiers, left_identifiers))) {
             result_unsuccess(result);
             return result;
         }
         let left_i_copy = object_copy_json(right_i);
         log({
-            left_identifiers,
-            right_identifiers
+            left_identifiers: right_identifiers,
+            right_identifiers: left_identifiers
         });
         const replaceify = js_node_identifiers_replaceify(left_i_copy, left_i);
         if (!result_property_success_get(replaceify)) {
