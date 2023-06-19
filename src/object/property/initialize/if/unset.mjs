@@ -10,6 +10,6 @@ export function object_property_initialize_if_unset(object, property_name, initi
         defined_is
     ]);
     let ensure = false;
-    object_property_initialize_generic(object, property_name, ensure, initial_value);
+    object_property_initialize_generic(object, property_name, initial_value, ensure);
     metadata([]);
 }
