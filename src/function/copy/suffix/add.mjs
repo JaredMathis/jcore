@@ -18,8 +18,7 @@ export async function function_copy_suffix_add(function_name_old, function_name_
     ]);
     error(json_to({
         function_name_old,
-        function_name_suffix_from,
-        function_name_suffix_to
+        function_name_new
     }));
-    await function_copy(function_name_old, function_name_suffix_from, function_name_suffix_to);
+    await function_copy(function_name_old, function_name_new);
 }
