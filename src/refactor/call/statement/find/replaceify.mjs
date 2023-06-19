@@ -1,5 +1,4 @@
-import { list_length_subtract_1 } from '../../../../list/length/subtract/1.mjs';
-import { list_take } from '../../../../list/take.mjs';
+import { list_take_without_last } from '../../../../list/take/without/last.mjs';
 import { equal_by } from '../../../../equal/by.mjs';
 import { js_node_property_argument_get } from '../../../../js/node/property/argument/get.mjs';
 import { js_id_get } from '../../../../js/id/get.mjs';
@@ -59,7 +58,7 @@ export async function refactor_call_statement_find_replaceify(args) {
             if (!js_statements_refactorable(statements, function_name_find_statements)) {
                 return;
             }
-            let statement_to_remove = list_take(statements, list_length_subtract_1(statements));
+            let statement_to_remove = list_take_without_last(statements);
         });
     });
 }
