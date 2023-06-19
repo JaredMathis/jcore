@@ -1,5 +1,6 @@
+import { object_copy_json } from '../../object/copy/json.mjs';
+import { list_elements_all_equal } from '../../list/elements/all/equal.mjs';
 import { js_node_identifiers } from '../node/identifiers.mjs';
-import { log } from '../../log.mjs';
 import { list_length } from '../../list/length.mjs';
 import { equal_by } from '../../equal/by.mjs';
 import { not } from '../../not.mjs';
