@@ -83,14 +83,13 @@ export function js_visit_call_statements(args, call_each) {
             if (not(js_node_is_call_expression(expression))) {
                 return;
             }
-            function lambda(parent_list) {
-                call_each(stack_reversed, node, expression, parent_list);
+            function lambda(ancestor_list) {
+                call_each(stack_reversed, node, expression, ancestor_list);
             }
             let stack_reversed = newFunction(refactor_stack, lambda);
         }
     });
 }
-
 function newFunction(refactor_stack, lambda) {
     let stack_reversed = list_reversed_get(refactor_stack);
     let index_starting_at = 0;
@@ -105,10 +104,9 @@ function newFunction(refactor_stack, lambda) {
         }
         let v_14 = js_node_is_block_statement(parent_list_next);
         assert(v_14);
-        let parent_list = list_get(stack_reversed, parent_list_index);
-        lambda(parent_list);
+        let ancestor_list = list_get(stack_reversed, parent_list_index);
+        lambda(ancestor_list);
     }
-
     function list_find_first_start_at(stack_reversed, index_starting_at) {
         let index = list_find_first_index_starting_at(stack_reversed, list_is, index_starting_at);
         let index_next = add_1(index);

@@ -66,11 +66,11 @@ export async function refactor_call_statement_find_replaceify(args) {
     }
     let function_find_inputs = js_function_declaration_to_params_names(function_declaration_find);
     await refactor_import_fix_if_changed(args, o => {
-        js_visit_call_statements(args, (stack_reversed, node, expression, parent_list) => {
+        js_visit_call_statements(args, (stack_reversed, node, expression, ancestor_list) => {
             js_node_call_expression_if_name_equal(expression, function_name_find_statements_last_name, () => {
-                let index = list_index_of(parent_list, node);
+                let index = list_index_of(ancestor_list, node);
                 let index_previous = subtract_1(index);
-                let previous = list_get(parent_list, index_previous);
+                let previous = list_get(ancestor_list, index_previous);
                 let statements = [
                     previous,
                     node
@@ -82,7 +82,7 @@ export async function refactor_call_statement_find_replaceify(args) {
                 let refactorable_data = result_property_data_get(refactorable);
                 let statements_to_remove = list_take_without_last(statements);
                 for (let s of statements_to_remove) {
-                    list_remove(parent_list, s);
+                    list_remove(ancestor_list, s);
                 }
                 js_call_expression_name_change(expression, function_name_find);
                 let expression_arguments = js_node_property_arguments_get(expression);

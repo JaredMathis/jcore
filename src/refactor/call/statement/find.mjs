@@ -8,7 +8,7 @@ export function refactor_call_statement_find(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let function_name = js_mapper_args_to_function_name(args);
     log(function_name);
-    js_visit_call_statements(args, (stack_reversed, node, expression, parent_list) => {
+    js_visit_call_statements(args, (stack_reversed, node, expression, ancestor_list) => {
         let node_string = js_unparse(node);
         log(node_string);
     });

@@ -25,7 +25,7 @@ export function refactor_call_arguments_to_assignments(args) {
     let parsed = object_property_get(args, 'parsed');
     occurs_while(function v_17(c) {
         js_visit_call_statements(args, call_each);
-        function call_each(stack_reversed, node, expression, parent_list) {
+        function call_each(stack_reversed, node, expression, ancestor_list) {
             let args = js_node_property_arguments_get(expression);
             for (let arg of args) {
                 if (js_node_is_call_expression(arg) || js_node_is_await_expression(arg)) {
@@ -55,7 +55,7 @@ export function refactor_call_arguments_to_assignments(args) {
                 js_variable_declarator_init_change(declaration, v_4);
                 let v_5 = js_parse_expression(id);
                 object_replace(arg_root, v_5);
-                list_add_before(parent_list, assignment, node);
+                list_add_before(ancestor_list, assignment, node);
                 c();
             }
         }
