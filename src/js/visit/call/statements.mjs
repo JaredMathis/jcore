@@ -88,9 +88,7 @@ export function js_visit_call_statements(args, call_each) {
             let list_find_first_after_result = list_find_first_start_at(stack_reversed, index_starting_at);
             let parent_list_next = object_property_get(list_find_first_after_result, 'next');
             let parent_list_index = object_property_get(list_find_first_after_result, 'index');
-            if (js_node_is_program(parent_list_next)) {
-                return;
-            } else {
+            if (!js_node_is_program(parent_list_next)) {
                 if (js_node_is_variable_declaration(parent_list_next)) {
                     list_find_first_after_result = list_find_first_start_at(stack_reversed, parent_list_index);
                     parent_list_next = object_property_get(list_find_first_after_result, 'next');
