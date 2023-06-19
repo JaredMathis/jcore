@@ -10,7 +10,7 @@ export function js_parse(unparsed) {
     if (string_empty_is(unparsed)) {
         error_message = `[empty string]`;
     }
-    let v = try_catch(js_parse, lambda, unparsed);
+    let v = try_catch(js_parse, lambda, error_message);
     return v;
     function lambda() {
         let parsed = Parser.parse(unparsed, {
