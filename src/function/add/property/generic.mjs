@@ -1,3 +1,6 @@
+import { boolean_is } from '../../../boolean/is.mjs';
+import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { function_input_add_type } from '../../input/add/type.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { function_name_get } from '../../name/get.mjs';
@@ -10,7 +13,14 @@ import { function_add_string_prefix } from '../string/prefix.mjs';
 import { function_exists } from '../../exists.mjs';
 import { not } from '../../../not.mjs';
 import { string_identifier_combine } from '../../../string/identifier/combine.mjs';
-export async function function_add_property_generic(property_prefix, property_name, lambda, method) {
+export async function function_add_property_generic(property_prefix, property_name, lambda, method, input_value_add) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo,
+        boolean_is
+    ]);
     let property_name_fn_get_prefix = string_identifier_combine(property_prefix, 'property');
     let property_name_fn_get = string_identifier_combine(property_name_fn_get_prefix, property_name);
     if (not(await function_exists(property_name_fn_get))) {
