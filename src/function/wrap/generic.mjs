@@ -22,6 +22,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
         arguments_assert_todo
     ]);
     let function_declaration = await function_to_declaration(function_name_to_wrap);
+    let dependencies = await function_dependencies_names_arguments_assert();
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let identifier = function_wrap_generic_identifier_result();
     let statements_code = [
