@@ -26,6 +26,7 @@ import { js_identifier_name_get } from '../../../../js/identifier/name/get.mjs';
 import { assert } from '../../../../assert.mjs';
 import { comment } from '../../../../comment.mjs';
 import { error } from '../../../../error.mjs';
+import { log } from '../../../../log.mjs';
 export async function refactor_call_statement_find_replaceify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name_find, function_declaration_find} = args;
@@ -50,6 +51,7 @@ export async function refactor_call_statement_find_replaceify(args) {
     let function_name = js_mapper_args_to_function_name(args);
     js_visit_call_statements(args, (stack_reversed, node, expression, parent_list) => {
         js_node_call_expression_if_name_equal(expression, function_name_find_statements_last_name, () => {
+            log(function_name)
             let index = list_index_of(parent_list, node);
             let index_previous = subtract_1(index);
             let previous = list_get(parent_list, index_previous);
