@@ -1,5 +1,5 @@
+import { equal_not } from '../../../../equal/not.mjs';
 import { not } from '../../../../not.mjs';
-import { equal } from '../../../../equal.mjs';
 import { list_string_to_dictionary } from '../../../../list/string/to/dictionary.mjs';
 import { string_starts_with } from '../../../../string/starts/with.mjs';
 import { list_filter } from '../../../../list/filter.mjs';
@@ -21,8 +21,7 @@ export async function function_rename_without_all_refactor(function_name_old, fu
         string_identifier_is,
         string_identifier_is
     ]);
-    let v_6 = equal(function_name_old, function_name_new);
-    let v = not(v_6);
+    let v = equal_not(v_6);
     assert(v);
     let v_2 = await function_exists(function_name_old);
     assert(v_2);
