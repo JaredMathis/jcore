@@ -14,9 +14,9 @@ export function search_generic(candidates, query, candidate_to_string) {
         string_is,
         function_is
     ]);
-    let query_map = string_identifier_sub_multiple_parse;
     let fsd = function_search_delimeter();
-    let parts = query_map(query, fsd);
+    let query_map = query => string_identifier_sub_multiple_parse(query, fsd);
+    let parts = query_map(query);
     let candidates_matching = list_filter(candidates, function list_filter_predicate(candidate) {
         let candidate_as_string = candidate_to_string(candidate);
         let all_parts_included = list_all(parts, function list_all_each(part) {
