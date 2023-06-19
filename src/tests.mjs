@@ -160,11 +160,6 @@ import { string_letter_digit_or_underscore_is_test_4 } from './string/letter/dig
 import { string_letter_digit_or_underscore_is_test_3 } from './string/letter/digit/or/underscore/is/test/3.mjs';
 import { string_letter_digit_or_underscore_is_test_2 } from './string/letter/digit/or/underscore/is/test/2.mjs';
 import { string_letter_digit_or_underscore_is_test_1 } from './string/letter/digit/or/underscore/is/test/1.mjs';
-import { string_length_is_0_test_generated_5 } from './string/length/is/0/test/generated/5.mjs';
-import { string_length_is_0_test_generated_4 } from './string/length/is/0/test/generated/4.mjs';
-import { string_length_is_0_test_generated_3 } from './string/length/is/0/test/generated/3.mjs';
-import { string_length_is_0_test_generated_2 } from './string/length/is/0/test/generated/2.mjs';
-import { string_length_is_0_test_generated_1 } from './string/length/is/0/test/generated/1.mjs';
 import { string_index_of_try_test_generated_9 } from './string/index/of/try/test/generated/9.mjs';
 import { string_index_of_try_test_generated_8 } from './string/index/of/try/test/generated/8.mjs';
 import { string_index_of_try_test_generated_7 } from './string/index/of/try/test/generated/7.mjs';
@@ -262,6 +257,11 @@ import { string_empty_not_is_test_generated_4 } from './string/empty/not/is/test
 import { string_empty_not_is_test_generated_3 } from './string/empty/not/is/test/generated/3.mjs';
 import { string_empty_not_is_test_generated_2 } from './string/empty/not/is/test/generated/2.mjs';
 import { string_empty_not_is_test_generated_1 } from './string/empty/not/is/test/generated/1.mjs';
+import { string_empty_is_test_generated_5 } from './string/empty/is/test/generated/5.mjs';
+import { string_empty_is_test_generated_4 } from './string/empty/is/test/generated/4.mjs';
+import { string_empty_is_test_generated_3 } from './string/empty/is/test/generated/3.mjs';
+import { string_empty_is_test_generated_2 } from './string/empty/is/test/generated/2.mjs';
+import { string_empty_is_test_generated_1 } from './string/empty/is/test/generated/1.mjs';
 import { string_digit_is_test_generated_5 } from './string/digit/is/test/generated/5.mjs';
 import { string_digit_is_test_generated_4 } from './string/digit/is/test/generated/4.mjs';
 import { string_digit_is_test_generated_3 } from './string/digit/is/test/generated/3.mjs';
@@ -541,6 +541,11 @@ export async function tests() {
     await string_digit_is_test_generated_3();
     await string_digit_is_test_generated_4();
     await string_digit_is_test_generated_5();
+    await string_empty_is_test_generated_1();
+    await string_empty_is_test_generated_2();
+    await string_empty_is_test_generated_3();
+    await string_empty_is_test_generated_4();
+    await string_empty_is_test_generated_5();
     await string_empty_not_is_test_generated_1();
     await string_empty_not_is_test_generated_2();
     await string_empty_not_is_test_generated_3();
@@ -638,11 +643,6 @@ export async function tests() {
     await string_index_of_try_test_generated_7();
     await string_index_of_try_test_generated_8();
     await string_index_of_try_test_generated_9();
-    await string_length_is_0_test_generated_1();
-    await string_length_is_0_test_generated_2();
-    await string_length_is_0_test_generated_3();
-    await string_length_is_0_test_generated_4();
-    await string_length_is_0_test_generated_5();
     await string_letter_digit_or_underscore_is_test_1();
     await string_letter_digit_or_underscore_is_test_2();
     await string_letter_digit_or_underscore_is_test_3();

@@ -22,7 +22,7 @@ import { string_length } from '../../length.mjs';
 import { list_map } from '../../../list/map.mjs';
 import { object_property_initialize } from '../../../object/property/initialize.mjs';
 import { assert } from '../../../assert.mjs';
-import { string_length_is_0 } from '../../length/is/0.mjs';
+import { string_empty_is } from '../../empty/is.mjs';
 export function string_difference_apply_parse(hunk) {
     arguments_assert(arguments, [string_is]);
     let operations = [
@@ -54,7 +54,7 @@ export function string_difference_apply_parse(hunk) {
         let v_2 = string_difference_property_removed();
         object_property_initialize(result, v_2, count);
     } else if (equal(operation, string_difference_added())) {
-        let v_5 = string_length_is_0(after);
+        let v_5 = string_empty_is(after);
         let v_3 = not(v_5);
         assert(v_3);
         let v_4 = string_difference_property_added();

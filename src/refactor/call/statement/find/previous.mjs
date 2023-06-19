@@ -33,8 +33,8 @@ export async function refactor_call_statement_find_previous(args) {
         list_remove(function_name_find_statements, return_statement);
     }
     let function_name_find_statements_last = list_last(function_name_find_statements);
-    log(js_parse(``))
-    error()
+    log(js_parse(``));
+    error();
     let function_name_find_statements_last_names = list_adder(la => {
         js_visit_call_statements({ parsed: function_name_find_statements_last }, (stack_reversed, node, expression, parent_list) => {
             let name = js_call_expression_name_get(expression);

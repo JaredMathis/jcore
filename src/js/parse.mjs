@@ -8,9 +8,8 @@ export function js_parse(unparsed) {
     arguments_assert(arguments, [string_is]);
     let error_message = unparsed;
     if (false)
-    if (string_empty_not_is()) {
-
-    }
+        if (string_empty_not_is()) {
+        }
     let v = try_catch(js_parse, lambda, unparsed);
     return v;
     function lambda() {
