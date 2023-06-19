@@ -38,12 +38,12 @@ export function js_statements_refactorable(left, right) {
             result_unsuccess(result);
             return result;
         }
-        let left_i_copy = object_copy_json(right_i);
+        let right_i_copy = object_copy_json(right_i);
         log({
             left_identifiers: right_identifiers,
             right_identifiers: left_identifiers
         });
-        const replaceify = js_node_identifiers_replaceify(left_i_copy, left_i);
+        const replaceify = js_node_identifiers_replaceify(right_i_copy, left_i);
         if (!result_property_success_get(replaceify)) {
             result_unsuccess(result);
             return result;
@@ -52,7 +52,7 @@ export function js_statements_refactorable(left, right) {
         object_keys_each(replaceify_data, (value, key) => {
             object_property_ensure(dictionary, key, value);
         });
-        if (!equal_by(js_unparse, left_i_copy, left_i)) {
+        if (!equal_by(js_unparse, right_i_copy, left_i)) {
             result_unsuccess(result);
             return result;
         }
