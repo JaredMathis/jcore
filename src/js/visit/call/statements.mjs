@@ -83,8 +83,6 @@ export function js_visit_call_statements(args, call_each) {
                 return;
             }
             let stack_reversed = list_reversed_get(refactor_stack);
-            function lambda(ancestor_list) {
-            }
             let r = js_visit_stack_to_ancestor_list(refactor_stack, lambda);
             if (result_property_success_get(r)) {
                 let ancestor_list = result_property_data_get(r)
