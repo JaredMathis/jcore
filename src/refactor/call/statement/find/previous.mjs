@@ -26,6 +26,7 @@ import { js_node_is_return_statement } from '../../../../js/node/is/return/state
 import { list_last } from '../../../../list/last.mjs';
 import { js_identifier_name_get } from '../../../../js/identifier/name/get.mjs';
 import { assert } from '../../../../assert.mjs';
+import { comment } from '../../../../comment.mjs';
 export async function refactor_call_statement_find_previous(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name_find, function_declaration_find} = args;
@@ -43,6 +44,7 @@ export async function refactor_call_statement_find_previous(args) {
             let last_declaration = js_declarations_single(function_name_find_statements_last);
             let last_id = js_id_get(last_declaration);
             let argument = js_node_property_argument_get(return_statement);
+            comment(`If this fails then the last non-return statement in ${ function_name_find } assigns a variable, but that variable isn't returned - it should be - or code needs to be changed`);
             assert(equal_by(js_identifier_name_get, last_id, argument));
         }
     }
