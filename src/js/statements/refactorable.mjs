@@ -13,6 +13,7 @@ export function js_statements_refactorable(left, right) {
     if (not(equal_by(list_length, left, right))) {
         return false;
     }
+    let dictionary = {};
     for (let index of range(list_length(left))) {
         let left_i = list_get(left, index);
         let right_i = list_get(right, index);
