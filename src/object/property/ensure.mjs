@@ -9,7 +9,7 @@ export function object_property_ensure(object, property_name, initial_value) {
         string_is,
         defined_is
     ]);
-    let ensure = false;
+    let ensure = true;
     object_property_initialize_generic(object, property_name, initial_value, ensure);
     metadata([]);
 }
