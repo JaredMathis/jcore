@@ -86,7 +86,7 @@ export async function refactor_call_statement_find_replaceify(args) {
             list_replace(args, list_map(args, a => {
                 let name_before = js_identifier_name_get(a);
                 let name_after = object_property_get(refactorable_data, name_before);
-                let p_after = 
+                let p_after = js_parse_expression(name_after);
             }));
         });
     });
