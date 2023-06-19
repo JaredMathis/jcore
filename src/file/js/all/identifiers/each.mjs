@@ -10,13 +10,12 @@ export async function file_js_all_identifiers_each(lambda) {
     for (let file_path of all) {
         const t0 = performance.now();
         let parsed = await file_js_parse(file_path);
-        const t1 = performance.now();
+        const t1 = performance.now() - t0;
         let identifiers = js_identifiers(parsed);
-        const t2 = performance.now();
+        const t2 = performance.now() - t1;
         lambda(identifiers, file_path);
-        const t3 = performance.now();
+        const t3 = performance.now() - t2;
         log({
-            t0,
             t1,
             t2,
             t3
