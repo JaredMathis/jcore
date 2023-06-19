@@ -10,12 +10,15 @@ import { js_function_declaration_asyncify } from '../../../../js/function/declar
 import { js_function_declaration_statements_initialize } from '../../../../js/function/declaration/statements/initialize.mjs';
 import { js_parse } from '../../../../js/parse.mjs';
 import { js_code_function_name_to_export } from '../../../../js/code/function/name/to/export.mjs';
+import { assert } from '../../../../assert.mjs';
+import { function_exists } from '../../../exists.mjs';
 export async function function_add_with_statements_synchronized(function_name, statements, is_async) {
     arguments_assert(arguments, [
         string_identifier_is,
         list_is,
         boolean_is
     ]);
+    assert(!await function_exists(function_name))
     const code = js_code_function_name_to_export(function_name);
     let parsed = js_parse(code);
     let fd = js_export_function_single(parsed);
