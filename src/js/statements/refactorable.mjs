@@ -25,6 +25,6 @@ export function js_statements_refactorable(left, right) {
         if (not(list_elements_all_equal(left_identifiers, right_identifiers))) {
             return false;
         }
-        let left_i_copy = object_copy_json();
+        let left_i_copy = object_copy_json(left_i);
     }
 }
