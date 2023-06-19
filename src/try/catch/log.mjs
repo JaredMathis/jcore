@@ -10,15 +10,20 @@ export function try_catch_log(fn, lambda, error_message) {
         string_empty_not_is
     ]);
     let v
-    try {
-        v = lambda();
-    } catch (e) {
-        v = on_error(e);
-    }
+    try_catch(lambda, on_error);
     return v;
     metadata([]);
 
     function on_error(e) {
         error_caught(fn, e, error_message);
     }
+}
+
+function try_catch(lambda, on_error) {
+    try {
+        v = lambda();
+    } catch (e) {
+        v = on_error(e);
+    }
+    return v;
 }
