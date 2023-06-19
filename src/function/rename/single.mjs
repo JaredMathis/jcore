@@ -1,3 +1,4 @@
+import { log } from '../../log.mjs';
 import { function_open_vs_code } from '../open/vs/code.mjs';
 import { function_rename_no_open } from './no/open.mjs';
 import { string_identifier_is } from '../../string/identifier/is.mjs';
@@ -12,5 +13,4 @@ export async function function_rename_single(function_name_old, function_name_ne
     log('a');
     await function_open_vs_code(function_name_new);
     log('a');
-
 }
