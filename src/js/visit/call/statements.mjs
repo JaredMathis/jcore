@@ -21,6 +21,7 @@ import { js_node_is_variable_declaration } from '../../node/is/variable/declarat
 import { js_node_is_expression_statement } from '../../node/is/expression/statement.mjs';
 import { js_visit_nodes_filter } from '../nodes/filter.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
+import { result_property_success_get } from '../../../result/property/success/get.mjs';
 export function js_visit_call_statements(args, call_each) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -83,9 +84,12 @@ export function js_visit_call_statements(args, call_each) {
             }
             let stack_reversed = list_reversed_get(refactor_stack);
             function lambda(ancestor_list) {
+            }
+            let r = js_visit_stack_to_ancestor_list(refactor_stack, lambda);
+            if (result_property_success_get(r)) {
+                let ancestor_list = result_property_data_get(r)
                 call_each(stack_reversed, node, expression, ancestor_list);
             }
-            js_visit_stack_to_ancestor_list(refactor_stack, lambda);
         }
     });
 }

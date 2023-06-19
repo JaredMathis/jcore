@@ -10,17 +10,22 @@ import { js_node_is_variable_declaration } from '../../../../node/is/variable/de
 import { js_node_is_program } from '../../../../node/is/program.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { list_reversed_get } from '../../../../../list/reversed/get.mjs';
+import { result_empty } from '../../../../../result/empty.mjs';
+import { result_unsuccess } from '../../../../../result/unsuccess.mjs';
+import { result_property_data_set } from '../../../../../result/property/data/set.mjs';
 export function js_visit_stack_to_ancestor_list(stack_reversed, lambda) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo
     ]);
+    let result = result_empty();
     let index_starting_at = 0;
     let list_find_first_after_result = list_find_first_start_at(stack_reversed, index_starting_at);
     let parent_list_next = object_property_get(list_find_first_after_result, 'next');
     let parent_list_index = object_property_get(list_find_first_after_result, 'index');
     if (js_node_is_program(parent_list_next)) {
-        return null;
+        result_unsuccess(result);
+        return result;
     }
     if (js_node_is_variable_declaration(parent_list_next)) {
         list_find_first_after_result = list_find_first_start_at(stack_reversed, parent_list_index);
@@ -30,8 +35,8 @@ export function js_visit_stack_to_ancestor_list(stack_reversed, lambda) {
     let v_14 = js_node_is_block_statement(parent_list_next);
     assert(v_14);
     let ancestor_list = list_get(stack_reversed, parent_list_index);
-    return ancestor_list;
-    lambda(ancestor_list);
+    result_property_data_set(result, ancestor_list)
+    return result;
     function list_find_first_start_at(stack_reversed, index_starting_at) {
         let index = list_find_first_index_starting_at(stack_reversed, list_is, index_starting_at);
         let index_next = add_1(index);
