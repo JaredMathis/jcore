@@ -6,5 +6,5 @@ import { arguments_assert } from '../arguments/assert.mjs';
 export async function task_search(query) {
     arguments_assert(arguments, [string_is]);
     let candidates = await task_all_unsummarized();
-    return search_generic(candidates, task_property_title_get, query);
+    return search_generic(candidates, task_property_title_get, query, search_candidate_as_string_matches_default);
 }

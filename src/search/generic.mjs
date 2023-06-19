@@ -7,11 +7,12 @@ import { string_identifier_sub_multiple_parse } from '../string/identifier/sub/m
 import { function_search_delimeter } from '../function/search/delimeter.mjs';
 import { list_is } from '../list/is.mjs';
 import { string_is } from '../string/is.mjs';
-export function search_generic(candidates, candidate_to_string, query) {
+export function search_generic(candidates, candidate_to_string, query, candidate_as_string_matches) {
     arguments_assert(arguments, [
         list_is,
         function_is,
-        string_is
+        string_is,
+        function_is
     ]);
     let parts = search_query_map_default(query);
     let candidates_matching = list_filter(candidates, function list_filter_predicate(candidate) {

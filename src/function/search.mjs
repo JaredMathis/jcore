@@ -8,6 +8,6 @@ import { list_string_to_dictionary } from '../list/string/to/dictionary.mjs';
 export async function function_search(query) {
     arguments_assert(arguments, [string_is]);
     const candidates = await function_name_all_tests_not();
-    let candidates_matching = search_generic(candidates, identity, query);
+    let candidates_matching = search_generic(candidates, identity, query, search_candidate_as_string_matches_default);
     return list_string_to_dictionary(candidates_matching, function_name_to_file_path);
 }
