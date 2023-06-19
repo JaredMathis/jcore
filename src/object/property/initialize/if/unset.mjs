@@ -14,13 +14,17 @@ export function object_property_initialize_if_unset(object, property_name, initi
         defined_is
     ]);
     let ensure = false;
+    object_property_initialize_generic(object, property_name, ensure, initial_value);
+    metadata([]);
+}
+
+function object_property_initialize_generic(object, property_name, ensure, initial_value) {
     if (object_property_exists(object, property_name)) {
         if (ensure) {
-            let existing = object_property_get(object, property_name)
-            assert(equal(existing, initial_value))
+            let existing = object_property_get(object, property_name);
+            assert(equal(existing, initial_value));
         }
     } else {
         object_property_initialize(object, property_name, initial_value);
     }
-    metadata([]);
 }
