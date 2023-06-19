@@ -22,6 +22,7 @@ export function js_statements_refactorable(left, right) {
         result_unsuccess(result);
         return result;
     }
+    let dictionary = {};
     for (let index of range(list_length(left))) {
         let left_i = list_get(left, index);
         let right_i = list_get(right, index);
@@ -37,7 +38,7 @@ export function js_statements_refactorable(left, right) {
         }
         let left_i_copy = object_copy_json(left_i);
         const replaceify = js_node_identifiers_replaceify(left_i_copy, right_identifiers);
-        if (!replaceify) {
+        if (!result_property_success(replaceify)) {
             result_unsuccess(result);
             return result;
         }
