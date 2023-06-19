@@ -1,3 +1,5 @@
+import { js_call_expression_name_change } from '../../../../js/call/expression/name/change.mjs';
+import { js_function_declaration_to_params_names } from '../../../../js/function/declaration/to/params/names.mjs';
 import { result_property_success_get } from '../../../../result/property/success/get.mjs';
 import { list_take_without_last } from '../../../../list/take/without/last.mjs';
 import { equal_by } from '../../../../equal/by.mjs';
@@ -57,7 +59,7 @@ export async function refactor_call_statement_find_replaceify(args) {
     let function_find_inputs = js_function_declaration_to_params_names(function_declaration_find);
     js_visit_call_statements(args, (stack_reversed, node, expression, parent_list) => {
         js_node_call_expression_if_name_equal(expression, function_name_find_statements_last_name, () => {
-            log(function_name)
+            log(function_name);
             let index = list_index_of(parent_list, node);
             let index_previous = subtract_1(index);
             let previous = list_get(parent_list, index_previous);
@@ -74,7 +76,7 @@ export async function refactor_call_statement_find_replaceify(args) {
             for (let s of statements_to_remove) {
                 list_remove(parent_list, s);
             }
-            js_call_expression_name_change(expression, function_name_find)
+            js_call_expression_name_change(expression, function_name_find);
         });
     });
 }
