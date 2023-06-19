@@ -1,3 +1,4 @@
+import { error } from '../../../error.mjs';
 import { js_node_property_name_set } from '../property/name/set.mjs';
 import { list_consume } from '../../../list/consume.mjs';
 import { js_visit_identifiers_not_call_expressions } from '../../visit/identifiers/not/call/expressions.mjs';
@@ -31,7 +32,7 @@ export function js_node_identifiers_replaceify(node_left, node_right) {
                 let replacement = next();
                 console.log({ replacement });
                 object_property_ensure(dictionary, existing, replacement);
-                js_node_property_name_set(node, replacement);
+                js_node_property_name_set(node, replacement, error(), error());
             }
         })) {
         log('here');
