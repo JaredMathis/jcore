@@ -10,7 +10,7 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { js_identifier_name_get } from '../../identifier/name/get.mjs';
 import { result_unsuccess } from '../../../result/unsuccess.mjs';
 import { result_empty } from '../../../result/empty.mjs';
-export function js_node_identifiers_replaceify(node, replacements) {
+export function js_node_identifiers_replaceify(node_left, node_right) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         list_is
@@ -18,7 +18,7 @@ export function js_node_identifiers_replaceify(node, replacements) {
     let result = result_empty();
     let dictionary = {};
     if (list_consume_try(replacements, next => {
-            js_visit_identifiers_not_call_expressions(node, lambda);
+            js_visit_identifiers_not_call_expressions(node_left, lambda);
             function lambda(node) {
                 let existing = js_identifier_name_get(node);
                 let replacement = next();
