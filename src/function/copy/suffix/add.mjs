@@ -12,8 +12,8 @@ export async function function_copy_suffix_add(function_name_prefix, function_na
         arguments_assert_todo
     ]);
     let function_name_suffix_parts = string_identifier_parts_to(function_name_suffix);
-    let function_name_old_parts = string_identifier_parts_to(function_name_prefix);
-    list_remove_last_verify_multiple(function_name_old_parts, function_name_suffix_parts);
+    let function_name_prefix_parts = string_identifier_parts_to(function_name_prefix);
+    list_remove_last_verify_multiple(function_name_prefix_parts, function_name_suffix_parts);
     list_add_beginning(function_name_suffix_parts, function_name_prefix);
     let function_name_suffix_to = string_identifier_parts_from(function_name_suffix_parts);
     error(json_to({function_name_prefix, function_name_suffix_from, function_name_suffix_to}))
