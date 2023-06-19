@@ -27,7 +27,8 @@ export async function function_add_property_generic(property_prefix, property_na
         await function_add_string_prefix(property_name_fn_get_prefix, property_name);
     }
     let property_name_get = js_code_call_expression(property_name_fn_get);
-    let expression_code = lambda(property_prefix, property_name_get, 'value');
+    const value_name = 'value';
+    let expression_code = lambda(property_prefix, property_name_get, value_name);
     let statement_code = js_code_return_statement(expression_code);
     let v_2 = function_name_separator();
     let function_name = list_join([
@@ -37,5 +38,8 @@ export async function function_add_property_generic(property_prefix, property_na
     let result = await function_add_with_statement_code(function_name, statement_code);
     let v_3 = function_name_get(defined_is);
     await function_input_add_type(function_name, property_prefix, v_3);
+    if (input_value_add) {
+        await function_input_add_type(function_name, value_name, v_3);
+    }
     return result;
 }
