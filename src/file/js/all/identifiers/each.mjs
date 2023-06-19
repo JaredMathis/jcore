@@ -13,7 +13,7 @@ export async function file_js_all_identifiers_each(lambda) {
         let s = speed_start();
         let parsed = await file_js_parse(file_path);
         let previous = speed_property_previous_get(s);
-        const t1 = performance.now() - t0;
+        const t1 = performance.now() - previous;
         let identifiers = js_identifiers(parsed);
         const t2 = performance.now() - t1;
         lambda(identifiers, file_path);
