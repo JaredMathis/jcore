@@ -13,7 +13,11 @@ export function try_catch_log(fn, lambda, error_message) {
         let v = lambda();
         return v;
     } catch (e) {
-        error_caught(fn, e, error_message);
+        on_error(e);
     }
     metadata([]);
+
+    function on_error(e) {
+        error_caught(fn, e, error_message);
+    }
 }
