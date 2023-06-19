@@ -16,6 +16,7 @@ import { js_unparse } from '../unparse.mjs';
 import { result_empty } from '../../result/empty.mjs';
 import { object_property_ensure } from '../../object/property/ensure.mjs';
 import { log } from '../../log.mjs';
+import { result_property_data_set } from '../../result/property/data/set.mjs';
 export function js_statements_refactorable(left, right) {
     arguments_assert(arguments, [
         list_is,
@@ -27,6 +28,7 @@ export function js_statements_refactorable(left, right) {
         return result;
     }
     let dictionary = {};
+    result_property_data_set(result, dictionary)
     for (let index of range(list_length(left))) {
         let left_i = list_get(left, index);
         let right_i = list_get(right, index);
