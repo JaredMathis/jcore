@@ -8,5 +8,6 @@ export async function function_search(query) {
     arguments_assert(arguments, [string_is]);
     let candidate_as_string_matches = search_candidate_as_string_matches_default;
     let query_map = search_query_map_default;
+    let candiate_to_string = identity;
     return await function_search_generic(query, query_map, candidate_as_string_matches, identity);
 }
