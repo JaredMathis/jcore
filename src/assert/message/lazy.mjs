@@ -12,11 +12,14 @@ export function assert_message_lazy(value, message_get) {
     ]);
     assert_arguments_count(arguments, 2);
     if (not(function_is(message_get))) {
-        error('invalid message');
+        error('invalid message_get');
     }
     if (value === true) {
         return;
     }
-    error(message_get);
-    return result;
+    let message = message_get();
+    if (not(string_is(message))) {
+        error('invalid message');
+    }
+    error(message);
 }
