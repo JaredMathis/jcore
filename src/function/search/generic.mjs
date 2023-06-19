@@ -5,7 +5,7 @@ import { list_string_to_dictionary } from '../../list/string/to/dictionary.mjs';
 import { identity } from '../../identity.mjs';
 import { search_generic } from '../../search/generic.mjs';
 import { function_name_all_tests_not } from '../name/all/tests/not.mjs';
-export async function function_search_generic(query, candidate_as_string_matches, query_map) {
+export async function function_search_generic(query, query_map, candidate_as_string_matches) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo,
