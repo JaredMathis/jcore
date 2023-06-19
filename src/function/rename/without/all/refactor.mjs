@@ -22,7 +22,6 @@ export async function function_rename_without_all_refactor(function_name_old, fu
         string_identifier_is,
         string_identifier_is
     ]);
-    log('a');
     let v = equal_not(function_name_old, function_name_new);
     assert(v);
     let v_2 = await function_exists(function_name_old);
@@ -35,6 +34,7 @@ export async function function_rename_without_all_refactor(function_name_old, fu
     let v_4 = not(v_8);
     assert(v_4);
     let all = await function_name_all();
+    log('a');
     let tests_prefix_old = function_tests_prefix_get(function_name_old);
     let tests_old = list_filter(all, function v_10(a) {
         let v_12 = string_starts_with(a, tests_prefix_old);
