@@ -1,6 +1,5 @@
 import { refactor_import_fix_if_changed } from '../import/fix/if/changed.mjs';
 import { js_code_call_expression_object_property_get } from '../../js/code/call/expression/object/property/get.mjs';
-import { occurs } from '../../occurs.mjs';
 import { list_add_after } from '../../list/add/after.mjs';
 import { object_replace } from '../../object/replace.mjs';
 import { js_code_statement_assignment } from '../../js/code/statement/assignment.mjs';
@@ -56,7 +55,7 @@ export async function refactor_properties_expand(args) {
                                 let statement = js_parse_statement(statement_code);
                                 list_add_after(function_body_statements, statement, previous);
                                 previous = statement;
-                                occurs = true;
+                                o();
                             }
                         }
                     }
