@@ -1,3 +1,4 @@
+import { object_keys_each } from '../../object/keys/each.mjs';
 import { result_property_success_get } from '../../result/property/success/get.mjs';
 import { result_property_data_get } from '../../result/property/data/get.mjs';
 import { result_unsuccess } from '../../result/unsuccess.mjs';
@@ -12,7 +13,6 @@ import { list_is } from '../../list/is.mjs';
 import { range } from '../../range.mjs';
 import { list_get } from '../../list/get.mjs';
 import { js_unparse } from '../unparse.mjs';
-import { log_multiple } from '../../log/multiple.mjs';
 import { result_empty } from '../../result/empty.mjs';
 import { object_property_ensure } from '../../object/property/ensure.mjs';
 import { log } from '../../log.mjs';
@@ -47,7 +47,7 @@ export function js_statements_refactorable(left, right) {
             return result;
         }
         let replaceify_data = result_property_data_get(replaceify);
-        object_properties_each(replaceify_data, (value, key) => {
+        object_keys_each(replaceify_data, (value, key) => {
             object_property_ensure(dictionary, key, value);
         });
         if (!equal_by(js_unparse, left_i_copy, right_i)) {
