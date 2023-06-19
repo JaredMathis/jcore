@@ -30,7 +30,6 @@ export function js_node_identifiers_replaceify(node_left, node_right) {
             function lambda(node) {
                 let existing = js_identifier_name_get(node);
                 let replacement = next();
-                console.log({ replacement });
                 object_property_ensure(dictionary, existing, replacement);
                 js_node_property_name_set(node, replacement);
             }
