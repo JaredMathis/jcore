@@ -3,9 +3,9 @@ import { list_all } from '../../all.mjs';
 import { list_first } from '../../first.mjs';
 export function list_elements_all_equal(values) {
     let first = list_first(values);
-    let v_2 = list_all(values, function list_all_each(v) {
+    let list_all_equal = list_all(values, function list_all_each(v) {
         let v_4 = equal(v, first);
         return v_4;
     });
-    return v_2;
+    return list_all_equal;
 }
