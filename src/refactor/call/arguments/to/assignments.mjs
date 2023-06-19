@@ -30,7 +30,7 @@ export function refactor_call_arguments_to_assignments(args) {
                 }
             }
             function replace(arg) {
-                arg = js_node_assign_and_replace(arg, parsed, ancestor_list, node);
+                js_node_assign_and_replace(arg, parsed, ancestor_list, node);
                 c();
             }
         }
