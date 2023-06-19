@@ -1,3 +1,4 @@
+import { js_unparse } from '../../../../js/unparse.mjs';
 import { js_node_property_params_get } from '../../../../js/node/property/params/get.mjs';
 import { refactor_import_fix_if_changed } from '../../../import/fix/if/changed.mjs';
 import { js_parse_identifier } from '../../../../js/parse/identifier.mjs';
@@ -36,8 +37,6 @@ import { equal } from '../../../../equal.mjs';
 import { list_map } from '../../../../list/map.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { result_property_data_get } from '../../../../result/property/data/get.mjs';
-import { error } from '../../../../error.mjs';
-import { json_to } from '../../../../json/to.mjs';
 export async function refactor_call_statement_find_replaceify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name_find} = args;
@@ -68,7 +67,6 @@ export async function refactor_call_statement_find_replaceify(args) {
     await refactor_import_fix_if_changed(args, o => {
         js_visit_call_statements(args, (stack_reversed, node, expression, parent_list) => {
             js_node_call_expression_if_name_equal(expression, function_name_find_statements_last_name, () => {
-                log(function_name);
                 let index = list_index_of(parent_list, node);
                 let index_previous = subtract_1(index);
                 let previous = list_get(parent_list, index_previous);
@@ -86,9 +84,14 @@ export async function refactor_call_statement_find_replaceify(args) {
                     list_remove(parent_list, s);
                 }
                 js_call_expression_name_change(expression, function_name_find);
+                let expression_params = js_node_property_params_get(expression);
                 let args = js_node_property_params_get(function_declaration_find);
-                log({args,refactorable_data,j:json_unparse(function_declaration_find)})
-                list_replace(args, list_map(args, a => {
+                log({
+                    args,
+                    refactorable_data,
+                    j: js_unparse(function_declaration_find)
+                });
+                list_replace(expression_params, list_map(args, a => {
                     let name_before = js_identifier_name_get(a);
                     let name_after = object_property_get(refactorable_data, name_before);
                     let p_after = js_parse_identifier(name_after);
