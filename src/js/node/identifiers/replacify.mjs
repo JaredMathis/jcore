@@ -1,3 +1,4 @@
+import { js_identifier_name_change } from '../../identifier/name/change.mjs';
 import { list_consume } from '../../../list/consume.mjs';
 import { list_is } from '../../../list/is.mjs';
 import { js_visit_nodes_filter } from '../../visit/nodes/filter.mjs';
