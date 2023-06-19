@@ -7,6 +7,6 @@ export async function task_current_title_append(title_additional) {
     arguments_assert(arguments, [string_is]);
     let task_number = await task_id_get();
     let task_number_string = string_to(task_number);
-    await task_title_append(task_number, title_additional);
+    await task_title_append(task_number_string, title_additional);
     return result;
 }
