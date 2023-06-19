@@ -5,12 +5,12 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { list_filter } from '../list/filter.mjs';
 import { list_is } from '../list/is.mjs';
 import { string_is } from '../string/is.mjs';
-export function search_generic(candidates, candidate_to_string, query, candidate_as_string_matches) {
+export function search_generic(candidates, candidate_to_string, candidate_as_string_matches, query) {
     arguments_assert(arguments, [
         list_is,
         function_is,
-        string_is,
-        function_is
+        function_is,
+        string_is
     ]);
     let parts = search_query_map_default(query);
     let candidates_matching = list_filter(candidates, function list_filter_predicate(candidate) {
