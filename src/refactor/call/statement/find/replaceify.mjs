@@ -1,3 +1,4 @@
+import { js_node_property_params_get } from '../../../../js/node/property/params/get.mjs';
 import { js_call_expression_name_change } from '../../../../js/call/expression/name/change.mjs';
 import { js_function_declaration_to_params_names } from '../../../../js/function/declaration/to/params/names.mjs';
 import { result_property_success_get } from '../../../../result/property/success/get.mjs';
@@ -77,6 +78,7 @@ export async function refactor_call_statement_find_replaceify(args) {
                 list_remove(parent_list, s);
             }
             js_call_expression_name_change(expression, function_name_find);
+            let params = js_node_property_params_get(expression);
         });
     });
 }
