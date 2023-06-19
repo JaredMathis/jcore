@@ -17,7 +17,7 @@ export function js_node_identifiers_replaceify(node_left, node_right) {
         list_is
     ]);
     let replacements = list_adder(la => {
-        js_visit_identifiers_not_call_expressions(node_left, node => {
+        js_visit_identifiers_not_call_expressions(node_right, node => {
             let existing = js_identifier_name_get(node);
             la(existing);
         });
