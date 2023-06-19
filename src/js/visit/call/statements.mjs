@@ -83,6 +83,9 @@ export function js_visit_call_statements(args, call_each) {
             if (not(js_node_is_call_expression(expression))) {
                 return;
             }
+            function lambda(parent_list) {
+                call_each(stack_reversed, node, expression, parent_list);
+            }
             let stack_reversed = list_reversed_get(refactor_stack);
             let index_starting_at = 0;
             let list_find_first_after_result = list_find_first_start_at(stack_reversed, index_starting_at);
@@ -98,9 +101,6 @@ export function js_visit_call_statements(args, call_each) {
                 assert(v_14);
                 let parent_list = list_get(stack_reversed, parent_list_index);
                 lambda(parent_list);
-            }
-            function lambda(parent_list) {
-                call_each(stack_reversed, node, expression, parent_list);
             }
 
             function list_find_first_start_at(stack_reversed, index_starting_at) {
