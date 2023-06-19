@@ -1,3 +1,4 @@
+import { list_reversed_get } from '../../../list/reversed/get.mjs';
 import { list_remove_last_verify } from '../../../list/remove/last/verify.mjs';
 import { string_identifier_parts_from } from '../../../string/identifier/parts/from.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
@@ -12,7 +13,7 @@ export async function function_copy_suffix_add(function_name_old, function_name_
     ]);
     let function_name_suffix_parts = string_identifier_parts_to(function_name_suffix);
     let function_name_old_parts = string_identifier_parts_to(function_name_old);
-    for (let part of function_name_suffix_parts) {
+    for (let part of list_reversed_get(function_name_suffix_parts)) {
         list_remove_last_verify(function_name_old_parts, part);
     }
     let function_name_prefix = string_identifier_parts_from(function_name_old_parts);
