@@ -14,8 +14,8 @@ export function search_generic(candidates, query, candidate_to_string) {
         string_is,
         function_is
     ]);
-    let fsd = function_search_delimeter();
     let query_map = function v(query) {
+        let fsd = function_search_delimeter();
         return string_identifier_sub_multiple_parse(query, fsd);
     };
     let parts = query_map(query);
