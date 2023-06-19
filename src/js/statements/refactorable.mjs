@@ -20,6 +20,10 @@ export function js_statements_refactorable(left, right) {
         let left_i = list_get(left, index);
         let right_i = list_get(right, index);
         let left_identifiers = js_node_identifiers(left_i);
-        log({ left_identifiers });
+        let right_identifiers = js_node_identifiers(right_i);
+        log({
+            left_identifiers,
+            right_identifiers
+        });
     }
 }
