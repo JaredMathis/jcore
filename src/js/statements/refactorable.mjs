@@ -41,14 +41,14 @@ export function js_statements_refactorable(left, right) {
         }
         let left_i_copy = object_copy_json(left_i);
         const replaceify = js_node_identifiers_replaceify(left_i_copy, right_identifiers);
-        let replaceify_data = result_property_data_get(replaceify);
-        object_properties_each(replaceify_data, (value, key) => {
-            object_property_ensure(dictionary, key, value);
-        });
         if (!result_property_success_get(replaceify)) {
             result_unsuccess(result);
             return result;
         }
+        let replaceify_data = result_property_data_get(replaceify);
+        object_properties_each(replaceify_data, (value, key) => {
+            object_property_ensure(dictionary, key, value);
+        });
         if (!equal_by(js_unparse, left_i_copy, right_i)) {
             result_unsuccess(result);
             return result;
