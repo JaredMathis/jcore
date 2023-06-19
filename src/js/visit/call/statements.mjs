@@ -86,11 +86,11 @@ export function js_visit_call_statements(args, call_each) {
             function lambda(ancestor_list) {
                 call_each(stack_reversed, node, expression, ancestor_list);
             }
-            let stack_reversed = newFunction(refactor_stack, lambda);
+            let stack_reversed = js_visit_stack_to_ancestor_list(refactor_stack, lambda);
         }
     });
 }
-function newFunction(refactor_stack, lambda) {
+function js_visit_stack_to_ancestor_list(refactor_stack, lambda) {
     let stack_reversed = list_reversed_get(refactor_stack);
     let index_starting_at = 0;
     let list_find_first_after_result = list_find_first_start_at(stack_reversed, index_starting_at);
