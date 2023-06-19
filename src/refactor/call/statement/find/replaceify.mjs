@@ -25,6 +25,7 @@ import { list_last } from '../../../../list/last.mjs';
 import { js_identifier_name_get } from '../../../../js/identifier/name/get.mjs';
 import { assert } from '../../../../assert.mjs';
 import { comment } from '../../../../comment.mjs';
+import { error } from '../../../../error.mjs';
 export async function refactor_call_statement_find_replaceify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name_find, function_declaration_find} = args;
@@ -60,7 +61,7 @@ export async function refactor_call_statement_find_replaceify(args) {
             if (!result_property_success_get(refactorable)) {
                 return;
             }
-            log('here')
+            error()
             let statements_to_remove = list_take_without_last(statements);
             for (let s of statements_to_remove) {
                 list_remove(parent_list, s);
