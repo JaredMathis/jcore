@@ -73,6 +73,7 @@ export async function refactor_call_statement_find_replaceify(args) {
             for (let s of statements_to_remove) {
                 list_remove(parent_list, s);
             }
+            js_call_expression_name_change(expression, function_name_find)
         });
     });
 }
