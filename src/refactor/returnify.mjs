@@ -8,6 +8,8 @@ import { assert } from '../assert.mjs';
 import { result_property_data_get } from '../result/property/data/get.mjs';
 import { result_property_success_get } from '../result/property/success/get.mjs';
 import { list_reversed_get } from '../list/reversed/get.mjs';
+import { js_node_assign_and_replace } from '../js/node/assign/and/replace.mjs';
+import { js_node_property_argument_get } from '../js/node/property/argument/get.mjs';
 export function refactor_returnify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
@@ -17,7 +19,7 @@ export function refactor_returnify(args) {
         let r = js_visit_stack_to_ancestor_list(stack_reversed, lambda);
         assert(result_property_success_get(r));
         let ancestor_list = result_property_data_get(r);
-        let statement_new = 
-        list_add_before(ancestor_list, node, statement_new);
+        let argument = js_node_property_argument_get(node);
+        js_node_assign_and_replace(parsed, argument, ancestor_list, node);
     });
 }
