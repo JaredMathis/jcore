@@ -6,6 +6,6 @@ export async function task_id_get_string() {
     arguments_assert(arguments, []);
     let task_number = await task_id_get();
     let task_number_string_hashed = string_to(task_number);
-    let unhashed = task_number_unhash(task_number_string_hashed);
-    return unhashed;
+    let task_number_string = task_number_unhash(task_number_string_hashed);
+    return task_number_string;
 }
