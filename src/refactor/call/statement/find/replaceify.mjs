@@ -77,7 +77,6 @@ export async function refactor_call_statement_find_replaceify(args) {
                 return;
             }
             let refactorable_data = result_property_data_get(refactorable);
-            error();
             let statements_to_remove = list_take_without_last(statements);
             for (let s of statements_to_remove) {
                 list_remove(parent_list, s);
