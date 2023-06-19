@@ -21,9 +21,9 @@ export function js_statements_refactorable(left, right) {
         let right_i = list_get(right, index);
         let left_identifiers = js_node_identifiers(left_i);
         let right_identifiers = js_node_identifiers(right_i);
-        log({
-            left_identifiers,
-            right_identifiers
-        });
+        if (not(list_elements_all_equal(left_identifiers, right_identifiers))) {
+            return false;
+        }
+        let left_i_copy = object_copy_json();
     }
 }
