@@ -12,6 +12,6 @@ export async function function_search(query) {
     let candidate_as_string_matches = search_candidate_as_string_matches_default;
     let query_map = search_query_map_default;
     const candidates = await function_name_all_tests_not();
-    let candidates_matching = search_generic(candidates, identity, candidate_as_string_matches, query, search_query_map_default);
+    let candidates_matching = search_generic(candidates, identity, candidate_as_string_matches, query, query_map);
     return list_string_to_dictionary(candidates_matching, function_name_to_file_path);
 }
