@@ -23,8 +23,7 @@ export function js_statements_refactorable(left, right) {
         let left_i = list_get(left, index);
         let right_i = list_get(right, index);
         let left_identifiers = list_adder(la => {
-            js_nodes_each(left_i, js_node_is_identifier, v => {
-                let {node} = v;
+            js_nodes_each(left_i, js_node_is_identifier, node => {
                 let name = js_identifier_name_get(node);
                 la(name);
             });
