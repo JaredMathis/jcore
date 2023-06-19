@@ -1,3 +1,4 @@
+import { log } from '../../../log.mjs';
 import { result_property_data_set } from '../../../result/property/data/set.mjs';
 import { object_property_ensure } from '../../../object/property/ensure.mjs';
 import { list_consume_try } from '../../../list/consume/try.mjs';
@@ -19,6 +20,7 @@ export function js_node_identifiers_replaceify(node, replacements) {
     ]);
     let result = result_empty();
     let dictionary = {};
+    log('here2');
     if (list_consume_try(replacements, next => {
             js_visit_nodes_filter(node, js_node_is_identifier, v => {
                 let {parent} = v;
