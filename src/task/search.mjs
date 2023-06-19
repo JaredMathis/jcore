@@ -1,3 +1,4 @@
+import { search_query_map_default } from '../search/query/map/default.mjs';
 import { search_candidate_as_string_matches_default } from '../search/candidate/as/string/matches/default.mjs';
 import { task_all_unsummarized } from './all/unsummarized.mjs';
 import { task_property_title_get } from './property/title/get.mjs';
@@ -7,5 +8,5 @@ import { arguments_assert } from '../arguments/assert.mjs';
 export async function task_search(query) {
     arguments_assert(arguments, [string_is]);
     let candidates = await task_all_unsummarized();
-    return search_generic(candidates, task_property_title_get, search_candidate_as_string_matches_default, query);
+    return search_generic(candidates, task_property_title_get, search_candidate_as_string_matches_default, query, search_query_map_default);
 }
