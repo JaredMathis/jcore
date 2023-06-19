@@ -82,6 +82,7 @@ export async function refactor_call_statement_find_replaceify(args) {
                 list_remove(parent_list, s);
             }
             js_call_expression_name_change(expression, function_name_find);
+            log({expression})
             let params = js_node_property_params_get(expression);
             list_replace(params, list_map(params, p => object_property_get(refactorable_data, p)));
         });
