@@ -11,7 +11,6 @@ export function object_property_initialize_if_unset(object, property_name, initi
         defined_is
     ]);
     if (object_property_exists(object, property_name)) {
-        return;
     } else {
         object_property_initialize(object, property_name, initial_value);
     }
