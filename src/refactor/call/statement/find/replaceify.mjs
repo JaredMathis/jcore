@@ -1,3 +1,4 @@
+import { js_parse_identifier } from '../../../../js/parse/identifier.mjs';
 import { js_node_property_arguments_get } from '../../../../js/node/property/arguments/get.mjs';
 import { list_replace } from '../../../../list/replace.mjs';
 import { js_call_expression_name_change } from '../../../../js/call/expression/name/change.mjs';
