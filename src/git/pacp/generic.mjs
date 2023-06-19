@@ -13,6 +13,7 @@ export async function git_pacp_generic(sync) {
     if (null_is(task_id)) {
         let now = date_now_iso_underscores();
         await task_now(now);
+        task_id = await task_id_get_or_null();
     }
     let initial = data_git_commit_message_initial();
     assert(task_id !== initial);
