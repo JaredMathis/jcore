@@ -34,10 +34,6 @@ export async function refactor_call_statement_find_previous(args) {
     let function_name = js_mapper_args_to_function_name(args);
     js_visit_call_statements(args, (stack_reversed, node, expression, parent_list) => {
         js_node_call_expression_if_name_equal(expression, function_name_find_statements_last_name, () => {
-            log({
-                function_name,
-                function_name_find
-            });
             let node_string = js_unparse(expression);
             let index = list_index_of(parent_list, node);
             let index_previous = subtract_1(index);
@@ -47,6 +43,10 @@ export async function refactor_call_statement_find_previous(args) {
                 node
             ];
             js_statements_refactorable(statements, function_name_find_statements);
+            log({
+                function_name,
+                function_name_find
+            });
             log_multiple_map(statements, js_unparse);
             log('');
             error();
