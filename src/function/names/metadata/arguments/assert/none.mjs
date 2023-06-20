@@ -13,6 +13,7 @@ import { assert } from '../../../../../assert.mjs';
 import { function_names_each } from '../../../each.mjs';
 import { list_adder_async } from '../../../../../list/adder/async.mjs';
 import { list_map } from '../../../../../list/map.mjs';
+import { list_single } from '../../../../../list/single.mjs';
 export async function function_names_metadata_arguments_assert_none() {
     arguments_assert(arguments, []);
     return await list_adder_async(async la => {
@@ -20,9 +21,9 @@ export async function function_names_metadata_arguments_assert_none() {
             let {function_name} = args;
             assert(string_identifier_is(function_name));
             let metadata_args = await js_mapper_args_to_metadata_args_no_add_missing(args);
-            console.log({function_name})
             let mapped = list_map(metadata_args, js_node_property_arguments_get);
-            let filtered = list_filter(mapped, js_node_is_call_expression);
+            let mapped2 = list_map(mapped, list_single);
+            let filtered = list_filter(mapped2, js_node_is_call_expression);
             let filtered2 = list_filter(filtered, node => js_node_call_expression_name_equal(node, function_name_get(metadata_arguments_assert_none)));
             if (list_empty(filtered2)) {
                 return;
