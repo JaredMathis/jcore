@@ -13,10 +13,10 @@ export function search_generic(candidates, candidate_to_string, candidate_mapped
         string_is,
         function_is
     ]);
-    let parts = query_map(query);
+    let query_mapped = query_map(query);
     let candidates_matching = list_filter(candidates, function list_filter_predicate(candidate) {
         let candidate_as_string = candidate_to_string(candidate);
-        return candidate_mapped_matches(candidate_as_string, parts);
+        return candidate_mapped_matches(candidate_as_string, query_mapped);
     });
     return candidates_matching;
 }
