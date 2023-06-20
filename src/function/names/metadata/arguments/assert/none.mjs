@@ -1,3 +1,6 @@
+import { js_mapper_args_to_metadata_args_no_add_missing } from '../../../../../js/mapper/args/to/metadata/args/no/add/missing.mjs';
+import { log } from '../../../../../log.mjs';
+import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { list_length_is_1 } from '../../../../../list/length/is/1.mjs';
 import { list_empty } from '../../../../../list/empty.mjs';
 import { metadata_arguments_assert_none } from '../../../../../metadata/arguments/assert/none.mjs';
@@ -11,12 +14,14 @@ import { assert } from '../../../../../assert.mjs';
 import { function_names_each } from '../../../each.mjs';
 import { list_adder_async } from '../../../../../list/adder/async.mjs';
 export async function function_names_metadata_arguments_assert_none() {
+    arguments_assert(arguments, []);
     return await list_adder_async(async la => {
         await function_names_each(async args => {
             let {function_name} = args;
-            console.log({function_name})
+            console.log({ function_name });
             assert(string_identifier_is(function_name));
-            if (false)js_mapper_args_to_metadata_args_no_add_missing
+            if (false)
+                js_mapper_args_to_metadata_args_no_add_missing;
             return;
             let metadata_args = await js_mapper_args_to_metadata_args(args);
             let filtered = list_filter(metadata_args, js_node_is_call_expression);
