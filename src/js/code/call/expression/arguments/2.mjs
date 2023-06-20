@@ -15,7 +15,6 @@ export function js_code_call_expression_arguments_2(code_argument_1, code_argume
         code_argument_2
     ];
     list_add_multiple(args, args_additional);
-    let args_code = js_code_join_comma(args);
-    let after_let = js_code_call_expression_with_args(v, args_code);
+    let after_let = js_code_call_expression_with_args(v, args);
     return after_let;
 }
