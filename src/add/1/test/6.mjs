@@ -9,9 +9,5 @@ export function add_1_test_6() {
     let v = equal(v_2, -2);
     assert(v);
     metadata([
-        1,
-        1,
-        2,
-        3
     ]);
 }
