@@ -1,3 +1,4 @@
+import { refactor_unasyncify_if_needed } from '../../../../refactor/unasyncify/if/needed.mjs';
 import { function_auto_no_add_refactors_first } from './refactors/first.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -12,5 +13,5 @@ export function function_auto_no_add_refactors() {
         second
     ]);
     return v;
-    metadata([]);
+    metadata([refactor_unasyncify_if_needed]);
 }
