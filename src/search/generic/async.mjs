@@ -12,7 +12,7 @@ export async function search_generic_async(candidates, candidate_mapper, candida
         function_is
     ]);
     let query_mapped = query_map(query);
-    let candidates_matching = list_filter(candidates, function list_filter_predicate(candidate) {
+    let candidates_matching = list_filter_async(candidates, function list_filter_predicate(candidate) {
         let candidate_mapped = candidate_mapper(candidate);
         return candidate_mapped_matches(candidate_mapped, query_mapped);
     });
