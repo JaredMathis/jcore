@@ -7,10 +7,9 @@ import { list_adder } from '../../../../../list/adder.mjs';
 import { js_nodes_each } from '../../../../../js/nodes/each.mjs';
 import { list_filter } from '../../../../../list/filter.mjs';
 import { list_first } from '../../../../../list/first.mjs';
-export async function function_name_to_node_type_first(function_name, node_type_name, node_type_name) {
+export async function function_name_to_node_type_first(function_name, node_type_name) {
     arguments_assert(arguments, [
         string_identifier_is,
-        arguments_assert_todo,
         arguments_assert_todo
     ]);
     let parsed = function_parse(function_name);
