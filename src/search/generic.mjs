@@ -15,8 +15,8 @@ export function search_generic(candidates, candidate_mapper, candidate_mapped_ma
     ]);
     let query_mapped = query_map(query);
     let candidates_matching = list_filter(candidates, function list_filter_predicate(candidate) {
-        let candidate_as_string = candidate_mapper(candidate);
-        return candidate_mapped_matches(candidate_as_string, query_mapped);
+        let candidate_mapped = candidate_mapper(candidate);
+        return candidate_mapped_matches(candidate_mapped, query_mapped);
     });
     return candidates_matching;
 }
