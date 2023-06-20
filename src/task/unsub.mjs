@@ -12,9 +12,9 @@ import { assert } from '../assert.mjs';
 export async function task_unsub() {
     arguments_assert(arguments, []);
     let r = result_empty();
-    let v_4 = await task_unsub_generic(on_empty, on_else);
+    let v_4 = await task_unsub_generic(on_empty, on_empty_not);
     return v_4;
-    async function on_else(last_string) {
+    async function on_empty_not(last_string) {
         await task_finish();
         await task_set(last_string);
         let current_result = await task_current();
