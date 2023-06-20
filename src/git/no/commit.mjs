@@ -1,3 +1,4 @@
+import { metadata_arguments_assert_none } from '../../metadata/arguments/assert/none.mjs';
 import { try_catch_finally_async } from '../../try/catch/finally/async.mjs';
 import { git_rhh } from '../rhh.mjs';
 import { metadata } from '../../metadata.mjs';
@@ -8,5 +9,5 @@ export async function git_no_commit() {
         await function_run_arguments(args);
     }, git_rhh);
     return result;
-    metadata([]);
+    metadata([metadata_arguments_assert_none()]);
 }
