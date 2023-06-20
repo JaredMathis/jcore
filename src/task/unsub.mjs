@@ -1,9 +1,7 @@
+import { task_available_first } from './available/first.mjs';
 import { task_unsub_generic } from './unsub/generic.mjs';
 import { result_property_success_get } from '../result/property/success/get.mjs';
 import { result_property_data_get } from '../result/property/data/get.mjs';
-import { result_unsuccess } from '../result/unsuccess.mjs';
-import { result_property_data_set } from '../result/property/data/set.mjs';
-import { result_empty } from '../result/empty.mjs';
 import { task_set } from './set.mjs';
 import { task_finish } from './finish.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -23,8 +21,7 @@ export async function task_unsub() {
         return current;
     }
     async function on_empty() {
-        result_unsuccess(r);
-        let available = await task_finish();
-        
+        let available = await task_available_first();
+        task_set(available);
     }
 }
