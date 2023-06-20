@@ -1,3 +1,5 @@
+import { metadata_prefix } from '../../../prefix.mjs';
+import { string_prefix_without } from '../../../../string/prefix/without.mjs';
 import { metadata_arguments_assert_none } from '../none.mjs';
 import { function_metadata_add } from '../../../../function/metadata/add.mjs';
 import { refactor_functions_arguments_assert_missing_add_excludes_additional } from '../../../../refactor/functions/arguments/assert/missing/add/excludes/additional.mjs';
@@ -8,6 +10,7 @@ export async function metadata_arguments_assert_none_initialize() {
     const excludes_additional = refactor_functions_arguments_assert_missing_add_excludes_additional();
     for (let e of excludes_additional) {
         const fn = function_name_get(metadata_arguments_assert_none);
-        await function_metadata_add(e, fn);
+        let without_prefix = string_prefix_without(fn, metadata_prefix());
+        await function_metadata_add(e, without_prefix);
     }
 }
