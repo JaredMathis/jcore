@@ -12,7 +12,7 @@ export async function function_name_to_node_type_first(function_name, node_type_
         string_identifier_is,
         arguments_assert_todo
     ]);
-    let parsed = function_parse(function_name);
+    let parsed = await function_parse(function_name);
     let filtered = list_adder(la => {
         js_nodes_each(parsed, n => js_node_is_type(n, node_type_name), n => la(n));
     });
