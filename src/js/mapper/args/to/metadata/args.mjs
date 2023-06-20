@@ -9,6 +9,7 @@ import { js_statement_metadata_args_get } from '../../../../statement/metadata/a
 import { list_last } from '../../../../../list/last.mjs';
 export async function js_mapper_args_to_metadata_args(args) {
     arguments_assert(arguments, [defined_is]);
+    let add_missing = true;
     let {function_declaration} = args;
     let statements = js_function_declaration_to_statements(function_declaration);
     let missing = false;
