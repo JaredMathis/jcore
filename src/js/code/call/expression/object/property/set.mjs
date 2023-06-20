@@ -1,4 +1,4 @@
-import { js_code_call_expression_object_property_generic } from './generic.mjs';
+import { js_code_call_expression_arguments_2 } from '../../arguments/2.mjs';
 import { function_name_get } from '../../../../../../function/name/get.mjs';
 import { arguments_assert_todo } from '../../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
@@ -11,6 +11,6 @@ export function js_code_call_expression_object_property_set(identifier_code, pro
     ]);
     let v = function_name_get(object_property_set);
     let args_additional = [value_code];
-    let v_2 = js_code_call_expression_object_property_generic(identifier_code, property_code, args_additional, v);
+    let v_2 = js_code_call_expression_arguments_2(identifier_code, property_code, args_additional, v);
     return v_2;
 }
