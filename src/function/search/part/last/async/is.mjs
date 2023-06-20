@@ -6,7 +6,7 @@ import { string_is } from '../../../../../string/is.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export async function function_search_part_last_async_is(query) {
     arguments_assert(arguments, [string_is]);
-    let candidate_mapped_matches = function v(candidate_mapped, query_mapped) {
+    let candidate_mapped_matches = async function v(candidate_mapped, query_mapped) {
         let fd = await function_name_to_declaration(candidate_mapped);
         return equal(list_last(candidate_mapped), query_mapped);
     };
