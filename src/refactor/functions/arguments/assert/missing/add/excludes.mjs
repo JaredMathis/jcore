@@ -1,3 +1,4 @@
+import { list_adder_async } from '../../../../../../list/adder/async.mjs';
 import { metadata_arguments_assert_none } from '../../../../../../metadata/arguments/assert/none.mjs';
 import { js_node_call_expression_name_equal } from '../../../../../../js/node/call/expression/name/equal.mjs';
 import { function_names_each } from '../../../../../../function/names/each.mjs';
@@ -17,6 +18,7 @@ export async function refactor_functions_arguments_assert_missing_add_excludes()
     arguments_assert(arguments, []);
     let excludes = await function_dependencies_names_arguments_assert();
     comment(`Eventually this should be refactored maybe to read files and detect an attribute`);
+    await list_adder_async;
     await function_names_each(async args => {
         let metadata_args = await js_mapper_args_to_metadata_args(args);
         let filtered = list_filter(metadata_args, js_node_is_call_expression);
