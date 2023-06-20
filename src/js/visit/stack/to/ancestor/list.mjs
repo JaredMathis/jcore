@@ -12,8 +12,10 @@ import { object_property_get } from '../../../../../object/property/get.mjs';
 import { result_empty } from '../../../../../result/empty.mjs';
 import { result_unsuccess } from '../../../../../result/unsuccess.mjs';
 import { result_property_data_set } from '../../../../../result/property/data/set.mjs';
+import { list_first } from '../../../../../list/first.mjs';
 export function js_visit_stack_to_ancestor_list(stack_reversed) {
     arguments_assert(arguments, [arguments_assert_todo]);
+    let stack_reversed_first = list_first(stack_reversed);
     let result = result_empty();
     let index_starting_at = 0;
     let list_find_first_after_result = list_find_first_start_at(stack_reversed, index_starting_at);
