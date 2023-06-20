@@ -1,3 +1,4 @@
+import { log } from '../../../../../log.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { add_1 } from '../../../../../add/1.mjs';
@@ -17,7 +18,7 @@ import { comment } from '../../../../../comment.mjs';
 export function js_visit_stack_to_ancestor_list(stack_reversed) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let stack_reversed_first = list_first(stack_reversed);
-    comment(`This probably means the stack is not reversed; if not code needs changing`)
+    comment(`This probably means the stack is not reversed; if not code needs changing`);
     assert(!js_node_is_program(stack_reversed_first));
     let result = result_empty();
     let index_starting_at = 0;
@@ -34,7 +35,10 @@ export function js_visit_stack_to_ancestor_list(stack_reversed) {
         parent_list_index = object_property_get(list_find_first_after_result, 'index');
     }
     let v_14 = js_node_is_block_statement(parent_list_next);
-    console.log({list_find_first_after_result,stack_reversed})
+    console.log({
+        list_find_first_after_result,
+        stack_reversed
+    });
     assert(v_14);
     let ancestor_list = list_get(stack_reversed, parent_list_index);
     result_property_data_set(result, ancestor_list);
