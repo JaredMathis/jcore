@@ -7,6 +7,6 @@ export async function function_copy_part_remove(function_name_prefix, part_to_re
         string_identifier_is,
         string_identifier_is
     ]);
-    let parts = string_identifier_parts_from(part_to_remove);
+    let function_name_prefix_parts = string_identifier_parts_from(function_name_prefix);
     await function_copy(function_name_prefix, function_name_of_copy);
 }
