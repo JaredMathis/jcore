@@ -1,5 +1,5 @@
+import { function_unasyncify } from '../../function/unasyncify.mjs';
 import { not } from '../../not.mjs';
-import { function_unasyncify_generic } from '../../function/unasyncify/generic.mjs';
 import { function_naming_suffix_asynk } from '../../function/naming/suffix/asynk.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { function_name_all } from '../../function/name/all.mjs';
@@ -12,6 +12,6 @@ export async function refactor_functions_unasyncify() {
         if (not(string_ends_with(function_name, ending))) {
             continue;
         }
-        await function_unasyncify_generic(function_name, ending);
+        await function_unasyncify(function_name);
     }
 }
