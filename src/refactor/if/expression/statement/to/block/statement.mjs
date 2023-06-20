@@ -1,7 +1,9 @@
 import { arguments_assert_todo } from '../../../../../../arguments/assert/todo.mjs';
-import { error } from '../../../../../../error.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
+import { js_nodes_each } from '../../../../../../js/nodes/each.mjs';
 export function refactor_if_expression_statement_to_block_statement(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    error('todo: refactor_if_expression_statement_to_block_statement');
+    let {parsed} = args;
+    js_nodes_each(parsed, js_node_is_if_statement, node => {
+    });
 }
