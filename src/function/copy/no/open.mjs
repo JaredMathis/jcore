@@ -1,6 +1,6 @@
 import { function_copy_before } from '../before.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
-import { function_to_declaration } from '../../to/declaration.mjs';
+import { function_name_to_declaration } from '../../name/to/declaration.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { function_auto_after } from '../../auto/after.mjs';
@@ -12,7 +12,7 @@ export async function function_copy_no_open(function_name_to_copy, function_name
         string_identifier_is
     ]);
     await function_copy_before(function_name_of_copy);
-    let fd = await function_to_declaration(function_name_to_copy);
+    let fd = await function_name_to_declaration(function_name_to_copy);
     js_id_name_set(fd, function_name_of_copy);
     await function_add_with_declaration(function_name_of_copy, fd);
     await function_auto_after(function_name_of_copy);

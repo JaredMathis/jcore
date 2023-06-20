@@ -2,7 +2,7 @@ import { not } from '../../../not.mjs';
 import { function_name_get } from '../../name/get.mjs';
 import { function_tests_generated_string_sub } from '../generated/string/sub.mjs';
 import { count } from '../../../count.mjs';
-import { function_to_declaration } from '../../to/declaration.mjs';
+import { function_name_to_declaration } from '../../name/to/declaration.mjs';
 import { function_tests_generate_generic_each } from './generic/each.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -39,7 +39,7 @@ export async function function_tests_generate_generic(function_name, count_strin
         log(`tests already exist - not generating`);
         return;
     }
-    let function_declaration = await function_to_declaration(function_name);
+    let function_declaration = await function_name_to_declaration(function_name);
     comment(`To generate code for an async function this code needs changing`);
     let v_5 = js_keyword_async();
     let v_4 = object_property_get(function_declaration, v_5);

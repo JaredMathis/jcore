@@ -15,7 +15,7 @@ import { js_code_return_statement } from '../../js/code/return/statement.mjs';
 import { js_function_declaration_async_is } from '../../js/function/declaration/async/is.mjs';
 import { js_function_declaration_to_params_names } from '../../js/function/declaration/to/params/names.mjs';
 import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
-import { function_to_declaration } from '../to/declaration.mjs';
+import { function_name_to_declaration } from '../name/to/declaration.mjs';
 import { list_contains } from '../../list/contains.mjs';
 import { function_name_get } from '../name/get.mjs';
 import { defined_is } from '../../defined/is.mjs';
@@ -25,7 +25,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let function_declaration = await function_to_declaration(function_name_to_wrap);
+    let function_declaration = await function_name_to_declaration(function_name_to_wrap);
     let dependencies = await function_dependencies_names_arguments_assert();
     let dependency_is = list_contains(dependencies, function_name_to_wrap);
     let arguments_assert_args;
