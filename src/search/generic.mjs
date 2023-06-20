@@ -4,7 +4,10 @@ import { list_filter } from '../list/filter.mjs';
 import { string_is } from '../string/is.mjs';
 import { function_is } from '../function/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
+import { noop } from '../noop.mjs';
+import { error } from '../error.mjs';
 export function search_generic(candidates_get, candidate_mapper, candidate_mapped_matches, query, query_map) {
+    error()
     arguments_assert(arguments, [
         function_is,
         function_is,
