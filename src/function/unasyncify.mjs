@@ -12,12 +12,11 @@ export async function function_unasyncify(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let if_needed = false;
     let ending = function_naming_suffix_asynk();
-    if (if_needed && !string_ends_with(ending)) {
-            return;
+    if (!if_needed || string_ends_with(ending)) {
+        let function_name_result = string_suffix_without(function_name, ending);
+        await function_delete_if_exists(function_name_result);
+        await function_copy(function_name, function_name_result);
+        let v = function_name_get(refactor_unasyncify);
+        await function_map(v, function_name_result);
     }
-    let function_name_result = string_suffix_without(function_name, ending);
-    await function_delete_if_exists(function_name_result);
-    await function_copy(function_name, function_name_result);
-    let v = function_name_get(refactor_unasyncify);
-    await function_map(v, function_name_result);
 }
