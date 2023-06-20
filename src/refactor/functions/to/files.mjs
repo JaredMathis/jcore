@@ -1,7 +1,7 @@
 import { not } from '../../../not.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { refactor_multiple } from '../../multiple.mjs';
-import { function_auto_after_refactors_first } from '../../../function/auto/after/refactors/first.mjs';
+import { function_auto_no_add_refactors_first } from '../../../function/auto/no/add/refactors/first.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { function_name_get } from '../../../function/name/get.mjs';
@@ -42,8 +42,8 @@ export async function refactor_functions_to_files(args) {
     }
     let body = js_program_body_get(parsed);
     list_remove_multiple(body, function_declarations_to_export);
-    function_auto_after_refactors_first;
-    let after = function_auto_after_refactors_first();
+    function_auto_no_add_refactors_first;
+    let after = function_auto_no_add_refactors_first();
     await refactor_multiple(args, after);
     metadata([]);
 }

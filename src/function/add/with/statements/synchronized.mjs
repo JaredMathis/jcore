@@ -1,4 +1,4 @@
-import { function_auto_after } from '../../../auto/after.mjs';
+import { function_auto_no_add } from '../../../auto/no/add.mjs';
 import { js_export_function_single } from '../../../../js/export/function/single.mjs';
 import { boolean_is } from '../../../../boolean/is.mjs';
 import { list_is } from '../../../../list/is.mjs';
@@ -27,7 +27,7 @@ export async function function_add_with_statements_synchronized(function_name, s
         js_function_declaration_asyncify(fd);
     }
     let file_path = await function_write(function_name, parsed);
-    await function_auto_after(function_name);
+    await function_auto_no_add(function_name);
     let v = {
         function_name,
         file_path

@@ -2,7 +2,7 @@ import { not } from '../../../../../not.mjs';
 import { occurs } from '../../../../../occurs.mjs';
 import { defined_is } from '../../../../../defined/is.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
-import { function_auto_after_refactors_invoke } from '../../../../../function/auto/after/refactors/invoke.mjs';
+import { function_auto_no_add_refactors_invoke } from '../../../../../function/auto/no/add/refactors/invoke.mjs';
 import { js_parse_call_expression } from '../../../../../js/parse/call/expression.mjs';
 import { js_node_property_arguments } from '../../../../../js/node/property/arguments.mjs';
 import { metadata } from '../../../../../metadata.mjs';
@@ -39,7 +39,7 @@ export async function refactor_member_expression_to_function_call(args) {
         occurs = true;
     });
     if (occurs) {
-        await function_auto_after_refactors_invoke(args);
+        await function_auto_no_add_refactors_invoke(args);
     }
     metadata([]);
 }
