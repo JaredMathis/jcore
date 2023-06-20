@@ -6,5 +6,5 @@ export async function task_set_available_first() {
     arguments_assert(arguments, []);
     let first = await task_available_first();
     let first_number = task_number_get_string(first);
-    task_set(first_number);
+    return await task_set(first_number);
 }
