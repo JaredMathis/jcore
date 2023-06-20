@@ -10,6 +10,7 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { string_ends_with } from '../string/ends/with.mjs';
 export async function function_unasyncify(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
+    let if_needed = false;
     let ending = function_naming_suffix_asynk();
     if (false) {
         if (!string_ends_with(ending)) {
