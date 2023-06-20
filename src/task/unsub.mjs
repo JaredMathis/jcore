@@ -11,7 +11,6 @@ import { task_current } from './current.mjs';
 import { assert } from '../assert.mjs';
 export async function task_unsub() {
     arguments_assert(arguments, []);
-    let r = result_empty();
     let v_4 = await task_unsub_generic(on_empty, on_empty_not);
     return v_4;
     async function on_empty_not(last_string) {
@@ -21,13 +20,9 @@ export async function task_unsub() {
         let v_2 = result_property_success_get(current_result);
         assert(v_2);
         let current = result_property_data_get(current_result);
-        let v_3 = result_property_data_set(r, current);
-        return v_3;
     }
     async function on_empty() {
         result_unsuccess(r);
-        let data = await task_finish();
-        let v = result_property_data_set(r, data);
-        return v;
+        let available = await task_finish();
     }
 }
