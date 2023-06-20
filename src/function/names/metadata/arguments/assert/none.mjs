@@ -17,7 +17,6 @@ export async function function_names_metadata_arguments_assert_none() {
     return await list_adder_async(async la => {
         await function_names_each(async args => {
             let {function_name} = args;
-            console.log({ function_name });
             assert(string_identifier_is(function_name));
             let metadata_args = await js_mapper_args_to_metadata_args_no_add_missing(args);
             let filtered = list_filter(metadata_args, js_node_is_call_expression);
