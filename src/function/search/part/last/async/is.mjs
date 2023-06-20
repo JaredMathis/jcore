@@ -10,5 +10,5 @@ export async function function_search_part_last_async_is(query) {
         let fd = await function_name_to_declaration(candidate_mapped);
         return equal(list_last(candidate_mapped), query_mapped);
     };
-    return function_search_part_generic(query, candidate_mapped_matches);
+    return await function_search_part_generic(query, candidate_mapped_matches);
 }
