@@ -20,6 +20,8 @@ export async function js_mapper_args_to_metadata_args_generic(args, add_missing)
     if (missing) {
         if (add_missing) {
             await refactor_metadata_missing_add(args);
+        } else {
+            return [];
         }
     }
     let statements2 = js_function_declaration_to_statements(function_declaration);
