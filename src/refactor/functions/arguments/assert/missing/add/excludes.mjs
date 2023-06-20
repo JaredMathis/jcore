@@ -18,7 +18,7 @@ export async function refactor_functions_arguments_assert_missing_add_excludes()
     arguments_assert(arguments, []);
     let excludes = await function_dependencies_names_arguments_assert();
     comment(`Eventually this should be refactored maybe to read files and detect an attribute`);
-    await list_adder_async(async la => {
+    let excludes_additional = await list_adder_async(async la => {
         await function_names_each(async args => {
             let metadata_args = await js_mapper_args_to_metadata_args(args);
             let filtered = list_filter(metadata_args, js_node_is_call_expression);
@@ -30,7 +30,7 @@ export async function refactor_functions_arguments_assert_missing_add_excludes()
         });
     });
     error();
-    const excludes_additional = refactor_functions_arguments_assert_missing_add_excludes_additional();
+    excludes_additional = refactor_functions_arguments_assert_missing_add_excludes_additional();
     list_add_multiple(excludes, excludes_additional);
     return excludes;
 }
