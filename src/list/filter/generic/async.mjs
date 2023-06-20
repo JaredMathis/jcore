@@ -5,7 +5,7 @@ export async function list_filter_generic_async(array, filter, added_get) {
         await list_each_with_index_async(array, async function v_3(element, index) {
             if (await filter(element)) {
                 let added = added_get(element, index);
-                la(result, added);
+                la(added);
             }
         });
     });
