@@ -10,9 +10,9 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { string_ends_with } from '../string/ends/with.mjs';
 export async function function_unasyncify(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
-    let if_needed = false;
+    let only_if_needed = false;
     let ending = function_naming_suffix_asynk();
-    if (!if_needed || string_ends_with(ending)) {
+    if (!only_if_needed || string_ends_with(ending)) {
         let function_name_result = string_suffix_without(function_name, ending);
         await function_delete_if_exists(function_name_result);
         await function_copy(function_name, function_name_result);
