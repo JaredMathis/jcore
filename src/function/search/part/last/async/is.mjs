@@ -9,7 +9,10 @@ export async function function_search_part_last_async_is(query) {
     arguments_assert(arguments, [string_is]);
     let candidate_mapped_matches = async function v(candidate_mapped, query_mapped) {
         let fd = await function_name_to_declaration(candidate_mapped);
-        js_node_property_async_get;
+        let async_is = js_node_property_async_get(fd);
+        if (!async_is) {
+            return false;
+        }
         return equal(list_last(candidate_mapped), query_mapped);
     };
     return await function_search_part_generic(query, candidate_mapped_matches);
