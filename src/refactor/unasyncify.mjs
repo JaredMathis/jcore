@@ -7,9 +7,9 @@ import { function_auto_after_refactors_invoke } from '../function/auto/after/ref
 import { js_import_remove_if_exists } from '../js/import/remove/if/exists.mjs';
 import { js_import_all_with_function_names } from '../js/import/all/with/function/names.mjs';
 import { js_identifier_rename_if } from '../js/identifier/rename/if.mjs';
-import { function_naming_suffix_async } from '../function/naming/suffix/async.mjs';
+import { function_naming_suffix_asynk } from '../function/naming/suffix/asynk.mjs';
 import { metadata } from '../metadata.mjs';
-import { js_keyword_async } from '../js/keyword/async.mjs';
+import { js_keyword_asynk } from '../js/keyword/asynk.mjs';
 import { refactor_unasyncify_each } from './unasyncify/each.mjs';
 import { js_visit_nodes_all } from '../js/visit/nodes/all.mjs';
 import { string_ends_with } from '../string/ends/with.mjs';
@@ -21,12 +21,12 @@ export async function refactor_unasyncify(args) {
     let {parsed, function_declaration} = args;
     let callables = js_nodes_get(parsed, js_node_is_callable);
     for (let callable of callables) {
-        let v = js_keyword_async();
+        let v = js_keyword_asynk();
         object_property_change(callable, v, false);
     }
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     await refactor_metadata_generated_add_function(args);
-    let suffix = function_naming_suffix_async();
+    let suffix = function_naming_suffix_asynk();
     js_identifier_rename_if(args, function v_2(name) {
         let v_4 = string_ends_with(name, suffix);
         return v_4;

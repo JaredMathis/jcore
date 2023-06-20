@@ -1,6 +1,6 @@
 import { not } from '../not.mjs';
 import { js_callable_multiple_assert_not } from '../js/callable/multiple/assert/not.mjs';
-import { function_naming_suffix_async } from '../function/naming/suffix/async.mjs';
+import { function_naming_suffix_asynk } from '../function/naming/suffix/asynk.mjs';
 import { js_call_expression_name_get_or_null } from '../js/call/expression/name/get/or/null.mjs';
 import { object_property_exists } from '../object/property/exists.mjs';
 import { list_string_to_dictionary } from '../list/string/to/dictionary.mjs';
@@ -28,7 +28,7 @@ export async function refactor_asyncify(args) {
         let v_5 = object_property_exists(function_names_dictionary, v_4);
         return v_5;
     });
-    let suffix = function_naming_suffix_async();
+    let suffix = function_naming_suffix_asynk();
     for (let f of function_calls) {
         let name = js_call_expression_name_get_or_null(f);
         comment(`If this assert fails - look into why a non-async function (presumably) is calling a function that ends with async`);

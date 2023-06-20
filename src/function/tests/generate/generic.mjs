@@ -20,7 +20,7 @@ import { list_unique } from '../../../list/unique.mjs';
 import { function_name_to_tests_values } from '../../name/to/tests/values.mjs';
 import { list_map } from '../../../list/map.mjs';
 import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../../../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
-import { js_keyword_async } from '../../../js/keyword/async.mjs';
+import { js_keyword_asynk } from '../../../js/keyword/asynk.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
 import { assert } from '../../../assert.mjs';
 import { comment } from '../../../comment.mjs';
@@ -41,7 +41,7 @@ export async function function_tests_generate_generic(function_name, count_strin
     }
     let function_declaration = await function_name_to_declaration(function_name);
     comment(`To generate code for an async function this code needs changing`);
-    let v_5 = js_keyword_async();
+    let v_5 = js_keyword_asynk();
     let v_4 = object_property_get(function_declaration, v_5);
     let v = not(v_4);
     assert(v);
