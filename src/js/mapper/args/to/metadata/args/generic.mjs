@@ -17,8 +17,8 @@ export async function js_mapper_args_to_metadata_args_generic(args, add_missing)
             missing = true;
         }
     }
-    if (add_missing) {
-        if (missing) {
+    if (missing) {
+        if (add_missing) {
             await refactor_metadata_missing_add(args);
         }
     }
