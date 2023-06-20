@@ -1,4 +1,4 @@
-import { task_available_first } from './available/first.mjs';
+import { task_set_available_first } from './set/available/first.mjs';
 import { task_unsub_generic } from './unsub/generic.mjs';
 import { result_property_success_get } from '../result/property/success/get.mjs';
 import { result_property_data_get } from '../result/property/data/get.mjs';
@@ -19,9 +19,5 @@ export async function task_unsub() {
         assert(v_2);
         let current = result_property_data_get(current_result);
         return current;
-    }
-    async function task_set_available_first() {
-        let available = await task_available_first();
-        task_set(available);
     }
 }
