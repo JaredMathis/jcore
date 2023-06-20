@@ -12,7 +12,7 @@ import { assert } from '../assert.mjs';
 export async function task_unsub() {
     arguments_assert(arguments, []);
     let r = result_empty();
-    let v_4 = await task_unsub_generic(on_if, on_else);
+    let v_4 = await task_unsub_generic(on_empty, on_else);
     return v_4;
     async function on_else(last_string) {
         await task_finish();
@@ -24,7 +24,7 @@ export async function task_unsub() {
         let v_3 = result_property_data_set(r, current);
         return v_3;
     }
-    async function on_if() {
+    async function on_empty() {
         result_unsuccess(r);
         let data = await task_finish();
         let v = result_property_data_set(r, data);
