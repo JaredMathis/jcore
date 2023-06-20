@@ -1,3 +1,4 @@
+import { function_open_vs_code } from './open/vs/code.mjs';
 import { function_rename_if_starts_with } from './rename/if/starts/with.mjs';
 import { function_name_all_tests_not_starts_with } from './name/all/tests/not/starts/with.mjs';
 import { string_identifier_is } from '../string/identifier/is.mjs';
@@ -15,5 +16,6 @@ export async function function_rename(function_name_old, function_name_new) {
     let v = list_length_is_1(starting_withs);
     assert_message(v, `Multiple functions exist. Use ${ function_name_get(function_rename_single) } if you're sure or consider ${ function_name_get(function_rename_if_starts_with) }: ` + starting_withs);
     let result = await function_rename_single(function_name_old, function_name_new);
+    await function_open_vs_code(function_name_new);
     return result;
 }
