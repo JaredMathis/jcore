@@ -6,8 +6,9 @@ import { list_adder_unique_async } from '../../../../../list/adder/unique/async.
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export async function file_js_all_nodes_types_get() {
     arguments_assert(arguments, []);
+    let lambda = file_js_all_map_args_if_function;
     let result = await list_adder_unique_async(async function v(la) {
-        await file_js_all_map_args_if_function(async function logic(args) {
+        await lambda(async function logic(args) {
             let {parsed} = args;
             let types = js_visit_nodes_types_get(parsed);
             for (let t of types) {
