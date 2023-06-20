@@ -8,6 +8,7 @@ import { arguments_assert } from '../arguments/assert.mjs';
 export async function task_search(query) {
     arguments_assert(arguments, [string_is]);
     let lambda = task_all_unsummarized;
+    let candidate_mapper = task_property_title_get;
     let candidates = await lambda();
-    return search_generic(candidates, task_property_title_get, search_candidate_mapped_matches_default, query, search_query_map_default);
+    return search_generic(candidates, candidate_mapper, search_candidate_mapped_matches_default, query, search_query_map_default);
 }
