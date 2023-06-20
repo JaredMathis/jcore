@@ -1,5 +1,4 @@
-import { function_name_async_is } from '../../../../name/async/is.mjs';
-import { string_identifier_parts_from } from '../../../../../string/identifier/parts/from.mjs';
+import { function_name_parts_async_is } from '../../../../name/parts/async/is.mjs';
 import { function_search_part_generic } from '../../generic.mjs';
 import { list_last } from '../../../../../list/last.mjs';
 import { equal } from '../../../../../equal.mjs';
@@ -8,8 +7,7 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export async function function_search_part_last_async_is(query) {
     arguments_assert(arguments, [string_is]);
     let candidate_mapped_matches = async function v(candidate_mapped, query_mapped) {
-        let function_name = string_identifier_parts_from(candidate_mapped);
-        let async_is = await function_name_async_is(function_name);
+        let async_is = await function_name_parts_async_is(candidate_mapped);
         if (!async_is) {
             return false;
         }
