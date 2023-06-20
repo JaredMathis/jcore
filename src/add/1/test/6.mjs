@@ -8,6 +8,5 @@ export function add_1_test_6() {
     let v_2 = add_1(-3);
     let v = equal(v_2, -2);
     assert(v);
-    metadata([
-    ]);
+    metadata([]);
 }

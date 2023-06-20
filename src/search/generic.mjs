@@ -12,7 +12,6 @@ export function search_generic(candidates_get, candidate_mapper, candidate_mappe
         string_is,
         function_is
     ]);
-    
     let candidates = candidates_get();
     let query_mapped = query_map(query);
     let candidates_matching = list_filter(candidates, async function list_filter_predicate(candidate) {

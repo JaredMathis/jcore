@@ -9,6 +9,7 @@ import { js_node_is_call_expression } from '../../../../js/node/is/call/expressi
 import { js_node_is_await_expression } from '../../../../js/node/is/await/expression.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
+import { js_node_is_identifier } from '../../../../js/node/is/identifier.mjs';
 export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = object_property_get(args, 'parsed');
@@ -17,7 +18,7 @@ export function refactor_call_arguments_to_assignments(args) {
         function call_each(stack_reversed, node, expression, ancestor_list) {
             let args = js_node_property_arguments_get(expression);
             for (let arg of args) {
-                if (js_node_is_call_expression(arg) || js_node_is_await_expression(arg)) {
+                if (!js_node_is_identifier(arg)) {
                     replace(arg);
                 }
             }
