@@ -14,7 +14,7 @@ export async function refactor_functions_arguments_assert_missing_add_excludes()
     let excludes = await function_dependencies_names_arguments_assert();
     comment(`Eventually this should be refactored maybe to read files and detect an attribute`);
     await function_names_each(args => {
-        let metadata_args = js_mapper_args_to_metadata_args(args);
+        let metadata_args = await js_mapper_args_to_metadata_args(args);
         if (list_empty_not(metadata_args)) {
             console.log(metadata_args);
         }
