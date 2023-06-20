@@ -12,7 +12,7 @@ export async function function_unasyncify(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let if_needed = false;
     let ending = function_naming_suffix_asynk();
-    if (false) {
+    if (if_needed) {
         if (!string_ends_with(ending)) {
             return;
         }
