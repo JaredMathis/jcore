@@ -9,7 +9,7 @@ import { task_current } from './current.mjs';
 import { assert } from '../assert.mjs';
 export async function task_unsub() {
     arguments_assert(arguments, []);
-    let v_4 = await task_unsub_generic(on_empty, on_empty_not);
+    let v_4 = await task_unsub_generic(task_set_available_first, on_empty_not);
     return v_4;
     async function on_empty_not(last_string) {
         await task_finish();
@@ -20,7 +20,7 @@ export async function task_unsub() {
         let current = result_property_data_get(current_result);
         return current;
     }
-    async function on_empty() {
+    async function task_set_available_first() {
         let available = await task_available_first();
         task_set(available);
     }
