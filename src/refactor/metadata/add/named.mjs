@@ -7,6 +7,7 @@ import { js_parse_call_expression } from '../../../js/parse/call/expression.mjs'
 import { js_mapper_args_to_metadata_args } from '../../../js/mapper/args/to/metadata/args.mjs';
 import { string_identifier_is } from '../../../string/identifier/is.mjs';
 import { js_mapper_args_is } from '../../../js/mapper/args/is.mjs';
+import { refactor_import_fix } from '../../import/fix.mjs';
 export async function refactor_metadata_add_named(args, metadata_function_name) {
     arguments_assert(arguments, [
         js_mapper_args_is,
@@ -18,4 +19,5 @@ export async function refactor_metadata_add_named(args, metadata_function_name) 
     let v = list_empty(metadata_args);
     assert(v);
     list_add(metadata_args, metadata_function_parsed);
+    await refactor_import_fix(args);
 }
