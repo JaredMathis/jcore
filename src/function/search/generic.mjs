@@ -13,5 +13,6 @@ export async function function_search_generic(query, query_map, candidate_mapped
         function_is
     ]);
     let candidates_matching = await search_generic_async(function_name_all_tests_not, candidate_mapper, candidate_mapped_matches, query, query_map);
-    return list_string_to_dictionary(candidates_matching, function_name_to_file_path);
+    let v = list_string_to_dictionary(candidates_matching, function_name_to_file_path);
+    return v;
 }

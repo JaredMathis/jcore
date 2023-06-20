@@ -9,5 +9,6 @@ export async function task_search(query) {
     arguments_assert(arguments, [string_is]);
     let candidates_get = task_all_unsummarized;
     let candidate_mapper = task_property_title_get;
-    return search_generic_async(candidates_get, candidate_mapper, search_candidate_mapped_matches_default, query, search_query_map_default);
+    let v = search_generic_async(candidates_get, candidate_mapper, search_candidate_mapped_matches_default, query, search_query_map_default);
+    return v;
 }

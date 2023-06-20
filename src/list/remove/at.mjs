@@ -14,6 +14,7 @@ export function list_remove_at(list, index) {
     assert(v);
     const delete_count = 1;
     let deleted = list.splice(index, delete_count);
-    return list_single(deleted);
+    let v_2 = list_single(deleted);
+    return v_2;
     metadata([]);
 }

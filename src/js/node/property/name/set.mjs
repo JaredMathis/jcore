@@ -7,5 +7,7 @@ export function js_node_property_name_set(js_node, value) {
         defined_is,
         defined_is
     ]);
-    return object_property_set(js_node, js_node_property_name(), value);
+    let v = js_node_property_name();
+    let v_2 = object_property_set(js_node, v, value);
+    return v_2;
 }

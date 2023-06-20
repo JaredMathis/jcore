@@ -15,7 +15,8 @@ export function object_property_initialize_generic(object, property_name, initia
     if (object_property_exists(object, property_name)) {
         if (ensure) {
             let existing = object_property_get(object, property_name);
-            assert(equal(existing, initial_value));
+            let v = equal(existing, initial_value);
+            assert(v);
         }
     } else {
         object_property_initialize(object, property_name, initial_value);

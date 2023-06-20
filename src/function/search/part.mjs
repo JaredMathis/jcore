@@ -5,5 +5,6 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 export async function function_search_part(query) {
     arguments_assert(arguments, [string_is]);
     let candidate_mapped_matches = list_contains;
-    return function_search_part_generic(query, candidate_mapped_matches);
+    let v = function_search_part_generic(query, candidate_mapped_matches);
+    return v;
 }

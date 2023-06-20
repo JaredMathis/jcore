@@ -10,7 +10,9 @@ export async function function_search_part_not_last(query) {
         if (equal(list_last(candidate_mapped), query_mapped)) {
             return false;
         }
-        return list_contains(candidate_mapped, query_mapped);
+        let v_2 = list_contains(candidate_mapped, query_mapped);
+        return v_2;
     };
-    return function_search_part_generic(query, candidate_mapped_matches);
+    let v_3 = function_search_part_generic(query, candidate_mapped_matches);
+    return v_3;
 }

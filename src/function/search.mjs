@@ -9,5 +9,6 @@ export async function function_search(query) {
     let candidate_mapped_matches = search_candidate_mapped_matches_default;
     let query_map = search_query_map_default;
     let candidate_mapper = identity;
-    return await function_search_generic(query, query_map, candidate_mapped_matches, identity);
+    let v = await function_search_generic(query, query_map, candidate_mapped_matches, identity);
+    return v;
 }

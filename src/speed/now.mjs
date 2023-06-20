@@ -1,3 +1,4 @@
 export function speed_now() {
-    return performance.now();
+    let v = performance.now();
+    return v;
 }

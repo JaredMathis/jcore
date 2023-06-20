@@ -61,7 +61,8 @@ export async function refactor_call_statement_find_replaceify(args) {
             let last_id = js_id_get(last_declaration);
             let argument = js_node_property_argument_get(return_statement);
             comment(`If this fails then the last non-return statement in ${ function_name_find } assigns a variable, but that variable isn't returned - it should be - or code needs to be changed`);
-            assert(equal_by(js_identifier_name_get, last_id, argument));
+            let v = equal_by(js_identifier_name_get, last_id, argument);
+            assert(v);
         }
     }
     let function_find_inputs = js_function_declaration_to_params_names(function_declaration_find);
@@ -92,12 +93,13 @@ export async function refactor_call_statement_find_replaceify(args) {
                     refactorable_data,
                     j: js_unparse(function_declaration_find)
                 });
-                list_replace(expression_arguments, list_map(args, a => {
+                let v_2 = list_map(args, a => {
                     let name_before = js_identifier_name_get(a);
                     let name_after = object_property_get(refactorable_data, name_before);
                     let p_after = js_parse_identifier(name_after);
                     return p_after;
-                }));
+                });
+                list_replace(expression_arguments, v_2);
                 o();
             });
         });

@@ -5,6 +5,7 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 export async function task_id_get() {
     arguments_assert(arguments, []);
     let lambda = object_property_get;
-    return await task_id_get_generic(lambda);
+    let v = await task_id_get_generic(lambda);
+    return v;
     metadata([]);
 }

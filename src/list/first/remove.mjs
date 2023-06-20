@@ -6,6 +6,7 @@ import { list_first_index } from './index.mjs';
 export function list_first_remove(list) {
     arguments_assert(arguments, [list_is]);
     let v = list_first_index();
-    return list_remove_at(list, v);
+    let v_2 = list_remove_at(list, v);
+    return v_2;
     metadata([]);
 }

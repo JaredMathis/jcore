@@ -9,5 +9,6 @@ export async function function_add_property_get(property_prefix, property_name) 
     ]);
     const method = 'get';
     let lambda = (property_prefix, property_name_get) => js_code_call_expression_object_property_get(property_prefix, property_name_get);
-    return await function_add_property_generic(property_prefix, property_name, lambda, method, false);
+    let v = await function_add_property_generic(property_prefix, property_name, lambda, method, false);
+    return v;
 }

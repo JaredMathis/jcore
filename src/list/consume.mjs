@@ -14,7 +14,8 @@ export function list_consume(list, lambda) {
             exceeded = true;
             return null;
         } else {
-            return list_first_remove(list);
+            let v = list_first_remove(list);
+            return v;
         }
     });
     return !exceeded && list_empty(list);

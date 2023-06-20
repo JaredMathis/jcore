@@ -9,6 +9,7 @@ export async function task_close_reason(task_number_string, reason) {
         arguments_assert_todo
     ]);
     let result = await task_close(task_number_string);
-    await task_title_append(task_number_string, string_add(': ', reason));
+    let v = string_add(': ', reason);
+    await task_title_append(task_number_string, v);
     return result;
 }

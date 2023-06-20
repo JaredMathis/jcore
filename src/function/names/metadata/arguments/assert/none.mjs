@@ -16,17 +16,20 @@ import { list_map } from '../../../../../list/map.mjs';
 import { list_single } from '../../../../../list/single.mjs';
 export async function function_names_metadata_arguments_assert_none() {
     arguments_assert(arguments, []);
-    return await list_adder_async(async la => {
+    let v = await list_adder_async(async la => {
         await function_names_each(async args => {
             let {function_name} = args;
-            assert(string_identifier_is(function_name));
+            let v_2 = string_identifier_is(function_name);
+            assert(v_2);
             let metadata_args = await js_mapper_args_to_metadata_args_no_add_missing(args);
             let filtered = list_filter(metadata_args, node => js_node_call_expression_name_equal(node, function_name_get(metadata_arguments_assert_none)));
             if (list_empty(filtered)) {
                 return;
             }
-            assert(list_length_is_1(filtered));
+            let v_3 = list_length_is_1(filtered);
+            assert(v_3);
             la(function_name);
         });
     });
+    return v;
 }

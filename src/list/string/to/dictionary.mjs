@@ -9,6 +9,7 @@ export function list_string_to_dictionary(list, element_to_value) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    return list_to_dictionary(list, identity, element_to_value);
+    let v = list_to_dictionary(list, identity, element_to_value);
+    return v;
     metadata([metadata_generated()]);
 }

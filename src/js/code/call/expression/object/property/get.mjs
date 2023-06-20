@@ -10,5 +10,6 @@ export function js_code_call_expression_object_property_get(identifier_code, pro
     ]);
     let v = function_name_get(object_property_get);
     let args_additional = [];
-    return js_code_call_expression_object_property_generic(identifier_code, property_code, args_additional, v);
+    let v_2 = js_code_call_expression_object_property_generic(identifier_code, property_code, args_additional, v);
+    return v_2;
 }

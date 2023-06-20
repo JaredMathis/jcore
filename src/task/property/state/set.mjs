@@ -7,5 +7,7 @@ export function task_property_state_set(task, value) {
         defined_is,
         defined_is
     ]);
-    return object_property_set(task, task_property_state(), value);
+    let v = task_property_state();
+    let v_2 = object_property_set(task, v, value);
+    return v_2;
 }

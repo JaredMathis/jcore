@@ -9,7 +9,9 @@ import { string_a } from '../../../string/a.mjs';
 import { js_code_function_name_to_export } from '../../code/function/name/to/export.mjs';
 import { js_parse } from '../../parse.mjs';
 export function js_call_statement_name(function_name_find_statements_last) {
-    let program = js_parse(js_code_function_name_to_export(string_a()));
+    let v_2 = string_a();
+    let v = js_code_function_name_to_export(v_2);
+    let program = js_parse(v);
     let program_fd = js_export_function_single(program);
     let program_statements = js_function_declaration_to_statements(program_fd);
     list_add(program_statements, function_name_find_statements_last);

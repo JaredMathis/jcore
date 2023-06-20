@@ -11,7 +11,10 @@ export async function function_search_part_last_async_not_is(query) {
         if (async_is) {
             return false;
         }
-        return equal(list_last(candidate_mapped), query_mapped);
+        let v_2 = list_last(candidate_mapped);
+        let v_3 = equal(v_2, query_mapped);
+        return v_3;
     };
-    return await function_search_part_generic(query, candidate_mapped_matches);
+    let v_4 = await function_search_part_generic(query, candidate_mapped_matches);
+    return v_4;
 }

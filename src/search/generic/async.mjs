@@ -14,7 +14,8 @@ export async function search_generic_async(candidates_get, candidate_mapper, can
     let query_mapped = await query_map(query);
     let candidates_matching = await list_filter_async(candidates, async function list_filter_predicate(candidate) {
         let candidate_mapped = await candidate_mapper(candidate);
-        return await candidate_mapped_matches(candidate_mapped, query_mapped);
+        let v = await candidate_mapped_matches(candidate_mapped, query_mapped);
+        return v;
     });
     return candidates_matching;
 }

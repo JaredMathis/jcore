@@ -8,6 +8,7 @@ export function list_length_equal(a, b) {
         list_is,
         list_is
     ]);
-    return equal_by(list_length, a, b);
+    let v = equal_by(list_length, a, b);
+    return v;
     metadata([]);
 }

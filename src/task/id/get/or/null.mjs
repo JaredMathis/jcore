@@ -5,6 +5,7 @@ import { metadata } from '../../../../metadata.mjs';
 export async function task_id_get_or_null() {
     arguments_assert(arguments, []);
     let lambda = object_property_get_or;
-    return await task_id_get_generic(lambda);
+    let v = await task_id_get_generic(lambda);
+    return v;
     metadata([]);
 }

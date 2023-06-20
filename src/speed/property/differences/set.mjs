@@ -7,5 +7,7 @@ export function speed_property_differences_set(speed, value) {
         defined_is,
         defined_is
     ]);
-    return object_property_set(speed, speed_property_differences(), value);
+    let v = speed_property_differences();
+    let v_2 = object_property_set(speed, v, value);
+    return v_2;
 }

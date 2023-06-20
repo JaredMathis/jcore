@@ -16,7 +16,8 @@ export function refactor_returnify(args) {
         let {node, stack} = v;
         let stack_reversed = list_reversed_get(stack);
         let r = js_visit_stack_to_ancestor_list(stack_reversed);
-        assert(result_property_success_get(r));
+        let v_2 = result_property_success_get(r);
+        assert(v_2);
         let ancestor_list = result_property_data_get(r);
         let argument = js_node_property_argument_get(node);
         js_node_assign_and_replace(parsed, argument, ancestor_list, node);
