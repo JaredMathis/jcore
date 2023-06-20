@@ -10,7 +10,6 @@ export async function refactor_functions_arguments_assert_missing_add_excludes()
     let excludes = await function_dependencies_names_arguments_assert();
     comment(`Eventually this should be refactored maybe to read files and detect an attribute`);
     let excludes_additional = await function_names_metadata_arguments_assert_none();
-    excludes_additional = refactor_functions_arguments_assert_missing_add_excludes_additional();
     list_add_multiple(excludes, excludes_additional);
     return excludes;
 }
