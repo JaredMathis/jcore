@@ -1,3 +1,4 @@
+import { list_contains } from '../../list/contains.mjs';
 import { function_search_generic } from './generic.mjs';
 import { string_is } from '../../string/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
