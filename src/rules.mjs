@@ -4,7 +4,8 @@ import { function_search_part_last_async_not_is } from './function/search/part/l
 import { object_keys } from './object/keys.mjs';
 export function rules() {
     arguments_assert(arguments, []);
-    let needs_renaming = function_search_part_last_async_not_is(function_suffix_async());
+    const suffix = function_suffix_async();
+    let needs_renaming = function_search_part_last_async_not_is(suffix);
     for (let function_name of object_keys(needs_renaming)) {
         let replacement_suffix = 'asynk';
     }
