@@ -20,9 +20,11 @@ export async function task_unsub() {
         let v_2 = result_property_success_get(current_result);
         assert(v_2);
         let current = result_property_data_get(current_result);
+        return current;
     }
     async function on_empty() {
         result_unsuccess(r);
         let available = await task_finish();
+        
     }
 }
