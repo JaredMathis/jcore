@@ -4,9 +4,7 @@ import { search_query_map_default } from '../search/query/map/default.mjs';
 import { search_candidate_mapped_matches_default } from '../search/candidate/mapped/matches/default.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { string_is } from '../string/is.mjs';
-import { error } from '../error.mjs';
 export async function function_search(query) {
-    error()
     arguments_assert(arguments, [string_is]);
     let candidate_mapped_matches = search_candidate_mapped_matches_default;
     let query_map = search_query_map_default;
