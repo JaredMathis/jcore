@@ -1,4 +1,3 @@
-import { log } from '../log.mjs';
 import { function_rename_if_starts_with } from './rename/if/starts/with.mjs';
 import { function_name_all_tests_not_starts_with } from './name/all/tests/not/starts/with.mjs';
 import { string_identifier_is } from '../string/identifier/is.mjs';
