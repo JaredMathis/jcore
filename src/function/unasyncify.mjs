@@ -12,10 +12,8 @@ export async function function_unasyncify(function_name) {
     arguments_assert(arguments, [string_identifier_is]);
     let if_needed = false;
     let ending = function_naming_suffix_asynk();
-    if (if_needed) {
-        if (!string_ends_with(ending)) {
+    if (if_needed && !string_ends_with(ending)) {
             return;
-        }
     }
     let function_name_result = string_suffix_without(function_name, ending);
     await function_delete_if_exists(function_name_result);
