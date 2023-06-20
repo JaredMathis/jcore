@@ -6,5 +6,6 @@ export function rules() {
     arguments_assert(arguments, []);
     let needs_renaming = function_search_part_last_async_not_is(function_suffix_async());
     for (let function_name of object_keys(needs_renaming)) {
+        let replacement_suffix = 'asynk';
     }
 }
