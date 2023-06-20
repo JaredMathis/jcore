@@ -8,6 +8,7 @@ import { comment } from '../../../../../../comment.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { list_empty_not } from '../../../../../../list/empty/not.mjs';
 import { error } from '../../../../../../error.mjs';
+import { noop } from '../../../../../../noop.mjs';
 export async function refactor_functions_arguments_assert_missing_add_excludes() {
     arguments_assert(arguments, []);
     let excludes = await function_dependencies_names_arguments_assert();
