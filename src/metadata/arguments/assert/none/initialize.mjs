@@ -7,6 +7,7 @@ export async function metadata_arguments_assert_none_initialize() {
     arguments_assert(arguments, []);
     const excludes_additional = refactor_functions_arguments_assert_missing_add_excludes_additional();
     for (let e of excludes_additional) {
-        await function_metadata_add(e, function_name_get(metadata_arguments_assert_none));
+        const fn = function_name_get(metadata_arguments_assert_none);
+        await function_metadata_add(e, fn);
     }
 }
