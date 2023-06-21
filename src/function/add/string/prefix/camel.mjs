@@ -6,5 +6,5 @@ export async function function_add_string_prefix_camel(prefix, value) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    await function_add_string_prefix_camel_generic(prefix, value);
+    await function_add_string_prefix_camel_generic(prefix, value, true);
 }
