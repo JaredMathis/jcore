@@ -7,5 +7,5 @@ export async function function_add_js_node_type_auto(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = await function_parse(function_name);
     let identifiers = js_identifiers(parsed);
-    await js_identifiers_implies_function_add_js_node_type(identifiers);
+    let needed = js_identifiers_implies_function_add_js_node_type(identifiers);
 }
