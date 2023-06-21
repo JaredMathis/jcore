@@ -13,10 +13,10 @@ export async function function_auto(function_name) {
     let v_2 = string_repeat_is(function_name);
     let v = not(v_2);
     assert_message(v, `The function name has repetition - could be copy/paste error - code needs changing to bypass`);
-    if (not(await function_exists(function_name))) {
-        await function_add(function_name);
-    } else {
+    if (await function_exists(function_name)) {
         await function_auto_no_add(function_name);
+    } else {
+        await function_add(function_name);
     }
     await function_open_vs_code(function_name);
     metadata([]);
