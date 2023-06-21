@@ -6,5 +6,5 @@ import { function_parse } from '../../../../parse.mjs';
 export function function_add_js_node_type_auto(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = function_parse(function_name);
-    js_nodes_each(parsed)
+    js_nodes_each(parsed, )
 }
