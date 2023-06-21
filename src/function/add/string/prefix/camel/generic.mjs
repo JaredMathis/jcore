@@ -10,6 +10,6 @@ export async function function_add_string_prefix_camel_generic(prefix, camel_cas
         boolean_is
     ]);
     let snake = string_case_camel_to_snake(camel_cased);
-    let v = await function_add_string_prefix_generic(prefix, snake, camel_cased, true);
+    let v = await function_add_string_prefix_generic(prefix, snake, camel_cased, assert_not_exists);
     return v;
 }
