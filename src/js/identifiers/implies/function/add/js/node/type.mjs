@@ -1,3 +1,4 @@
+import { string_prefix_without } from '../../../../../../../string/prefix/without.mjs';
 import { js_prefix_node_is } from '../../../../../../prefix/node/is.mjs';
 import { js_prefix_node_type } from '../../../../../../prefix/node/type.mjs';
 import { arguments_assert } from '../../../../../../../arguments/assert.mjs';
@@ -18,7 +19,7 @@ export function js_identifiers_implies_function_add_js_node_type(identifier_name
             let p_with_underscore_trailing = string_combine(p, function_name_separator());
             for (let identifier_name of identifier_names) {
                 if (string_starts_with(identifier_name, p_with_underscore_trailing)) {
-                    la(identifier_name);
+                    la(string_prefix_without());
                 }
             }
         }
