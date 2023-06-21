@@ -24,7 +24,7 @@ export async function function_add_js_node_type_snake(snake) {
     let function_name_js_node_type = js_identifier_combine(prefix_2, snake);
     let v_1 = await function_add_string_prefix_camel_generic(prefix_2, camel_case, false);
     let prefix_1 = function_name_separator_combine(js_prefix_node_is());
-    let js_node_is_function_name = `${ prefix_1 }${ snake }`;
+    let function_name_js_node_is = `${ prefix_1 }${ snake }`;
     let value = js_code_identifier_value();
     let expression = js_code_call_expression_with_args(function_name_get(js_node_is_type), [
         value,
@@ -32,11 +32,11 @@ export async function function_add_js_node_type_snake(snake) {
     ]);
     let code_return_statment = js_code_return_statement(expression);
     let v_2;
-    if (await function_exists(js_node_is_function_name)) {
+    if (await function_exists(function_name_js_node_is)) {
         v_2 = null;
     } else {
-        v_2 = await function_add_with_statement_code(js_node_is_function_name, code_return_statment);
-        await function_input_named_value(js_node_is_function_name);
+        v_2 = await function_add_with_statement_code(function_name_js_node_is, code_return_statment);
+        await function_input_named_value(function_name_js_node_is);
     }
     return list_filter([
         v_1,
