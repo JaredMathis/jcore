@@ -19,6 +19,7 @@ export function js_identifiers_filter_to_node_types(identifier_names) {
             for (let identifier_name of identifier_names) {
                 if (string_starts_with(identifier_name, p_with_underscore_trailing)) {
                     const v = string_prefix_without(identifier_name, p_with_underscore_trailing);
+                    log(v);
                     la(v);
                 }
             }
