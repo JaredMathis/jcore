@@ -40,7 +40,11 @@ export async function function_add_property_generic(property_prefix, property_na
     let v_3 = function_name_get(defined_is);
     await function_input_add_type(function_name, property_prefix, v_3);
     if (input_value_add) {
-        await function_input_add_type(function_name, js_code_identifier_value(), function_name_get(defined_is));
+        await newFunction(function_name);
     }
     return result;
+}
+
+async function newFunction(function_name) {
+    await function_input_add_type(function_name, js_code_identifier_value(), function_name_get(defined_is));
 }
