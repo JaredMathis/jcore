@@ -14,6 +14,7 @@ export async function function_add_js_node_type(camel_case) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let prefix_2 = 'js_node_type';
     let function_name_js_node_type = await function_add_string_prefix_camel_generic(prefix_2, camel_case, false);
+    console.log({function_name_js_node_type})
     let prefix_1 = 'js_node_is_';
     let snake = string_case_camel_to_snake(camel_case);
     let js_node_is_function_name = `${ prefix_1 }${ snake }`;
