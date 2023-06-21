@@ -9,9 +9,9 @@ import { list_filter } from '../../list/filter.mjs';
 import { string_function_name_to_tests_id } from '../../string/function/name/to/tests/id.mjs';
 import { list_map } from '../../list/map.mjs';
 import { function_name_all } from '../../function/name/all.mjs';
-import { string_identifier_is } from '../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../js/identifier/is.mjs';
 export async function tests_name_next(function_name) {
-    arguments_assert(arguments, [string_identifier_is]);
+    arguments_assert(arguments, [js_identifier_is]);
     let functions_all = await function_name_all();
     const prefix = function_tests_prefix_get(function_name);
     let function_name_tests = list_filter(functions_all, function v_3(f) {

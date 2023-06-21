@@ -1,5 +1,5 @@
 import { not } from '../../not.mjs';
-import { string_identifier_is } from '../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../js/identifier/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { file_js_path_to_name } from '../../file/js/path/to/name.mjs';
 import { list_map } from '../../list/map.mjs';
@@ -9,7 +9,7 @@ import { function_name_to_file_path } from '../name/to/file/path.mjs';
 import { boolean_is } from '../../boolean/is.mjs';
 export async function function_dependencies_generic(function_name, recursive) {
     arguments_assert(arguments, [
-        string_identifier_is,
+        js_identifier_is,
         boolean_is
     ]);
     let file_path = function_name_to_file_path(function_name);

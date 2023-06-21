@@ -1,5 +1,5 @@
 import { js_node_is_program } from '../../../node/is/program.mjs';
-import { string_identifier_is } from '../../../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../../identifier/is.mjs';
 import { list_is } from '../../../../list/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -11,7 +11,7 @@ import { js_program_body_get } from '../../../program/body/get.mjs';
 export function js_add_function_with_statements(parsed, function_name, statements) {
     arguments_assert(arguments, [
         js_node_is_program,
-        string_identifier_is,
+        js_identifier_is,
         list_is
     ]);
     let body = js_program_body_get(parsed);

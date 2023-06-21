@@ -7,16 +7,16 @@ import { js_function_declaration_to_params_names } from '../../js/function/decla
 import { function_name_to_declaration } from '../name/to/declaration.mjs';
 import { js_code_function_declaration_to_statement_assignment } from '../../js/code/function/declaration/to/statement/assignment.mjs';
 import { function_wrap_generic } from './generic.mjs';
-import { string_identifier_is } from '../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../js/identifier/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { assert } from '../../assert.mjs';
 import { list_length_is_1 } from '../../list/length/is/1.mjs';
 import { comment } from '../../comment.mjs';
 export async function function_wrap_with(function_name_to_wrap, function_name_to_add, function_name_map) {
     arguments_assert(arguments, [
-        string_identifier_is,
-        string_identifier_is,
-        string_identifier_is
+        js_identifier_is,
+        js_identifier_is,
+        js_identifier_is
     ]);
     let function_declaration_map = await function_name_to_declaration(function_name_map);
     let function_name_map_inputs = js_function_declaration_to_params_names(function_declaration_map);

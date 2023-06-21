@@ -17,14 +17,14 @@ import { list_empty } from '../../../list/empty.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
 import { version_property_hunks } from '../../property/hunks.mjs';
 import { git_ignore_filter } from '../../../git/ignore/filter.mjs';
-import { string_identifier_is } from '../../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../../js/identifier/is.mjs';
 import { list_is } from '../../../list/is.mjs';
 import { object_is } from '../../../object/is.mjs';
 import { function_is } from '../../../function/is.mjs';
 import { list_max_or_0 } from '../../../list/max/or/0.mjs';
 export async function version_commit_files_generic(repository_name, file_paths, commit_data, difference_get) {
     arguments_assert(arguments, [
-        string_identifier_is,
+        js_identifier_is,
         list_is,
         object_is,
         function_is

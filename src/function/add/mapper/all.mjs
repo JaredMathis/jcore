@@ -3,13 +3,13 @@ import { file_js_all_map_args_if_function_args } from '../../../file/js/all/map/
 import { js_keyword_function } from '../../../js/keyword/function.mjs';
 import { function_add_mapper_generic } from './generic.mjs';
 import { function_name_get } from '../../name/get.mjs';
-import { string_identifier_is } from '../../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../../js/identifier/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { noop } from '../../../noop.mjs';
 import { function_name_separator } from '../../name/separator.mjs';
 import { refactor_prefix } from '../../../refactor/prefix.mjs';
 export async function function_add_mapper_all(function_name_suffix) {
-    arguments_assert(arguments, [string_identifier_is]);
+    arguments_assert(arguments, [js_identifier_is]);
     let fn = file_js_all_map_args_if_function_args;
     let function_name_to_call = function_name_get(fn);
     function expression_code_args_get(function_name_refactor) {

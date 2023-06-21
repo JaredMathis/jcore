@@ -3,9 +3,9 @@ import { log } from '../../../../../log.mjs';
 import { function_callers_arguments_assert_auto_multiple_list } from './multiple/list.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { json_equal } from '../../../../../json/equal.mjs';
-import { string_identifier_is } from '../../../../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../../../../js/identifier/is.mjs';
 export async function function_callers_arguments_assert_auto_recursive(root) {
-    arguments_assert(arguments, [string_identifier_is]);
+    arguments_assert(arguments, [js_identifier_is]);
     let result = [root];
     let result_previous;
     do {

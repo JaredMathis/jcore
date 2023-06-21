@@ -5,7 +5,7 @@ import { string_similar } from '../string/similar.mjs';
 import { function_name_all } from './name/all.mjs';
 import { try_catch_throw_async } from '../try/catch/throw/async.mjs';
 import { defined_is } from '../defined/is.mjs';
-import { string_identifier_is } from '../string/identifier/is.mjs';
+import { js_identifier_is } from '../js/identifier/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { js_import_path_normalize } from '../js/import/path/normalize.mjs';
 import { path_relative_file } from '../path/relative/file.mjs';
@@ -16,7 +16,7 @@ import { list_empty } from '../list/empty.mjs';
 export async function function_import(import_meta, function_name) {
     arguments_assert(arguments, [
         defined_is,
-        string_identifier_is
+        js_identifier_is
     ]);
     const __filename = js_import_meta_to_file_path(import_meta);
     let function_path = function_name_to_file_path(function_name);

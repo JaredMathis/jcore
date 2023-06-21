@@ -1,4 +1,4 @@
-import { string_identifier_parts_from } from '../../../string/identifier/parts/from.mjs';
+import { js_identifier_parts_from } from '../../../js/identifier/parts/from.mjs';
 import { function_copy } from '../../copy.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -7,7 +7,7 @@ export async function function_copy_suffix_remove(function_name_new, function_na
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let function_name_old = string_identifier_parts_from([
+    let function_name_old = js_identifier_parts_from([
         function_name_new,
         function_name_suffix
     ]);

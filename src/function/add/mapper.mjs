@@ -5,10 +5,10 @@ import { function_input_add_type } from '../input/add/type.mjs';
 import { function_name_get } from '../name/get.mjs';
 import { js_code_call_expression_with_args } from '../../js/code/call/expression/with/args.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-import { string_identifier_is } from '../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../js/identifier/is.mjs';
 import { js_keyword_function } from '../../js/keyword/function.mjs';
 export async function function_add_mapper(function_name_suffix) {
-    arguments_assert(arguments, [string_identifier_is]);
+    arguments_assert(arguments, [js_identifier_is]);
     let input = 'function_name';
     function expression_code_args_get(function_name_refactor) {
         const expression_code_args = [
@@ -19,7 +19,7 @@ export async function function_add_mapper(function_name_suffix) {
         return expression_code_args;
     }
     async function add_after(function_name_function) {
-        let v_2 = function_name_get(string_identifier_is);
+        let v_2 = function_name_get(js_identifier_is);
         await function_input_add_type(function_name_function, input, v_2);
         return input;
     }

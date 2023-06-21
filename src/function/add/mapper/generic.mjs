@@ -2,7 +2,7 @@ import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { function_open_vs_code } from '../../open/vs/code.mjs';
 import { function_add_with_call_expression_synchronized } from '../with/call/expression/synchronized.mjs';
-import { string_identifier_parts_from_combine } from '../../../string/identifier/parts/from/combine.mjs';
+import { js_identifier_parts_from_combine } from '../../../js/identifier/parts/from/combine.mjs';
 import { list_contains } from '../../../list/contains.mjs';
 import { assert_message } from '../../../assert/message.mjs';
 import { list_first } from '../../../list/first.mjs';
@@ -13,7 +13,7 @@ import { string_split } from '../../../string/split.mjs';
 import { function_name_separator } from '../../name/separator.mjs';
 import { not } from '../../../not.mjs';
 import { function_exists } from '../../exists.mjs';
-import { string_identifier_parts_to } from '../../../string/identifier/parts/to.mjs';
+import { js_identifier_parts_to } from '../../../js/identifier/parts/to.mjs';
 export async function function_add_mapper_generic(prefix, function_name_suffix, function_name_to_call, expression_code_args_get, add_after) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -35,8 +35,8 @@ export async function function_add_mapper_generic(prefix, function_name_suffix, 
     ];
     let function_name_suffix_parts_first = list_first(function_name_suffix_parts);
     assert_message(!list_contains(prefixes, function_name_suffix_parts_first), `Cannot start with: ` + prefixes);
-    let prefix_parts = string_identifier_parts_to(prefix);
-    let function_name_function = string_identifier_parts_from_combine([
+    let prefix_parts = js_identifier_parts_to(prefix);
+    let function_name_function = js_identifier_parts_from_combine([
         prefix_parts,
         function_name_suffix_parts
     ]);

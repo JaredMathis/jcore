@@ -10,11 +10,11 @@ import { version_property_hunks } from '../property/hunks.mjs';
 import { git_ignore_add_if_not_exists } from '../../git/ignore/add/if/not/exists.mjs';
 import { version_path_root } from '../path/root.mjs';
 import { path_is } from '../../path/is.mjs';
-import { string_identifier_is } from '../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../js/identifier/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 export async function version_file_contents(repository_name, file_path) {
     arguments_assert(arguments, [
-        string_identifier_is,
+        js_identifier_is,
         path_is
     ]);
     let gitignore_line_to_add = version_path_root();

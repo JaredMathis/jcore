@@ -14,7 +14,7 @@ import { js_code_call_expression } from '../../../js/code/call/expression.mjs';
 import { function_add_string_prefix } from '../string/prefix.mjs';
 import { function_exists } from '../../exists.mjs';
 import { not } from '../../../not.mjs';
-import { string_identifier_combine } from '../../../string/identifier/combine.mjs';
+import { js_identifier_combine } from '../../../js/identifier/combine.mjs';
 export async function function_add_property_generic(property_prefix, property_name, lambda, method, input_value_add) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -23,8 +23,8 @@ export async function function_add_property_generic(property_prefix, property_na
         arguments_assert_todo,
         boolean_is
     ]);
-    let property_name_fn_get_prefix = string_identifier_combine(property_prefix, 'property');
-    let property_name_fn_get = string_identifier_combine(property_name_fn_get_prefix, property_name);
+    let property_name_fn_get_prefix = js_identifier_combine(property_prefix, 'property');
+    let property_name_fn_get = js_identifier_combine(property_name_fn_get_prefix, property_name);
     if (not(await function_exists(property_name_fn_get))) {
         await function_add_string_prefix(property_name_fn_get_prefix, property_name);
     }

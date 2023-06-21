@@ -4,12 +4,12 @@ import { metadata } from '../../../../metadata.mjs';
 import { assert } from '../../../../assert.mjs';
 import { js_keyword_asynk } from '../../../keyword/asynk.mjs';
 import { string_empty } from '../../../../string/empty.mjs';
-import { string_identifier_is } from '../../../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../../identifier/is.mjs';
 import { boolean_is } from '../../../../boolean/is.mjs';
 import { string_is } from '../../../../string/is.mjs';
 export function js_code_export_function_synchronized(function_name, is_async, function_statements_code) {
     arguments_assert(arguments, [
-        string_identifier_is,
+        js_identifier_is,
         boolean_is,
         string_is
     ]);

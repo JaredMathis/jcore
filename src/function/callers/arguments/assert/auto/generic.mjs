@@ -28,12 +28,12 @@ import { list_empty } from '../../../../../list/empty.mjs';
 import { js_node_property_params } from '../../../../../js/node/property/params.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { equal } from '../../../../../equal.mjs';
-import { string_identifier_is } from '../../../../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../../../../js/identifier/is.mjs';
 comment(`Simplify this function - I don't understand it fully to guarantee it works through logical proof`);
 export async function function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, result) {
     arguments_assert(arguments, [
-        string_identifier_is,
-        string_identifier_is,
+        js_identifier_is,
+        js_identifier_is,
         list_is,
         list_is
     ]);

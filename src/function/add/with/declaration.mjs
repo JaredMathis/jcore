@@ -1,5 +1,5 @@
 import { js_node_is_function_declaration } from '../../../js/node/is/function/declaration.mjs';
-import { string_identifier_is } from '../../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../../js/identifier/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { js_code_function_name_to_parsed } from '../../../js/code/function/name/to/parsed.mjs';
@@ -9,7 +9,7 @@ import { js_export_single } from '../../../js/export/single.mjs';
 import { function_write } from '../../write.mjs';
 export async function function_add_with_declaration(function_name, fd) {
     arguments_assert(arguments, [
-        string_identifier_is,
+        js_identifier_is,
         js_node_is_function_declaration
     ]);
     let parsed = js_code_function_name_to_parsed(function_name);

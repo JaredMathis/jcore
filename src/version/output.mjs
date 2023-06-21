@@ -5,11 +5,11 @@ import { version_output_generic } from './output/generic.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { file_overwrite } from '../file/overwrite.mjs';
 import { path_join } from '../path/join.mjs';
-import { string_identifier_is } from '../string/identifier/is.mjs';
+import { js_identifier_is } from '../js/identifier/is.mjs';
 export async function version_output(repository_name, directory_output_name) {
     arguments_assert(arguments, [
-        string_identifier_is,
-        string_identifier_is
+        js_identifier_is,
+        js_identifier_is
     ]);
     let file_paths = await directory_read_current();
     let v = version_path_outputs();

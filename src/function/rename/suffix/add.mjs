@@ -1,13 +1,13 @@
 import { function_rename_single } from '../single.mjs';
-import { string_identifier_sub_is } from '../../../string/identifier/sub/is.mjs';
-import { string_identifier_is } from '../../../string/identifier/is.mjs';
+import { js_identifier_sub_is } from '../../../js/identifier/sub/is.mjs';
+import { js_identifier_is } from '../../../js/identifier/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { function_name_separator } from '../../name/separator.mjs';
 import { list_join } from '../../../list/join.mjs';
 export async function function_rename_suffix_add(function_name_old, suffix) {
     arguments_assert(arguments, [
-        string_identifier_is,
-        string_identifier_sub_is
+        js_identifier_is,
+        js_identifier_sub_is
     ]);
     let v = function_name_separator();
     let function_name_new = list_join([

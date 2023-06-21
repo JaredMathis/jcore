@@ -2,7 +2,7 @@ import { function_auto_no_add } from '../../../auto/no/add.mjs';
 import { js_export_function_single } from '../../../../js/export/function/single.mjs';
 import { boolean_is } from '../../../../boolean/is.mjs';
 import { list_is } from '../../../../list/is.mjs';
-import { string_identifier_is } from '../../../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../../../js/identifier/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { function_write } from '../../../write.mjs';
@@ -14,7 +14,7 @@ import { assert } from '../../../../assert.mjs';
 import { function_exists } from '../../../exists.mjs';
 export async function function_add_with_statements_synchronized(function_name, statements, is_async) {
     arguments_assert(arguments, [
-        string_identifier_is,
+        js_identifier_is,
         list_is,
         boolean_is
     ]);

@@ -1,4 +1,4 @@
-import { string_identifier_parts_from } from '../../../../string/identifier/parts/from.mjs';
+import { js_identifier_parts_from } from '../../../../js/identifier/parts/from.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { function_input_add_multiple_generic } from './generic.mjs';
@@ -11,7 +11,7 @@ export async function function_input_add_multiple_prefix(function_name, prefix, 
     let result = await function_input_add_multiple_generic(function_name, inputs_string, map);
     return result;
     function map(i) {
-        let v = string_identifier_parts_from([
+        let v = js_identifier_parts_from([
             prefix,
             i
         ]);

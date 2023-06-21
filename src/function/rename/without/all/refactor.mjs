@@ -6,7 +6,7 @@ import { list_filter } from '../../../../list/filter.mjs';
 import { function_tests_prefix_get } from '../../../tests/prefix/get.mjs';
 import { function_rename_file_path } from '../../file/path.mjs';
 import { function_name_all } from '../../../name/all.mjs';
-import { string_identifier_is } from '../../../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../../../js/identifier/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { file_js_all_identifier_exists } from '../../../../file/js/all/identifier/exists.mjs';
@@ -16,11 +16,10 @@ import { string_prefix_replace } from '../../../../string/prefix/replace.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { object_keys } from '../../../../object/keys.mjs';
 import { object_properties } from '../../../../object/properties.mjs';
-import { log } from '../../../../log.mjs';
 export async function function_rename_without_all_refactor(function_name_old, function_name_new) {
     arguments_assert(arguments, [
-        string_identifier_is,
-        string_identifier_is
+        js_identifier_is,
+        js_identifier_is
     ]);
     let v = equal_not(function_name_old, function_name_new);
     assert(v);

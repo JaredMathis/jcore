@@ -4,12 +4,12 @@ import { version_property_hunks } from '../../property/hunks.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { version_property_path } from '../../property/path.mjs';
 import { version_file_contents } from '../contents.mjs';
-import { string_identifier_is } from '../../../string/identifier/is.mjs';
+import { js_identifier_is } from '../../../js/identifier/is.mjs';
 import { path_is } from '../../../path/is.mjs';
 import { function_is } from '../../../function/is.mjs';
 export async function version_file_difference_generic(repository_name, file_path, contents_new_get) {
     arguments_assert(arguments, [
-        string_identifier_is,
+        js_identifier_is,
         path_is,
         function_is
     ]);
