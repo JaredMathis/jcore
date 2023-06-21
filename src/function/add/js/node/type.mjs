@@ -1,3 +1,4 @@
+import { log } from '../../../../log.mjs';
 import { js_code_call_expression } from '../../../../js/code/call/expression.mjs';
 import { function_input_named_value } from '../../../input/named/value.mjs';
 import { js_node_is_type } from '../../../../js/node/is/type.mjs';
