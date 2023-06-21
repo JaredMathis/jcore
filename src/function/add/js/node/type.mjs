@@ -20,7 +20,7 @@ export async function function_add_js_node_type(camel_case) {
     let code_return_statment = js_code_return_statement(expression);
     let js_node_is_function_name = `${ prefix_1 }${ snake }`;
     let v_2 = await function_add_with_statement_code(js_node_is_function_name, code_return_statment);
-    function_input_named_value;
+    function_input_named_value(js_node_is_function_name);
     let prefix_2 = 'js_node_type';
     let v = await function_add_string_prefix_camel_generic(prefix_2, camel_case);
     return v;
