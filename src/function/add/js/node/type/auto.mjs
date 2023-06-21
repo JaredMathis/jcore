@@ -9,6 +9,7 @@ export async function function_add_js_node_type_auto(function_name) {
     let parsed = await function_parse(function_name);
     let identifiers = js_identifiers(parsed);
     let needed = js_identifiers_filter_to_node_types(identifiers);
+    console.log({needed})
     for (let n of needed) {
         await function_add_js_node_type_snake(n);
     }
