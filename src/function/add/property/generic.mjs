@@ -1,3 +1,4 @@
+import { js_code_identifier_value } from '../../../js/code/identifier/value.mjs';
 import { boolean_is } from '../../../boolean/is.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -27,7 +28,7 @@ export async function function_add_property_generic(property_prefix, property_na
         await function_add_string_prefix(property_name_fn_get_prefix, property_name);
     }
     let property_name_get = js_code_call_expression(property_name_fn_get);
-    const value_name = 'value';
+    const value_name = js_code_identifier_value();
     let v_2 = function_name_separator();
     let function_name = list_join([
         property_name_fn_get,
