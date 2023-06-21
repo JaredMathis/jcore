@@ -1,3 +1,7 @@
+import { js_node_is_type } from '../../../../js/node/is/type.mjs';
+import { function_name_get } from '../../../name/get.mjs';
+import { js_code_call_expression_with_args } from '../../../../js/code/call/expression/with/args.mjs';
+import { js_code_identifier_value } from '../../../../js/code/identifier/value.mjs';
 import { string_case_camel_to_snake } from '../../../../string/case/camel/to/snake.mjs';
 import { function_add_with_statement_code } from '../../with/statement/code.mjs';
 import { js_code_return_statement } from '../../../../js/code/return/statement.mjs';
@@ -7,6 +11,7 @@ import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function function_add_js_node_type(camel_case) {
     arguments_assert(arguments, [arguments_assert_todo]);
+    let value = js_code_identifier_value();
     let snake = string_case_camel_to_snake(camel_case);
     let prefix_1 = 'js_node_is_';
     let expression = js_code_expression_string(string_value);
