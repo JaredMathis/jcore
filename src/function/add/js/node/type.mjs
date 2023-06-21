@@ -1,3 +1,4 @@
+import { function_input_named_value } from '../../../input/named/value.mjs';
 import { js_node_is_type } from '../../../../js/node/is/type.mjs';
 import { function_name_get } from '../../../name/get.mjs';
 import { js_code_call_expression_with_args } from '../../../../js/code/call/expression/with/args.mjs';
@@ -19,6 +20,7 @@ export async function function_add_js_node_type(camel_case) {
     let code_return_statment = js_code_return_statement(expression);
     let js_node_is_function_name = `${ prefix_1 }${ snake }`;
     let v_2 = await function_add_with_statement_code(js_node_is_function_name, code_return_statment);
+    function_input_named_value;
     let prefix_2 = 'js_node_type';
     let v = await function_add_string_prefix_camel_generic(prefix_2, camel_case);
     return v;
