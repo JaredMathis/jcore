@@ -13,7 +13,7 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function function_add_js_node_type(camel_case) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let prefix_2 = 'js_node_type';
-    let v = await function_add_string_prefix_camel_generic(prefix_2, camel_case);
+    let function_name_js_node_type = await function_add_string_prefix_camel_generic(prefix_2, camel_case);
     let prefix_1 = 'js_node_is_';
     let snake = string_case_camel_to_snake(camel_case);
     let js_node_is_function_name = `${ prefix_1 }${ snake }`;
@@ -26,7 +26,7 @@ export async function function_add_js_node_type(camel_case) {
     let v_2 = await function_add_with_statement_code(js_node_is_function_name, code_return_statment);
     await function_input_named_value(js_node_is_function_name);
     return [
-        v,
+        function_name_js_node_type,
         v_2
     ];
 }
