@@ -16,8 +16,7 @@ export async function function_add_js_node_type(camel_case) {
     let value = js_code_identifier_value();
     let snake = string_case_camel_to_snake(camel_case);
     let prefix_1 = 'js_node_is_';
-    let expression = js_code_expression_string(string_value);
-    let after_let = js_code_call_expression_with_args(function_name_get(js_node_is_type), [
+    let expression = js_code_call_expression_with_args(function_name_get(js_node_is_type), [
         value,
         js_code_call_expression()
     ]);
