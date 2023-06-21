@@ -20,7 +20,6 @@ import { null_not_is } from '../../../../../null/not/is.mjs';
 export async function function_add_js_node_type_snake(snake) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let prefix_2 = js_prefix_node_type();
-    return;
     let camel_case = string_case_snake_to_camel(snake);
     let function_name_js_node_type = js_identifier_combine(prefix_2, snake);
     let v_1 = await function_add_string_prefix_camel_generic(prefix_2, camel_case, false);
