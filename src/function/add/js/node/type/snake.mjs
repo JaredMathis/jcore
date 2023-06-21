@@ -13,6 +13,8 @@ import { js_prefix_node_is } from '../../../../../js/prefix/node/is.mjs';
 import { function_add_string_prefix_camel_generic } from '../../../string/prefix/camel/generic.mjs';
 import { js_prefix_node_type } from '../../../../../js/prefix/node/type.mjs';
 import { function_name_separator_combine } from '../../../../name/separator/combine.mjs';
+import { list_filter } from '../../../../../list/filter.mjs';
+import { null_not_is } from '../../../../../null/not/is.mjs';
 export async function function_add_js_node_type_snake(snake) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let prefix_2 = js_prefix_node_type();
@@ -33,8 +35,8 @@ export async function function_add_js_node_type_snake(snake) {
         v_2 = await function_add_with_statement_code(js_node_is_function_name, code_return_statment);
     }
     await function_input_named_value(js_node_is_function_name);
-    return [
+    return list_filter([
         function_name_js_node_type,
         v_2
-    ];
+    ], null_not_is);
 }
