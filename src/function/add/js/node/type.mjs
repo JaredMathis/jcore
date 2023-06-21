@@ -26,5 +26,5 @@ export async function function_add_js_node_type(camel_case) {
     let js_node_is_function_name = `${ prefix_1 }${ snake }`;
     let v_2 = await function_add_with_statement_code(js_node_is_function_name, code_return_statment);
     await function_input_named_value(js_node_is_function_name);
-    return v;
+    return [v, v_2];
 }
