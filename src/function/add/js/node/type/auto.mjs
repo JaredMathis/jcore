@@ -5,5 +5,8 @@ import { function_parse } from '../../../../parse.mjs';
 export async function function_add_js_node_type_auto(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = await function_parse(function_name);
-    js_visit_identifiers(parsed);
+    js_visit_identifiers(parsed, v => {
+        let {node} = v;
+        
+    });
 }
