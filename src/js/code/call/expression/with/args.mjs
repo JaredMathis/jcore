@@ -8,7 +8,7 @@ export function js_code_call_expression_with_args(call_expression_function_name,
         arguments_assert_todo,
         list_is
     ]);
-    let params_code2 = js_code_join_comma(params);
-    const statment_code = js_code_call_expression_with_args_code(call_expression_function_name, params_code2);
+    let params_code = js_code_join_comma(params);
+    const statment_code = js_code_call_expression_with_args_code(call_expression_function_name, params_code);
     return statment_code;
 }
