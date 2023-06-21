@@ -36,8 +36,8 @@ export async function function_add_js_node_type_snake(snake) {
         v_2 = null;
     } else {
         v_2 = await function_add_with_statement_code(js_node_is_function_name, code_return_statment);
+        await function_input_named_value(js_node_is_function_name);
     }
-    await function_input_named_value(js_node_is_function_name);
     return list_filter([
         v_1,
         v_2
