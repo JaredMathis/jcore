@@ -8,6 +8,6 @@ export async function function_add_string_prefix_camel_generic(prefix, camel_cas
         arguments_assert_todo
     ]);
     let snake = string_case_camel_to_snake(camel_cased);
-    let v = await function_add_string_prefix_generic(prefix, snake, camel_cased);
+    let v = await function_add_string_prefix_generic(prefix, snake, camel_cased, true);
     return v;
 }
