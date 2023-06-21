@@ -6,12 +6,12 @@ import { string_combine } from '../../../../../../../string/combine.mjs';
 import { function_name_separator } from '../../../../../../../function/name/separator.mjs';
 import { string_starts_with } from '../../../../../../../string/starts/with.mjs';
 import { list_is } from '../../../../../../../list/is.mjs';
-import { list_adder } from '../../../../../../../list/adder.mjs';
+import { list_adder_unique } from '../../../../../../../list/adder/unique.mjs';
 export function js_identifiers_implies_function_add_js_node_type(identifier_names) {
     arguments_assert(arguments, [list_is]);
     let prefix_1 = js_prefix_node_is();
     let prefix_2 = js_prefix_node_type();
-    return list_adder(la => {
+    return list_adder_unique(la => {
         for (let p of [
                 prefix_1,
                 prefix_2
