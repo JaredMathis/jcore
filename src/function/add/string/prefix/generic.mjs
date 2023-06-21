@@ -14,7 +14,7 @@ export async function function_add_string_prefix_generic(prefix, suffix, value, 
     let function_name = string_identifier_combine(prefix, suffix);
     if (!assert_not_exists) {
         if (await function_exists(function_name)) {
-            return;
+            return function_name;
         }
     }
     await function_add_string(function_name, value);
