@@ -1,3 +1,5 @@
+import { js_prefix_node_is } from '../../../../js/prefix/node/is.mjs';
+import { js_prefix_node_type } from '../../../../js/prefix/node/type.mjs';
 import { log } from '../../../../log.mjs';
 import { js_code_call_expression } from '../../../../js/code/call/expression.mjs';
 import { function_input_named_value } from '../../../input/named/value.mjs';
@@ -31,12 +33,4 @@ export async function function_add_js_node_type(camel_case) {
         function_name_js_node_type,
         v_2
     ];
-}
-
-function js_prefix_node_type() {
-    return 'js_node_type';
-}
-
-function js_prefix_node_is() {
-    return `js_node_is_`;
 }
