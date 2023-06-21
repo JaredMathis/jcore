@@ -1,3 +1,5 @@
+import { function_exists } from '../../../../exists.mjs';
+import { js_identifier_combine } from '../../../../../js/identifier/combine.mjs';
 import { string_case_snake_to_camel } from '../../../../../string/case/snake/to/camel.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
@@ -18,7 +20,9 @@ import { null_not_is } from '../../../../../null/not/is.mjs';
 export async function function_add_js_node_type_snake(snake) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let prefix_2 = js_prefix_node_type();
+    return;
     let camel_case = string_case_snake_to_camel(snake);
+    let function_name_js_node_type = js_identifier_combine(prefix_2, snake);
     let v_1 = await function_add_string_prefix_camel_generic(prefix_2, camel_case, false);
     let prefix_1 = function_name_separator_combine(js_prefix_node_is());
     let js_node_is_function_name = `${ prefix_1 }${ snake }`;
