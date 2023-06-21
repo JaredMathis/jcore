@@ -4,7 +4,7 @@ import { object_keys_each } from '../object/keys/each.mjs';
 import { list_is } from '../list/is.mjs';
 import { task_requires_get } from './requires/get.mjs';
 import { string_comma } from '../string/comma.mjs';
-import { string_add } from '../string/add.mjs';
+import { string_combine } from '../string/combine.mjs';
 import { js_code_parenthesis_surround } from '../js/code/parenthesis/surround.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { task_property_title } from './property/title.mjs';
@@ -33,7 +33,7 @@ export function task_summary(task, all_unsummarized) {
         if (not(list_empty(list))) {
             let v_6 = string_comma();
             let v_5 = list_join(list, v_6);
-            let v_2 = string_add(`${ list_name }: `, v_5);
+            let v_2 = string_combine(`${ list_name }: `, v_5);
             const list_string = js_code_parenthesis_surround(v_2);
             list_add(strings, list_string);
         }

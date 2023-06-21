@@ -1,4 +1,4 @@
-import { string_add_multiple } from './add/multiple.mjs';
+import { string_combine_multiple } from './combine/multiple.mjs';
 import { character_is } from '../character/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { string_is } from './is.mjs';
@@ -11,7 +11,7 @@ export function string_set(input, index, value) {
         integer_is,
         character_is
     ]);
-    let v = string_add_multiple([
+    let v = string_combine_multiple([
         string_take(input, index),
         value,
         string_skip(input, index + 1)

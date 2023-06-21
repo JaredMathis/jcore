@@ -1,4 +1,4 @@
-import { string_add } from './add.mjs';
+import { string_combine } from './combine.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { string_is } from './is.mjs';
 import { integer_is } from '../integer/is.mjs';
@@ -11,7 +11,7 @@ export function string_multiply(s, times) {
     ]);
     let result = string_empty();
     for (let i of range(times)) {
-        result = string_add(result, s);
+        result = string_combine(result, s);
     }
     return result;
 }
