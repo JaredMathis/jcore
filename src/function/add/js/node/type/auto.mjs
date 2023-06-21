@@ -8,8 +8,8 @@ export async function function_add_js_node_type_auto(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = await function_parse(function_name);
     let identifiers = js_identifiers(parsed);
+    console.log({identifiers})
     let needed = js_identifiers_filter_to_node_types(identifiers);
-    console.log({needed})
     for (let n of needed) {
         await function_add_js_node_type_snake(n);
     }
