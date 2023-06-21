@@ -306,6 +306,14 @@ import { string_difference_apply_parse_test_4 } from './string/difference/apply/
 import { string_difference_apply_parse_test_3 } from './string/difference/apply/parse/test/3.mjs';
 import { string_difference_apply_parse_test_2 } from './string/difference/apply/parse/test/2.mjs';
 import { string_difference_apply_parse_test_1 } from './string/difference/apply/parse/test/1.mjs';
+import { string_case_upper_character_first_test_generated_5 } from './string/case/upper/character/first/test/generated/5.mjs';
+import { string_case_upper_character_first_test_generated_4 } from './string/case/upper/character/first/test/generated/4.mjs';
+import { string_case_upper_character_first_test_generated_3 } from './string/case/upper/character/first/test/generated/3.mjs';
+import { string_case_upper_character_first_test_generated_2 } from './string/case/upper/character/first/test/generated/2.mjs';
+import { string_case_upper_character_first_test_generated_1 } from './string/case/upper/character/first/test/generated/1.mjs';
+import { string_case_snake_to_camel_test_generated_5 } from './string/case/snake/to/camel/test/generated/5.mjs';
+import { string_case_snake_to_camel_test_generated_4 } from './string/case/snake/to/camel/test/generated/4.mjs';
+import { string_case_snake_to_camel_test_generated_3 } from './string/case/snake/to/camel/test/generated/3.mjs';
 import { string_case_snake_to_camel_test_generated_2 } from './string/case/snake/to/camel/test/generated/2.mjs';
 import { string_case_snake_to_camel_test_generated_1 } from './string/case/snake/to/camel/test/generated/1.mjs';
 import { string_a_test_generated_1 } from './string/a/test/generated/1.mjs';
@@ -501,6 +509,14 @@ export async function tests() {
     await string_a_test_generated_1();
     await string_case_snake_to_camel_test_generated_1();
     await string_case_snake_to_camel_test_generated_2();
+    await string_case_snake_to_camel_test_generated_3();
+    await string_case_snake_to_camel_test_generated_4();
+    await string_case_snake_to_camel_test_generated_5();
+    await string_case_upper_character_first_test_generated_1();
+    await string_case_upper_character_first_test_generated_2();
+    await string_case_upper_character_first_test_generated_3();
+    await string_case_upper_character_first_test_generated_4();
+    await string_case_upper_character_first_test_generated_5();
     await string_difference_apply_parse_test_1();
     await string_difference_apply_parse_test_2();
     await string_difference_apply_parse_test_3();
@@ -808,5 +824,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(403 + ' tests ran successfully');
+    log(411 + ' tests ran successfully');
 }
