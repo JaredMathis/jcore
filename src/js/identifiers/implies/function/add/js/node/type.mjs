@@ -19,7 +19,7 @@ export function js_identifiers_implies_function_add_js_node_type(identifier_name
             let p_with_underscore_trailing = string_combine(p, function_name_separator());
             for (let identifier_name of identifier_names) {
                 if (string_starts_with(identifier_name, p_with_underscore_trailing)) {
-                    la(string_prefix_without());
+                    la(string_prefix_without(identifier_name, p_with_underscore_trailing));
                 }
             }
         }
