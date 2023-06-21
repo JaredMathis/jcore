@@ -3,6 +3,7 @@ import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { function_add_string } from '../../string.mjs';
 import { string_identifier_combine } from '../../../../string/identifier/combine.mjs';
+import { function_exists } from '../../../exists.mjs';
 export async function function_add_string_prefix_generic(prefix, suffix, value, assert_not_exists) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -12,7 +13,9 @@ export async function function_add_string_prefix_generic(prefix, suffix, value, 
     ]);
     let function_name = string_identifier_combine(prefix, suffix);
     if (!assert_not_exists) {
-        
+        if (await function_exists(function_name)) {
+            return;
+        }
     }
     await function_add_string(function_name, value);
     return function_name;
