@@ -1,3 +1,4 @@
+import { js_code_call_expression } from '../../../../js/code/call/expression.mjs';
 import { function_input_named_value } from '../../../input/named/value.mjs';
 import { js_node_is_type } from '../../../../js/node/is/type.mjs';
 import { function_name_get } from '../../../name/get.mjs';
@@ -16,7 +17,10 @@ export async function function_add_js_node_type(camel_case) {
     let snake = string_case_camel_to_snake(camel_case);
     let prefix_1 = 'js_node_is_';
     let expression = js_code_expression_string(string_value);
-    let after_let = js_code_call_expression_with_args(function_name_get(js_node_is_type), [value, js_code_call_expression()]);
+    let after_let = js_code_call_expression_with_args(function_name_get(js_node_is_type), [
+        value,
+        js_code_call_expression()
+    ]);
     let code_return_statment = js_code_return_statement(expression);
     let js_node_is_function_name = `${ prefix_1 }${ snake }`;
     let v_2 = await function_add_with_statement_code(js_node_is_function_name, code_return_statment);
