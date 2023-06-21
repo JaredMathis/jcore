@@ -12,11 +12,8 @@ import { js_prefix_node_is } from '../../../../../js/prefix/node/is.mjs';
 import { function_add_string_prefix_camel_generic } from '../../../string/prefix/camel/generic.mjs';
 import { js_prefix_node_type } from '../../../../../js/prefix/node/type.mjs';
 import { function_name_separator_combine } from '../../../../name/separator/combine.mjs';
-export async function function_add_js_node_type_snake(camel_case, snake) {
-    arguments_assert(arguments, [
-        arguments_assert_todo,
-        arguments_assert_todo
-    ]);
+export async function function_add_js_node_type_snake(snake) {
+    arguments_assert(arguments, [arguments_assert_todo]);
     let prefix_2 = js_prefix_node_type();
     let function_name_js_node_type = await function_add_string_prefix_camel_generic(prefix_2, camel_case, false);
     let prefix_1 = function_name_separator_combine(js_prefix_node_is());

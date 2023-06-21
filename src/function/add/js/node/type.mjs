@@ -5,5 +5,5 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function function_add_js_node_type(camel_case) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let snake = string_case_camel_to_snake(camel_case);
-    return await function_add_js_node_type_snake(camel_case, snake);
+    return await function_add_js_node_type_snake(snake);
 }
