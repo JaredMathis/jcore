@@ -7,12 +7,15 @@ import { assert } from '../../../../../assert.mjs';
 import { list_all } from '../../../../../list/all.mjs';
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
 import { assert_message } from '../../../../../assert/message.mjs';
+import { error } from '../../../../../error.mjs';
 export async function rule_function_call_arguments_are_identifiers() {
     arguments_assert(arguments, []);
     await function_names_each(args => {
         let {parsed} = args;
         let {file_path} = args;
         js_nodes_each(parsed, js_node_is_call_expression, node => {
+            console.log(node);
+            error()
             let args = js_node_property_arguments_get(node);
             assert_message(list_all(args, js_node_is_identifier), file_path);
         });
