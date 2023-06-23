@@ -1,3 +1,4 @@
+import { object_copy_shallow } from '../../../../../../object/copy/shallow.mjs';
 import { js_function_declaration_named } from '../../../../../../js/function/declaration/named.mjs';
 import { js_node_property_body_get } from '../../../../../../js/node/property/body/get.mjs';
 import { js_node_property_consequent_get } from '../../../../../../js/node/property/consequent/get.mjs';
@@ -9,7 +10,6 @@ import { js_node_is_expression_statement } from '../../../../../../js/node/is/ex
 import { assert } from '../../../../../../assert.mjs';
 import { js_node_is_block_statement } from '../../../../../../js/node/is/block/statement.mjs';
 import { string_a } from '../../../../../../string/a.mjs';
-import { error } from '../../../../../../error.mjs';
 export function refactor_if_expression_statement_to_block_statement(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
@@ -19,7 +19,7 @@ export function refactor_if_expression_statement_to_block_statement(args) {
             let function_expression = js_function_declaration_named(string_a());
             let body = js_node_property_body_get(function_expression);
             assert(js_node_is_block_statement(body));
-            error()
+            let copy = object_copy_shallow(consequent);
         }
     });
 }
