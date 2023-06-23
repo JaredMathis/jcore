@@ -1,3 +1,4 @@
+import { js_function_declaration_named } from '../../../../../../js/function/declaration/named.mjs';
 import { js_node_property_body_get } from '../../../../../../js/node/property/body/get.mjs';
 import { js_node_property_consequent_get } from '../../../../../../js/node/property/consequent/get.mjs';
 import { js_node_is_if_statement } from '../../../../../../js/node/is/if/statement.mjs';
@@ -15,7 +16,7 @@ export function refactor_if_expression_statement_to_block_statement(args) {
         if (js_node_is_expression_statement(consequent)) {
             let function_expression = js_function_declaration_named(name);
             let body = js_node_property_body_get(function_expression);
-            assert(js_node_is_block_statement(body))
+            assert(js_node_is_block_statement(body));
         }
     });
 }
