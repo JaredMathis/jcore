@@ -18,6 +18,7 @@ export function refactor_if_expression_statement_to_block_statement(args) {
             let function_expression = js_function_declaration_named(string_a());
             let body = js_node_property_body_get(function_expression);
             assert(js_node_is_block_statement(body));
+            return 'success'
         }
     });
 }
