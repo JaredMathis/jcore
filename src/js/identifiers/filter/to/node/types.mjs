@@ -10,11 +10,12 @@ export function js_identifiers_filter_to_node_types(identifier_names) {
     arguments_assert(arguments, [list_is]);
     let prefix_1 = js_prefix_node_is();
     let prefix_2 = js_prefix_node_type();
+    const prefixes = [
+        prefix_1,
+        prefix_2
+    ];
     return list_adder_unique(la => {
-        for (let p of [
-                prefix_1,
-                prefix_2
-            ]) {
+        for (let p of prefixes) {
             let p_with_underscore_trailing = function_name_separator_combine(p);
             for (let identifier_name of identifier_names) {
                 if (string_starts_with(identifier_name, p_with_underscore_trailing)) {
