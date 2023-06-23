@@ -12,6 +12,8 @@ import { js_nodes_each } from '../../../../../js/nodes/each.mjs';
 import { function_names_each } from '../../../../../function/names/each.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { js_node_is_literal } from '../../../../../js/node/is/literal.mjs';
+import { number_is } from '../../../../../number/is.mjs';
+import { integer_is } from '../../../../../integer/is.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
     await function_names_each(args => {
@@ -19,6 +21,9 @@ export async function rule_constant_numbers_are_function_outputs() {
         let {file_path} = args;
         js_nodes_each(parsed, js_node_is_literal, node => {
             let value = js_node_property_value_get(node);
+            if (number_is(value)) {
+                assert_message(integer_is(value), 'need to handle non-integers maybe');
+            }
             let name = js_call_expression_name_get(node);
             const rule_exceptions = [
                 function_name_get(arguments_assert),
