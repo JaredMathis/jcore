@@ -16,7 +16,7 @@ export async function function_add_js_node_type_auto(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let identifiers = await function_identifiers(function_name);
     let property_names = js_identifiers_filter_to_node_properties_get(identifiers);
-    console.log({ property_names });
+    console.log({ function_name, property_names });
     let prefix = js_prefix_node_property();
     for (let property_name of property_names) {
         let method = js_suffix_get();
