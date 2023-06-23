@@ -16,14 +16,13 @@ export async function function_add_js_node_type_auto(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let identifiers = await function_identifiers(function_name);
     let property_names = js_identifiers_filter_to_node_properties_get(identifiers);
-    console.log({ function_name, property_names });
     let prefix = js_prefix_node_property();
     for (let property_name of property_names) {
         let method = js_suffix_get();
         let property_name_fn_get_prefix = js_identifier_prefix_property(prefix);
         let property_name_fn_get = js_identifier_combine(property_name_fn_get_prefix, property_name);
-        let function_name = js_identifier_combine(property_name_fn_get, method);
-        if (!await function_exists(function_name)) {
+        let function_name_new = js_identifier_combine(property_name_fn_get, method);
+        if (!await function_exists(function_name_new)) {
             await function_add_property_get(prefix, property_name);
         }
     }
