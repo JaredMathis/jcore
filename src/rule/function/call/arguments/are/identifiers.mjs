@@ -11,10 +11,10 @@ export async function rule_function_call_arguments_are_identifiers() {
     arguments_assert(arguments, []);
     await function_names_each(args => {
         let {parsed} = args;
-        let {function_name} = args;
+        let {file_path} = args;
         js_nodes_each(parsed, js_node_is_call_expression, node => {
             let args = js_node_property_arguments_get(node);
-            assert_message(list_all(args, js_node_is_identifier), function_name);
+            assert_message(list_all(args, js_node_is_identifier), file_path);
         });
     });
 }
