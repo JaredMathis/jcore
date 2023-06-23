@@ -9,6 +9,7 @@ export async function function_add_js_node_type_auto(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let identifiers = await function_identifiers(function_name);
     let needed2 = js_identifiers_filter_to_node_properties(identifiers);
+    let lambda_function_create = function_add_js_node_type_snake
     let needed = js_identifiers_filter_to_node_types(identifiers);
     for (let n of needed) {
         if (!await function_exists(n)) {
