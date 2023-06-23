@@ -12,13 +12,6 @@ export function js_visit(parsed, filter, lambda) {
         function_is,
         function_is
     ]);
-    let root;
-    if (false)
-        if (js_node_is_program(parsed)) {
-            root = js_program_body_get(parsed);
-        } else {
-            root = parsed;
-        }
     visit_filter(parsed, function v(node) {
         let v_2 = object_properties(node);
         return v_2;

@@ -1,8 +1,8 @@
-import { function_is } from '../../../function/is.mjs';
-import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
-import { js_node_is } from '../../node/is.mjs';
 import { js_visit } from '../../visit.mjs';
+import { function_is } from '../../../function/is.mjs';
+import { js_node_is } from '../../node/is.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 export function js_visit_nodes_filter(parsed, predicate, lambda) {
     arguments_assert(arguments, [
         js_node_is,
