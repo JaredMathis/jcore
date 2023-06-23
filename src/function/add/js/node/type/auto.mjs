@@ -13,6 +13,9 @@ export async function function_add_js_node_type_auto(function_name) {
     if (false) {
         let property_names = js_identifiers_filter_to_node_properties_get(identifiers);
         let prefix = js_prefix_node_property();
+        for (let property_name of property_names) {
+            await function_add_property_get(prefix, property_name);
+        }
         await functions_new_if_not_exists(js_identifiers_filter_to_node_properties_get, property_name => function_add_property_get, identifiers);
     }
     await functions_new_if_not_exists(js_identifiers_filter_to_node_types, function_add_js_node_type_snake, identifiers);
