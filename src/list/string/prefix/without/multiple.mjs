@@ -8,10 +8,11 @@ export function list_string_prefix_without_multiple(strings, prefixes) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
+    let predicate = string_starts_with
     return list_adder_unique(la => {
         for (let p of prefixes) {
             for (let s of strings) {
-                if (string_starts_with(s, p)) {
+                if (predicate(s, p)) {
                     const v = string_prefix_without(s, p);
                     la(v);
                 }
