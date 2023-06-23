@@ -12,10 +12,10 @@ export async function visit_filter_async(root, children_get, filter, lambda) {
         function_is
     ]);
     visit(root, children_get, lambda_local);
-    function lambda_local(v) {
+    async function lambda_local(v) {
         let node = object_property_get(v, 'node');
         if (filter(node)) {
-            let v_2 = lambda(v);
+            let v_2 = await lambda(v);
             return v_2;
         }
     }
