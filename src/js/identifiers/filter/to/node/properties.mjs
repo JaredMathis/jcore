@@ -1,3 +1,4 @@
+import { js_identifiers_suffixes_without } from '../../../suffixes/without.mjs';
 import { js_prefix_node_property } from '../../../../prefix/node/property.mjs';
 import { js_identifiers_prefixes_without } from '../../../prefixes/without.mjs';
 import { list_is } from '../../../../../list/is.mjs';
