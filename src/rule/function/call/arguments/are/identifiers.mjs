@@ -10,6 +10,7 @@ import { assert_message } from '../../../../../assert/message.mjs';
 import { equal } from '../../../../../equal.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { list_any } from '../../../../../list/any.mjs';
+import { metadata } from '../../../../../metadata.mjs';
 export async function rule_function_call_arguments_are_identifiers() {
     arguments_assert(arguments, []);
     await function_names_each(args => {
@@ -17,7 +18,10 @@ export async function rule_function_call_arguments_are_identifiers() {
         let {file_path} = args;
         js_nodes_each(parsed, js_node_is_call_expression, node => {
             let name = js_call_expression_name_get(node);
-            const rule_exceptions = [function_name_get(arguments_assert)];
+            const rule_exceptions = [
+                function_name_get(arguments_assert),
+                function_name_get(metadata)
+            ];
             if (list_any(rule_exceptions, e => equal(e, name))) {
                 return;
             }
