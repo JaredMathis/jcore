@@ -6,5 +6,6 @@ export function refactor_if_expression_statement_to_block_statement(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
     js_nodes_each(parsed, js_node_is_if_statement, node => {
+        let consequent = js_node_property_consequent_get(node);
     });
 }
