@@ -1,3 +1,4 @@
+import { js_prefix_node_property } from '../../../../../js/prefix/node/property.mjs';
 import { function_add_property_get } from '../../../property/get.mjs';
 import { functions_new_if_not_exists } from '../../../../../functions/new/if/not/exists.mjs';
 import { js_identifiers_filter_to_node_properties_get } from '../../../../../js/identifiers/filter/to/node/properties/get.mjs';
@@ -10,7 +11,9 @@ export async function function_add_js_node_type_auto(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let identifiers = await function_identifiers(function_name);
     if (false) {
-        await functions_new_if_not_exists(js_identifiers_filter_to_node_properties_get, function_add_property_get, identifiers);
+        let property_names = js_identifiers_filter_to_node_properties_get(identifiers);
+        let prefix = js_prefix_node_property();
+        await functions_new_if_not_exists(js_identifiers_filter_to_node_properties_get, property_name => function_add_property_get, identifiers);
     }
     await functions_new_if_not_exists(js_identifiers_filter_to_node_types, function_add_js_node_type_snake, identifiers);
 }
