@@ -1,7 +1,7 @@
 import { metadata_generated } from '../metadata/generated.mjs';
 import { metadata } from '../metadata.mjs';
 import { object_property_get } from '../object/property/get.mjs';
-import { visit } from './async.mjs';
+import { visit } from '../visit.mjs';
 import { function_is } from '../function/is.mjs';
 import { defined_is } from '../defined/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
