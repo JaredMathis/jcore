@@ -17,8 +17,7 @@ export async function rule_function_call_arguments_are_identifiers() {
         let {file_path} = args;
         js_nodes_each(parsed, js_node_is_call_expression, node => {
             let name = js_call_expression_name_get(node);
-            const rule_exception = function_name_get(arguments_assert);
-            const rule_exceptions = [rule_exception];
+            const rule_exceptions = [function_name_get(arguments_assert)];
             if (list_any(rule_exceptions, e => equal(e, name))) {
                 return;
             }
