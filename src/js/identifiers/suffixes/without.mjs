@@ -8,7 +8,6 @@ export function js_identifiers_suffixes_without(suffixes, identifier_names) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    return [];
     let mapped = list_map(suffixes, function_name_separator_prepend);
     return list_string_suffix_without_multiple(identifier_names, mapped);
 }
