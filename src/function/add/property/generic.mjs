@@ -1,3 +1,4 @@
+import { js_identifier_prefix_property } from '../../../js/identifier/prefix/property.mjs';
 import { function_input_named_value } from '../../input/named/value.mjs';
 import { js_code_identifier_value } from '../../../js/code/identifier/value.mjs';
 import { boolean_is } from '../../../boolean/is.mjs';
@@ -23,7 +24,7 @@ export async function function_add_property_generic(property_prefix, property_na
         arguments_assert_todo,
         boolean_is
     ]);
-    let property_name_fn_get_prefix = js_identifier_combine(property_prefix, 'property');
+    let property_name_fn_get_prefix = js_identifier_prefix_property(property_prefix);
     let property_name_fn_get = js_identifier_combine(property_name_fn_get_prefix, property_name);
     if (not(await function_exists(property_name_fn_get))) {
         await function_add_string_prefix(property_name_fn_get_prefix, property_name);
