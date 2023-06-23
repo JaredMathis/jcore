@@ -22,6 +22,8 @@ export async function function_add_js_node_type_auto(function_name) {
         let property_name_fn_get = js_identifier_combine(prefix, property_name);
         let function_name_new = js_identifier_combine(property_name_fn_get, method);
         if (!await function_exists(function_name_new)) {
+            console.log({prefix,property_name})
+            return;
             await function_add_property_get(prefix, property_name);
         }
     }
