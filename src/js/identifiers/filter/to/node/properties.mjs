@@ -6,8 +6,7 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export function js_identifiers_filter_to_node_properties(identifier_names) {
     arguments_assert(arguments, [list_is]);
     const prefixes = [
-        js_prefix_node_is(),
-        js_prefix_node_type()
+        js_prefix_node_property(),
     ];
     return js_identifiers_prefixes_without(prefixes, identifier_names);
 }
