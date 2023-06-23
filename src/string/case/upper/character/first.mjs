@@ -8,7 +8,7 @@ import { string_is } from '../../../is.mjs';
 export function string_case_upper_character_first(value) {
     arguments_assert(arguments, [string_is]);
     let first = string_get(value, 0);
-    let first_upper = string_to_case_upper(first)
+    let first_upper = string_to_case_upper(first);
     let remaining = string_skip(value, 1);
     let result = string_combine(first_upper, remaining);
     return result;
