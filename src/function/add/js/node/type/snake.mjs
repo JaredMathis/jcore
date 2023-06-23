@@ -14,7 +14,7 @@ import { js_code_identifier_value } from '../../../../../js/code/identifier/valu
 import { js_prefix_node_is } from '../../../../../js/prefix/node/is.mjs';
 import { function_add_string_prefix_camel_generic } from '../../../string/prefix/camel/generic.mjs';
 import { js_prefix_node_type } from '../../../../../js/prefix/node/type.mjs';
-import { function_name_separator_combine } from '../../../../name/separator/combine.mjs';
+import { function_name_separator_append } from '../../../../name/separator/append.mjs';
 import { list_filter } from '../../../../../list/filter.mjs';
 import { null_not_is } from '../../../../../null/not/is.mjs';
 export async function function_add_js_node_type_snake(snake) {
@@ -23,7 +23,7 @@ export async function function_add_js_node_type_snake(snake) {
     let camel_case = string_case_snake_to_camel(snake);
     let function_name_js_node_type = js_identifier_combine(prefix_2, snake);
     let v_1 = await function_add_string_prefix_camel_generic(prefix_2, camel_case, false);
-    let prefix_1 = function_name_separator_combine(js_prefix_node_is());
+    let prefix_1 = function_name_separator_append(js_prefix_node_is());
     let function_name_js_node_is = `${ prefix_1 }${ snake }`;
     let value = js_code_identifier_value();
     let expression = js_code_call_expression_with_args(function_name_get(js_node_is_type), [
