@@ -1,4 +1,4 @@
-import { js_code_function_named } from '../../../code/function/named.mjs';
+import { js_function_declaration_named } from '../../../function/declaration/named.mjs';
 import { js_function_declaration_asyncify } from '../../../function/declaration/asyncify.mjs';
 import { js_node_property_async_get } from '../../../node/property/async/get.mjs';
 import { js_node_property_body } from '../../../node/property/body.mjs';
@@ -9,7 +9,6 @@ import { js_code_return_statement } from '../../../code/return/statement.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { js_node_is_arrow_function_expression } from '../../../node/is/arrow/function/expression.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
-import { js_parse_expression } from '../../../parse/expression.mjs';
 import { string_a } from '../../../../string/a.mjs';
 import { js_parse_statement } from '../../../parse/statement.mjs';
 import { js_function_declaration_to_statements } from '../../../function/declaration/to/statements.mjs';
@@ -25,8 +24,7 @@ export function js_arrow_function_expression_functionify(node, name) {
     ]);
     let is_async = js_node_property_async_get(node);
     let body = js_arrow_function_expression_body(node);
-    let function_code = js_code_function_named(name);
-    let function_expression = js_parse_expression(function_code);
+    let function_expression = js_function_declaration_named(name);
     if (is_async) {
         js_function_declaration_asyncify(function_expression);
     }
