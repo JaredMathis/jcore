@@ -25,6 +25,8 @@ export async function rule_constant_numbers_are_function_outputs() {
                 return;
             }
             assert_message(integer_is(value), 'need to handle non-integers maybe');
+            assert_message(value >= 0, 'need to handle negatives maybe');
+            let function_name_new = `integer_value_${ value }`;
             let name = js_call_expression_name_get(node);
             const rule_exceptions = [
                 function_name_get(arguments_assert),
