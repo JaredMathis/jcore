@@ -14,5 +14,5 @@ export function js_identifiers_filter_to_node_types(identifier_names) {
         prefix_2
     ];
     let mapped = list_map(prefixes, function_name_separator_combine);
-    return list_string_prefix_without_multiple(mapped, identifier_names);
+    return list_string_prefix_without_multiple(identifier_names, mapped);
 }
