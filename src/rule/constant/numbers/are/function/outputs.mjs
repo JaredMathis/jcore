@@ -19,7 +19,7 @@ export async function rule_constant_numbers_are_function_outputs() {
     await function_names_each(args => {
         let {parsed} = args;
         let {file_path} = args;
-        js_nodes_each(parsed, js_node_is_literal, node => {
+        js_nodes_each(parsed, js_node_is_literal, async node => {
             let value = js_node_property_value_get(node);
             if (!number_is(value)) {
                 return;
