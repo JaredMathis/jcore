@@ -7,6 +7,7 @@ import { function_exists } from '../../../../exists.mjs';
 export async function function_add_js_node_type_auto(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let identifiers = await function_identifiers(function_name);
+    let lambda_function_create_get = js_identifiers_filter_to_node_types;
     let needed = js_identifiers_filter_to_node_types(identifiers);
     let lambda_function_create = function_add_js_node_type_snake;
     for (let n of needed) {
