@@ -1,3 +1,4 @@
+import { js_node_property_value_get } from '../../../../../js/node/property/value/get.mjs';
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
 import { list_all } from '../../../../../list/all.mjs';
 import { assert_message } from '../../../../../assert/message.mjs';
@@ -7,7 +8,6 @@ import { list_any } from '../../../../../list/any.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { js_call_expression_name_get } from '../../../../../js/call/expression/name/get.mjs';
-import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
 import { js_nodes_each } from '../../../../../js/nodes/each.mjs';
 import { function_names_each } from '../../../../../function/names/each.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
@@ -18,6 +18,7 @@ export async function rule_constant_numbers_are_function_outputs() {
         let {parsed} = args;
         let {file_path} = args;
         js_nodes_each(parsed, js_node_is_literal, node => {
+            let value = js_node_property_value_get(node);
             let name = js_call_expression_name_get(node);
             const rule_exceptions = [
                 function_name_get(arguments_assert),
