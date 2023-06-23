@@ -2,7 +2,7 @@ import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { function_add_with_statement_code } from './with/statement/code.mjs';
 import { js_code_return_statement } from '../../js/code/return/statement.mjs';
-export async function function_add_return(return_expression_code, function_name) {
+export async function function_add_return(function_name, return_expression_code) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo
