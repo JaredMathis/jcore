@@ -1,9 +1,10 @@
+import { metadata_generated } from '../metadata/generated.mjs';
+import { metadata } from '../metadata.mjs';
+import { object_property_get } from '../object/property/get.mjs';
+import { visit } from './async.mjs';
 import { function_is } from '../function/is.mjs';
 import { defined_is } from '../defined/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-import { metadata } from '../metadata.mjs';
-import { object_property_get } from '../object/property/get.mjs';
-import { visit } from '../visit.mjs';
 export function visit_filter(root, children_get, filter, lambda) {
     arguments_assert(arguments, [
         defined_is,
@@ -19,5 +20,5 @@ export function visit_filter(root, children_get, filter, lambda) {
             return v_2;
         }
     }
-    metadata([]);
+    metadata([metadata_generated()]);
 }

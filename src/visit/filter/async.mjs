@@ -1,6 +1,6 @@
+import { visit_async } from '../async.mjs';
 import { metadata } from '../../metadata.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
-import { visit } from '../../visit.mjs';
 import { function_is } from '../../function/is.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -11,7 +11,7 @@ export async function visit_filter_async(root, children_get, filter, lambda) {
         function_is,
         function_is
     ]);
-    visit(root, children_get, lambda_local);
+    await visit_async(root, children_get, lambda_local);
     async function lambda_local(v) {
         let node = object_property_get(v, 'node');
         if (filter(node)) {
