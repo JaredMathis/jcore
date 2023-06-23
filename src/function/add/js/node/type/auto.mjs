@@ -1,3 +1,4 @@
+import { js_identifier_combine } from '../../../../../js/identifier/combine.mjs';
 import { js_identifier_prefix_property } from '../../../../../js/identifier/prefix/property.mjs';
 import { js_prefix_node_property } from '../../../../../js/prefix/node/property.mjs';
 import { function_add_property_get } from '../../../property/get.mjs';
