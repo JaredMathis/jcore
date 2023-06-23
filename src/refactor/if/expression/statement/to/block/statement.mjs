@@ -18,10 +18,10 @@ export function refactor_if_expression_statement_to_block_statement(args) {
         let consequent = js_node_property_consequent_get(node);
         if (js_node_is_expression_statement(consequent)) {
             let function_expression = js_function_declaration_named(string_a());
-            let body = js_node_property_body_get(function_expression);
-            assert(js_node_is_block_statement(body));
+            let block_statement = js_node_property_body_get(function_expression);
+            assert(js_node_is_block_statement(block_statement));
             let copy = object_copy_shallow(consequent);
-            console.log({ body });
+            console.log({ body: block_statement });
         }
     });
 }
