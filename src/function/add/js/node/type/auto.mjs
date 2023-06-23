@@ -20,7 +20,9 @@ export async function function_add_js_node_type_auto(function_name) {
     for (let property_name of property_names) {
         let method = js_suffix_get();
         let property_name_fn_get_prefix = js_identifier_prefix_property(prefix);
+        console.log({property_name_fn_get_prefix})
         let property_name_fn_get = js_identifier_combine(property_name_fn_get_prefix, property_name);
+        console.log({property_name_fn_get})
         let function_name_new = js_identifier_combine(property_name_fn_get, method);
         console.log({function_name_new})
         if (!await function_exists(function_name_new)) {
