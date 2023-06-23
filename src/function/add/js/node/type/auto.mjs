@@ -11,7 +11,7 @@ export async function function_add_js_node_type_auto(function_name) {
     let lambda_function_create = function_add_js_node_type_snake;
     for (let n of needed) {
         if (!await function_exists(n)) {
-            await function_add_js_node_type_snake(n);
+            await lambda_function_create(n);
         }
     }
 }
