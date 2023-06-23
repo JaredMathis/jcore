@@ -7,11 +7,9 @@ import { list_is } from '../../../../../list/is.mjs';
 import { list_map } from '../../../../../list/map.mjs';
 export function js_identifiers_filter_to_node_types(identifier_names) {
     arguments_assert(arguments, [list_is]);
-    let prefix_1 = js_prefix_node_is();
-    let prefix_2 = js_prefix_node_type();
     const prefixes = [
-        prefix_1,
-        prefix_2
+        js_prefix_node_is(),
+        js_prefix_node_type()
     ];
     let mapped = list_map(prefixes, function_name_separator_combine);
     return list_string_prefix_without_multiple(identifier_names, mapped);
