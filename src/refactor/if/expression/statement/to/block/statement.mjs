@@ -1,3 +1,4 @@
+import { log } from '../../../../../../log.mjs';
 import { object_copy_shallow } from '../../../../../../object/copy/shallow.mjs';
 import { js_function_declaration_named } from '../../../../../../js/function/declaration/named.mjs';
 import { js_node_property_body_get } from '../../../../../../js/node/property/body/get.mjs';
@@ -20,6 +21,7 @@ export function refactor_if_expression_statement_to_block_statement(args) {
             let body = js_node_property_body_get(function_expression);
             assert(js_node_is_block_statement(body));
             let copy = object_copy_shallow(consequent);
+            console.log({ body });
         }
     });
 }
