@@ -11,6 +11,10 @@ export function js_identifiers_filter_to_node_types(identifier_names) {
         js_prefix_node_is(),
         js_prefix_node_type()
     ];
+    return js_identifiers_prefixes_without(prefixes, identifier_names);
+}
+
+function js_identifiers_prefixes_without(prefixes, identifier_names) {
     let mapped = list_map(prefixes, function_name_separator_combine);
     return list_string_prefix_without_multiple(identifier_names, mapped);
 }
