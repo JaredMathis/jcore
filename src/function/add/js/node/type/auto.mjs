@@ -1,3 +1,5 @@
+import { js_suffix_get } from '../../../../../js/suffix/get.mjs';
+import { log } from '../../../../../log.mjs';
 import { js_identifier_combine } from '../../../../../js/identifier/combine.mjs';
 import { js_identifier_prefix_property } from '../../../../../js/identifier/prefix/property.mjs';
 import { js_prefix_node_property } from '../../../../../js/prefix/node/property.mjs';
@@ -17,6 +19,8 @@ export async function function_add_js_node_type_auto(function_name) {
     console.log({ property_names });
     let prefix = js_prefix_node_property();
     for (let property_name of property_names) {
+        return;
+        let method = js_suffix_get();
         let property_name_fn_get_prefix = js_identifier_prefix_property(prefix);
         let property_name_fn_get = js_identifier_combine(property_name_fn_get_prefix, property_name);
         let function_name = js_identifier_combine(property_name_fn_get, method);
