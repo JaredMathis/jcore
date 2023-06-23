@@ -11,6 +11,10 @@ export async function function_add_js_node_type_auto(function_name) {
     let needed2 = js_identifiers_filter_to_node_properties(identifiers);
     let lambda_function_new = function_add_js_node_type_snake
     let lambda_function_new_get = js_identifiers_filter_to_node_types;
+    await functions_new_if_not_exists(lambda_function_new_get, identifiers, lambda_function_new);
+}
+
+async function functions_new_if_not_exists(lambda_function_new_get, identifiers, lambda_function_new) {
     let needed = lambda_function_new_get(identifiers);
     for (let n of needed) {
         if (!await function_exists(n)) {
