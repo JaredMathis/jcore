@@ -5,6 +5,8 @@ import { arguments_assert_todo } from '../../../../../../arguments/assert/todo.m
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { js_nodes_each } from '../../../../../../js/nodes/each.mjs';
 import { js_node_is_expression_statement } from '../../../../../../js/node/is/expression/statement.mjs';
+import { assert } from '../../../../../../assert.mjs';
+import { js_node_is_block_statement } from '../../../../../../js/node/is/block/statement.mjs';
 export function refactor_if_expression_statement_to_block_statement(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
@@ -12,7 +14,8 @@ export function refactor_if_expression_statement_to_block_statement(args) {
         let consequent = js_node_property_consequent_get(node);
         if (js_node_is_expression_statement(consequent)) {
             let function_expression = js_function_declaration_named(name);
-            js_node_property_body_get;
+            let body = js_node_property_body_get(function_expression);
+            assert(js_node_is_block_statement(body))
         }
     });
 }
