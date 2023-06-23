@@ -21,9 +21,10 @@ export async function rule_constant_numbers_are_function_outputs() {
         let {file_path} = args;
         js_nodes_each(parsed, js_node_is_literal, node => {
             let value = js_node_property_value_get(node);
-            if (number_is(value)) {
-                assert_message(integer_is(value), 'need to handle non-integers maybe');
+            if (!number_is(value)) {
+                return;
             }
+            assert_message(integer_is(value), 'need to handle non-integers maybe');
             let name = js_call_expression_name_get(node);
             const rule_exceptions = [
                 function_name_get(arguments_assert),
