@@ -6,4 +6,5 @@ export function js_identifiers_filter_to_node_properties(identifier_names) {
     arguments_assert(arguments, [list_is]);
     const prefixes = [js_prefix_node_property()];
     let filtered = js_identifiers_prefixes_without(prefixes, identifier_names);
+    let filtered2 = js_identifiers_suffixes_without(['get'], filtered);
 }
