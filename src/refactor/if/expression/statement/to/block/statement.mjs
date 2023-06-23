@@ -1,3 +1,4 @@
+import { js_node_property_consequent_get } from '../../../../../../js/node/property/consequent/get.mjs';
 import { js_node_is_if_statement } from '../../../../../../js/node/is/if/statement.mjs';
 import { arguments_assert_todo } from '../../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
