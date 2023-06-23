@@ -1,3 +1,4 @@
+import { list_set } from '../../../list/set.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { function_copy } from '../../copy.mjs';
 import { js_identifier_parts_from } from '../../../js/identifier/parts/from.mjs';
@@ -13,6 +14,7 @@ export async function function_copy_part_change(function_name_prefix, part_to_ch
     ]);
     let function_name_prefix_parts = js_identifier_parts_to(function_name_prefix);
     let index = list_index_of_single(function_name_prefix_parts, part_to_change_from);
+    list_set(function_name_prefix_parts, index, part_to_change_to);
     let function_name_of_copy = js_identifier_parts_from(function_name_prefix_parts);
     await function_copy(function_name_prefix, function_name_of_copy);
 }
