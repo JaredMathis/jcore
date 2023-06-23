@@ -9,6 +9,7 @@ import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs'
 import { assert_message } from '../../../../../assert/message.mjs';
 import { equal } from '../../../../../equal.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
+import { list_any } from '../../../../../list/any.mjs';
 export async function rule_function_call_arguments_are_identifiers() {
     arguments_assert(arguments, []);
     await function_names_each(args => {
@@ -18,7 +19,7 @@ export async function rule_function_call_arguments_are_identifiers() {
             let name = js_call_expression_name_get(node);
             const rule_exception = function_name_get(arguments_assert);
             const rule_exceptions = [rule_exception];
-            if (equal(name, rule_exception)) {
+            if (list_any(rule_exceptions, e => equal(e, name))) {
                 return;
             }
             let args = js_node_property_arguments_get(node);
