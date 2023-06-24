@@ -42,6 +42,6 @@ export async function refactor_unasyncify(args) {
     let function_name = js_function_declaration_to_name(function_declaration);
     js_import_remove_if_exists(parsed, imports, function_name);
     let refactors = function_auto_no_add_refactors();
-    await refactor_multiple(args, list_multiple_combine([refactors, [refactor_import_fix]]));
+    await refactor_multiple(args, refactors);
     metadata([]);
 }
