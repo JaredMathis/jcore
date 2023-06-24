@@ -17,6 +17,8 @@ import { string_ends_with } from '../string/ends/with.mjs';
 import { string_suffix_without } from '../string/suffix/without.mjs';
 import { js_function_declaration_to_name } from '../js/function/declaration/to/name.mjs';
 import { object_property_change } from '../object/property/change.mjs';
+import { list_add_multiple } from '../list/add/multiple.mjs';
+import { refactor_import_fix } from './import/fix.mjs';
 export async function refactor_unasyncify(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
@@ -39,6 +41,6 @@ export async function refactor_unasyncify(args) {
     let function_name = js_function_declaration_to_name(function_declaration);
     js_import_remove_if_exists(parsed, imports, function_name);
     let refactors = function_auto_no_add_refactors();
-    await refactor_multiple(args, refactors);
+    await refactor_multiple(args, list_add_multiple(refactors, [refactor_import_fix]));
     metadata([]);
 }
