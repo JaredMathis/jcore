@@ -18,7 +18,6 @@ import { object_property_change } from '../object/property/change.mjs';
 export async function refactor_unasyncify(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
-    return;
     let callables = js_nodes_get(parsed, js_node_callable_is);
     for (let callable of callables) {
         let v = js_keyword_asynk();
