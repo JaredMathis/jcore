@@ -18,12 +18,13 @@ import { integer_is } from '../../../../../integer/is.mjs';
 import { list_map } from '../../../../../list/map.mjs';
 import { string_to } from '../../../../../string/to.mjs';
 import { function_exists } from '../../../../../function/exists.mjs';
+import { js_visit_nodes_filter } from '../../../../../js/visit/nodes/filter.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
     await function_names_each(args => {
         let {parsed} = args;
         let {file_path} = args;
-        js_nodes_each(parsed, js_node_is_literal, async node => {
+        js_visit_nodes_filter(parsed, js_node_is_literal, async node => {
             let value = js_node_property_value_get(node);
             if (!number_is(value)) {
                 return;
@@ -44,6 +45,12 @@ export async function rule_constant_numbers_are_function_outputs() {
                 return;
             }
             let args = js_node_property_arguments_get(node);
+            for (let a of args) {
+                if (js_node_is_identifier(a)) {
+                    continue;
+                }
+
+            }
             assert_message(list_all(args, js_node_is_identifier), file_path);
         });
     });
