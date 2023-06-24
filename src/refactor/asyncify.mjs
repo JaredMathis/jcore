@@ -19,7 +19,7 @@ export async function refactor_asyncify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
     if (false)
-    js_callable_multiple_assert_not(parsed);
+        js_callable_multiple_assert_not(parsed);
     refactor_async_add(args);
     let function_names = await function_name_all();
     let function_names_dictionary = list_string_to_dictionary(function_names, identity);

@@ -1,7 +1,7 @@
 import { refactor_multiple } from './multiple.mjs';
 import { function_auto_no_add_refactors } from '../function/auto/no/add/refactors.mjs';
 import { js_nodes_get } from '../js/nodes/get.mjs';
-import { js_node_is_callable } from '../js/node/is/callable.mjs';
+import { js_node_callable_is } from '../js/node/callable/is.mjs';
 import { refactor_metadata_generated_add_function } from './metadata/generated/add/function.mjs';
 import { defined_is } from '../defined/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -20,7 +20,7 @@ import { object_property_change } from '../object/property/change.mjs';
 export async function refactor_unasyncify(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
-    let callables = js_nodes_get(parsed, js_node_is_callable);
+    let callables = js_nodes_get(parsed, js_node_callable_is);
     for (let callable of callables) {
         let v = js_keyword_asynk();
         object_property_change(callable, v, false);
