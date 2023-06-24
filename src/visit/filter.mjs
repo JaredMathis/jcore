@@ -1,3 +1,4 @@
+import { metadata_generated } from '../metadata/generated.mjs';
 import { metadata } from '../metadata.mjs';
 import { object_property_get } from '../object/property/get.mjs';
 import { visit } from '../visit.mjs';
@@ -12,12 +13,12 @@ export function visit_filter(root, children_get, filter, lambda) {
         function_is
     ]);
     visit(root, children_get, lambda_local);
-    async function lambda_local(v) {
+    function lambda_local(v) {
         let node = object_property_get(v, 'node');
         if (filter(node)) {
             let v_2 = lambda(v);
             return v_2;
         }
     }
-    metadata([]);
+    metadata([metadata_generated()]);
 }
