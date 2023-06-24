@@ -1,3 +1,4 @@
+import { function_add_return } from '../../../../../function/add/return.mjs';
 import { js_node_property_value_get } from '../../../../../js/node/property/value/get.mjs';
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
 import { list_all } from '../../../../../list/all.mjs';
