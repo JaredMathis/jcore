@@ -14,6 +14,7 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { js_node_is_literal } from '../../../../../js/node/is/literal.mjs';
 import { number_is } from '../../../../../number/is.mjs';
 import { integer_is } from '../../../../../integer/is.mjs';
+import { list_map } from '../../../../../list/map.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
     await function_names_each(args => {
@@ -30,10 +31,11 @@ export async function rule_constant_numbers_are_function_outputs() {
             await function_add_return(function_name_new, integer_to_string(value));
             let name = js_call_expression_name_get(node);
             const rule_exceptions = [
-                function_name_get(arguments_assert),
-                function_name_get(metadata)
+                arguments_assert,
+                metadata
             ];
-            if (list_any(rule_exceptions, e => equal(e, name))) {
+            let rule_exceptions_names = list_map(rule_exceptions, function_name_get);
+            if (list_any(rule_exceptions_names, e => equal(e, name))) {
                 return;
             }
             let args = js_node_property_arguments_get(node);
