@@ -74,7 +74,7 @@ export async function sandbox() {
     function random_input() {
         let result = '';
         for (let index of range(random_between(8, 16))) {
-            let c = random_get() > 0.5 ? 'a' : 'b';
+            let c = random_get() > (1/2) ? 'a' : 'b';
             let v_3 = random_between(1, 3);
             let m = string_multiply(c, v_3);
             result = result + m;
