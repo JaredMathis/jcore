@@ -1,9 +1,10 @@
+import { refactor_multiple } from './multiple.mjs';
+import { function_auto_no_add_refactors } from '../function/auto/no/add/refactors.mjs';
 import { js_nodes_get } from '../js/nodes/get.mjs';
 import { js_node_is_callable } from '../js/node/is/callable.mjs';
 import { refactor_metadata_generated_add_function } from './metadata/generated/add/function.mjs';
 import { defined_is } from '../defined/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-import { function_auto_no_add_refactors_invoke } from '../function/auto/no/add/refactors/invoke.mjs';
 import { js_import_remove_if_exists } from '../js/import/remove/if/exists.mjs';
 import { js_import_all_with_function_names } from '../js/import/all/with/function/names.mjs';
 import { js_identifier_rename_if } from '../js/identifier/rename/if.mjs';
@@ -37,6 +38,7 @@ export async function refactor_unasyncify(args) {
     let imports = await js_import_all_with_function_names(parsed);
     let function_name = js_function_declaration_to_name(function_declaration);
     js_import_remove_if_exists(parsed, imports, function_name);
-    await function_auto_no_add_refactors_invoke(args);
+    let refactors = function_auto_no_add_refactors();
+    await refactor_multiple(args, refactors);
     metadata([]);
 }
