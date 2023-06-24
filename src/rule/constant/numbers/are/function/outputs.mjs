@@ -1,3 +1,4 @@
+import { js_visit_nodes_filter_async } from '../../../../../js/visit/nodes/filter/async.mjs';
 import { function_add_return } from '../../../../../function/add/return.mjs';
 import { js_node_property_value_get } from '../../../../../js/node/property/value/get.mjs';
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
@@ -9,7 +10,6 @@ import { list_any } from '../../../../../list/any.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { js_call_expression_name_get } from '../../../../../js/call/expression/name/get.mjs';
-import { js_nodes_each } from '../../../../../js/nodes/each.mjs';
 import { function_names_each } from '../../../../../function/names/each.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { js_node_is_literal } from '../../../../../js/node/is/literal.mjs';
@@ -18,13 +18,12 @@ import { integer_is } from '../../../../../integer/is.mjs';
 import { list_map } from '../../../../../list/map.mjs';
 import { string_to } from '../../../../../string/to.mjs';
 import { function_exists } from '../../../../../function/exists.mjs';
-import { js_visit_nodes_filter } from '../../../../../js/visit/nodes/filter.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
-    await function_names_each(args => {
+    await function_names_each(async args => {
         let {parsed} = args;
         let {file_path} = args;
-        js_visit_nodes_filter(parsed, js_node_is_literal, async node => {
+        await js_visit_nodes_filter_async(parsed, js_node_is_literal, async node => {
             let value = js_node_property_value_get(node);
             if (!number_is(value)) {
                 return;
@@ -49,7 +48,6 @@ export async function rule_constant_numbers_are_function_outputs() {
                 if (js_node_is_identifier(a)) {
                     continue;
                 }
-
             }
             assert_message(list_all(args, js_node_is_identifier), file_path);
         });
