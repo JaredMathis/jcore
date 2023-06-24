@@ -35,7 +35,7 @@ export async function rule_constant_numbers_are_function_outputs() {
             if (!await function_exists(function_name_new)) {
                 await function_add_return(function_name_new, string_to(value));
             }
-            js_code_call_expression();
+            let ce = js_code_call_expression(function_name_new);
             let name = js_call_expression_name_get(node);
             const rule_exceptions = [
                 arguments_assert,
