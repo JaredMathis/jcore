@@ -1,3 +1,4 @@
+import { js_node_callable_is } from '../js/node/callable/is.mjs';
 import { js_nodes_get } from '../js/nodes/get.mjs';
 import { refactor_metadata_generated_add_function } from './metadata/generated/add/function.mjs';
 import { defined_is } from '../defined/is.mjs';
