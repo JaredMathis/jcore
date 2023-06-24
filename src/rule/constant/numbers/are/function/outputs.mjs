@@ -1,9 +1,9 @@
+import { file_js_all_map_args_if_function } from '../../../../../file/js/all/map/args/if/function.mjs';
 import { js_code_call_expression } from '../../../../../js/code/call/expression.mjs';
 import { js_visit_nodes_filter_async } from '../../../../../js/visit/nodes/filter/async.mjs';
 import { function_add_return } from '../../../../../function/add/return.mjs';
 import { js_node_property_value_get } from '../../../../../js/node/property/value/get.mjs';
 import { assert_message } from '../../../../../assert/message.mjs';
-import { function_names_each } from '../../../../../function/names/each.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { js_node_is_literal } from '../../../../../js/node/is/literal.mjs';
 import { number_is } from '../../../../../number/is.mjs';
@@ -14,7 +14,7 @@ import { object_replace } from '../../../../../object/replace.mjs';
 import { refactor_import_fix } from '../../../../../refactor/import/fix.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
-    await function_names_each(async args => {
+    await file_js_all_map_args_if_function(async args => {
         let {parsed} = args;
         let {file_path} = args;
         await js_visit_nodes_filter_async(parsed, js_node_is_literal, async node => {
