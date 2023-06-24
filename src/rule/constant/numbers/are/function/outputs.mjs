@@ -16,6 +16,7 @@ import { number_is } from '../../../../../number/is.mjs';
 import { integer_is } from '../../../../../integer/is.mjs';
 import { list_map } from '../../../../../list/map.mjs';
 import { string_to } from '../../../../../string/to.mjs';
+import { function_exists } from '../../../../../function/exists.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
     await function_names_each(args => {
@@ -29,7 +30,9 @@ export async function rule_constant_numbers_are_function_outputs() {
             assert_message(integer_is(value), 'need to handle non-integers maybe');
             assert_message(value >= 0, 'need to handle negatives maybe');
             let function_name_new = `integer_value_${ value }`;
-            await function_add_return(function_name_new, string_to(value));
+            if (!await function_exists(function_name_new)) {
+                await function_add_return(function_name_new, string_to(value));
+            }
             let name = js_call_expression_name_get(node);
             const rule_exceptions = [
                 arguments_assert,
