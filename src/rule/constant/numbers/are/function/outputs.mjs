@@ -1,3 +1,4 @@
+import { js_code_call_expression } from '../../../../../js/code/call/expression.mjs';
 import { js_visit_nodes_filter_async } from '../../../../../js/visit/nodes/filter/async.mjs';
 import { function_add_return } from '../../../../../function/add/return.mjs';
 import { js_node_property_value_get } from '../../../../../js/node/property/value/get.mjs';
@@ -34,6 +35,7 @@ export async function rule_constant_numbers_are_function_outputs() {
             if (!await function_exists(function_name_new)) {
                 await function_add_return(function_name_new, string_to(value));
             }
+            js_code_call_expression();
             let name = js_call_expression_name_get(node);
             const rule_exceptions = [
                 arguments_assert,
