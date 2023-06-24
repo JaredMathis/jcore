@@ -18,9 +18,9 @@ export async function rule_constant_numbers_are_function_outputs() {
     await file_js_all_map_args_if_function(async args => {
         let {parsed} = args;
         let {file_path} = args;
+        console.log({ file_path });
         await js_visit_nodes_filter_async(parsed, js_node_is_literal, async v => {
             let {node} = v;
-            console.log(node);
             let value = js_node_property_value_get(node);
             if (!number_is(value)) {
                 return;
