@@ -1,3 +1,4 @@
+import { metadata_generated } from '../../../metadata/generated.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { js_visit } from '../../visit.mjs';
 import { function_is } from '../../../function/is.mjs';
@@ -12,5 +13,5 @@ export function js_visit_nodes_filter(parsed, predicate, lambda) {
     js_visit(parsed, function v(node) {
         return js_node_is(node) && predicate(node);
     }, lambda);
-    metadata([]);
+    metadata([metadata_generated()]);
 }
