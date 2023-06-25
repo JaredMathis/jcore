@@ -1,3 +1,4 @@
+import { js_code_expression_string } from '../../../js/code/expression/string.mjs';
 import { js_node_property_name_get } from '../../../js/node/property/name/get.mjs';
 import { refactor_import_fix_if_changed } from '../../../refactor/import/fix/if/changed.mjs';
 import { js_node_property_arguments_get } from '../../../js/node/property/arguments/get.mjs';
@@ -24,11 +25,10 @@ export async function rule_member_expression_none() {
                 let property = js_node_property_property_get(node);
                 assert(js_node_is_identifier(property));
                 let property_name = js_node_property_name_get(property);
-                let ce_code = js_code_call_expression_object_property_get(string_a(), string_a());
+                let ce_code = js_code_call_expression_object_property_get(string_a(), js_code_expression_string(property_name));
                 let ce = js_parse_expression(ce_code);
                 let args = js_node_property_arguments_get(ce);
                 list_set(args, 0, object);
-                list_set(args, 1, property);
                 object_replace(node, ce);
                 changed();
             });
