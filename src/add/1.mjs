@@ -5,7 +5,8 @@ import { metadata } from '../metadata.mjs';
 import { add } from '../add.mjs';
 export function add_1(value) {
     arguments_assert(arguments, [number_is]);
-    let v = add(value, integer_value_1());
+    let v_2 = integer_value_1();
+    let v = add(value, v_2);
     return v;
     metadata([]);
 }

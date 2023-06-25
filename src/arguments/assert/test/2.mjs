@@ -9,8 +9,9 @@ import { assert_throws } from '../../../assert/throws.mjs';
 import { arguments_assert } from '../../assert.mjs';
 export function arguments_assert_test_2() {
     arguments_assert(arguments, []);
-    comment('Too few predicates');
-    assert_throws(function v() {
+    let v_3 = 'Too few predicates';
+    comment(v_3);
+    let v_4 = function v() {
         let v_2 = arguments_assert([
             integer_value_1(),
             integer_value_2(),
@@ -20,6 +21,7 @@ export function arguments_assert_test_2() {
             integer_is
         ]);
         return v_2;
-    });
+    };
+    assert_throws(v_4);
     metadata([metadata_arguments_assert_extra_allow()]);
 }

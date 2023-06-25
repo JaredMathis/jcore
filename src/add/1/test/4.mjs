@@ -7,8 +7,10 @@ import { equal } from '../../../equal.mjs';
 import { assert } from '../../../assert.mjs';
 export function add_1_test_4() {
     arguments_assert(arguments, []);
-    let v_2 = add_1(-integer_value_1());
-    let v = equal(v_2, integer_value_0());
+    let v_3 = -integer_value_1();
+    let v_2 = add_1(v_3);
+    let v_4 = integer_value_0();
+    let v = equal(v_2, v_4);
     assert(v);
     metadata([]);
 }
