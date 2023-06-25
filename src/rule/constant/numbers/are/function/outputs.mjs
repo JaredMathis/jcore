@@ -37,6 +37,7 @@ export async function rule_constant_numbers_are_function_outputs() {
                 let ces = list_filter(stack, s => js_node_is(s) && js_node_is_call_expression(s));
                 let ces_names = list_map(ces, js_call_expression_name_get);
                 if (list_empty_not(list_intersection(ces_names, excludes))) {
+                    console.log({ces_names,file_path})
                     return;
                 }
                 assert_message(integer_is(value), 'need to handle non-integers maybe');
