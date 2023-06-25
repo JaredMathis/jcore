@@ -1,3 +1,4 @@
+import { refactor_call_arguments_to_assignments_skip } from './assignments/skip.mjs';
 import { integer_value_1 } from '../../../../integer/value/1.mjs';
 import { js_node_assign_and_replace } from '../../../../js/node/assign/and/replace.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
@@ -16,6 +17,10 @@ export function refactor_call_arguments_to_assignments(args) {
     occurs_while(function v_17(c) {
         js_visit_call_statements(args, call_each);
         function call_each(stack_reversed, node, expression, ancestor_list) {
+            const skip = refactor_call_arguments_to_assignments_skip(node);
+            if (skip) {
+                return;
+            }
             let args = js_node_property_arguments_get(expression);
             for (let arg of args) {
                 if (!js_node_is_identifier(arg)) {
