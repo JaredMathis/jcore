@@ -1,3 +1,4 @@
+import { refactor_functions_arguments_assert_missing_add_excludes } from '../../../../../refactor/functions/arguments/assert/missing/add/excludes.mjs';
 import { log } from '../../../../../log.mjs';
 import { file_js_all_map_args_if_function } from '../../../../../file/js/all/map/args/if/function.mjs';
 import { js_visit_nodes_filter_async } from '../../../../../js/visit/nodes/filter/async.mjs';
@@ -19,6 +20,7 @@ import { list_map } from '../../../../../list/map.mjs';
 import { js_call_expression_name_get } from '../../../../../js/call/expression/name/get.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
+    let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await file_js_all_map_args_if_function(async args => {
         let {parsed} = args;
         let {file_path} = args;
