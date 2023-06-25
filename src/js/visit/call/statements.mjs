@@ -1,3 +1,4 @@
+import { js_node_property_expressions_get } from '../../node/property/expressions/get.mjs';
 import { js_node_is_template_literal } from '../../node/is/template/literal.mjs';
 import { result_property_data_get } from '../../../result/property/data/get.mjs';
 import { list_reversed_get } from '../../../list/reversed/get.mjs';
@@ -92,6 +93,11 @@ export function js_visit_call_statements(args, call_each) {
             }
             if (js_node_is_template_literal(expression)) {
                 error();
+                let expressions = js_node_property_expressions_get(expression);
+                refactor_call_expression_to_assignments(init, list_copy_shallow_add_multiple(refactor_stack, [
+                    declaration,
+                    init
+                ]));
             }
             let v_15 = not(js_node_is_call_expression(expression));
             if (v_15) {
