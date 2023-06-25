@@ -22,6 +22,7 @@ import { js_call_expression_name_get } from '../../../../../js/call/expression/n
 import { list_intersection } from '../../../../../list/intersection.mjs';
 import { js_node_is } from '../../../../../js/node/is.mjs';
 import { js_unparse } from '../../../../../js/unparse.mjs';
+import { error } from '../../../../../error.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
@@ -52,5 +53,6 @@ export async function rule_constant_numbers_are_function_outputs() {
             });
         });
         console.log(js_unparse(parsed))
+        error()
     });
 }
