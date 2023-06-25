@@ -18,6 +18,7 @@ import { comment } from '../../../../../../comment.mjs';
 import { js_node_is_template_literal } from '../../../../../node/is/template/literal.mjs';
 import { null_is } from '../../../../../../null/is.mjs';
 import { js_node_is } from '../../../../../node/is.mjs';
+import { js_node_property_body_get } from '../../../../../node/property/body/get.mjs';
 export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let stack_reversed_first = list_first(stack_reversed);
@@ -33,7 +34,7 @@ export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
     let parent_list_next = list_get(stack_reversed, parent_list_index)
     let v_14 = js_node_is_block_statement(parent_list_next);
     assert(v_14);
-    let ancestor_list = list_get(stack_reversed, parent_list_index);
+    let ancestor_list = js_node_property_body_get(parent_list_next);
     result_property_data_set(result, ancestor_list);
     return result;
 }
