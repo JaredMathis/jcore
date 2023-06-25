@@ -18,7 +18,7 @@ export async function rule_if_statement_arguments_are_identifiers() {
                 return;
             }
             let stack_reversed = list_reversed_get(refactor_stack);
-            let r = js_visit_stack_reversed_to_ancestor_list(stack_reversed);
+            let ancestor_list = js_visit_stack_reversed_to_ancestor_list(stack_reversed);
             js_node_assign_and_replace(parsed, expression_to_replace, ancestor_list, add_assignment_before_node);
         });
     });
