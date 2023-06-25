@@ -15,6 +15,7 @@ import { result_unsuccess } from '../../../../../../result/unsuccess.mjs';
 import { result_property_data_set } from '../../../../../../result/property/data/set.mjs';
 import { list_first } from '../../../../../../list/first.mjs';
 import { comment } from '../../../../../../comment.mjs';
+import { js_node_is_template_literal } from '../../../../../node/is/template/literal.mjs';
 export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let stack_reversed_first = list_first(stack_reversed);
@@ -30,13 +31,14 @@ export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
         result_unsuccess(result);
         return result;
     }
-    let v_2 = js_node_is_variable_declaration(parent_list_next);
+    let v_2 = js_node_is_variable_declaration(parent_list_next) || js_node_is_template_literal(parent_list_next);
     if (v_2) {
         list_find_first_after_result = list_find_first_start_at(stack_reversed, parent_list_index);
         parent_list_next = object_property_get(list_find_first_after_result, 'next');
         parent_list_index = object_property_get(list_find_first_after_result, 'index');
     }
     let v_14 = js_node_is_block_statement(parent_list_next);
+    console.log({parent_list_next})
     assert(v_14);
     let ancestor_list = list_get(stack_reversed, parent_list_index);
     result_property_data_set(result, ancestor_list);
