@@ -1,3 +1,4 @@
+import { refactor_import_fix_if_changed } from '../../../../../refactor/import/fix/if/changed.mjs';
 import { list_empty_not } from '../../../../../list/empty/not.mjs';
 import { refactor_functions_arguments_assert_missing_add_excludes } from '../../../../../refactor/functions/arguments/assert/missing/add/excludes.mjs';
 import { log } from '../../../../../log.mjs';
@@ -13,7 +14,6 @@ import { integer_is } from '../../../../../integer/is.mjs';
 import { string_to } from '../../../../../string/to.mjs';
 import { function_exists } from '../../../../../function/exists.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
-import { refactor_import_fix } from '../../../../../refactor/import/fix.mjs';
 import { js_parse_call_expression } from '../../../../../js/parse/call/expression.mjs';
 import { list_filter } from '../../../../../list/filter.mjs';
 import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
@@ -28,6 +28,8 @@ export async function rule_constant_numbers_are_function_outputs() {
         let {parsed} = args;
         let {file_path} = args;
         console.log({ file_path });
+        await refactor_import_fix_if_changed(changed => {
+        });
         await js_visit_nodes_filter_async(parsed, js_node_is_literal, async v => {
             let {node, stack} = v;
             let value = js_node_property_value_get(node);
