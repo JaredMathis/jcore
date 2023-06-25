@@ -32,7 +32,7 @@ export async function rule_if_statement_arguments_are_identifiers() {
             let ancestor_list = result_property_data_get(ancestor_list_result);
             let add_assignment_before_node_index = list_index_before(stack_reversed, ancestor_list);
             let add_assignment_before_node = list_get(stack_reversed, add_assignment_before_node_index);
-            js_node_assign_and_replace(parsed, node, ancestor_list, add_assignment_before_node);
+            js_node_assign_and_replace(parsed, test, ancestor_list, add_assignment_before_node);
             changed = true;
         });
         if (changed) {
