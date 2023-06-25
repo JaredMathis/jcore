@@ -33,7 +33,7 @@ export async function rule_constant_numbers_are_function_outputs() {
     await file_js_all_map_args_if_function(async args => {
         let {parsed} = args;
         let function_name = js_mapper_args_to_function_name(args);
-        if (string_starts_with(prefix)) {
+        if (string_starts_with(function_name, prefix)) {
             return;
         }
         if (list_contains(excludes, function_name)) {
