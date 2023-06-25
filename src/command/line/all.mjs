@@ -1,3 +1,4 @@
+import { object_property_get } from '../../object/property/get.mjs';
 import { not } from '../../not.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
@@ -10,9 +11,9 @@ export async function command_line_all(commands) {
     let result = result_empty();
     for (let c of commands) {
         let c_result = await command_line_try(c);
-        if (not(c_result.success)) {
+        if (not(object_property_get(c_result, 'success'))) {
             log(`Command failed: ${ c }`);
-            log(c_result.stdout);
+            log(object_property_get(c_result, 'stdout'));
             return c_result;
         }
     }
