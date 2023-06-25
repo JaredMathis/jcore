@@ -1,13 +1,13 @@
+import { occurs_async } from '../../../../occurs/async.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { refactor_import_fix } from '../../fix.mjs';
-import { occurs } from '../../../../occurs.mjs';
 export async function refactor_import_fix_if_changed(args, changed_lambda) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let c = occurs(changed_lambda);
+    let c = occurs_async(changed_lambda);
     if (c) {
         await refactor_import_fix(args);
     }
