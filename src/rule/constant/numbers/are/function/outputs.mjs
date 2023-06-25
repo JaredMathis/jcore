@@ -47,7 +47,6 @@ export async function rule_constant_numbers_are_function_outputs() {
             }
             let ce = js_parse_call_expression(function_name_new);
             object_replace(node, ce);
-            refactor_import_fix(args);
         });
     });
 }
