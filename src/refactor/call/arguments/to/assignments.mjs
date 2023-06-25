@@ -1,3 +1,5 @@
+import { js_node_is } from '../../../../js/node/is.mjs';
+import { log } from '../../../../log.mjs';
 import { refactor_call_arguments_to_assignments_skip } from './assignments/skip.mjs';
 import { integer_value_1 } from '../../../../integer/value/1.mjs';
 import { js_node_assign_and_replace } from '../../../../js/node/assign/and/replace.mjs';
@@ -15,7 +17,7 @@ export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = object_property_get(args, 'parsed');
     let {file_path} = args;
-    console.log({file_path})
+    console.log({ file_path });
     occurs_while(function v_17(c) {
         js_visit_call_statements(args, call_each);
         function call_each(stack_reversed, node, expression, ancestor_list) {
@@ -33,7 +35,7 @@ export function refactor_call_arguments_to_assignments(args) {
             let v_2 = js_node_is_return_statement(node);
             if (v_2) {
                 let expression_parent = list_get(stack_reversed, integer_value_1());
-                let v_3 = js_node_is_await_expression(expression_parent);
+                let v_3 = js_node_is(expression_parent) && js_node_is_await_expression(expression_parent);
                 if (v_3) {
                     replace(expression_parent);
                 } else {
