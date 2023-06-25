@@ -29,9 +29,10 @@ export async function tests_generate() {
     let test_names = await function_all_tests();
     let filtered = list_adder_async(async la => {
         for (let test_name of test_names) {
-            await function_map_args(test_name);
-            let parsed = await function_parse(test_name);
-            js_mapper_args_to_metadata_args;
+            await function_map_args(test_name, args => {
+                let args = await js_mapper_args_to_metadata_args(args);
+                
+            });
         }
     });
     let mapped = list_map(test_names, function v_4(n) {
