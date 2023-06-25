@@ -11,6 +11,8 @@ import { js_nodes_each } from '../../../js/nodes/each.mjs';
 import { string_a } from '../../../string/a.mjs';
 import { js_parse_expression } from '../../../js/parse/expression.mjs';
 import { object_replace } from '../../../object/replace.mjs';
+import { assert } from '../../../assert.mjs';
+import { js_node_is_identifier } from '../../../js/node/is/identifier.mjs';
 export async function rule_member_expression_none() {
     arguments_assert(arguments, []);
     await function_names_each_map(async args => {
@@ -19,6 +21,7 @@ export async function rule_member_expression_none() {
             js_nodes_each(parsed, js_node_is_member_expression, node => {
                 let object = js_node_property_object_get(node);
                 let property = js_node_property_property_get(node);
+                assert(js_node_is_identifier(property))
                 let ce_code = js_code_call_expression_object_property_get(string_a(), string_a());
                 let ce = js_parse_expression(ce_code);
                 let args = js_node_property_arguments_get(ce);
