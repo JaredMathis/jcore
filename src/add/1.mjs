@@ -4,11 +4,8 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { add } from '../add.mjs';
 export function add_1(value) {
-    let v_2 = [number_is];
-    arguments_assert(arguments, v_2);
-    let v_3 = integer_value_1();
-    let v = add(value, v_3);
+    arguments_assert(arguments, [number_is]);
+    let v = add(value, integer_value_1());
     return v;
-    let v_4 = [];
-    metadata(v_4);
+    metadata([]);
 }
