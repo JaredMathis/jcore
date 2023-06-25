@@ -27,7 +27,7 @@ export async function rule_member_expression_none() {
                 let property = js_node_property_property_get(node);
                 assert_message(js_node_is_identifier(property), json_to({
                     file_path,
-                    object
+                    node
                 }));
                 let property_name = js_node_property_name_get(property);
                 let ce_code = js_code_call_expression_object_property_get(string_a(), js_code_expression_string(property_name));
