@@ -17,7 +17,7 @@ export function refactor_call_arguments_to_assignments(args) {
     occurs_while(function v_17(c) {
         js_visit_call_statements(args, call_each);
         function call_each(stack_reversed, node, expression, ancestor_list) {
-            const skip = refactor_call_arguments_to_assignments_skip(node);
+            const skip = refactor_call_arguments_to_assignments_skip(expression);
             if (skip) {
                 return;
             }
