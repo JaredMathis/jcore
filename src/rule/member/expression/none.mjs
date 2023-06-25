@@ -1,3 +1,4 @@
+import { function_dependencies_names } from '../../../function/dependencies/names.mjs';
 import { js_node_property_computed_get } from '../../../js/node/property/computed/get.mjs';
 import { assert_message } from '../../../assert/message.mjs';
 import { js_code_expression_string } from '../../../js/code/expression/string.mjs';
@@ -17,8 +18,10 @@ import { js_parse_expression } from '../../../js/parse/expression.mjs';
 import { object_replace } from '../../../object/replace.mjs';
 import { js_node_is_identifier } from '../../../js/node/is/identifier.mjs';
 import { json_to } from '../../../json/to.mjs';
+import { object_property_get } from '../../../object/property/get.mjs';
 export async function rule_member_expression_none() {
     arguments_assert(arguments, []);
+    let excludes = await function_dependencies_names(object_property_get);
     await function_names_each_map(async args => {
         let {file_path} = args;
         await refactor_import_fix_if_changed(args, changed => {
