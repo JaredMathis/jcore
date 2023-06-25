@@ -6,6 +6,7 @@ export async function rule_function_call_arguments_are_identifiers() {
     arguments_assert(arguments, []);
     await function_names_each(args => {
         refactor_call_arguments_to_assignments(args);
+        let {file_path} = args;
         rule_function_call_arguments_are_identifiers_each(args);
     });
 }
