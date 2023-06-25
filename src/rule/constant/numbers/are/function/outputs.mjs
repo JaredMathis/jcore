@@ -37,12 +37,6 @@ export async function rule_constant_numbers_are_function_outputs() {
                 let ces = list_filter(stack, s => js_node_is(s) && js_node_is_call_expression(s));
                 let ces_names = list_map(ces, js_call_expression_name_get);
                 const i = list_intersection(ces_names, excludes);
-                console.log({
-                    ces_names,
-                    excludes,
-                    file_path,
-                    i
-                });
                 if (list_empty_not(i)) {
                     return;
                 }
@@ -53,6 +47,7 @@ export async function rule_constant_numbers_are_function_outputs() {
                 }
                 let ce = js_parse_call_expression(function_name_new);
                 object_replace(node, ce);
+                console.log({node,ce})
                 changed();
             });
         });
