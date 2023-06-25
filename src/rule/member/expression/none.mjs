@@ -1,3 +1,4 @@
+import { js_node_property_argument_get } from '../../../js/node/property/argument/get.mjs';
 import { js_code_call_expression_object_property_get } from '../../../js/code/call/expression/object/property/get.mjs';
 import { log } from '../../../log.mjs';
 import { js_node_is_member_expression } from '../../../js/node/is/member/expression.mjs';
@@ -14,6 +15,7 @@ export async function rule_member_expression_none() {
         js_nodes_each(parsed, js_node_is_member_expression, node => {
             let ce_code = js_code_call_expression_object_property_get(string_a(), string_a());
             let ce = js_parse_expression(ce_code);
+            let args = js_node_property_argument_get(ce);
             console.log({
                 node,
                 ce
