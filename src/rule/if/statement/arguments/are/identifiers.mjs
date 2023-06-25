@@ -13,6 +13,7 @@ export async function rule_if_statement_arguments_are_identifiers() {
             if (js_node_is_identifier(test)) {
                 return;
             }
+            js_node_assign_and_replace(parsed, expression_to_replace, ancestor_list, add_assignment_before_node);
         });
     });
 }
