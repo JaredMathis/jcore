@@ -20,7 +20,7 @@ export async function rule_constant_numbers_are_function_outputs() {
         let {file_path} = args;
         console.log({ file_path });
         await js_visit_nodes_filter_async(parsed, js_node_is_literal, async v => {
-            let {node} = v;
+            let {node, stack} = v;
             let value = js_node_property_value_get(node);
             if (!number_is(value)) {
                 return;
