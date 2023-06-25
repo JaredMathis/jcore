@@ -18,10 +18,7 @@ export async function function_arguments_assert_extra_next() {
     async function logic(args) {
         let {parsed, function_name} = args;
         let metadata_fn = metadata_arguments_assert_extra_allow;
-        let metadata_args = await js_mapper_args_to_metadata_args(args);
-        let filtered = list_filter(metadata_args, js_node_is_call_expression);
-        let mapped = list_map(filtered, js_call_expression_name_get_or_null);
-        const lc = list_contains(mapped, function_name_get(metadata_fn));
+        const lc = await js_mapper_args_to_metadata_args_contains(args, metadata_fn);
         if (lc) {
             return;
         }
@@ -34,4 +31,12 @@ export async function function_arguments_assert_extra_next() {
         }
     }
     return result;
+}
+
+async function js_mapper_args_to_metadata_args_contains(args, metadata_fn) {
+    let metadata_args = await js_mapper_args_to_metadata_args(args);
+    let filtered = list_filter(metadata_args, js_node_is_call_expression);
+    let mapped = list_map(filtered, js_call_expression_name_get_or_null);
+    const lc = list_contains(mapped, function_name_get(metadata_fn));
+    return lc;
 }
