@@ -1,3 +1,4 @@
+import { js_node_is_template_literal } from '../../node/is/template/literal.mjs';
 import { result_property_data_get } from '../../../result/property/data/get.mjs';
 import { list_reversed_get } from '../../../list/reversed/get.mjs';
 import { js_visit_stack_reversed_to_ancestor_list } from '../stack/reversed/to/ancestor/list.mjs';
@@ -24,6 +25,7 @@ import { js_node_is_expression_statement } from '../../node/is/expression/statem
 import { js_visit_nodes_filter } from '../nodes/filter.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
 import { result_property_success_get } from '../../../result/property/success/get.mjs';
+import { error } from '../../../error.mjs';
 export function js_visit_call_statements(args, call_each) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -87,6 +89,9 @@ export function js_visit_call_statements(args, call_each) {
                 let v_12 = list_copy_shallow_add(refactor_stack, argument);
                 let v_13 = refactor_call_expression_to_assignments(argument, v_12);
                 return v_13;
+            }
+            if (js_node_is_template_literal(expression)) {
+                error();
             }
             let v_15 = not(js_node_is_call_expression(expression));
             if (v_15) {
