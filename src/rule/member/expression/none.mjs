@@ -27,17 +27,21 @@ export async function rule_member_expression_none() {
                 let object = js_node_property_object_get(node);
                 let property = js_node_property_property_get(node);
                 let computed = js_node_property_computed_get(node);
-                if (computed) {
+                let arg_1 = property;
+                if (!computed) {
+                    assert_message(js_node_is_identifier(property), json_to({
+                        file_path,
+                        node
+                    }));
+                    let property_name = js_node_property_name_get(property);
+                    let arg_1_code = js_code_expression_string(property_name);
+                    arg_1 = js_parse_expression(arg_1_code);
                 }
-                assert_message(js_node_is_identifier(property), json_to({
-                    file_path,
-                    node
-                }));
-                let property_name = js_node_property_name_get(property);
-                let ce_code = js_code_call_expression_object_property_get(string_a(), js_code_expression_string(property_name));
+                let ce_code = js_code_call_expression_object_property_get(string_a(), string_a());
                 let ce = js_parse_expression(ce_code);
                 let args = js_node_property_arguments_get(ce);
                 list_set(args, 0, object);
+                list_set(args, 1, arg_1);
                 object_replace(node, ce);
                 changed();
             });
