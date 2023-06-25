@@ -10,6 +10,7 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { js_nodes_each } from '../../../js/nodes/each.mjs';
 import { string_a } from '../../../string/a.mjs';
 import { js_parse_expression } from '../../../js/parse/expression.mjs';
+import { object_replace } from '../../../object/replace.mjs';
 export async function rule_member_expression_none() {
     arguments_assert(arguments, []);
     await function_names_each_map(async args => {
@@ -23,6 +24,7 @@ export async function rule_member_expression_none() {
                 let args = js_node_property_arguments_get(ce);
                 list_set(args, 0, arg_0);
                 list_set(args, 1, arg_1);
+                object_replace(node, ce);
                 changed();
             });
         });
