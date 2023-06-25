@@ -11,10 +11,15 @@ export async function command_line_all(commands) {
     let result = result_empty();
     for (let c of commands) {
         let c_result = await command_line_try(c);
-        let v = not(object_property_get(c_result, 'success'));
+        let v_5 = 'success';
+        let v_2 = object_property_get(c_result, v_5);
+        let v = not(v_2);
         if (v) {
-            log(`Command failed: ${ c }`);
-            log(object_property_get(c_result, 'stdout'));
+            let v_3 = `Command failed: ${ c }`;
+            log(v_3);
+            let v_6 = 'stdout';
+            let v_4 = object_property_get(c_result, v_6);
+            log(v_4);
             return c_result;
         }
     }

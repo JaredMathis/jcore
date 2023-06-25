@@ -3,6 +3,7 @@ import { metadata } from '../../metadata.mjs';
 import { comment } from '../../comment.mjs';
 export function comment_test_1() {
     arguments_assert(arguments, []);
-    comment(`Example comment`);
+    let v = `Example comment`;
+    comment(v);
     metadata([]);
 }

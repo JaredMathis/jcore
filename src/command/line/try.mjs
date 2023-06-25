@@ -6,7 +6,7 @@ import { exec } from 'child_process';
 export async function command_line_try(command) {
     arguments_assert(arguments, [string_empty_not_is]);
     return await new Promise(function (resolve, reject) {
-        exec(command, function v(error, stdout, stderr) {
+        let v_2 = function v(error, stdout, stderr) {
             let success = true;
             if (error) {
                 success = false;
@@ -19,7 +19,8 @@ export async function command_line_try(command) {
                 stderr
             };
             resolve(result);
-        });
+        };
+        exec(command, v_2);
     });
     metadata([]);
 }
