@@ -17,6 +17,7 @@ import { list_first } from '../../../../../../list/first.mjs';
 import { comment } from '../../../../../../comment.mjs';
 import { js_node_is_template_literal } from '../../../../../node/is/template/literal.mjs';
 import { null_is } from '../../../../../../null/is.mjs';
+import { js_node_is } from '../../../../../node/is.mjs';
 export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let stack_reversed_first = list_first(stack_reversed);
@@ -24,7 +25,7 @@ export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
     assert(!js_node_is_program(stack_reversed_first));
     let result = result_empty();
     let index_starting_at = integer_value_0();
-    let parent_list_index = list_find_first_index_starting_at(stack_reversed, js_node_is_block_statement, index_starting_at);
+    let parent_list_index = list_find_first_index_starting_at(stack_reversed, n => js_node_is(n) && js_node_is_block_statement(n), index_starting_at);
     if (null_is(parent_list_index)) {
         result_unsuccess(result);
         return result;
