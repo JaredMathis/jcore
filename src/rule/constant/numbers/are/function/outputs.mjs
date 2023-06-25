@@ -25,6 +25,7 @@ import { js_node_is } from '../../../../../js/node/is.mjs';
 import { error } from '../../../../../error.mjs';
 import { list_contains } from '../../../../../list/contains.mjs';
 import { js_unparse } from '../../../../../js/unparse.mjs';
+import { string_starts_with } from '../../../../../string/starts/with.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
     let prefix = `integer_value_`;
@@ -32,6 +33,9 @@ export async function rule_constant_numbers_are_function_outputs() {
     await file_js_all_map_args_if_function(async args => {
         let {parsed} = args;
         let function_name = js_mapper_args_to_function_name(args);
+        if (string_starts_with(prefix)) {
+            return;
+        }
         if (list_contains(excludes, function_name)) {
             return;
         }
