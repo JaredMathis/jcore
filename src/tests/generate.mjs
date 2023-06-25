@@ -1,3 +1,5 @@
+import { js_mapper_args_to_metadata_args } from '../js/mapper/args/to/metadata/args.mjs';
+import { function_map_args } from '../function/map/args.mjs';
 import { tests_name } from './name.mjs';
 import { js_code_await } from '../js/code/await.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -27,10 +29,11 @@ export async function tests_generate() {
     let test_names = await function_all_tests();
     let filtered = list_adder_async(async la => {
         for (let test_name of test_names) {
+            await function_map_args(test_name);
             let parsed = await function_parse(test_name);
-            js_mapper_args_to_metadata_args
+            js_mapper_args_to_metadata_args;
         }
-    })
+    });
     let mapped = list_map(test_names, function v_4(n) {
         const awaited = js_code_call_expression_statement(n);
         let v = js_code_await(awaited);
