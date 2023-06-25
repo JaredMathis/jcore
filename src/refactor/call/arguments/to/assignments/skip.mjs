@@ -1,3 +1,4 @@
+import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { equal } from '../../../../../equal.mjs';
 import { list_any } from '../../../../../list/any.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
@@ -6,6 +7,7 @@ import { metadata } from '../../../../../metadata.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { js_call_expression_name_get } from '../../../../../js/call/expression/name/get.mjs';
 export function refactor_call_arguments_to_assignments_skip(node) {
+    arguments_assert(arguments, [arguments_assert_todo]);
     let name = js_call_expression_name_get(node);
     const rule_exceptions = [
         arguments_assert,
