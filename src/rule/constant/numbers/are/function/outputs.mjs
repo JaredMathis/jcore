@@ -27,7 +27,6 @@ export async function rule_constant_numbers_are_function_outputs() {
     await file_js_all_map_args_if_function(async args => {
         let {parsed} = args;
         let {file_path} = args;
-        console.log({ file_path });
         await refactor_import_fix_if_changed(args, async changed => {
             await js_visit_nodes_filter_async(parsed, js_node_is_literal, async v => {
                 let {node, stack} = v;
