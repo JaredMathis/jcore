@@ -94,10 +94,13 @@ export function js_visit_call_statements(args, call_each) {
             if (js_node_is_template_literal(expression)) {
                 error();
                 let expressions = js_node_property_expressions_get(expression);
-                refactor_call_expression_to_assignments(init, list_copy_shallow_add_multiple(refactor_stack, [
-                    declaration,
-                    init
-                ]));
+                for (let e of expressions) {
+                    refactor_call_expression_to_assignments(e, list_copy_shallow_add_multiple(refactor_stack, [
+                        expressions,
+                        e
+                    ]));
+                }
+                return;
             }
             let v_15 = not(js_node_is_call_expression(expression));
             if (v_15) {
