@@ -16,6 +16,7 @@ import { result_property_data_set } from '../../../../../../result/property/data
 import { list_first } from '../../../../../../list/first.mjs';
 import { comment } from '../../../../../../comment.mjs';
 import { js_node_is_template_literal } from '../../../../../node/is/template/literal.mjs';
+import { null_is } from '../../../../../../null/is.mjs';
 export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let stack_reversed_first = list_first(stack_reversed);
@@ -23,33 +24,15 @@ export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
     assert(!js_node_is_program(stack_reversed_first));
     let result = result_empty();
     let index_starting_at = integer_value_0();
-    let list_find_first_after_result = list_find_first_start_at(stack_reversed, index_starting_at);
-    let parent_list_next = object_property_get(list_find_first_after_result, 'next');
-    let parent_list_index = object_property_get(list_find_first_after_result, 'index');
-    let v = js_node_is_program(parent_list_next);
-    if (v) {
+    let parent_list_index = list_find_first_index_starting_at(stack_reversed, js_node_is_block_statement, index_starting_at);
+    if (null_is(parent_list_index)) {
         result_unsuccess(result);
         return result;
     }
-    let v_2 = js_node_is_variable_declaration(parent_list_next) || js_node_is_template_literal(parent_list_next);
-    if (v_2) {
-        list_find_first_after_result = list_find_first_start_at(stack_reversed, parent_list_index);
-        parent_list_next = object_property_get(list_find_first_after_result, 'next');
-        parent_list_index = object_property_get(list_find_first_after_result, 'index');
-    }
-    console.log({parent_list_next})
+    let parent_list_next = list_get(stack_reversed, parent_list_index)
     let v_14 = js_node_is_block_statement(parent_list_next);
     assert(v_14);
     let ancestor_list = list_get(stack_reversed, parent_list_index);
     result_property_data_set(result, ancestor_list);
     return result;
-    function list_find_first_start_at(stack_reversed, index_starting_at) {
-        let index = list_find_first_index_starting_at(stack_reversed, list_is, index_starting_at);
-        let index_next = add_1(index);
-        let next = list_get(stack_reversed, index_next);
-        return {
-            next,
-            index
-        };
-    }
 }
