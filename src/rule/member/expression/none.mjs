@@ -1,7 +1,7 @@
+import { js_node_property_arguments_get } from '../../../js/node/property/arguments/get.mjs';
 import { list_set } from '../../../list/set.mjs';
 import { js_node_property_property_get } from '../../../js/node/property/property/get.mjs';
 import { js_node_property_object_get } from '../../../js/node/property/object/get.mjs';
-import { js_node_property_argument_get } from '../../../js/node/property/argument/get.mjs';
 import { js_code_call_expression_object_property_get } from '../../../js/code/call/expression/object/property/get.mjs';
 import { log } from '../../../log.mjs';
 import { js_node_is_member_expression } from '../../../js/node/is/member/expression.mjs';
@@ -20,13 +20,13 @@ export async function rule_member_expression_none() {
             let arg_1 = js_node_property_property_get(node);
             let ce_code = js_code_call_expression_object_property_get(string_a(), string_a());
             let ce = js_parse_expression(ce_code);
-            let args = js_node_property_argument_get(ce);
-            list_set(args, 0, arg_0);
-            list_set(args, 1, arg_1);
             console.log({
                 node,
                 ce
             });
+            let args = js_node_property_arguments_get(ce);
+            list_set(args, 0, arg_0);
+            list_set(args, 1, arg_1);
             error();
         });
     });
