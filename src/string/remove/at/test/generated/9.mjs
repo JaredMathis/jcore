@@ -1,3 +1,4 @@
+import { integer_value_1 } from '../../../../../integer/value/1.mjs';
 import { metadata_generated } from '../../../../../metadata/generated.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { json_equal } from '../../../../../json/equal.mjs';
@@ -7,7 +8,7 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export function string_remove_at_test_generated_9() {
     arguments_assert(arguments, []);
     let expected = 'a';
-    let actual = string_remove_at('aa', 1);
+    let actual = string_remove_at('aa', integer_value_1());
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

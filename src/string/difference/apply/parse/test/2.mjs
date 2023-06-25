@@ -1,3 +1,5 @@
+import { integer_value_2 } from '../../../../../integer/value/2.mjs';
+import { integer_value_3 } from '../../../../../integer/value/3.mjs';
 import { metadata_generated } from '../../../../../metadata/generated.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../metadata.mjs';
@@ -7,9 +9,9 @@ import { string_difference_apply_parse } from '../../parse.mjs';
 export function string_difference_apply_parse_test_2() {
     arguments_assert(arguments, []);
     let expected = {
-        'position': 3,
+        'position': integer_value_3(),
         'operation': '-',
-        'removed': 2
+        'removed': integer_value_2()
     };
     let actual = string_difference_apply_parse('3-2');
     let v = json_equal(actual, expected);

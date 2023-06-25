@@ -1,3 +1,4 @@
+import { integer_value_0 } from '../../integer/value/0.mjs';
 import { not } from '../../not.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
@@ -18,7 +19,7 @@ export function js_identifier_counts(parsed) {
         let invalid_names = ['hasOwnProperty'];
         let r = object_property_get(node, 'name');
         if (not(list_contains(invalid_names, r))) {
-            object_property_initialize_if_unset(result, r, 0);
+            object_property_initialize_if_unset(result, r, integer_value_0());
             let previous = object_property_get(result, r);
             let v_2 = add_1(previous);
             object_property_set(result, r, v_2);

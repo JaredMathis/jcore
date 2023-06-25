@@ -1,3 +1,4 @@
+import { integer_value_1 } from '../../../../../../integer/value/1.mjs';
 import { metadata_generated } from '../../../../../../metadata/generated.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../../metadata.mjs';
@@ -6,7 +7,7 @@ import { assert } from '../../../../../../assert.mjs';
 import { string_index_of_try } from '../../../try.mjs';
 export function string_index_of_try_test_generated_8() {
     arguments_assert(arguments, []);
-    let expected = -1;
+    let expected = -integer_value_1();
     let actual = string_index_of_try('', 'a');
     let v = json_equal(actual, expected);
     assert(v);

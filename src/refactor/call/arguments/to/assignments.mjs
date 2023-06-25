@@ -1,3 +1,4 @@
+import { integer_value_1 } from '../../../../integer/value/1.mjs';
 import { js_node_assign_and_replace } from '../../../../js/node/assign/and/replace.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
 import { js_visit_call_statements } from '../../../../js/visit/call/statements.mjs';
@@ -22,7 +23,7 @@ export function refactor_call_arguments_to_assignments(args) {
                 }
             }
             if (js_node_is_return_statement(node)) {
-                let expression_parent = list_get(stack_reversed, 1);
+                let expression_parent = list_get(stack_reversed, integer_value_1());
                 if (js_node_is_await_expression(expression_parent)) {
                     replace(expression_parent);
                 } else {

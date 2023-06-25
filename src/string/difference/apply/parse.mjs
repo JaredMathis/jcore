@@ -1,3 +1,5 @@
+import { integer_value_1 } from '../../../integer/value/1.mjs';
+import { integer_value_0 } from '../../../integer/value/0.mjs';
 import { not } from '../../../not.mjs';
 import { count } from '../../../count.mjs';
 import { string_difference_property_removed } from '../property/removed.mjs';
@@ -38,7 +40,7 @@ export function string_difference_apply_parse(hunk) {
         error();
     }
     let valid_min = list_min(valid);
-    let position_string = string_sub(hunk, 0, valid_min);
+    let position_string = string_sub(hunk, integer_value_0(), valid_min);
     let position = integer_parse(position_string);
     const valid_min_add_1 = add_1(valid_min);
     let operation = string_sub(hunk, valid_min, valid_min_add_1);
@@ -50,7 +52,7 @@ export function string_difference_apply_parse(hunk) {
     };
     if (equal(operation, string_difference_removed())) {
         let count = integer_parse(after);
-        assert(count >= 1);
+        assert(count >= integer_value_1());
         let v_2 = string_difference_property_removed();
         object_property_initialize(result, v_2, count);
     } else if (equal(operation, string_difference_added())) {

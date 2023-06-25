@@ -1,3 +1,5 @@
+import { integer_value_0 } from '../integer/value/0.mjs';
+import { count } from '../count.mjs';
 import { integer_is } from '../integer/is.mjs';
 import { list_is } from './is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -8,7 +10,7 @@ export function list_take(list, count) {
         list_is,
         integer_is
     ]);
-    let v = list_slice(list, 0, count);
+    let v = list_slice(list, integer_value_0(), count);
     return v;
     metadata([]);
 }

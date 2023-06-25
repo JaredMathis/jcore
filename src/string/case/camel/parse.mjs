@@ -1,3 +1,4 @@
+import { integer_value_0 } from '../../../integer/value/0.mjs';
 import { not } from '../../../not.mjs';
 import { string_to_case_lower } from '../../to/case/lower.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
@@ -30,9 +31,9 @@ export function string_case_camel_parse(input) {
     let v = list_length(characters);
     list_add(indices, v);
     let parts = list_adder(function v_3(list_new_then_add) {
-        let previous = 0;
+        let previous = integer_value_0();
         for (let index of indices) {
-            if (equal(index, 0)) {
+            if (equal(index, integer_value_0())) {
                 continue;
             }
             let part = string_sub(input, previous, index);

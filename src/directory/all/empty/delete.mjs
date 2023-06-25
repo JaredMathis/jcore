@@ -1,3 +1,4 @@
+import { integer_value_0 } from '../../../integer/value/0.mjs';
 import { not } from '../../../not.mjs';
 import { directory_all_empty_count } from './count.mjs';
 import { equal } from '../../../equal.mjs';
@@ -18,6 +19,6 @@ export async function directory_all_empty_delete() {
         await directory_delete_if_empty_recursive(directory_path);
     }
     let v_3 = await directory_all_empty_count();
-    let v_2 = equal(v_3, 0);
+    let v_2 = equal(v_3, integer_value_0());
     assert(v_2);
 }

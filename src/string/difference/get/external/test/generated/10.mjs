@@ -1,3 +1,5 @@
+import { integer_value_0 } from '../../../../../../integer/value/0.mjs';
+import { integer_value_1 } from '../../../../../../integer/value/1.mjs';
 import { metadata_generated } from '../../../../../../metadata/generated.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../../metadata.mjs';
@@ -7,10 +9,10 @@ import { string_difference_get_external } from '../../../external.mjs';
 export function string_difference_get_external_test_generated_10() {
     arguments_assert(arguments, []);
     let expected = [{
-            'oldStart': 1,
-            'oldLines': 0,
-            'newStart': 1,
-            'newLines': 1,
+            'oldStart': integer_value_1(),
+            'oldLines': integer_value_0(),
+            'newStart': integer_value_1(),
+            'newLines': integer_value_1(),
             'lines': [
                 '+aab',
                 '\\ No newline at end of file'

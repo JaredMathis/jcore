@@ -47,7 +47,7 @@ export async function rule_constant_numbers_are_function_outputs() {
                     return;
                 }
                 assert_message(integer_is(value), 'need to handle non-integers maybe');
-                let function_name_new = `${prefix}${ value }`;
+                let function_name_new = `${ prefix }${ value }`;
                 if (!await function_exists(function_name_new)) {
                     await function_add_return(function_name_new, string_to(value));
                 }

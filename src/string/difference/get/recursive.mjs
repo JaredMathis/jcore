@@ -1,3 +1,4 @@
+import { integer_value_0 } from '../../../integer/value/0.mjs';
 import { string_length } from '../../length.mjs';
 import { string_difference_added } from '../added.mjs';
 import { string_difference_removed } from '../removed.mjs';
@@ -34,7 +35,7 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     let left_index = object_property_get(max, v_2);
     let v_3 = string_sub_max_property_right_index();
     let right_index = object_property_get(max, v_3);
-    if (offset === 0) {
+    if (offset === integer_value_0()) {
         if (string_empty_not_is(left)) {
             const position = left_index + left_offset;
             list_add(result, position + string_difference_removed() + string_length(left));

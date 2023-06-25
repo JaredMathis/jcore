@@ -1,3 +1,4 @@
+import { integer_value_0 } from '../../integer/value/0.mjs';
 import { metadata } from '../../metadata.mjs';
 import { list_index_valid } from '../index/valid.mjs';
 import { assert } from '../../assert.mjs';
@@ -15,7 +16,7 @@ export function list_add_at(list, value, index) {
     ]);
     let v = list_index_valid(list, index) || equal(index, list_length(list));
     assert(v);
-    const delete_count = 0;
+    const delete_count = integer_value_0();
     list.splice(index, delete_count, value);
     metadata([]);
 }

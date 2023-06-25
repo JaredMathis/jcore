@@ -1,3 +1,4 @@
+import { integer_value_0 } from '../../integer/value/0.mjs';
 import { list_filter } from '../filter.mjs';
 import { metadata } from '../../metadata.mjs';
 import { list_find_generic } from './generic.mjs';
@@ -10,7 +11,7 @@ export function list_find_first(list, predicate) {
         function_is
     ]);
     let or_null = false;
-    let v = list_find_generic(list, predicate, or_null, false, list_filter, 0);
+    let v = list_find_generic(list, predicate, or_null, false, list_filter, integer_value_0());
     return v;
     metadata([]);
 }

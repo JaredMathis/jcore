@@ -1,3 +1,5 @@
+import { integer_value_2 } from '../../../../integer/value/2.mjs';
+import { integer_value_1 } from '../../../../integer/value/1.mjs';
 import { metadata_generated } from '../../../../metadata/generated.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { json_equal } from '../../../../json/equal.mjs';
@@ -7,7 +9,7 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function string_swap_test_generated_6() {
     arguments_assert(arguments, []);
     let expected = 'aba';
-    let actual = string_swap('aab', 1, 2);
+    let actual = string_swap('aab', integer_value_1(), integer_value_2());
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

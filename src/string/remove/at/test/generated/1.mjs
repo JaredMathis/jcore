@@ -1,3 +1,4 @@
+import { integer_value_1 } from '../../../../../integer/value/1.mjs';
 import { metadata_generated } from '../../../../../metadata/generated.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { string_remove_at } from '../../../at.mjs';
@@ -7,7 +8,7 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export function string_remove_at_test_generated_1() {
     arguments_assert(arguments, []);
     let v = assert_throws(function v_2() {
-        let v_3 = string_remove_at('', 1);
+        let v_3 = string_remove_at('', integer_value_1());
         return v_3;
     });
     assert(v);

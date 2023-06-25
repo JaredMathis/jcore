@@ -1,3 +1,7 @@
+import { integer_value_1 } from '../../../integer/value/1.mjs';
+import { integer_value_2 } from '../../../integer/value/2.mjs';
+import { integer_value_100 } from '../../../integer/value/100.mjs';
+import { integer_value_0 } from '../../../integer/value/0.mjs';
 import { not } from '../../../not.mjs';
 import { function_name_get } from '../../name/get.mjs';
 import { function_tests_generated_string_sub } from '../generated/string/sub.mjs';
@@ -35,7 +39,7 @@ export async function function_tests_generate_generic(function_name, count_strin
     ]);
     let count = integer_parse(count_string);
     let tests_count = await function_tests_count(function_name);
-    if (tests_count > 0) {
+    if (tests_count > integer_value_0()) {
         log(`tests already exist - not generating`);
         return;
     }
@@ -68,12 +72,12 @@ export async function function_tests_generate_generic(function_name, count_strin
         return v_3;
     });
     let args_so_far = [];
-    let tries = 100;
-    let count_error_max = 2;
-    let count_error = 0;
+    let tries = integer_value_100();
+    let count_error_max = integer_value_2();
+    let count_error = integer_value_0();
     log(function_name);
     for (let i of range(count)) {
-        let test_name = function_name + function_tests_generated_string_sub() + (i + 1);
+        let test_name = function_name + function_tests_generated_string_sub() + (i + integer_value_1());
         for (let j of range(tries)) {
             let args = list_map(predicate_names, function v_10(n) {
                 let key = function_name_to_tests_values(n);

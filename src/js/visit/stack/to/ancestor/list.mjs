@@ -1,4 +1,4 @@
-import { log } from '../../../../../log.mjs';
+import { integer_value_0 } from '../../../../../integer/value/0.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { add_1 } from '../../../../../add/1.mjs';
@@ -21,7 +21,7 @@ export function js_visit_stack_to_ancestor_list(stack_reversed) {
     comment(`This probably means the stack is not reversed; if not code needs changing`);
     assert(!js_node_is_program(stack_reversed_first));
     let result = result_empty();
-    let index_starting_at = 0;
+    let index_starting_at = integer_value_0();
     let list_find_first_after_result = list_find_first_start_at(stack_reversed, index_starting_at);
     let parent_list_next = object_property_get(list_find_first_after_result, 'next');
     let parent_list_index = object_property_get(list_find_first_after_result, 'index');

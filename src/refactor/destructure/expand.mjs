@@ -1,3 +1,5 @@
+import { integer_value_1 } from '../../integer/value/1.mjs';
+import { integer_value_0 } from '../../integer/value/0.mjs';
 import { refactor_import_fix_if_changed } from '../import/fix/if/changed.mjs';
 import { js_code_call_expression_object_property_get } from '../../js/code/call/expression/object/property/get.mjs';
 import { list_add_after } from '../../list/add/after.mjs';
@@ -30,12 +32,12 @@ export async function refactor_destructure_expand(args) {
         js_visit_nodes_filter(parsed, js_node_is_object_pattern, function v_8(v) {
             let {stack, parent, node} = v;
             if (js_node_is_variable_declarator(parent)) {
-                let grandparent = js_visit_node_grandparent(stack, 0);
+                let grandparent = js_visit_node_grandparent(stack, integer_value_0());
                 if (js_node_is_variable_declaration(grandparent)) {
                     let v_2 = js_node_property_declarations();
                     let declarations = object_property_get(grandparent, v_2);
                     if (list_length_is_1(declarations)) {
-                        let grandparent_great = js_visit_node_grandparent(stack, 1);
+                        let grandparent_great = js_visit_node_grandparent(stack, integer_value_1());
                         if (js_node_is_block_statement(grandparent_great)) {
                             let function_body_statements = js_block_statement_body(grandparent_great);
                             let previous = grandparent;

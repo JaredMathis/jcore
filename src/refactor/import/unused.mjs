@@ -1,3 +1,4 @@
+import { integer_value_2 } from '../../integer/value/2.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { js_imports_remove_multiple } from '../../js/imports/remove/multiple.mjs';
 import { metadata } from '../../metadata.mjs';
@@ -18,7 +19,7 @@ export async function refactor_import_unused(args) {
     });
     let counts = js_identifier_counts(parsed);
     let twices = object_keys_each_filter(counts, function is_two(value, key) {
-        return value === 2;
+        return value === integer_value_2();
     });
     let intersection = list_intersection(import_name_all, twices);
     js_imports_remove_multiple(parsed, imports, intersection);

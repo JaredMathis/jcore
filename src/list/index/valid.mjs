@@ -1,3 +1,4 @@
+import { integer_value_0 } from '../../integer/value/0.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { list_last_index } from '../last/index.mjs';
@@ -8,6 +9,6 @@ export function list_index_valid(list, index) {
         list_is,
         integer_is
     ]);
-    return index >= 0 && index <= list_last_index(list);
+    return index >= integer_value_0() && index <= list_last_index(list);
     metadata([]);
 }

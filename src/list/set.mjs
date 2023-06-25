@@ -1,3 +1,4 @@
+import { integer_value_0 } from '../integer/value/0.mjs';
 import { list_is } from './is.mjs';
 import { assert } from '../assert.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -10,7 +11,7 @@ export function list_set(list, index, value) {
         number_is,
         defined_is
     ]);
-    assert(index >= 0);
+    assert(index >= integer_value_0());
     assert(index <= list_length(list));
     list[index] = value;
     return list;

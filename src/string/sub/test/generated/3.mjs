@@ -1,3 +1,5 @@
+import { integer_value_2 } from '../../../../integer/value/2.mjs';
+import { integer_value_0 } from '../../../../integer/value/0.mjs';
 import { metadata_generated } from '../../../../metadata/generated.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -7,7 +9,7 @@ import { string_sub } from '../../../sub.mjs';
 export function string_sub_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = 'aa';
-    let actual = string_sub('aab', 0, 2);
+    let actual = string_sub('aab', integer_value_0(), integer_value_2());
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

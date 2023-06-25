@@ -1,3 +1,4 @@
+import { integer_value_1 } from '../../integer/value/1.mjs';
 import { not } from '../../not.mjs';
 import { string_difference_apply } from '../../string/difference/apply.mjs';
 import { string_empty } from '../../string/empty.mjs';
@@ -21,7 +22,7 @@ export async function version_file_contents(repository_name, file_path) {
     await git_ignore_add_if_not_exists(gitignore_line_to_add);
     let list_hunks = [];
     let property_hunks = version_property_hunks();
-    let version = 1;
+    let version = integer_value_1();
     let version_path;
     while (true) {
         version_path = version_path_file_get(repository_name, file_path, version);

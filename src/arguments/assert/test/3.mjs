@@ -1,3 +1,4 @@
+import { integer_value_1 } from '../../../integer/value/1.mjs';
 import { metadata_arguments_assert_extra_allow } from '../../../metadata/arguments/assert/extra/allow.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { comment } from '../../../comment.mjs';
@@ -8,7 +9,7 @@ export function arguments_assert_test_3() {
     arguments_assert(arguments, []);
     comment('Too many predicates');
     assert_throws(function v() {
-        let v_2 = arguments_assert([1], [
+        let v_2 = arguments_assert([integer_value_1()], [
             integer_is,
             integer_is
         ]);

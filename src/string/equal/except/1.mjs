@@ -1,3 +1,4 @@
+import { integer_value_1 } from '../../../integer/value/1.mjs';
 import { not } from '../../../not.mjs';
 import { list_string_lengths } from '../../../list/string/lengths.mjs';
 import { list_unique } from '../../../list/unique.mjs';
@@ -24,6 +25,6 @@ export function string_equal_except_1(a, b) {
     let equal_count = string_equal_count(a, b);
     let length = list_single(unique);
     let difference = subtract(length, equal_count);
-    let v = equal(difference, 1);
+    let v = equal(difference, integer_value_1());
     return v;
 }

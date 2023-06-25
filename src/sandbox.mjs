@@ -1,3 +1,9 @@
+import { integer_value_3 } from './integer/value/3.mjs';
+import { integer_value_2 } from './integer/value/2.mjs';
+import { integer_value_1 } from './integer/value/1.mjs';
+import { integer_value_16 } from './integer/value/16.mjs';
+import { integer_value_8 } from './integer/value/8.mjs';
+import { integer_value_10 } from './integer/value/10.mjs';
 import { version_push } from './version/push.mjs';
 import { version_repository_file_size_max } from './version/repository/file/size/max.mjs';
 import { version_repository_default } from './version/repository/default.mjs';
@@ -45,7 +51,7 @@ export async function sandbox() {
     let fn1 = string_difference_get;
     let fn2 = string_difference_apply;
     let pairs = [];
-    for (let i of range(10)) {
+    for (let i of range(integer_value_10())) {
         let left = random_input();
         let right = random_input();
         let args1 = [
@@ -73,9 +79,9 @@ export async function sandbox() {
     await tests_generate();
     function random_input() {
         let result = '';
-        for (let index of range(random_between(8, 16))) {
-            let c = random_get() > 1 / 2 ? 'a' : 'b';
-            let v_3 = random_between(1, 3);
+        for (let index of range(random_between(integer_value_8(), integer_value_16()))) {
+            let c = random_get() > integer_value_1() / integer_value_2() ? 'a' : 'b';
+            let v_3 = random_between(integer_value_1(), integer_value_3());
             let m = string_multiply(c, v_3);
             result = result + m;
         }

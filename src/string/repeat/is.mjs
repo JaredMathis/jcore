@@ -1,3 +1,4 @@
+import { integer_value_2 } from '../../integer/value/2.mjs';
 import { integer_odd_is } from '../../integer/odd/is.mjs';
 import { string_split_at } from '../split/at.mjs';
 import { list_elements_all_equal } from '../../list/elements/all/equal.mjs';
@@ -12,7 +13,7 @@ export function string_repeat_is(input) {
     if (integer_odd_is(length)) {
         return false;
     }
-    let half = integer_divide_evenly(length, 2);
+    let half = integer_divide_evenly(length, integer_value_2());
     let split = string_split_at(input, half);
     let values = object_properties(split);
     let v = list_elements_all_equal(values);

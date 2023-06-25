@@ -1,3 +1,4 @@
+import { integer_value_2 } from '../../../../integer/value/2.mjs';
 import { metadata_generated } from '../../../../metadata/generated.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { string_set } from '../../../set.mjs';
@@ -7,7 +8,7 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function string_set_test_generated_4() {
     arguments_assert(arguments, []);
     let v = assert_throws(function v_2() {
-        let v_3 = string_set('aab', -2, 'a');
+        let v_3 = string_set('aab', -integer_value_2(), 'a');
         return v_3;
     });
     assert(v);

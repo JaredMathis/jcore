@@ -1,3 +1,4 @@
+import { integer_value_2 } from '../../../../integer/value/2.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { string_to } from '../../../../string/to.mjs';
@@ -11,7 +12,7 @@ export function js_identifier_name_next_prefix(parsed, identifier_next_prefix) {
     ]);
     let identifier_next = identifier_next_prefix;
     let identifiers = js_identifiers(parsed);
-    let c = 2;
+    let c = integer_value_2();
     while (list_contains(identifiers, identifier_next)) {
         let v = string_to(c);
         identifier_next = js_identifier_combine(identifier_next_prefix, v);

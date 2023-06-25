@@ -1,3 +1,4 @@
+import { integer_value_1 } from '../../../../integer/value/1.mjs';
 import { string_length_at_least } from '../../../../string/length/at/least.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -13,7 +14,7 @@ export function js_code_export_function_synchronized(function_name, is_async, fu
         boolean_is,
         string_is
     ]);
-    const at_least = 1;
+    const at_least = integer_value_1();
     let v = string_length_at_least(function_name, at_least);
     assert(v);
     let async_code = string_empty();

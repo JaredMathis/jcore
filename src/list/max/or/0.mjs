@@ -1,3 +1,4 @@
+import { integer_value_0 } from '../../../integer/value/0.mjs';
 import { list_is } from '../../is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
@@ -7,7 +8,7 @@ export function list_max_or_0(list) {
     arguments_assert(arguments, [list_is]);
     let max;
     if (list_empty(list)) {
-        max = 0;
+        max = integer_value_0();
     } else {
         max = list_max(list);
     }

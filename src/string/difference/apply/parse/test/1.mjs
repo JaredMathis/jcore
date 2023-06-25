@@ -1,3 +1,4 @@
+import { integer_value_2 } from '../../../../../integer/value/2.mjs';
 import { metadata_generated } from '../../../../../metadata/generated.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../metadata.mjs';
@@ -7,7 +8,7 @@ import { string_difference_apply_parse } from '../../parse.mjs';
 export function string_difference_apply_parse_test_1() {
     arguments_assert(arguments, []);
     let expected = {
-        'position': 2,
+        'position': integer_value_2(),
         'operation': '+',
         'text': 'a'
     };
