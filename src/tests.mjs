@@ -326,7 +326,6 @@ import { range_from_test_generated_3 } from './range/from/test/generated/3.mjs';
 import { range_from_test_generated_2 } from './range/from/test/generated/2.mjs';
 import { range_from_test_generated_10 } from './range/from/test/generated/10.mjs';
 import { range_from_test_generated_1 } from './range/from/test/generated/1.mjs';
-import { js_node_property_test_get } from './js/node/property/test/get.mjs';
 import { js_identifier_sub_is_test_generated_5 } from './js/identifier/sub/is/test/generated/5.mjs';
 import { js_identifier_sub_is_test_generated_4 } from './js/identifier/sub/is/test/generated/4.mjs';
 import { js_identifier_sub_is_test_generated_3 } from './js/identifier/sub/is/test/generated/3.mjs';
@@ -498,7 +497,6 @@ export async function tests() {
     await js_identifier_sub_is_test_generated_3();
     await js_identifier_sub_is_test_generated_4();
     await js_identifier_sub_is_test_generated_5();
-    await js_node_property_test_get();
     await range_from_test_generated_1();
     await range_from_test_generated_10();
     await range_from_test_generated_2();
@@ -826,5 +824,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(412 + ' tests ran successfully');
+    log(411 + ' tests ran successfully');
 }
