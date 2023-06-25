@@ -1,3 +1,4 @@
+import { js_mapper_args_to_function_name } from '../../../../../js/mapper/args/to/function/name.mjs';
 import { refactor_functions_arguments_assert_missing_add_excludes } from '../../../../../refactor/functions/arguments/assert/missing/add/excludes.mjs';
 import { refactor_call_arguments_to_assignments } from '../../../../../refactor/call/arguments/to/assignments.mjs';
 import { rule_function_call_arguments_are_identifiers_each } from './identifiers/each.mjs';
@@ -8,7 +9,7 @@ export async function rule_function_call_arguments_are_identifiers() {
     let excludes = refactor_functions_arguments_assert_missing_add_excludes(args);
     await function_names_each(args => {
         refactor_call_arguments_to_assignments(args);
-        let {file_path} = args;
+        let function_name = js_mapper_args_to_function_name(args);
         rule_function_call_arguments_are_identifiers_each(args);
     });
 }
