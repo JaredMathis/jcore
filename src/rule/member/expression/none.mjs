@@ -30,31 +30,6 @@ export async function rule_member_expression_none() {
         if (list_contains(excludes, function_name)) {
             return;
         }
-        let {file_path} = args;
-        await refactor_import_fix_if_changed(args, changed => {
-            let {parsed} = args;
-            js_nodes_each(parsed, js_node_is_member_expression, node => {
-                let object = js_node_property_object_get(node);
-                let property = js_node_property_property_get(node);
-                let computed = js_node_property_computed_get(node);
-                let arg_1 = property;
-                if (!computed) {
-                    assert_message(js_node_is_identifier(property), json_to({
-                        file_path,
-                        node
-                    }));
-                    let property_name = js_node_property_name_get(property);
-                    let arg_1_code = js_code_expression_string(property_name);
-                    arg_1 = js_parse_expression(arg_1_code);
-                }
-                let ce_code = js_code_call_expression_object_property_get(string_a(), string_a());
-                let ce = js_parse_expression(ce_code);
-                let args = js_node_property_arguments_get(ce);
-                list_set(args, 0, object);
-                list_set(args, 1, arg_1);
-                object_replace(node, ce);
-                changed();
-            });
-        });
+        
     });
 }
