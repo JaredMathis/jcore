@@ -27,6 +27,8 @@ export async function rule_member_expression_none() {
                 let object = js_node_property_object_get(node);
                 let property = js_node_property_property_get(node);
                 let computed = js_node_property_computed_get(node);
+                if (computed) {
+                }
                 assert_message(js_node_is_identifier(property), json_to({
                     file_path,
                     node
