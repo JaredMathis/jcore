@@ -39,7 +39,6 @@ export async function rule_constant_numbers_are_function_outputs() {
                 let {node} = v;
                 let value = js_node_property_value_get(node);
                 if (!number_is(value)) {
-                    console.log({ value });
                     return;
                 }
                 assert_message(integer_is(value), 'need to handle non-integers maybe');
