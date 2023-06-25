@@ -6,6 +6,8 @@ import { noop } from '../../../noop.mjs';
 export async function rule_member_expression_none() {
     arguments_assert(arguments, []);
     await function_names_each_map(args => {
-        js_nodes_each(args, js_node_is_member_expression, noop);
+        js_nodes_each(args, js_node_is_member_expression, node => {
+            
+        });
     });
 }
