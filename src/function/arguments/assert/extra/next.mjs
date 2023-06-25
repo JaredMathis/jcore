@@ -17,9 +17,7 @@ export async function function_arguments_assert_extra_next() {
     await function_names_each(logic);
     async function logic(args) {
         let {parsed, function_name} = args;
-        let metadata_fn = metadata_arguments_assert_extra_allow;
-        const lc = await js_mapper_args_to_metadata_args_contains(args, metadata_fn);
-        if (lc) {
+        if (await js_mapper_args_to_metadata_args_contains(args, metadata_arguments_assert_extra_allow)) {
             return;
         }
         const name_expected = function_name_get(arguments_assert);
