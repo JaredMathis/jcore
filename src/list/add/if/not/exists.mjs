@@ -9,7 +9,8 @@ export function list_add_if_not_exists(list, element) {
         list_is,
         defined_is
     ]);
-    if (list_contains(list, element)) {
+    let v = list_contains(list, element);
+    if (v) {
         return;
     }
     list_add(list, element);

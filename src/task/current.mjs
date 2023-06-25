@@ -11,7 +11,8 @@ export async function task_current() {
     let result = result_empty();
     arguments_assert(arguments, []);
     let task_number_hashed = await task_id_get_or_null();
-    if (equal(task_number_hashed, null)) {
+    let v_2 = equal(task_number_hashed, null);
+    if (v_2) {
         return 'no current task';
     }
     let task_number_string = task_number_unhash(task_number_hashed);

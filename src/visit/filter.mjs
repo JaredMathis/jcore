@@ -15,7 +15,8 @@ export function visit_filter(root, children_get, filter, lambda) {
     visit(root, children_get, lambda_local);
     function lambda_local(v) {
         let node = object_property_get(v, 'node');
-        if (filter(node)) {
+        let v_3 = filter(node);
+        if (v_3) {
             let v_2 = lambda(v);
             return v_2;
         }

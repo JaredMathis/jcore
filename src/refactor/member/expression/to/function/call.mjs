@@ -21,12 +21,14 @@ export async function refactor_member_expression_to_function_call(args) {
     js_visit_nodes_filter(parsed, js_node_is_member_expression, function v_4(v) {
         let node = object_property_get(v, 'node');
         let property = object_property_get(node, 'property');
-        if (not(js_node_is_identifier(property))) {
+        let v_5 = not(js_node_is_identifier(property));
+        if (v_5) {
             return;
         }
         let v_2 = js_node_property_name();
         let property_name = object_property_get(property, v_2);
-        if (property_name !== 'name') {
+        let v_6 = property_name !== 'name';
+        if (v_6) {
             return;
         }
         let object = object_property_get(node, 'object');

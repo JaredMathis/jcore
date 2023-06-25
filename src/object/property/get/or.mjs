@@ -9,7 +9,8 @@ export function object_property_get_or(object, property_name, or_value) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    if (object_property_exists(object, property_name)) {
+    let v_2 = object_property_exists(object, property_name);
+    if (v_2) {
         let v = object_property_get(object, property_name);
         return v;
     }

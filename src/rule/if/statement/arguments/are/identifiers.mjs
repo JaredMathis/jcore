@@ -19,7 +19,8 @@ export async function rule_if_statement_arguments_are_identifiers() {
         js_visit_nodes_filter(parsed, js_node_is_if_statement, v => {
             let {node, stack} = v;
             let test = js_node_property_test_get(node);
-            if (js_node_is_identifier(test)) {
+            let v_2 = js_node_is_identifier(test);
+            if (v_2) {
                 return;
             }
             let stack_reversed = list_reversed_get(stack);

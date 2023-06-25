@@ -26,7 +26,8 @@ export async function version_file_contents(repository_name, file_path) {
     let version_path;
     while (true) {
         version_path = version_path_file_get(repository_name, file_path, version);
-        if (not(await file_exists(version_path))) {
+        let v = not(await file_exists(version_path));
+        if (v) {
             break;
         }
         let before_object = await file_json_read(version_path);

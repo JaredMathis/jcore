@@ -15,7 +15,8 @@ export async function refactor_call_expressions_replace(args) {
     js_visit_nodes_call_expression_name_equal(parsed, function_name_called_old, function v_3(n) {
         let v = js_node_property_callee();
         let callee = object_property_get(n, v);
-        if (not(js_node_is_identifier(callee))) {
+        let v_4 = not(js_node_is_identifier(callee));
+        if (v_4) {
             return;
         }
         let v_2 = js_node_property_name();

@@ -11,14 +11,16 @@ export function string_similar(a, b) {
         string_is
     ]);
     const fns_commutative = [string_similar_remove_single];
-    if (list_each_function_results_any(fns_commutative, results_commutative_get)) {
+    let v_2 = list_each_function_results_any(fns_commutative, results_commutative_get);
+    if (v_2) {
         return true;
     }
     const fns = [
         string_similar_swap_adjascent,
         string_equal_except_1
     ];
-    if (list_each_function_results_any(fns, results_get)) {
+    let v_3 = list_each_function_results_any(fns, results_get);
+    if (v_3) {
         return true;
     }
     return false;

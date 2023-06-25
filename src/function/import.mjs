@@ -30,7 +30,8 @@ export async function function_import(import_meta, function_name) {
             let v_4 = string_similar(a, function_name);
             return v_4;
         });
-        if (not(list_empty(similar))) {
+        let v_5 = not(list_empty(similar));
+        if (v_5) {
             let similar_paths = function_name_list_to_file_path(similar);
             log_multiple([
                 `Did you mean: `,

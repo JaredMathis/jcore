@@ -39,7 +39,8 @@ export async function function_tests_generate_generic(function_name, count_strin
     ]);
     let count = integer_parse(count_string);
     let tests_count = await function_tests_count(function_name);
-    if (tests_count > integer_value_0()) {
+    let v_15 = tests_count > integer_value_0();
+    if (v_15) {
         log(`tests already exist - not generating`);
         return;
     }
@@ -59,11 +60,12 @@ export async function function_tests_generate_generic(function_name, count_strin
         return v_2;
     });
     let names_with_endings_unqiue = list_unique(names_with_endings);
-    if (await list_any_async(names_with_endings_unqiue, async function v_8(n) {
-            let v_13 = await function_exists(n);
-            let v_14 = not(v_13);
-            return v_14;
-        })) {
+    let v_16 = await list_any_async(names_with_endings_unqiue, async function v_8(n) {
+        let v_13 = await function_exists(n);
+        let v_14 = not(v_13);
+        return v_14;
+    });
+    if (v_16) {
         error(`${ function_name_get(arguments_assert) } types need filling in ` + names_with_endings_unqiue);
         return;
     }
@@ -86,13 +88,15 @@ export async function function_tests_generate_generic(function_name, count_strin
                 return value;
             });
             let args_json = json_to(args);
-            if (list_contains(args_so_far, args_json)) {
+            let v_17 = list_contains(args_so_far, args_json);
+            if (v_17) {
                 continue;
             }
             list_add(args_so_far, args_json);
             await function_tests_generate_generic_each(function_name, test_name, args, function v_11() {
                 count_error++;
-                if (count_error > count_error_max) {
+                let v_18 = count_error > count_error_max;
+                if (v_18) {
                     return true;
                 }
             });

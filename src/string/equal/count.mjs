@@ -20,7 +20,8 @@ export function string_equal_count(a, b) {
         for (let i of range(list_min(lengths))) {
             let a_i = string_get(a, i);
             let b_i = string_get(b, i);
-            if (equal(a_i, b_i)) {
+            let v_3 = equal(a_i, b_i);
+            if (v_3) {
                 c();
             }
         }

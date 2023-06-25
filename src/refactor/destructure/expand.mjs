@@ -31,14 +31,18 @@ export async function refactor_destructure_expand(args) {
         let {function_declaration, parsed} = args;
         js_visit_nodes_filter(parsed, js_node_is_object_pattern, function v_8(v) {
             let {stack, parent, node} = v;
-            if (js_node_is_variable_declarator(parent)) {
+            let v_9 = js_node_is_variable_declarator(parent);
+            if (v_9) {
                 let grandparent = js_visit_node_grandparent(stack, integer_value_0());
-                if (js_node_is_variable_declaration(grandparent)) {
+                let v_10 = js_node_is_variable_declaration(grandparent);
+                if (v_10) {
                     let v_2 = js_node_property_declarations();
                     let declarations = object_property_get(grandparent, v_2);
-                    if (list_length_is_1(declarations)) {
+                    let v_11 = list_length_is_1(declarations);
+                    if (v_11) {
                         let grandparent_great = js_visit_node_grandparent(stack, integer_value_1());
-                        if (js_node_is_block_statement(grandparent_great)) {
+                        let v_12 = js_node_is_block_statement(grandparent_great);
+                        if (v_12) {
                             let function_body_statements = js_block_statement_body(grandparent_great);
                             let previous = grandparent;
                             let v = js_identifier_name_next(parsed);

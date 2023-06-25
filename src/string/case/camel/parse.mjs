@@ -33,11 +33,13 @@ export function string_case_camel_parse(input) {
     let parts = list_adder(function v_3(list_new_then_add) {
         let previous = integer_value_0();
         for (let index of indices) {
-            if (equal(index, integer_value_0())) {
+            let v_4 = equal(index, integer_value_0());
+            if (v_4) {
                 continue;
             }
             let part = string_sub(input, previous, index);
-            if (not(equal(part, string_empty()))) {
+            let v_5 = not(equal(part, string_empty()));
+            if (v_5) {
                 list_new_then_add(part);
             }
             previous = index;

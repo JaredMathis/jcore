@@ -10,7 +10,8 @@ export function list_consume(list, lambda) {
     ]);
     let exceeded = false;
     lambda(() => {
-        if (list_empty(list)) {
+        let v_2 = list_empty(list);
+        if (v_2) {
             exceeded = true;
             return null;
         } else {

@@ -9,11 +9,13 @@ export async function js_mapper_args_to_metadata_args_generic(args, add_missing)
     let {function_declaration} = args;
     let statements = js_function_declaration_to_statements(function_declaration);
     let missing = false;
-    if (list_empty(statements)) {
+    let v = list_empty(statements);
+    if (v) {
         missing = true;
     } else {
         let last_statement = list_last(statements);
-        if (not(js_statement_metadata_is(last_statement))) {
+        let v_2 = not(js_statement_metadata_is(last_statement));
+        if (v_2) {
             missing = true;
         }
     }

@@ -7,7 +7,8 @@ import { list_empty } from '../../empty.mjs';
 export function list_max_or_0(list) {
     arguments_assert(arguments, [list_is]);
     let max;
-    if (list_empty(list)) {
+    let v = list_empty(list);
+    if (v) {
         max = integer_value_0();
     } else {
         max = list_max(list);

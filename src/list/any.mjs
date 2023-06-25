@@ -9,7 +9,8 @@ export function list_any(list, predicate) {
         function_is
     ]);
     for (let a of list) {
-        if (predicate(a)) {
+        let v = predicate(a);
+        if (v) {
             return true;
         }
     }

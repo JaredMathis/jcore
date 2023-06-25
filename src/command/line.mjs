@@ -8,7 +8,8 @@ import { log } from '../log.mjs';
 export async function command_line(command) {
     arguments_assert(arguments, [string_empty_not_is]);
     let result = await command_line_try(command);
-    if (not(result.success)) {
+    let v = not(result.success);
+    if (v) {
         log(result);
     }
     assert(result.success);

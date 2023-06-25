@@ -12,8 +12,10 @@ export async function function_add_string_prefix_generic(prefix, suffix, value, 
         boolean_is
     ]);
     let function_name = js_identifier_combine(prefix, suffix);
-    if (!only_if_needed) {
-        if (await function_exists(function_name)) {
+    let v = !only_if_needed;
+    if (v) {
+        let v_2 = await function_exists(function_name);
+        if (v_2) {
             return null;
         }
     }

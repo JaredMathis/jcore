@@ -72,7 +72,8 @@ export async function version_push_generic(repository_name, preview) {
                 let v_10 = list_single_item(commit_path);
                 let v_3 = version_commits_path_to_integer(v_10);
                 let commit_vesion = list_single(v_3);
-                if (commit_vesion <= property_commit_latest_value) {
+                let v_15 = commit_vesion <= property_commit_latest_value;
+                if (v_15) {
                     return;
                 }
                 let v_4 = directory_property_json();
@@ -85,7 +86,8 @@ export async function version_push_generic(repository_name, preview) {
                     let file_json = object_property_get(file, v_6);
                     let v_7 = version_property_part_id();
                     let part_id = object_property_get(file_json, v_7);
-                    if (list_contains(commit_parts, part_id)) {
+                    let v_16 = list_contains(commit_parts, part_id);
+                    if (v_16) {
                         list_add(commit_files, file_json);
                     }
                 }
@@ -99,7 +101,8 @@ export async function version_push_generic(repository_name, preview) {
                 let document_path_commit = version_document_path_commit(commit_vesion);
                 let v_8 = database_value(commit_files);
                 database_create(db, transaction, database_collection_name, document_path_commit, v_8);
-                if (equal(index, last_index)) {
+                let v_17 = equal(index, last_index);
+                if (v_17) {
                     database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_vesion);
                     await data_key_value_set(property_commit_latest_data, commit_vesion);
                 }

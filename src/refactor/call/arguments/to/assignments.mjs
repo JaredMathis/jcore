@@ -23,13 +23,16 @@ export function refactor_call_arguments_to_assignments(args) {
             }
             let args = js_node_property_arguments_get(expression);
             for (let arg of args) {
-                if (!js_node_is_identifier(arg)) {
+                let v = !js_node_is_identifier(arg);
+                if (v) {
                     replace(arg);
                 }
             }
-            if (js_node_is_return_statement(node)) {
+            let v_2 = js_node_is_return_statement(node);
+            if (v_2) {
                 let expression_parent = list_get(stack_reversed, integer_value_1());
-                if (js_node_is_await_expression(expression_parent)) {
+                let v_3 = js_node_is_await_expression(expression_parent);
+                if (v_3) {
                     replace(expression_parent);
                 } else {
                     replace(expression);

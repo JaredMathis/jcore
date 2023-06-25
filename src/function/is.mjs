@@ -5,7 +5,8 @@ import { error } from '../error.mjs';
 import { not } from '../not.mjs';
 export function function_is(candidate) {
     assert_arguments_count(arguments, 1);
-    if (not(defined_is(candidate))) {
+    let v = not(defined_is(candidate));
+    if (v) {
         error('invalid candidate');
     }
     return typeof candidate === 'function';

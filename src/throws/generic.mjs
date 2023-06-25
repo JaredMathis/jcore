@@ -15,7 +15,8 @@ export function throws_generic(lambda) {
     } catch (e) {
         result_unsuccess(result);
     }
-    if (defined_is(lambda_result)) {
+    let v = defined_is(lambda_result);
+    if (v) {
         result_property_data_set(result, lambda_result);
     }
     return result;

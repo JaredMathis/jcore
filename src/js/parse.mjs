@@ -7,7 +7,8 @@ import { string_is } from '../string/is.mjs';
 export function js_parse(unparsed) {
     arguments_assert(arguments, [string_is]);
     let error_message = unparsed;
-    if (string_empty_is(unparsed)) {
+    let v_2 = string_empty_is(unparsed);
+    if (v_2) {
         error_message = `[empty string]`;
     }
     let v = try_catch_log(js_parse, lambda, error_message);

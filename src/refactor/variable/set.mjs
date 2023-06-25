@@ -19,21 +19,25 @@ export async function refactor_variable_set(args) {
     let {identifier, value} = args;
     let {parsed} = args;
     const predicate = function v_6(n) {
-        if (not(js_node_is_variable_declaration(n))) {
+        let v_7 = not(js_node_is_variable_declaration(n));
+        if (v_7) {
             return false;
         }
         let v = js_node_property_declarations();
         let declarations = object_property_get(n, v);
-        if (not(list_length_is_1(declarations))) {
+        let v_8 = not(list_length_is_1(declarations));
+        if (v_8) {
             return false;
         }
         let declaration = list_single(declarations);
-        if (not(js_node_is_variable_declarator(declaration))) {
+        let v_9 = not(js_node_is_variable_declarator(declaration));
+        if (v_9) {
             return false;
         }
         let v_2 = js_node_property_id();
         let id = object_property_get(declaration, v_2);
-        if (not(js_node_is_identifier(id))) {
+        let v_10 = not(js_node_is_identifier(id));
+        if (v_10) {
             return false;
         }
         let v_5 = js_property_name();

@@ -30,7 +30,8 @@ export function task_summary(task, all_unsummarized) {
         required_bys
     };
     object_keys_each(lists, function v_7(list, list_name) {
-        if (not(list_empty(list))) {
+        let v_8 = not(list_empty(list));
+        if (v_8) {
             let v_6 = string_comma();
             let v_5 = list_join(list, v_6);
             let v_2 = string_combine(`${ list_name }: `, v_5);

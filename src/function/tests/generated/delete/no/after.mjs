@@ -12,7 +12,8 @@ export async function function_tests_generated_delete_no_after(function_name) {
     let v = await function_exists(function_name);
     assert(v);
     let generateds = await function_tests_generated(function_name);
-    if (not(list_empty(generateds))) {
+    let v_2 = not(list_empty(generateds));
+    if (v_2) {
         for (let g of generateds) {
             await function_delete(g);
         }

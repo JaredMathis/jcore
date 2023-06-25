@@ -22,7 +22,8 @@ export async function refactor_string_to_function_call(args) {
     for (let n of literals) {
         let v_2 = js_node_property_value();
         let literal_value = object_property_get(n, v_2);
-        if (equal(literal_value, string_value)) {
+        let v_3 = equal(literal_value, string_value);
+        if (v_3) {
             object_replace(n, ce);
         }
     }

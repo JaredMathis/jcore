@@ -14,7 +14,8 @@ export async function function_unasyncify_generic(function_name, only_if_needed)
         arguments_assert_todo
     ]);
     let ending = function_naming_suffix_asynk();
-    if (!only_if_needed || string_ends_with(function_name, ending)) {
+    let v_2 = !only_if_needed || string_ends_with(function_name, ending);
+    if (v_2) {
         let function_name_result = string_suffix_without(function_name, ending);
         await function_delete_if_exists(function_name_result);
         await function_copy(function_name, function_name_result);

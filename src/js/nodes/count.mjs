@@ -12,7 +12,8 @@ export function js_nodes_count(parsed, predicate) {
     let v_2 = count(function v_3(counter) {
         js_visit_nodes_all(parsed, function v_4(v) {
             let {node} = v;
-            if (predicate(node)) {
+            let v_5 = predicate(node);
+            if (v_5) {
                 counter();
             }
         });

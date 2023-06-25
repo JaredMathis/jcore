@@ -10,7 +10,8 @@ export async function git_exclude_ignore() {
     let v = list_empty_not(lines);
     assert(v);
     for (let line of lines) {
-        if (await path_exists(line)) {
+        let v_2 = await path_exists(line);
+        if (v_2) {
             await git_exclude(line);
         }
     }

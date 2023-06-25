@@ -28,7 +28,8 @@ export async function version_write_all(writes) {
     }, async function lambda_catch(e) {
         for (let w of writes) {
             const file_path = object_property_get(w, property_file_path);
-            if (await file_exists(file_path)) {
+            let v_3 = await file_exists(file_path);
+            if (v_3) {
                 await file_delete(file_path);
             }
         }

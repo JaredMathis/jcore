@@ -13,7 +13,8 @@ export function arguments_assert(args, predicates) {
     assert_arguments_count(args, predicates.length);
     for (let i of range(predicates.length)) {
         const value = args[i];
-        if (not(predicates[i](value))) {
+        let v_2 = not(predicates[i](value));
+        if (v_2) {
             log({
                 i,
                 value

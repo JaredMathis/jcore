@@ -8,7 +8,8 @@ export function task_body_parse(task) {
     arguments_assert(arguments, [task_is]);
     let v = task_property_body();
     let body = object_property_get(task, v);
-    if (null_is(body)) {
+    let v_2 = null_is(body);
+    if (v_2) {
         return body;
     }
     let body_parsed = json_from(body);

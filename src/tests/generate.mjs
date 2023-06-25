@@ -30,7 +30,8 @@ export async function tests_generate() {
     let filtered = await list_adder_async(async la => {
         for (let test_name of test_names) {
             await function_map_args(test_name, async args => {
-                if (await js_mapper_args_to_metadata_args_contains(args, metadata_tests_none)) {
+                let v_5 = await js_mapper_args_to_metadata_args_contains(args, metadata_tests_none);
+                if (v_5) {
                     return;
                 }
                 la(test_name);
@@ -46,7 +47,8 @@ export async function tests_generate() {
     let v_2 = string_new_line();
     let code = list_join(mapped, v_2);
     let statements = js_parse_statements(code);
-    if (await file_exists(file_path)) {
+    let v_6 = await file_exists(file_path);
+    if (v_6) {
         await file_delete(file_path);
     }
     let is_async = true;

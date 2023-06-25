@@ -24,15 +24,16 @@ export function js_node_identifiers_replaceify(node_left, node_right) {
     });
     let result = result_empty();
     let dictionary = {};
-    if (list_consume(replacements, next => {
-            js_visit_identifiers_not_call_expressions(node_left, lambda);
-            function lambda(node) {
-                let existing = js_identifier_name_get(node);
-                let replacement = next();
-                object_property_ensure(dictionary, existing, replacement);
-                js_node_property_name_set(node, replacement);
-            }
-        })) {
+    let v = list_consume(replacements, next => {
+        js_visit_identifiers_not_call_expressions(node_left, lambda);
+        function lambda(node) {
+            let existing = js_identifier_name_get(node);
+            let replacement = next();
+            object_property_ensure(dictionary, existing, replacement);
+            js_node_property_name_set(node, replacement);
+        }
+    });
+    if (v) {
         result_property_data_set(result, dictionary);
     } else {
         result_unsuccess(result);

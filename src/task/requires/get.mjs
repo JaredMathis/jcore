@@ -6,7 +6,8 @@ import { task_is } from '../is.mjs';
 export function task_requires_get(task) {
     arguments_assert(arguments, [task_is]);
     let body_parsed = task_body_parse(task);
-    if (null_is(body_parsed)) {
+    let v = null_is(body_parsed);
+    if (v) {
         return [];
     }
     let requires = task_body_requires(body_parsed);

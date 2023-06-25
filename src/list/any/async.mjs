@@ -8,7 +8,8 @@ export async function list_any_async(list, predicate) {
         function_is
     ]);
     for (let a of list) {
-        if (await predicate(a)) {
+        let v = await predicate(a);
+        if (v) {
             return true;
         }
     }

@@ -19,7 +19,8 @@ export async function function_names_metadata_arguments_assert_none() {
             assert(v_2);
             let metadata_args = await js_mapper_args_to_metadata_args_no_add_missing(args);
             let filtered = list_filter(metadata_args, node => js_node_call_expression_name_equal(node, function_name_get(metadata_arguments_assert_none)));
-            if (list_empty(filtered)) {
+            let v_4 = list_empty(filtered);
+            if (v_4) {
                 return;
             }
             let v_3 = list_length_is_1(filtered);

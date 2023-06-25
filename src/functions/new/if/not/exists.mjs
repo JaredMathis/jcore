@@ -9,7 +9,8 @@ export async function functions_new_if_not_exists(lambda_function_new_get, lambd
     ]);
     let needed = lambda_function_new_get(identifiers);
     for (let n of needed) {
-        if (!await function_exists(n)) {
+        let v = !await function_exists(n);
+        if (v) {
             await lambda_function_new(n);
         }
     }

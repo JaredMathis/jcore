@@ -18,16 +18,19 @@ export async function task_available_generic(map_with_all_unsummarized) {
         return function filter(o) {
             let v_3 = task_property_body();
             let body = object_property_get(o, v_3);
-            if (null_not_is(body)) {
+            let v_7 = null_not_is(body);
+            if (v_7) {
                 let body_parsed = json_from(body);
-                if (object_property_exists(body_parsed, task_body_property_requires())) {
+                let v_8 = object_property_exists(body_parsed, task_body_property_requires());
+                if (v_8) {
                     let v_4 = task_body_property_requires();
                     let requires = object_property_get(body_parsed, v_4);
-                    if (list_any(requires, function v_2(r) {
-                            let v_5 = task_property_number();
-                            let v_6 = list_find_property_exists(open, v_5, r);
-                            return v_6;
-                        })) {
+                    let v_9 = list_any(requires, function v_2(r) {
+                        let v_5 = task_property_number();
+                        let v_6 = list_find_property_exists(open, v_5, r);
+                        return v_6;
+                    });
+                    if (v_9) {
                         return false;
                     }
                 }

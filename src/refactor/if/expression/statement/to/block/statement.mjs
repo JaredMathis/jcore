@@ -17,7 +17,8 @@ export function refactor_if_expression_statement_to_block_statement(args) {
     let {parsed} = args;
     js_nodes_each(parsed, js_node_is_if_statement, node => {
         let consequent = js_node_property_consequent_get(node);
-        if (js_node_is_expression_statement(consequent)) {
+        let v = js_node_is_expression_statement(consequent);
+        if (v) {
             let function_expression = js_function_declaration_named(string_a());
             let block_statement = js_node_property_body_get(function_expression);
             assert(js_node_is_block_statement(block_statement));

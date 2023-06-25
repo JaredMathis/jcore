@@ -13,7 +13,8 @@ import { version_path_file_directory } from './directory.mjs';
 export async function version_path_file_next(repository_name, file_path) {
     let repository_file_directory_path = version_path_file_directory(repository_name, file_path);
     let mapped;
-    if (await path_exists(repository_file_directory_path)) {
+    let v_3 = await path_exists(repository_file_directory_path);
+    if (v_3) {
         let paths = await directory_read(repository_file_directory_path);
         mapped = list_map(paths, function v_2(file_path) {
             let without_prefix = string_prefix_without(file_path, repository_file_directory_path + directory_separator());

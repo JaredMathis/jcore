@@ -27,8 +27,10 @@ export async function git_pacp_with_message(commit_message, sync) {
         command_commit
     ];
     let c_result = await git_commands_sync_add_run(sync, commands);
-    if (not(c_result.success)) {
-        if (c_result.command === command_commit) {
+    let v_2 = not(c_result.success);
+    if (v_2) {
+        let v_3 = c_result.command === command_commit;
+        if (v_3) {
             let result = result_empty();
             result.inner = c_result;
             result.message = `There was probably no code to commit. If this is not true, fix the code!`;

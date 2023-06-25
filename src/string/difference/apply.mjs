@@ -27,7 +27,8 @@ export function string_difference_apply(string_old, hunks) {
         string_is,
         list_is
     ]);
-    if (list_empty(hunks)) {
+    let v_20 = list_empty(hunks);
+    if (v_20) {
         return string_old;
     }
     let mapped = list_map(hunks, string_difference_apply_parse);

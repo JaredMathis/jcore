@@ -11,7 +11,8 @@ export function list_intersection(left, right) {
     return list_adder_unique(la => {
         for (let l of left) {
             for (let r of right) {
-                if (equal(l, r)) {
+                let v = equal(l, r);
+                if (v) {
                     la(l);
                 }
             }

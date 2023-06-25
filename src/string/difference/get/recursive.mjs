@@ -25,7 +25,8 @@ export function string_difference_get_recursive(left, right, left_offset, right_
         integer_is
     ]);
     let result = [];
-    if (equal(left, right)) {
+    let v_8 = equal(left, right);
+    if (v_8) {
         return result;
     }
     let max = string_sub_max(left, right);
@@ -35,12 +36,15 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     let left_index = object_property_get(max, v_2);
     let v_3 = string_sub_max_property_right_index();
     let right_index = object_property_get(max, v_3);
-    if (offset === integer_value_0()) {
-        if (string_empty_not_is(left)) {
+    let v_9 = offset === integer_value_0();
+    if (v_9) {
+        let v_10 = string_empty_not_is(left);
+        if (v_10) {
             const position = left_index + left_offset;
             list_add(result, position + string_difference_removed() + string_length(left));
         }
-        if (string_empty_not_is(right)) {
+        let v_11 = string_empty_not_is(right);
+        if (v_11) {
             const position = right_index + right_offset;
             list_add(result, position + string_difference_added() + right);
         }

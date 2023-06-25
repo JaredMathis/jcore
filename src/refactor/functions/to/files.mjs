@@ -24,7 +24,8 @@ export async function refactor_functions_to_files(args) {
     let without_imports = js_without_imports(parsed);
     let function_declarations_to_export = list_filter(without_imports, js_node_is_function_declaration);
     let function_names_new = js_function_declarations_to_names(function_declarations_to_export);
-    if (list_empty(function_names_new)) {
+    let v_4 = list_empty(function_names_new);
+    if (v_4) {
         return;
     }
     for (let n of function_names_new) {

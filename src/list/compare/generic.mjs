@@ -19,7 +19,8 @@ export function list_compare_generic(list, value_get, compare) {
         let current = value_get(element);
         let v_2 = number_is(current);
         assert(v_2);
-        if (compare(current, found)) {
+        let v_3 = compare(current, found);
+        if (v_3) {
             result = element;
             found = current;
         }

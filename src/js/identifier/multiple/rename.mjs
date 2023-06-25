@@ -12,7 +12,8 @@ export function js_identifier_multiple_rename(dictionary, args) {
     ]);
     let occurs = false;
     object_keys_each(dictionary, function v(to, from) {
-        if (js_identifier_rename(args, from, to)) {
+        let v_2 = js_identifier_rename(args, from, to);
+        if (v_2) {
             occurs = true;
         }
     });

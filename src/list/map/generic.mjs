@@ -28,17 +28,19 @@ export function list_map_generic(list, lambda, allow_error_mapping, value_on_err
                 return v_2;
             });
             let mapped;
-            if (not(occurs(function v_7(c) {
-                    if (allow_error_mapping) {
-                        if (result_unsuccess_is(result)) {
-                            mapped = value_on_error_mapping;
-                            c();
-                        }
-                    } else {
-                        let v_3 = result_property_success_get(result);
-                        assert(v_3);
+            let v_8 = not(occurs(function v_7(c) {
+                if (allow_error_mapping) {
+                    let v_9 = result_unsuccess_is(result);
+                    if (v_9) {
+                        mapped = value_on_error_mapping;
+                        c();
                     }
-                }))) {
+                } else {
+                    let v_3 = result_property_success_get(result);
+                    assert(v_3);
+                }
+            }));
+            if (v_8) {
                 mapped = result_property_data_get(result);
             }
             la(mapped);

@@ -23,22 +23,26 @@ export async function rule_constant_numbers_are_function_outputs() {
     await function_names_each_map(async args => {
         let {parsed} = args;
         let function_name = js_mapper_args_to_function_name(args);
-        if (string_starts_with(function_name, prefix)) {
+        let v_2 = string_starts_with(function_name, prefix);
+        if (v_2) {
             return;
         }
-        if (list_contains(excludes, function_name)) {
+        let v_3 = list_contains(excludes, function_name);
+        if (v_3) {
             return;
         }
         await refactor_import_fix_if_changed(args, async changed => {
             await js_visit_nodes_filter_async(parsed, js_node_is_literal, async v => {
                 let {node} = v;
                 let value = js_node_property_value_get(node);
-                if (!number_is(value)) {
+                let v_4 = !number_is(value);
+                if (v_4) {
                     return;
                 }
                 assert_message(integer_is(value), 'need to handle non-integers maybe');
                 let function_name_new = `${ prefix }${ value }`;
-                if (!await function_exists(function_name_new)) {
+                let v_5 = !await function_exists(function_name_new);
+                if (v_5) {
                     await function_add_return(function_name_new, string_to(value));
                 }
                 let ce = js_parse_call_expression(function_name_new);

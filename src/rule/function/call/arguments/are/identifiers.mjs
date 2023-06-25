@@ -10,7 +10,8 @@ export async function rule_function_call_arguments_are_identifiers() {
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await function_names_each_map(args => {
         let function_name = js_mapper_args_to_function_name(args);
-        if (list_contains(excludes, function_name)) {
+        let v = list_contains(excludes, function_name);
+        if (v) {
             return;
         }
         refactor_call_arguments_to_assignments(args);

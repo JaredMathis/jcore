@@ -10,10 +10,13 @@ export function js_node_call_expression_name_equal(node, name_expected) {
         js_node_is,
         defined_is
     ]);
-    if (js_node_is_call_expression(node)) {
+    let v = js_node_is_call_expression(node);
+    if (v) {
         let name_actual = js_call_expression_name_get_or_null(node);
-        if (name_actual != null) {
-            if (equal(name_actual, name_expected)) {
+        let v_2 = name_actual != null;
+        if (v_2) {
+            let v_3 = equal(name_actual, name_expected);
+            if (v_3) {
                 return true;
             }
         }

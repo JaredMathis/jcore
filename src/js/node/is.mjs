@@ -6,7 +6,8 @@ import { defined_is } from '../../defined/is.mjs';
 import { js_node_property_type } from './property/type.mjs';
 export function js_node_is(candidate) {
     arguments_assert(arguments, [defined_is]);
-    if (not(candidate)) {
+    let v_3 = not(candidate);
+    if (v_3) {
         return false;
     }
     let v = js_node_property_type();

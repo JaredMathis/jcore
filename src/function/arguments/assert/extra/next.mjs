@@ -12,12 +12,14 @@ export async function function_arguments_assert_extra_next() {
     await function_names_each(logic);
     async function logic(args) {
         let {parsed, function_name} = args;
-        if (await js_mapper_args_to_metadata_args_contains(args, metadata_arguments_assert_extra_allow)) {
+        let v = await js_mapper_args_to_metadata_args_contains(args, metadata_arguments_assert_extra_allow);
+        if (v) {
             return;
         }
         const name_expected = function_name_get(arguments_assert);
         let matches = js_call_expressions_named(parsed, name_expected);
-        if (list_length_multiple(matches)) {
+        let v_2 = list_length_multiple(matches);
+        if (v_2) {
             function_open_vs_code(function_name);
             result = function_name;
             return true;

@@ -10,7 +10,8 @@ export async function data_get() {
     arguments_assert(arguments, []);
     const file_path = data_path();
     let default_value = {};
-    if (await path_exists_not(file_path)) {
+    let v = await path_exists_not(file_path);
+    if (v) {
         let default_json = json_to(default_value);
         await file_write(file_path, default_json);
     }

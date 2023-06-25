@@ -16,7 +16,8 @@ export function js_identifier_rename_if(args, should_rename, name_new_get) {
         js_identifiers_each(parsed, function v_5(v) {
             let node = object_property_get(v, 'node');
             let name = object_property_get(node, 'name');
-            if (should_rename(name)) {
+            let v_6 = should_rename(name);
+            if (v_6) {
                 let v_2 = name_new_get(name);
                 object_property_set(node, 'name', v_2);
                 c();

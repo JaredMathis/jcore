@@ -7,11 +7,13 @@ import { defined_is } from '../defined/is.mjs';
 export function object_properties(object) {
     arguments_assert(arguments, [defined_is]);
     let default_value = [];
-    if (not(object)) {
+    let v_2 = not(object);
+    if (v_2) {
         return default_value;
     }
     comment(`Strings infinitely recurse here - maybe there's other edge cases too besides strings`);
-    if (string_is(object)) {
+    let v_3 = string_is(object);
+    if (v_3) {
         return default_value;
     }
     let v = Object.values(object);

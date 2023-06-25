@@ -8,7 +8,8 @@ export function list_last_or_null(list) {
     arguments_assert(arguments, [list_is]);
     let parent = null;
     const value = integer_value_1();
-    if (list_length_at_least(list, value)) {
+    let v = list_length_at_least(list, value);
+    if (v) {
         parent = list_last(list);
     }
     return parent;

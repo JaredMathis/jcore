@@ -31,7 +31,8 @@ export function js_arrow_function_expression_functionify(node, name) {
     let v = string_a();
     let return_statement_code = js_code_return_statement(v);
     let return_statement = js_parse_statement(return_statement_code);
-    if (js_node_is_block_statement(body)) {
+    let v_5 = js_node_is_block_statement(body);
+    if (v_5) {
         let v_2 = js_node_property_body();
         object_property_change(function_expression, v_2, body);
     } else {

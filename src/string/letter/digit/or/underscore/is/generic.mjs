@@ -11,17 +11,21 @@ export function string_letter_digit_or_underscore_is_generic(c, allow_underscore
         string_is,
         boolean_is
     ]);
-    if (not(string_length_is_1(c))) {
+    let v = not(string_length_is_1(c));
+    if (v) {
         return false;
     }
-    if (string_letter_is(c)) {
+    let v_2 = string_letter_is(c);
+    if (v_2) {
         return true;
     }
-    if (string_digit_is(c)) {
+    let v_3 = string_digit_is(c);
+    if (v_3) {
         return true;
     }
     if (allow_underscores) {
-        if (string_underscore_is(c)) {
+        let v_4 = string_underscore_is(c);
+        if (v_4) {
             return true;
         }
     }

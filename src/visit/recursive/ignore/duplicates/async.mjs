@@ -19,7 +19,8 @@ export async function visit_recursive_ignore_duplicates_async(node, children_get
     ]);
     let parent = list_last_or_null(stack);
     if (ignore_duplicates) {
-        if (list_contains(visited, node)) {
+        let v = list_contains(visited, node);
+        if (v) {
             return;
         }
         list_add(visited, node);

@@ -19,31 +19,37 @@ export function js_identifier_is_generic(value, enforce_first, enforce_last, all
         boolean_is,
         boolean_is
     ]);
-    if (not(string_is(value))) {
+    let v = not(string_is(value));
+    if (v) {
         return false;
     }
     let list = string_to_list(value);
-    if (list_empty(list)) {
+    let v_2 = list_empty(list);
+    if (v_2) {
         return false;
     }
     if (enforce_first) {
         let first = list_first(list);
-        if (not(string_letter_is(first))) {
+        let v_3 = not(string_letter_is(first));
+        if (v_3) {
             return false;
         }
     }
     if (enforce_last) {
         let last = list_last(list);
-        if (string_underscore_is(last)) {
+        let v_4 = string_underscore_is(last);
+        if (v_4) {
             return false;
         }
     }
     let underscore = function_name_separator();
-    if (string_includes(value, `${ underscore }${ underscore }`)) {
+    let v_5 = string_includes(value, `${ underscore }${ underscore }`);
+    if (v_5) {
         return false;
     }
     for (let c of list) {
-        if (not(string_letter_digit_or_underscore_is_generic(c, allow_underscores))) {
+        let v_6 = not(string_letter_digit_or_underscore_is_generic(c, allow_underscores));
+        if (v_6) {
             return false;
         }
     }

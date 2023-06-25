@@ -41,16 +41,19 @@ export function js_visit_call_statements(args, call_each) {
                 js_node_is,
                 defined_is
             ]);
-            if (js_node_is_expression_statement(expression)) {
+            let v_3 = js_node_is_expression_statement(expression);
+            if (v_3) {
                 let child = js_node_property_expression_get(expression);
                 let v_2 = list_copy_shallow_add(refactor_stack, child);
                 refactor_call_expression_to_assignments(child, v_2);
                 return;
             }
-            if (js_node_is_variable_declaration(expression)) {
+            let v_4 = js_node_is_variable_declaration(expression);
+            if (v_4) {
                 let declaration = js_declarations_single(expression);
                 let init = js_node_property_init_get(declaration);
-                if (null_is(init)) {
+                let v_5 = null_is(init);
+                if (v_5) {
                     return;
                 }
                 let v_6 = list_copy_shallow_add_multiple(refactor_stack, [
@@ -60,33 +63,39 @@ export function js_visit_call_statements(args, call_each) {
                 refactor_call_expression_to_assignments(init, v_6);
                 return;
             }
-            if (js_node_is_assignment_expression(expression)) {
+            let v_7 = js_node_is_assignment_expression(expression);
+            if (v_7) {
                 let right = js_node_property_right_get(expression);
                 let v_8 = list_copy_shallow_add(refactor_stack, right);
                 refactor_call_expression_to_assignments(right, v_8);
                 return;
             }
-            if (js_node_is_await_expression(expression)) {
+            let v_9 = js_node_is_await_expression(expression);
+            if (v_9) {
                 let argument = js_node_property_argument_get(expression);
                 let v_10 = list_copy_shallow_add(refactor_stack, argument);
                 refactor_call_expression_to_assignments(argument, v_10);
                 return;
             }
-            if (js_node_is_return_statement(expression)) {
+            let v_11 = js_node_is_return_statement(expression);
+            if (v_11) {
                 let argument = js_return_statement_argument_get(expression);
-                if (null_is(argument)) {
+                let v_14 = null_is(argument);
+                if (v_14) {
                     return;
                 }
                 let v_12 = list_copy_shallow_add(refactor_stack, argument);
                 let v_13 = refactor_call_expression_to_assignments(argument, v_12);
                 return v_13;
             }
-            if (not(js_node_is_call_expression(expression))) {
+            let v_15 = not(js_node_is_call_expression(expression));
+            if (v_15) {
                 return;
             }
             let stack_reversed = list_reversed_get(refactor_stack);
             let r = js_visit_stack_reversed_to_ancestor_list(stack_reversed);
-            if (result_property_success_get(r)) {
+            let v_16 = result_property_success_get(r);
+            if (v_16) {
                 let ancestor_list = result_property_data_get(r);
                 call_each(stack_reversed, node, expression, ancestor_list);
             }

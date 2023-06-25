@@ -21,7 +21,8 @@ export function js_node_assign_and_replace(parsed, expression_to_replace, ancest
         arguments_assert_todo
     ]);
     let expression_to_replace_root = expression_to_replace;
-    if (js_node_is_await_expression(expression_to_replace)) {
+    let v = js_node_is_await_expression(expression_to_replace);
+    if (v) {
         expression_to_replace = js_node_property_argument_get(expression_to_replace);
     }
     let id = js_identifier_name_next(parsed);

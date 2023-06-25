@@ -42,7 +42,8 @@ export async function refactor_call_statement_find_replaceify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name_find} = args;
     let function_name = js_mapper_args_to_function_name(args);
-    if (equal(function_name, function_name_find)) {
+    let v_3 = equal(function_name, function_name_find);
+    if (v_3) {
         return;
     }
     let {function_declaration_find} = args;
@@ -50,13 +51,16 @@ export async function refactor_call_statement_find_replaceify(args) {
     let function_name_find_statements = js_node_property_body_to_block_statement_body_statements(function_declaration_find);
     list_remove(function_name_find_statements, statement_arguments_assert);
     let return_statement = list_find_or_null(function_name_find_statements, js_node_is_return_statement);
-    if (null_not_is(return_statement)) {
+    let v_4 = null_not_is(return_statement);
+    if (v_4) {
         list_remove(function_name_find_statements, return_statement);
     }
     let function_name_find_statements_last = list_last(function_name_find_statements);
     let function_name_find_statements_last_name = js_call_statement_name(function_name_find_statements_last);
-    if (null_not_is(return_statement)) {
-        if (js_node_is_variable_declaration(function_name_find_statements_last)) {
+    let v_5 = null_not_is(return_statement);
+    if (v_5) {
+        let v_6 = js_node_is_variable_declaration(function_name_find_statements_last);
+        if (v_6) {
             let last_declaration = js_declarations_single(function_name_find_statements_last);
             let last_id = js_id_get(last_declaration);
             let argument = js_node_property_argument_get(return_statement);
@@ -77,7 +81,8 @@ export async function refactor_call_statement_find_replaceify(args) {
                     node
                 ];
                 let refactorable = js_statements_refactorable(statements, function_name_find_statements);
-                if (!result_property_success_get(refactorable)) {
+                let v_7 = !result_property_success_get(refactorable);
+                if (v_7) {
                     return;
                 }
                 let refactorable_data = result_property_data_get(refactorable);

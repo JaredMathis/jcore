@@ -12,7 +12,8 @@ export function list_filter_generic(array, filter, added_get) {
     ]);
     let v = list_adder(async function v_2(la) {
         list_each_with_index(array, async function v_3(element, index) {
-            if (filter(element)) {
+            let v_4 = filter(element);
+            if (v_4) {
                 let added = added_get(element, index);
                 la(added);
             }

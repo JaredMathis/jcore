@@ -14,12 +14,14 @@ export async function refactor_console_to_function(args) {
     arguments_assert(arguments, [js_mapper_args_is]);
     let {parsed, file_path} = args;
     let exports_existing = js_exports(parsed);
-    if (not(list_empty(exports_existing))) {
+    let v = not(list_empty(exports_existing));
+    if (v) {
         return;
     }
     let body = js_program_body_get(parsed);
     let statements = js_without_imports(parsed);
-    if (list_empty(statements)) {
+    let v_2 = list_empty(statements);
+    if (v_2) {
         comment(`no code to refactor`);
         return;
     }

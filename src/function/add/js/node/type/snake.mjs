@@ -32,7 +32,8 @@ export async function function_add_js_node_type_snake(snake) {
     ]);
     let code_return_statment = js_code_return_statement(expression);
     let v_2;
-    if (await function_exists(function_name_js_node_is)) {
+    let v = await function_exists(function_name_js_node_is);
+    if (v) {
         v_2 = null;
     } else {
         v_2 = await function_add_with_statement_code(function_name_js_node_is, code_return_statment);

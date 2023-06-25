@@ -8,7 +8,8 @@ import { js_node_is_function_declaration } from '../node/is/function/declaration
 export function js_parse_expression(code) {
     arguments_assert(arguments, [string_is]);
     let s = js_parse_statement(code);
-    if (js_node_is_function_declaration(s)) {
+    let v_2 = js_node_is_function_declaration(s);
+    if (v_2) {
         return s;
     }
     let v = js_node_property_expression();

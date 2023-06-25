@@ -21,7 +21,8 @@ export function visit_recursive_ignore_duplicates(node, children_get, lambda, st
     ]);
     let parent = list_last_or_null(stack);
     if (ignore_duplicates) {
-        if (list_contains(visited, node)) {
+        let v = list_contains(visited, node);
+        if (v) {
             return;
         }
         list_add(visited, node);

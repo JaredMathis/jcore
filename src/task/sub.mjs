@@ -10,7 +10,8 @@ export async function task_sub(title) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let current_result = await task_current();
     let sub = await task_now(title);
-    if (result_property_success_get(current_result)) {
+    let v = result_property_success_get(current_result);
+    if (v) {
         let current = result_property_data_get(current_result);
         let current_number_string = task_number_get_string(current);
         let sub_number_string = task_number_get_string(sub);

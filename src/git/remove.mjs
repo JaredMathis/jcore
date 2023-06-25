@@ -8,7 +8,8 @@ import { equal } from '../equal.mjs';
 export async function git_remove(path) {
     arguments_assert(arguments, [path_is]);
     let result = await command_line_try(`${ git_command_name() } rm -r --cached ${ path }`);
-    if (not(result.success)) {
+    let v_2 = not(result.success);
+    if (v_2) {
         let expected = `fatal: pathspec '${ path }' did not match any files\n`;
         let v = equal(result.stderr, expected);
         assert(v);

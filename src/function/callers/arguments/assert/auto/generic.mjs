@@ -37,7 +37,8 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         list_is,
         list_is
     ]);
-    if (equal(function_name, c_function_name)) {
+    let v_12 = equal(function_name, c_function_name);
+    if (v_12) {
         return;
     }
     await function_map_args(c_function_name, mapper);
@@ -46,7 +47,8 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         let c_function_declaration = object_property_get(c_args, 'function_declaration');
         let v_2 = js_node_property_params();
         let c_params = object_property_get(c_function_declaration, v_2);
-        if (list_empty(c_params)) {
+        let v_13 = list_empty(c_params);
+        if (v_13) {
             return true;
         }
         let c_arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(c_function_declaration);
@@ -61,7 +63,8 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             let c_predicate_name = object_property_get(c_arg, v_5);
             let v_6 = arguments_assert_predicate_default();
             let default_name = function_name_get(v_6);
-            if (not(equal(c_predicate_name, default_name))) {
+            let v_14 = not(equal(c_predicate_name, default_name));
+            if (v_14) {
                 return false;
             }
             let occurs = false;
@@ -70,35 +73,42 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 let {node} = v;
                 let v_7 = js_node_property_left();
                 let left = object_property_get(node, v_7);
-                if (js_node_is_identifier(left)) {
-                    if (object_property_get(left, 'name') === c_predicate_name) {
+                let v_15 = js_node_is_identifier(left);
+                if (v_15) {
+                    let v_16 = object_property_get(left, 'name') === c_predicate_name;
+                    if (v_16) {
                         comment(`Value has been changed - will not assume predicate can be copied`);
                         assignment_exists = true;
                     }
                 }
             });
-            if (assignment_exists === true) {
+            let v_17 = assignment_exists === true;
+            if (v_17) {
                 return occurs;
             }
             js_visit_nodes_call_expression_name_equal(c_parsed, function_name, function v_10(v) {
                 let {node} = v;
                 let ce_args = js_call_expression_arguments_get(node);
                 list_each_with_index(ce_args, function v_11(ce_arg, ce_arg_index) {
-                    if (not(js_node_is_identifier(ce_arg))) {
+                    let v_18 = not(js_node_is_identifier(ce_arg));
+                    if (v_18) {
                         return;
                     }
                     const ce_arg_name = object_property_get(ce_arg, 'name');
-                    if (not(equal(c_param_name, ce_arg_name))) {
+                    let v_19 = not(equal(c_param_name, ce_arg_name));
+                    if (v_19) {
                         return;
                     }
-                    if (ce_arg !== null) {
+                    let v_20 = ce_arg !== null;
+                    if (v_20) {
                         let arguments_assert_arg = list_get(arguments_assert_args, ce_arg_index);
                         let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index);
                         let identical = json_equal_keys_without(arguments_assert_arg, c_arguments_assert_arg, [
                             js_node_property_start(),
                             js_node_property_end()
                         ]);
-                        if (not(identical)) {
+                        let v_21 = not(identical);
+                        if (v_21) {
                             list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
                             occurs = true;
                         }

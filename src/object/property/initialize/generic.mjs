@@ -12,7 +12,8 @@ export function object_property_initialize_generic(object, property_name, initia
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    if (object_property_exists(object, property_name)) {
+    let v_2 = object_property_exists(object, property_name);
+    if (v_2) {
         if (ensure) {
             let existing = object_property_get(object, property_name);
             let v = equal(existing, initial_value);

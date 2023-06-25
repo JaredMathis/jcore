@@ -11,7 +11,8 @@ export async function command_line_all(commands) {
     let result = result_empty();
     for (let c of commands) {
         let c_result = await command_line_try(c);
-        if (not(object_property_get(c_result, 'success'))) {
+        let v = not(object_property_get(c_result, 'success'));
+        if (v) {
             log(`Command failed: ${ c }`);
             log(object_property_get(c_result, 'stdout'));
             return c_result;

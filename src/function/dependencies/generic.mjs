@@ -14,7 +14,8 @@ export async function function_dependencies_generic(function_name, recursive) {
     ]);
     let file_path = function_name_to_file_path(function_name);
     let lambda = file_js_dependencies;
-    if (not(recursive)) {
+    let v_3 = not(recursive);
+    if (v_3) {
         lambda = file_js_dependencies_non_recursive;
     }
     let d = await lambda(file_path);

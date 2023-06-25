@@ -17,8 +17,10 @@ export async function task_description_to_json_if_unparsable_generic(open) {
         for (let task of open) {
             let v = task_property_body();
             let task_body_value = object_property_get(task, v);
-            if (null_not_is(task_body_value)) {
-                if (json_invalid(task_body_value)) {
+            let v_5 = null_not_is(task_body_value);
+            if (v_5) {
+                let v_6 = json_invalid(task_body_value);
+                if (v_6) {
                     let v_2 = task_property_number();
                     let t_number = object_property_get(task, v_2);
                     let t_number_string = string_to(t_number);

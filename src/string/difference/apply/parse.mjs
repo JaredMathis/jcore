@@ -36,7 +36,8 @@ export function string_difference_apply_parse(hunk) {
         return v_7;
     });
     let valid = list_filter(indexes, string_index_of_try_valid);
-    if (list_empty(valid)) {
+    let v_8 = list_empty(valid);
+    if (v_8) {
         error();
     }
     let valid_min = list_min(valid);
@@ -50,12 +51,14 @@ export function string_difference_apply_parse(hunk) {
         [string_difference_property_position()]: position,
         [string_difference_property_operation()]: operation
     };
-    if (equal(operation, string_difference_removed())) {
+    let v_9 = equal(operation, string_difference_removed());
+    let v_10 = equal(operation, string_difference_added());
+    if (v_9) {
         let count = integer_parse(after);
         assert(count >= integer_value_1());
         let v_2 = string_difference_property_removed();
         object_property_initialize(result, v_2, count);
-    } else if (equal(operation, string_difference_added())) {
+    } else if (v_10) {
         let v_5 = string_empty_is(after);
         let v_3 = not(v_5);
         assert(v_3);

@@ -6,7 +6,8 @@ import { assert } from './assert.mjs';
 import { defined_is } from './defined/is.mjs';
 export function not(b) {
     assert_arguments_count(arguments, 1);
-    if (!defined_is(b)) {
+    let v = !defined_is(b);
+    if (v) {
         error('invalid b');
     }
     return !b;

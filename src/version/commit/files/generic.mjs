@@ -38,7 +38,8 @@ export async function version_commit_files_generic(repository_name, file_paths, 
     for (let file_path of filtered) {
         let difference = await difference_get(repository_name, file_path);
         let hunks = object_property_get(difference, property_hunks);
-        if (not(list_empty(hunks))) {
+        let v_2 = not(list_empty(hunks));
+        if (v_2) {
             let v = version_property_path();
             let difference_path = object_property_get(difference, v);
             let part_id = guid_generate();
@@ -54,7 +55,8 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             list_add(writes, difference_write);
         }
     }
-    if (not(list_empty(writes))) {
+    let v_3 = not(list_empty(writes));
+    if (v_3) {
         let when = date_now_iso();
         let commit_id = guid_generate();
         let commit = {

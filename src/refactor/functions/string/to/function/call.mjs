@@ -18,7 +18,8 @@ export async function refactor_functions_string_to_function_call(function_name_r
     ]);
     await function_names_each_map(async function logic(args) {
         let function_name = js_mapper_args_to_function_name(args);
-        if (equal(function_name, function_name_replacement)) {
+        let v_3 = equal(function_name, function_name_replacement);
+        if (v_3) {
             return;
         }
         await refactor_import_fix_if_changed(args, changed_lambda);
@@ -27,7 +28,8 @@ export async function refactor_functions_string_to_function_call(function_name_r
             js_nodes_each(parsed, js_node_is_literal, function v_2(n) {
                 let v = js_node_property_value();
                 let value = object_property_get(n, v);
-                if (equal(value, string_value)) {
+                let v_4 = equal(value, string_value);
+                if (v_4) {
                     let replacement = js_parse_call_expression(function_name_replacement);
                     object_replace(n, replacement);
                     change();

@@ -25,7 +25,8 @@ export async function function_tests_generate_generic_each(function_name, test_n
         has_error = true;
     }
     if (has_error) {
-        if (on_has_error()) {
+        let v_6 = on_has_error();
+        if (v_6) {
             return;
         }
     }

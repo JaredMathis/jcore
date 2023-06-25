@@ -23,7 +23,8 @@ export function js_statements_refactorable(left, right) {
         list_is
     ]);
     let result = result_empty();
-    if (not(equal_by(list_length, left, right))) {
+    let v = not(equal_by(list_length, left, right));
+    if (v) {
         result_unsuccess(result);
         return result;
     }
@@ -34,13 +35,15 @@ export function js_statements_refactorable(left, right) {
         let right_i = list_get(right, index);
         let left_identifiers = js_node_identifiers(left_i);
         let right_identifiers = js_node_identifiers(right_i);
-        if (not(equal_by(list_length, left_identifiers, right_identifiers))) {
+        let v_2 = not(equal_by(list_length, left_identifiers, right_identifiers));
+        if (v_2) {
             result_unsuccess(result);
             return result;
         }
         let right_i_copy = object_copy_json(right_i);
         const replaceify = js_node_identifiers_replaceify(right_i_copy, left_i);
-        if (!result_property_success_get(replaceify)) {
+        let v_3 = !result_property_success_get(replaceify);
+        if (v_3) {
             result_unsuccess(result);
             return result;
         }
@@ -48,7 +51,8 @@ export function js_statements_refactorable(left, right) {
         object_keys_each(replaceify_data, (value, key) => {
             object_property_ensure(dictionary, key, value);
         });
-        if (!equal_by(js_unparse, right_i_copy, left_i)) {
+        let v_4 = !equal_by(js_unparse, right_i_copy, left_i);
+        if (v_4) {
             result_unsuccess(result);
             return result;
         }

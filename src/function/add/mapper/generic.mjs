@@ -25,7 +25,8 @@ export async function function_add_mapper_generic(prefix, function_name_suffix, 
     let v_3 = function_name_separator();
     let function_name_suffix_parts = string_split(function_name_suffix, v_3);
     let function_name_refactor = refactor_function_name_from_parts(function_name_suffix_parts);
-    if (not(await function_exists(function_name_refactor))) {
+    let v = not(await function_exists(function_name_refactor));
+    if (v) {
         await function_add_inputs(function_name_refactor, 'args');
     }
     const prefix_refactor = refactor_prefix();

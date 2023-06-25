@@ -24,7 +24,8 @@ export function refactor_arguments_assert_add_no_check(function_declaration, exc
     ]);
     comment(`We want to skip dependencies of ${ function_name_get(arguments_assert) } or we will have recursion problems`);
     let function_name = js_function_declaration_to_name(function_declaration);
-    if (list_contains(excludes, function_name)) {
+    let v_6 = list_contains(excludes, function_name);
+    if (v_6) {
         return;
     }
     let statements = js_function_declaration_to_statements(function_declaration);

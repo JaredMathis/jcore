@@ -10,7 +10,8 @@ export function js_node_call_expression_if_name_equal(node, name_expected, on_na
         defined_is,
         function_is
     ]);
-    if (js_node_call_expression_name_equal(node, name_expected)) {
+    let v = js_node_call_expression_name_equal(node, name_expected);
+    if (v) {
         on_name_equal();
     }
     metadata([]);

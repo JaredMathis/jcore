@@ -10,7 +10,8 @@ import { string_is } from '../is.mjs';
 export function string_repeat_is(input) {
     arguments_assert(arguments, [string_is]);
     let length = string_length(input);
-    if (integer_odd_is(length)) {
+    let v_2 = integer_odd_is(length);
+    if (v_2) {
         return false;
     }
     let half = integer_divide_evenly(length, integer_value_2());

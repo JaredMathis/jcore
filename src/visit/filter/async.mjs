@@ -14,7 +14,8 @@ export async function visit_filter_async(root, children_get, filter, lambda) {
     await visit_async(root, children_get, lambda_local);
     async function lambda_local(v) {
         let node = object_property_get(v, 'node');
-        if (filter(node)) {
+        let v_3 = filter(node);
+        if (v_3) {
             let v_2 = await lambda(v);
             return v_2;
         }

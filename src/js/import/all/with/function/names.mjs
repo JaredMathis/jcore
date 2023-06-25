@@ -23,15 +23,18 @@ export async function js_import_all_with_function_names(parsed) {
     for (let i of import_all) {
         let v_2 = js_node_property_source();
         let source = object_property_get(i, v_2);
-        if (not(js_node_is_literal(source))) {
+        let v_9 = not(js_node_is_literal(source));
+        if (v_9) {
             continue;
         }
         let specifiers = object_property_get(i, 'specifiers');
-        if (not(list_length_is_1(specifiers))) {
+        let v_10 = not(list_length_is_1(specifiers));
+        if (v_10) {
             continue;
         }
         let specifier = list_first(specifiers);
-        if (not(js_node_is_import_specifier(specifier))) {
+        let v_11 = not(js_node_is_import_specifier(specifier));
+        if (v_11) {
             continue;
         }
         let properties = [
@@ -42,21 +45,24 @@ export async function js_import_all_with_function_names(parsed) {
             let v_6 = object_property_get(specifier, p);
             return v_6;
         });
-        if (list_any(values, function v_4(v) {
-                let v_7 = js_node_is_identifier(v);
-                let v_8 = not(v_7);
-                return v_8;
-            })) {
+        let v_12 = list_any(values, function v_4(v) {
+            let v_7 = js_node_is_identifier(v);
+            let v_8 = not(v_7);
+            return v_8;
+        });
+        if (v_12) {
             continue;
         }
         let first = list_first(values);
         let first_name = object_property_get(first, 'name');
-        if (list_any(values, function v_5(v) {
-                return object_property_get(v, 'name') !== first_name;
-            })) {
+        let v_13 = list_any(values, function v_5(v) {
+            return object_property_get(v, 'name') !== first_name;
+        });
+        if (v_13) {
             continue;
         }
-        if (not(list_contains(function_names, first_name))) {
+        let v_14 = not(list_contains(function_names, first_name));
+        if (v_14) {
             continue;
         }
         list_add(import_name_all, {

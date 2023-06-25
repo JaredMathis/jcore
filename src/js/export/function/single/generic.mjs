@@ -24,10 +24,12 @@ export function js_export_function_single_generic(parsed, or_null) {
     let result = value_new();
     let exports_existing = js_exports(parsed);
     if (or_null) {
-        if (list_empty(exports_existing)) {
+        let v_3 = list_empty(exports_existing);
+        if (v_3) {
             value_set(result, null);
         }
-        if (list_length_multiple(exports_existing)) {
+        let v_4 = list_length_multiple(exports_existing);
+        if (v_4) {
             let names = list_map(exports_existing, function v_2(e) {
                 const declaration = js_export_declaration_get(e);
                 let name = js_function_declaration_to_name(declaration);
@@ -36,10 +38,12 @@ export function js_export_function_single_generic(parsed, or_null) {
             error(`Multiple exports? Look into this: ` + names);
         }
     }
-    if (not(value_set_is(result))) {
+    let v_5 = not(value_set_is(result));
+    if (v_5) {
         const export_single = list_single(exports_existing);
         const declaration = js_export_declaration_get(export_single);
-        if (js_node_is_function_declaration(declaration)) {
+        let v_6 = js_node_is_function_declaration(declaration);
+        if (v_6) {
             value_set(result, declaration);
         }
     }

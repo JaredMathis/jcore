@@ -12,7 +12,8 @@ import { version_path_files_get } from '../path/files/get.mjs';
 export async function version_files_paths(repository_name) {
     let repository_files_path = version_path_files_get(repository_name);
     let paths;
-    if (await path_exists(repository_files_path)) {
+    let v_8 = await path_exists(repository_files_path);
+    if (v_8) {
         paths = await directory_read_directories(repository_files_path);
     } else {
         paths = [];

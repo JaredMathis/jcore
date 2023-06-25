@@ -9,7 +9,8 @@ export async function refactor_functions_unasyncify() {
     let ending = function_naming_suffix_asynk();
     let all = await function_name_all();
     for (let function_name of all) {
-        if (not(string_ends_with(function_name, ending))) {
+        let v = not(string_ends_with(function_name, ending));
+        if (v) {
             continue;
         }
         await function_unasyncify(function_name);

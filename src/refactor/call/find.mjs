@@ -8,11 +8,12 @@ export function refactor_call_find(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_name} = args;
     let {parsed} = args;
-    if (occurs(c => {
-            js_visit_nodes_call_expression_name_equal(parsed, function_name, function v_3(n) {
-                c();
-            });
-        })) {
+    let v = occurs(c => {
+        js_visit_nodes_call_expression_name_equal(parsed, function_name, function v_3(n) {
+            c();
+        });
+    });
+    if (v) {
         let {function_declaration} = args;
         let function_name_caller = js_function_declaration_to_name(function_declaration);
         log(function_name_caller);

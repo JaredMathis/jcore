@@ -18,7 +18,8 @@ export function js_identifier_counts(parsed) {
         let node = object_property_get(v, 'node');
         let invalid_names = ['hasOwnProperty'];
         let r = object_property_get(node, 'name');
-        if (not(list_contains(invalid_names, r))) {
+        let v_4 = not(list_contains(invalid_names, r));
+        if (v_4) {
             object_property_initialize_if_unset(result, r, integer_value_0());
             let previous = object_property_get(result, r);
             let v_2 = add_1(previous);
