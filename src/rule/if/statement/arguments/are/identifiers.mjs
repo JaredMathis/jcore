@@ -8,6 +8,7 @@ import { js_node_is_if_statement } from '../../../../../js/node/is/if/statement.
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
 import { js_visit_nodes_filter } from '../../../../../js/visit/nodes/filter.mjs';
 import { list_index_before } from '../../../../../list/index/before.mjs';
+import { list_get } from '../../../../../list/get.mjs';
 export async function rule_if_statement_arguments_are_identifiers() {
     arguments_assert(arguments, []);
     await function_names_each_map(args => {
@@ -21,6 +22,7 @@ export async function rule_if_statement_arguments_are_identifiers() {
             let stack_reversed = list_reversed_get(stack);
             let ancestor_list = js_visit_stack_reversed_to_ancestor_list(stack_reversed);
             let add_assignment_before_node_index = list_index_before(stack_reversed, ancestor_list);
+            let add_assignment_before_node = list_get(stack_reversed, add_assignment_before_node_index);
             js_node_assign_and_replace(parsed, expression_to_replace, ancestor_list, add_assignment_before_node);
         });
     });
