@@ -16,6 +16,7 @@ export async function rule_if_statement_arguments_are_identifiers() {
     arguments_assert(arguments, []);
     await function_names_each_map(args => {
         let {parsed, file_path} = args;
+        let changed = false;
         js_visit_nodes_filter(parsed, js_node_is_if_statement, v => {
             let {node, stack} = v;
             let test = js_node_property_test_get(node);
@@ -27,8 +28,11 @@ export async function rule_if_statement_arguments_are_identifiers() {
             let add_assignment_before_node_index = list_index_before(stack_reversed, ancestor_list);
             let add_assignment_before_node = list_get(stack_reversed, add_assignment_before_node_index);
             js_node_assign_and_replace(parsed, node, ancestor_list, add_assignment_before_node);
+            changed = true;
         });
-        console.log(js_unparse(parsed));
-        error(file_path);
+        if (changed) {
+            console.log(js_unparse(parsed));
+            error(file_path);
+        }
     });
 }
