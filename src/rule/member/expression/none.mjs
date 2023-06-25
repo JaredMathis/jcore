@@ -19,9 +19,10 @@ import { object_replace } from '../../../object/replace.mjs';
 import { js_node_is_identifier } from '../../../js/node/is/identifier.mjs';
 import { json_to } from '../../../json/to.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
+import { function_name_get } from '../../../function/name/get.mjs';
 export async function rule_member_expression_none() {
     arguments_assert(arguments, []);
-    let excludes = await function_dependencies_names(object_property_get);
+    let excludes = await function_dependencies_names(function_name_get(object_property_get));
     await function_names_each_map(async args => {
         let {file_path} = args;
         await refactor_import_fix_if_changed(args, changed => {
