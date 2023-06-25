@@ -45,11 +45,12 @@ export async function rule_constant_numbers_are_function_outputs() {
                 assert_message(integer_is(value), 'need to handle non-integers maybe');
                 console.log('a');
                 let function_name_new = `integer_value_${ value }`;
-                console.log('a');
+                console.log('ab');
                 if (!await function_exists(function_name_new)) {
+                    console.log('bac');
                     await function_add_return(function_name_new, string_to(value));
                 }
-                console.log('a');
+                console.log('ba');
                 let ce = js_parse_call_expression(function_name_new);
                 console.log('a');
                 object_replace(node, ce);
