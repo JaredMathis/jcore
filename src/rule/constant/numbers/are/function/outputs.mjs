@@ -20,6 +20,7 @@ import { js_node_is_call_expression } from '../../../../../js/node/is/call/expre
 import { list_map } from '../../../../../list/map.mjs';
 import { js_call_expression_name_get } from '../../../../../js/call/expression/name/get.mjs';
 import { list_intersection } from '../../../../../list/intersection.mjs';
+import { js_node_is } from '../../../../../js/node/is.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
@@ -33,7 +34,7 @@ export async function rule_constant_numbers_are_function_outputs() {
             if (!number_is(value)) {
                 return;
             }
-            let ces = list_filter(stack, js_node_is_call_expression);
+            let ces = list_filter(stack, s => js_node_is(s) && js_node_is_call_expression(s));
             let ces_names = list_map(ces, js_call_expression_name_get);
             if (list_empty_not(list_intersection(ces_names, excludes))) {
                 return;
