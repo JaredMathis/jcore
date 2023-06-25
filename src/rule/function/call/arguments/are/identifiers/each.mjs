@@ -21,7 +21,8 @@ export function rule_function_call_arguments_are_identifiers_each(args) {
             metadata
         ];
         let rule_exceptions_names = list_map(rule_exceptions, function_name_get);
-        if (list_any(rule_exceptions_names, e => equal(e, name))) {
+        const skip = list_any(rule_exceptions_names, e => equal(e, name));
+        if (skip) {
             return;
         }
         let args = js_node_property_arguments_get(node);
