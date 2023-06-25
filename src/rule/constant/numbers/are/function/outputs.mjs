@@ -13,6 +13,10 @@ import { function_exists } from '../../../../../function/exists.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
 import { refactor_import_fix } from '../../../../../refactor/import/fix.mjs';
 import { js_parse_call_expression } from '../../../../../js/parse/call/expression.mjs';
+import { list_filter } from '../../../../../list/filter.mjs';
+import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
+import { list_map } from '../../../../../list/map.mjs';
+import { js_call_expression_name_get } from '../../../../../js/call/expression/name/get.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
     await file_js_all_map_args_if_function(async args => {
@@ -21,6 +25,8 @@ export async function rule_constant_numbers_are_function_outputs() {
         console.log({ file_path });
         await js_visit_nodes_filter_async(parsed, js_node_is_literal, async v => {
             let {node, stack} = v;
+            let ces = list_filter(stack, js_node_is_call_expression);
+            let ces_names = list_map(ces, js_call_expression_name_get);
             let value = js_node_property_value_get(node);
             if (!number_is(value)) {
                 return;
