@@ -27,6 +27,7 @@ import { list_contains } from '../../../../../list/contains.mjs';
 import { js_unparse } from '../../../../../js/unparse.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
+    let prefix = `integer_value_`;
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await file_js_all_map_args_if_function(async args => {
         let {parsed} = args;
@@ -42,7 +43,6 @@ export async function rule_constant_numbers_are_function_outputs() {
                     return;
                 }
                 assert_message(integer_is(value), 'need to handle non-integers maybe');
-                let prefix = `integer_value_`;
                 let function_name_new = `${prefix}${ value }`;
                 if (!await function_exists(function_name_new)) {
                     await function_add_return(function_name_new, string_to(value));
