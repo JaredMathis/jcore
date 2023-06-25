@@ -28,7 +28,7 @@ export async function tests_generate() {
     let filtered = list_adder_async(async la => {
         for (let test_name of test_names) {
             let parsed = await function_parse(test_name);
-            
+            js_mapper_args_to_metadata_args
         }
     })
     let mapped = list_map(test_names, function v_4(n) {
