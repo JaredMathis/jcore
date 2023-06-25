@@ -12,9 +12,12 @@ export async function rule_member_expression_none() {
     await function_names_each_map(args => {
         let {parsed} = args;
         js_nodes_each(parsed, js_node_is_member_expression, node => {
-            console.log({ node });
             let ce_code = js_code_call_expression_object_property_get(string_a(), string_a());
             let ce = js_parse_expression(ce_code);
+            console.log({
+                node,
+                ce
+            });
             error();
         });
     });
