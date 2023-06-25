@@ -28,27 +28,28 @@ export async function rule_constant_numbers_are_function_outputs() {
         let {parsed} = args;
         let {file_path} = args;
         console.log({ file_path });
-        await refactor_import_fix_if_changed(changed => {
-        });
-        await js_visit_nodes_filter_async(parsed, js_node_is_literal, async v => {
-            let {node, stack} = v;
-            let value = js_node_property_value_get(node);
-            if (!number_is(value)) {
-                return;
-            }
-            let ces = list_filter(stack, s => js_node_is(s) && js_node_is_call_expression(s));
-            let ces_names = list_map(ces, js_call_expression_name_get);
-            if (list_empty_not(list_intersection(ces_names, excludes))) {
-                return;
-            }
-            assert_message(integer_is(value), 'need to handle non-integers maybe');
-            assert_message(value >= 0, 'need to handle negatives maybe');
-            let function_name_new = `integer_value_${ value }`;
-            if (!await function_exists(function_name_new)) {
-                await function_add_return(function_name_new, string_to(value));
-            }
-            let ce = js_parse_call_expression(function_name_new);
-            object_replace(node, ce);
+        await refactor_import_fix_if_changed(args, async changed => {
+            await js_visit_nodes_filter_async(parsed, js_node_is_literal, async v => {
+                let {node, stack} = v;
+                let value = js_node_property_value_get(node);
+                if (!number_is(value)) {
+                    return;
+                }
+                let ces = list_filter(stack, s => js_node_is(s) && js_node_is_call_expression(s));
+                let ces_names = list_map(ces, js_call_expression_name_get);
+                if (list_empty_not(list_intersection(ces_names, excludes))) {
+                    return;
+                }
+                assert_message(integer_is(value), 'need to handle non-integers maybe');
+                assert_message(value >= 0, 'need to handle negatives maybe');
+                let function_name_new = `integer_value_${ value }`;
+                if (!await function_exists(function_name_new)) {
+                    await function_add_return(function_name_new, string_to(value));
+                }
+                let ce = js_parse_call_expression(function_name_new);
+                object_replace(node, ce);
+                changed();
+            });
         });
     });
 }
