@@ -41,14 +41,19 @@ export async function rule_constant_numbers_are_function_outputs() {
                 if (!number_is(value)) {
                     return;
                 }
+                console.log('a');
                 assert_message(integer_is(value), 'need to handle non-integers maybe');
+                console.log('a');
                 let function_name_new = `integer_value_${ value }`;
+                console.log('a');
                 if (!await function_exists(function_name_new)) {
                     await function_add_return(function_name_new, string_to(value));
                 }
+                console.log('a');
                 let ce = js_parse_call_expression(function_name_new);
+                console.log('a');
                 object_replace(node, ce);
-                console.log({ node });
+                console.log('a');
                 changed();
             });
         });
