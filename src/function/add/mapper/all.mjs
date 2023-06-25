@@ -1,5 +1,5 @@
 import { js_brace_left_right } from '../../../js/brace/left/right.mjs';
-import { file_js_all_map_args_if_function_args } from '../../../file/js/all/map/args/if/function/args.mjs';
+import { function_names_each_map_args } from '../../names/each/map/args.mjs';
 import { js_keyword_function } from '../../../js/keyword/function.mjs';
 import { function_add_mapper_generic } from './generic.mjs';
 import { function_name_get } from '../../name/get.mjs';
@@ -10,7 +10,7 @@ import { function_name_separator } from '../../name/separator.mjs';
 import { refactor_prefix } from '../../../refactor/prefix.mjs';
 export async function function_add_mapper_all(function_name_suffix) {
     arguments_assert(arguments, [js_identifier_is]);
-    let fn = file_js_all_map_args_if_function_args;
+    let fn = function_names_each_map_args;
     let function_name_to_call = function_name_get(fn);
     function expression_code_args_get(function_name_refactor) {
         const expression_code_args = [
