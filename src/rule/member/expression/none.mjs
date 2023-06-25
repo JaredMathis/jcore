@@ -1,3 +1,4 @@
+import { assert_message } from '../../../assert/message.mjs';
 import { js_code_expression_string } from '../../../js/code/expression/string.mjs';
 import { js_node_property_name_get } from '../../../js/node/property/name/get.mjs';
 import { refactor_import_fix_if_changed } from '../../../refactor/import/fix/if/changed.mjs';
@@ -14,6 +15,7 @@ import { string_a } from '../../../string/a.mjs';
 import { js_parse_expression } from '../../../js/parse/expression.mjs';
 import { object_replace } from '../../../object/replace.mjs';
 import { js_node_is_identifier } from '../../../js/node/is/identifier.mjs';
+import { json_to } from '../../../json/to.mjs';
 export async function rule_member_expression_none() {
     arguments_assert(arguments, []);
     await function_names_each_map(async args => {
@@ -23,10 +25,10 @@ export async function rule_member_expression_none() {
             js_nodes_each(parsed, js_node_is_member_expression, node => {
                 let object = js_node_property_object_get(node);
                 let property = js_node_property_property_get(node);
-                assert_message_json(js_node_is_identifier(property), {
+                assert_message(js_node_is_identifier(property), json_to({
                     file_path,
                     property
-                });
+                }));
                 let property_name = js_node_property_name_get(property);
                 let ce_code = js_code_call_expression_object_property_get(string_a(), js_code_expression_string(property_name));
                 let ce = js_parse_expression(ce_code);
