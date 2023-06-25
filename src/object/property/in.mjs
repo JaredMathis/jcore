@@ -6,7 +6,7 @@ export function object_property_in(object, property_name) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let v = object.hasOwnProperty(property_name);
+    let v = property_name in object;
     return v;
     metadata([]);
 }
