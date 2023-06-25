@@ -23,23 +23,21 @@ import { js_call_expression_name_get } from '../../../../../js/call/expression/n
 import { list_intersection } from '../../../../../list/intersection.mjs';
 import { js_node_is } from '../../../../../js/node/is.mjs';
 import { error } from '../../../../../error.mjs';
+import { list_contains } from '../../../../../list/contains.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await file_js_all_map_args_if_function(async args => {
         let {parsed} = args;
         let function_name = js_mapper_args_to_function_name(args);
+        if (list_contains(excludes, function_name)) {
+            return;
+        }
         await refactor_import_fix_if_changed(args, async changed => {
             await js_visit_nodes_filter_async(parsed, js_node_is_literal, async v => {
-                let {node, stack} = v;
+                let {node} = v;
                 let value = js_node_property_value_get(node);
                 if (!number_is(value)) {
-                    return;
-                }
-                let ces = list_filter(stack, s => js_node_is(s) && js_node_is_call_expression(s));
-                let ces_names = list_map(ces, js_call_expression_name_get);
-                const i = list_intersection(ces_names, excludes);
-                if (list_empty_not(i)) {
                     return;
                 }
                 assert_message(integer_is(value), 'need to handle non-integers maybe');
