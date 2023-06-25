@@ -12,6 +12,9 @@ import { list_index_before } from '../../../../../list/index/before.mjs';
 import { list_get } from '../../../../../list/get.mjs';
 import { js_unparse } from '../../../../../js/unparse.mjs';
 import { error } from '../../../../../error.mjs';
+import { assert } from '../../../../../assert.mjs';
+import { result_property_success_get } from '../../../../../result/property/success/get.mjs';
+import { result_property_data_get } from '../../../../../result/property/data/get.mjs';
 export async function rule_if_statement_arguments_are_identifiers() {
     arguments_assert(arguments, []);
     await function_names_each_map(args => {
@@ -24,11 +27,9 @@ export async function rule_if_statement_arguments_are_identifiers() {
                 return;
             }
             let stack_reversed = list_reversed_get(stack);
-            let ancestor_list = js_visit_stack_reversed_to_ancestor_list(stack_reversed);
-            console.log({
-                stack_reversed,
-                ancestor_list
-            });
+            let ancestor_list_result = js_visit_stack_reversed_to_ancestor_list(stack_reversed);
+            assert(result_property_success_get(ancestor_list_result));
+            let ancestor_list = result_property_data_get(ancestor_list_result);
             let add_assignment_before_node_index = list_index_before(stack_reversed, ancestor_list);
             let add_assignment_before_node = list_get(stack_reversed, add_assignment_before_node_index);
             js_node_assign_and_replace(parsed, node, ancestor_list, add_assignment_before_node);
