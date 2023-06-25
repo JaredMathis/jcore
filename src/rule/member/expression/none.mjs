@@ -1,3 +1,4 @@
+import { js_node_property_computed_get } from '../../../js/node/property/computed/get.mjs';
 import { assert_message } from '../../../assert/message.mjs';
 import { js_code_expression_string } from '../../../js/code/expression/string.mjs';
 import { js_node_property_name_get } from '../../../js/node/property/name/get.mjs';
@@ -25,6 +26,7 @@ export async function rule_member_expression_none() {
             js_nodes_each(parsed, js_node_is_member_expression, node => {
                 let object = js_node_property_object_get(node);
                 let property = js_node_property_property_get(node);
+                let computed = js_node_property_computed_get(node);
                 assert_message(js_node_is_identifier(property), json_to({
                     file_path,
                     node
