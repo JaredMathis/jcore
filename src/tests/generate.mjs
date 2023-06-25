@@ -18,11 +18,19 @@ import { function_all_tests } from '../function/all/tests.mjs';
 import { function_name_to_file_path } from '../function/name/to/file/path.mjs';
 import { list_add } from '../list/add.mjs';
 import { list_length } from '../list/length.mjs';
+import { list_adder_async } from '../list/adder/async.mjs';
+import { function_parse } from '../function/parse.mjs';
 export async function tests_generate() {
     arguments_assert(arguments, []);
     let function_name = tests_name();
     let file_path = function_name_to_file_path(function_name);
     let test_names = await function_all_tests();
+    let filtered = list_adder_async(async la => {
+        for (let test_name of test_names) {
+            let parsed = await function_parse(test_name);
+            
+        }
+    })
     let mapped = list_map(test_names, function v_4(n) {
         const awaited = js_code_call_expression_statement(n);
         let v = js_code_await(awaited);
