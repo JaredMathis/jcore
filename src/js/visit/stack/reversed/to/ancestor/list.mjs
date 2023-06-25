@@ -37,8 +37,8 @@ export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
         parent_list_next = object_property_get(list_find_first_after_result, 'next');
         parent_list_index = object_property_get(list_find_first_after_result, 'index');
     }
-    let v_14 = js_node_is_block_statement(parent_list_next);
     console.log({parent_list_next})
+    let v_14 = js_node_is_block_statement(parent_list_next);
     assert(v_14);
     let ancestor_list = list_get(stack_reversed, parent_list_index);
     result_property_data_set(result, ancestor_list);
