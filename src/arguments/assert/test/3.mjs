@@ -6,14 +6,20 @@ import { integer_is } from '../../../integer/is.mjs';
 import { assert_throws } from '../../../assert/throws.mjs';
 import { arguments_assert } from '../../assert.mjs';
 export function arguments_assert_test_3() {
-    arguments_assert(arguments, []);
-    comment('Too many predicates');
-    assert_throws(function v() {
-        let v_2 = arguments_assert([integer_value_1()], [
+    let v_3 = [];
+    arguments_assert(arguments, v_3);
+    let v_4 = 'Too many predicates';
+    comment(v_4);
+    let v_5 = function v() {
+        let v_7 = [integer_value_1()];
+        let v_8 = [
             integer_is,
             integer_is
-        ]);
+        ];
+        let v_2 = arguments_assert(v_7, v_8);
         return v_2;
-    });
-    metadata([metadata_arguments_assert_extra_allow()]);
+    };
+    assert_throws(v_5);
+    let v_6 = [metadata_arguments_assert_extra_allow()];
+    metadata(v_6);
 }

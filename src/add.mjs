@@ -2,10 +2,12 @@ import { number_is } from './number/is.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { metadata } from './metadata.mjs';
 export function add(a, b) {
-    arguments_assert(arguments, [
+    let v = [
         number_is,
         number_is
-    ]);
+    ];
+    arguments_assert(arguments, v);
     return a + b;
-    metadata([]);
+    let v_2 = [];
+    metadata(v_2);
 }
