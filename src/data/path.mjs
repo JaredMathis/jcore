@@ -4,6 +4,9 @@ import { file_name_json } from '../file/name/json.mjs';
 import { directory_current } from '../directory/current.mjs';
 export function data_path() {
     arguments_assert(arguments, []);
-    return `${ directory_current() }/${ file_name_json(`data`) }`;
+    let v = directory_current();
+    let v_2 = `data`;
+    let v_3 = file_name_json(v_2);
+    return `${ v }/${ v_3 }`;
     metadata([]);
 }

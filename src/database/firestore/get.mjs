@@ -5,7 +5,8 @@ let initialized = false;
 export function database_firestore_get() {
     let v = not(initialized);
     if (v) {
-        initializeApp({ projectId: 'truthcode' });
+        let v_2 = { projectId: 'truthcode' };
+        initializeApp(v_2);
         initialized = true;
     }
     const db = getFirestore();
