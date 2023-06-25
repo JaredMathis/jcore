@@ -13,11 +13,12 @@ import { string_a } from '../../../../string/a.mjs';
 import { js_identifier_name_next } from '../../../identifier/name/next.mjs';
 import { js_node_property_argument_get } from '../../property/argument/get.mjs';
 import { js_node_is_await_expression } from '../../is/await/expression.mjs';
+import { list_is } from '../../../../list/is.mjs';
 export function js_node_assign_and_replace(parsed, expression_to_replace, ancestor_list, add_assignment_before_node) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo,
-        arguments_assert_todo,
+        list_is,
         arguments_assert_todo
     ]);
     let expression_to_replace_root = expression_to_replace;
