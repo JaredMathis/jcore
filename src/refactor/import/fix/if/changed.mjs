@@ -7,7 +7,7 @@ export async function refactor_import_fix_if_changed(args, changed_lambda) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let c = occurs_async(changed_lambda);
+    let c = await occurs_async(changed_lambda);
     if (c) {
         await refactor_import_fix(args);
     }
