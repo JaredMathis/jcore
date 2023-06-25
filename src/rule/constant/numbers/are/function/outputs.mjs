@@ -1,3 +1,4 @@
+import { list_empty_not } from '../../../../../list/empty/not.mjs';
 import { refactor_functions_arguments_assert_missing_add_excludes } from '../../../../../refactor/functions/arguments/assert/missing/add/excludes.mjs';
 import { log } from '../../../../../log.mjs';
 import { file_js_all_map_args_if_function } from '../../../../../file/js/all/map/args/if/function.mjs';
@@ -18,6 +19,7 @@ import { list_filter } from '../../../../../list/filter.mjs';
 import { js_node_is_call_expression } from '../../../../../js/node/is/call/expression.mjs';
 import { list_map } from '../../../../../list/map.mjs';
 import { js_call_expression_name_get } from '../../../../../js/call/expression/name/get.mjs';
+import { list_intersection } from '../../../../../list/intersection.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
@@ -27,10 +29,13 @@ export async function rule_constant_numbers_are_function_outputs() {
         console.log({ file_path });
         await js_visit_nodes_filter_async(parsed, js_node_is_literal, async v => {
             let {node, stack} = v;
-            let ces = list_filter(stack, js_node_is_call_expression);
-            let ces_names = list_map(ces, js_call_expression_name_get);
             let value = js_node_property_value_get(node);
             if (!number_is(value)) {
+                return;
+            }
+            let ces = list_filter(stack, js_node_is_call_expression);
+            let ces_names = list_map(ces, js_call_expression_name_get);
+            if (list_empty_not(list_intersection(ces_names, excludes))) {
                 return;
             }
             assert_message(integer_is(value), 'need to handle non-integers maybe');
