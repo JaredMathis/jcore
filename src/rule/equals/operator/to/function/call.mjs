@@ -18,15 +18,10 @@ import { refactor_functions_arguments_assert_missing_add_excludes } from '../../
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export async function rule_equals_operator_to_function_call() {
     arguments_assert(arguments, []);
-    let prefix = `integer_value_`;
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await function_names_each_map(async args => {
         let {parsed} = args;
         let function_name = js_mapper_args_to_function_name(args);
-        let v_2 = string_starts_with(function_name, prefix);
-        if (v_2) {
-            return;
-        }
         let v_3 = list_contains(excludes, function_name);
         if (v_3) {
             return;
