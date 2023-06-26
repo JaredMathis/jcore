@@ -52,7 +52,11 @@ export function string_difference_get_recursive(left, right, left_offset, right_
         let v_11 = string_empty_not_is(right);
         if (v_11) {
             const position = right_index + right_offset;
-            list_add(result, string_to(position) + string_difference_added() + string_to(right));
+            list_add(result, string_combine_multiple([
+                string_to(position),
+                string_difference_added(),
+                string_to(right)
+            ]));
         }
         return result;
     }
