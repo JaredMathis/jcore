@@ -9,7 +9,10 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function string_swap_test_generated_6() {
     arguments_assert(arguments, []);
     let expected = 'aba';
-    let actual = string_swap('aab', integer_value_1(), integer_value_2());
+    let v_2 = 'aab';
+    let v_3 = integer_value_1();
+    let v_4 = integer_value_2();
+    let actual = string_swap(v_2, v_3, v_4);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

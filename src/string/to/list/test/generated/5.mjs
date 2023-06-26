@@ -7,7 +7,8 @@ import { string_to_list } from '../../../list.mjs';
 export function string_to_list_test_generated_5() {
     arguments_assert(arguments, []);
     let expected = ['b'];
-    let actual = string_to_list('b');
+    let v_2 = 'b';
+    let actual = string_to_list(v_2);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

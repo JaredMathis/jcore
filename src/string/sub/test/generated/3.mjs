@@ -9,7 +9,10 @@ import { string_sub } from '../../../sub.mjs';
 export function string_sub_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = 'aa';
-    let actual = string_sub('aab', integer_value_0(), integer_value_2());
+    let v_2 = 'aab';
+    let v_3 = integer_value_0();
+    let v_4 = integer_value_2();
+    let actual = string_sub(v_2, v_3, v_4);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

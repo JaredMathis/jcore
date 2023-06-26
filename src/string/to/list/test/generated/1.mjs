@@ -10,7 +10,8 @@ export function string_to_list_test_generated_1() {
         'a',
         'a'
     ];
-    let actual = string_to_list('aa');
+    let v_2 = 'aa';
+    let actual = string_to_list(v_2);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

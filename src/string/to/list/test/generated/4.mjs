@@ -11,7 +11,8 @@ export function string_to_list_test_generated_4() {
         'a',
         'b'
     ];
-    let actual = string_to_list('aab');
+    let v_2 = 'aab';
+    let actual = string_to_list(v_2);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

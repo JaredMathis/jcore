@@ -24,21 +24,25 @@ export async function task_available_generic(map_with_all_unsummarized) {
             let v_7 = null_not_is(body);
             if (v_7) {
                 let body_parsed = json_from(body);
-                let v_8 = object_property_exists(body_parsed, task_body_property_requires());
+                let v_10 = task_body_property_requires();
+                let v_8 = object_property_exists(body_parsed, v_10);
                 if (v_8) {
                     let v_4 = task_body_property_requires();
                     let requires = object_property_get(body_parsed, v_4);
-                    let v_9 = list_any(requires, function v_2(r) {
+                    let v_11 = function v_2(r) {
                         let v_5 = task_property_number();
                         let v_6 = list_find_property_exists(open, v_5, r);
                         return v_6;
-                    });
+                    };
+                    let v_9 = list_any(requires, v_11);
                     if (v_9) {
-                        return boolean_value_false();
+                        let v_12 = boolean_value_false();
+                        return v_12;
                     }
                 }
             }
-            return boolean_value_true();
+            let v_13 = boolean_value_true();
+            return v_13;
         };
     }
     metadata([]);

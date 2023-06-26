@@ -7,10 +7,14 @@ import { assert_throws } from '../../../../assert/throws.mjs';
 import { assert } from '../../../../assert.mjs';
 export function string_sub_test_generated_1() {
     arguments_assert(arguments, []);
-    let v = assert_throws(function v_2() {
-        let v_3 = string_sub('a', -integer_value_1(), -integer_value_1());
+    let v_4 = function v_2() {
+        let v_5 = 'a';
+        let v_6 = -integer_value_1();
+        let v_7 = -integer_value_1();
+        let v_3 = string_sub(v_5, v_6, v_7);
         return v_3;
-    });
+    };
+    let v = assert_throws(v_4);
     assert(v);
     metadata([metadata_generated()]);
 }

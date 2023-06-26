@@ -5,6 +5,8 @@ import { metadata } from '../metadata.mjs';
 import { integer_is } from '../integer/is.mjs';
 export function subtract_1(l) {
     arguments_assert(arguments, [integer_is]);
-    return subtract(l, integer_value_1());
+    let v = integer_value_1();
+    let v_2 = subtract(l, v);
+    return v_2;
     metadata([]);
 }

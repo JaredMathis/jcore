@@ -13,7 +13,9 @@ export function string_suffix_without(input, suffix) {
     ]);
     let v = string_ends_with(input, suffix);
     assert(v);
-    let end = subtract(string_length(input), string_length(suffix));
+    let v_3 = string_length(input);
+    let v_4 = string_length(suffix);
+    let end = subtract(v_3, v_4);
     let v_2 = string_take(input, end);
     return v_2;
     metadata([]);

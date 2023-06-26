@@ -7,7 +7,9 @@ import { string_suffix_without } from '../../../without.mjs';
 export function string_suffix_without_test_generated_2() {
     arguments_assert(arguments, []);
     let expected = 'a';
-    let actual = string_suffix_without('a', '');
+    let v_2 = 'a';
+    let v_3 = '';
+    let actual = string_suffix_without(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

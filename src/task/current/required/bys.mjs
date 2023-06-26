@@ -13,7 +13,8 @@ export async function task_current_required_bys() {
     arguments_assert(arguments, []);
     let all_unsummarized = await task_all_unsummarized();
     let current_result = await task_current();
-    let v_2 = not(result_property_success_get(current_result));
+    let v_3 = result_property_success_get(current_result);
+    let v_2 = not(v_3);
     if (v_2) {
         return [];
     }

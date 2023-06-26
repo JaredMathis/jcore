@@ -4,9 +4,10 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 export async function task_all_unsummarized() {
     arguments_assert(arguments, []);
     let result;
-    await tasks_all_map(function v(tasks_all) {
+    let v_2 = function v(tasks_all) {
         return result = tasks_all;
-    });
+    };
+    await tasks_all_map(v_2);
     return result;
     metadata([]);
 }
