@@ -43,7 +43,11 @@ export function string_difference_get_recursive(left, right, left_offset, right_
         let v_10 = string_empty_not_is(left);
         if (v_10) {
             const position = left_index + left_offset;
-            list_add(result, string_combine_multiple(string_to(position), string_difference_removed(), string_to(string_length(left))));
+            list_add(result, string_combine_multiple([
+                string_to(position),
+                string_difference_removed(),
+                string_to(string_length(left))
+            ]));
         }
         let v_11 = string_empty_not_is(right);
         if (v_11) {
