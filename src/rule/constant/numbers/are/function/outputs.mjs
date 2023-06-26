@@ -43,7 +43,7 @@ export async function rule_constant_numbers_are_function_outputs() {
                 if (v_4) {
                     return;
                 }
-                assert_message(integer_is(value), 'need to handle non-integers maybe');
+                assert_message(lambda_assert(value), 'need to handle non-integers maybe');
                 let function_name_new = `${ prefix }${ value }`;
                 let v_5 = !await function_exists(function_name_new);
                 if (v_5) {
