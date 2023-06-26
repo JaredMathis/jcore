@@ -19,7 +19,8 @@ import { list_contains } from '../../../../../list/contains.mjs';
 import { string_starts_with } from '../../../../../string/starts/with.mjs';
 export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
-    let prefix = `${`integer`}_value_`;
+    const prefix_type = `integer`;
+    let prefix = `${prefix_type}_value_`;
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await function_names_each_map(async function v_6(args) {
         let {parsed} = args;
