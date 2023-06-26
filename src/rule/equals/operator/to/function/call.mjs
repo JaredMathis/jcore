@@ -19,9 +19,9 @@ import { json_to } from '../../../../../json/to.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 export async function rule_equals_operator_to_function_call() {
     arguments_assert(arguments, []);
+    let equals_function_name = function_name_get(equals);
     await function_names_each_map(async args => {
         let {parsed} = args;
-        let equals_function_name = function_name_get(equals);
         await refactor_import_fix_if_changed(args, async changed => {
             await js_visit_nodes_filter_async(parsed, js_node_is_binary_expression, async v => {
                 let {node} = v;
