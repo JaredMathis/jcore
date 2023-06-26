@@ -7,10 +7,11 @@ import { list_filter } from '../../list/filter.mjs';
 import { function_name_all } from '../name/all.mjs';
 export async function function_rename_generic(predicate_should_rename, function_name_new_get) {
     let names = await function_name_all();
-    let names_filtered = list_filter(names, function v(n) {
+    let v_3 = function v(n) {
         let v_2 = predicate_should_rename(n);
         return v_2;
-    });
+    };
+    let names_filtered = list_filter(names, v_3);
     let dictionary_tests = {};
     let dictionary = await list_string_to_dictionary_async(names_filtered, key_to_value);
     async function key_to_value(n_old) {

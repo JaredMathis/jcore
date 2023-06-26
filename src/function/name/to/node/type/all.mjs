@@ -4,7 +4,8 @@ import { function_parse } from '../../../../parse.mjs';
 export async function function_name_to_node_type_all(function_name, node_type_name) {
     let parsed = await function_parse(function_name);
     let v = function v_2(n) {
-        return js_node_is_type(n, node_type_name);
+        let v_3 = js_node_is_type(n, node_type_name);
+        return v_3;
     };
     let filtered = js_nodes_get(parsed, v);
     return filtered;

@@ -3,5 +3,7 @@ import { function_suffix_asynk } from '../../suffix/asynk.mjs';
 import { function_name_separator } from '../../name/separator.mjs';
 export function function_naming_suffix_asynk() {
     arguments_assert(arguments, []);
-    return `${ function_name_separator() }${ function_suffix_asynk() }`;
+    let v = function_name_separator();
+    let v_2 = function_suffix_asynk();
+    return `${ v }${ v_2 }`;
 }

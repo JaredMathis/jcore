@@ -8,10 +8,12 @@ import { assert } from '../../../../../assert.mjs';
 import { list_length_at_least } from '../../../../../list/length/at/least.mjs';
 export async function function_rename_parts_swap_last_2(function_name_old) {
     arguments_assert(arguments, [js_identifier_is]);
-    let function_name_new = js_identifier_parts_map(function_name_old, function map(parts) {
-        let v = list_length_at_least(parts, integer_value_2());
+    let v_2 = function map(parts) {
+        let v_3 = integer_value_2();
+        let v = list_length_at_least(parts, v_3);
         assert(v);
         list_swap_last_2(parts);
-    });
+    };
+    let function_name_new = js_identifier_parts_map(function_name_old, v_2);
     await function_rename_single(function_name_old, function_name_new);
 }

@@ -12,16 +12,18 @@ export async function function_rename_part(function_name_old, part_old, part_new
         js_identifier_part_is,
         js_identifier_part_is
     ]);
-    let function_name_new = js_identifier_parts_map(function_name_old, function v(parts) {
-        let parts_new = list_map(parts, function v_2(p) {
+    let v_4 = function v(parts) {
+        let v_5 = function v_2(p) {
             let v_3 = equal(p, part_old);
             if (v_3) {
                 return part_new;
             }
             return p;
-        });
+        };
+        let parts_new = list_map(parts, v_5);
         object_replace(parts, parts_new);
-    });
+    };
+    let function_name_new = js_identifier_parts_map(function_name_old, v_4);
     let result = await function_rename_single(function_name_old, function_name_new);
     return result;
 }
