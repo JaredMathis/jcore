@@ -34,6 +34,7 @@ import { error } from '../../../error.mjs';
 import { string_is } from '../../../string/is.mjs';
 import { integer_parse } from '../../../integer/parse.mjs';
 import { string_combine } from '../../../string/combine.mjs';
+import { add } from '../../../add.mjs';
 export async function function_tests_generate_generic(function_name, count_string) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -89,7 +90,7 @@ export async function function_tests_generate_generic(function_name, count_strin
     let count_error = integer_value_0();
     log(function_name);
     for (let i of range(count)) {
-        let test_name = function_name + function_tests_generated_string_sub() + (i + integer_value_1());
+        let test_name = function_name + function_tests_generated_string_sub() + add(i, integer_value_1());
         for (let j of range(tries)) {
             let v_25 = function v_10(n) {
                 let key = function_name_to_tests_values(n);
