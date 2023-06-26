@@ -1,3 +1,4 @@
+import { multiply } from '../../../../../multiply.mjs';
 import { subtract } from '../../../../../subtract.mjs';
 import { or } from '../../../../../or.mjs';
 import { js_node_is_logical_expression } from '../../../../../js/node/is/logical/expression.mjs';
@@ -16,4 +17,5 @@ export async function rule_operator_to_function_call_multiple() {
     await rule_operator_to_function_call_generic(or, '||', js_node_is_logical_expression);
     await rule_operator_to_function_call_generic(less_than, '<', js_node_is_binary_expression);
     await rule_operator_to_function_call_generic(subtract, '-', js_node_is_binary_expression);
+    await rule_operator_to_function_call_generic(multiply, '*', js_node_is_binary_expression);
 }
