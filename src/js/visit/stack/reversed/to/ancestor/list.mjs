@@ -23,7 +23,10 @@ export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
     let result = result_empty();
     let index_starting_at = integer_value_0();
     let parent_list_index = list_find_first_index_starting_at(stack_reversed, function v(n) {
-        return and(js_node_is(n), js_node_is_block_statement(n));
+        if (!js_node_is(n)) {
+            return false;
+        }
+        return js_node_is_block_statement(n);
     }, index_starting_at);
     if (null_is(parent_list_index)) {
         result_unsuccess(result);
