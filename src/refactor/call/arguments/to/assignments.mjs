@@ -21,6 +21,7 @@ export function refactor_call_arguments_to_assignments(args) {
     let v_3 = 'parsed';
     let parsed = object_property_get(args, v_3);
     let {file_path} = args;
+    console.log({file_path})
     let v_4 = function v_17(c) {
         js_visit_call_statements(args, call_each);
         function call_each(stack_reversed, node, expression, ancestor_list) {
