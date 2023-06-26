@@ -21,7 +21,8 @@ export function file_js_path_all_to_name(file_js_paths) {
     let mapped = list_map(file_js_paths, v_11);
     let directory_source_result = directory_source();
     let v_12 = function v_3(a) {
-        let v_15 = equal(list_first(a), directory_source_result);
+        let v_16 = list_first(a);
+        let v_15 = equal(v_16, directory_source_result);
         assert(v_15);
         let v = list_skip_first(a);
         return v;

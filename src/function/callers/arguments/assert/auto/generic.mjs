@@ -43,8 +43,10 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
     }
     await function_map_args(c_function_name, mapper);
     async function mapper(c_args) {
-        let c_parsed = object_property_get(c_args, 'parsed');
-        let c_function_declaration = object_property_get(c_args, 'function_declaration');
+        let v_22 = 'parsed';
+        let c_parsed = object_property_get(c_args, v_22);
+        let v_23 = 'function_declaration';
+        let c_function_declaration = object_property_get(c_args, v_23);
         let v_2 = js_node_property_params();
         let c_params = object_property_get(c_function_declaration, v_2);
         let v_13 = list_empty(c_params);
@@ -52,7 +54,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             return true;
         }
         let c_arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(c_function_declaration);
-        await list_each_with_index_async(c_arguments_assert_args, async function lambda(c_arg, c_arg_index) {
+        let v_24 = async function lambda(c_arg, c_arg_index) {
             let c_param = list_get(c_params, c_arg_index);
             let v_3 = js_node_property_name();
             let c_param_name = object_property_get(c_param, v_3);
@@ -63,39 +65,47 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             let c_predicate_name = object_property_get(c_arg, v_5);
             let v_6 = arguments_assert_predicate_default();
             let default_name = function_name_get(v_6);
-            let v_14 = not(equal(c_predicate_name, default_name));
+            let v_25 = equal(c_predicate_name, default_name);
+            let v_14 = not(v_25);
             if (v_14) {
                 return false;
             }
             let occurs = false;
             let assignment_exists = false;
-            js_visit_nodes_filter(c_parsed, js_node_is_assignment_expression, function v_9(v) {
+            let v_26 = function v_9(v) {
                 let {node} = v;
                 let v_7 = js_node_property_left();
                 let left = object_property_get(node, v_7);
                 let v_15 = js_node_is_identifier(left);
                 if (v_15) {
-                    let v_16 = equal(object_property_get(left, 'name'), c_predicate_name);
+                    let v_31 = 'name';
+                    let v_29 = object_property_get(left, v_31);
+                    let v_16 = equal(v_29, c_predicate_name);
                     if (v_16) {
                         comment(`Value has been changed - will not assume predicate can be copied`);
                         assignment_exists = true;
                     }
                 }
-            });
-            let v_17 = equal(assignment_exists, true);
+            };
+            js_visit_nodes_filter(c_parsed, js_node_is_assignment_expression, v_26);
+            let v_27 = true;
+            let v_17 = equal(assignment_exists, v_27);
             if (v_17) {
                 return occurs;
             }
-            js_visit_nodes_call_expression_name_equal(c_parsed, function_name, function v_10(v) {
+            let v_28 = function v_10(v) {
                 let {node} = v;
                 let ce_args = js_call_expression_arguments_get(node);
-                list_each_with_index(ce_args, function v_11(ce_arg, ce_arg_index) {
-                    let v_18 = not(js_node_is_identifier(ce_arg));
+                let v_30 = function v_11(ce_arg, ce_arg_index) {
+                    let v_32 = js_node_is_identifier(ce_arg);
+                    let v_18 = not(v_32);
                     if (v_18) {
                         return;
                     }
-                    const ce_arg_name = object_property_get(ce_arg, 'name');
-                    let v_19 = not(equal(c_param_name, ce_arg_name));
+                    let v_33 = 'name';
+                    const ce_arg_name = object_property_get(ce_arg, v_33);
+                    let v_34 = equal(c_param_name, ce_arg_name);
+                    let v_19 = not(v_34);
                     if (v_19) {
                         return;
                     }
@@ -103,24 +113,28 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                     if (v_20) {
                         let arguments_assert_arg = list_get(arguments_assert_args, ce_arg_index);
                         let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index);
-                        let identical = json_equal_keys_without(arguments_assert_arg, c_arguments_assert_arg, [
+                        let v_35 = [
                             js_node_property_start(),
                             js_node_property_end()
-                        ]);
+                        ];
+                        let identical = json_equal_keys_without(arguments_assert_arg, c_arguments_assert_arg, v_35);
                         let v_21 = not(identical);
                         if (v_21) {
                             list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
                             occurs = true;
                         }
                     }
-                });
-            });
+                };
+                list_each_with_index(ce_args, v_30);
+            };
+            js_visit_nodes_call_expression_name_equal(c_parsed, function_name, v_28);
             if (occurs) {
                 await refactor_import_fix(c_args);
                 list_add_if_not_exists(result, c_function_name);
             }
             let v_8 = not(occurs);
             return v_8;
-        });
+        };
+        await list_each_with_index_async(c_arguments_assert_args, v_24);
     }
 }
