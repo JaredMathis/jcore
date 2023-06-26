@@ -1,3 +1,4 @@
+import { rule_if_statement_arguments_are_identifiers } from './rule/if/statement/arguments/are/identifiers.mjs';
 import { metadata } from './metadata.mjs';
 import { refactor_functions_unlambdaify } from './refactor/functions/unlambdaify.mjs';
 import { rule_operator_to_function_call_multiple } from './rule/operator/to/function/call/multiple.mjs';
@@ -12,6 +13,7 @@ export async function rules() {
     await rule_literals_are_function_outputs();
     await rule_operator_to_function_call_multiple();
     await refactor_functions_unlambdaify();
+    await rule_if_statement_arguments_are_identifiers();
     await rule_function_call_arguments_are_identifiers();
     await rule_tests_pass();
     metadata([]);
