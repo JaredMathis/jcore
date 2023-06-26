@@ -1,3 +1,4 @@
+import { metadata_function_call_arguments_are_identifiers_none } from '../metadata/function/call/arguments/are/identifiers/none.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import fs from 'fs';
@@ -10,5 +11,5 @@ export function path_exists(file_path) {
         return false;
     });
     return v;
-    metadata([]);
+    metadata([metadata_function_call_arguments_are_identifiers_none()]);
 }
