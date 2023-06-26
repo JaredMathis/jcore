@@ -19,6 +19,7 @@ export async function task_git_hub_issues_pull_generic(no_cache) {
     let repository_name = version_repository_default();
     let pages = await list_adder_async(async function v(list_add_then) {
         let page = integer_value_1();
+        let test;
         let issues;
         do {
             issues = await git_hub_repository_issues_all(no_cache, page);
