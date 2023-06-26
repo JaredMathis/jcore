@@ -38,8 +38,13 @@ export function refactor_call_arguments_to_assignments(args) {
             let v_2 = js_node_is_return_statement(node);
             if (v_2) {
                 let expression_parent = list_get(stack_reversed, integer_value_1());
-                let v_3 = and(js_node_is(expression_parent), js_node_is_await_expression(expression_parent));
-                if (v_3) {
+                let use_parent = false;
+                if (js_node_is(expression_parent)) {
+                    if (js_node_is_await_expression(expression_parent)) {
+                        use_parent = true;
+                    }
+                }
+                if (use_parent) {
                     replace(expression_parent);
                 } else {
                     replace(expression);
