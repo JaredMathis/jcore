@@ -5,5 +5,5 @@ export function multiply(a, b) {
         number_is,
         number_is
     ]);
-    return a - b;
+    return a * b;
 }
