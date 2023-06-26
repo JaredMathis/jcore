@@ -12,10 +12,11 @@ export async function function_wrap_suffix_change(function_name_to_wrap_without_
         js_identifier_first_not_is
     ]);
     let v = function_name_separator();
-    let function_name_to_wrap = list_join([
+    let v_2 = [
         function_name_to_wrap_without_suffix,
         suffix_before
-    ], v);
+    ];
+    let function_name_to_wrap = list_join(v_2, v);
     let function_name_to_add = string_suffix_replace(function_name_to_wrap, suffix_before, suffix_after);
     let result = await function_wrap(function_name_to_wrap, function_name_to_add);
     return result;

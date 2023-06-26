@@ -41,7 +41,8 @@ export async function function_tests_generate_generic(function_name, count_strin
     let tests_count = await function_tests_count(function_name);
     let v_15 = tests_count > integer_value_0();
     if (v_15) {
-        log(`tests already exist - not generating`);
+        let v_19 = `tests already exist - not generating`;
+        log(v_19);
         return;
     }
     let function_declaration = await function_name_to_declaration(function_name);
@@ -51,28 +52,35 @@ export async function function_tests_generate_generic(function_name, count_strin
     let v = not(v_4);
     assert(v);
     let predicate = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
-    let predicate_names = list_map(predicate, function v_6(p) {
-        let v_12 = object_property_get(p, 'name');
+    let v_20 = function v_6(p) {
+        let v_27 = 'name';
+        let v_12 = object_property_get(p, v_27);
         return v_12;
-    });
-    let names_with_endings = list_map(predicate_names, function v_7(n) {
+    };
+    let predicate_names = list_map(predicate, v_20);
+    let v_21 = function v_7(n) {
         let v_2 = function_name_to_tests_values(n);
         return v_2;
-    });
+    };
+    let names_with_endings = list_map(predicate_names, v_21);
     let names_with_endings_unqiue = list_unique(names_with_endings);
-    let v_16 = await list_any_async(names_with_endings_unqiue, async function v_8(n) {
+    let v_22 = async function v_8(n) {
         let v_13 = await function_exists(n);
         let v_14 = not(v_13);
         return v_14;
-    });
+    };
+    let v_16 = await list_any_async(names_with_endings_unqiue, v_22);
     if (v_16) {
-        error(`${ function_name_get(arguments_assert) } types need filling in ` + names_with_endings_unqiue);
+        let v_23 = `${ function_name_get(arguments_assert) } types need filling in ` + names_with_endings_unqiue;
+        error(v_23);
         return;
     }
-    let dictionary = await list_string_to_dictionary_async(names_with_endings_unqiue, async function v_9(key) {
-        let v_3 = await function_run(key, []);
+    let v_24 = async function v_9(key) {
+        let v_28 = [];
+        let v_3 = await function_run(key, v_28);
         return v_3;
-    });
+    };
+    let dictionary = await list_string_to_dictionary_async(names_with_endings_unqiue, v_24);
     let args_so_far = [];
     let tries = integer_value_100();
     let count_error_max = integer_value_2();
@@ -81,25 +89,27 @@ export async function function_tests_generate_generic(function_name, count_strin
     for (let i of range(count)) {
         let test_name = function_name + function_tests_generated_string_sub() + (i + integer_value_1());
         for (let j of range(tries)) {
-            let args = list_map(predicate_names, function v_10(n) {
+            let v_25 = function v_10(n) {
                 let key = function_name_to_tests_values(n);
                 let d = object_property_get(dictionary, key);
                 let value = list_random_item(d);
                 return value;
-            });
+            };
+            let args = list_map(predicate_names, v_25);
             let args_json = json_to(args);
             let v_17 = list_contains(args_so_far, args_json);
             if (v_17) {
                 continue;
             }
             list_add(args_so_far, args_json);
-            await function_tests_generate_generic_each(function_name, test_name, args, function v_11() {
+            let v_26 = function v_11() {
                 count_error++;
                 let v_18 = count_error > count_error_max;
                 if (v_18) {
                     return true;
                 }
-            });
+            };
+            await function_tests_generate_generic_each(function_name, test_name, args, v_26);
             break;
         }
     }

@@ -9,10 +9,11 @@ export async function function_wrap_with_name_auto(function_name_to_wrap, functi
         js_identifier_is
     ]);
     let v = function_name_separator();
-    let function_name_to_add = list_join([
+    let v_2 = [
         function_name_to_wrap,
         function_name_map
-    ], v);
+    ];
+    let function_name_to_add = list_join(v_2, v);
     let result = await function_wrap_with(function_name_to_wrap, function_name_to_add, function_name_map);
     return result;
 }

@@ -9,10 +9,11 @@ import { list_filter } from '../../../../../list/filter.mjs';
 export async function function_tests_generate_if_starts_with(prefix) {
     arguments_assert(arguments, [js_identifier_sub_is]);
     let names = await function_name_all_tests_not();
-    let starts_with = list_filter(names, function v_2(n) {
+    let v_4 = function v_2(n) {
         let v_3 = string_starts_with(n, prefix);
         return v_3;
-    });
+    };
+    let starts_with = list_filter(names, v_4);
     for (let function_name of starts_with) {
         let v = function_tests_generate_count_default();
         await function_tests_generate_generic(function_name, v);

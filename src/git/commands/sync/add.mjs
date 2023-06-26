@@ -5,6 +5,8 @@ import { list_add_beginning } from '../../../list/add/beginning.mjs';
 import { git_command_name } from '../../command/name.mjs';
 export function git_commands_sync_add(commands) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    list_add_beginning(commands, `${ git_command_name() } pull`);
-    list_add(commands, `${ git_command_name() } push`);
+    let v = `${ git_command_name() } pull`;
+    list_add_beginning(commands, v);
+    let v_2 = `${ git_command_name() } push`;
+    list_add(commands, v_2);
 }

@@ -11,8 +11,9 @@ export async function function_variable_add_value(function_name, identifier, ide
         arguments_assert_todo
     ]);
     let v = function_name_get(refactor_variable_add_value);
-    await function_map_with_args(v, function_name, {
+    let v_2 = {
         identifier,
         identifier_value
-    });
+    };
+    await function_map_with_args(v, function_name, v_2);
 }

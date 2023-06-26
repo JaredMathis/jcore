@@ -4,6 +4,7 @@ import { string_function_tests_sub } from '../../../string/function/tests/sub.mj
 import { js_identifier_is } from '../../../js/identifier/is.mjs';
 export function function_tests_prefix_get(function_name) {
     arguments_assert(arguments, [js_identifier_is]);
-    return `${ function_name }${ string_function_tests_sub() }`;
+    let v = string_function_tests_sub();
+    return `${ function_name }${ v }`;
     metadata([]);
 }

@@ -7,7 +7,8 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function function_search_part_not_last(query) {
     arguments_assert(arguments, [string_is]);
     let candidate_mapped_matches = function v(candidate_mapped, query_mapped) {
-        let v_4 = equal(list_last(candidate_mapped), query_mapped);
+        let v_5 = list_last(candidate_mapped);
+        let v_4 = equal(v_5, query_mapped);
         if (v_4) {
             return false;
         }

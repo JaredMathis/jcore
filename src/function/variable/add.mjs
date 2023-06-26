@@ -9,5 +9,6 @@ export async function function_variable_add(function_name, identifier) {
         js_identifier_is
     ]);
     let v = function_name_get(refactor_variable_add);
-    await function_map_with_args(v, function_name, { identifier });
+    let v_2 = { identifier };
+    await function_map_with_args(v, function_name, v_2);
 }

@@ -8,10 +8,11 @@ export async function function_wrap_suffix_add(function_name_to_wrap_without_suf
         js_identifier_is,
         js_identifier_first_not_is
     ]);
-    let function_name_to_add = js_identifier_parts_from([
+    let v = [
         function_name_to_wrap_without_suffix,
         suffix_to_add
-    ]);
+    ];
+    let function_name_to_add = js_identifier_parts_from(v);
     let result = await function_wrap(function_name_to_wrap_without_suffix, function_name_to_add);
     return result;
 }

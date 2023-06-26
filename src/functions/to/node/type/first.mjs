@@ -10,12 +10,15 @@ export async function functions_to_node_type_first(node_type_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     for (let function_name of await function_name_all()) {
         let parsed = await function_parse(function_name);
-        let filtered = js_nodes_get(parsed, function v_2(n) {
-            return js_node_is_type(n, node_type_name);
-        });
+        let v_3 = function v_2(n) {
+            let v_5 = js_node_is_type(n, node_type_name);
+            return v_5;
+        };
+        let filtered = js_nodes_get(parsed, v_3);
         let v = list_empty_not(filtered);
         if (v) {
-            return list_first(filtered);
+            let v_4 = list_first(filtered);
+            return v_4;
         }
     }
     return null;

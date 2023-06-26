@@ -12,8 +12,9 @@ export async function function_variable_set(function_name, identifier, value) {
         string_is
     ]);
     let v = function_name_get(refactor_variable_set);
-    await function_map_with_args(v, function_name, {
+    let v_2 = {
         identifier,
         value
-    });
+    };
+    await function_map_with_args(v, function_name, v_2);
 }

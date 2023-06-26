@@ -8,7 +8,8 @@ export async function function_run(function_name, function_args) {
         js_identifier_is,
         list_is
     ]);
-    let imported = await function_import(import.meta, function_name);
+    let v = import.meta;
+    let imported = await function_import(v, function_name);
     let imported_function = imported[function_name];
     let result = await imported_function(...function_args);
     return result;

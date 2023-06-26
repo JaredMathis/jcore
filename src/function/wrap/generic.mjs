@@ -47,7 +47,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     let is_async = js_function_declaration_async_is(function_declaration);
     await function_add_with_statements_synchronized(function_name_to_add, statements, is_async);
     let inputs = js_function_declaration_to_params_names(function_declaration);
-    await list_each_with_index_async(inputs, async function v(input, index) {
+    let v_3 = async function v(input, index) {
         let input_type;
         if (dependency_is) {
             input_type = function_name_get(defined_is);
@@ -56,6 +56,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
             input_type = js_identifier_name_get(arguments_assert_arg);
         }
         await function_input_add_type(function_name_to_add, input, input_type);
-    });
+    };
+    await list_each_with_index_async(inputs, v_3);
     await function_open_vs_code(function_name_to_add);
 }

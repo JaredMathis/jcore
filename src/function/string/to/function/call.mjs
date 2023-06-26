@@ -11,8 +11,9 @@ export async function function_string_to_function_call(function_name, string_val
         js_identifier_is
     ]);
     let v = function_name_get(refactor_string_to_function_call);
-    await function_map_with_args(v, function_name, {
+    let v_2 = {
         string_value,
         replacement_function_name
-    });
+    };
+    await function_map_with_args(v, function_name, v_2);
 }
