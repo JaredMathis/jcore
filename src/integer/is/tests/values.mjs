@@ -5,12 +5,16 @@ import { integer_value_2 } from '../../value/2.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 export function integer_is_tests_values() {
     arguments_assert(arguments, []);
+    let v = integer_value_0();
+    let v_2 = integer_value_1();
+    let v_3 = integer_value_2();
+    let v_4 = integer_value_3();
     return [
         -integer_value_2(),
         -integer_value_1(),
-        integer_value_0(),
-        integer_value_1(),
-        integer_value_2(),
-        integer_value_3()
+        v,
+        v_2,
+        v_3,
+        v_4
     ];
 }

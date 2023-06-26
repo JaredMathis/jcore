@@ -14,7 +14,8 @@ export function js_identifier_rename(args, identifier_name_old, identifier_name_
     return v;
     metadata([]);
     function should_rename(name) {
-        return equal(name, identifier_name_old);
+        let v_2 = equal(name, identifier_name_old);
+        return v_2;
     }
     function name_new_get(name) {
         return identifier_name_new;

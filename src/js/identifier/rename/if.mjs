@@ -11,18 +11,24 @@ export function js_identifier_rename_if(args, should_rename, name_new_get) {
         function_is,
         function_is
     ]);
-    let v_3 = occurs(function v_4(c) {
-        let parsed = object_property_get(args, 'parsed');
-        js_identifiers_each(parsed, function v_5(v) {
-            let node = object_property_get(v, 'node');
-            let name = object_property_get(node, 'name');
+    let v_7 = function v_4(c) {
+        let v_8 = 'parsed';
+        let parsed = object_property_get(args, v_8);
+        let v_9 = function v_5(v) {
+            let v_10 = 'node';
+            let node = object_property_get(v, v_10);
+            let v_11 = 'name';
+            let name = object_property_get(node, v_11);
             let v_6 = should_rename(name);
             if (v_6) {
                 let v_2 = name_new_get(name);
-                object_property_set(node, 'name', v_2);
+                let v_12 = 'name';
+                object_property_set(node, v_12, v_2);
                 c();
             }
-        });
-    });
+        };
+        js_identifiers_each(parsed, v_9);
+    };
+    let v_3 = occurs(v_7);
     return v_3;
 }

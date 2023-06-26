@@ -9,6 +9,7 @@ export function js_code_statement_assignment(identifier, value) {
         arguments_assert_todo
     ]);
     let keyword_let = js_keyword_let();
-    let statement = js_code_statement(`${ keyword_let } ${ identifier } ${ js_token_equal() } ${ value }`);
+    let v = `${ keyword_let } ${ identifier } ${ js_token_equal() } ${ value }`;
+    let statement = js_code_statement(v);
     return statement;
 }

@@ -6,7 +6,8 @@ import { object_property_get } from '../../../object/property/get.mjs';
 export function js_id_name_get(fd) {
     arguments_assert(arguments, [js_node_is]);
     let id = js_id_get(fd);
-    let name = object_property_get(id, 'name');
+    let v = 'name';
+    let name = object_property_get(id, v);
     return name;
     metadata([]);
 }

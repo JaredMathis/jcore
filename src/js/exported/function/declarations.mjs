@@ -10,10 +10,11 @@ export function js_exported_function_declarations(parsed) {
     arguments_assert(arguments, [js_node_is_program]);
     let exports = js_exports(parsed);
     let declarations = list_map(exports, js_export_declaration_get);
-    let filtered = list_filter(declarations, function v(d) {
+    let v_3 = function v(d) {
         let v_2 = js_node_is_function_declaration(d);
         return v_2;
-    });
+    };
+    let filtered = list_filter(declarations, v_3);
     return filtered;
     metadata([]);
 }

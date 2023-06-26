@@ -10,7 +10,8 @@ export function js_id_name_set(fd, value) {
         string_is
     ]);
     let id = js_id_get(fd);
-    let name = object_property_set(id, 'name', value);
+    let v = 'name';
+    let name = object_property_set(id, v, value);
     return name;
     metadata([]);
 }

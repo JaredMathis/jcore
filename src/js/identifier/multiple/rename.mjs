@@ -11,12 +11,13 @@ export function js_identifier_multiple_rename(dictionary, args) {
         js_mapper_args_is
     ]);
     let occurs = false;
-    object_keys_each(dictionary, function v(to, from) {
+    let v_3 = function v(to, from) {
         let v_2 = js_identifier_rename(args, from, to);
         if (v_2) {
             occurs = true;
         }
-    });
+    };
+    object_keys_each(dictionary, v_3);
     return occurs;
     metadata([]);
 }

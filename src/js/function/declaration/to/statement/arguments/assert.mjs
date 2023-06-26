@@ -12,13 +12,15 @@ import { log } from '../../../../../../log.mjs';
 export async function js_function_declaration_to_statement_arguments_assert(function_declaration) {
     let statements = js_function_declaration_to_statements(function_declaration);
     let exists = false;
-    let v_3 = not(list_empty(statements));
+    let v_5 = list_empty(statements);
+    let v_3 = not(v_5);
     if (v_3) {
         let statement_first = list_first(statements);
         let v = function_name_get(arguments_assert);
-        js_node_call_expression_statement_if_name_equal(statement_first, v, function on_name_equal() {
+        let v_6 = function on_name_equal() {
             exists = true;
-        });
+        };
+        js_node_call_expression_statement_if_name_equal(statement_first, v, v_6);
     }
     let v_4 = not(exists);
     if (v_4) {

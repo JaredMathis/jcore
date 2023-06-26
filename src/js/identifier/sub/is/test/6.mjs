@@ -7,7 +7,8 @@ import { js_identifier_sub_is } from '../../is.mjs';
 export function js_identifier_sub_is_test_6() {
     arguments_assert(arguments, []);
     let expected = true;
-    let actual = js_identifier_sub_is('1');
+    let v_2 = '1';
+    let actual = js_identifier_sub_is(v_2);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

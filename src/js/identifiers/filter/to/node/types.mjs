@@ -9,5 +9,6 @@ export function js_identifiers_filter_to_node_types(identifier_names) {
         js_prefix_node_is(),
         js_prefix_node_type()
     ];
-    return js_identifiers_prefixes_without(prefixes, identifier_names);
+    let v = js_identifiers_prefixes_without(prefixes, identifier_names);
+    return v;
 }

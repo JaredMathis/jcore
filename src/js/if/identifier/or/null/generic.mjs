@@ -12,7 +12,8 @@ export function js_if_identifier_or_null_generic(node, property_name, or_null, l
     ]);
     let property = object_property_get(node, property_name);
     if (or_null) {
-        let v_2 = not(js_node_is_identifier(property));
+        let v_3 = js_node_is_identifier(property);
+        let v_2 = not(v_3);
         if (v_2) {
             return null;
         }

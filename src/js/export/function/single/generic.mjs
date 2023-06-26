@@ -26,19 +26,23 @@ export function js_export_function_single_generic(parsed, or_null) {
     if (or_null) {
         let v_3 = list_empty(exports_existing);
         if (v_3) {
-            value_set(result, null);
+            let v_7 = null;
+            value_set(result, v_7);
         }
         let v_4 = list_length_multiple(exports_existing);
         if (v_4) {
-            let names = list_map(exports_existing, function v_2(e) {
+            let v_8 = function v_2(e) {
                 const declaration = js_export_declaration_get(e);
                 let name = js_function_declaration_to_name(declaration);
                 return name;
-            });
-            error(`Multiple exports? Look into this: ` + names);
+            };
+            let names = list_map(exports_existing, v_8);
+            let v_9 = `Multiple exports? Look into this: ` + names;
+            error(v_9);
         }
     }
-    let v_5 = not(value_set_is(result));
+    let v_10 = value_set_is(result);
+    let v_5 = not(v_10);
     if (v_5) {
         const export_single = list_single(exports_existing);
         const declaration = js_export_declaration_get(export_single);

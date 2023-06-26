@@ -9,5 +9,7 @@ export function js_identifiers_filter_to_node_properties_get(identifier_names) {
     const prefixes = [js_prefix_node_property()];
     let filtered = js_identifiers_prefixes_without(prefixes, identifier_names);
     let suffix = js_suffix_get();
-    return js_identifiers_suffixes_without([suffix], filtered);
+    let v = [suffix];
+    let v_2 = js_identifiers_suffixes_without(v, filtered);
+    return v_2;
 }

@@ -15,12 +15,15 @@ export function js_call_statement_name(function_name_find_statements_last) {
     let program_fd = js_export_function_single(program);
     let program_statements = js_function_declaration_to_statements(program_fd);
     list_add(program_statements, function_name_find_statements_last);
-    let function_name_find_statements_last_names = list_adder(function v_3(la) {
-        js_visit_call_statements({ parsed: program }, function v_4(stack_reversed, node, expression, ancestor_list) {
+    let v_5 = function v_3(la) {
+        let v_6 = { parsed: program };
+        let v_7 = function v_4(stack_reversed, node, expression, ancestor_list) {
             let name = js_call_expression_name_get(expression);
             la(name);
-        });
-    });
+        };
+        js_visit_call_statements(v_6, v_7);
+    };
+    let function_name_find_statements_last_names = list_adder(v_5);
     let function_name_find_statements_last_name = list_single(function_name_find_statements_last_names);
     return function_name_find_statements_last_name;
 }

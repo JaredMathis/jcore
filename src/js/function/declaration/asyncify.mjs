@@ -6,6 +6,7 @@ import { js_node_is_function_declaration } from '../../node/is/function/declarat
 export function js_function_declaration_asyncify(fd) {
     arguments_assert(arguments, [js_node_is_function_declaration]);
     let v = js_keyword_asynk();
-    object_property_change(fd, v, true);
+    let v_2 = true;
+    object_property_change(fd, v, v_2);
     metadata([]);
 }

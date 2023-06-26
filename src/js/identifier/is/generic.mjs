@@ -19,7 +19,8 @@ export function js_identifier_is_generic(value, enforce_first, enforce_last, all
         boolean_is,
         boolean_is
     ]);
-    let v = not(string_is(value));
+    let v_7 = string_is(value);
+    let v = not(v_7);
     if (v) {
         return false;
     }
@@ -30,7 +31,8 @@ export function js_identifier_is_generic(value, enforce_first, enforce_last, all
     }
     if (enforce_first) {
         let first = list_first(list);
-        let v_3 = not(string_letter_is(first));
+        let v_8 = string_letter_is(first);
+        let v_3 = not(v_8);
         if (v_3) {
             return false;
         }
@@ -43,12 +45,14 @@ export function js_identifier_is_generic(value, enforce_first, enforce_last, all
         }
     }
     let underscore = function_name_separator();
-    let v_5 = string_includes(value, `${ underscore }${ underscore }`);
+    let v_9 = `${ underscore }${ underscore }`;
+    let v_5 = string_includes(value, v_9);
     if (v_5) {
         return false;
     }
     for (let c of list) {
-        let v_6 = not(string_letter_digit_or_underscore_is_generic(c, allow_underscores));
+        let v_10 = string_letter_digit_or_underscore_is_generic(c, allow_underscores);
+        let v_6 = not(v_10);
         if (v_6) {
             return false;
         }
