@@ -18,4 +18,5 @@ export async function task_all_require_on_cycle_throw() {
             return task_numbers;
         });
     }
+    metadata([]);
 }

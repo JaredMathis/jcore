@@ -10,4 +10,5 @@ export async function task_close_description(task_number_string, description) {
     await task_description(task_number_string, description);
     let result = await task_close(task_number_string);
     return result;
+    metadata([]);
 }

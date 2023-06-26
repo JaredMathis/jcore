@@ -9,4 +9,5 @@ export async function task_close_try(task_number_string) {
         return task_property_state_set(t, task_property_closed());
     });
     return v;
+    metadata([]);
 }

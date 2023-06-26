@@ -18,4 +18,5 @@ export function refactor_call_find(args) {
         let function_name_caller = js_function_declaration_to_name(function_declaration);
         log(function_name_caller);
     }
+    metadata([]);
 }

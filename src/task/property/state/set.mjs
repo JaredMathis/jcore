@@ -10,4 +10,5 @@ export function task_property_state_set(task, value) {
     let v = task_property_state();
     let v_2 = object_property_set(task, v, value);
     return v_2;
+    metadata([]);
 }

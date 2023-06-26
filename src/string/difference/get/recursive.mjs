@@ -76,4 +76,5 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     let right_result = string_difference_get_recursive(left_right, right_right, add(add(left_offset, offset), left_index), add(add(right_offset, offset), right_index));
     list_add_multiple(result, right_result);
     return result;
+    metadata([]);
 }

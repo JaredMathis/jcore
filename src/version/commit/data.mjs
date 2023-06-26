@@ -12,4 +12,5 @@ export function version_commit_data(fn, args) {
         command: function_name_get(fn),
         args: list_to(args)
     };
+    metadata([]);
 }

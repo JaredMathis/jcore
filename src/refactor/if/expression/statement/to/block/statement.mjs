@@ -28,4 +28,5 @@ export function refactor_if_expression_statement_to_block_statement(args) {
             object_replace(consequent, block_statement);
         }
     });
+    metadata([]);
 }

@@ -15,4 +15,5 @@ export async function refactor_input_swap_first_to(args) {
     function predicate(index, params) {
         return index >= integer_value_1();
     }
+    metadata([]);
 }

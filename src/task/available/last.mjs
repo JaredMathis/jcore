@@ -5,4 +5,5 @@ export async function task_available_last() {
     let available = await task_available_generic(identity);
     let last = list_last(available);
     return last;
+    metadata([]);
 }

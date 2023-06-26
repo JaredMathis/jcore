@@ -11,4 +11,5 @@ export async function refactor_metadata_add_function(args, metadata_function) {
     ]);
     const metadata_function_name = function_name_get(metadata_function);
     await refactor_metadata_add_named(args, metadata_function_name);
+    metadata([]);
 }

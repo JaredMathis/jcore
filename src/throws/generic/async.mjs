@@ -14,4 +14,5 @@ export async function throws_generic_async(lambda) {
     }
     result_property_data_set(result, lambda_result);
     return result;
+    metadata([]);
 }

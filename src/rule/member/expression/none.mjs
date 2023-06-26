@@ -17,4 +17,5 @@ export async function rule_member_expression_none() {
         }
         await refactor_member_expression_none(args);
     });
+    metadata([]);
 }

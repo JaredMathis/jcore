@@ -8,4 +8,5 @@ export async function task_close_multiple(task_number_list) {
     for (let task_number of task_numbers) {
         await task_close(task_number);
     }
+    metadata([]);
 }

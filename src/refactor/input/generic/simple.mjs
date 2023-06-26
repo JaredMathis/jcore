@@ -15,4 +15,5 @@ export async function refactor_input_generic_simple(args, lambda) {
         }
         return args_additional;
     }
+    metadata([]);
 }

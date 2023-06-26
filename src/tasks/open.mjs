@@ -8,4 +8,5 @@ export async function tasks_open() {
     let v = lambda_get(tautology);
     let v_2 = await tasks_open_generic(v, task_summary);
     return v_2;
+    metadata([]);
 }

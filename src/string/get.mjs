@@ -11,4 +11,5 @@ export function string_get(s, index) {
     let v = object_property_exists(s, index);
     assert(v);
     return s[index];
+    metadata([]);
 }

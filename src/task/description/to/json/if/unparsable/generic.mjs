@@ -34,4 +34,5 @@ export async function task_description_to_json_if_unparsable_generic(open) {
         }
     });
     return result;
+    metadata([]);
 }

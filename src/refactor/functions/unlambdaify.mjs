@@ -4,4 +4,5 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 export async function refactor_functions_unlambdaify() {
     arguments_assert(arguments, []);
     await function_names_each_map(refactor_unlambdaify);
+    metadata([]);
 }

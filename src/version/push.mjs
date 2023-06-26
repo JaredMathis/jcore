@@ -6,4 +6,5 @@ export async function version_push(repository_name) {
     let preview = false;
     let v = await version_push_generic(repository_name, preview);
     return v;
+    metadata([]);
 }

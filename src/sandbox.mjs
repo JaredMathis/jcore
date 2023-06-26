@@ -117,4 +117,5 @@ export async function sandbox() {
         await function_tests_generate_after();
     }
     return;
+    metadata([]);
 }

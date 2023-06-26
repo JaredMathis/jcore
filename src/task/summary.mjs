@@ -44,4 +44,5 @@ export function task_summary(task, all_unsummarized) {
     list_add(strings, title);
     let v_4 = list_join(strings, ' ');
     return v_4;
+    metadata([]);
 }

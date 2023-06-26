@@ -47,4 +47,5 @@ export function string_case_camel_parse(input) {
     });
     let parts_case_lower = list_map(parts, string_to_case_lower);
     return parts_case_lower;
+    metadata([]);
 }

@@ -16,4 +16,5 @@ export function string_sub_max_starting_at(left, right, left_index, right_index)
         }
     }
     return offset;
+    metadata([]);
 }

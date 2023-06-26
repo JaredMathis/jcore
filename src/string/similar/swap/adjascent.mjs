@@ -19,4 +19,5 @@ export function string_similar_swap_adjascent(a, b) {
     }
     let v_2 = string_similar_generic(other_get, range_count, b);
     return v_2;
+    metadata([]);
 }

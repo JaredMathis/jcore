@@ -23,4 +23,5 @@ export async function version_commit_files_all_removals_generic(repository_name,
         let v_2 = string_empty();
         return v_2;
     }
+    metadata([]);
 }

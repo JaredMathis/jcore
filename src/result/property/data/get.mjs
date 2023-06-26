@@ -7,4 +7,5 @@ export function result_property_data_get(result) {
     let v = result_property_data();
     let data = object_property_get(result, v);
     return data;
+    metadata([]);
 }

@@ -22,4 +22,5 @@ export function refactor_returnify(args) {
         let argument = js_node_property_argument_get(node);
         js_node_assign_and_replace(parsed, argument, ancestor_list, node);
     });
+    metadata([]);
 }

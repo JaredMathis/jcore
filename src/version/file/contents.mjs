@@ -40,4 +40,5 @@ export async function version_file_contents(repository_name, file_path) {
         contents_old = string_difference_apply(contents_old, hunks);
     }
     return contents_old;
+    metadata([]);
 }

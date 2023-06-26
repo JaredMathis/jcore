@@ -9,4 +9,5 @@ export function string_similar_generic(other_get, range_count, target) {
         }
     }
     return false;
+    metadata([]);
 }

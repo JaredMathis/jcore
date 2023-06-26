@@ -72,4 +72,5 @@ export async function version_commit_files_generic(repository_name, file_paths, 
         version_list_file_add(writes, commit_path, commit);
     }
     return writes;
+    metadata([]);
 }

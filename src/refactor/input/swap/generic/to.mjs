@@ -15,4 +15,5 @@ export async function refactor_input_swap_generic_to(args, predicate, indices_ge
         let index_previous = subtract_1(i);
         await refactor_input_swap_generic(args, index_previous, i);
     }
+    metadata([]);
 }

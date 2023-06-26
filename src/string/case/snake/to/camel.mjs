@@ -13,4 +13,5 @@ export function string_case_snake_to_camel(input) {
     let mapped = list_map(parsed, string_case_upper_character_first);
     let snake = list_join(mapped, string_empty());
     return snake;
+    metadata([]);
 }

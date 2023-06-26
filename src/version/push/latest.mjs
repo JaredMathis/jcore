@@ -11,4 +11,5 @@ export async function version_push_latest(repository_name) {
         version_list_file_add(latest_files, file_path, contents);
     });
     return latest_files;
+    metadata([]);
 }

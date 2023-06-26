@@ -9,4 +9,5 @@ export function version_path_log_now_get(repository_name) {
     let iso = date_now_iso_underscores();
     let v_2 = file_path_json(log_path, iso);
     return v_2;
+    metadata([]);
 }

@@ -7,4 +7,5 @@ export async function task_later_before_current(title) {
     let task_number_string = await task_id_get_string();
     let result = await task_later_before(task_number_string, title);
     return result;
+    metadata([]);
 }

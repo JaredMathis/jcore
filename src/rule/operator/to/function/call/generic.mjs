@@ -57,4 +57,5 @@ export async function rule_operator_to_function_call_generic(operator_function, 
             });
         });
     });
+    metadata([]);
 }

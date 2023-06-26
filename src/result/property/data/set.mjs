@@ -10,4 +10,5 @@ export function result_property_data_set(result, data) {
     let v = result_property_data();
     object_property_set(result, v, data);
     return result;
+    metadata([]);
 }

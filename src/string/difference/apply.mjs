@@ -76,4 +76,5 @@ export function string_difference_apply(string_old, hunks) {
         value = value_new;
     }
     return value;
+    metadata([]);
 }

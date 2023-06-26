@@ -23,4 +23,5 @@ export async function version_file_difference_generic(repository_name, file_path
         [property_version_path]: version_path,
         [property_hunks]: hunks_new
     };
+    metadata([]);
 }

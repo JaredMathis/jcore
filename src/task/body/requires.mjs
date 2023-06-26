@@ -7,4 +7,5 @@ export function task_body_requires(body_parsed) {
     let v_2 = task_body_property_requires();
     let requires = object_property_get(body_parsed, v_2);
     return requires;
+    metadata([]);
 }

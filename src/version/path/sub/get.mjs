@@ -13,4 +13,5 @@ export function version_path_sub_get(repository_name, sub_name) {
         sub_name
     ]);
     return repository_sub_path;
+    metadata([]);
 }

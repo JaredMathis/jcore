@@ -12,4 +12,5 @@ export function task_requires_get(task) {
     }
     let requires = task_body_requires(body_parsed);
     return requires;
+    metadata([]);
 }

@@ -6,4 +6,5 @@ export async function task_set_last() {
     let v = task_number_get_string(last);
     await task_set(v);
     return last;
+    metadata([]);
 }

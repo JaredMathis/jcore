@@ -14,4 +14,5 @@ export function string_swap(list, index_from, index_to) {
     let generic_set = string_set;
     let v = swap_generic(generic_get, generic_set, list, index_from, index_to);
     return v;
+    metadata([]);
 }

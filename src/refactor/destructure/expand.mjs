@@ -69,4 +69,5 @@ export async function refactor_destructure_expand(args) {
             }
         });
     });
+    metadata([]);
 }

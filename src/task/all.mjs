@@ -10,4 +10,5 @@ export async function task_all() {
         return v_2;
     });
     return summaries;
+    metadata([]);
 }

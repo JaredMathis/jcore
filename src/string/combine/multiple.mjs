@@ -5,4 +5,5 @@ export function string_combine_multiple(strings) {
         function_name = string_combine(function_name, s);
     }
     return function_name;
+    metadata([]);
 }

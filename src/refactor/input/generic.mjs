@@ -31,4 +31,5 @@ export async function refactor_input_generic(args, function_declaration, args_ad
         let v = function_name_get(refactor_input_caller_generic);
         await function_map_with_args(v, caller, args_additional_merge);
     }
+    metadata([]);
 }

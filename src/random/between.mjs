@@ -10,4 +10,5 @@ export function random_between(lower, upper) {
     assert(less_than(lower, upper));
     let difference = add(subtract(upper, lower), integer_value_1());
     return add(number_floor(multiply(difference, random_get())), lower);
+    metadata([]);
 }

@@ -14,4 +14,5 @@ export async function task_later_before(task_number_string, title) {
     let task_number_string_other = string_to(task_number_other);
     let v = await task_requires(task_number_string, task_number_string_other);
     return v;
+    metadata([]);
 }

@@ -10,4 +10,5 @@ export function refactor_functions_arguments_assert_missing_add_excludes_additio
         function_name_get(git),
         function_name_get(git_no_commit)
     ];
+    metadata([]);
 }

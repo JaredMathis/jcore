@@ -12,4 +12,5 @@ export async function refactor_variable_add_generic(args, after_let_identifier) 
     let statement = js_parse_statement_let(identifier, after_let_identifier);
     await js_function_declaration_statement_add_after_arguments_assert(function_declaration, statement);
     await refactor_import_fix(args);
+    metadata([]);
 }

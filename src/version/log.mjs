@@ -9,4 +9,5 @@ export async function version_log(repository_name, fn, args, message, data) {
         message: message,
         data: data
     });
+    metadata([]);
 }

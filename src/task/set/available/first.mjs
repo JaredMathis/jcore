@@ -8,4 +8,5 @@ export async function task_set_available_first() {
     let first_number = task_number_get_string(first);
     let v = await task_set(first_number);
     return v;
+    metadata([]);
 }

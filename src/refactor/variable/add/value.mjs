@@ -7,4 +7,5 @@ export async function refactor_variable_add_value(args) {
     let {identifier_value} = args;
     let after_let_identifier = `${ js_token_equal() } ${ identifier_value }`;
     await refactor_variable_add_generic(args, after_let_identifier);
+    metadata([]);
 }

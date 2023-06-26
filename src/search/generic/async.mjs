@@ -18,4 +18,5 @@ export async function search_generic_async(candidates_get, candidate_mapper, can
         return v;
     });
     return candidates_matching;
+    metadata([]);
 }

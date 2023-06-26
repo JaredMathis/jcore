@@ -18,4 +18,5 @@ export async function version_removals(repository_name, file_paths) {
     });
     let removals = list_without_multiple(files_committed, mapped2);
     return removals;
+    metadata([]);
 }

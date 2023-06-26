@@ -24,4 +24,5 @@ export function refactor_call_arguments_to_assignments_skip(node) {
         return equal(e, name);
     });
     return skip;
+    metadata([]);
 }

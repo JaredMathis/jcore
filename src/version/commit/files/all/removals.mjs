@@ -10,4 +10,5 @@ export async function version_commit_files_all_removals(repository_name) {
     let writes = await version_commit_files_all_removals_generic(repository_name, file_paths, commit_data);
     await version_write_all(writes);
     return writes;
+    metadata([]);
 }

@@ -5,4 +5,5 @@ export async function version_sync_local_preview(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let differences = await version_sync_local_preview_generic(repository_name);
     return differences;
+    metadata([]);
 }

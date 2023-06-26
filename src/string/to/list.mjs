@@ -5,4 +5,5 @@ export function string_to_list(value) {
     arguments_assert(arguments, [string_is]);
     let v = string_split(value, '');
     return v;
+    metadata([]);
 }

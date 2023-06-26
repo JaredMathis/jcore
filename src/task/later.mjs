@@ -21,4 +21,5 @@ export async function task_later(title) {
         list_add(tasks_all, task);
     });
     return task;
+    metadata([]);
 }

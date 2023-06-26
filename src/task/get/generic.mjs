@@ -7,4 +7,5 @@ export async function task_get_generic(task_number_string, lambda) {
     const property_name = task_property_number();
     let result = lambda(all, property_name, task_number);
     return result;
+    metadata([]);
 }

@@ -11,4 +11,5 @@ export async function task_unsub_generic(on_empty, on_empty_not) {
         return v_2;
     });
     return v;
+    metadata([]);
 }

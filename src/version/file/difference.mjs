@@ -10,4 +10,5 @@ export async function version_file_difference(repository_name, file_path) {
     ]);
     let v = await version_file_difference_generic(repository_name, file_path, file_read);
     return v;
+    metadata([]);
 }

@@ -18,4 +18,5 @@ export async function task_sub(title) {
         await task_requires(current_number_string, sub_number_string);
     }
     return sub;
+    metadata([]);
 }

@@ -12,4 +12,5 @@ export async function task_close_reason(task_number_string, reason) {
     let v = string_combine(': ', reason);
     await task_title_append(task_number_string, v);
     return result;
+    metadata([]);
 }

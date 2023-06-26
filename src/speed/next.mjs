@@ -15,4 +15,5 @@ export function speed_next(s) {
     list_add(differences, difference);
     speed_property_previous_set(s, now);
     return differences;
+    metadata([]);
 }

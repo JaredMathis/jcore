@@ -13,4 +13,5 @@ export function string_case_upper_character_first(value) {
     let remaining = string_skip(value, integer_value_1());
     let result = string_combine(first_upper, remaining);
     return result;
+    metadata([]);
 }

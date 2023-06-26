@@ -25,4 +25,5 @@ export async function refactor_input_add(args) {
         }
         return args_additional;
     }
+    metadata([]);
 }

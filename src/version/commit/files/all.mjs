@@ -8,4 +8,5 @@ export async function version_commit_files_all(repository_name) {
     let file_paths = await directory_read_current();
     let v = version_commit_data(version_commit_files_all, arguments);
     await version_commit_files(repository_name, file_paths, v);
+    metadata([]);
 }

@@ -17,4 +17,5 @@ export async function rule_function_call_arguments_are_identifiers() {
         refactor_call_arguments_to_assignments(args);
         await rule_function_call_arguments_are_identifiers_each(args);
     });
+    metadata([]);
 }

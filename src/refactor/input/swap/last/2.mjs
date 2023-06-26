@@ -6,4 +6,5 @@ export async function refactor_input_swap_last_2(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let lambda = list_swap_last_2;
     await refactor_input_generic_simple(args, lambda);
+    metadata([]);
 }

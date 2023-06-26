@@ -13,4 +13,5 @@ export async function task_unrequires(task_number_string, task_number_required_s
     function requires_map(requires, task_number_required) {
         list_remove(requires, task_number_required);
     }
+    metadata([]);
 }

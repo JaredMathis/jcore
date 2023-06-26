@@ -22,4 +22,5 @@ export async function refactor_first_call_inputs(args) {
     let mapped = list_map(inputs, js_parse_expression);
     list_add_multiple(expression_args, mapped);
     await refactor_import_fix(args);
+    metadata([]);
 }

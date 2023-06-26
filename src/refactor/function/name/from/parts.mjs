@@ -7,4 +7,5 @@ export function refactor_function_name_from_parts(function_name_suffix_parts) {
     const prefix = refactor_prefix();
     let v = function_name_from_parts_and_prefix(prefix, function_name_suffix_parts);
     return v;
+    metadata([]);
 }

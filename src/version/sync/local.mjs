@@ -23,4 +23,5 @@ export async function version_sync_local(repository_name) {
         removals
     });
     return v;
+    metadata([]);
 }

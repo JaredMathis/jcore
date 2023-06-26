@@ -7,4 +7,5 @@ export async function task_open(task_number_string) {
     let v = task_property_open();
     let v_2 = await task_state_change(task_number_string, v);
     return v_2;
+    metadata([]);
 }

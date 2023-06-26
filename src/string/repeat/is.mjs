@@ -19,4 +19,5 @@ export function string_repeat_is(input) {
     let values = object_properties(split);
     let v = list_elements_all_equal(values);
     return v;
+    metadata([]);
 }

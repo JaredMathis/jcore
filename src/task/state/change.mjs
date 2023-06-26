@@ -10,4 +10,5 @@ export async function task_state_change(task_number_string, property_value) {
     await task_property_change_local(task_number_string, property_name, property_value);
     let v = await task_available();
     return v;
+    metadata([]);
 }

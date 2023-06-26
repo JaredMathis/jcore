@@ -9,4 +9,5 @@ export async function throws_async(lambda) {
     let v = result_property_success_get(result);
     let errored = not(v);
     return errored;
+    metadata([]);
 }

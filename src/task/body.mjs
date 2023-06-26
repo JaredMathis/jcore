@@ -12,4 +12,5 @@ export async function task_body(issue_number, body) {
     const property_name = task_property_body();
     await task_property_change_local(issue_number, property_name, body);
     return result;
+    metadata([]);
 }

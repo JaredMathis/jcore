@@ -10,4 +10,5 @@ export async function visit_lambda_none_async(root, children_get) {
     ]);
     let result = await visit_async(root, children_get, noop);
     return result;
+    metadata([]);
 }

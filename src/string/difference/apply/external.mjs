@@ -17,4 +17,5 @@ export function string_difference_apply_external(string_old, hunks) {
     object_merge({ hunks }, patch);
     let string_new = Diff.applyPatch(string_old, patch);
     return string_new;
+    metadata([]);
 }

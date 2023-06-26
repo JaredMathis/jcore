@@ -15,4 +15,5 @@ export function string_is_tests_values() {
         ]
     ]);
     return v;
+    metadata([]);
 }

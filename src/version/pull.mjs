@@ -59,4 +59,5 @@ export async function version_pull(repository_name) {
             }
         }
     });
+    metadata([]);
 }

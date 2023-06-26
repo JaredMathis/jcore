@@ -15,4 +15,5 @@ export async function refactor_functions_unasyncify() {
         }
         await function_unasyncify(function_name);
     }
+    metadata([]);
 }

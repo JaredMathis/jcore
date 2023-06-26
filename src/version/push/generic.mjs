@@ -117,4 +117,5 @@ export async function version_push_generic(repository_name, preview) {
         });
     });
     return list_commits;
+    metadata([]);
 }

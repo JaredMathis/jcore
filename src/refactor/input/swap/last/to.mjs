@@ -18,4 +18,5 @@ export async function refactor_input_swap_last_to(args) {
         let index_last = list_last_index(params);
         return less_than(index, index_last);
     }
+    metadata([]);
 }

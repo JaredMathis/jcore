@@ -14,4 +14,5 @@ export function version_path_file_directory(repository_name, file_path) {
         file_path
     ]);
     return repository_file_path;
+    metadata([]);
 }

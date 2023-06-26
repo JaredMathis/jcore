@@ -18,4 +18,5 @@ export function version_path_file_get(repository_name, file_path, file_version) 
         file_name
     ]);
     return repository_file_path_initial;
+    metadata([]);
 }

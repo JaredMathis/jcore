@@ -6,4 +6,5 @@ export function try_catch(lambda, on_error) {
         result = on_error(e);
     }
     return result;
+    metadata([]);
 }

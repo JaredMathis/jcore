@@ -15,4 +15,5 @@ export async function refactor_metadata_add(args) {
     assert(v);
     let prefixed = `${ metadata_prefix() }${ name }`;
     await refactor_metadata_add_named(args, prefixed);
+    metadata([]);
 }

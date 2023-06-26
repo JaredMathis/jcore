@@ -31,4 +31,5 @@ export async function tests_name_next(function_name) {
     let test_ids_all_number_max = add_1(max);
     let test_name = `${ function_tests_prefix_get(function_name) }${ test_ids_all_number_max }`;
     return test_name;
+    metadata([]);
 }

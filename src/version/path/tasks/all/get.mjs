@@ -7,4 +7,5 @@ export function version_path_tasks_all_get(repository_name) {
     let tasks_path = version_path_tasks_get(repository_name);
     let v = file_path_json(tasks_path, 'all');
     return v;
+    metadata([]);
 }

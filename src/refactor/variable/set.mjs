@@ -49,4 +49,5 @@ export async function refactor_variable_set(args) {
     let match = list_single(nodes);
     let declaration = js_declarations_single(match);
     js_variable_declarator_init_change_unparsed(declaration, value);
+    metadata([]);
 }

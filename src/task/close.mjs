@@ -7,4 +7,5 @@ export async function task_close(task_number_string) {
     let lambda = task_state_change;
     let v = await task_close_generic(lambda, task_number_string);
     return v;
+    metadata([]);
 }

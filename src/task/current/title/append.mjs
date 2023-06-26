@@ -7,4 +7,5 @@ export async function task_current_title_append(title_additional) {
     let task_number_string = await task_id_get_string();
     let result = await task_title_append(task_number_string, title_additional);
     return result;
+    metadata([]);
 }

@@ -37,4 +37,5 @@ export async function refactor_functions_string_to_function_call(function_name_r
             });
         }
     });
+    metadata([]);
 }

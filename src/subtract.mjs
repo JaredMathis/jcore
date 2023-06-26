@@ -6,4 +6,5 @@ export function subtract(a, b) {
         number_is
     ]);
     return a - b;
+    metadata([]);
 }

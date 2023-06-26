@@ -11,4 +11,5 @@ export function task_is(t) {
         return value;
     });
     return v_2;
+    metadata([]);
 }

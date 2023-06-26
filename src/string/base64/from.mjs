@@ -4,4 +4,5 @@ export function string_base64_from(input) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let v = atob(input);
     return v;
+    metadata([]);
 }

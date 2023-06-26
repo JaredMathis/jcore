@@ -15,4 +15,5 @@ export async function try_catch_throw_finally_async(lambda_try, lambda_catch, la
     } finally {
         await lambda_finally();
     }
+    metadata([]);
 }

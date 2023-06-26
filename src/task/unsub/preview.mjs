@@ -12,4 +12,5 @@ export async function task_unsub_preview() {
     async function on_if() {
         return 'no previous task';
     }
+    metadata([]);
 }

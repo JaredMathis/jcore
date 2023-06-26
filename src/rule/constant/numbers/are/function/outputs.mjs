@@ -51,4 +51,5 @@ export async function rule_constant_numbers_are_function_outputs() {
             });
         });
     });
+    metadata([]);
 }

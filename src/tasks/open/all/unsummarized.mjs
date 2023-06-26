@@ -11,4 +11,5 @@ export async function tasks_open_all_unsummarized() {
         all,
         open
     };
+    metadata([]);
 }

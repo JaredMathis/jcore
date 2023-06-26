@@ -30,4 +30,5 @@ export async function task_git_hub_issues_pull_generic(no_cache) {
     let tasks_all_path = version_path_tasks_all_get(repository_name);
     await file_json_overwrite(tasks_all_path, mapped);
     return mapped;
+    metadata([]);
 }

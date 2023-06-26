@@ -10,4 +10,5 @@ export function string_difference_tests(string_old, string_new) {
     let hunks = string_difference_get_external(string_old, string_new);
     let string_new2 = string_difference_apply_external(string_old, hunks);
     return string_new2;
+    metadata([]);
 }

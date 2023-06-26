@@ -20,4 +20,5 @@ export function range_from(from, to) {
         return v_2;
     });
     return mapped;
+    metadata([]);
 }

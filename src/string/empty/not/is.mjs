@@ -5,4 +5,5 @@ import { string_is } from '../../is.mjs';
 export function string_empty_not_is(s) {
     arguments_assert(arguments, [string_is]);
     return string_length(s) >= integer_value_1();
+    metadata([]);
 }

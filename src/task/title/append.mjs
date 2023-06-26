@@ -12,4 +12,5 @@ export async function task_title_append(issue_number, title_additional) {
     let title_after = string_combine(title_before, title_additional);
     let result = await task_title(issue_number, title_after);
     return result;
+    metadata([]);
 }

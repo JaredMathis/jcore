@@ -7,4 +7,5 @@ export function speed_property_differences_get(speed) {
     let v = speed_property_differences();
     let v_2 = object_property_get(speed, v);
     return v_2;
+    metadata([]);
 }

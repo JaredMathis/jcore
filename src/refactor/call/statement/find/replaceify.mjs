@@ -109,4 +109,5 @@ export async function refactor_call_statement_find_replaceify(args) {
             });
         });
     });
+    metadata([]);
 }

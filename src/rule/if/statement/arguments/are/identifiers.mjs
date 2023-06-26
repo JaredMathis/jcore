@@ -32,4 +32,5 @@ export async function rule_if_statement_arguments_are_identifiers() {
             js_node_assign_and_replace(parsed, test, ancestor_list, add_assignment_before_node);
         });
     });
+    metadata([]);
 }

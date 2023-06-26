@@ -6,4 +6,5 @@ export function multiply(a, b) {
         number_is
     ]);
     return a * b;
+    metadata([]);
 }

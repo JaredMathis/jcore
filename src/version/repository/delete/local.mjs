@@ -6,4 +6,5 @@ export async function version_repository_delete_local(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let repository_path = version_path_repository(repository_name);
     await directory_delete(repository_path);
+    metadata([]);
 }

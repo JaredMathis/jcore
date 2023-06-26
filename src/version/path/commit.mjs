@@ -8,4 +8,5 @@ export function version_path_commit(repository_name, commit_version) {
         file_name_json(commit_version)
     ]);
     return commit_path;
+    metadata([]);
 }

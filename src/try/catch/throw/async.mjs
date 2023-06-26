@@ -9,4 +9,5 @@ export async function try_catch_throw_async(lambda_try, lambda_catch) {
     ]);
     let v = await try_catch_throw_finally_async(lambda_try, lambda_catch, noop);
     return v;
+    metadata([]);
 }

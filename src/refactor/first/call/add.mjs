@@ -14,4 +14,5 @@ export async function refactor_first_call_add(args) {
     let statement = js_parse_statement(statement_code);
     await js_function_declaration_statement_add_after_arguments_assert(function_declaration, statement);
     await refactor_import_fix(args);
+    metadata([]);
 }

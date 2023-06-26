@@ -28,4 +28,5 @@ export async function refactor_string_to_function_call(args) {
         }
     }
     await refactor_import_fix(args);
+    metadata([]);
 }

@@ -28,4 +28,5 @@ export function string_equal_except_1(a, b) {
     let difference = subtract(length, equal_count);
     let v = equal(difference, integer_value_1());
     return v;
+    metadata([]);
 }

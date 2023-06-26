@@ -11,4 +11,5 @@ export async function refactor_functions_arguments_assert_missing_add_excludes()
     let excludes_additional = await function_names_metadata_arguments_assert_none();
     list_add_multiple(excludes, excludes_additional);
     return excludes;
+    metadata([]);
 }

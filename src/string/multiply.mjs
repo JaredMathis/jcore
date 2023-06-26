@@ -14,4 +14,5 @@ export function string_multiply(s, times) {
         result = string_combine(result, s);
     }
     return result;
+    metadata([]);
 }

@@ -23,4 +23,5 @@ export async function version_output(repository_name, directory_output_name) {
         ]);
         await file_overwrite(file_path_output, contents);
     }
+    metadata([]);
 }

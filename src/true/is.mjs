@@ -4,4 +4,5 @@ import { arguments_assert } from '../arguments/assert.mjs';
 export function true_is(b) {
     arguments_assert(arguments, [boolean_is]);
     return equal(b, true);
+    metadata([]);
 }

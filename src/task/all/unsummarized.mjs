@@ -7,4 +7,5 @@ export async function task_all_unsummarized() {
         return result = tasks_all;
     });
     return result;
+    metadata([]);
 }

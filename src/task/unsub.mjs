@@ -20,4 +20,5 @@ export async function task_unsub() {
         let current = result_property_data_get(current_result);
         return current;
     }
+    metadata([]);
 }

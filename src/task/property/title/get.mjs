@@ -7,4 +7,5 @@ export function task_property_title_get(task) {
     let v = task_property_title();
     let v_2 = object_property_get(task, v);
     return v_2;
+    metadata([]);
 }

@@ -38,4 +38,5 @@ export async function task_available_generic(map_with_all_unsummarized) {
             return true;
         };
     }
+    metadata([]);
 }

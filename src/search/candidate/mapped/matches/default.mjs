@@ -6,4 +6,5 @@ export function search_candidate_mapped_matches_default(candidate_as_string, par
         return included;
     });
     return all_parts_included;
+    metadata([]);
 }

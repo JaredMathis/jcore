@@ -9,4 +9,5 @@ export async function task_now(title) {
     let task_number_string = task_number_get_string(task);
     await task_set(task_number_string);
     return task;
+    metadata([]);
 }

@@ -5,4 +5,5 @@ import { string_is } from '../is.mjs';
 export function string_letter_is(first) {
     arguments_assert(arguments, [string_is]);
     return string_to_case_upper(first) != string_to_case_lower(first);
+    metadata([]);
 }

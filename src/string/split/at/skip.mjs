@@ -18,4 +18,5 @@ export function string_split_at_skip(s, index, skip) {
         [string_split_at_property_left()]: left,
         [string_split_at_property_right()]: right
     };
+    metadata([]);
 }

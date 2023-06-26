@@ -20,4 +20,5 @@ export async function tasks_open_generic(filter_get, map_with_all_unsummarized) 
         return v_4;
     });
     return summaries;
+    metadata([]);
 }

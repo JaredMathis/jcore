@@ -40,4 +40,5 @@ export async function version_sync_local_preview_generic(repository_name) {
     });
     return v;
     ;
+    metadata([]);
 }

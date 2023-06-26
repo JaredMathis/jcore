@@ -7,4 +7,5 @@ export function version_path_tasks_get(repository_name) {
     let sub_name = version_path_tasks();
     let repository_sub_path = version_path_sub_get(repository_name, sub_name);
     return repository_sub_path;
+    metadata([]);
 }

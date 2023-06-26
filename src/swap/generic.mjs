@@ -13,4 +13,5 @@ export function swap_generic(generic_get, generic_set, list, index_from, index_t
     list = generic_set(list, index_to, from);
     list = generic_set(list, index_from, to);
     return list;
+    metadata([]);
 }

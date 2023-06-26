@@ -8,4 +8,5 @@ export async function task_available_first() {
     let available = await task_available_generic(argument_binary_first);
     let last = list_first(available);
     return last;
+    metadata([]);
 }

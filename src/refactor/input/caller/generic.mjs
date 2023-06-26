@@ -11,4 +11,5 @@ export async function refactor_input_caller_generic(args) {
         args_change(args);
     });
     await refactor_import_fix(args);
+    metadata([]);
 }

@@ -6,4 +6,5 @@ export async function task_description_to_json_if_unparsable() {
     let all = await task_all_unsummarized();
     let v = await task_description_to_json_if_unparsable_generic(all);
     return v;
+    metadata([]);
 }

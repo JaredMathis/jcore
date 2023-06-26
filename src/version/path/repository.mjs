@@ -7,4 +7,5 @@ export function version_path_repository(repository_name) {
         repository_name
     ]);
     return repository_directory;
+    metadata([]);
 }

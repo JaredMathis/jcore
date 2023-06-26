@@ -7,4 +7,5 @@ export async function task_number_to_requires(task_number_string) {
     let task = await task_get(task_number_string);
     let requires = task_requires_get(task);
     return requires;
+    metadata([]);
 }

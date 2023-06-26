@@ -34,4 +34,5 @@ export function string_similar(a, b) {
     function results_get(fn) {
         return [fn(a, b)];
     }
+    metadata([]);
 }

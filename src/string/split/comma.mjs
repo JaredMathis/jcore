@@ -7,4 +7,5 @@ export function string_split_comma(values) {
     let v = string_comma();
     let v_2 = string_split(values, v);
     return v_2;
+    metadata([]);
 }

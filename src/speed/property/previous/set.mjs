@@ -10,4 +10,5 @@ export function speed_property_previous_set(speed, value) {
     let v = speed_property_previous();
     let v_2 = object_property_set(speed, v, value);
     return v_2;
+    metadata([]);
 }

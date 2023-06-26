@@ -12,4 +12,5 @@ export async function version_commit_file(repository_name, file_path) {
     let v = list_single_item(file_path);
     let v_2 = version_commit_data(version_commit_file, arguments);
     await version_commit_files(repository_name, v, v_2);
+    metadata([]);
 }

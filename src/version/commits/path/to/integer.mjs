@@ -12,4 +12,5 @@ export function version_commits_path_to_integer(existing_commits) {
     });
     let parsed = list_map(unparsed, integer_parse);
     return parsed;
+    metadata([]);
 }

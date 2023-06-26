@@ -15,4 +15,5 @@ export function string_difference_get_external(string_old, string_new) {
     let first = list_single(structured);
     let hunks = object_property_get(first, 'hunks');
     return hunks;
+    metadata([]);
 }

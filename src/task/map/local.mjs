@@ -9,4 +9,5 @@ export async function task_map_local(task_number_string, map) {
         let task = list_find_property(tasks_all, v, task_number);
         map(task);
     });
+    metadata([]);
 }

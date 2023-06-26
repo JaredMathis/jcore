@@ -36,4 +36,5 @@ export async function visit_recursive_ignore_duplicates_async(node, children_get
         await visit_recursive_ignore_duplicates_async(c, children_get, lambda, stack, visited, ignore_duplicates);
     }
     list_remove_last_verify(stack, node);
+    metadata([]);
 }

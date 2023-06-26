@@ -25,4 +25,5 @@ export function string_sub_max(left, right) {
         [string_sub_max_property_right_index()]: right_index_max
     };
     return result;
+    metadata([]);
 }

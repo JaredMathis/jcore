@@ -23,4 +23,5 @@ export async function refactor_call_expressions_replace(args) {
         object_property_set(callee, v_2, function_name_called_new);
     });
     await refactor_import_fix(args);
+    metadata([]);
 }

@@ -16,4 +16,5 @@ export async function version_repository_file_size_max(repository_name) {
     let file_sizes = list_map(list_contents, string_byte_size);
     let file_size_max = list_max(file_sizes);
     return file_size_max;
+    metadata([]);
 }

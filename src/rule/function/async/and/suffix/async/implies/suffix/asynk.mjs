@@ -17,4 +17,5 @@ export async function rule_function_async_and_suffix_async_implies_suffix_asynk(
         let replacement_suffix = 'asynk';
         await function_rename_suffix_change(function_name_no_suffix, suffix, replacement_suffix);
     }
+    metadata([]);
 }

@@ -20,4 +20,5 @@ export async function rule_operator_to_function_call_multiple() {
     await rule_operator_to_function_call_generic(subtract, '-', js_node_is_binary_expression);
     await rule_operator_to_function_call_generic(multiply, '*', js_node_is_binary_expression);
     await rule_operator_to_function_call_generic(add, '+', js_node_is_binary_expression);
+    metadata([]);
 }

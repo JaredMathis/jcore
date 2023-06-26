@@ -9,4 +9,5 @@ export function task_number_get_string(task) {
     let task_number = object_property_get(task, v);
     let task_number_string = string_to(task_number);
     return task_number_string;
+    metadata([]);
 }

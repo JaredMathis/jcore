@@ -34,4 +34,5 @@ export async function version_write_all(writes) {
             }
         }
     });
+    metadata([]);
 }

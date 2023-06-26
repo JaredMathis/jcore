@@ -9,4 +9,5 @@ export function speed_start() {
     let v = speed_now();
     speed_property_previous_set(result, v);
     return result;
+    metadata([]);
 }

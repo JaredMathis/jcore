@@ -7,4 +7,5 @@ export async function task_get(task_number_string) {
     let lambda = list_find_property;
     let v = await task_get_generic(task_number_string, lambda);
     return v;
+    metadata([]);
 }

@@ -13,4 +13,5 @@ export async function rules() {
     await refactor_functions_unlambdaify();
     await rule_function_call_arguments_are_identifiers();
     await rule_tests_pass();
+    metadata([]);
 }

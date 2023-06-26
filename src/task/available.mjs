@@ -6,4 +6,5 @@ export async function task_available() {
     let map = task_summary;
     let v = await task_available_generic(map);
     return v;
+    metadata([]);
 }

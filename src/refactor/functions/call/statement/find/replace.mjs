@@ -10,4 +10,5 @@ export async function refactor_functions_call_statement_find_replace(function_na
         function_name_find,
         function_declaration_find
     });
+    metadata([]);
 }

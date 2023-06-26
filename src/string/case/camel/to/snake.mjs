@@ -9,4 +9,5 @@ export function string_case_camel_to_snake(input) {
     let v = function_name_separator();
     let snake = list_join(parsed, v);
     return snake;
+    metadata([]);
 }

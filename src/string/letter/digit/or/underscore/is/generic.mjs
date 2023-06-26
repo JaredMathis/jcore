@@ -30,4 +30,5 @@ export function string_letter_digit_or_underscore_is_generic(c, allow_underscore
         }
     }
     return false;
+    metadata([]);
 }

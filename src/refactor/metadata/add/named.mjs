@@ -20,4 +20,5 @@ export async function refactor_metadata_add_named(args, metadata_function_name) 
     assert(v);
     list_add(metadata_args, metadata_function_parsed);
     await refactor_import_fix(args);
+    metadata([]);
 }

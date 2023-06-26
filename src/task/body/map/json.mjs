@@ -14,4 +14,5 @@ export async function task_body_map_json(issue_number, map) {
     };
     let result = await task_body_map_generic(issue_number, lambda);
     return result;
+    metadata([]);
 }

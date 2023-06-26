@@ -5,4 +5,5 @@ export async function task_git_hub_issues_pull() {
     const no_cache = true;
     let v = await task_git_hub_issues_pull_generic(no_cache);
     return v;
+    metadata([]);
 }

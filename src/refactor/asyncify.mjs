@@ -38,4 +38,5 @@ export async function refactor_asyncify(args) {
         let v = not(v_2);
         assert(v);
     }
+    metadata([]);
 }

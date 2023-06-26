@@ -7,4 +7,5 @@ export function task_from_git_hub_issue(issue) {
     let v = task_properties();
     let v_2 = object_map(issue, v);
     return v_2;
+    metadata([]);
 }

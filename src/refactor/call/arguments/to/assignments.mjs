@@ -56,4 +56,5 @@ export function refactor_call_arguments_to_assignments(args) {
             }
         }
     });
+    metadata([]);
 }

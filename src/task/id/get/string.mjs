@@ -8,4 +8,5 @@ export async function task_id_get_string() {
     let task_number_string_hashed = string_to(task_number);
     let task_number_string = task_number_unhash(task_number_string_hashed);
     return task_number_string;
+    metadata([]);
 }

@@ -7,4 +7,5 @@ export function string_compare(a, b) {
     ]);
     let v = a.localeCompare(b);
     return v;
+    metadata([]);
 }

@@ -7,4 +7,5 @@ export async function version_sync_local_summary(repository_name) {
     let result = await version_sync_local_preview(repository_name);
     let file_path_count = list_length(result);
     return { file_path_count };
+    metadata([]);
 }

@@ -18,4 +18,5 @@ export async function task_sub_undo() {
     const previous_number = task_number_get_string(previous);
     await task_unrequires(previous_number, current_number);
     await task_set(previous_number);
+    metadata([]);
 }

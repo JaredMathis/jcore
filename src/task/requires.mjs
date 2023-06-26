@@ -13,4 +13,5 @@ export async function task_requires(task_number_string, task_number_required_str
     function requires_map(requires, task_number_required) {
         list_add_assert_exists_not(requires, task_number_required);
     }
+    metadata([]);
 }

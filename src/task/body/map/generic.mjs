@@ -9,4 +9,5 @@ export async function task_body_map_generic(issue_number, map) {
     let body_after = map(task_body_value);
     let result = await task_body(issue_number, body_after);
     return result;
+    metadata([]);
 }

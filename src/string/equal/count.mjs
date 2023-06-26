@@ -27,4 +27,5 @@ export function string_equal_count(a, b) {
         }
     });
     return v;
+    metadata([]);
 }

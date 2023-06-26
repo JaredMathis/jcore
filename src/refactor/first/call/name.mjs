@@ -10,4 +10,5 @@ export async function refactor_first_call_name(args) {
     let expression = await js_function_declaration_to_expression_after_arguments_assert(function_declaration);
     js_call_expression_name_change(expression, name_new);
     await refactor_import_fix(args);
+    metadata([]);
 }

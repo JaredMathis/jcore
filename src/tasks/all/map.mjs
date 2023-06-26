@@ -9,4 +9,5 @@ export async function tasks_all_map(map) {
     let tasks_all_path = version_path_tasks_all_get(repository_name);
     const initial_value = [];
     await file_json_map(tasks_all_path, initial_value, map);
+    metadata([]);
 }

@@ -7,4 +7,5 @@ export function speed_property_previous_get(speed) {
     let v = speed_property_previous();
     let v_2 = object_property_get(speed, v);
     return v_2;
+    metadata([]);
 }

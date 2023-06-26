@@ -19,4 +19,5 @@ export function string_set(input, index, value) {
         string_skip(input, add(index, integer_value_1()))
     ]);
     return v;
+    metadata([]);
 }

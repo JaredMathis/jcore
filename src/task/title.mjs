@@ -14,4 +14,5 @@ export async function task_title(issue_number, title) {
     await task_property_change_local(issue_number, property_name, title);
     let v = await task_available();
     return v;
+    metadata([]);
 }

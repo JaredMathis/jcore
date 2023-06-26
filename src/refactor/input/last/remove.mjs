@@ -6,4 +6,5 @@ export async function refactor_input_last_remove(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let lambda = list_remove_last;
     await refactor_input_generic_simple(args, lambda);
+    metadata([]);
 }

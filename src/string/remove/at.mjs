@@ -15,4 +15,5 @@ export function string_remove_at(s, index) {
     let {left, right} = string_split_at_skip(s, index, offset);
     let result = string_combine(left, right);
     return result;
+    metadata([]);
 }

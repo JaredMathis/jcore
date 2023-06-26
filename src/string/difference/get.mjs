@@ -9,4 +9,5 @@ export function string_difference_get(left, right) {
     ]);
     let v = string_difference_get_recursive(left, right, integer_value_0(), integer_value_0());
     return v;
+    metadata([]);
 }

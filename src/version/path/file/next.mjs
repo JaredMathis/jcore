@@ -37,4 +37,5 @@ export async function version_path_file_next(repository_name, file_path) {
     let version = add_1(max);
     let version_path = version_path_file_get(repository_name, file_path, version);
     return version_path;
+    metadata([]);
 }

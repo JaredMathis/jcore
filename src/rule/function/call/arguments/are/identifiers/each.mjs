@@ -31,4 +31,5 @@ export async function rule_function_call_arguments_are_identifiers_each(args) {
             args
         }));
     });
+    metadata([]);
 }

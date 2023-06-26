@@ -9,4 +9,5 @@ export function task_properties() {
         task_property_state(),
         task_property_body()
     ];
+    metadata([]);
 }

@@ -22,4 +22,5 @@ export async function task_current_required_bys() {
     let required_bys = task_required_bys(task_number, all_unsummarized);
     list_sort(required_bys);
     return required_bys;
+    metadata([]);
 }

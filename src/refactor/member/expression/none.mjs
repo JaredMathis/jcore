@@ -46,4 +46,5 @@ export async function refactor_member_expression_none(args) {
             changed();
         });
     });
+    metadata([]);
 }

@@ -32,4 +32,5 @@ export async function refactor_metadata_missing_add(args) {
         list_add(statements, metadata_new);
         await refactor_import_fix(args);
     }
+    metadata([]);
 }

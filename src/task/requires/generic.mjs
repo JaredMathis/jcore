@@ -24,4 +24,5 @@ export async function task_requires_generic(task_number_string, task_number_requ
         let requires = task_body_requires(body_parsed);
         requires_map(requires, task_number_required);
     }
+    metadata([]);
 }

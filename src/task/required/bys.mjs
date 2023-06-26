@@ -22,4 +22,5 @@ export function task_required_bys(task_number, all_unsummarized) {
         }
     });
     return v;
+    metadata([]);
 }

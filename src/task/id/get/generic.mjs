@@ -5,4 +5,5 @@ export async function task_id_get_generic(lambda) {
     let v = task_property_id();
     let v_2 = lambda(data, v, null);
     return v_2;
+    metadata([]);
 }

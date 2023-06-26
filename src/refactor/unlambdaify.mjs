@@ -12,4 +12,5 @@ export function refactor_unlambdaify(args) {
         let v_3 = js_arrow_function_expression_functionify(n, v_2);
         return v_3;
     });
+    metadata([]);
 }

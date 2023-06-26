@@ -13,4 +13,5 @@ export async function refactor_input_swap_generic(args, index_from, index_to) {
         return v_2;
     };
     await refactor_input_generic_simple(args, lambda);
+    metadata([]);
 }

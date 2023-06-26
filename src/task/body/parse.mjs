@@ -14,4 +14,5 @@ export function task_body_parse(task) {
     }
     let body_parsed = json_from(body);
     return body_parsed;
+    metadata([]);
 }

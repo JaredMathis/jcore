@@ -15,4 +15,5 @@ export async function task_description(issue_number, description) {
         let v = task_body_property_description();
         object_property_set(body_parsed, v, description);
     }
+    metadata([]);
 }

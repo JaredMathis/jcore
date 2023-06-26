@@ -68,4 +68,5 @@ export function string_difference_apply_parse(hunk) {
         error();
     }
     return result;
+    metadata([]);
 }

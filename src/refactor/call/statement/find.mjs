@@ -13,4 +13,5 @@ export function refactor_call_statement_find(args) {
         log(node_string);
     });
     log('');
+    metadata([]);
 }

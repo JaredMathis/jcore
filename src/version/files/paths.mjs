@@ -33,4 +33,5 @@ export async function version_files_paths(repository_name) {
         return v_4;
     });
     return files_committed;
+    metadata([]);
 }

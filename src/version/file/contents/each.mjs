@@ -4,4 +4,5 @@ export async function version_file_contents_each(repository_name, file_paths, la
         let contents = await version_file_contents(repository_name, file_path);
         await lambda(file_path, contents);
     }
+    metadata([]);
 }

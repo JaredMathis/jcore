@@ -11,4 +11,5 @@ export async function version_commits_get(repository_name) {
     let existing_commits = await directory_read(repository_sub_path);
     let parsed = version_commits_path_to_integer(existing_commits);
     return parsed;
+    metadata([]);
 }

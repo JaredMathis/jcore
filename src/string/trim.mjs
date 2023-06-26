@@ -4,4 +4,5 @@ export function string_trim(input) {
     arguments_assert(arguments, [string_is]);
     let v = input.trim();
     return v;
+    metadata([]);
 }

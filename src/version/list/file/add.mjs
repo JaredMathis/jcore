@@ -9,4 +9,5 @@ export function version_list_file_add(list, file_path, contents) {
         [property_contents]: contents
     };
     list_add(list, commit_write);
+    metadata([]);
 }
