@@ -1,4 +1,3 @@
-import { error } from '../../../../../error.mjs';
 import { js_node_property_right_get } from '../../../../../js/node/property/right/get.mjs';
 import { js_node_property_left_get } from '../../../../../js/node/property/left/get.mjs';
 import { js_node_property_arguments_get } from '../../../../../js/node/property/arguments/get.mjs';
@@ -14,7 +13,7 @@ import { js_mapper_args_to_function_name } from '../../../../../js/mapper/args/t
 import { js_parse_call_expression } from '../../../../../js/parse/call/expression.mjs';
 import { list_add } from '../../../../../list/add.mjs';
 import { js_nodes_each } from '../../../../../js/nodes/each.mjs';
-export async function rule_equals_operator_to_function_call() {
+export async function rule_operator_to_function_call_equal() {
     arguments_assert(arguments, []);
     const operator_value = '===';
     let operator_function_name = function_name_get(equal);
