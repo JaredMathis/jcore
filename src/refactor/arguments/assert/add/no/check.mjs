@@ -17,6 +17,7 @@ import { list_map } from '../../../../../list/map.mjs';
 import { list_length } from '../../../../../list/length.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { js_function_declaration_to_statements } from '../../../../../js/function/declaration/to/statements.mjs';
+import { metadata } from '../../../../../metadata.mjs';
 export function refactor_arguments_assert_add_no_check(function_declaration, excludes) {
     arguments_assert(arguments, [
         js_node_is_function_declaration,
