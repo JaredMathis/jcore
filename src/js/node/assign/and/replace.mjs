@@ -36,6 +36,5 @@ export function js_node_assign_and_replace(parsed, expression_to_replace, ancest
     js_variable_declarator_init_change(declaration, v_4);
     let v_5 = js_parse_expression(id);
     object_replace(expression_to_replace_root, v_5);
-    console.log({assignment, add_assignment_before_node})
     list_add_before(ancestor_list, assignment, add_assignment_before_node);
 }
