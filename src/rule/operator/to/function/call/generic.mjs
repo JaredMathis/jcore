@@ -15,8 +15,9 @@ import { refactor_import_fix_if_changed } from '../../../../../refactor/import/f
 import { equal } from '../../../../../equal.mjs';
 import { js_mapper_args_to_function_name } from '../../../../../js/mapper/args/to/function/name.mjs';
 import { function_names_each_map } from '../../../../../function/names/each/map.mjs';
-export async function rule_operator_to_function_call_generic(operator_function, operator_value) {
+export async function rule_operator_to_function_call_generic(operator_function, operator_value, node_type) {
     arguments_assert(arguments, [
+        arguments_assert_todo,
         arguments_assert_todo,
         arguments_assert_todo
     ]);
@@ -31,7 +32,7 @@ export async function rule_operator_to_function_call_generic(operator_function, 
             js_nodes_each(parsed, js_node_is_binary_expression, function v_3(node) {
                 let operator = js_node_property_operator_get(node);
                 if (equal(function_name, 'git_ignore_filter')) {
-                    console.log({operator});
+                    console.log({ operator });
                 }
                 if (!equal(operator, operator_value)) {
                     return;
