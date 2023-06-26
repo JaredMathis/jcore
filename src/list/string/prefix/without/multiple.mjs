@@ -10,5 +10,6 @@ export function list_string_prefix_without_multiple(strings, prefixes) {
     ]);
     let predicate = string_starts_with;
     let mapper = string_prefix_without;
-    return list_string_without_multiple_generic(prefixes, strings, predicate, mapper);
+    let v = list_string_without_multiple_generic(prefixes, strings, predicate, mapper);
+    return v;
 }

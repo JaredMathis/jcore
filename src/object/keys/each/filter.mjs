@@ -9,7 +9,7 @@ export function object_keys_each_filter(object, predicate) {
         defined_is,
         function_is
     ]);
-    let result = list_adder(function v(list_new_then_add) {
+    let v_4 = function v(list_new_then_add) {
         let lambda = function v_2(value, key) {
             let v_3 = predicate(value, key);
             if (v_3) {
@@ -17,7 +17,8 @@ export function object_keys_each_filter(object, predicate) {
             }
         };
         object_keys_each(object, lambda);
-    });
+    };
+    let result = list_adder(v_4);
     return result;
     metadata([]);
 }

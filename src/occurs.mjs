@@ -5,9 +5,10 @@ import { arguments_assert } from './arguments/assert.mjs';
 export function occurs(lambda) {
     arguments_assert(arguments, [function_is]);
     let result = false;
-    lambda(function v() {
+    let v_2 = function v() {
         result = true;
-    });
+    };
+    lambda(v_2);
     return result;
     metadata([metadata_generated()]);
 }

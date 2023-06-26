@@ -6,6 +6,7 @@ export function list_sort_property(removals, sort_property) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let result = list_sort_property_generic(removals, sort_property, false);
+    let v = false;
+    let result = list_sort_property_generic(removals, sort_property, v);
     return result;
 }

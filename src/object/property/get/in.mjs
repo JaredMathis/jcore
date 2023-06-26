@@ -9,6 +9,7 @@ export function object_property_get_in(object, property_name) {
         arguments_assert_todo
     ]);
     let lambda = object_property_in;
-    return object_property_get_generic(lambda, object, property_name);
+    let v = object_property_get_generic(lambda, object, property_name);
+    return v;
     metadata([]);
 }

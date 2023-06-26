@@ -10,9 +10,10 @@ export function object_keys_without(value, excluded) {
         list_is
     ]);
     let all = object_properties(value);
-    let filtered = list_filter(all, function v_2(v) {
+    let v_4 = function v_2(v) {
         let v_3 = equal_not(v, excluded);
         return v_3;
-    });
+    };
+    let filtered = list_filter(all, v_4);
     return filtered;
 }

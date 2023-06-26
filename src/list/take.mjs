@@ -10,7 +10,8 @@ export function list_take(list, count) {
         list_is,
         integer_is
     ]);
-    let v = list_slice(list, integer_value_0(), count);
+    let v_2 = integer_value_0();
+    let v = list_slice(list, v_2, count);
     return v;
     metadata([]);
 }

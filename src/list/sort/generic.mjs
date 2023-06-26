@@ -12,12 +12,13 @@ export function list_sort_generic(list, value_get, reverse, compare) {
         boolean_is,
         function_is
     ]);
-    list.sort(function v(a, b) {
+    let v_5 = function v(a, b) {
         let v_2 = value_get(a);
         let v_3 = value_get(b);
         let v_4 = compare(v_2, v_3);
         return v_4;
-    });
+    };
+    list.sort(v_5);
     if (reverse) {
         list_reverse(list);
     }

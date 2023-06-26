@@ -13,7 +13,8 @@ export function list_remove_while_first_equals(args, value) {
     let test = true;
     while (test) {
         list_first_remove(args);
-        test = equal(list_first(args), value);
+        let v = list_first(args);
+        test = equal(v, value);
     }
     metadata([]);
 }

@@ -5,7 +5,8 @@ import { metadata } from '../../metadata.mjs';
 import { list_skip } from '../skip.mjs';
 export function list_skip_first(list) {
     arguments_assert(arguments, [list_is]);
-    let v = list_skip(list, integer_value_1());
+    let v_2 = integer_value_1();
+    let v = list_skip(list, v_2);
     return v;
     metadata([]);
 }

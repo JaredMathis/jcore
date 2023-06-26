@@ -11,8 +11,10 @@ export function list_set(list, index, value) {
         number_is,
         defined_is
     ]);
-    assert(index >= integer_value_0());
-    assert(index <= list_length(list));
+    let v = index >= integer_value_0();
+    assert(v);
+    let v_2 = index <= list_length(list);
+    assert(v_2);
     list[index] = value;
     return list;
 }

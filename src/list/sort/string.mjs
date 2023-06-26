@@ -5,5 +5,6 @@ import { list_is } from '../is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 export function list_sort_string(list) {
     arguments_assert(arguments, [list_is]);
-    list_sort_generic(list, identity, false, string_compare);
+    let v = false;
+    list_sort_generic(list, identity, v, string_compare);
 }

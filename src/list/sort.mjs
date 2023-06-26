@@ -6,5 +6,6 @@ import { list_is } from './is.mjs';
 import { identity } from '../identity.mjs';
 export function list_sort(list) {
     arguments_assert(arguments, [list_is]);
-    list_sort_generic(list, identity, false, subtract);
+    let v = false;
+    list_sort_generic(list, identity, v, subtract);
 }

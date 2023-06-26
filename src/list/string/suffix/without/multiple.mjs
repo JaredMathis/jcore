@@ -10,5 +10,6 @@ export function list_string_suffix_without_multiple(strings, prefixes) {
     ]);
     let predicate = string_ends_with;
     let mapper = string_suffix_without;
-    return list_string_without_multiple_generic(prefixes, strings, predicate, mapper);
+    let v = list_string_without_multiple_generic(prefixes, strings, predicate, mapper);
+    return v;
 }
