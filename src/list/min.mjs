@@ -1,3 +1,4 @@
+import { less_than } from '../less/than.mjs';
 import { metadata } from '../metadata.mjs';
 import { identity } from '../identity.mjs';
 import { list_compare_generic } from './compare/generic.mjs';
@@ -6,7 +7,7 @@ import { arguments_assert } from '../arguments/assert.mjs';
 export function list_min(list) {
     arguments_assert(arguments, [list_is]);
     let compare = function v_2(current, found) {
-        return current < found;
+        return less_than(current, found);
     };
     let v = list_compare_generic(list, identity, compare);
     return v;
