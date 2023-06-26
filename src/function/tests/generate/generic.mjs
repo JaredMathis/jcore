@@ -33,6 +33,7 @@ import { function_tests_count } from '../count.mjs';
 import { error } from '../../../error.mjs';
 import { string_is } from '../../../string/is.mjs';
 import { integer_parse } from '../../../integer/parse.mjs';
+import { string_combine } from '../../../string/combine.mjs';
 export async function function_tests_generate_generic(function_name, count_string) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -72,7 +73,7 @@ export async function function_tests_generate_generic(function_name, count_strin
     };
     let v_16 = await list_any_async(names_with_endings_unqiue, v_22);
     if (v_16) {
-        let v_23 = `${ function_name_get(arguments_assert) } types need filling in ` + names_with_endings_unqiue;
+        let v_23 = string_combine(`${ function_name_get(arguments_assert) } types need filling in `, names_with_endings_unqiue);
         error(v_23);
         return;
     }
