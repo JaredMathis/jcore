@@ -12,6 +12,7 @@ import { js_node_assign_and_replace } from '../js/node/assign/and/replace.mjs';
 import { js_node_property_argument_get } from '../js/node/property/argument/get.mjs';
 export function refactor_returnify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
+    let lambda_child_get = js_node_assign_and_replace
     let {parsed} = args;
     let v_4 = function v_3(v) {
         let {node, stack} = v;
