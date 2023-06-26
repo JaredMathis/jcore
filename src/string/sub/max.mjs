@@ -12,7 +12,7 @@ export function string_sub_max(left, right) {
     let left_index = integer_value_0()
     for (; less_than(left_index, left.length); ) {
         let right_index = integer_value_0()
-        for (; less_than(right_index, right.length); right_index++) {
+        for (; less_than(right_index, right.length); ) {
             let offset = string_sub_max_starting_at(left, right, left_index, right_index);
             let v = offset > offset_max;
             if (v) {
@@ -20,6 +20,7 @@ export function string_sub_max(left, right) {
                 left_index_max = left_index;
                 right_index_max = right_index;
             }
+            right_index++
         }
         left_index++
     }
