@@ -8,6 +8,7 @@ import { js_node_property_arguments_get } from '../../../../../../js/node/proper
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { js_node_is_call_expression } from '../../../../../../js/node/is/call/expression.mjs';
 import { js_nodes_each } from '../../../../../../js/nodes/each.mjs';
+import { js_node_is_spread_element } from '../../../../../../js/node/is/spread/element.mjs';
 export function rule_function_call_arguments_are_identifiers_each(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
@@ -18,7 +19,7 @@ export function rule_function_call_arguments_are_identifiers_each(args) {
             return;
         }
         let args = js_node_property_arguments_get(node);
-        assert_message(list_all(args, js_node_is_identifier), json_to({
+        assert_message(list_all(args, n => js_node_is_identifier(n) || js_node_is_spread_element(n)), json_to({
             file_path,
             args
         }));
