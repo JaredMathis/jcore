@@ -42,7 +42,7 @@ export function js_node_assign_and_replace(parsed, expression_to_replace, ancest
     object_replace(expression_to_replace_root, v_5);
     if (js_node_is_do_while_statement(add_assignment_before_node)) {
         let body = js_node_property_body_get(add_assignment_before_node)
-        list_add(body, add_assignment_before_node)
+        list_add(body, assignment)
     } else {
         list_add_before(ancestor_list, assignment, add_assignment_before_node);
     }
