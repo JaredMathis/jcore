@@ -1,5 +1,6 @@
+import { js_code_statement } from '../../../js/code/statement.mjs';
+import { js_code_call_expression_with_args_code } from '../../../js/code/call/expression/with/args/code.mjs';
 import { not } from '../../../not.mjs';
-import { js_code_call_expression_statement_with_args_code } from '../../../js/code/call/expression/statement/with/args/code.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { refactor_import_fix } from '../../import/fix.mjs';
@@ -27,7 +28,8 @@ export async function refactor_metadata_missing_add(args) {
     if (v_2) {
         const name = function_name_get(metadata);
         const call_args = '[]';
-        let metadata_new_statement_code = js_code_call_expression_statement_with_args_code(name, call_args);
+        let metadata_new_code = js_code_call_expression_with_args_code(name, call_args);
+        let metadata_new_statement_code = js_code_statement(metadata_new_code);
         let metadata_new = js_parse_statement(metadata_new_statement_code);
         list_add(statements, metadata_new);
         await refactor_import_fix(args);
