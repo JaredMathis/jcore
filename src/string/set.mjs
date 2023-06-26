@@ -1,3 +1,4 @@
+import { add } from '../add.mjs';
 import { integer_value_1 } from '../integer/value/1.mjs';
 import { string_combine_multiple } from './combine/multiple.mjs';
 import { character_is } from '../character/is.mjs';
@@ -15,7 +16,7 @@ export function string_set(input, index, value) {
     let v = string_combine_multiple([
         string_take(input, index),
         value,
-        string_skip(input, index + integer_value_1())
+        string_skip(input, add(index, integer_value_1()))
     ]);
     return v;
 }

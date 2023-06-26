@@ -1,3 +1,4 @@
+import { add } from '../../../add.mjs';
 import { string_to } from '../../to.mjs';
 import { integer_value_0 } from '../../../integer/value/0.mjs';
 import { string_length } from '../../length.mjs';
@@ -42,7 +43,7 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     if (v_9) {
         let v_10 = string_empty_not_is(left);
         if (v_10) {
-            const position = left_index + left_offset;
+            const position = add(left_index, left_offset);
             list_add(result, string_combine_multiple([
                 string_to(position),
                 string_difference_removed(),
@@ -51,7 +52,7 @@ export function string_difference_get_recursive(left, right, left_offset, right_
         }
         let v_11 = string_empty_not_is(right);
         if (v_11) {
-            const position = right_index + right_offset;
+            const position = add(right_index, right_offset);
             list_add(result, string_combine_multiple([
                 string_to(position),
                 string_difference_added(),
@@ -72,7 +73,7 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     let right_right = object_property_get(right_lr, v_7);
     let left_result = string_difference_get_recursive(left_left, right_left, left_offset, right_offset);
     list_add_multiple(result, left_result);
-    let right_result = string_difference_get_recursive(left_right, right_right, left_offset + offset + left_index, right_offset + offset + right_index);
+    let right_result = string_difference_get_recursive(left_right, right_right, add(add(left_offset, offset), left_index), add(add(right_offset, offset), right_index));
     list_add_multiple(result, right_result);
     return result;
 }

@@ -1,3 +1,4 @@
+import { add } from '../../../add.mjs';
 import { string_take } from '../../take.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { string_split_at_property_right } from './property/right.mjs';
@@ -12,7 +13,7 @@ export function string_split_at_skip(s, index, skip) {
         integer_is
     ]);
     let left = string_take(s, index);
-    let right = string_skip(s, index + skip);
+    let right = string_skip(s, add(index, skip));
     return {
         [string_split_at_property_left()]: left,
         [string_split_at_property_right()]: right

@@ -1,3 +1,4 @@
+import { add } from '../add.mjs';
 import { multiply } from '../multiply.mjs';
 import { subtract } from '../subtract.mjs';
 import { less_than } from '../less/than.mjs';
@@ -7,6 +8,6 @@ import { number_floor } from '../number/floor.mjs';
 import { assert } from '../assert.mjs';
 export function random_between(lower, upper) {
     assert(less_than(lower, upper));
-    let difference = subtract(upper, lower) + integer_value_1();
-    return number_floor(multiply(difference, random_get())) + lower;
+    let difference = add(subtract(upper, lower), integer_value_1());
+    return add(number_floor(multiply(difference, random_get())), lower);
 }

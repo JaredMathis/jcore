@@ -6,7 +6,7 @@ import { task_id_set } from './id/set.mjs';
 import { string_combine } from '../string/combine.mjs';
 export async function task_set(task_id_unhashed) {
     arguments_assert(arguments, [string_is]);
-    let hashed =string_combine(task_symbol_hash(), task_id_unhashed);
+    let hashed = string_combine(task_symbol_hash(), task_id_unhashed);
     await task_id_set(hashed);
     metadata([]);
 }
