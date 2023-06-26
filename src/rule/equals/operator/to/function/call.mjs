@@ -17,11 +17,11 @@ import { js_nodes_each } from '../../../../../js/nodes/each.mjs';
 export async function rule_equals_operator_to_function_call() {
     arguments_assert(arguments, []);
     const operator_value = '===';
-    let equal_function_name = function_name_get(equal);
+    let operator_function_name = function_name_get(equal);
     await function_names_each_map(async function v(args) {
         let {parsed} = args;
         let function_name = js_mapper_args_to_function_name(args);
-        if (equal(function_name, equal_function_name)) {
+        if (equal(function_name, operator_function_name)) {
             return;
         }
         await refactor_import_fix_if_changed(args, async function v_2(changed) {
@@ -30,7 +30,7 @@ export async function rule_equals_operator_to_function_call() {
                 if (!equal(operator, operator_value)) {
                     return;
                 }
-                let ce = js_parse_call_expression(equal_function_name);
+                let ce = js_parse_call_expression(operator_function_name);
                 let ce_args = js_node_property_arguments_get(ce);
                 list_add(ce_args, js_node_property_left_get(node));
                 list_add(ce_args, js_node_property_right_get(node));
