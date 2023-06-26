@@ -1,3 +1,4 @@
+import { equal } from '../../equal.mjs';
 import { js_mapper_args_is } from '../mapper/args/is.mjs';
 import { js_identifier_is } from './is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -13,7 +14,7 @@ export function js_identifier_rename(args, identifier_name_old, identifier_name_
     return v;
     metadata([]);
     function should_rename(name) {
-        return name === identifier_name_old;
+        return equal(name, identifier_name_old);
     }
     function name_new_get(name) {
         return identifier_name_new;

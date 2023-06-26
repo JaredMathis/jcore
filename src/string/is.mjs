@@ -1,3 +1,4 @@
+import { equal } from '../equal.mjs';
 import { not } from '../not.mjs';
 import { metadata } from '../metadata.mjs';
 import { defined_is } from '../defined/is.mjs';
@@ -9,6 +10,6 @@ export function string_is(value) {
     if (v) {
         error('invalid value');
     }
-    return typeof value === 'string';
+    return equal(typeof value, 'string');
     metadata([]);
 }

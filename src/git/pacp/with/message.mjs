@@ -1,3 +1,4 @@
+import { equal } from '../../../equal.mjs';
 import { not } from '../../../not.mjs';
 import { git_command_name } from '../../command/name.mjs';
 import { git_commands_sync_add_run } from '../../commands/sync/add/run.mjs';
@@ -29,7 +30,7 @@ export async function git_pacp_with_message(commit_message, sync) {
     let c_result = await git_commands_sync_add_run(sync, commands);
     let v_2 = not(c_result.success);
     if (v_2) {
-        let v_3 = c_result.command === command_commit;
+        let v_3 = equal(c_result.command, command_commit);
         if (v_3) {
             let result = result_empty();
             result.inner = c_result;

@@ -1,3 +1,4 @@
+import { equal } from '../../equal.mjs';
 import { list_add } from '../../list/add.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { list_any } from '../../list/any.mjs';
@@ -9,7 +10,7 @@ export async function function_callers_names(function_name) {
     for (let c of candidates) {
         let dependencies = await function_dependencies_non_recursive(c);
         let v_2 = list_any(dependencies, function v(d) {
-            return object_property_get(d, 'function_name') === function_name;
+            return equal(object_property_get(d, 'function_name'), function_name);
         });
         if (v_2) {
             list_add(result, c);

@@ -1,3 +1,4 @@
+import { equal } from './equal.mjs';
 import { integer_value_0 } from './integer/value/0.mjs';
 import { integer_value_10 } from './integer/value/10.mjs';
 import { function_name_all_tests_not } from './function/name/all/tests/not.mjs';
@@ -12,7 +13,7 @@ export async function untested() {
     let maximum_untested_display = integer_value_10();
     let function_names = await function_name_all_tests_not();
     let filtered = await list_filter_async(function_names, async function v(f) {
-        return await function_tests_count(f) === integer_value_0();
+        return equal(await function_tests_count(f), integer_value_0());
     });
     let limited = list_take(filtered, maximum_untested_display);
     for (let function_name of limited) {

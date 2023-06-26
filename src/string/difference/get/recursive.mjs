@@ -36,7 +36,7 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     let left_index = object_property_get(max, v_2);
     let v_3 = string_sub_max_property_right_index();
     let right_index = object_property_get(max, v_3);
-    let v_9 = offset === integer_value_0();
+    let v_9 = equal(offset, integer_value_0());
     if (v_9) {
         let v_10 = string_empty_not_is(left);
         if (v_10) {

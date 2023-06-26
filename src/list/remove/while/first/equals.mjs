@@ -1,3 +1,4 @@
+import { equal } from '../../../../equal.mjs';
 import { list_is } from '../../../is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -9,7 +10,7 @@ export function list_remove_while_first_equals(args, value) {
         list_is,
         defined_is
     ]);
-    while (list_first(args) === value) {
+    while (equal(list_first(args), value)) {
         list_first_remove(args);
     }
     metadata([]);

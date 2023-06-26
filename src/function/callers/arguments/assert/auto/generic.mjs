@@ -75,14 +75,14 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 let left = object_property_get(node, v_7);
                 let v_15 = js_node_is_identifier(left);
                 if (v_15) {
-                    let v_16 = object_property_get(left, 'name') === c_predicate_name;
+                    let v_16 = equal(object_property_get(left, 'name'), c_predicate_name);
                     if (v_16) {
                         comment(`Value has been changed - will not assume predicate can be copied`);
                         assignment_exists = true;
                     }
                 }
             });
-            let v_17 = assignment_exists === true;
+            let v_17 = equal(assignment_exists, true);
             if (v_17) {
                 return occurs;
             }

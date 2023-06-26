@@ -1,3 +1,4 @@
+import { equal } from '../../../equal.mjs';
 import { list_is } from '../../is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
@@ -8,6 +9,6 @@ export function list_length_is_value(list, value) {
         list_is,
         defined_is
     ]);
-    return list_length(list) === value;
+    return equal(list_length(list), value);
     metadata([]);
 }

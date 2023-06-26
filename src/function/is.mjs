@@ -1,4 +1,4 @@
-import { arguments_assert } from '../arguments/assert.mjs';
+import { equal } from '../equal.mjs';
 import { assert_arguments_count } from '../assert/arguments/count.mjs';
 import { defined_is } from '../defined/is.mjs';
 import { error } from '../error.mjs';
@@ -9,5 +9,5 @@ export function function_is(candidate) {
     if (v) {
         error('invalid candidate');
     }
-    return typeof candidate === 'function';
+    return equal(typeof candidate, 'function');
 }
