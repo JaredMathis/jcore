@@ -10,8 +10,9 @@ export async function function_input_swap(function_name, index_from, index_to) {
         arguments_assert_todo
     ]);
     let v = function_name_get(refactor_input_swap);
-    await function_map_with_args(v, function_name, {
+    let v_2 = {
         index_from,
         index_to
-    });
+    };
+    await function_map_with_args(v, function_name, v_2);
 }

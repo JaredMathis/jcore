@@ -15,9 +15,10 @@ export function function_name_to_file_path(function_name) {
     list_add_beginning(parts, directory_source_result);
     let v = directory_current();
     list_add_beginning(parts, v);
-    list_last_map(parts, function v_2(last) {
+    let v_3 = function v_2(last) {
         return last + function_extension();
-    });
+    };
+    list_last_map(parts, v_3);
     let joined = path_join(parts);
     return joined;
     metadata([]);

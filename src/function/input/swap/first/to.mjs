@@ -12,5 +12,6 @@ export async function function_input_swap_first_to(function_name, index_string) 
     ]);
     let index = integer_parse(index_string);
     let v = function_name_get(refactor_input_swap_first_to);
-    await function_map_with_args(v, function_name, { index });
+    let v_2 = { index };
+    await function_map_with_args(v, function_name, v_2);
 }

@@ -18,12 +18,13 @@ export async function function_names_each_filter(logic, filter) {
         let function_declaration = js_export_function_single(parsed);
         let file_path = function_name_to_file_path(function_name);
         comment(`mapper_args code is being duplicated here likely`);
-        let result = await logic({
+        let v = {
             parsed,
             function_name,
             function_declaration,
             file_path
-        });
+        };
+        let result = await logic(v);
         if (result) {
             return;
         }

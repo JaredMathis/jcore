@@ -12,7 +12,8 @@ export async function function_name_to_node_type_property(function_name, node_ty
         arguments_assert_todo
     ]);
     let filtered = await function_name_to_node_type_all(function_name, node_type_name);
-    let values = list_map(filtered, f => object_property_get(f, property_name));
+    let v = f => object_property_get(f, property_name);
+    let values = list_map(filtered, v);
     let unique = list_unique(values);
     return unique;
 }

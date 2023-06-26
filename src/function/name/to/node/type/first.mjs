@@ -9,5 +9,6 @@ export async function function_name_to_node_type_first(function_name, node_type_
         arguments_assert_todo
     ]);
     let filtered = await function_name_to_node_type_all(function_name, node_type_name);
-    return list_first(filtered);
+    let v = list_first(filtered);
+    return v;
 }

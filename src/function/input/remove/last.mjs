@@ -6,5 +6,6 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 export async function function_input_remove_last(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let v = function_name_get(refactor_input_last_remove);
-    await function_map_with_args(v, function_name, {});
+    let v_2 = {};
+    await function_map_with_args(v, function_name, v_2);
 }

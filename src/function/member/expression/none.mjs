@@ -5,5 +5,7 @@ import { function_map_with_args } from '../../map/with/args.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 export async function function_member_expression_none(function_name) {
     arguments_assert(arguments, [js_identifier_is]);
-    await function_map_with_args(function_name_get(refactor_member_expression_none), function_name, {});
+    let v = function_name_get(refactor_member_expression_none);
+    let v_2 = {};
+    await function_map_with_args(v, function_name, v_2);
 }

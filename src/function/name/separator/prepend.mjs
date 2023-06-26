@@ -4,5 +4,7 @@ import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 export function function_name_separator_prepend(p) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    return string_combine(function_name_separator(), p);
+    let v = function_name_separator();
+    let v_2 = string_combine(v, p);
+    return v_2;
 }

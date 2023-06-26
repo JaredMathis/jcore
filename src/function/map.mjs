@@ -7,6 +7,7 @@ export async function function_map(function_name_mapper, function_name) {
         js_identifier_is,
         js_identifier_is
     ]);
-    await function_map_with_args(function_name_mapper, function_name, {});
+    let v = {};
+    await function_map_with_args(function_name_mapper, function_name, v);
     metadata([]);
 }
