@@ -31,7 +31,7 @@ export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
         result_unsuccess(result);
         return result;
     }
-    let parent_list_next = list_get(stack_reversed, parent_list_index)
+    let parent_list_next = list_get(stack_reversed, parent_list_index);
     let v_14 = js_node_is_block_statement(parent_list_next);
     assert(v_14);
     let ancestor_list = js_node_property_body_get(parent_list_next);
