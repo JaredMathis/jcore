@@ -134,7 +134,7 @@ export function js_visit_call_statements(args, call_each) {
                 let body = js_node_property_body_get(expression);
                 let right = js_node_property_right_get(expression);
                 for (let e of [
-                        test,
+                    body,
                         right
                     ]) {
                     refactor_call_expression_to_assignments(e, list_copy_shallow_add_multiple(refactor_stack, [
