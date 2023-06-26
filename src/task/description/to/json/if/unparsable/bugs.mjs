@@ -10,7 +10,14 @@ export async function task_description_to_json_if_unparsable_bugs() {
             number: integer_value_62(),
             title: 'Maybe enforce naming convention of _async',
             state: 'open',
-            body:  string_combine_multiple(['If file ends in _async\r\n', 'There must be a non-async version?\r\n', '\r\n', ' node run.mjs git function_unasyncify \r\n', '\r\n', 'Therefore  function_unasyncify  can safely remove _async suffix' ])
+            body: string_combine_multiple([
+                'If file ends in _async\r\n',
+                'There must be a non-async version?\r\n',
+                '\r\n',
+                ' node run.mjs git function_unasyncify \r\n',
+                '\r\n',
+                'Therefore  function_unasyncify  can safely remove _async suffix'
+            ])
         },
         {
             number: integer_value_76(),
