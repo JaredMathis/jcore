@@ -10,6 +10,7 @@ export function js_node_is_type(node, type_expected) {
         string_empty_not_is
     ]);
     const type_actual = js_node_property_type_get(node);
-    return equal(type_actual, type_expected);
+    let v = equal(type_actual, type_expected);
+    return v;
     metadata([]);
 }

@@ -10,10 +10,11 @@ export function js_imports_remove_multiple(parsed, imports, removal_names) {
         list_is,
         list_is
     ]);
-    let imports_to_remove = list_map(removal_names, function v(removal_name) {
+    let v_2 = function v(removal_name) {
         const property_name = 'name';
         let result = list_find_property(imports, property_name, removal_name);
         return result;
-    });
+    };
+    let imports_to_remove = list_map(removal_names, v_2);
     js_imports_remove_generic(parsed, imports_to_remove);
 }

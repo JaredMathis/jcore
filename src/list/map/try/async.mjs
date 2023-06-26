@@ -12,7 +12,9 @@ export async function list_map_try_async(list, mapper) {
         let v = await mapper(element);
         return v;
     };
-    let v_2 = await list_map_generic_async(list, lambda, true, null);
+    let v_4 = true;
+    let v_5 = null;
+    let v_2 = await list_map_generic_async(list, lambda, v_4, v_5);
     return v_2;
     metadata([]);
 }

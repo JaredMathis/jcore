@@ -5,7 +5,8 @@ import { random_get } from '../../random/get.mjs';
 export function list_random_item(values) {
     let random = random_get();
     let length = list_length(values);
-    let index = number_floor(random * length);
+    let v = random * length;
+    let index = number_floor(v);
     let value = list_get(values, index);
     return value;
 }

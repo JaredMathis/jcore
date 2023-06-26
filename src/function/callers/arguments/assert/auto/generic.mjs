@@ -110,7 +110,8 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                     if (v_19) {
                         return;
                     }
-                    let v_20 = equal_not(ce_arg, null);
+                    let v_36 = null;
+                    let v_20 = equal_not(ce_arg, v_36);
                     if (v_20) {
                         let arguments_assert_arg = list_get(arguments_assert_args, ce_arg_index);
                         let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index);

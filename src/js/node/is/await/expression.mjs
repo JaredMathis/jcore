@@ -4,7 +4,8 @@ import { metadata } from '../../../../metadata.mjs';
 import { js_node_is_type } from '../type.mjs';
 export function js_node_is_await_expression(node) {
     arguments_assert(arguments, [js_node_is]);
-    let v = js_node_is_type(node, 'AwaitExpression');
+    let v_2 = 'AwaitExpression';
+    let v = js_node_is_type(node, v_2);
     return v;
     metadata([]);
 }

@@ -15,7 +15,10 @@ export function list_add_at(list, value, index) {
         defined_is,
         integer_is
     ]);
-    let v = or(list_index_valid(list, index), equal(index, list_length(list)));
+    let v_2 = list_index_valid(list, index);
+    let v_4 = list_length(list);
+    let v_3 = equal(index, v_4);
+    let v = or(v_2, v_3);
     assert(v);
     const delete_count = integer_value_0();
     list.splice(index, delete_count, value);

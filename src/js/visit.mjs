@@ -11,9 +11,10 @@ export function js_visit(parsed, filter, lambda) {
         function_is,
         function_is
     ]);
-    visit_filter(parsed, function v(node) {
+    let v_3 = function v(node) {
         let v_2 = object_properties(node);
         return v_2;
-    }, filter, lambda);
+    };
+    visit_filter(parsed, v_3, filter, lambda);
     metadata([metadata_generated()]);
 }

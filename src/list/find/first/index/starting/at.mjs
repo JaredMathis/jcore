@@ -12,7 +12,8 @@ export function list_find_first_index_starting_at(list, predicate, index_startin
         arguments_assert_todo
     ]);
     let or_null = true;
-    let v = list_find_generic(list, predicate, or_null, false, list_filter_index, index_starting_at);
+    let v_2 = false;
+    let v = list_find_generic(list, predicate, or_null, v_2, list_filter_index, index_starting_at);
     return v;
     metadata([]);
 }

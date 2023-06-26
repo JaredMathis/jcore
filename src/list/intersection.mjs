@@ -8,7 +8,7 @@ export function list_intersection(left, right) {
         list_is,
         list_is
     ]);
-    return list_adder_unique(function v_2(la) {
+    let v_3 = function v_2(la) {
         for (let l of left) {
             for (let r of right) {
                 let v = equal(l, r);
@@ -17,6 +17,8 @@ export function list_intersection(left, right) {
                 }
             }
         }
-    });
+    };
+    let v_4 = list_adder_unique(v_3);
+    return v_4;
     metadata([]);
 }

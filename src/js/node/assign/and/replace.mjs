@@ -41,7 +41,8 @@ export function js_node_assign_and_replace(parsed, expression_to_replace, ancest
     js_variable_declarator_init_change(declaration, v_4);
     let v_5 = js_parse_expression(id);
     object_replace(expression_to_replace_root, v_5);
-    assert(!js_node_is_do_while_statement(add_assignment_before_node));
+    let v_2 = !js_node_is_do_while_statement(add_assignment_before_node);
+    assert(v_2);
     if (js_node_is_do_while_statement(add_assignment_before_node)) {
         comment(`The following code needs fixing`);
         let block_statement = js_node_property_body_get(add_assignment_before_node);

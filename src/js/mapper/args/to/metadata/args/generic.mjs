@@ -14,7 +14,8 @@ export async function js_mapper_args_to_metadata_args_generic(args, add_missing)
         missing = true;
     } else {
         let last_statement = list_last(statements);
-        let v_2 = not(js_statement_metadata_is(last_statement));
+        let v_3 = js_statement_metadata_is(last_statement);
+        let v_2 = not(v_3);
         if (v_2) {
             missing = true;
         }

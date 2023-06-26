@@ -21,14 +21,15 @@ export function list_map_generic(list, lambda, allow_error_mapping, value_on_err
         boolean_is,
         defined_is
     ]);
-    let v = list_adder(function v_4(la) {
-        list_each_with_index(list, function v_5(element, index) {
-            let result = throws_generic(function v_6() {
+    let v_10 = function v_4(la) {
+        let v_11 = function v_5(element, index) {
+            let v_12 = function v_6() {
                 let v_2 = lambda(element, index);
                 return v_2;
-            });
+            };
+            let result = throws_generic(v_12);
             let mapped;
-            let v_8 = not(occurs(function v_7(c) {
+            let v_14 = function v_7(c) {
                 if (allow_error_mapping) {
                     let v_9 = result_unsuccess_is(result);
                     if (v_9) {
@@ -39,13 +40,17 @@ export function list_map_generic(list, lambda, allow_error_mapping, value_on_err
                     let v_3 = result_property_success_get(result);
                     assert(v_3);
                 }
-            }));
+            };
+            let v_13 = occurs(v_14);
+            let v_8 = not(v_13);
             if (v_8) {
                 mapped = result_property_data_get(result);
             }
             la(mapped);
-        });
-    });
+        };
+        list_each_with_index(list, v_11);
+    };
+    let v = list_adder(v_10);
     return v;
     metadata([metadata_generated()]);
 }

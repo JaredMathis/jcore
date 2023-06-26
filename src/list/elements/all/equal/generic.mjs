@@ -8,9 +8,10 @@ export function list_elements_all_equal_generic(lambda, values) {
         arguments_assert_todo
     ]);
     let first = list_first(values);
-    let list_all_equal = list_all(values, function list_all_each(v) {
+    let v_2 = function list_all_each(v) {
         let e = lambda(v, first);
         return e;
-    });
+    };
+    let list_all_equal = list_all(values, v_2);
     return list_all_equal;
 }

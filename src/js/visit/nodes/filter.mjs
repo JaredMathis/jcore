@@ -10,11 +10,13 @@ export function js_visit_nodes_filter(parsed, predicate, lambda) {
         function_is,
         function_is
     ]);
-    js_visit(parsed, function v(node) {
+    let v_2 = function v(node) {
         if (!js_node_is(node)) {
             return false;
         }
-        return predicate(node);
-    }, lambda);
+        let v_3 = predicate(node);
+        return v_3;
+    };
+    js_visit(parsed, v_2, lambda);
     metadata([metadata_generated()]);
 }

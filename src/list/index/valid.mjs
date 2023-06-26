@@ -10,6 +10,9 @@ export function list_index_valid(list, index) {
         list_is,
         integer_is
     ]);
-    return and(index >= integer_value_0(), index <= list_last_index(list));
+    let v = index >= integer_value_0();
+    let v_2 = index <= list_last_index(list);
+    let v_3 = and(v, v_2);
+    return v_3;
     metadata([]);
 }

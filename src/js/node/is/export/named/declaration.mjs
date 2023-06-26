@@ -4,7 +4,8 @@ import { metadata } from '../../../../../metadata.mjs';
 import { js_node_is_type } from '../../type.mjs';
 export function js_node_is_export_named_declaration(b) {
     arguments_assert(arguments, [js_node_is]);
-    let v = js_node_is_type(b, 'ExportNamedDeclaration');
+    let v_2 = 'ExportNamedDeclaration';
+    let v = js_node_is_type(b, v_2);
     return v;
     metadata([]);
 }

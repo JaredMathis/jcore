@@ -12,7 +12,9 @@ export function js_visit_identifiers_not_call_expressions(node, lambda) {
     js_visit_identifiers(node, v_2);
     function v_2(v) {
         let {parent} = v;
-        let v_3 = and(js_node_is(parent), js_node_is_call_expression(parent));
+        let v_4 = js_node_is(parent);
+        let v_5 = js_node_is_call_expression(parent);
+        let v_3 = and(v_4, v_5);
         if (v_3) {
             return;
         }

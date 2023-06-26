@@ -3,6 +3,7 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 export function list_first_index() {
     arguments_assert(arguments, []);
-    return integer_value_0();
+    let v = integer_value_0();
+    return v;
     metadata([]);
 }

@@ -4,10 +4,11 @@ import { assert } from '../../../assert.mjs';
 import { equal } from '../../../equal.mjs';
 import { list_filter } from '../../filter.mjs';
 export function list_index_of_single(parts, part) {
-    let filtered = list_filter(parts, function v_2(p) {
+    let v_4 = function v_2(p) {
         let v_3 = equal(p, part);
         return v_3;
-    });
+    };
+    let filtered = list_filter(parts, v_4);
     let v = list_length_is_1(filtered);
     assert(v);
     let index = list_index_of(parts, part);

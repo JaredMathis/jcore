@@ -14,10 +14,11 @@ export function js_parse(unparsed) {
     let v = try_catch_log(js_parse, lambda, error_message);
     return v;
     function lambda() {
-        let parsed = Parser.parse(unparsed, {
+        let v_3 = {
             sourceType: 'module',
             ecmaVersion: '2020'
-        });
+        };
+        let parsed = Parser.parse(unparsed, v_3);
         return parsed;
     }
     metadata([]);

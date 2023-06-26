@@ -38,12 +38,25 @@ export function js_visit_call_statements(args, call_each) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let parsed = object_property_get(args, 'parsed');
-    js_visit_nodes_filter(parsed, function v_18(n) {
-        return or(or(or(or(js_node_is_expression_statement(n), js_node_is_variable_declaration(n)), js_node_is_return_statement(n)), js_node_is_do_while_statement(n)), js_node_is_for_of_statement(n));
-    }, function v_19(v) {
-        let node = object_property_get(v, 'node');
-        let stack = object_property_get(v, 'stack');
+    let v_17 = 'parsed';
+    let parsed = object_property_get(args, v_17);
+    let v_20 = function v_18(n) {
+        let v_41 = js_node_is_expression_statement(n);
+        let v_42 = js_node_is_variable_declaration(n);
+        let v_39 = or(v_41, v_42);
+        let v_40 = js_node_is_return_statement(n);
+        let v_33 = or(v_39, v_40);
+        let v_34 = js_node_is_do_while_statement(n);
+        let v_22 = or(v_33, v_34);
+        let v_23 = js_node_is_for_of_statement(n);
+        let v_24 = or(v_22, v_23);
+        return v_24;
+    };
+    let v_21 = function v_19(v) {
+        let v_25 = 'node';
+        let node = object_property_get(v, v_25);
+        let v_26 = 'stack';
+        let stack = object_property_get(v, v_26);
         refactor_call_expression_to_assignments(node, stack);
         function refactor_call_expression_to_assignments(expression, refactor_stack) {
             arguments_assert(arguments, [
@@ -65,10 +78,11 @@ export function js_visit_call_statements(args, call_each) {
                 if (v_5) {
                     return;
                 }
-                let v_6 = list_copy_shallow_add_multiple(refactor_stack, [
+                let v_27 = [
                     declaration,
                     init
-                ]);
+                ];
+                let v_6 = list_copy_shallow_add_multiple(refactor_stack, v_27);
                 refactor_call_expression_to_assignments(init, v_6);
                 return;
             }
@@ -100,20 +114,24 @@ export function js_visit_call_statements(args, call_each) {
             if (js_node_is_template_literal(expression)) {
                 let expressions = js_node_property_expressions_get(expression);
                 for (let e of expressions) {
-                    refactor_call_expression_to_assignments(e, list_copy_shallow_add_multiple(refactor_stack, [
+                    let v_35 = [
                         expressions,
                         e
-                    ]));
+                    ];
+                    let v_28 = list_copy_shallow_add_multiple(refactor_stack, v_35);
+                    refactor_call_expression_to_assignments(e, v_28);
                 }
                 return;
             }
             if (js_node_is_array_expression(expression)) {
                 let elements = js_node_property_elements_get(expression);
                 for (let e of elements) {
-                    refactor_call_expression_to_assignments(e, list_copy_shallow_add_multiple(refactor_stack, [
+                    let v_36 = [
                         elements,
                         e
-                    ]));
+                    ];
+                    let v_29 = list_copy_shallow_add_multiple(refactor_stack, v_36);
+                    refactor_call_expression_to_assignments(e, v_29);
                 }
                 return;
             }
@@ -124,10 +142,12 @@ export function js_visit_call_statements(args, call_each) {
                         test,
                         body
                     ]) {
-                    refactor_call_expression_to_assignments(e, list_copy_shallow_add_multiple(refactor_stack, [
+                    let v_37 = [
                         expression,
                         e
-                    ]));
+                    ];
+                    let v_30 = list_copy_shallow_add_multiple(refactor_stack, v_37);
+                    refactor_call_expression_to_assignments(e, v_30);
                 }
                 return;
             }
@@ -138,14 +158,17 @@ export function js_visit_call_statements(args, call_each) {
                         body,
                         right
                     ]) {
-                    refactor_call_expression_to_assignments(e, list_copy_shallow_add_multiple(refactor_stack, [
+                    let v_38 = [
                         expression,
                         e
-                    ]));
+                    ];
+                    let v_31 = list_copy_shallow_add_multiple(refactor_stack, v_38);
+                    refactor_call_expression_to_assignments(e, v_31);
                 }
                 return;
             }
-            let v_15 = not(js_node_is_call_expression(expression));
+            let v_32 = js_node_is_call_expression(expression);
+            let v_15 = not(v_32);
             if (v_15) {
                 return;
             }
@@ -157,5 +180,6 @@ export function js_visit_call_statements(args, call_each) {
                 call_each(stack_reversed, node, expression, ancestor_list);
             }
         }
-    });
+    };
+    js_visit_nodes_filter(parsed, v_20, v_21);
 }

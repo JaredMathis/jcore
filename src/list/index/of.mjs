@@ -10,7 +10,8 @@ export function list_index_of(list, element) {
         defined_is
     ]);
     let result = list.indexOf(element);
-    assert(result >= integer_value_0());
+    let v = result >= integer_value_0();
+    assert(v);
     return result;
     metadata([]);
 }

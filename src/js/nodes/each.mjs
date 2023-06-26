@@ -7,9 +7,10 @@ export function js_nodes_each(parsed, predicate, lambda) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    js_visit_nodes_filter(parsed, predicate, function v_3(v) {
+    let v_4 = function v_3(v) {
         let {node} = v;
         let v_2 = lambda(node);
         return v_2;
-    });
+    };
+    js_visit_nodes_filter(parsed, predicate, v_4);
 }

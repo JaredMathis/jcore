@@ -8,6 +8,7 @@ export function list_last_map(list, mapper) {
         list_is,
         function_is
     ]);
-    list[list_last_index(list)] = mapper(list[list_last_index(list)]);
+    let v = list[list_last_index(list)];
+    list[list_last_index(list)] = mapper(v);
     metadata([]);
 }

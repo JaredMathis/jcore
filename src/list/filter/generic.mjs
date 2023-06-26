@@ -10,15 +10,17 @@ export function list_filter_generic(array, filter, added_get) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let v = list_adder(async function v_2(la) {
-        list_each_with_index(array, async function v_3(element, index) {
+    let v_5 = async function v_2(la) {
+        let v_6 = async function v_3(element, index) {
             let v_4 = filter(element);
             if (v_4) {
                 let added = added_get(element, index);
                 la(added);
             }
-        });
-    });
+        };
+        list_each_with_index(array, v_6);
+    };
+    let v = list_adder(v_5);
     return v;
     metadata([metadata_generated()]);
 }

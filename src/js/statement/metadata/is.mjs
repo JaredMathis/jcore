@@ -5,9 +5,10 @@ import { js_statement_if_metadata } from '../if/metadata.mjs';
 export function js_statement_metadata_is(statement) {
     arguments_assert(arguments, [js_node_is]);
     let success = false;
-    js_statement_if_metadata(statement, function if_statement_metadata(last_statement, last_expression) {
+    let v = function if_statement_metadata(last_statement, last_expression) {
         success = true;
-    });
+    };
+    js_statement_if_metadata(statement, v);
     return success;
     metadata([]);
 }

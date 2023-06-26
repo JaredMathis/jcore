@@ -9,6 +9,8 @@ export function list_length_is_value(list, value) {
         list_is,
         defined_is
     ]);
-    return equal(list_length(list), value);
+    let v = list_length(list);
+    let v_2 = equal(v, value);
+    return v_2;
     metadata([]);
 }

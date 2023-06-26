@@ -10,9 +10,10 @@ export async function js_visit_async(parsed, filter, lambda) {
         function_is,
         function_is
     ]);
-    await visit_filter_async(parsed, function v(node) {
+    let v_3 = function v(node) {
         let v_2 = object_properties(node);
         return v_2;
-    }, filter, lambda);
+    };
+    await visit_filter_async(parsed, v_3, filter, lambda);
     metadata([]);
 }

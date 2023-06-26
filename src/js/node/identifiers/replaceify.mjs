@@ -16,15 +16,17 @@ export function js_node_identifiers_replaceify(node_left, node_right) {
         js_node_is,
         js_node_is
     ]);
-    let replacements = list_adder(function v_2(la) {
-        js_visit_identifiers_not_call_expressions(node_right, function v_3(node) {
+    let v_5 = function v_2(la) {
+        let v_7 = function v_3(node) {
             let existing = js_identifier_name_get(node);
             la(existing);
-        });
-    });
+        };
+        js_visit_identifiers_not_call_expressions(node_right, v_7);
+    };
+    let replacements = list_adder(v_5);
     let result = result_empty();
     let dictionary = {};
-    let v = list_consume(replacements, function v_4(next) {
+    let v_6 = function v_4(next) {
         js_visit_identifiers_not_call_expressions(node_left, lambda);
         function lambda(node) {
             let existing = js_identifier_name_get(node);
@@ -32,7 +34,8 @@ export function js_node_identifiers_replaceify(node_left, node_right) {
             object_property_ensure(dictionary, existing, replacement);
             js_node_property_name_set(node, replacement);
         }
-    });
+    };
+    let v = list_consume(replacements, v_6);
     if (v) {
         result_property_data_set(result, dictionary);
     } else {

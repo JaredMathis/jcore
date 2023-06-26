@@ -10,8 +10,12 @@ export async function js_visit_nodes_filter_async(parsed, predicate, lambda) {
         function_is,
         function_is
     ]);
-    await js_visit_async(parsed, function v(node) {
-        return and(js_node_is(node), predicate(node));
-    }, lambda);
+    let v_2 = function v(node) {
+        let v_3 = js_node_is(node);
+        let v_4 = predicate(node);
+        let v_5 = and(v_3, v_4);
+        return v_5;
+    };
+    await js_visit_async(parsed, v_2, lambda);
     metadata([]);
 }

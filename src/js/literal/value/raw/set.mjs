@@ -14,7 +14,8 @@ export function js_literal_value_raw_set(source, normalized) {
     ]);
     let v = js_node_property_value();
     object_property_set(source, v, normalized);
-    let v_4 = string_includes(normalized, '\'');
+    let v_5 = '\'';
+    let v_4 = string_includes(normalized, v_5);
     let v_2 = not(v_4);
     assert(v_2);
     let raw = js_code_expression_string(normalized);

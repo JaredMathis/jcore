@@ -5,13 +5,14 @@ import { list_length } from '../length.mjs';
 import { object_keys_each } from '../../object/keys/each.mjs';
 export function list_multiple_summary(lists) {
     let result = {};
-    object_keys_each(lists, function v_2(list, list_name) {
+    let v_3 = function v_2(list, list_name) {
         let prefix = `list`;
         let fn = list_length;
         let suffix = function_name_without_prefix(fn, prefix);
         let length = fn(list);
         let v = string_combine(list_name, suffix);
         object_property_initialize(result, v, length);
-    });
+    };
+    object_keys_each(lists, v_3);
     return result;
 }

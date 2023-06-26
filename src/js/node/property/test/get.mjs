@@ -6,6 +6,8 @@ import { metadata } from '../../../../metadata.mjs';
 import { metadata_tests_none } from '../../../../metadata/tests/none.mjs';
 export function js_node_property_test_get(js_node) {
     arguments_assert(arguments, [defined_is]);
-    return object_property_get(js_node, js_node_property_test());
+    let v = js_node_property_test();
+    let v_2 = object_property_get(js_node, v);
+    return v_2;
     metadata([metadata_tests_none()]);
 }

@@ -10,10 +10,12 @@ export function js_imports_remove_generic(parsed, imports_to_remove) {
         js_node_is_program,
         list_is
     ]);
-    let import_statements_to_remove = list_map(imports_to_remove, function v(i) {
-        let v_2 = object_property_get(i, 'import');
+    let v_3 = function v(i) {
+        let v_4 = 'import';
+        let v_2 = object_property_get(i, v_4);
         return v_2;
-    });
+    };
+    let import_statements_to_remove = list_map(imports_to_remove, v_3);
     let body = js_program_body_get(parsed);
     list_remove_multiple(body, import_statements_to_remove);
 }

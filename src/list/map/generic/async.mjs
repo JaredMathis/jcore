@@ -19,14 +19,15 @@ export async function list_map_generic_async(list, lambda, allow_error_mapping, 
         boolean_is,
         defined_is
     ]);
-    let v = await list_adder_async(async function v_4(la) {
-        await list_each_with_index_async(list, async function v_5(element, index) {
-            let result = throws_generic(async function v_6() {
+    let v_10 = async function v_4(la) {
+        let v_11 = async function v_5(element, index) {
+            let v_12 = async function v_6() {
                 let v_2 = await lambda(element, index);
                 return v_2;
-            });
+            };
+            let result = throws_generic(v_12);
             let mapped;
-            let v_8 = not(occurs(function v_7(c) {
+            let v_14 = function v_7(c) {
                 if (allow_error_mapping) {
                     let v_9 = result_unsuccess_is(result);
                     if (v_9) {
@@ -37,12 +38,16 @@ export async function list_map_generic_async(list, lambda, allow_error_mapping, 
                     let v_3 = result_property_success_get(result);
                     assert(v_3);
                 }
-            }));
+            };
+            let v_13 = occurs(v_14);
+            let v_8 = not(v_13);
             if (v_8) {
                 mapped = result_property_data_get(result);
             }
             la(result, mapped);
-        });
-    });
+        };
+        await list_each_with_index_async(list, v_11);
+    };
+    let v = await list_adder_async(v_10);
     return v;
 }

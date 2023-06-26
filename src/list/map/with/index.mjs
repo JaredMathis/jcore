@@ -9,7 +9,9 @@ export function list_map_with_index(list, mapper) {
         list_is,
         function_is
     ]);
-    let v = list_map_generic(list, mapper, false, null);
+    let v_2 = false;
+    let v_3 = null;
+    let v = list_map_generic(list, mapper, v_2, v_3);
     return v;
     metadata([metadata_generated()]);
 }

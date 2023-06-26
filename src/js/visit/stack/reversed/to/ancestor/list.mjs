@@ -19,15 +19,18 @@ export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let stack_reversed_first = list_first(stack_reversed);
     comment(`This probably means the stack is not reversed; if not code needs changing`);
-    assert(!js_node_is_program(stack_reversed_first));
+    let v_2 = !js_node_is_program(stack_reversed_first);
+    assert(v_2);
     let result = result_empty();
     let index_starting_at = integer_value_0();
-    let parent_list_index = list_find_first_index_starting_at(stack_reversed, function v(n) {
+    let v_3 = function v(n) {
         if (!js_node_is(n)) {
             return false;
         }
-        return js_node_is_block_statement(n);
-    }, index_starting_at);
+        let v_4 = js_node_is_block_statement(n);
+        return v_4;
+    };
+    let parent_list_index = list_find_first_index_starting_at(stack_reversed, v_3, index_starting_at);
     if (null_is(parent_list_index)) {
         result_unsuccess(result);
         return result;

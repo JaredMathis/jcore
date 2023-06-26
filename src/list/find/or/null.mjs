@@ -10,6 +10,8 @@ export function list_find_or_null(list, predicate) {
         function_is
     ]);
     let or_null = true;
-    let result = list_find_generic(list, predicate, or_null, true, list_filter, integer_value_0());
+    let v = true;
+    let v_2 = integer_value_0();
+    let result = list_find_generic(list, predicate, or_null, v, list_filter, v_2);
     return result;
 }
