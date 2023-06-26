@@ -25,7 +25,7 @@ export async function rule_equals_operator_to_function_call() {
     await function_names_each_map(async args => {
         let {parsed} = args;
         let function_name = js_mapper_args_to_function_name(args);
-        if (equals(function_name, equal_function_name)) {
+        if (equal(function_name, equal_function_name)) {
             return;
         }
         await refactor_import_fix_if_changed(args, async changed => {
