@@ -16,6 +16,7 @@ import { js_function_declaration_to_name } from '../../../function/declaration/t
 import { list_length_multiple } from '../../../../list/length/multiple.mjs';
 import { list_empty } from '../../../../list/empty.mjs';
 import { boolean_is } from '../../../../boolean/is.mjs';
+import { string_combine } from '../../../../string/combine.mjs';
 export function js_export_function_single_generic(parsed, or_null) {
     arguments_assert(arguments, [
         js_node_is_program,
@@ -37,7 +38,7 @@ export function js_export_function_single_generic(parsed, or_null) {
                 return name;
             };
             let names = list_map(exports_existing, v_8);
-            let v_9 = `Multiple exports? Look into this: ` + names;
+            let v_9 = string_combine(`Multiple exports? Look into this: `, names);
             error(v_9);
         }
     }
