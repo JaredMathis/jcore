@@ -13,6 +13,7 @@ import { refactor_import_fix_if_changed } from '../../../../../refactor/import/f
 import { function_names_each_map } from '../../../../../function/names/each/map.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { error } from '../../../../../error.mjs';
+import { json_to } from '../../../../../json/to.mjs';
 export async function rule_equals_operator_to_function_call() {
     arguments_assert(arguments, []);
     await function_names_each_map(async args => {
@@ -20,7 +21,7 @@ export async function rule_equals_operator_to_function_call() {
         await refactor_import_fix_if_changed(args, async changed => {
             await js_visit_nodes_filter_async(parsed, js_node_is_binary_expression, async v => {
                 let {node} = v;
-                error({ node });
+                error(json_to({ node }));
                 let value = js_node_property_value_get(node);
                 let v_4 = !number_is(value);
                 if (v_4) {
