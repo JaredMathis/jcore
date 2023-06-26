@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { metadata_rule_operator_to_function_call_none } from '../../../../../metadata/rule/operator/to/function/call/none.mjs';
 import { js_mapper_args_to_metadata_args_contains } from '../../../../../js/mapper/args/to/metadata/args/contains.mjs';
 import { log } from '../../../../../log.mjs';
