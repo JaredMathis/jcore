@@ -1,3 +1,4 @@
+import { or } from '../../or.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { function_map } from '../map.mjs';
@@ -14,7 +15,7 @@ export async function function_unasyncify_generic(function_name, only_if_needed)
         arguments_assert_todo
     ]);
     let ending = function_naming_suffix_asynk();
-    let v_2 = !only_if_needed || string_ends_with(function_name, ending);
+    let v_2 = or(!only_if_needed, string_ends_with(function_name, ending));
     if (v_2) {
         let function_name_result = string_suffix_without(function_name, ending);
         await function_delete_if_exists(function_name_result);

@@ -1,3 +1,4 @@
+import { or } from '../../or.mjs';
 import { integer_value_0 } from '../../integer/value/0.mjs';
 import { metadata } from '../../metadata.mjs';
 import { list_index_valid } from '../index/valid.mjs';
@@ -14,7 +15,7 @@ export function list_add_at(list, value, index) {
         defined_is,
         integer_is
     ]);
-    let v = list_index_valid(list, index) || equal(index, list_length(list));
+    let v = or(list_index_valid(list, index), equal(index, list_length(list)));
     assert(v);
     const delete_count = integer_value_0();
     list.splice(index, delete_count, value);

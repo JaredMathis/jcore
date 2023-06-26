@@ -1,3 +1,4 @@
+import { or } from '../or.mjs';
 import { list_length } from './length.mjs';
 import { equal } from '../equal.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -16,7 +17,7 @@ export function list_slice(list, start, end) {
             start,
             end
         ]) {
-        assert(list_index_valid(list, i) || equal(i, list_length(list)));
+        assert(or(list_index_valid(list, i), equal(i, list_length(list))));
     }
     assert(start <= end);
     let v = list.slice(start, end);

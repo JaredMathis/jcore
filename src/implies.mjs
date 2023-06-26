@@ -1,3 +1,4 @@
+import { or } from './or.mjs';
 import { not } from './not.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { boolean_is } from './boolean/is.mjs';
@@ -6,5 +7,5 @@ export function implies(b1, b2) {
         boolean_is,
         boolean_is
     ]);
-    return not(b1) || b2;
+    return or(not(b1), b2);
 }
