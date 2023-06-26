@@ -9,6 +9,7 @@ import { list_contains } from '../../../../../list/contains.mjs';
 export async function rule_function_call_arguments_are_identifiers() {
     arguments_assert(arguments, []);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
+    console.log({excludes})
     await function_names_each_map(async function v_2(args) {
         let function_name = js_mapper_args_to_function_name(args);
         let v = list_contains(excludes, function_name);
