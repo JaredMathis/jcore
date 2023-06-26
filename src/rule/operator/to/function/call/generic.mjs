@@ -11,7 +11,8 @@ import { refactor_import_fix_if_changed } from '../../../../../refactor/import/f
 import { equal } from '../../../../../equal.mjs';
 import { js_mapper_args_to_function_name } from '../../../../../js/mapper/args/to/function/name.mjs';
 import { function_names_each_map } from '../../../../../function/names/each/map.mjs';
-export async function rule_operator_to_function_call_generic(operator_function_name, operator_value) {
+export async function rule_operator_to_function_call_generic(operator_function, operator_value) {
+    let operator_function_name = function_name_get(operator_function);
     await function_names_each_map(async function v(args) {
         let {parsed} = args;
         let function_name = js_mapper_args_to_function_name(args);
