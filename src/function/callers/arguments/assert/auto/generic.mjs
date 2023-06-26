@@ -1,3 +1,4 @@
+import { equal_not } from '../../../../../equal/not.mjs';
 import { not } from '../../../../../not.mjs';
 import { occurs } from '../../../../../occurs.mjs';
 import { js_call_expression_arguments_get } from '../../../../../js/call/expression/arguments/get.mjs';
@@ -109,7 +110,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                     if (v_19) {
                         return;
                     }
-                    let v_20 = ce_arg !== null;
+                    let v_20 = equal_not(ce_arg, null);
                     if (v_20) {
                         let arguments_assert_arg = list_get(arguments_assert_args, ce_arg_index);
                         let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index);

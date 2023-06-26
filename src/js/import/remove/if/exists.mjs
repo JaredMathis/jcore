@@ -1,3 +1,4 @@
+import { equal_not } from '../../../../equal/not.mjs';
 import { equal } from '../../../../equal.mjs';
 import { js_node_is_program } from '../../../node/is/program.mjs';
 import { list_is } from '../../../../list/is.mjs';
@@ -16,7 +17,7 @@ export function js_import_remove_if_exists(parsed, imports, function_name) {
     let import_to_remove = list_find_or_null(imports, function v_2(i) {
         return equal(object_property_get(i, 'name'), function_name);
     });
-    let v_3 = import_to_remove !== null;
+    let v_3 = equal_not(import_to_remove, null);
     if (v_3) {
         let v = list_single_item(import_to_remove);
         js_imports_remove_generic(parsed, v);

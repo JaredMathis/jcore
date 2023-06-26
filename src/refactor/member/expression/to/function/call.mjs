@@ -1,3 +1,4 @@
+import { equal_not } from '../../../../../equal/not.mjs';
 import { not } from '../../../../../not.mjs';
 import { occurs } from '../../../../../occurs.mjs';
 import { defined_is } from '../../../../../defined/is.mjs';
@@ -27,7 +28,7 @@ export async function refactor_member_expression_to_function_call(args) {
         }
         let v_2 = js_node_property_name();
         let property_name = object_property_get(property, v_2);
-        let v_6 = property_name !== 'name';
+        let v_6 = equal_not(property_name, 'name');
         if (v_6) {
             return;
         }

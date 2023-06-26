@@ -1,3 +1,4 @@
+import { equal_not } from '../../../../equal/not.mjs';
 import { and } from '../../../../and.mjs';
 import { integer_value_0 } from '../../../../integer/value/0.mjs';
 export function string_sub_max_starting_at(left, right, left_index, right_index) {
@@ -7,7 +8,7 @@ export function string_sub_max_starting_at(left, right, left_index, right_index)
     for (offset = integer_value_0(); and(left_walker + offset < left.length, right_walker + offset < right.length); offset++) {
         let left_offset = left[left_walker + offset];
         let right_offset = right[right_walker + offset];
-        let v = left_offset !== right_offset;
+        let v = equal_not(left_offset, right_offset);
         if (v) {
             break;
         }

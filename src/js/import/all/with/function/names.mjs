@@ -1,3 +1,4 @@
+import { equal_not } from '../../../../../equal/not.mjs';
 import { not } from '../../../../../not.mjs';
 import { js_node_is_program } from '../../../../node/is/program.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
@@ -56,7 +57,7 @@ export async function js_import_all_with_function_names(parsed) {
         let first = list_first(values);
         let first_name = object_property_get(first, 'name');
         let v_13 = list_any(values, function v_5(v) {
-            return object_property_get(v, 'name') !== first_name;
+            return equal_not(object_property_get(v, 'name'), first_name);
         });
         if (v_13) {
             continue;
