@@ -6,6 +6,6 @@ export function or(left, right) {
         boolean_is,
         boolean_is
     ]);
-    return left && right;
+    return left || right;
     metadata([]);
 }
