@@ -1,4 +1,3 @@
-import { and } from '../../../../and.mjs';
 import { js_visit_async } from '../../async.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { function_is } from '../../../../function/is.mjs';
@@ -12,9 +11,11 @@ export async function js_visit_nodes_filter_async(parsed, predicate, lambda) {
     ]);
     let v_2 = function v(node) {
         let v_3 = js_node_is(node);
+        if (!v_3) {
+            return false;
+        }
         let v_4 = predicate(node);
-        let v_5 = and(v_3, v_4);
-        return v_5;
+        return v_4;
     };
     await js_visit_async(parsed, v_2, lambda);
     metadata([]);

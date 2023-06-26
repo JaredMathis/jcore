@@ -11,11 +11,12 @@ export function js_visit_nodes_filter(parsed, predicate, lambda) {
         function_is
     ]);
     let v_2 = function v(node) {
-        if (!js_node_is(node)) {
+        let v_3 = js_node_is(node);
+        if (!v_3) {
             return false;
         }
-        let v_3 = predicate(node);
-        return v_3;
+        let v_4 = predicate(node);
+        return v_4;
     };
     js_visit(parsed, v_2, lambda);
     metadata([metadata_generated()]);
