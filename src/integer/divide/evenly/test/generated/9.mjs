@@ -8,7 +8,9 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export function integer_divide_evenly_test_generated_9() {
     arguments_assert(arguments, []);
     let expected = integer_value_1();
-    let actual = integer_divide_evenly(integer_value_1(), integer_value_1());
+    let v_2 = integer_value_1();
+    let v_3 = integer_value_1();
+    let actual = integer_divide_evenly(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

@@ -8,6 +8,7 @@ export function integer_half(a) {
     arguments_assert(arguments, [integer_is]);
     let v = integer_even_is(a);
     assert(v);
-    let result = integer_divide_evenly(a, integer_value_2());
+    let v_2 = integer_value_2();
+    let result = integer_divide_evenly(a, v_2);
     return result;
 }

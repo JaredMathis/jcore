@@ -21,26 +21,30 @@ export async function git_pacp_with_message(commit_message, sync) {
     let args = command_line_args_skipped();
     let v = function_name_get(git);
     list_remove_while_first_equals(args, v);
-    let args_message = list_join(args, ' ');
+    let v_4 = ' ';
+    let args_message = list_join(args, v_4);
     const command_commit = `${ git_command_name() } commit -m "${ commit_message } ${ args_message }"`;
     let commands = [
         `${ git_command_name() } add *`,
         command_commit
     ];
     let c_result = await git_commands_sync_add_run(sync, commands);
-    let v_2 = not(c_result.success);
+    let v_5 = c_result.success;
+    let v_2 = not(v_5);
     if (v_2) {
-        let v_3 = equal(c_result.command, command_commit);
+        let v_6 = c_result.command;
+        let v_3 = equal(v_6, command_commit);
         if (v_3) {
             let result = result_empty();
             result.inner = c_result;
             result.message = `There was probably no code to commit. If this is not true, fix the code!`;
             return result;
         } else {
-            log({
+            let v_7 = {
                 c_result,
                 command_commit
-            });
+            };
+            log(v_7);
         }
     }
     return c_result;

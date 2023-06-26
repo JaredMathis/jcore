@@ -14,15 +14,26 @@ import { string_combine } from '../../string/combine.mjs';
 export async function git_ignore_filter(file_paths) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {lines: gil} = await git_ignore_lines();
-    let filter = list_multiple_combine([
+    let v_6 = '.git';
+    let v_4 = [
         gil,
-        list_single_item('.git')
-    ]);
-    let filtered = list_filter(file_paths, function v_2(f) {
-        let v = list_all(filter, function v_3(g) {
-            return and(not(string_starts_with(f, string_combine(g, directory_separator()))), not(equal(f, g)));
-        });
+        list_single_item(v_6)
+    ];
+    let filter = list_multiple_combine(v_4);
+    let v_5 = function v_2(f) {
+        let v_7 = function v_3(g) {
+            let v_14 = directory_separator();
+            let v_13 = string_combine(g, v_14);
+            let v_11 = string_starts_with(f, v_13);
+            let v_8 = not(v_11);
+            let v_12 = equal(f, g);
+            let v_9 = not(v_12);
+            let v_10 = and(v_8, v_9);
+            return v_10;
+        };
+        let v = list_all(filter, v_7);
         return v;
-    });
+    };
+    let filtered = list_filter(file_paths, v_5);
     return filtered;
 }

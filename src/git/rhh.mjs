@@ -3,5 +3,6 @@ import { command_line_try } from '../command/line/try.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 export async function git_rhh() {
     arguments_assert(arguments, []);
-    await command_line_try(`${ git_command_name() } reset --hard HEAD`);
+    let v = `${ git_command_name() } reset --hard HEAD`;
+    await command_line_try(v);
 }

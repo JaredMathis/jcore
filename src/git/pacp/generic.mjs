@@ -17,7 +17,8 @@ export async function git_pacp_generic(sync) {
         task_id = await task_id_get_or_null();
     }
     let initial = data_git_commit_message_initial();
-    assert(task_id !== initial);
+    let v_2 = task_id !== initial;
+    assert(v_2);
     let commit_message = task_id;
     await git_pacp_with_message(commit_message, sync);
 }

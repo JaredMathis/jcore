@@ -9,7 +9,8 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function integer_half_test_generated_5() {
     arguments_assert(arguments, []);
     let expected = integer_value_1();
-    let actual = integer_half(integer_value_2());
+    let v_2 = integer_value_2();
+    let actual = integer_half(v_2);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);
