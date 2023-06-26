@@ -124,7 +124,6 @@ export function js_visit_call_statements(args, call_each) {
                 ]))
                 refactor_call_expression_to_assignments(test, list_copy_shallow_add_multiple(refactor_stack, [
                     expression,
-                    body,
                     test
                 ]))
                 return;
