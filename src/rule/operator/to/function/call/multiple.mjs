@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { multiply } from '../../../../../multiply.mjs';
 import { subtract } from '../../../../../subtract.mjs';
 import { or } from '../../../../../or.mjs';

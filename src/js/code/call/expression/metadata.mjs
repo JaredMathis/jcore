@@ -7,4 +7,5 @@ export function js_code_call_expression_metadata() {
     const call_args = js_bracket_both();
     let metadata_new_code = js_code_call_expression_with_args_code(name, call_args);
     return metadata_new_code;
+    metadata([]);
 }
