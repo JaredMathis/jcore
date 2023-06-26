@@ -1,3 +1,4 @@
+import { equal } from '../../../../../equal.mjs';
 import { js_code_call_expression_with_args } from '../../../../../js/code/call/expression/with/args.mjs';
 import { js_node_property_operator_get } from '../../../../../js/node/property/operator/get.mjs';
 import { js_node_is_binary_expression } from '../../../../../js/node/is/binary/expression.mjs';
@@ -20,11 +21,11 @@ import { function_name_get } from '../../../../../function/name/get.mjs';
 import { js_mapper_args_to_function_name } from '../../../../../js/mapper/args/to/function/name.mjs';
 export async function rule_equals_operator_to_function_call() {
     arguments_assert(arguments, []);
-    let equals_function_name = function_name_get(equals);
+    let equal_function_name = function_name_get(equal);
     await function_names_each_map(async args => {
         let {parsed} = args;
         let function_name = js_mapper_args_to_function_name(args);
-        if (equals(function_name, equals_function_name)) {
+        if (equals(function_name, equal_function_name)) {
             return;
         }
         await refactor_import_fix_if_changed(args, async changed => {
