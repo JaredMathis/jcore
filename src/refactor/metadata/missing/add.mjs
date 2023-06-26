@@ -1,5 +1,4 @@
-import { js_token_bracket_right } from '../../../js/token/bracket/right.mjs';
-import { js_token_bracket_left } from '../../../js/token/bracket/left.mjs';
+import { js_bracket_both } from '../../../js/bracket/both.mjs';
 import { js_code_statement } from '../../../js/code/statement.mjs';
 import { js_code_call_expression_with_args_code } from '../../../js/code/call/expression/with/args/code.mjs';
 import { not } from '../../../not.mjs';
@@ -14,7 +13,6 @@ import { js_statement_if_metadata } from '../../../js/statement/if/metadata.mjs'
 import { list_last } from '../../../list/last.mjs';
 import { list_empty } from '../../../list/empty.mjs';
 import { js_function_declaration_to_statements } from '../../../js/function/declaration/to/statements.mjs';
-import { string_combine } from '../../../string/combine.mjs';
 export async function refactor_metadata_missing_add(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration} = args;
@@ -30,7 +28,7 @@ export async function refactor_metadata_missing_add(args) {
     let v_2 = not(already_exists);
     if (v_2) {
         const name = function_name_get(metadata);
-        const call_args = string_combine(js_token_bracket_left(), js_token_bracket_right());
+        const call_args = js_bracket_both();
         let metadata_new_code = js_code_call_expression_with_args_code(name, call_args);
         let metadata_new_statement_code = js_code_statement(metadata_new_code);
         let metadata_new = js_parse_statement(metadata_new_statement_code);
