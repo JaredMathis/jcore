@@ -1,3 +1,4 @@
+import { js_mapper_args_to_metadata_args_contains } from '../../../../../js/mapper/args/to/metadata/args/contains.mjs';
 import { log } from '../../../../../log.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
@@ -30,6 +31,7 @@ export async function rule_operator_to_function_call_generic(operator_function, 
         if (list_contains(dependencies, function_name)) {
             return;
         }
+        js_mapper_args_to_metadata_args_contains;
         await refactor_import_fix_if_changed(args, async function v_2(changed) {
             js_nodes_each(parsed, n => {
                 try {
