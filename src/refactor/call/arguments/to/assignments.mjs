@@ -17,7 +17,6 @@ export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = object_property_get(args, 'parsed');
     let {file_path} = args;
-    console.log({ file_path });
     occurs_while(function v_17(c) {
         js_visit_call_statements(args, call_each);
         function call_each(stack_reversed, node, expression, ancestor_list) {
