@@ -7,5 +7,7 @@ export function implies(b1, b2) {
         boolean_is,
         boolean_is
     ]);
-    return or(not(b1), b2);
+    let v = not(b1);
+    let v_2 = or(v, b2);
+    return v_2;
 }
