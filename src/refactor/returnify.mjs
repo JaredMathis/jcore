@@ -8,6 +8,6 @@ export function refactor_returnify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let lambda_child_get = js_node_assign_and_replace;
     let lambda_node_is_type = js_node_is_return_statement;
-    refactor_node_assign_and_replace(args, lambda_child_get, lambda_node_is_type);
+    refactor_node_assign_and_replace(args, lambda_node_is_type, lambda_child_get);
     metadata([]);
 }
