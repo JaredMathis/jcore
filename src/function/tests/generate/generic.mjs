@@ -1,3 +1,4 @@
+import { string_to } from '../../../string/to.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { integer_value_1 } from '../../../integer/value/1.mjs';
 import { integer_value_2 } from '../../../integer/value/2.mjs';
@@ -90,7 +91,7 @@ export async function function_tests_generate_generic(function_name, count_strin
     let count_error = integer_value_0();
     log(function_name);
     for (let i of range(count)) {
-        let test_name = function_name + function_tests_generated_string_sub() + add(i, integer_value_1());
+        let test_name = function_name + function_tests_generated_string_sub() + string_to(add(i, integer_value_1()));
         for (let j of range(tries)) {
             let v_25 = function v_10(n) {
                 let key = function_name_to_tests_values(n);
