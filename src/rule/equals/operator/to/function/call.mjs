@@ -19,6 +19,7 @@ import { error } from '../../../../../error.mjs';
 import { json_to } from '../../../../../json/to.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { js_mapper_args_to_function_name } from '../../../../../js/mapper/args/to/function/name.mjs';
+import { string_a } from '../../../../../string/a.mjs';
 export async function rule_equals_operator_to_function_call() {
     arguments_assert(arguments, []);
     let equal_function_name = function_name_get(equal);
@@ -35,7 +36,10 @@ export async function rule_equals_operator_to_function_call() {
                 if (!equal(operator, '===')) {
                     return;
                 }
-                js_code_call_expression_with_args();
+                let code = js_code_call_expression_with_args(equal_function_name, [
+                    string_a(),
+                    string_a()
+                ]);
                 error(json_to({ node }));
                 let value = js_node_property_value_get(node);
                 let v_4 = !number_is(value);
