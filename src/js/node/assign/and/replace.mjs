@@ -14,6 +14,10 @@ import { js_identifier_name_next } from '../../../identifier/name/next.mjs';
 import { js_node_property_argument_get } from '../../property/argument/get.mjs';
 import { js_node_is_await_expression } from '../../is/await/expression.mjs';
 import { list_is } from '../../../../list/is.mjs';
+import { js_node_is_do_while_statement } from '../../is/do/while/statement.mjs';
+import { js_node_property_body } from '../../property/body.mjs';
+import { js_node_property_body_get } from '../../property/body/get.mjs';
+import { list_add } from '../../../../list/add.mjs';
 export function js_node_assign_and_replace(parsed, expression_to_replace, ancestor_list, add_assignment_before_node) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -36,6 +40,10 @@ export function js_node_assign_and_replace(parsed, expression_to_replace, ancest
     js_variable_declarator_init_change(declaration, v_4);
     let v_5 = js_parse_expression(id);
     object_replace(expression_to_replace_root, v_5);
-    console.log({add_assignment_before_node})
-    list_add_before(ancestor_list, assignment, add_assignment_before_node);
+    if (js_node_is_do_while_statement(add_assignment_before_node)) {
+        let body = js_node_property_body_get(add_assignment_before_node)
+        list_add(body, add_assignment_before_node)
+    } else {
+        list_add_before(ancestor_list, assignment, add_assignment_before_node);
+    }
 }
