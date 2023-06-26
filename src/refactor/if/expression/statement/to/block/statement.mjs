@@ -12,6 +12,7 @@ import { js_node_is_block_statement } from '../../../../../../js/node/is/block/s
 import { string_a } from '../../../../../../string/a.mjs';
 import { list_add } from '../../../../../../list/add.mjs';
 import { object_replace } from '../../../../../../object/replace.mjs';
+import { metadata } from '../../../../../../metadata.mjs';
 export function refactor_if_expression_statement_to_block_statement(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
