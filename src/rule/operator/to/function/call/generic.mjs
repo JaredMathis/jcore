@@ -29,11 +29,15 @@ export async function rule_operator_to_function_call_generic(operator_function, 
             return;
         }
         await refactor_import_fix_if_changed(args, async function v_2(changed) {
-            js_nodes_each(parsed, node_type, function v_3(node) {
-                let operator = js_node_property_operator_get(node);
-                if (equal(function_name, 'git_ignore_filter')) {
-                    console.log({ operator });
+            js_nodes_each(parsed, n => {
+                try {
+                    return node_type(n);
+                } catch (e) {
+                    console.log({n})
+                    throw e;
                 }
+            }, function v_3(node) {
+                let operator = js_node_property_operator_get(node);
                 if (!equal(operator, operator_value)) {
                     return;
                 }
