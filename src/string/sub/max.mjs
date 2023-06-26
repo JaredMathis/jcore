@@ -10,7 +10,7 @@ export function string_sub_max(left, right) {
     let left_index_max = integer_value_0();
     let right_index_max = integer_value_0();
     let left_index = integer_value_0()
-    for (; less_than(left_index, left.length); left_index++) {
+    for (; less_than(left_index, left.length); ) {
         let right_index = integer_value_0()
         for (; less_than(right_index, right.length); right_index++) {
             let offset = string_sub_max_starting_at(left, right, left_index, right_index);
@@ -21,6 +21,7 @@ export function string_sub_max(left, right) {
                 right_index_max = right_index;
             }
         }
+        left_index++
     }
     let result = {
         [string_sub_max_property_offset()]: offset_max,
