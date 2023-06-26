@@ -7,9 +7,16 @@ import { integer_value_0 } from '../../../../integer/value/0.mjs';
 export function string_sub_max_starting_at(left, right, left_index, right_index) {
     let left_walker = left_index;
     let right_walker = right_index;
-    let offset= integer_value_0();
+    let offset = integer_value_0();
     function test() {
-        return and(less_than(add(left_walker, offset), left.length), less_than(add(right_walker, offset), right.length));
+        let v_5 = add(left_walker, offset);
+        let v_6 = left.length;
+        let v_2 = less_than(v_5, v_6);
+        let v_7 = add(right_walker, offset);
+        let v_8 = right.length;
+        let v_3 = less_than(v_7, v_8);
+        let v_4 = and(v_2, v_3);
+        return v_4;
     }
     while (test()) {
         let left_offset = left[add(left_walker, offset)];
@@ -18,7 +25,7 @@ export function string_sub_max_starting_at(left, right, left_index, right_index)
         if (v) {
             break;
         }
-        offset++
+        offset++;
     }
     return offset;
     metadata([]);
