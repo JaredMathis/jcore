@@ -1,3 +1,4 @@
+import { log } from '../../../../../log.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
@@ -29,6 +30,9 @@ export async function rule_operator_to_function_call_generic(operator_function, 
         await refactor_import_fix_if_changed(args, async function v_2(changed) {
             js_nodes_each(parsed, js_node_is_binary_expression, function v_3(node) {
                 let operator = js_node_property_operator_get(node);
+                if (equal(function_name, 'git_ignore_filter')) {
+                    console.log({operator});
+                }
                 if (!equal(operator, operator_value)) {
                     return;
                 }
