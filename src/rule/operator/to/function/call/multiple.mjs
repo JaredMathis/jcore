@@ -9,6 +9,7 @@ import { equal } from '../../../../../equal.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { equal_not } from '../../../../../equal/not.mjs';
 import { less_than } from '../../../../../less/than.mjs';
+import { add } from '../../../../../add.mjs';
 export async function rule_operator_to_function_call_multiple() {
     arguments_assert(arguments, []);
     await rule_operator_to_function_call_generic(equal, '===', js_node_is_binary_expression);
@@ -18,4 +19,5 @@ export async function rule_operator_to_function_call_multiple() {
     await rule_operator_to_function_call_generic(less_than, '<', js_node_is_binary_expression);
     await rule_operator_to_function_call_generic(subtract, '-', js_node_is_binary_expression);
     await rule_operator_to_function_call_generic(multiply, '*', js_node_is_binary_expression);
+    await rule_operator_to_function_call_generic(add, '+', js_node_is_binary_expression);
 }
