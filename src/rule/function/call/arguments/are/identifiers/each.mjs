@@ -17,6 +17,7 @@ export function rule_function_call_arguments_are_identifiers_each(args) {
             return;
         }
         let args = js_node_property_arguments_get(node);
+        console.log({args})
         assert_message(list_all(args, js_node_is_identifier), file_path);
     });
 }
