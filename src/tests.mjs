@@ -1,3 +1,4 @@
+import { string_combine } from './string/combine.mjs';
 import { log } from './log.mjs';
 import { string_underscore_is_test_generated_5 } from './string/underscore/is/test/generated/5.mjs';
 import { string_underscore_is_test_generated_4 } from './string/underscore/is/test/generated/4.mjs';
@@ -824,5 +825,5 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(411 + ' tests ran successfully');
+    log(string_combine('411', ' tests ran successfully'));
 }
