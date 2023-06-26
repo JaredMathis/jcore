@@ -18,6 +18,7 @@ import { equal } from '../../../equal.mjs';
 import { integer_is } from '../../../integer/is.mjs';
 import { string_is } from '../../is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
+import { string_combine_multiple } from '../../combine/multiple.mjs';
 export function string_difference_get_recursive(left, right, left_offset, right_offset) {
     arguments_assert(arguments, [
         string_is,
@@ -42,7 +43,7 @@ export function string_difference_get_recursive(left, right, left_offset, right_
         let v_10 = string_empty_not_is(left);
         if (v_10) {
             const position = left_index + left_offset;
-            list_add(result, string_to(position) + string_difference_removed() + string_to(string_length(left)));
+            list_add(result, string_combine_multiple(string_to(position), string_difference_removed(), string_to(string_length(left))));
         }
         let v_11 = string_empty_not_is(right);
         if (v_11) {
