@@ -8,7 +8,10 @@ export function value_set(value_object, value) {
         defined_is,
         defined_is
     ]);
-    object_property_set(value_object, 'value', value);
-    object_property_set(value_object, 'set', boolean_value_true());
+    let v = 'value';
+    object_property_set(value_object, v, value);
+    let v_2 = 'set';
+    let v_3 = boolean_value_true();
+    object_property_set(value_object, v_2, v_3);
     metadata([]);
 }

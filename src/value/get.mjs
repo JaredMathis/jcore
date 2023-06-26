@@ -8,7 +8,8 @@ export function value_get(value_object) {
     arguments_assert(arguments, [defined_is]);
     let v = value_set_is(value_object);
     assert(v);
-    let value = object_property_get(value_object, 'value');
+    let v_2 = 'value';
+    let value = object_property_get(value_object, v_2);
     return value;
     metadata([]);
 }

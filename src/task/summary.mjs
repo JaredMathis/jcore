@@ -30,20 +30,24 @@ export function task_summary(task, all_unsummarized) {
         requires,
         required_bys
     };
-    object_keys_each(lists, function v_7(list, list_name) {
-        let v_8 = not(list_empty(list));
+    let v_9 = function v_7(list, list_name) {
+        let v_11 = list_empty(list);
+        let v_8 = not(v_11);
         if (v_8) {
             let v_6 = string_comma();
             let v_5 = list_join(list, v_6);
-            let v_2 = string_combine(`${ list_name }: `, v_5);
+            let v_12 = `${ list_name }: `;
+            let v_2 = string_combine(v_12, v_5);
             const list_string = js_code_parenthesis_surround(v_2);
             list_add(strings, list_string);
         }
-    });
+    };
+    object_keys_each(lists, v_9);
     let v_3 = task_property_title();
     const title = object_property_get(task, v_3);
     list_add(strings, title);
-    let v_4 = list_join(strings, ' ');
+    let v_10 = ' ';
+    let v_4 = list_join(strings, v_10);
     return v_4;
     metadata([]);
 }

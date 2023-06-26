@@ -7,10 +7,11 @@ import { object_property_exists } from '../object/property/exists.mjs';
 export function task_is(t) {
     arguments_assert(arguments, [defined_is]);
     let v = task_properties();
-    let v_2 = list_all(v, function v_3(p) {
+    let v_4 = function v_3(p) {
         let value = object_property_exists(t, p);
         return value;
-    });
+    };
+    let v_2 = list_all(v, v_4);
     return v_2;
     metadata([]);
 }

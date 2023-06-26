@@ -21,18 +21,23 @@ export async function version_files_paths(repository_name) {
         paths = [];
     }
     let dc = directory_current();
-    let mapped = list_map(paths, function v(p) {
-        return string_combine(dc, string_prefix_without(p, repository_files_path));
-    });
-    let files_committed = list_filter(mapped, function v_2(m1) {
-        let v_4 = list_all(mapped, function v_3(m2) {
+    let v_9 = function v(p) {
+        let v_11 = string_prefix_without(p, repository_files_path);
+        let v_12 = string_combine(dc, v_11);
+        return v_12;
+    };
+    let mapped = list_map(paths, v_9);
+    let v_10 = function v_2(m1) {
+        let v_13 = function v_3(m2) {
             let v_5 = string_starts_with(m2, m1);
             let v_6 = equal(m1, m2);
             let v_7 = implies(v_5, v_6);
             return v_7;
-        });
+        };
+        let v_4 = list_all(mapped, v_13);
         return v_4;
-    });
+    };
+    let files_committed = list_filter(mapped, v_10);
     return files_committed;
     metadata([]);
 }

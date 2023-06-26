@@ -13,14 +13,15 @@ export async function task_later(title) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let data = await git_hub_repository_issues_add(title);
     let task = task_from_git_hub_issue(data);
-    await tasks_all_map(function map(tasks_all) {
+    let v_3 = function map(tasks_all) {
         let v_2 = task_property_title();
         let v = list_find_property_exists(tasks_all, v_2, title);
         const condition = not(v);
         let message = `duplicate task title`;
         assert_message(condition, message);
         list_add(tasks_all, task);
-    });
+    };
+    await tasks_all_map(v_3);
     return task;
     metadata([]);
 }

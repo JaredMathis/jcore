@@ -28,7 +28,8 @@ export async function version_file_contents(repository_name, file_path) {
     let version_path;
     while (boolean_value_true()) {
         version_path = version_path_file_get(repository_name, file_path, version);
-        let v = not(await file_exists(version_path));
+        let v_2 = await file_exists(version_path);
+        let v = not(v_2);
         if (v) {
             break;
         }

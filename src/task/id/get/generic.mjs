@@ -4,7 +4,8 @@ import { data_get } from '../../../data/get.mjs';
 export async function task_id_get_generic(lambda) {
     let data = await data_get();
     let v = task_property_id();
-    let v_2 = lambda(data, v, null);
+    let v_3 = null;
+    let v_2 = lambda(data, v, v_3);
     return v_2;
     metadata([]);
 }

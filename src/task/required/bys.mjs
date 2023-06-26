@@ -11,7 +11,7 @@ export function task_required_bys(task_number, all_unsummarized) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let v = list_adder(function v_3(list_new_then_add) {
+    let v_5 = function v_3(list_new_then_add) {
         for (let other of all_unsummarized) {
             let other_requires = task_requires_get(other);
             let v_4 = list_contains(other_requires, task_number);
@@ -21,7 +21,8 @@ export function task_required_bys(task_number, all_unsummarized) {
                 list_new_then_add(other_task_number);
             }
         }
-    });
+    };
+    let v = list_adder(v_5);
     return v;
     metadata([]);
 }

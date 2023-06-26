@@ -24,13 +24,16 @@ export async function version_path_file_next(repository_name, file_path) {
     let v_3 = await path_exists(repository_file_directory_path);
     if (v_3) {
         let paths = await directory_read(repository_file_directory_path);
-        mapped = list_map(paths, function v_2(file_path) {
-            let without_prefix = string_prefix_without(file_path, string_combine(repository_file_directory_path, directory_separator()));
+        let v_4 = function v_2(file_path) {
+            let v_6 = directory_separator();
+            let v_5 = string_combine(repository_file_directory_path, v_6);
+            let without_prefix = string_prefix_without(file_path, v_5);
             let v = file_extension_json();
             let without_suffix = string_suffix_without(without_prefix, v);
             let version = integer_parse(without_suffix);
             return version;
-        });
+        };
+        mapped = list_map(paths, v_4);
     } else {
         mapped = [];
     }

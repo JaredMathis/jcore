@@ -12,9 +12,13 @@ export async function untested() {
     arguments_assert(arguments, []);
     let maximum_untested_display = integer_value_10();
     let function_names = await function_name_all_tests_not();
-    let filtered = await list_filter_async(function_names, async function v(f) {
-        return equal(await function_tests_count(f), integer_value_0());
-    });
+    let v_2 = async function v(f) {
+        let v_3 = await function_tests_count(f);
+        let v_4 = integer_value_0();
+        let v_5 = equal(v_3, v_4);
+        return v_5;
+    };
+    let filtered = await list_filter_async(function_names, v_2);
     let limited = list_take(filtered, maximum_untested_display);
     for (let function_name of limited) {
         log(function_name);

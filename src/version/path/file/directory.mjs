@@ -10,10 +10,11 @@ export function version_path_file_directory(repository_name, file_path) {
         path_is
     ]);
     let repository_files_path = version_path_files_get(repository_name);
-    let repository_file_path = path_join([
+    let v = [
         repository_files_path,
         file_path
-    ]);
+    ];
+    let repository_file_path = path_join(v);
     return repository_file_path;
     metadata([]);
 }

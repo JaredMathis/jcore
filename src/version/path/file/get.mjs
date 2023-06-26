@@ -14,10 +14,11 @@ export function version_path_file_get(repository_name, file_path, file_version) 
     ]);
     let repository_file_path = version_path_file_directory(repository_name, file_path);
     let file_name = file_name_json(file_version);
-    let repository_file_path_initial = path_join([
+    let v = [
         repository_file_path,
         file_name
-    ]);
+    ];
+    let repository_file_path_initial = path_join(v);
     return repository_file_path_initial;
     metadata([]);
 }

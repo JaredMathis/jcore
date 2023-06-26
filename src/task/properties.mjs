@@ -4,11 +4,15 @@ import { task_property_state } from './property/state.mjs';
 import { task_property_title } from './property/title.mjs';
 import { task_property_number } from './property/number.mjs';
 export function task_properties() {
+    let v = task_property_number();
+    let v_2 = task_property_title();
+    let v_3 = task_property_state();
+    let v_4 = task_property_body();
     return [
-        task_property_number(),
-        task_property_title(),
-        task_property_state(),
-        task_property_body()
+        v,
+        v_2,
+        v_3,
+        v_4
     ];
     metadata([]);
 }

@@ -15,18 +15,21 @@ export async function tests_name_next(function_name) {
     arguments_assert(arguments, [js_identifier_is]);
     let functions_all = await function_name_all();
     const prefix = function_tests_prefix_get(function_name);
-    let function_name_tests = list_filter(functions_all, function v_3(f) {
+    let v_7 = function v_3(f) {
         let v_6 = string_starts_with(f, prefix);
         return v_6;
-    });
-    let tests_ids_all = list_map(function_name_tests, function v_4(t) {
+    };
+    let function_name_tests = list_filter(functions_all, v_7);
+    let v_8 = function v_4(t) {
         let v = string_function_name_to_tests_id(function_name, t);
         return v;
-    });
-    let tests_ids_all_numeric = list_filter(tests_ids_all, function v_5(id) {
+    };
+    let tests_ids_all = list_map(function_name_tests, v_8);
+    let v_9 = function v_5(id) {
         let v_2 = integer_parsable(id);
         return v_2;
-    });
+    };
+    let tests_ids_all_numeric = list_filter(tests_ids_all, v_9);
     let test_ids_all_number = list_map(tests_ids_all_numeric, integer_parse);
     let max = list_max_or_0(test_ids_all_number);
     let test_ids_all_number_max = add_1(max);

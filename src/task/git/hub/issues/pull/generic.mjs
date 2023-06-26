@@ -17,7 +17,7 @@ import { version_repository_default } from '../../../../../version/repository/de
 export async function task_git_hub_issues_pull_generic(no_cache) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let repository_name = version_repository_default();
-    let pages = await list_adder_async(async function v(list_add_then) {
+    let v_2 = async function v(list_add_then) {
         let page = integer_value_1();
         let test;
         let issues;
@@ -25,9 +25,12 @@ export async function task_git_hub_issues_pull_generic(no_cache) {
             issues = await git_hub_repository_issues_all(no_cache, page);
             list_add_then(issues);
             page = add_1(page);
-            test = equal(list_length(issues), git_hub_page_size())
+            let v_3 = list_length(issues);
+            let v_4 = git_hub_page_size();
+            test = equal(v_3, v_4);
         } while (test);
-    });
+    };
+    let pages = await list_adder_async(v_2);
     let issues_combined = list_multiple_combine(pages);
     let mapped = list_map(issues_combined, task_from_git_hub_issue);
     let tasks_all_path = version_path_tasks_all_get(repository_name);
