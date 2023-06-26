@@ -1,3 +1,4 @@
+import { metadata_rule_operator_to_function_call_none } from '../../../../../metadata/rule/operator/to/function/call/none.mjs';
 import { js_mapper_args_to_metadata_args_contains } from '../../../../../js/mapper/args/to/metadata/args/contains.mjs';
 import { log } from '../../../../../log.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
@@ -31,7 +32,9 @@ export async function rule_operator_to_function_call_generic(operator_function, 
         if (list_contains(dependencies, function_name)) {
             return;
         }
-        js_mapper_args_to_metadata_args_contains;
+        if (js_mapper_args_to_metadata_args_contains(args, metadata_rule_operator_to_function_call_none)) {
+            return;
+        }
         await refactor_import_fix_if_changed(args, async function v_2(changed) {
             js_nodes_each(parsed, n => {
                 try {
