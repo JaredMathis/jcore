@@ -9,7 +9,7 @@ import { list_contains } from '../../../list/contains.mjs';
 export async function rule_member_expression_none() {
     arguments_assert(arguments, []);
     let excludes = await function_dependencies_names(function_name_get(object_property_get));
-    await function_names_each_map(async args => {
+    await function_names_each_map(async function v_2(args) {
         let function_name = js_mapper_args_to_function_name(args);
         let v = list_contains(excludes, function_name);
         if (v) {

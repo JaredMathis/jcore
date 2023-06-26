@@ -6,8 +6,8 @@ import { js_nodes_each } from '../nodes/each.mjs';
 import { list_adder } from '../../list/adder.mjs';
 export function js_node_identifiers(node) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let v = list_adder(la => {
-        js_nodes_each(node, js_node_is_identifier, n => {
+    let v = list_adder(function v_2(la) {
+        js_nodes_each(node, js_node_is_identifier, function v_3(n) {
             let name = js_identifier_name_get(n);
             la(name);
         });

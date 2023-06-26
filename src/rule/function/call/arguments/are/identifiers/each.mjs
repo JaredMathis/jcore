@@ -12,7 +12,7 @@ export function rule_function_call_arguments_are_identifiers_each(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
     let {file_path} = args;
-    js_nodes_each(parsed, js_node_is_call_expression, node => {
+    js_nodes_each(parsed, js_node_is_call_expression, function v(node) {
         const skip = refactor_call_arguments_to_assignments_skip(node);
         if (skip) {
             return;

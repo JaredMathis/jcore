@@ -20,9 +20,9 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 export async function refactor_member_expression_none(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {file_path} = args;
-    await refactor_import_fix_if_changed(args, changed => {
+    await refactor_import_fix_if_changed(args, function v_2(changed) {
         let {parsed} = args;
-        js_nodes_each(parsed, js_node_is_member_expression, node => {
+        js_nodes_each(parsed, js_node_is_member_expression, function v_3(node) {
             let object = js_node_property_object_get(node);
             let property = js_node_property_property_get(node);
             let computed = js_node_property_computed_get(node);

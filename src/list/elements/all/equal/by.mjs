@@ -7,7 +7,9 @@ export function list_elements_all_equal_by(map, values) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let lambda = (a, b) => equal_by(map, a, b);
+    let lambda = function v_2(a, b) {
+        return equal_by(map, a, b);
+    };
     let v = list_elements_all_equal_generic(lambda, values);
     return v;
 }

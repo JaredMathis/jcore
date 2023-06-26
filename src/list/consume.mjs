@@ -9,7 +9,7 @@ export function list_consume(list, lambda) {
         function_is
     ]);
     let exceeded = false;
-    lambda(() => {
+    lambda(function v_3() {
         let v_2 = list_empty(list);
         if (v_2) {
             exceeded = true;

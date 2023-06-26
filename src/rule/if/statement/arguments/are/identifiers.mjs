@@ -14,9 +14,9 @@ import { result_property_success_get } from '../../../../../result/property/succ
 import { result_property_data_get } from '../../../../../result/property/data/get.mjs';
 export async function rule_if_statement_arguments_are_identifiers() {
     arguments_assert(arguments, []);
-    await function_names_each_map(args => {
+    await function_names_each_map(function v_3(args) {
         let {parsed, file_path} = args;
-        js_visit_nodes_filter(parsed, js_node_is_if_statement, v => {
+        js_visit_nodes_filter(parsed, js_node_is_if_statement, function v_4(v) {
             let {node, stack} = v;
             let test = js_node_property_test_get(node);
             let v_2 = js_node_is_identifier(test);

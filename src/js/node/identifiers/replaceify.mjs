@@ -16,15 +16,15 @@ export function js_node_identifiers_replaceify(node_left, node_right) {
         js_node_is,
         js_node_is
     ]);
-    let replacements = list_adder(la => {
-        js_visit_identifiers_not_call_expressions(node_right, node => {
+    let replacements = list_adder(function v_2(la) {
+        js_visit_identifiers_not_call_expressions(node_right, function v_3(node) {
             let existing = js_identifier_name_get(node);
             la(existing);
         });
     });
     let result = result_empty();
     let dictionary = {};
-    let v = list_consume(replacements, next => {
+    let v = list_consume(replacements, function v_4(next) {
         js_visit_identifiers_not_call_expressions(node_left, lambda);
         function lambda(node) {
             let existing = js_identifier_name_get(node);

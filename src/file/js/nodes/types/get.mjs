@@ -5,7 +5,9 @@ import { file_js_all_nodes_types_get_generic } from '../../all/nodes/types/get/g
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function file_js_nodes_types_get(file_path) {
     arguments_assert(arguments, [path_is]);
-    let lambda = mapper => file_js_map_args(file_path, mapper);
+    let lambda = function v_2(mapper) {
+        return file_js_map_args(file_path, mapper);
+    };
     let v = await file_js_all_nodes_types_get_generic(lambda);
     return v;
     metadata([]);

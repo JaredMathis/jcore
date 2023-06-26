@@ -20,7 +20,7 @@ export async function rule_constant_numbers_are_function_outputs() {
     arguments_assert(arguments, []);
     let prefix = `integer_value_`;
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
-    await function_names_each_map(async args => {
+    await function_names_each_map(async function v_6(args) {
         let {parsed} = args;
         let function_name = js_mapper_args_to_function_name(args);
         let v_2 = string_starts_with(function_name, prefix);
@@ -31,8 +31,8 @@ export async function rule_constant_numbers_are_function_outputs() {
         if (v_3) {
             return;
         }
-        await refactor_import_fix_if_changed(args, async changed => {
-            await js_visit_nodes_filter_async(parsed, js_node_is_literal, async v => {
+        await refactor_import_fix_if_changed(args, async function v_7(changed) {
+            await js_visit_nodes_filter_async(parsed, js_node_is_literal, async function v_8(v) {
                 let {node} = v;
                 let value = js_node_property_value_get(node);
                 let v_4 = !number_is(value);

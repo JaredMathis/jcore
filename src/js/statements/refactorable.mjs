@@ -48,7 +48,7 @@ export function js_statements_refactorable(left, right) {
             return result;
         }
         let replaceify_data = result_property_data_get(replaceify);
-        object_keys_each(replaceify_data, (value, key) => {
+        object_keys_each(replaceify_data, function v_5(value, key) {
             object_property_ensure(dictionary, key, value);
         });
         let v_4 = !equal_by(js_unparse, right_i_copy, left_i);

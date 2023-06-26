@@ -15,7 +15,7 @@ import { object_replace } from '../../../../../../object/replace.mjs';
 export function refactor_if_expression_statement_to_block_statement(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
-    js_nodes_each(parsed, js_node_is_if_statement, node => {
+    js_nodes_each(parsed, js_node_is_if_statement, function v_2(node) {
         let consequent = js_node_property_consequent_get(node);
         let v = js_node_is_expression_statement(consequent);
         if (v) {

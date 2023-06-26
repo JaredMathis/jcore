@@ -6,6 +6,8 @@ import { assert } from '../../../../../../../assert.mjs';
 import { arguments_assert } from '../../../../../../../arguments/assert.mjs';
 export function string_case_snake_to_camel_test_generated_4() {
     arguments_assert(arguments, []);
-    assert(assert_throws(() => string_case_snake_to_camel('')));
+    assert(assert_throws(function v() {
+        return string_case_snake_to_camel('');
+    }));
     metadata([metadata_generated()]);
 }

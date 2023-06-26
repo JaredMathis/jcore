@@ -8,7 +8,7 @@ export function list_intersection(left, right) {
         list_is,
         list_is
     ]);
-    return list_adder_unique(la => {
+    return list_adder_unique(function v_2(la) {
         for (let l of left) {
             for (let r of right) {
                 let v = equal(l, r);

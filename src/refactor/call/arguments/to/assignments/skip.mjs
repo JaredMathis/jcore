@@ -20,6 +20,8 @@ export function refactor_call_arguments_to_assignments_skip(node) {
         comment
     ];
     let rule_exceptions_names = list_map(rule_exceptions, function_name_get);
-    const skip = list_any(rule_exceptions_names, e => equal(e, name));
+    const skip = list_any(rule_exceptions_names, function v(e) {
+        return equal(e, name);
+    });
     return skip;
 }

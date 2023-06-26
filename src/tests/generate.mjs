@@ -27,9 +27,9 @@ export async function tests_generate() {
     let function_name = tests_name();
     let file_path = function_name_to_file_path(function_name);
     let test_names = await function_all_tests();
-    let filtered = await list_adder_async(async la => {
+    let filtered = await list_adder_async(async function v_7(la) {
         for (let test_name of test_names) {
-            await function_map_args(test_name, async args => {
+            await function_map_args(test_name, async function v_8(args) {
                 let v_5 = await js_mapper_args_to_metadata_args_contains(args, metadata_tests_none);
                 if (v_5) {
                     return;

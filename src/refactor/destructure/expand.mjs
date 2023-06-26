@@ -27,7 +27,7 @@ import { js_parse_statement } from '../../js/parse/statement.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
 export async function refactor_destructure_expand(args) {
     arguments_assert(arguments, [defined_is]);
-    refactor_import_fix_if_changed(args, o => {
+    refactor_import_fix_if_changed(args, function v_13(o) {
         let {function_declaration, parsed} = args;
         js_visit_nodes_filter(parsed, js_node_is_object_pattern, function v_8(v) {
             let {stack, parent, node} = v;
