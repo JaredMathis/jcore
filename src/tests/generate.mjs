@@ -1,3 +1,4 @@
+import { js_code_call_expression_metadata } from '../js/code/call/expression/metadata.mjs';
 import { js_code_call_expression_with_args } from '../js/code/call/expression/with/args.mjs';
 import { js_code_expression_string } from '../js/code/expression/string.mjs';
 import { metadata_tests_none } from '../metadata/tests/none.mjs';
@@ -54,6 +55,7 @@ export async function tests_generate() {
     let combine_args_mapped = list_map(combine_args, js_code_expression_string);
     let log_args = js_code_call_expression_with_args(function_name_get(string_combine), combine_args_mapped);
     list_add(mapped, js_code_call_expression_with_args(function_name_get(log), [log_args]));
+    list_add(mapped, js_code_call_expression_metadata());
     let v_2 = string_new_line();
     let code = list_join(mapped, v_2);
     let statements = js_parse_statements(code);
