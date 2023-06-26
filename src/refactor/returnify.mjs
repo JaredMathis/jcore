@@ -25,6 +25,6 @@ export function refactor_returnify(args) {
         let child = lambda_child_get(node);
         js_node_assign_and_replace(parsed, child, ancestor_list, node);
     };
-    js_visit_nodes_filter(parsed, js_node_is_return_statement, v_4);
+    js_visit_nodes_filter(parsed, lambda_node_is_type, v_4);
     metadata([]);
 }
