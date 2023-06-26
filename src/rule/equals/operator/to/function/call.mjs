@@ -3,7 +3,6 @@ import { js_code_call_expression_with_args } from '../../../../../js/code/call/e
 import { js_node_property_operator_get } from '../../../../../js/node/property/operator/get.mjs';
 import { js_node_is_binary_expression } from '../../../../../js/node/is/binary/expression.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
-import { js_parse_call_expression } from '../../../../../js/parse/call/expression.mjs';
 import { string_to } from '../../../../../string/to.mjs';
 import { function_add_return } from '../../../../../function/add/return.mjs';
 import { function_exists } from '../../../../../function/exists.mjs';
@@ -20,6 +19,7 @@ import { json_to } from '../../../../../json/to.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { js_mapper_args_to_function_name } from '../../../../../js/mapper/args/to/function/name.mjs';
 import { string_a } from '../../../../../string/a.mjs';
+import { js_parse_expression } from '../../../../../js/parse/expression.mjs';
 export async function rule_equals_operator_to_function_call() {
     arguments_assert(arguments, []);
     let equal_function_name = function_name_get(equal);
@@ -40,7 +40,7 @@ export async function rule_equals_operator_to_function_call() {
                     string_a(),
                     string_a()
                 ]);
-                let ce = js_parse_call_expression(code);
+                let ce = js_parse_expression(code);
                 error(json_to({ ce }));
                 let value = js_node_property_value_get(node);
                 let v_4 = !number_is(value);
