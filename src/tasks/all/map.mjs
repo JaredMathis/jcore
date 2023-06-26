@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { version_repository_default } from '../../version/repository/default.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
