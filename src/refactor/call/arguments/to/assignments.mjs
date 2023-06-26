@@ -1,5 +1,5 @@
+import { js_node_is_spread_element } from '../../../../js/node/is/spread/element.mjs';
 import { js_node_is } from '../../../../js/node/is.mjs';
-import { log } from '../../../../log.mjs';
 import { refactor_call_arguments_to_assignments_skip } from './assignments/skip.mjs';
 import { integer_value_1 } from '../../../../integer/value/1.mjs';
 import { js_node_assign_and_replace } from '../../../../js/node/assign/and/replace.mjs';
@@ -13,7 +13,6 @@ import { js_node_is_await_expression } from '../../../../js/node/is/await/expres
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_node_is_identifier } from '../../../../js/node/is/identifier.mjs';
-import { js_call_expression_name_get_or_null } from '../../../../js/call/expression/name/get/or/null.mjs';
 export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = object_property_get(args, 'parsed');
@@ -27,6 +26,9 @@ export function refactor_call_arguments_to_assignments(args) {
             }
             let args = js_node_property_arguments_get(expression);
             for (let arg of args) {
+                if (js_node_is_spread_element(arg)) {
+                    continue;
+                }
                 let v = !js_node_is_identifier(arg);
                 if (v) {
                     replace(arg);
