@@ -32,7 +32,7 @@ export async function rule_equals_operator_to_function_call() {
             await js_visit_nodes_filter_async(parsed, js_node_is_binary_expression, async v => {
                 let {node} = v;
                 let operator = js_node_property_operator_get(node);
-                if (!equals(operator, '===')) {
+                if (!equal(operator, '===')) {
                     return;
                 }
                 js_code_call_expression_with_args();
