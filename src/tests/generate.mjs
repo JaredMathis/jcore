@@ -47,7 +47,7 @@ export async function tests_generate() {
         let v = js_code_await(awaited);
         return v;
     });
-    js_code_call_expression_with_args(function_name_get(string_combine), [])
+    js_code_call_expression_with_args(function_name_get(string_combine), [string_to(list_length(mapped)), ` tests ran successfully`])
     const log_args_code = `${ string_to(list_length(mapped)) } + ${ js_code_expression_string(` tests ran successfully`) })`;
     list_add(mapped, js_code_call_expression_with_args_code(function_name_get(log), log_args_code));
     let v_2 = string_new_line();
