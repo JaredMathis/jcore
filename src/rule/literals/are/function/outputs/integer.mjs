@@ -17,12 +17,12 @@ import { object_replace } from '../../../../../object/replace.mjs';
 import { js_parse_call_expression } from '../../../../../js/parse/call/expression.mjs';
 import { list_contains } from '../../../../../list/contains.mjs';
 import { string_starts_with } from '../../../../../string/starts/with.mjs';
-export async function rule_constant_numbers_are_function_outputs() {
+export async function rule_literals_are_function_outputs_integer() {
     arguments_assert(arguments, []);
     const prefix_type = `integer`;
     let lambda_change = number_is;
     let lambda_assert = integer_is;
-    let prefix = `${prefix_type}_value_`;
+    let prefix = `${ prefix_type }_value_`;
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await function_names_each_map(async function v_6(args) {
         let {parsed} = args;
@@ -43,7 +43,7 @@ export async function rule_constant_numbers_are_function_outputs() {
                 if (v_4) {
                     return;
                 }
-                assert_message(lambda_assert(value), `need to handle non-${prefix_type}s maybe`);
+                assert_message(lambda_assert(value), `need to handle non-${ prefix_type }s maybe`);
                 let function_name_new = `${ prefix }${ value }`;
                 let v_5 = !await function_exists(function_name_new);
                 if (v_5) {
