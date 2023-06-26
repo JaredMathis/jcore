@@ -41,7 +41,7 @@ export async function rule_equals_operator_to_function_call() {
                     string_a()
                 ]);
                 let ce = js_parse_call_expression(code);
-                error(json_to({ node }));
+                error(json_to({ ce }));
                 let value = js_node_property_value_get(node);
                 let v_4 = !number_is(value);
                 if (v_4) {
