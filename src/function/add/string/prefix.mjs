@@ -1,3 +1,4 @@
+import { boolean_value_true } from '../../../boolean/value/true.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { function_add_string_prefix_generic } from './prefix/generic.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
@@ -8,7 +9,7 @@ export async function function_add_string_prefix(prefix, suffix) {
         arguments_assert_todo
     ]);
     let value = suffix;
-    let v = true;
+    let v = boolean_value_true();
     await function_add_string_prefix_generic(prefix, suffix, value, v);
     metadata([]);
 }

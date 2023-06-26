@@ -1,3 +1,4 @@
+import { boolean_value_true } from '../../../boolean/value/true.mjs';
 import { string_combine_multiple } from '../../../string/combine/multiple.mjs';
 import { string_to } from '../../../string/to.mjs';
 import { metadata } from '../../../metadata.mjs';
@@ -115,7 +116,7 @@ export async function function_tests_generate_generic(function_name, count_strin
                 count_error++;
                 let v_18 = count_error > count_error_max;
                 if (v_18) {
-                    return true;
+                    return boolean_value_true();
                 }
             };
             await function_tests_generate_generic_each(function_name, test_name, args, v_26);

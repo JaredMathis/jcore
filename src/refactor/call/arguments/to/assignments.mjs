@@ -1,3 +1,5 @@
+import { boolean_value_true } from '../../../../boolean/value/true.mjs';
+import { boolean_value_false } from '../../../../boolean/value/false.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { js_node_is_spread_element } from '../../../../js/node/is/spread/element.mjs';
 import { js_node_is } from '../../../../js/node/is.mjs';
@@ -38,10 +40,10 @@ export function refactor_call_arguments_to_assignments(args) {
             let v_2 = js_node_is_return_statement(node);
             if (v_2) {
                 let expression_parent = list_get(stack_reversed, integer_value_1());
-                let use_parent = false;
+                let use_parent = boolean_value_false();
                 if (js_node_is(expression_parent)) {
                     if (js_node_is_await_expression(expression_parent)) {
-                        use_parent = true;
+                        use_parent = boolean_value_true();
                     }
                 }
                 if (use_parent) {

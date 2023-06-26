@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../../../../boolean/value/false.mjs';
 import { metadata_generated } from '../../../../../metadata/generated.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../metadata.mjs';
@@ -6,7 +7,7 @@ import { assert } from '../../../../../assert.mjs';
 import { string_underscore_is } from '../../../is.mjs';
 export function string_underscore_is_test_generated_2() {
     arguments_assert(arguments, []);
-    let expected = false;
+    let expected = boolean_value_false();
     let actual = string_underscore_is('a');
     let v = json_equal(actual, expected);
     assert(v);

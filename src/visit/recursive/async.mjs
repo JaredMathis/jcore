@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../boolean/value/false.mjs';
 import { function_is } from '../../function/is.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { list_is } from '../../list/is.mjs';
@@ -12,7 +13,7 @@ export async function visit_recursive_async(node, children_get, lambda, stack, v
         list_is,
         list_is
     ]);
-    let ignore_duplicates = false;
+    let ignore_duplicates = boolean_value_false();
     await visit_recursive_ignore_duplicates_async(node, children_get, lambda, stack, visited, ignore_duplicates);
     metadata([]);
 }

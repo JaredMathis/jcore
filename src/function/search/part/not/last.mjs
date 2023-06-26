@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../../../boolean/value/false.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { function_search_part_generic } from '../generic.mjs';
 import { list_contains } from '../../../../list/contains.mjs';
@@ -11,7 +12,7 @@ export async function function_search_part_not_last(query) {
         let v_5 = list_last(candidate_mapped);
         let v_4 = equal(v_5, query_mapped);
         if (v_4) {
-            return false;
+            return boolean_value_false();
         }
         let v_2 = list_contains(candidate_mapped, query_mapped);
         return v_2;

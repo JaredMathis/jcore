@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../../../../boolean/value/false.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { function_exists } from '../../../../exists.mjs';
 import { js_identifier_combine } from '../../../../../js/identifier/combine.mjs';
@@ -23,7 +24,7 @@ export async function function_add_js_node_type_snake(snake) {
     let prefix_2 = js_prefix_node_type();
     let camel_case = string_case_snake_to_camel(snake);
     let function_name_js_node_type = js_identifier_combine(prefix_2, snake);
-    let v_3 = false;
+    let v_3 = boolean_value_false();
     let v_1 = await function_add_string_prefix_camel_generic(prefix_2, camel_case, v_3);
     let v_4 = js_prefix_node_is();
     let prefix_1 = function_name_separator_append(v_4);

@@ -1,3 +1,5 @@
+import { boolean_value_true } from '../boolean/value/true.mjs';
+import { boolean_value_false } from '../boolean/value/false.mjs';
 import { metadata } from '../metadata.mjs';
 import { and } from '../and.mjs';
 import { list_empty } from './empty.mjs';
@@ -10,11 +12,11 @@ export function list_consume(list, lambda) {
         list_is,
         function_is
     ]);
-    let exceeded = false;
+    let exceeded = boolean_value_false();
     let v_4 = function v_3() {
         let v_2 = list_empty(list);
         if (v_2) {
-            exceeded = true;
+            exceeded = boolean_value_true();
             return null;
         } else {
             let v = list_first_remove(list);

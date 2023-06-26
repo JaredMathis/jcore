@@ -1,3 +1,4 @@
+import { boolean_value_true } from '../../../../../boolean/value/true.mjs';
 import { js_nodes_each } from '../../../../../js/nodes/each.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { metadata } from '../../../../../metadata.mjs';
@@ -15,7 +16,7 @@ export async function file_js_all_node_type_first(node_type) {
         };
         let v_6 = function v_2(n) {
             result = n;
-            return true;
+            return boolean_value_true();
         };
         js_nodes_each(parsed, v_5, v_6);
     };

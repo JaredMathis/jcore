@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../../../../boolean/value/false.mjs';
 import { js_call_expression_name_get_or_null } from '../../../../../js/call/expression/name/get/or/null.mjs';
 import { equal } from '../../../../../equal.mjs';
 import { list_any } from '../../../../../list/any.mjs';
@@ -12,7 +13,7 @@ export function refactor_call_arguments_to_assignments_skip(node) {
     arguments_assert(arguments, [js_node_is_call_expression]);
     let name = js_call_expression_name_get_or_null(node);
     if (null_is(name)) {
-        return false;
+        return boolean_value_false();
     }
     const rule_exceptions = [
         arguments_assert,

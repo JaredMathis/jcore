@@ -1,3 +1,5 @@
+import { boolean_value_false } from '../boolean/value/false.mjs';
+import { boolean_value_true } from '../boolean/value/true.mjs';
 import { metadata_generated } from '../metadata/generated.mjs';
 import { metadata } from '../metadata.mjs';
 import { function_is } from '../function/is.mjs';
@@ -11,9 +13,9 @@ export function list_any(list, predicate) {
     for (let a of list) {
         let v = predicate(a);
         if (v) {
-            return true;
+            return boolean_value_true();
         }
     }
-    return false;
+    return boolean_value_false();
     metadata([metadata_generated()]);
 }

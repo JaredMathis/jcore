@@ -1,3 +1,5 @@
+import { boolean_value_true } from '../../../../boolean/value/true.mjs';
+import { boolean_value_false } from '../../../../boolean/value/false.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { function_auto_no_add } from '../../../auto/no/add.mjs';
 import { function_map_multiple } from '../../../map/multiple.mjs';
@@ -19,11 +21,11 @@ import { list_map } from '../../../../list/map.mjs';
 import { function_run } from '../../../run.mjs';
 export async function function_tests_generate_generic_each(function_name, test_name, args, on_has_error) {
     let expected;
-    let has_error = false;
+    let has_error = boolean_value_false();
     try {
         expected = await function_run(function_name, args);
     } catch (e) {
-        has_error = true;
+        has_error = boolean_value_true();
     }
     if (has_error) {
         let v_6 = on_has_error();
@@ -44,7 +46,7 @@ export async function function_tests_generate_generic_each(function_name, test_n
         statements_code = [statement_assert];
         let v_8 = {
             args,
-            error: true
+            error: boolean_value_true()
         };
         log(v_8);
     } else {
@@ -73,7 +75,7 @@ export async function function_tests_generate_generic_each(function_name, test_n
         log(v_10);
     }
     let statements = list_map(statements_code, js_parse_statement);
-    let v_11 = false;
+    let v_11 = boolean_value_false();
     await function_add_with_statements_synchronized(test_name, statements, v_11);
     let refactors = [refactor_metadata_generated_add_function];
     let names = list_map(refactors, function_name_get);

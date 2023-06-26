@@ -1,3 +1,4 @@
+import { boolean_value_true } from '../../../boolean/value/true.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { equal } from '../../../equal.mjs';
 import { integer_value_0 } from '../../../integer/value/0.mjs';
@@ -10,7 +11,7 @@ export function list_find_property_generic(list, property_name, property_value, 
         let v_7 = equal(v_6, property_value);
         return v_7;
     };
-    let v_4 = true;
+    let v_4 = boolean_value_true();
     let v_5 = integer_value_0();
     let v = list_find_generic(list, v_3, or_null, v_4, list_filter, v_5);
     return v;

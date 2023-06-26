@@ -1,3 +1,4 @@
+import { boolean_value_true } from '../../../../boolean/value/true.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { js_mapper_args_to_metadata_args_contains } from '../../../../js/mapper/args/to/metadata/args/contains.mjs';
 import { list_length_multiple } from '../../../../list/length/multiple.mjs';
@@ -23,7 +24,7 @@ export async function function_arguments_assert_extra_next() {
         if (v_2) {
             function_open_vs_code(function_name);
             result = function_name;
-            return true;
+            return boolean_value_true();
         }
     }
     return result;

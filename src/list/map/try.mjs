@@ -1,3 +1,4 @@
+import { boolean_value_true } from '../../boolean/value/true.mjs';
 import { metadata_generated } from '../../metadata/generated.mjs';
 import { metadata } from '../../metadata.mjs';
 import { list_map_generic } from './generic.mjs';
@@ -13,7 +14,7 @@ export function list_map_try(list, mapper) {
         let v = mapper(element);
         return v;
     };
-    let v_4 = true;
+    let v_4 = boolean_value_true();
     let v_5 = null;
     let v_2 = list_map_generic(list, lambda, v_4, v_5);
     return v_2;

@@ -1,3 +1,5 @@
+import { boolean_value_true } from '../../../../../../boolean/value/true.mjs';
+import { boolean_value_false } from '../../../../../../boolean/value/false.mjs';
 import { metadata } from '../../../../../../metadata.mjs';
 import { js_statement_metadata_args_get } from '../../../../../statement/metadata/args/get.mjs';
 import { refactor_metadata_missing_add } from '../../../../../../refactor/metadata/missing/add.mjs';
@@ -9,16 +11,16 @@ import { js_function_declaration_to_statements } from '../../../../../function/d
 export async function js_mapper_args_to_metadata_args_generic(args, add_missing) {
     let {function_declaration} = args;
     let statements = js_function_declaration_to_statements(function_declaration);
-    let missing = false;
+    let missing = boolean_value_false();
     let v = list_empty(statements);
     if (v) {
-        missing = true;
+        missing = boolean_value_true();
     } else {
         let last_statement = list_last(statements);
         let v_3 = js_statement_metadata_is(last_statement);
         let v_2 = not(v_3);
         if (v_2) {
-            missing = true;
+            missing = boolean_value_true();
         }
     }
     if (missing) {

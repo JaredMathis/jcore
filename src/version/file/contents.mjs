@@ -1,3 +1,4 @@
+import { boolean_value_true } from '../../boolean/value/true.mjs';
 import { metadata } from '../../metadata.mjs';
 import { integer_value_1 } from '../../integer/value/1.mjs';
 import { not } from '../../not.mjs';
@@ -25,7 +26,7 @@ export async function version_file_contents(repository_name, file_path) {
     let property_hunks = version_property_hunks();
     let version = integer_value_1();
     let version_path;
-    while (true) {
+    while (boolean_value_true()) {
         version_path = version_path_file_get(repository_name, file_path, version);
         let v = not(await file_exists(version_path));
         if (v) {

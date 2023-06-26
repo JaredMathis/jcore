@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../boolean/value/false.mjs';
 import { refactor_multiple } from './multiple.mjs';
 import { function_auto_no_add_refactors } from '../function/auto/no/add/refactors.mjs';
 import { js_node_callable_is } from '../js/node/callable/is.mjs';
@@ -25,7 +26,7 @@ export async function refactor_unasyncify(args) {
     let callables = js_nodes_get(parsed, js_node_callable_is);
     for (let callable of callables) {
         let v = js_keyword_asynk();
-        object_property_change(callable, v, false);
+        object_property_change(callable, v, boolean_value_false());
     }
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     await refactor_metadata_generated_add_function(args);

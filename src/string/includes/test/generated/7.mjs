@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../../../boolean/value/false.mjs';
 import { metadata_generated } from '../../../../metadata/generated.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -6,7 +7,7 @@ import { assert } from '../../../../assert.mjs';
 import { string_includes } from '../../../includes.mjs';
 export function string_includes_test_generated_7() {
     arguments_assert(arguments, []);
-    let expected = false;
+    let expected = boolean_value_false();
     let actual = string_includes('', 'a');
     let v = json_equal(actual, expected);
     assert(v);

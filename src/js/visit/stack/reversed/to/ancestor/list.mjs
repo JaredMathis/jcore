@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../../../../../boolean/value/false.mjs';
 import { metadata } from '../../../../../../metadata.mjs';
 import { integer_value_0 } from '../../../../../../integer/value/0.mjs';
 import { arguments_assert_todo } from '../../../../../../arguments/assert/todo.mjs';
@@ -25,7 +26,7 @@ export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
     let index_starting_at = integer_value_0();
     let v_3 = function v(n) {
         if (!js_node_is(n)) {
-            return false;
+            return boolean_value_false();
         }
         let v_4 = js_node_is_block_statement(n);
         return v_4;

@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../boolean/value/false.mjs';
 import { metadata } from '../../metadata.mjs';
 import { not } from '../../not.mjs';
 import { js_variable_declarator_init_change_unparsed } from '../../js/variable/declarator/init/change/unparsed.mjs';
@@ -22,24 +23,24 @@ export async function refactor_variable_set(args) {
     const predicate = function v_6(n) {
         let v_7 = not(js_node_is_variable_declaration(n));
         if (v_7) {
-            return false;
+            return boolean_value_false();
         }
         let v = js_node_property_declarations();
         let declarations = object_property_get(n, v);
         let v_8 = not(list_length_is_1(declarations));
         if (v_8) {
-            return false;
+            return boolean_value_false();
         }
         let declaration = list_single(declarations);
         let v_9 = not(js_node_is_variable_declarator(declaration));
         if (v_9) {
-            return false;
+            return boolean_value_false();
         }
         let v_2 = js_node_property_id();
         let id = object_property_get(declaration, v_2);
         let v_10 = not(js_node_is_identifier(id));
         if (v_10) {
-            return false;
+            return boolean_value_false();
         }
         let v_5 = js_property_name();
         let v_3 = object_property_get(id, v_5);

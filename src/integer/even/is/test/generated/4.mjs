@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../../../../boolean/value/false.mjs';
 import { integer_value_1 } from '../../../../value/1.mjs';
 import { metadata_generated } from '../../../../../metadata/generated.mjs';
 import { metadata } from '../../../../../metadata.mjs';
@@ -7,7 +8,7 @@ import { integer_even_is } from '../../../is.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export function integer_even_is_test_generated_4() {
     arguments_assert(arguments, []);
-    let expected = false;
+    let expected = boolean_value_false();
     let v_2 = integer_value_1();
     let actual = integer_even_is(v_2);
     let v = json_equal(actual, expected);

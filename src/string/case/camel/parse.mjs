@@ -1,3 +1,4 @@
+import { boolean_value_true } from '../../../boolean/value/true.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { integer_value_0 } from '../../../integer/value/0.mjs';
 import { not } from '../../../not.mjs';
@@ -27,7 +28,7 @@ export function string_case_camel_parse(input) {
             [property_index]: index
         };
     });
-    let filtered = list_filter_property(mapped, property_is_capital, true);
+    let filtered = list_filter_property(mapped, property_is_capital, boolean_value_true());
     let indices = list_map_property(filtered, property_index);
     let v = list_length(characters);
     list_add(indices, v);

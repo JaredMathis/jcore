@@ -1,3 +1,5 @@
+import { boolean_value_false } from '../../../../../boolean/value/false.mjs';
+import { boolean_value_true } from '../../../../../boolean/value/true.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { equal } from '../../../../../equal.mjs';
 import { js_call_expression_name_get_or_null } from '../../../../call/expression/name/get/or/null.mjs';
@@ -17,10 +19,10 @@ export function js_node_call_expression_name_equal(node, name_expected) {
         if (v_2) {
             let v_3 = equal(name_actual, name_expected);
             if (v_3) {
-                return true;
+                return boolean_value_true();
             }
         }
     }
-    return false;
+    return boolean_value_false();
     metadata([]);
 }

@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../../boolean/value/false.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { integer_value_1 } from '../../../integer/value/1.mjs';
 import { not } from '../../../not.mjs';
@@ -22,7 +23,7 @@ export function string_equal_except_1(a, b) {
     let unique = list_unique(lengths);
     let v_2 = not(list_length_is_1(unique));
     if (v_2) {
-        return false;
+        return boolean_value_false();
     }
     let equal_count = string_equal_count(a, b);
     let length = list_single(unique);

@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../../../../../boolean/value/false.mjs';
 import { metadata_generated } from '../../../../../../metadata/generated.mjs';
 import { metadata } from '../../../../../../metadata.mjs';
 import { json_equal } from '../../../../../../json/equal.mjs';
@@ -6,7 +7,7 @@ import { string_equal_except_1 } from '../../../1.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 export function string_equal_except_1_test_generated_2() {
     arguments_assert(arguments, []);
-    let expected = false;
+    let expected = boolean_value_false();
     let actual = string_equal_except_1('aa', 'aa');
     let v = json_equal(actual, expected);
     assert(v);

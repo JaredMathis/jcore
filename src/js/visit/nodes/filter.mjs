@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../../boolean/value/false.mjs';
 import { metadata_generated } from '../../../metadata/generated.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { js_visit } from '../../visit.mjs';
@@ -13,7 +14,7 @@ export function js_visit_nodes_filter(parsed, predicate, lambda) {
     let v_2 = function v(node) {
         let v_3 = js_node_is(node);
         if (!v_3) {
-            return false;
+            return boolean_value_false();
         }
         let v_4 = predicate(node);
         return v_4;

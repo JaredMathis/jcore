@@ -1,3 +1,5 @@
+import { boolean_value_true } from '../../../boolean/value/true.mjs';
+import { boolean_value_false } from '../../../boolean/value/false.mjs';
 import { js_code_call_expression_metadata } from '../../../js/code/call/expression/metadata.mjs';
 import { js_code_statement } from '../../../js/code/statement.mjs';
 import { not } from '../../../not.mjs';
@@ -14,13 +16,13 @@ import { js_function_declaration_to_statements } from '../../../js/function/decl
 export async function refactor_metadata_missing_add(args) {
     arguments_assert(arguments, [defined_is]);
     let {function_declaration} = args;
-    let already_exists = false;
+    let already_exists = boolean_value_false();
     let statements = js_function_declaration_to_statements(function_declaration);
     let v = not(list_empty(statements));
     if (v) {
         let last_statement = list_last(statements);
         js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
-            already_exists = true;
+            already_exists = boolean_value_true();
         });
     }
     let v_2 = not(already_exists);

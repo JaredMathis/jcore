@@ -1,3 +1,5 @@
+import { boolean_value_true } from '../../../boolean/value/true.mjs';
+import { boolean_value_false } from '../../../boolean/value/false.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { not } from '../../../not.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -23,41 +25,41 @@ export function js_identifier_is_generic(value, enforce_first, enforce_last, all
     let v_7 = string_is(value);
     let v = not(v_7);
     if (v) {
-        return false;
+        return boolean_value_false();
     }
     let list = string_to_list(value);
     let v_2 = list_empty(list);
     if (v_2) {
-        return false;
+        return boolean_value_false();
     }
     if (enforce_first) {
         let first = list_first(list);
         let v_8 = string_letter_is(first);
         let v_3 = not(v_8);
         if (v_3) {
-            return false;
+            return boolean_value_false();
         }
     }
     if (enforce_last) {
         let last = list_last(list);
         let v_4 = string_underscore_is(last);
         if (v_4) {
-            return false;
+            return boolean_value_false();
         }
     }
     let underscore = function_name_separator();
     let v_9 = `${ underscore }${ underscore }`;
     let v_5 = string_includes(value, v_9);
     if (v_5) {
-        return false;
+        return boolean_value_false();
     }
     for (let c of list) {
         let v_10 = string_letter_digit_or_underscore_is_generic(c, allow_underscores);
         let v_6 = not(v_10);
         if (v_6) {
-            return false;
+            return boolean_value_false();
         }
     }
-    return true;
+    return boolean_value_true();
     metadata([]);
 }

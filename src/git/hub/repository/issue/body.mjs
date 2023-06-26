@@ -1,3 +1,4 @@
+import { boolean_value_true } from '../../../../boolean/value/true.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { task_property_body } from '../../../../task/property/body.mjs';
 import { git_hub_repository_issue_patch } from './patch.mjs';
@@ -9,7 +10,7 @@ export async function git_hub_repository_issue_body(issue_number, body) {
         arguments_assert_todo
     ]);
     let api_args_to_merge = { [task_property_body()]: body };
-    let no_cache = true;
+    let no_cache = boolean_value_true();
     let v = git_hub_repository_issue_patch(git_hub_repository_issue_body, arguments, issue_number, api_args_to_merge, no_cache);
     return v;
     metadata([]);

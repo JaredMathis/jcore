@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../boolean/value/false.mjs';
 import { metadata } from '../metadata.mjs';
 import { not } from '../not.mjs';
 import { js_callable_multiple_assert_not } from '../js/callable/multiple/assert/not.mjs';
@@ -19,7 +20,7 @@ import { comment } from '../comment.mjs';
 export async function refactor_asyncify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
-    let v_6 = false;
+    let v_6 = boolean_value_false();
     if (v_6)
         js_callable_multiple_assert_not(parsed);
     refactor_async_add(args);

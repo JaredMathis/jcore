@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../../../boolean/value/false.mjs';
 import { object_property_initialize_generic } from '../generic.mjs';
 import { string_is } from '../../../../string/is.mjs';
 import { defined_is } from '../../../../defined/is.mjs';
@@ -9,7 +10,7 @@ export function object_property_initialize_if_unset(object, property_name, initi
         string_is,
         defined_is
     ]);
-    let ensure = false;
+    let ensure = boolean_value_false();
     object_property_initialize_generic(object, property_name, initial_value, ensure);
     metadata([]);
 }

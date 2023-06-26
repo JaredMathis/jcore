@@ -1,3 +1,5 @@
+import { boolean_value_false } from '../../boolean/value/false.mjs';
+import { boolean_value_true } from '../../boolean/value/true.mjs';
 import { metadata } from '../../metadata.mjs';
 import { function_is } from '../../function/is.mjs';
 import { list_is } from '../is.mjs';
@@ -10,9 +12,9 @@ export async function list_any_async(list, predicate) {
     for (let a of list) {
         let v = await predicate(a);
         if (v) {
-            return true;
+            return boolean_value_true();
         }
     }
-    return false;
+    return boolean_value_false();
     metadata([]);
 }

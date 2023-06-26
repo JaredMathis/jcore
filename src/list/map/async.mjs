@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../boolean/value/false.mjs';
 import { list_map_generic_async } from './generic/async.mjs';
 import { metadata } from '../../metadata.mjs';
 import { function_is } from '../../function/is.mjs';
@@ -12,7 +13,7 @@ export async function list_map_async(list, mapper) {
         let v = await mapper(element);
         return v;
     };
-    let v_4 = false;
+    let v_4 = boolean_value_false();
     let v_5 = null;
     let v_2 = await list_map_generic_async(list, lambda, v_4, v_5);
     return v_2;

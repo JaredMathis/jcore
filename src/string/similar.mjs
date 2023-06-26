@@ -1,3 +1,5 @@
+import { boolean_value_false } from '../boolean/value/false.mjs';
+import { boolean_value_true } from '../boolean/value/true.mjs';
 import { metadata } from '../metadata.mjs';
 import { string_equal_except_1 } from './equal/except/1.mjs';
 import { list_each_function_results_any } from '../list/each/function/results/any.mjs';
@@ -14,7 +16,7 @@ export function string_similar(a, b) {
     const fns_commutative = [string_similar_remove_single];
     let v_2 = list_each_function_results_any(fns_commutative, results_commutative_get);
     if (v_2) {
-        return true;
+        return boolean_value_true();
     }
     const fns = [
         string_similar_swap_adjascent,
@@ -22,9 +24,9 @@ export function string_similar(a, b) {
     ];
     let v_3 = list_each_function_results_any(fns, results_get);
     if (v_3) {
-        return true;
+        return boolean_value_true();
     }
-    return false;
+    return boolean_value_false();
     function results_commutative_get(fn) {
         let v = list_multiple_combine([
             results_get(fn),

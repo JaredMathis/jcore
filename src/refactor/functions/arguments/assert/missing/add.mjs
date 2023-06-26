@@ -1,3 +1,5 @@
+import { boolean_value_true } from '../../../../../boolean/value/true.mjs';
+import { boolean_value_false } from '../../../../../boolean/value/false.mjs';
 import { not } from '../../../../../not.mjs';
 import { refactor_functions_arguments_assert_missing_add_excludes } from './add/excludes.mjs';
 import { refactor_arguments_assert_add_no_check } from '../../../../arguments/assert/add/no/check.mjs';
@@ -14,14 +16,14 @@ export async function refactor_functions_arguments_assert_missing_add() {
     arguments_assert(arguments, []);
     await function_names_each_map(async function logic(args) {
         let {function_declaration} = args;
-        let exists = false;
+        let exists = boolean_value_false();
         let statements = js_function_declaration_to_statements(function_declaration);
         let v_2 = not(list_empty(statements));
         if (v_2) {
             let statement_first = list_first(statements);
             let v = function_name_get(arguments_assert);
             js_node_call_expression_statement_if_name_equal(statement_first, v, function on_name_equal() {
-                exists = true;
+                exists = boolean_value_true();
             });
         }
         let v_3 = not(exists);

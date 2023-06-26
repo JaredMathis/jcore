@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../boolean/value/false.mjs';
 import { not } from '../../not.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
@@ -8,7 +9,7 @@ export function js_node_is(candidate) {
     arguments_assert(arguments, [defined_is]);
     let v_3 = not(candidate);
     if (v_3) {
-        return false;
+        return boolean_value_false();
     }
     let v = js_node_property_type();
     let v_2 = object_property_exists(candidate, v);

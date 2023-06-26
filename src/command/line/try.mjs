@@ -1,3 +1,5 @@
+import { boolean_value_false } from '../../boolean/value/false.mjs';
+import { boolean_value_true } from '../../boolean/value/true.mjs';
 import { string_empty_not_is } from '../../string/empty/not/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
@@ -7,9 +9,9 @@ export async function command_line_try(command) {
     arguments_assert(arguments, [string_empty_not_is]);
     return await new Promise(function (resolve, reject) {
         let v_2 = function v(error, stdout, stderr) {
-            let success = true;
+            let success = boolean_value_true();
             if (error) {
-                success = false;
+                success = boolean_value_false();
             }
             let result = {
                 command,

@@ -1,3 +1,4 @@
+import { boolean_value_true } from '../../../../boolean/value/true.mjs';
 import { equal } from '../../../../equal.mjs';
 import { list_is } from '../../../is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -10,7 +11,7 @@ export function list_remove_while_first_equals(args, value) {
         list_is,
         defined_is
     ]);
-    let test = true;
+    let test = boolean_value_true();
     while (test) {
         list_first_remove(args);
         let v = list_first(args);

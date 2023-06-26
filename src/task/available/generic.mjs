@@ -1,3 +1,5 @@
+import { boolean_value_true } from '../../boolean/value/true.mjs';
+import { boolean_value_false } from '../../boolean/value/false.mjs';
 import { metadata } from '../../metadata.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { task_property_number } from '../property/number.mjs';
@@ -32,11 +34,11 @@ export async function task_available_generic(map_with_all_unsummarized) {
                         return v_6;
                     });
                     if (v_9) {
-                        return false;
+                        return boolean_value_false();
                     }
                 }
             }
-            return true;
+            return boolean_value_true();
         };
     }
     metadata([]);

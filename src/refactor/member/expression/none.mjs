@@ -1,3 +1,5 @@
+import { integer_value_1 } from '../../../integer/value/1.mjs';
+import { integer_value_0 } from '../../../integer/value/0.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { object_replace } from '../../../object/replace.mjs';
 import { list_set } from '../../../list/set.mjs';
@@ -41,8 +43,8 @@ export async function refactor_member_expression_none(args) {
             let ce_code = js_code_call_expression_object_property_get(string_a(), string_a());
             let ce = js_parse_expression(ce_code);
             let args = js_node_property_arguments_get(ce);
-            list_set(args, 0, object);
-            list_set(args, 1, arg_1);
+            list_set(args, integer_value_0(), object);
+            list_set(args, integer_value_1(), arg_1);
             object_replace(node, ce);
             changed();
         });

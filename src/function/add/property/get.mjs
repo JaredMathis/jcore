@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../../boolean/value/false.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { js_suffix_get } from '../../../js/suffix/get.mjs';
 import { function_add_property_generic } from './generic.mjs';
@@ -14,7 +15,7 @@ export async function function_add_property_get(property_prefix, property_name) 
         let v_4 = js_code_call_expression_object_property_get(property_prefix, property_name_get);
         return v_4;
     };
-    let v_2 = false;
+    let v_2 = boolean_value_false();
     let v = await function_add_property_generic(property_prefix, property_name, lambda, method, v_2);
     return v;
     metadata([]);

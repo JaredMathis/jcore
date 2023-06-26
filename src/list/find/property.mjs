@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../boolean/value/false.mjs';
 import { metadata } from '../../metadata.mjs';
 import { list_find_property_generic } from './property/generic.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
@@ -8,7 +9,7 @@ export function list_find_property(list, property_name, property_value) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let or_null = false;
+    let or_null = boolean_value_false();
     let v = list_find_property_generic(list, property_name, property_value, or_null);
     return v;
     metadata([]);

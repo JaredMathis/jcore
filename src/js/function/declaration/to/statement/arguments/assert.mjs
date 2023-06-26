@@ -1,3 +1,5 @@
+import { boolean_value_true } from '../../../../../../boolean/value/true.mjs';
+import { boolean_value_false } from '../../../../../../boolean/value/false.mjs';
 import { metadata } from '../../../../../../metadata.mjs';
 import { not } from '../../../../../../not.mjs';
 import { js_function_delcaration_to_statement_first } from '../../../../delcaration/to/statement/first.mjs';
@@ -11,14 +13,14 @@ import { list_empty } from '../../../../../../list/empty.mjs';
 import { js_function_declaration_to_statements } from '../../statements.mjs';
 export async function js_function_declaration_to_statement_arguments_assert(function_declaration) {
     let statements = js_function_declaration_to_statements(function_declaration);
-    let exists = false;
+    let exists = boolean_value_false();
     let v_5 = list_empty(statements);
     let v_3 = not(v_5);
     if (v_3) {
         let statement_first = list_first(statements);
         let v = function_name_get(arguments_assert);
         let v_6 = function on_name_equal() {
-            exists = true;
+            exists = boolean_value_true();
         };
         js_node_call_expression_statement_if_name_equal(statement_first, v, v_6);
     }

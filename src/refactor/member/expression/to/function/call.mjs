@@ -1,3 +1,5 @@
+import { boolean_value_true } from '../../../../../boolean/value/true.mjs';
+import { boolean_value_false } from '../../../../../boolean/value/false.mjs';
 import { equal_not } from '../../../../../equal/not.mjs';
 import { not } from '../../../../../not.mjs';
 import { occurs } from '../../../../../occurs.mjs';
@@ -17,7 +19,7 @@ import { list_add } from '../../../../../list/add.mjs';
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
 export async function refactor_member_expression_to_function_call(args) {
     arguments_assert(arguments, [defined_is]);
-    let occurs = false;
+    let occurs = boolean_value_false();
     let {parsed} = args;
     js_visit_nodes_filter(parsed, js_node_is_member_expression, function v_4(v) {
         let node = object_property_get(v, 'node');
@@ -39,7 +41,7 @@ export async function refactor_member_expression_to_function_call(args) {
         let v_3 = js_node_property_arguments();
         let node_args = object_property_get(node, v_3);
         list_add(node_args, object);
-        occurs = true;
+        occurs = boolean_value_true();
     });
     if (occurs) {
         await function_auto_no_add_refactors_invoke(args);

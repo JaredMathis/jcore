@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../../boolean/value/false.mjs';
 import { metadata_generated } from '../../../metadata/generated.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { list_map_generic } from '../generic.mjs';
@@ -9,7 +10,7 @@ export function list_map_with_index(list, mapper) {
         list_is,
         function_is
     ]);
-    let v_2 = false;
+    let v_2 = boolean_value_false();
     let v_3 = null;
     let v = list_map_generic(list, mapper, v_2, v_3);
     return v;

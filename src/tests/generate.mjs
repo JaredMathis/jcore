@@ -1,3 +1,4 @@
+import { boolean_value_true } from '../boolean/value/true.mjs';
 import { js_code_call_expression_metadata } from '../js/code/call/expression/metadata.mjs';
 import { js_code_call_expression_with_args } from '../js/code/call/expression/with/args.mjs';
 import { js_code_expression_string } from '../js/code/expression/string.mjs';
@@ -63,7 +64,7 @@ export async function tests_generate() {
     if (v_6) {
         await file_delete(file_path);
     }
-    let is_async = true;
+    let is_async = boolean_value_true();
     await function_add_with_statements_synchronized(function_name, statements, is_async);
     let v_3 = function_name_get(refactor_import_fix);
     await function_map(v_3, function_name);

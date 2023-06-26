@@ -1,3 +1,4 @@
+import { boolean_value_true } from '../../../boolean/value/true.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { js_code_call_expression_object_property_set } from '../../../js/code/call/expression/object/property/set.mjs';
 import { function_add_property_generic } from './generic.mjs';
@@ -10,7 +11,7 @@ export async function function_add_property_set(property_prefix, property_name) 
     ]);
     const method = 'set';
     let lambda = js_code_call_expression_object_property_set;
-    let v_2 = true;
+    let v_2 = boolean_value_true();
     let v = await function_add_property_generic(property_prefix, property_name, lambda, method, v_2);
     return v;
     metadata([]);

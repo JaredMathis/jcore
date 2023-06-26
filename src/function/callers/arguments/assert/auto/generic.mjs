@@ -1,3 +1,5 @@
+import { boolean_value_false } from '../../../../../boolean/value/false.mjs';
+import { boolean_value_true } from '../../../../../boolean/value/true.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { equal_not } from '../../../../../equal/not.mjs';
 import { not } from '../../../../../not.mjs';
@@ -53,7 +55,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         let c_params = object_property_get(c_function_declaration, v_2);
         let v_13 = list_empty(c_params);
         if (v_13) {
-            return true;
+            return boolean_value_true();
         }
         let c_arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(c_function_declaration);
         let v_24 = async function lambda(c_arg, c_arg_index) {
@@ -70,10 +72,10 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             let v_25 = equal(c_predicate_name, default_name);
             let v_14 = not(v_25);
             if (v_14) {
-                return false;
+                return boolean_value_false();
             }
-            let occurs = false;
-            let assignment_exists = false;
+            let occurs = boolean_value_false();
+            let assignment_exists = boolean_value_false();
             let v_26 = function v_9(v) {
                 let {node} = v;
                 let v_7 = js_node_property_left();
@@ -85,12 +87,12 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                     let v_16 = equal(v_29, c_predicate_name);
                     if (v_16) {
                         comment(`Value has been changed - will not assume predicate can be copied`);
-                        assignment_exists = true;
+                        assignment_exists = boolean_value_true();
                     }
                 }
             };
             js_visit_nodes_filter(c_parsed, js_node_is_assignment_expression, v_26);
-            let v_27 = true;
+            let v_27 = boolean_value_true();
             let v_17 = equal(assignment_exists, v_27);
             if (v_17) {
                 return occurs;
@@ -124,7 +126,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                         let v_21 = not(identical);
                         if (v_21) {
                             list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
-                            occurs = true;
+                            occurs = boolean_value_true();
                         }
                     }
                 };

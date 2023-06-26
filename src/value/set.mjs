@@ -1,3 +1,4 @@
+import { boolean_value_true } from '../boolean/value/true.mjs';
 import { defined_is } from '../defined/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
@@ -8,6 +9,6 @@ export function value_set(value_object, value) {
         defined_is
     ]);
     object_property_set(value_object, 'value', value);
-    object_property_set(value_object, 'set', true);
+    object_property_set(value_object, 'set', boolean_value_true());
     metadata([]);
 }

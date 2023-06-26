@@ -1,3 +1,4 @@
+import { boolean_value_false } from '../../boolean/value/false.mjs';
 import { metadata } from '../../metadata.mjs';
 import { integer_value_2 } from '../../integer/value/2.mjs';
 import { integer_odd_is } from '../../integer/odd/is.mjs';
@@ -13,7 +14,7 @@ export function string_repeat_is(input) {
     let length = string_length(input);
     let v_2 = integer_odd_is(length);
     if (v_2) {
-        return false;
+        return boolean_value_false();
     }
     let half = integer_divide_evenly(length, integer_value_2());
     let split = string_split_at(input, half);

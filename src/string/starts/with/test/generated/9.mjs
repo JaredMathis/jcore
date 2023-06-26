@@ -1,3 +1,4 @@
+import { boolean_value_true } from '../../../../../boolean/value/true.mjs';
 import { metadata_generated } from '../../../../../metadata/generated.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../metadata.mjs';
@@ -6,7 +7,7 @@ import { assert } from '../../../../../assert.mjs';
 import { string_starts_with } from '../../../with.mjs';
 export function string_starts_with_test_generated_9() {
     arguments_assert(arguments, []);
-    let expected = true;
+    let expected = boolean_value_true();
     let actual = string_starts_with('a', 'a');
     let v = json_equal(actual, expected);
     assert(v);

@@ -1,3 +1,5 @@
+import { boolean_value_true } from '../boolean/value/true.mjs';
+import { boolean_value_false } from '../boolean/value/false.mjs';
 import { not } from '../not.mjs';
 import { file_is } from './is.mjs';
 import { path_is } from '../path/is.mjs';
@@ -10,10 +12,10 @@ export async function file_exists(file_path) {
     let v_3 = await path_exists(file_path);
     let v_2 = not(v_3);
     if (v_2) {
-        return false;
+        return boolean_value_false();
     }
     let v = await file_is(file_path);
     assert(v);
-    return true;
+    return boolean_value_true();
     metadata([]);
 }
