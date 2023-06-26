@@ -18,14 +18,8 @@ import { refactor_functions_arguments_assert_missing_add_excludes } from '../../
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export async function rule_equals_operator_to_function_call() {
     arguments_assert(arguments, []);
-    let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await function_names_each_map(async args => {
         let {parsed} = args;
-        let function_name = js_mapper_args_to_function_name(args);
-        let v_3 = list_contains(excludes, function_name);
-        if (v_3) {
-            return;
-        }
         await refactor_import_fix_if_changed(args, async changed => {
             await js_visit_nodes_filter_async(parsed, js_node_is_literal, async v => {
                 let {node} = v;
