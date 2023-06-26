@@ -27,7 +27,9 @@ export async function rule_function_call_arguments_are_identifiers_each(args) {
             return;
         }
         let args = js_node_property_arguments_get(node);
-        assert_message(list_all(args, n => or(js_node_is_identifier(n), js_node_is_spread_element(n))), json_to({
+        assert_message(list_all(args, function v_2(n) {
+            return or(js_node_is_identifier(n), js_node_is_spread_element(n));
+        }), json_to({
             file_path,
             args
         }));

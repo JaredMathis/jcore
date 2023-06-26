@@ -37,7 +37,7 @@ export async function rule_operator_to_function_call_generic(operator_function, 
             return;
         }
         await refactor_import_fix_if_changed(args, async function v_2(changed) {
-            js_nodes_each(parsed, n => {
+            js_nodes_each(parsed, function v_4(n) {
                 try {
                     return node_type(n);
                 } catch (e) {
