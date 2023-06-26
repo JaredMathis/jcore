@@ -23,6 +23,9 @@ export async function rule_equals_operator_to_function_call() {
             await js_visit_nodes_filter_async(parsed, js_node_is_binary_expression, async v => {
                 let {node} = v;
                 let operator = js_node_property_operator_get(node);
+                if (!equals(operator, '===')) {
+                    return;
+                }
                 error(json_to({ node }));
                 let value = js_node_property_value_get(node);
                 let v_4 = !number_is(value);
