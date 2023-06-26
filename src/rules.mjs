@@ -1,3 +1,4 @@
+import { refactor_functions_object_expression_value_assign } from './refactor/functions/object/expression/value/assign.mjs';
 import { refactor_functions_returnify } from './refactor/functions/returnify.mjs';
 import { rule_if_statement_arguments_are_identifiers } from './rule/if/statement/arguments/are/identifiers.mjs';
 import { metadata } from './metadata.mjs';
@@ -12,6 +13,7 @@ export async function rules() {
     arguments_assert(arguments, []);
     await rule_function_async_and_suffix_async_implies_suffix_asynk();
     await refactor_functions_returnify();
+    await refactor_functions_object_expression_value_assign();
     await rule_literals_are_function_outputs();
     await rule_operator_to_function_call_multiple();
     await refactor_functions_unlambdaify();
