@@ -31,6 +31,7 @@ import { function_name_get } from './function/name/get.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { string_split } from './string/split.mjs';
 import { string_underscore_is } from './string/underscore/is.mjs';
+import { string_combine } from './string/combine.mjs';
 export async function sandbox() {
     arguments_assert(arguments, []);
     return;
@@ -83,7 +84,7 @@ export async function sandbox() {
             let c = random_get() > integer_value_1() / integer_value_2() ? 'a' : 'b';
             let v_3 = random_between(integer_value_1(), integer_value_3());
             let m = string_multiply(c, v_3);
-            result = result + m;
+            result = string_combine(result, m);
         }
         return result;
     }
