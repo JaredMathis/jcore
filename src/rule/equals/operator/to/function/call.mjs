@@ -16,6 +16,7 @@ import { list_add } from '../../../../../list/add.mjs';
 import { js_nodes_each } from '../../../../../js/nodes/each.mjs';
 export async function rule_equals_operator_to_function_call() {
     arguments_assert(arguments, []);
+    const operator_value = '===';
     let equal_function_name = function_name_get(equal);
     await function_names_each_map(async function v(args) {
         let {parsed} = args;
@@ -26,7 +27,6 @@ export async function rule_equals_operator_to_function_call() {
         await refactor_import_fix_if_changed(args, async function v_2(changed) {
             js_nodes_each(parsed, js_node_is_binary_expression, function v_3(node) {
                 let operator = js_node_property_operator_get(node);
-                const operator_value = '===';
                 if (!equal(operator, operator_value)) {
                     return;
                 }
