@@ -1,3 +1,4 @@
+import { error } from '../../../../../error.mjs';
 import { js_node_property_right_get } from '../../../../../js/node/property/right/get.mjs';
 import { js_node_property_left_get } from '../../../../../js/node/property/left/get.mjs';
 import { js_node_property_arguments_get } from '../../../../../js/node/property/arguments/get.mjs';
@@ -30,7 +31,7 @@ export async function rule_equals_operator_to_function_call() {
                 }
                 let ce = js_parse_call_expression(equal_function_name);
                 let ce_args = js_node_property_arguments_get(ce);
-                list_add(ce_args, js_node_property_left_get(node));
+                list_add(ce_args, js_node_property_left_get(node, error()));
                 list_add(ce_args, js_node_property_right_get(node));
                 object_replace(node, ce);
                 changed();
