@@ -9,6 +9,7 @@ import { directory_current } from '../../directory/current.mjs';
 import { directory_read_directories } from '../../directory/read/directories.mjs';
 import { path_exists } from '../../path/exists.mjs';
 import { version_path_files_get } from '../path/files/get.mjs';
+import { string_combine } from '../../string/combine.mjs';
 export async function version_files_paths(repository_name) {
     let repository_files_path = version_path_files_get(repository_name);
     let paths;
@@ -20,7 +21,7 @@ export async function version_files_paths(repository_name) {
     }
     let dc = directory_current();
     let mapped = list_map(paths, function v(p) {
-        return dc + string_prefix_without(p, repository_files_path);
+        return string_combine(dc, string_prefix_without(p, repository_files_path));
     });
     let files_committed = list_filter(mapped, function v_2(m1) {
         let v_4 = list_all(mapped, function v_3(m2) {
