@@ -1,3 +1,4 @@
+import { js_node_property_operator_get } from '../../../../../js/node/property/operator/get.mjs';
 import { js_node_is_binary_expression } from '../../../../../js/node/is/binary/expression.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
 import { js_parse_call_expression } from '../../../../../js/parse/call/expression.mjs';
@@ -21,6 +22,7 @@ export async function rule_equals_operator_to_function_call() {
         await refactor_import_fix_if_changed(args, async changed => {
             await js_visit_nodes_filter_async(parsed, js_node_is_binary_expression, async v => {
                 let {node} = v;
+                let operator = js_node_property_operator_get(node);
                 error(json_to({ node }));
                 let value = js_node_property_value_get(node);
                 let v_4 = !number_is(value);
