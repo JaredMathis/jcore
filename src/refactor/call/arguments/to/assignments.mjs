@@ -25,7 +25,6 @@ export function refactor_call_arguments_to_assignments(args) {
             if (skip) {
                 return;
             }
-            console.log(js_call_expression_name_get_or_null(expression));
             let args = js_node_property_arguments_get(expression);
             for (let arg of args) {
                 let v = !js_node_is_identifier(arg);
