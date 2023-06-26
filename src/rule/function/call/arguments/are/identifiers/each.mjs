@@ -1,3 +1,4 @@
+import { json_to } from '../../../../../../json/to.mjs';
 import { refactor_call_arguments_to_assignments_skip } from '../../../../../../refactor/call/arguments/to/assignments/skip.mjs';
 import { arguments_assert_todo } from '../../../../../../arguments/assert/todo.mjs';
 import { js_node_is_identifier } from '../../../../../../js/node/is/identifier.mjs';
@@ -17,6 +18,9 @@ export function rule_function_call_arguments_are_identifiers_each(args) {
             return;
         }
         let args = js_node_property_arguments_get(node);
-        assert_message(list_all(args, js_node_is_identifier), file_path);
+        assert_message(list_all(args, js_node_is_identifier), json_to({
+            file_path,
+            args
+        }));
     });
 }
