@@ -7,7 +7,7 @@ import { assert } from '../../../../assert.mjs';
 import { result_property_success_get } from '../../../../result/property/success/get.mjs';
 import { js_visit_stack_reversed_to_ancestor_list } from '../../../../js/visit/stack/reversed/to/ancestor/list.mjs';
 import { list_reversed_get } from '../../../../list/reversed/get.mjs';
-export function refactor_node_assign_and_replace(args, lambda_node_is_type, lambda_child_get) {
+export function refactor_node_assign_and_replace(args, lambda_node_is_type, lambda_children_get) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo,
@@ -21,8 +21,10 @@ export function refactor_node_assign_and_replace(args, lambda_node_is_type, lamb
         let v_2 = result_property_success_get(r);
         assert(v_2);
         let ancestor_list = result_property_data_get(r);
-        let child = lambda_child_get(node);
-        js_node_assign_and_replace(parsed, child, ancestor_list, node);
+        let children = lambda_children_get(node);
+        for (let child of children) {
+            js_node_assign_and_replace(parsed, child, ancestor_list, node);
+        }
     };
     js_visit_nodes_filter(parsed, lambda_node_is_type, v_4);
 }
