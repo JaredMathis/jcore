@@ -1,3 +1,4 @@
+import { js_node_property_arguments_get } from '../../../../../js/node/property/arguments/get.mjs';
 import { equal } from '../../../../../equal.mjs';
 import { js_code_call_expression_with_args } from '../../../../../js/code/call/expression/with/args.mjs';
 import { js_node_property_operator_get } from '../../../../../js/node/property/operator/get.mjs';
@@ -41,6 +42,7 @@ export async function rule_equals_operator_to_function_call() {
                     string_a()
                 ]);
                 let ce = js_parse_expression(code);
+                let ce_args = js_node_property_arguments_get(ce);
                 error(json_to({ ce }));
                 let value = js_node_property_value_get(node);
                 let v_4 = !number_is(value);
