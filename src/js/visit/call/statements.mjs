@@ -127,6 +127,7 @@ export function js_visit_call_statements(args, call_each) {
                         e
                     ]));
                 }
+                console.log('here')
                 return;
             }
             let v_15 = not(js_node_is_call_expression(expression));
