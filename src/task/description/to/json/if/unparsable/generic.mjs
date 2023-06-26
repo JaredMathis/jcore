@@ -14,7 +14,7 @@ import { object_property_get } from '../../../../../../object/property/get.mjs';
 import { list_adder_async } from '../../../../../../list/adder/async.mjs';
 export async function task_description_to_json_if_unparsable_generic(open) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let result = await list_adder_async(async function v_4(list_add_then) {
+    let v_7 = async function v_4(list_add_then) {
         for (let task of open) {
             let v = task_property_body();
             let task_body_value = object_property_get(task, v);
@@ -25,15 +25,18 @@ export async function task_description_to_json_if_unparsable_generic(open) {
                     let v_2 = task_property_number();
                     let t_number = object_property_get(task, v_2);
                     let t_number_string = string_to(t_number);
-                    log({ task });
-                    let v_3 = lambda_get(null);
+                    let v_8 = { task };
+                    log(v_8);
+                    let v_9 = null;
+                    let v_3 = lambda_get(v_9);
                     await task_body_map_generic(t_number_string, v_3);
                     await task_description(t_number_string, task_body_value);
                     list_add_then(t_number);
                 }
             }
         }
-    });
+    };
+    let result = await list_adder_async(v_7);
     return result;
     metadata([]);
 }
