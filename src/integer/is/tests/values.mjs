@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { integer_value_3 } from '../../value/3.mjs';
 import { integer_value_0 } from '../../value/0.mjs';
 import { integer_value_1 } from '../../value/1.mjs';
@@ -17,4 +18,5 @@ export function integer_is_tests_values() {
         v_3,
         v_4
     ];
+    metadata([]);
 }

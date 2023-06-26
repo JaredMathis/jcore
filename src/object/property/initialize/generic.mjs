@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { object_property_initialize } from '../initialize.mjs';
@@ -22,4 +23,5 @@ export function object_property_initialize_generic(object, property_name, initia
     } else {
         object_property_initialize(object, property_name, initial_value);
     }
+    metadata([]);
 }

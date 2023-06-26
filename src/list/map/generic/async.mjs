@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { result_property_data_get } from '../../../result/property/data/get.mjs';
 import { not } from '../../../not.mjs';
 import { defined_is } from '../../../defined/is.mjs';
@@ -50,4 +51,5 @@ export async function list_map_generic_async(list, lambda, allow_error_mapping, 
     };
     let v = await list_adder_async(v_10);
     return v;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { js_identifier_is } from '../../../../js/identifier/is.mjs';
 import { defined_is } from '../../../../defined/is.mjs';
 import { path_is } from '../../../../path/is.mjs';
@@ -17,4 +18,5 @@ export async function file_js_map_with_args(file_path, function_name_mapper, arg
         await function_run(function_name_mapper, v_2);
     };
     await file_js_map_args(file_path, v);
+    metadata([]);
 }

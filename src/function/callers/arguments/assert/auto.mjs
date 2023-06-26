@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { function_callers_names } from '../../names.mjs';
 import { function_callers_arguments_assert_auto_generic } from './auto/generic.mjs';
 import { function_to_statement_arguments_assert_args_predicate } from '../../../to/statement/arguments/assert/args/predicate.mjs';
@@ -12,4 +13,5 @@ export async function function_callers_arguments_assert_auto(function_name) {
         await function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, result);
     }
     return result;
+    metadata([]);
 }

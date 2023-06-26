@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { function_is } from '../../is.mjs';
 import { comment } from '../../../comment.mjs';
 import { function_name_to_file_path } from '../../name/to/file/path.mjs';
@@ -29,4 +30,5 @@ export async function function_names_each_filter(logic, filter) {
             return;
         }
     }
+    metadata([]);
 }

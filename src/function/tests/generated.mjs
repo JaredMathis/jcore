@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { js_identifier_is } from '../../js/identifier/is.mjs';
 import { function_tests_all } from './all.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -14,4 +15,5 @@ export async function function_tests_generated(function_name) {
     };
     let generated = list_filter(result, v_4);
     return generated;
+    metadata([]);
 }

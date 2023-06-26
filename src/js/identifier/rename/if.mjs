@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { occurs } from '../../../occurs.mjs';
 import { js_mapper_args_is } from '../../mapper/args/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -31,4 +32,5 @@ export function js_identifier_rename_if(args, should_rename, name_new_get) {
     };
     let v_3 = occurs(v_7);
     return v_3;
+    metadata([]);
 }

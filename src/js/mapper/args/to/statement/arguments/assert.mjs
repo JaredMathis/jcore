@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../metadata.mjs';
 import { js_function_declaration_to_statement_arguments_assert } from '../../../../../function/declaration/to/statement/arguments/assert.mjs';
 import { js_mapper_args_is } from '../../../is.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
@@ -10,4 +11,5 @@ export async function js_mapper_args_to_statement_arguments_assert(args) {
     assert(v);
     let v_2 = await js_function_declaration_to_statement_arguments_assert(function_declaration);
     return v_2;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { not } from '../../not.mjs';
 import { string_new_line } from '../../string/new/line.mjs';
 import { string_split } from '../../string/split.mjs';
@@ -21,4 +22,5 @@ export async function git_ignore_lines() {
         lines,
         contents
     };
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { function_rename_suffix_generic } from './generic.mjs';
 import { js_identifier_sub_is } from '../../../js/identifier/sub/is.mjs';
 import { string_suffix_replace } from '../../../string/suffix/replace.mjs';
@@ -18,4 +19,5 @@ export async function function_rename_suffix_change(function_name_old_without_su
         return v_2;
     };
     await function_rename_suffix_generic(function_name_old_parts, function_name_old_to_new);
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { defined_is } from '../defined/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { json_to } from './to.mjs';
@@ -9,4 +10,5 @@ export function json_equal(a, b) {
     ]);
     let v = equal_by(json_to, a, b);
     return v;
+    metadata([]);
 }

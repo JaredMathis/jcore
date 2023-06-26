@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { js_node_is_type } from '../../../../js/node/is/type.mjs';
 import { js_nodes_get } from '../../../../js/nodes/get.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
@@ -22,4 +23,5 @@ export async function functions_to_node_type_first(node_type_name) {
         }
     }
     return null;
+    metadata([]);
 }

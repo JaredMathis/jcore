@@ -1,3 +1,4 @@
+import { metadata } from './metadata.mjs';
 import { or } from './or.mjs';
 import { not } from './not.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
@@ -10,4 +11,5 @@ export function implies(b1, b2) {
     let v = not(b1);
     let v_2 = or(v, b2);
     return v_2;
+    metadata([]);
 }

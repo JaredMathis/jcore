@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { and } from '../and.mjs';
 import { list_empty } from './empty.mjs';
 import { function_is } from '../function/is.mjs';
@@ -25,4 +26,5 @@ export function list_consume(list, lambda) {
     let v_6 = list_empty(list);
     let v_7 = and(v_5, v_6);
     return v_7;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { string_replace } from '../../../string/replace.mjs';
 import { function_name_separator } from '../../../function/name/separator.mjs';
 import { date_now_iso } from '../iso.mjs';
@@ -15,4 +16,5 @@ export function date_now_iso_underscores() {
     let v_3 = '';
     iso = string_replace(iso, v_2, v_3);
     return iso;
+    metadata([]);
 }

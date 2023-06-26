@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { js_node_property_operator } from '../operator.mjs';
 import { defined_is } from '../../../../defined/is.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
@@ -7,4 +8,5 @@ export function js_node_property_operator_get(js_node) {
     let v = js_node_property_operator();
     let v_2 = object_property_get(js_node, v);
     return v_2;
+    metadata([]);
 }

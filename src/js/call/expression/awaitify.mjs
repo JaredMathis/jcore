@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_expression_awaitify } from '../../expression/awaitify.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -13,4 +14,5 @@ export function js_call_expression_awaitify(node, suffix) {
     let name_new = string_combine(name_old, suffix);
     js_call_expression_name_change(node, name_new);
     js_expression_awaitify(node);
+    metadata([]);
 }

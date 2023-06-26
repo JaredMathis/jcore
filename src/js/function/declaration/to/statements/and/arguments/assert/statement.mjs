@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../../../metadata.mjs';
 import { js_function_declaration_to_statements } from '../../../../statements.mjs';
 import { js_function_declaration_to_statement_arguments_assert } from '../../../../statement/arguments/assert.mjs';
 export async function js_function_declaration_to_statements_and_arguments_assert_statement(function_declaration) {
@@ -7,4 +8,5 @@ export async function js_function_declaration_to_statements_and_arguments_assert
         statements,
         statement_arguments_assert
     };
+    metadata([]);
 }

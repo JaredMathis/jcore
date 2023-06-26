@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../metadata.mjs';
 import { js_code_statement_assignment } from '../../../../statement/assignment.mjs';
 import { js_code_await } from '../../../../await.mjs';
 import { js_code_call_expression_with_args } from '../../../../call/expression/with/args.mjs';
@@ -12,4 +13,5 @@ export function js_code_function_declaration_to_statement_assignment(function_de
     }
     statement_first_code = js_code_statement_assignment(identifier_to_assign_to, statement_first_code);
     return statement_first_code;
+    metadata([]);
 }

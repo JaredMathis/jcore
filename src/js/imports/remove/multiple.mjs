@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { list_find_property } from '../../../list/find/property.mjs';
 import { js_node_is_program } from '../../node/is/program.mjs';
 import { list_is } from '../../../list/is.mjs';
@@ -17,4 +18,5 @@ export function js_imports_remove_multiple(parsed, imports, removal_names) {
     };
     let imports_to_remove = list_map(removal_names, v_2);
     js_imports_remove_generic(parsed, imports_to_remove);
+    metadata([]);
 }

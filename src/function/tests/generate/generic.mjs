@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { integer_value_1 } from '../../../integer/value/1.mjs';
 import { integer_value_2 } from '../../../integer/value/2.mjs';
 import { integer_value_100 } from '../../../integer/value/100.mjs';
@@ -113,4 +114,5 @@ export async function function_tests_generate_generic(function_name, count_strin
             break;
         }
     }
+    metadata([]);
 }

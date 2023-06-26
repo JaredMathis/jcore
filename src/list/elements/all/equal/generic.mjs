@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { list_all } from '../../../all.mjs';
@@ -14,4 +15,5 @@ export function list_elements_all_equal_generic(lambda, values) {
     };
     let list_all_equal = list_all(values, v_2);
     return list_all_equal;
+    metadata([]);
 }

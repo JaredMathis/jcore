@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { js_identifier_name_get } from '../identifier/name/get.mjs';
@@ -15,4 +16,5 @@ export function js_node_identifiers(node) {
     };
     let v = list_adder(v_4);
     return v;
+    metadata([]);
 }

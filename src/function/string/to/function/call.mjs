@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { refactor_string_to_function_call } from '../../../../refactor/string/to/function/call.mjs';
 import { function_name_get } from '../../../name/get.mjs';
 import { function_map_with_args } from '../../../map/with/args.mjs';
@@ -16,4 +17,5 @@ export async function function_string_to_function_call(function_name, string_val
         replacement_function_name
     };
     await function_map_with_args(v, function_name, v_2);
+    metadata([]);
 }

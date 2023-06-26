@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { list_adder_generic_async } from '../generic/async.mjs';
 import { list_add_if_not_exists } from '../../add/if/not/exists.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
@@ -7,4 +8,5 @@ export async function list_adder_unique_async(then) {
     let lambda = list_add_if_not_exists;
     let v = await list_adder_generic_async(then, lambda);
     return v;
+    metadata([]);
 }

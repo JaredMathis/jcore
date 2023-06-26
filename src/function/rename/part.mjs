@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { object_replace } from '../../object/replace.mjs';
 import { list_map } from '../../list/map.mjs';
 import { js_identifier_parts_map } from '../../js/identifier/parts/map.mjs';
@@ -26,4 +27,5 @@ export async function function_rename_part(function_name_old, part_old, part_new
     let function_name_new = js_identifier_parts_map(function_name_old, v_4);
     let result = await function_rename_single(function_name_old, function_name_new);
     return result;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { boolean_is } from '../../../../boolean/is.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -21,4 +22,5 @@ export async function function_add_string_prefix_generic(prefix, suffix, value, 
     }
     await function_add_string(function_name, value);
     return function_name;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { function_name_to_node_type_all } from './all.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { js_identifier_is } from '../../../../../js/identifier/is.mjs';
@@ -11,4 +12,5 @@ export async function function_name_to_node_type_first(function_name, node_type_
     let filtered = await function_name_to_node_type_all(function_name, node_type_name);
     let v = list_first(filtered);
     return v;
+    metadata([]);
 }

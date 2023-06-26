@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { function_name_list_to_file_path } from './name/list/to/file/path.mjs';
 import { function_callers_names } from './callers/names.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -7,4 +8,5 @@ export async function function_callers(function_name) {
     let result = await function_callers_names(function_name);
     let v = function_name_list_to_file_path(result);
     return v;
+    metadata([]);
 }

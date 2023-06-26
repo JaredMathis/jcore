@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { directory_property_json } from '../property/json.mjs';
 import { object_property_initialize } from '../../object/property/initialize.mjs';
 import { json_from } from '../../json/from.mjs';
@@ -14,4 +15,5 @@ export async function directory_read_json(repository_files_path) {
         object_property_initialize(f, v_2, json);
     }
     return files_contents;
+    metadata([]);
 }

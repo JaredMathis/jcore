@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { integer_is } from '../../integer/is.mjs';
 import { list_first } from '../first.mjs';
 import { list_length_is_1 } from '../length/is/1.mjs';
@@ -31,4 +32,5 @@ export function list_find_generic(list, predicate, or_null, single, lambda_list_
     }
     let result = list_first(filtered);
     return result;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { integer_is } from '../../../../integer/is.mjs';
 import { boolean_is } from '../../../../boolean/is.mjs';
 import { git_hub_repository_issues_get } from './get.mjs';
@@ -10,4 +11,5 @@ export async function git_hub_repository_issues_all(no_cache, page) {
     let v_2 = { state: 'all' };
     let v = await git_hub_repository_issues_get(v_2, no_cache, page);
     return v;
+    metadata([]);
 }

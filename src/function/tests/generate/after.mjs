@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { tests_name } from '../../../tests/name.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { log } from '../../../log.mjs';
@@ -14,4 +15,5 @@ export async function function_tests_generate_after() {
     let v_2 = 'stdout';
     let stdout = object_property_get(cl_result, v_2);
     log(stdout);
+    metadata([]);
 }

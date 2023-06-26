@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../metadata.mjs';
 import { not } from '../../../../../../not.mjs';
 import { js_function_delcaration_to_statement_first } from '../../../../delcaration/to/statement/first.mjs';
 import { refactor_arguments_assert_add_no_check } from '../../../../../../refactor/arguments/assert/add/no/check.mjs';
@@ -8,7 +9,6 @@ import { js_node_call_expression_statement_if_name_equal } from '../../../../../
 import { list_first } from '../../../../../../list/first.mjs';
 import { list_empty } from '../../../../../../list/empty.mjs';
 import { js_function_declaration_to_statements } from '../../statements.mjs';
-import { log } from '../../../../../../log.mjs';
 export async function js_function_declaration_to_statement_arguments_assert(function_declaration) {
     let statements = js_function_declaration_to_statements(function_declaration);
     let exists = false;
@@ -29,4 +29,5 @@ export async function js_function_declaration_to_statement_arguments_assert(func
     }
     let v_2 = js_function_delcaration_to_statement_first(function_declaration);
     return v_2;
+    metadata([]);
 }

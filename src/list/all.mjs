@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { not } from '../not.mjs';
 import { function_is } from '../function/is.mjs';
 import { list_is } from './is.mjs';
@@ -15,4 +16,5 @@ export function list_all(list, predicate) {
         }
     }
     return true;
+    metadata([]);
 }

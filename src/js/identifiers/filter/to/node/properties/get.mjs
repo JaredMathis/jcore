@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../metadata.mjs';
 import { js_suffix_get } from '../../../../../suffix/get.mjs';
 import { js_identifiers_suffixes_without } from '../../../../suffixes/without.mjs';
 import { js_prefix_node_property } from '../../../../../prefix/node/property.mjs';
@@ -12,4 +13,5 @@ export function js_identifiers_filter_to_node_properties_get(identifier_names) {
     let v = [suffix];
     let v_2 = js_identifiers_suffixes_without(v, filtered);
     return v_2;
+    metadata([]);
 }

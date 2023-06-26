@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_node_property_body } from '../../node/property/body.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -11,4 +12,5 @@ export function js_block_statement_body(function_body) {
     let v_2 = js_node_property_body();
     let body = object_property_get(function_body, v_2);
     return body;
+    metadata([]);
 }

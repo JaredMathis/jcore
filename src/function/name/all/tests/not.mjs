@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { not } from '../../../../not.mjs';
 import { string_function_tests_name_is } from '../../../../string/function/tests/name/is.mjs';
 import { list_filter } from '../../../../list/filter.mjs';
@@ -11,4 +12,5 @@ export async function function_name_all_tests_not() {
     };
     let function_names = list_filter(all, v_4);
     return function_names;
+    metadata([]);
 }

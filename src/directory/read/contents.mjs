@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { file_read } from '../../file/read.mjs';
 import { list_map_async } from '../../list/map/async.mjs';
 import { directory_property_file_path } from '../property/file/path.mjs';
@@ -16,4 +17,5 @@ export async function directory_read_contents(repository_directory) {
     };
     let mapped = await list_map_async(file_paths, v_2);
     return mapped;
+    metadata([]);
 }

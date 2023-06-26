@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { and } from '../../and.mjs';
 import { not } from '../../not.mjs';
 import { list_all } from '../../list/all.mjs';
@@ -36,4 +37,5 @@ export async function git_ignore_filter(file_paths) {
     };
     let filtered = list_filter(file_paths, v_5);
     return filtered;
+    metadata([]);
 }

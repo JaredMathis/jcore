@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { true_is } from '../../../../true/is.mjs';
 import { list_any } from '../../../any.mjs';
 export function list_each_function_results_any(fns, results_get) {
@@ -9,4 +10,5 @@ export function list_each_function_results_any(fns, results_get) {
         }
     }
     return false;
+    metadata([]);
 }

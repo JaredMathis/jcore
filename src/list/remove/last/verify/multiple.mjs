@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { list_remove_last_verify } from '../verify.mjs';
@@ -10,4 +11,5 @@ export function list_remove_last_verify_multiple(list, removals) {
     for (let part of list_reversed_get(removals)) {
         list_remove_last_verify(list, part);
     }
+    metadata([]);
 }

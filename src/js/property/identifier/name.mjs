@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_if_identifier_then_name_or_null } from '../../if/identifier/then/name/or/null.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -9,4 +10,5 @@ export function js_property_identifier_name(node, property_name) {
     let v = false;
     let result = js_if_identifier_then_name_or_null(node, property_name, v);
     return result;
+    metadata([]);
 }

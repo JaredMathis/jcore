@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_get } from '../get.mjs';
 import { number_floor } from '../../number/floor.mjs';
 import { list_length } from '../length.mjs';
@@ -9,4 +10,5 @@ export function list_random_item(values) {
     let index = number_floor(v);
     let value = list_get(values, index);
     return value;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { not } from '../../../../../not.mjs';
 import { function_tests_generated } from '../../../generated.mjs';
 import { js_identifier_is } from '../../../../../js/identifier/is.mjs';
@@ -21,4 +22,5 @@ export async function function_tests_generated_delete_no_after(function_name) {
         await tests_generate();
     }
     return generateds;
+    metadata([]);
 }

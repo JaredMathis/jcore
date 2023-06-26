@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { function_arguments_assert_default_generic } from './generic.mjs';
 import { function_open_vs_code } from '../../../open/vs/code.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -8,4 +9,5 @@ export async function function_arguments_assert_default_next() {
         await function_open_vs_code(function_name);
         return true;
     }
+    metadata([]);
 }

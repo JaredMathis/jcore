@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { integer_value_0 } from '../../../integer/value/0.mjs';
 import { function_input_add_generic } from './generic.mjs';
 import { function_name_get } from '../../name/get.mjs';
@@ -13,4 +14,5 @@ export async function function_input_add_first(function_name, input_name) {
     let v = function_name_get(arguments_assert_todo);
     let v_2 = integer_value_0();
     await function_input_add_generic(function_name, input_name, v, input_value_default, v_2);
+    metadata([]);
 }

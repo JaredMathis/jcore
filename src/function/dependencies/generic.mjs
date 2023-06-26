@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { not } from '../../not.mjs';
 import { js_identifier_is } from '../../js/identifier/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -27,4 +28,5 @@ export async function function_dependencies_generic(function_name, recursive) {
     };
     let v = list_map(d, v_4);
     return v;
+    metadata([]);
 }

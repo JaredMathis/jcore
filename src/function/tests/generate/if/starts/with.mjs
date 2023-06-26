@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { function_tests_generate_count_default } from '../../count/default.mjs';
 import { function_name_all_tests_not } from '../../../../name/all/tests/not.mjs';
 import { function_tests_generate_after } from '../../after.mjs';
@@ -19,4 +20,5 @@ export async function function_tests_generate_if_starts_with(prefix) {
         await function_tests_generate_generic(function_name, v);
     }
     await function_tests_generate_after();
+    metadata([]);
 }

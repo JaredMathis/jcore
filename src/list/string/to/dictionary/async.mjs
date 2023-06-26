@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { identity } from '../../../../identity.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -9,4 +10,5 @@ export async function list_string_to_dictionary_async(list, element_to_value) {
     ]);
     let v = list_to_dictionary_async(list, identity, element_to_value);
     return v;
+    metadata([]);
 }

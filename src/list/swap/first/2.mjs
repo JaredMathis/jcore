@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { integer_value_0 } from '../../../integer/value/0.mjs';
 import { list_swap } from '../../swap.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
@@ -8,4 +9,5 @@ export function list_swap_first_2(list) {
     let first_index = integer_value_0();
     let second_index = add_1(first_index);
     list_swap(list, first_index, second_index);
+    metadata([]);
 }

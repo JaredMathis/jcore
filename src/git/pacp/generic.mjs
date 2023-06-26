@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { equal_not } from '../../equal/not.mjs';
 import { date_now_iso_underscores } from '../../date/now/iso/underscores.mjs';
 import { task_now } from '../../task/now.mjs';
@@ -22,4 +23,5 @@ export async function git_pacp_generic(sync) {
     assert(v_2);
     let commit_message = task_id;
     await git_pacp_with_message(commit_message, sync);
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_is } from '../is.mjs';
 import { not } from '../../not.mjs';
 import { list_empty } from '../empty.mjs';
@@ -7,4 +8,5 @@ export function list_empty_not(list) {
     let result_to_be_mapped = list_empty(list);
     let result = not(result_to_be_mapped);
     return result;
+    metadata([]);
 }

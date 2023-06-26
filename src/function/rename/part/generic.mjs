@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_identifier_parts_to } from '../../../js/identifier/parts/to.mjs';
 import { function_rename_generic } from '../generic.mjs';
 import { list_contains } from '../../../list/contains.mjs';
@@ -15,4 +16,5 @@ export async function function_rename_part_generic(part, parts_map) {
         let v_2 = js_identifier_parts_to(parts);
         return v_2;
     }
+    metadata([]);
 }

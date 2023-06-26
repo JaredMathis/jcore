@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { js_mapper_args_to_metadata_args_no_add_missing } from '../../../../../js/mapper/args/to/metadata/args/no/add/missing.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { list_length_is_1 } from '../../../../../list/length/is/1.mjs';
@@ -36,4 +37,5 @@ export async function function_names_metadata_arguments_assert_none() {
     };
     let v = await list_adder_async(v_8);
     return v;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { directory_read_recursive_generic } from './recursive/generic.mjs';
 import { list_add } from '../../list/add.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -14,4 +15,5 @@ export async function directory_read_recursive(dir, path_list) {
     async function on_file(path_list, file_path) {
         list_add(path_list, file_path);
     }
+    metadata([]);
 }

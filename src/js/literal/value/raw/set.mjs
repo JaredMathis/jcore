@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { not } from '../../../../not.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -21,4 +22,5 @@ export function js_literal_value_raw_set(source, normalized) {
     let raw = js_code_expression_string(normalized);
     let v_3 = js_node_property_raw();
     object_property_set(source, v_3, raw);
+    metadata([]);
 }

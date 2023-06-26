@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { function_inputs_index_of_string } from '../../../../inputs/index/of/string.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { js_identifier_is } from '../../../../../js/identifier/is.mjs';
@@ -11,4 +12,5 @@ export async function function_input_swap_first_to_named(function_name, input_na
     let index_string = await function_inputs_index_of_string(function_name, input_name);
     let result = await function_input_swap_first_to(function_name, index_string);
     return result;
+    metadata([]);
 }

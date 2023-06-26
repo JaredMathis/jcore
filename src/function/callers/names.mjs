@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { equal } from '../../equal.mjs';
 import { list_add } from '../../list/add.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
@@ -21,4 +22,5 @@ export async function function_callers_names(function_name) {
         }
     }
     return result;
+    metadata([]);
 }

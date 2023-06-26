@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { equal_not } from '../../../../../equal/not.mjs';
 import { object_merge } from '../../../../../object/merge.mjs';
 import { js_export_function_single_or_null } from '../../../../export/function/single/or/null.mjs';
@@ -17,4 +18,5 @@ export function js_mapper_with_function_declaration_get(mapper) {
         let v = await mapper(args);
         return v;
     };
+    metadata([]);
 }

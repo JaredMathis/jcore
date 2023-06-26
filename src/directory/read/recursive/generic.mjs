@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { directory_is } from '../../is.mjs';
 import { directory_read_non_recursive } from '../non/recursive.mjs';
 import { function_is } from '../../../function/is.mjs';
@@ -22,4 +23,5 @@ export async function directory_read_recursive_generic(dir, path_list, on_direct
         }
     }
     return path_list;
+    metadata([]);
 }

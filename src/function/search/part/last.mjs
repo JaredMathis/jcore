@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { function_search_part_generic } from './generic.mjs';
 import { list_last } from '../../../list/last.mjs';
 import { equal } from '../../../equal.mjs';
@@ -12,4 +13,5 @@ export async function function_search_part_last(query) {
     };
     let v_4 = function_search_part_generic(query, candidate_mapped_matches);
     return v_4;
+    metadata([]);
 }

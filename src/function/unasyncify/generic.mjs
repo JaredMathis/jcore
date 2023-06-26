@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { or } from '../../or.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -25,4 +26,5 @@ export async function function_unasyncify_generic(function_name, only_if_needed)
         let v = function_name_get(refactor_unasyncify);
         await function_map(v, function_name_result);
     }
+    metadata([]);
 }

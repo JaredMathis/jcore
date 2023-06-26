@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { function_copy } from '../../copy.mjs';
 import { js_identifier_parts_from_combine } from '../../../js/identifier/parts/from/combine.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
@@ -16,4 +17,5 @@ export async function function_copy_suffix_add(function_name_old, function_name_
     ];
     let function_name_new = js_identifier_parts_from_combine(v);
     await function_copy(function_name_old, function_name_new);
+    metadata([]);
 }

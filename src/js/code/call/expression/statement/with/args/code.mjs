@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../../metadata.mjs';
 import { js_code_statement } from '../../../../../statement.mjs';
 import { arguments_assert } from '../../../../../../../arguments/assert.mjs';
 import { js_code_call_expression_with_args_code } from '../../../with/args/code.mjs';
@@ -10,4 +11,5 @@ export function js_code_call_expression_statement_with_args_code(name, call_args
     let v = js_code_call_expression_with_args_code(name, call_args);
     let v_2 = js_code_statement(v);
     return v_2;
+    metadata([]);
 }

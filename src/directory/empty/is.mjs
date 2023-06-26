@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { integer_value_0 } from '../../integer/value/0.mjs';
 import { count } from '../../count.mjs';
 import { equal } from '../../equal.mjs';
@@ -9,4 +10,5 @@ export async function directory_empty_is(directory_path) {
     let v = integer_value_0();
     const is_empty = equal(count, v);
     return is_empty;
+    metadata([]);
 }

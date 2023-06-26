@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_visit_nodes_filter } from '../../visit/nodes/filter.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -13,4 +14,5 @@ export function js_nodes_each_async(parsed, predicate, lambda) {
         return v_2;
     };
     js_visit_nodes_filter(parsed, predicate, v_4);
+    metadata([]);
 }

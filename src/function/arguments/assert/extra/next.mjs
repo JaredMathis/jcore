@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { js_mapper_args_to_metadata_args_contains } from '../../../../js/mapper/args/to/metadata/args/contains.mjs';
 import { list_length_multiple } from '../../../../list/length/multiple.mjs';
 import { js_call_expressions_named } from '../../../../js/call/expressions/named.mjs';
@@ -26,4 +27,5 @@ export async function function_arguments_assert_extra_next() {
         }
     }
     return result;
+    metadata([]);
 }

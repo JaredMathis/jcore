@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { equal_not } from '../../../../../equal/not.mjs';
 import { not } from '../../../../../not.mjs';
 import { occurs } from '../../../../../occurs.mjs';
@@ -139,4 +140,5 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         };
         await list_each_with_index_async(c_arguments_assert_args, v_24);
     }
+    metadata([]);
 }

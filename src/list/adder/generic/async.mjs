@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -13,4 +14,5 @@ export async function list_adder_generic_async(then, lambda) {
         lambda(list, element);
     }
     return list;
+    metadata([]);
 }

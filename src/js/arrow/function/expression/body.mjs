@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { js_node_is_arrow_function_expression } from '../../../node/is/arrow/function/expression.mjs';
 import { js_node_property_body } from '../../../node/property/body.mjs';
 import { object_property_get } from '../../../../object/property/get.mjs';
@@ -11,4 +12,5 @@ export function js_arrow_function_expression_body(function_body) {
     let v_2 = js_node_property_body();
     let body = object_property_get(function_body, v_2);
     return body;
+    metadata([]);
 }

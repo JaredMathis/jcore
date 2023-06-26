@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { integer_value_3 } from '../../../../integer/value/3.mjs';
 import { function_input_remove_last } from '../last.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
@@ -10,4 +11,5 @@ export async function function_input_remove_last_3(function_name) {
     for (let i of range(v)) {
         await function_input_remove_last(function_name);
     }
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { not } from '../../../not.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { string_includes } from '../../../string/includes.mjs';
@@ -58,4 +59,5 @@ export function js_identifier_is_generic(value, enforce_first, enforce_last, all
         }
     }
     return true;
+    metadata([]);
 }

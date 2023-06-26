@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_single } from '../../list/single.mjs';
@@ -7,4 +8,5 @@ export function js_declarations_single(match) {
     let declarations = js_node_property_declarations_get(match);
     let declaration = list_single(declarations);
     return declaration;
+    metadata([]);
 }

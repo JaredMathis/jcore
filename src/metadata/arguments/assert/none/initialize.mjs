@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { metadata_prefix } from '../../../prefix.mjs';
 import { string_prefix_without } from '../../../../string/prefix/without.mjs';
 import { metadata_arguments_assert_none } from '../none.mjs';
@@ -14,4 +15,5 @@ export async function metadata_arguments_assert_none_initialize() {
         let without_prefix = string_prefix_without(fn, v);
         await function_metadata_add(e, without_prefix);
     }
+    metadata([]);
 }

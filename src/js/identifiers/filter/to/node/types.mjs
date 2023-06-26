@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { js_identifiers_prefixes_without } from '../../../prefixes/without.mjs';
 import { js_prefix_node_is } from '../../../../prefix/node/is.mjs';
 import { js_prefix_node_type } from '../../../../prefix/node/type.mjs';
@@ -11,4 +12,5 @@ export function js_identifiers_filter_to_node_types(identifier_names) {
     ];
     let v = js_identifiers_prefixes_without(prefixes, identifier_names);
     return v;
+    metadata([]);
 }

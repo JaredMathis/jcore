@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { json_from } from './from.mjs';
 import { throws } from '../throws.mjs';
 export function json_invalid(task_body_value) {
@@ -7,4 +8,5 @@ export function json_invalid(task_body_value) {
     };
     let v = throws(v_4);
     return v;
+    metadata([]);
 }

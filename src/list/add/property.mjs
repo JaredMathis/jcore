@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_add_property_generic } from './property/generic.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_add } from '../add.mjs';
@@ -15,4 +16,5 @@ export function list_add_property(list, object, property_name) {
         return v_2;
     };
     list_add_property_generic(la, object, property_name);
+    metadata([]);
 }

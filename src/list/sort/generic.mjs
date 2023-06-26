@@ -1,6 +1,6 @@
+import { metadata } from '../../metadata.mjs';
 import { list_reverse } from '../reverse.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-import { subtract } from '../../subtract.mjs';
 import { value_get } from '../../value/get.mjs';
 import { list_is } from '../is.mjs';
 import { function_is } from '../../function/is.mjs';
@@ -22,4 +22,5 @@ export function list_sort_generic(list, value_get, reverse, compare) {
     if (reverse) {
         list_reverse(list);
     }
+    metadata([]);
 }

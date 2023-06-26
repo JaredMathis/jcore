@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { not } from '../../../../not.mjs';
 import { js_callable_multiple } from '../../multiple.mjs';
 import { assert } from '../../../../assert.mjs';
@@ -7,4 +8,5 @@ export function js_callable_multiple_assert_not(parsed) {
     let v_2 = js_callable_multiple(parsed);
     let v = not(v_2);
     assert(v);
+    metadata([]);
 }

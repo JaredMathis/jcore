@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_empty_not } from '../../list/empty/not.mjs';
 import { git_exclude } from '../exclude.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -15,4 +16,5 @@ export async function git_exclude_ignore() {
             await git_exclude(line);
         }
     }
+    metadata([]);
 }

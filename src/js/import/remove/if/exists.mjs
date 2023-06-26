@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { equal_not } from '../../../../equal/not.mjs';
 import { equal } from '../../../../equal.mjs';
 import { js_node_is_program } from '../../../node/is/program.mjs';
@@ -27,4 +28,5 @@ export function js_import_remove_if_exists(parsed, imports, function_name) {
         let v = list_single_item(import_to_remove);
         js_imports_remove_generic(parsed, v);
     }
+    metadata([]);
 }

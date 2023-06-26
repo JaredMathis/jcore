@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { add } from '../../../../add.mjs';
@@ -14,4 +15,5 @@ export function js_visit_node_ancestor_generic(stack, grandparent_index, offset)
     let v = add(grandparent_index, offset);
     let ancestor = list_get_end(stack_nodes, v);
     return ancestor;
+    metadata([]);
 }

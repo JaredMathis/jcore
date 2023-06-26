@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../metadata.mjs';
 import { function_name_all_tests_not } from '../../not.mjs';
 import { string_is } from '../../../../../../string/is.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
@@ -12,4 +13,5 @@ export async function function_name_all_tests_not_starts_with(prefix) {
     };
     let v = list_filter(result, v_4);
     return v;
+    metadata([]);
 }

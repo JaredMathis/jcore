@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { list_add_property_generic } from '../../../../list/add/property/generic.mjs';
 import { js_identifier_rename } from '../../../../js/identifier/rename.mjs';
 import { occurs } from '../../../../occurs.mjs';
@@ -20,4 +21,5 @@ export async function file_js_all_identifier_multiple(renames) {
     };
     let file_paths_changed = await list_adder_async(v_3);
     return file_paths_changed;
+    metadata([]);
 }

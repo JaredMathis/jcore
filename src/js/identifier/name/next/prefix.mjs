@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { integer_value_2 } from '../../../../integer/value/2.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -19,4 +20,5 @@ export function js_identifier_name_next_prefix(parsed, identifier_next_prefix) {
         c++;
     }
     return identifier_next;
+    metadata([]);
 }

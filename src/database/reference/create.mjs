@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 export function database_reference_create(transaction, reference, document_data) {
@@ -8,4 +9,5 @@ export function database_reference_create(transaction, reference, document_data)
     ]);
     let v = transaction.create(reference, document_data);
     return v;
+    metadata([]);
 }

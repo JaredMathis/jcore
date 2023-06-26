@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { integer_value_0 } from '../integer/value/0.mjs';
 import { list_is } from './is.mjs';
 import { assert } from '../assert.mjs';
@@ -17,4 +18,5 @@ export function list_set(list, index, value) {
     assert(v_2);
     list[index] = value;
     return list;
+    metadata([]);
 }

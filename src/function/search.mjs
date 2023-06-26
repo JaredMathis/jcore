@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { identity } from '../identity.mjs';
 import { function_search_generic } from './search/generic.mjs';
 import { search_query_map_default } from '../search/query/map/default.mjs';
@@ -11,4 +12,5 @@ export async function function_search(query) {
     let candidate_mapper = identity;
     let v = await function_search_generic(query, query_map, candidate_mapped_matches, identity);
     return v;
+    metadata([]);
 }

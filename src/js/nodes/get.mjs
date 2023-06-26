@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { js_nodes_each } from './each.mjs';
 import { list_adder } from '../../list/adder.mjs';
 export function js_nodes_get(parsed, predicate) {
@@ -6,4 +7,5 @@ export function js_nodes_get(parsed, predicate) {
     };
     let v = list_adder(v_3);
     return v;
+    metadata([]);
 }

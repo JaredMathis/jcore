@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { refactor_variable_set } from '../../refactor/variable/set.mjs';
 import { function_name_get } from '../name/get.mjs';
@@ -17,4 +18,5 @@ export async function function_variable_set(function_name, identifier, value) {
         value
     };
     await function_map_with_args(v, function_name, v_2);
+    metadata([]);
 }

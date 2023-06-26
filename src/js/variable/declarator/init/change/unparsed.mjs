@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { js_variable_declarator_init_change } from '../change.mjs';
@@ -9,4 +10,5 @@ export function js_variable_declarator_init_change_unparsed(declaration, value) 
     ]);
     const value_parsed = js_parse_expression(value);
     js_variable_declarator_init_change(declaration, value_parsed);
+    metadata([]);
 }

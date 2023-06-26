@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { list_single } from '../../../list/single.mjs';
 import { js_call_expression_name_get } from '../expression/name/get.mjs';
 import { js_visit_call_statements } from '../../visit/call/statements.mjs';
@@ -26,4 +27,5 @@ export function js_call_statement_name(function_name_find_statements_last) {
     let function_name_find_statements_last_names = list_adder(v_5);
     let function_name_find_statements_last_name = list_single(function_name_find_statements_last_names);
     return function_name_find_statements_last_name;
+    metadata([]);
 }

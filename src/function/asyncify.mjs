@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { refactor_asyncify } from '../refactor/asyncify.mjs';
 import { function_copy } from './copy.mjs';
 import { function_naming_suffix_asynk } from './naming/suffix/asynk.mjs';
@@ -13,4 +14,5 @@ export async function function_asyncify(function_name) {
     await function_copy(function_name, function_name_new);
     let v_2 = function_name_get(refactor_asyncify);
     await function_map(v_2, function_name_new);
+    metadata([]);
 }

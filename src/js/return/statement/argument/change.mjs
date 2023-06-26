@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { js_node_property_argument } from '../../../node/property/argument.mjs';
 import { js_node_is_return_statement } from '../../../node/is/return/statement.mjs';
 import { assert } from '../../../../assert.mjs';
@@ -14,4 +15,5 @@ export function js_return_statement_argument_change(object, value) {
     let v_2 = js_node_property_argument();
     let arg = object_property_change(object, v_2, value);
     return arg;
+    metadata([]);
 }

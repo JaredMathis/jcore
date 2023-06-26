@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { string_split } from '../../../../string/split.mjs';
 import { js_identifier_sub_is } from '../is.mjs';
 import { list_all } from '../../../../list/all.mjs';
@@ -13,4 +14,5 @@ export function js_identifier_sub_multiple_parse(values, separator) {
     let v = list_all(result, js_identifier_sub_is);
     assert(v);
     return result;
+    metadata([]);
 }

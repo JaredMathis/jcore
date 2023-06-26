@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { object_map_generic } from './generic.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { list_is } from '../../list/is.mjs';
@@ -14,4 +15,5 @@ export function object_map_without(object, values_without) {
     };
     let v = object_map_generic(object, lambda);
     return v;
+    metadata([]);
 }

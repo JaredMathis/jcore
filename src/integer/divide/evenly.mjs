@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { integer_zero_not_is } from '../zero/not/is.mjs';
 import { integer_is } from '../is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -13,4 +14,5 @@ export function integer_divide_evenly(a, b) {
     let v_2 = integer_is(result);
     assert(v_2);
     return result;
+    metadata([]);
 }

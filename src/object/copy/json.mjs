@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { json_to_minimized } from '../../json/to/minimized.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { defined_is } from '../../defined/is.mjs';
@@ -7,4 +8,5 @@ export function object_copy_json(value) {
     let json = json_to_minimized(value);
     let copy = json_from(json);
     return copy;
+    metadata([]);
 }

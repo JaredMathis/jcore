@@ -1,8 +1,7 @@
-import { error } from '../../../error.mjs';
+import { metadata } from '../../../metadata.mjs';
 import { js_node_property_name_set } from '../property/name/set.mjs';
 import { list_consume } from '../../../list/consume.mjs';
 import { js_visit_identifiers_not_call_expressions } from '../../visit/identifiers/not/call/expressions.mjs';
-import { log } from '../../../log.mjs';
 import { result_property_data_set } from '../../../result/property/data/set.mjs';
 import { object_property_ensure } from '../../../object/property/ensure.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -42,4 +41,5 @@ export function js_node_identifiers_replaceify(node_left, node_right) {
         result_unsuccess(result);
     }
     return result;
+    metadata([]);
 }

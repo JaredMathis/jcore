@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_single_item } from '../../list/single/item.mjs';
 import { list_replace } from '../../list/replace.mjs';
 import { function_wrap_generic_identifier_result } from './generic/identifier/result.mjs';
@@ -36,4 +37,5 @@ export async function function_wrap_with(function_name_to_wrap, function_name_to
         list_replace(statements_code, statements_code_new);
     };
     await function_wrap_generic(function_name_to_wrap, function_name_to_add, v_2);
+    metadata([]);
 }

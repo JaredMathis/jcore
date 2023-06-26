@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { equal } from '../../../../equal.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -17,4 +18,5 @@ export async function function_inputs_index_of_string(function_name, input_name)
     let index = list_find_index(inputs, v_3);
     let index_string = string_to(index);
     return index_string;
+    metadata([]);
 }

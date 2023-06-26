@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { list_single_item } from '../../../../list/single/item.mjs';
@@ -12,4 +13,5 @@ export async function function_add_with_statement_code(function_name, statement_
     let v = list_single_item(statement);
     let v_2 = await function_add_with_statements(function_name, v);
     return v_2;
+    metadata([]);
 }

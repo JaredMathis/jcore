@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { function_delete } from '../delete.mjs';
 import { js_identifier_is } from '../../js/identifier/is.mjs';
 import { function_wrap } from '../wrap.mjs';
@@ -10,4 +11,5 @@ export async function function_wrap_replace(function_name_to_wrap, function_name
     await function_delete(function_name_to_add);
     let result = await function_wrap(function_name_to_wrap, function_name_to_add);
     return result;
+    metadata([]);
 }

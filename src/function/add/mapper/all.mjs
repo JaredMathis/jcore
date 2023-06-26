@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_brace_left_right } from '../../../js/brace/left/right.mjs';
 import { function_names_each_map_args } from '../../names/each/map/args.mjs';
 import { js_keyword_function } from '../../../js/keyword/function.mjs';
@@ -21,4 +22,5 @@ export async function function_add_mapper_all(function_name_suffix) {
     }
     const prefix_function = `${ refactor_prefix() }${ function_name_separator() }${ js_keyword_function() }s`;
     await function_add_mapper_generic(prefix_function, function_name_suffix, function_name_to_call, expression_code_args_get, noop);
+    metadata([]);
 }

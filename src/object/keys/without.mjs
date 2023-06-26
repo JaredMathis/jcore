@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { equal_not } from '../../equal/not.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -16,4 +17,5 @@ export function object_keys_without(value, excluded) {
     };
     let filtered = list_filter(all, v_4);
     return filtered;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { refactor_call_expressions_replace } from '../../refactor/call/expressions/replace.mjs';
 import { function_map_with_args } from '../map/with/args.mjs';
 import { function_name_get } from '../name/get.mjs';
@@ -15,4 +16,5 @@ export async function function_call_replace(function_name, function_name_called_
         function_name_called_new
     };
     await function_map_with_args(v, function_name, v_2);
+    metadata([]);
 }

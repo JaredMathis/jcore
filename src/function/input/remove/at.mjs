@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { integer_parse } from '../../../integer/parse.mjs';
 import { function_map_with_args } from '../../map/with/args.mjs';
 import { function_name_get } from '../../name/get.mjs';
@@ -13,4 +14,5 @@ export async function function_input_remove_at(function_name, index_string) {
     let v = function_name_get(refactor_input_remove_at);
     let v_2 = { input_index };
     await function_map_with_args(v, function_name, v_2);
+    metadata([]);
 }

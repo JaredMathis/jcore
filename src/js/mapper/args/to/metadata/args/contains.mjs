@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../metadata.mjs';
 import { function_name_get } from '../../../../../../function/name/get.mjs';
 import { list_contains } from '../../../../../../list/contains.mjs';
 import { js_call_expression_name_get_or_null } from '../../../../../call/expression/name/get/or/null.mjs';
@@ -12,4 +13,5 @@ export async function js_mapper_args_to_metadata_args_contains(args, metadata_fn
     let v = function_name_get(metadata_fn);
     const lc = list_contains(mapped, v);
     return lc;
+    metadata([]);
 }

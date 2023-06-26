@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_add_at } from './at.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -10,4 +11,5 @@ export function list_add_before(list, element_to_add, element_before) {
     ]);
     let before_index = list_index_of(list, element_before);
     list_add_at(list, element_to_add, before_index);
+    metadata([]);
 }

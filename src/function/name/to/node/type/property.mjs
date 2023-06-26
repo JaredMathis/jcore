@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { function_name_to_node_type_all } from './all.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { js_identifier_is } from '../../../../../js/identifier/is.mjs';
@@ -19,4 +20,5 @@ export async function function_name_to_node_type_property(function_name, node_ty
     let values = list_map(filtered, v);
     let unique = list_unique(values);
     return unique;
+    metadata([]);
 }

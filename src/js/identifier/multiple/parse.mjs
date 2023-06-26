@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { string_split_comma } from '../../../string/split/comma.mjs';
 import { list_all } from '../../../list/all.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -10,4 +11,5 @@ export function js_identifier_multiple_parse(values) {
     let v = list_all(result, js_identifier_is);
     assert(v);
     return result;
+    metadata([]);
 }

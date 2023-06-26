@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { list_empty_not } from '../../empty/not.mjs';
@@ -16,4 +17,5 @@ export function list_remove_until_empty(remaining, removals_get) {
         assert(v);
         list_remove_multiple(remaining, removals);
     }
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { function_add_with_statement_synchronized } from '../../statement/synchronized.mjs';
@@ -15,4 +16,5 @@ export async function function_add_with_call_expression_synchronized(function_na
     let statement_code = js_code_statement(awaited);
     let is_async = true;
     await function_add_with_statement_synchronized(statement_code, function_name, is_async);
+    metadata([]);
 }

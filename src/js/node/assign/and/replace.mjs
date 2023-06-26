@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { list_add_before } from '../../../../list/add/before.mjs';
@@ -51,4 +52,5 @@ export function js_node_assign_and_replace(parsed, expression_to_replace, ancest
     } else {
         list_add_before(ancestor_list, assignment, add_assignment_before_node);
     }
+    metadata([]);
 }

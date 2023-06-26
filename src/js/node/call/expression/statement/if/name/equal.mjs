@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../../metadata.mjs';
 import { js_statement_expression_to_expression } from '../../../../../../statement/expression/to/expression.mjs';
 import { function_is } from '../../../../../../../function/is.mjs';
 import { defined_is } from '../../../../../../../defined/is.mjs';
@@ -16,4 +17,5 @@ export function js_node_call_expression_statement_if_name_equal(statement, name_
         let expression = js_statement_expression_to_expression(statement);
         js_node_call_expression_if_name_equal(expression, name_expected, on_name_equal);
     }
+    metadata([]);
 }

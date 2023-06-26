@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { function_dependencies_names_arguments_assert } from '../dependencies/names/arguments/assert.mjs';
 import { js_code_function_declaration_to_statement_assignment_wrapped } from '../../js/code/function/declaration/to/statement/assignment/wrapped.mjs';
 import { function_wrap_generic_identifier_result } from './generic/identifier/result.mjs';
@@ -59,4 +60,5 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     };
     await list_each_with_index_async(inputs, v_3);
     await function_open_vs_code(function_name_to_add);
+    metadata([]);
 }

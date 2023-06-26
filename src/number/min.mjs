@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 export function number_min(a, b) {
@@ -7,4 +8,5 @@ export function number_min(a, b) {
     ]);
     let v = Math.min(a, b);
     return v;
+    metadata([]);
 }

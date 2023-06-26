@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { js_identifier_is } from '../../js/identifier/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_map } from '../../list/map.mjs';
@@ -13,4 +14,5 @@ export async function function_dependencies_names(function_name) {
     };
     let dependencies_names = list_map(dependencies, v_3);
     return dependencies_names;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { refactor_input_swap } from '../../refactor/input/swap.mjs';
 import { function_name_get } from '../name/get.mjs';
 import { function_map_with_args } from '../map/with/args.mjs';
@@ -15,4 +16,5 @@ export async function function_input_swap(function_name, index_from, index_to) {
         index_to
     };
     await function_map_with_args(v, function_name, v_2);
+    metadata([]);
 }

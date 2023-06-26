@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { equal_not } from '../../../equal/not.mjs';
 import { list_set } from '../../../list/set.mjs';
 import { list_index_of_single } from '../../../list/index/of/single.mjs';
@@ -17,4 +18,5 @@ export async function function_rename_all_part(part_old, part_new) {
         let index = list_index_of_single(parts, part_old);
         list_set(parts, index, part_new);
     }
+    metadata([]);
 }

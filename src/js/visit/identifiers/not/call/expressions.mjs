@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { and } from '../../../../../and.mjs';
 import { js_visit_identifiers } from '../../../identifiers.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
@@ -21,4 +22,5 @@ export function js_visit_identifiers_not_call_expressions(node, lambda) {
         let {node} = v;
         lambda(node);
     }
+    metadata([]);
 }

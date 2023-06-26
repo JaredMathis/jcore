@@ -1,3 +1,4 @@
+import { metadata } from './metadata.mjs';
 import { integer_value_0 } from './integer/value/0.mjs';
 import { function_is } from './function/is.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
@@ -9,4 +10,5 @@ export function count(then) {
         result++;
     }
     return result;
+    metadata([]);
 }

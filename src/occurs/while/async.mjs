@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { occurs_async } from '../async.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -7,4 +8,5 @@ export async function occurs_while_async(lambda) {
     do {
         result = await occurs_async(lambda);
     } while (result);
+    metadata([]);
 }

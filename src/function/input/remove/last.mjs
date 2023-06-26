@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { refactor_input_last_remove } from '../../../refactor/input/last/remove.mjs';
 import { function_name_get } from '../../name/get.mjs';
 import { function_map_with_args } from '../../map/with/args.mjs';
@@ -8,4 +9,5 @@ export async function function_input_remove_last(function_name) {
     let v = function_name_get(refactor_input_last_remove);
     let v_2 = {};
     await function_map_with_args(v, function_name, v_2);
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { string_combine } from '../../string/combine.mjs';
 import { object_property_initialize } from '../../object/property/initialize.mjs';
 import { function_name_without_prefix } from '../../function/name/without/prefix.mjs';
@@ -15,4 +16,5 @@ export function list_multiple_summary(lists) {
     };
     object_keys_each(lists, v_3);
     return result;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { object_replace } from '../../object/replace.mjs';
 import { js_await_expression_argument_change } from '../await/expression/argument/change.mjs';
 import { object_copy_shallow } from '../../object/copy/shallow.mjs';
@@ -11,4 +12,5 @@ export function js_expression_awaitify(node) {
     let result = object_copy_shallow(node);
     js_await_expression_argument_change(awaited, result);
     object_replace(node, awaited);
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { list_map_async } from '../../../list/map/async.mjs';
 import { function_add_string } from '../string.mjs';
 import { js_identifier_multiple_parse } from '../../../js/identifier/multiple/parse.mjs';
@@ -32,4 +33,5 @@ export async function function_add_string_multiple(prefix, keys_unparsed, values
     };
     let result = await list_map_async(v_2, v_6);
     return result;
+    metadata([]);
 }

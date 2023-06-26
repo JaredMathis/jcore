@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { list_is } from '../../../is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { list_get } from '../../../get.mjs';
@@ -15,4 +16,5 @@ export async function list_each_with_index_async(list, lambda) {
         let element = list_get(list, index);
         await lambda(element, index);
     }
+    metadata([]);
 }

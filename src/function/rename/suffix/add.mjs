@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { function_rename_single } from '../single.mjs';
 import { js_identifier_sub_is } from '../../../js/identifier/sub/is.mjs';
 import { js_identifier_is } from '../../../js/identifier/is.mjs';
@@ -17,4 +18,5 @@ export async function function_rename_suffix_add(function_name_old, suffix) {
     let function_name_new = list_join(v_3, v);
     let v_2 = await function_rename_single(function_name_old, function_name_new);
     return v_2;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_identifiers } from '../../../../js/identifiers.mjs';
@@ -11,4 +12,5 @@ export async function file_js_all_identifiers_each(lambda) {
         let identifiers = js_identifiers(parsed);
         lambda(identifiers, file_path);
     }
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { not } from '../../../../not.mjs';
 import { object_property_exists } from '../../../../object/property/exists.mjs';
 import { tautology } from '../../../../tautology.mjs';
@@ -46,4 +47,5 @@ export async function function_arguments_assert_default_generic(on_equals) {
             return v_3;
         }
     }
+    metadata([]);
 }

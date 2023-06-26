@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { list_is } from '../../../list/is.mjs';
 import { json_equal } from '../../equal.mjs';
@@ -13,4 +14,5 @@ export function json_equal_keys_without(a, b, values_without) {
     let filtered_b = object_map_without(b, values_without);
     let v = json_equal(filtered_a, filtered_b);
     return v;
+    metadata([]);
 }

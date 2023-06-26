@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { function_auto_no_add } from '../../../auto/no/add.mjs';
 import { function_map_multiple } from '../../../map/multiple.mjs';
 import { refactor_metadata_generated_add_function } from '../../../../refactor/metadata/generated/add/function.mjs';
@@ -78,4 +79,5 @@ export async function function_tests_generate_generic_each(function_name, test_n
     let names = list_map(refactors, function_name_get);
     await function_map_multiple(names, test_name);
     await function_auto_no_add(test_name);
+    metadata([]);
 }

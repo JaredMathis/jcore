@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { js_identifier_parts_from } from '../parts/from.mjs';
@@ -14,4 +15,5 @@ export function js_identifier_suffix_remove(before, suffix) {
     list_remove_last_verify_multiple(before_parts, suffix_parts);
     let after = js_identifier_parts_from(before_parts);
     return after;
+    metadata([]);
 }

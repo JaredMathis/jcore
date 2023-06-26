@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { js_identifier_multiple_parse } from '../../../../js/identifier/multiple/parse.mjs';
 import { function_add_string_prefix } from '../prefix.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -12,4 +13,5 @@ export function function_add_string_multiple_prefix(prefix, values) {
     for (let value of split) {
         function_add_string_prefix(prefix, value);
     }
+    metadata([]);
 }

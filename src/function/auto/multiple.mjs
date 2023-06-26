@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_empty_not } from '../../list/empty/not.mjs';
 import { js_identifier_multiple_parse } from '../../js/identifier/multiple/parse.mjs';
 import { function_auto } from '../auto.mjs';
@@ -12,4 +13,5 @@ export async function function_auto_multiple(function_names_string) {
     for (let f of function_names) {
         await function_auto(f);
     }
+    metadata([]);
 }

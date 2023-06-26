@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { file_overwrite_if_changed } from '../../../../../file/overwrite/if/changed.mjs';
 import { git_ignore_lines } from '../../../lines.mjs';
 import { git_ignore_path } from '../../../path.mjs';
@@ -20,4 +21,5 @@ export async function git_ignore_add_if_not_exists(gitignore_line_to_add) {
     let v = string_new_line();
     let gitignore_contents_new = list_join(mapped, v);
     await file_overwrite_if_changed(gitignore_file_path, gitignore_contents_new, gitignore_contents_old);
+    metadata([]);
 }

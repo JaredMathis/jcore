@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { integer_value_0 } from '../../../integer/value/0.mjs';
 import { not } from '../../../not.mjs';
 import { directory_all_empty_count } from './count.mjs';
@@ -24,4 +25,5 @@ export async function directory_all_empty_delete() {
     let v_6 = integer_value_0();
     let v_2 = equal(v_3, v_6);
     assert(v_2);
+    metadata([]);
 }

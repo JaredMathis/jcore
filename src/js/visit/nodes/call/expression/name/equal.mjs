@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../metadata.mjs';
 import { js_nodes_each } from '../../../../../nodes/each.mjs';
 import { arguments_assert_todo } from '../../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
@@ -13,4 +14,5 @@ export function js_visit_nodes_call_expression_name_equal(parsed, name_expected,
         return v_2;
     };
     js_nodes_each(parsed, v_3, lambda);
+    metadata([]);
 }

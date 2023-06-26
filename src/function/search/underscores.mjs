@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { function_search_delimeter } from './delimeter.mjs';
 import { function_name_separator } from '../name/separator.mjs';
 import { string_is } from '../../string/is.mjs';
@@ -11,4 +12,5 @@ export async function function_search_underscores(query) {
     let replaced = string_replace(query, underscore, v);
     let result = await function_search(replaced);
     return result;
+    metadata([]);
 }

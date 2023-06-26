@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_identifier_prefix_property } from '../../../js/identifier/prefix/property.mjs';
 import { function_input_named_value } from '../../input/named/value.mjs';
 import { js_code_identifier_value } from '../../../js/code/identifier/value.mjs';
@@ -41,4 +42,5 @@ export async function function_add_property_generic(property_prefix, property_na
         await function_input_named_value(function_name);
     }
     return result;
+    metadata([]);
 }

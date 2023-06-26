@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { integer_is } from '../../../integer/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
@@ -20,4 +21,5 @@ export async function function_input_add_generic(function_name, input_name, inpu
         input_index
     };
     await function_map_with_args(v, function_name, v_2);
+    metadata([]);
 }

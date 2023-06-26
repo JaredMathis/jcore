@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { not } from '../../not.mjs';
 import { boolean_is } from '../../boolean/is.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
@@ -45,4 +46,5 @@ export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge, n
         let data = external_octokit_property_data(issues);
         return data;
     }
+    metadata([]);
 }

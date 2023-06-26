@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { function_exists } from '../../../../exists.mjs';
 import { js_identifier_combine } from '../../../../../js/identifier/combine.mjs';
 import { string_case_snake_to_camel } from '../../../../../string/case/snake/to/camel.mjs';
@@ -49,4 +50,5 @@ export async function function_add_js_node_type_snake(snake) {
     ];
     let v_8 = list_filter(v_7, null_not_is);
     return v_8;
+    metadata([]);
 }

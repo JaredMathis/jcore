@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { not } from '../../not.mjs';
 import { initializeApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
@@ -11,4 +12,5 @@ export function database_firestore_get() {
     }
     const db = getFirestore();
     return db;
+    metadata([]);
 }

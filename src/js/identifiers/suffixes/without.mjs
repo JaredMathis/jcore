@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { function_name_separator_prepend } from '../../../function/name/separator/prepend.mjs';
 import { list_string_suffix_without_multiple } from '../../../list/string/suffix/without/multiple.mjs';
 import { list_map } from '../../../list/map.mjs';
@@ -11,4 +12,5 @@ export function js_identifiers_suffixes_without(suffixes, identifier_names) {
     let mapped = list_map(suffixes, function_name_separator_prepend);
     let v = list_string_suffix_without_multiple(identifier_names, mapped);
     return v;
+    metadata([]);
 }

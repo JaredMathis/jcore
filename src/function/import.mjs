@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { not } from '../not.mjs';
 import { log_multiple } from '../log/multiple.mjs';
 import { function_name_list_to_file_path } from './name/list/to/file/path.mjs';
@@ -45,4 +46,5 @@ export async function function_import(import_meta, function_name) {
     };
     let imported = await try_catch_throw_async(v_6, v_7);
     return imported;
+    metadata([]);
 }

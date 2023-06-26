@@ -20,4 +20,5 @@ export function js_identifier_rename(args, identifier_name_old, identifier_name_
     function name_new_get(name) {
         return identifier_name_new;
     }
+    metadata([]);
 }

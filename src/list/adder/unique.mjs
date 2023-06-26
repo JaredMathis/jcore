@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_add_if_not_exists } from '../add/if/not/exists.mjs';
 import { list_adder_generic } from './generic.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
@@ -7,4 +8,5 @@ export function list_adder_unique(then) {
     let lambda = list_add_if_not_exists;
     let v = list_adder_generic(then, lambda);
     return v;
+    metadata([]);
 }

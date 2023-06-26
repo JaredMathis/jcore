@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_code_statement } from '../statement.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -12,4 +13,5 @@ export function js_code_statement_assignment(identifier, value) {
     let v = `${ keyword_let } ${ identifier } ${ js_token_equal() } ${ value }`;
     let statement = js_code_statement(v);
     return statement;
+    metadata([]);
 }

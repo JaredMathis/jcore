@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../../metadata.mjs';
 import { js_node_is_function_declaration } from '../../../../../../node/is/function/declaration.mjs';
 import { js_node_property_arguments } from '../../../../../../node/property/arguments.mjs';
 import { object_property_get } from '../../../../../../../object/property/get.mjs';
@@ -12,4 +13,5 @@ export async function js_mapper_args_to_statement_arguments_assert_args(function
     let v = js_node_property_arguments();
     const arguments_assert_args = object_property_get(arguments_assert_call_expression, v);
     return arguments_assert_args;
+    metadata([]);
 }

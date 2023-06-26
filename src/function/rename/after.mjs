@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { tests_generate } from '../../tests/generate.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -9,4 +10,5 @@ export async function function_rename_after(file_paths_changed) {
     let v = function_name_get(refactor_import_fix);
     await file_js_multiple_map(v, file_paths_changed);
     await tests_generate();
+    metadata([]);
 }

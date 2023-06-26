@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_suffix_get } from '../../../js/suffix/get.mjs';
 import { function_add_property_generic } from './generic.mjs';
 import { js_code_call_expression_object_property_get } from '../../../js/code/call/expression/object/property/get.mjs';
@@ -16,4 +17,5 @@ export async function function_add_property_get(property_prefix, property_name) 
     let v_2 = false;
     let v = await function_add_property_generic(property_prefix, property_name, lambda, method, v_2);
     return v;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { integer_value_2 } from '../../../../../integer/value/2.mjs';
 import { list_swap_last_2 } from '../../../../../list/swap/last/2.mjs';
 import { function_rename_single } from '../../../single.mjs';
@@ -16,4 +17,5 @@ export async function function_rename_parts_swap_last_2(function_name_old) {
     };
     let function_name_new = js_identifier_parts_map(function_name_old, v_2);
     await function_rename_single(function_name_old, function_name_new);
+    metadata([]);
 }

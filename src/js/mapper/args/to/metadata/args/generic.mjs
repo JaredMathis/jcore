@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../metadata.mjs';
 import { js_statement_metadata_args_get } from '../../../../../statement/metadata/args/get.mjs';
 import { refactor_metadata_missing_add } from '../../../../../../refactor/metadata/missing/add.mjs';
 import { js_statement_metadata_is } from '../../../../../statement/metadata/is.mjs';
@@ -31,4 +32,5 @@ export async function js_mapper_args_to_metadata_args_generic(args, add_missing)
     let last_statement2 = list_last(statements2);
     let metadata_args = js_statement_metadata_args_get(last_statement2);
     return metadata_args;
+    metadata([]);
 }

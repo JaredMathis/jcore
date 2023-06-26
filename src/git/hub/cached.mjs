@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { file_json_write } from '../../file/json/write.mjs';
 import { file_json_read } from '../../file/json/read.mjs';
 import { file_exists } from '../../file/exists.mjs';
@@ -24,4 +25,5 @@ export async function git_hub_cached(fn, args, lambda) {
     let issues = await lambda();
     await file_json_write(file_path, issues);
     return issues;
+    metadata([]);
 }

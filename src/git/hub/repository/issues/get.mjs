@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { integer_is } from '../../../../integer/is.mjs';
 import { boolean_is } from '../../../../boolean/is.mjs';
 import { git_hub_repository_issues_generic } from './generic.mjs';
@@ -19,4 +20,5 @@ export async function git_hub_repository_issues_get(api_args_to_merge, no_cache,
     object_merge(v_2, api_args_to_merge);
     let v = await git_hub_repository_issues_generic(git_hub_repository_issues_get, arguments, api_args_to_merge, verb, no_cache);
     return v;
+    metadata([]);
 }

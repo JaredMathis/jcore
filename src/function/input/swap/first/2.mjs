@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { refactor_input_swap_first_2 } from '../../../../refactor/input/swap/first/2.mjs';
 import { function_name_get } from '../../../name/get.mjs';
 import { function_map_with_args } from '../../../map/with/args.mjs';
@@ -8,4 +9,5 @@ export async function function_input_swap_first_2(function_name) {
     let v = function_name_get(refactor_input_swap_first_2);
     let v_2 = {};
     await function_map_with_args(v, function_name, v_2);
+    metadata([]);
 }

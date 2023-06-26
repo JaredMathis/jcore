@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { or } from '../../../or.mjs';
 import { js_node_is_for_of_statement } from '../../node/is/for/of/statement.mjs';
 import { js_node_property_body_get } from '../../node/property/body/get.mjs';
@@ -182,4 +183,5 @@ export function js_visit_call_statements(args, call_each) {
         }
     };
     js_visit_nodes_filter(parsed, v_20, v_21);
+    metadata([]);
 }

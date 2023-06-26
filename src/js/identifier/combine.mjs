@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { js_identifier_first_not_is } from './first/not/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { string_combine_multiple } from '../../string/combine/multiple.mjs';
@@ -15,4 +16,5 @@ export function js_identifier_combine(first, second) {
     ];
     let result = string_combine_multiple(strings);
     return result;
+    metadata([]);
 }

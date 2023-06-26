@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { number_is } from '../../number/is.mjs';
 import { assert } from '../../assert.mjs';
@@ -26,4 +27,5 @@ export function list_compare_generic(list, value_get, compare) {
         }
     }
     return result;
+    metadata([]);
 }

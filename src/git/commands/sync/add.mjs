@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { list_add } from '../../../list/add.mjs';
@@ -9,4 +10,5 @@ export function git_commands_sync_add(commands) {
     list_add_beginning(commands, v);
     let v_2 = `${ git_command_name() } push`;
     list_add(commands, v_2);
+    metadata([]);
 }

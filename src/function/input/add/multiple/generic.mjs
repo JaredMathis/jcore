@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { list_map } from '../../../../list/map.mjs';
 import { js_identifier_multiple_parse } from '../../../../js/identifier/multiple/parse.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
@@ -14,4 +15,5 @@ export async function function_input_add_multiple_generic(function_name, inputs_
     for (let m of mapped) {
         await function_input_add(function_name, m);
     }
+    metadata([]);
 }

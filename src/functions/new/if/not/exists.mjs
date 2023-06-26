@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { function_exists } from '../../../../function/exists.mjs';
@@ -14,4 +15,5 @@ export async function functions_new_if_not_exists(lambda_function_new_get, lambd
             await lambda_function_new(n);
         }
     }
+    metadata([]);
 }

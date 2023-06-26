@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { count_async } from '../../../../count/async.mjs';
 import { function_arguments_assert_default_generic } from './generic.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -12,4 +13,5 @@ export async function function_arguments_assert_default_count() {
     };
     let result = await count_async(v_2);
     return result;
+    metadata([]);
 }

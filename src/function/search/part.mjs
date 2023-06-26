@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { function_search_part_generic } from './part/generic.mjs';
 import { list_contains } from '../../list/contains.mjs';
 import { string_is } from '../../string/is.mjs';
@@ -7,4 +8,5 @@ export async function function_search_part(query) {
     let candidate_mapped_matches = list_contains;
     let v = function_search_part_generic(query, candidate_mapped_matches);
     return v;
+    metadata([]);
 }

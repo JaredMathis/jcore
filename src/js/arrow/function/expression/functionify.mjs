@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { js_function_declaration_named } from '../../../function/declaration/named.mjs';
 import { js_function_declaration_asyncify } from '../../../function/declaration/asyncify.mjs';
 import { js_node_property_async_get } from '../../../node/property/async/get.mjs';
@@ -45,4 +46,5 @@ export function js_arrow_function_expression_functionify(node, name) {
     let v_4 = js_node_property_params();
     object_property_change(function_expression, v_4, args);
     object_replace(node, function_expression);
+    metadata([]);
 }

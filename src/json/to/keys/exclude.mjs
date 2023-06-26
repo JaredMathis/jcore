@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { not } from '../../../not.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { list_is } from '../../../list/is.mjs';
@@ -16,4 +17,5 @@ export function json_to_keys_exclude(value, excluded) {
     };
     let v_5 = {};
     object_merge_filtered(value, v_4, v_5);
+    metadata([]);
 }

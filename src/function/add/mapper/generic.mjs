@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { function_open_vs_code } from '../../open/vs/code.mjs';
@@ -50,4 +51,5 @@ export async function function_add_mapper_generic(prefix, function_name_suffix, 
     await function_add_with_call_expression_synchronized(function_name_function, function_name_to_call, expression_code_args);
     await add_after(function_name_function);
     await function_open_vs_code(function_name_function);
+    metadata([]);
 }

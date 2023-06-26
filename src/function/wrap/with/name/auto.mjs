@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { js_identifier_is } from '../../../../js/identifier/is.mjs';
 import { function_wrap_with } from '../../with.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -16,4 +17,5 @@ export async function function_wrap_with_name_auto(function_name_to_wrap, functi
     let function_name_to_add = list_join(v_2, v);
     let result = await function_wrap_with(function_name_to_wrap, function_name_to_add, function_name_map);
     return result;
+    metadata([]);
 }

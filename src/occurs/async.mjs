@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { function_is } from '../function/is.mjs';
 export async function occurs_async(lambda) {
@@ -8,4 +9,5 @@ export async function occurs_async(lambda) {
     };
     await lambda(v_2);
     return result;
+    metadata([]);
 }

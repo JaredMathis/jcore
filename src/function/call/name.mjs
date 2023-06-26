@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { js_identifier_is } from '../../js/identifier/is.mjs';
 import { refactor_first_call_name } from '../../refactor/first/call/name.mjs';
@@ -12,4 +13,5 @@ export async function function_call_name(function_name, name_new) {
     let v = function_name_get(refactor_first_call_name);
     let v_2 = { name_new };
     await function_map_with_args(v, function_name, v_2);
+    metadata([]);
 }

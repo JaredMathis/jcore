@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../../../metadata.mjs';
 import { integer_value_1 } from '../../../../../../../../integer/value/1.mjs';
 import { js_node_is_function_declaration } from '../../../../../../../node/is/function/declaration.mjs';
 import { js_node_property_elements } from '../../../../../../../node/property/elements.mjs';
@@ -13,4 +14,5 @@ export async function js_function_declaration_to_statement_arguments_assert_args
     let v = js_node_property_elements();
     let args = object_property_get(array_expression, v);
     return args;
+    metadata([]);
 }

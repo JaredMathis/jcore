@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { js_identifier_parts_from_combine } from '../../../../../js/identifier/parts/from/combine.mjs';
 export function function_name_from_parts_and_prefix(prefix, function_name_suffix_parts) {
     const list_with_multiple_lists = [
@@ -6,4 +7,5 @@ export function function_name_from_parts_and_prefix(prefix, function_name_suffix
     ];
     let function_name_refactor = js_identifier_parts_from_combine(list_with_multiple_lists);
     return function_name_refactor;
+    metadata([]);
 }

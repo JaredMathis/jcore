@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { js_node_is_await_expression } from '../../../node/is/await/expression.mjs';
 import { js_node_property_argument } from '../../../node/property/argument.mjs';
 import { object_property_change } from '../../../../object/property/change.mjs';
@@ -14,4 +15,5 @@ export function js_await_expression_argument_change(object, value) {
     let v_2 = js_node_property_argument();
     let arg = object_property_change(object, v_2, value);
     return arg;
+    metadata([]);
 }

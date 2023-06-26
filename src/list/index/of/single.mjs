@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { list_index_of } from '../of.mjs';
 import { list_length_is_1 } from '../../length/is/1.mjs';
 import { assert } from '../../../assert.mjs';
@@ -13,4 +14,5 @@ export function list_index_of_single(parts, part) {
     assert(v);
     let index = list_index_of(parts, part);
     return index;
+    metadata([]);
 }

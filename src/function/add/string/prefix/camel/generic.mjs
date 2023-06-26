@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { boolean_is } from '../../../../../boolean/is.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
@@ -12,4 +13,5 @@ export async function function_add_string_prefix_camel_generic(prefix, camel_cas
     let snake = string_case_camel_to_snake(camel_cased);
     let v = await function_add_string_prefix_generic(prefix, snake, camel_cased, only_if_needed);
     return v;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { path_join } from '../../../path/join.mjs';
 import { list_map } from '../../../list/map.mjs';
 import fs from 'fs';
@@ -13,4 +14,5 @@ export async function directory_read_non_recursive(dir) {
     };
     let file_paths = list_map(files, v_3);
     return file_paths;
+    metadata([]);
 }

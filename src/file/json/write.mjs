@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { not } from '../../not.mjs';
 import { file_json_overwrite } from './overwrite.mjs';
 import { file_exists } from '../exists.mjs';
@@ -7,4 +8,5 @@ export async function file_json_write(file_path, object_not_json) {
     let v = not(v_2);
     assert(v);
     await file_json_overwrite(file_path, object_not_json);
+    metadata([]);
 }

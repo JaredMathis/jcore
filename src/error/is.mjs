@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { and } from '../and.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { defined_is } from '../defined/is.mjs';
@@ -8,4 +9,5 @@ export function error_is(e) {
     let v_2 = e.message;
     let v_3 = and(v, v_2);
     return v_3;
+    metadata([]);
 }

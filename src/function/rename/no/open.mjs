@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { function_rename_if_starts_with } from '../if/starts/with.mjs';
 import { function_rename_single } from '../single.mjs';
 import { function_name_get } from '../../name/get.mjs';
@@ -11,4 +12,5 @@ export async function function_rename_no_open(function_name_old, function_name_n
     assert_message(v, v_2);
     let result = await function_rename_single(function_name_old, function_name_new);
     return result;
+    metadata([]);
 }

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { not } from '../../../../../not.mjs';
 import { log } from '../../../../../log.mjs';
 import { function_callers_arguments_assert_auto_multiple_list } from './multiple/list.mjs';
@@ -21,4 +22,5 @@ export async function function_callers_arguments_assert_auto_recursive(root) {
         const v_2 = json_equal(result, result_previous);
         v = not(v_2);
     } while (v);
+    metadata([]);
 }

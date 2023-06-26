@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_node_is_program } from '../../node/is/program.mjs';
 import { list_is } from '../../../list/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -18,4 +19,5 @@ export function js_imports_remove_generic(parsed, imports_to_remove) {
     let import_statements_to_remove = list_map(imports_to_remove, v_3);
     let body = js_program_body_get(parsed);
     list_remove_multiple(body, import_statements_to_remove);
+    metadata([]);
 }

@@ -1,4 +1,4 @@
-import { and } from '../../../../../../and.mjs';
+import { metadata } from '../../../../../../metadata.mjs';
 import { integer_value_0 } from '../../../../../../integer/value/0.mjs';
 import { arguments_assert_todo } from '../../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
@@ -41,4 +41,5 @@ export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
     let ancestor_list = js_node_property_body_get(parent_list_next);
     result_property_data_set(result, ancestor_list);
     return result;
+    metadata([]);
 }

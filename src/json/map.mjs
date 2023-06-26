@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { json_to } from './to.mjs';
 import { json_from } from './from.mjs';
 export function json_map(json_before, map) {
@@ -5,4 +6,5 @@ export function json_map(json_before, map) {
     map(json_parsed);
     let json_after = json_to(json_parsed);
     return json_after;
+    metadata([]);
 }

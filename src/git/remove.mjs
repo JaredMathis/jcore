@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { not } from '../not.mjs';
 import { git_command_name } from './command/name.mjs';
 import { command_line_try } from '../command/line/try.mjs';
@@ -17,4 +18,5 @@ export async function git_remove(path) {
         let v = equal(v_5, expected);
         assert(v);
     }
+    metadata([]);
 }
