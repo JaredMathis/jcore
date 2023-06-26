@@ -39,7 +39,7 @@ export function js_visit_call_statements(args, call_each) {
     ]);
     let parsed = object_property_get(args, 'parsed');
     js_visit_nodes_filter(parsed, function v_18(n) {
-        return js_node_is_expression_statement(n) || js_node_is_variable_declaration(n) || js_node_is_return_statement(n) || js_node_is_do_while_statement(n);
+        return js_node_is_expression_statement(n) || js_node_is_variable_declaration(n) || js_node_is_return_statement(n) || js_node_is_do_while_statement(n) || js_node_is_for_of_statement(n);
     }, function v_19(v) {
         let node = object_property_get(v, 'node');
         let stack = object_property_get(v, 'stack');
