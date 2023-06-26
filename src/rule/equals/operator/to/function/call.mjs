@@ -23,7 +23,7 @@ export async function rule_equals_operator_to_function_call() {
             return;
         }
         await refactor_import_fix_if_changed(args, async changed => {
-            await js_nodes_each(parsed, js_node_is_binary_expression, async node => {
+            js_nodes_each(parsed, js_node_is_binary_expression, node => {
                 let operator = js_node_property_operator_get(node);
                 if (!equal(operator, '===')) {
                     return;
