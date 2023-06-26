@@ -13,6 +13,7 @@ import { js_node_is_await_expression } from '../../../../js/node/is/await/expres
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_node_is_identifier } from '../../../../js/node/is/identifier.mjs';
+import { js_call_expression_name_get_or_null } from '../../../../js/call/expression/name/get/or/null.mjs';
 export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let parsed = object_property_get(args, 'parsed');
@@ -24,6 +25,7 @@ export function refactor_call_arguments_to_assignments(args) {
             if (skip) {
                 return;
             }
+            console.log(js_call_expression_name_get_or_null(expression))
             let args = js_node_property_arguments_get(expression);
             for (let arg of args) {
                 let v = !js_node_is_identifier(arg);
