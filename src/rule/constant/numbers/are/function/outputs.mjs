@@ -22,6 +22,7 @@ export async function rule_constant_numbers_are_function_outputs() {
     const prefix_type = `integer`;
     let prefix = `${prefix_type}_value_`;
     let lambda_change = number_is;
+    let lambda_assert = integer_is;
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     await function_names_each_map(async function v_6(args) {
         let {parsed} = args;
