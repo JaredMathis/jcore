@@ -15,7 +15,8 @@ export function string_difference_apply_external(string_old, hunks) {
         'newFileName': '',
         'newHeader': ''
     };
-    object_merge({ hunks }, patch);
+    let v = { hunks };
+    object_merge(v, patch);
     let string_new = Diff.applyPatch(string_old, patch);
     return string_new;
     metadata([]);

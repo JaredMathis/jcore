@@ -8,7 +8,9 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export function string_remove_at_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = '';
-    let actual = string_remove_at('b', integer_value_0());
+    let v_2 = 'b';
+    let v_3 = integer_value_0();
+    let actual = string_remove_at(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

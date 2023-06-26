@@ -13,7 +13,8 @@ export function string_difference_apply_parse_test_4() {
         'operation': '-',
         'removed': integer_value_5()
     };
-    let actual = string_difference_apply_parse('123-5');
+    let v_2 = '123-5';
+    let actual = string_difference_apply_parse(v_2);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

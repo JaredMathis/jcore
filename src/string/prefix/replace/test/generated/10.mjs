@@ -7,7 +7,10 @@ import { string_prefix_replace } from '../../../replace.mjs';
 export function string_prefix_replace_test_generated_10() {
     arguments_assert(arguments, []);
     let expected = 'aaa';
-    let actual = string_prefix_replace('a', '', 'aa');
+    let v_2 = 'a';
+    let v_3 = '';
+    let v_4 = 'aa';
+    let actual = string_prefix_replace(v_2, v_3, v_4);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

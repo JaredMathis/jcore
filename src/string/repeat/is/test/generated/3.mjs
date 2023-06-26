@@ -8,7 +8,8 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export function string_repeat_is_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = boolean_value_true();
-    let actual = string_repeat_is('aa');
+    let v_2 = 'aa';
+    let actual = string_repeat_is(v_2);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

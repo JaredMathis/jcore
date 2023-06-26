@@ -7,7 +7,9 @@ import { string_difference_get_external } from '../../../external.mjs';
 export function string_difference_get_external_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = [];
-    let actual = string_difference_get_external('aa', 'aa');
+    let v_2 = 'aa';
+    let v_3 = 'aa';
+    let actual = string_difference_get_external(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

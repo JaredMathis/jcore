@@ -12,7 +12,9 @@ export function string_difference_get_test_23() {
         '11+bbb',
         '21+baabbbbbbbbbaabb'
     ];
-    let actual = string_difference_get('bbaabbbbaabbaaaaabbbb', 'aabbbaabbaabbbaaabbbbbaabbbbbbbbbaabb');
+    let v_2 = 'bbaabbbbaabbaaaaabbbb';
+    let v_3 = 'aabbbaabbaabbbaaabbbbbaabbbbbbbbbaabb';
+    let actual = string_difference_get(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

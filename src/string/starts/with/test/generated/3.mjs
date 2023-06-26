@@ -8,7 +8,9 @@ import { string_starts_with } from '../../../with.mjs';
 export function string_starts_with_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = boolean_value_true();
-    let actual = string_starts_with('a', '');
+    let v_2 = 'a';
+    let v_3 = '';
+    let actual = string_starts_with(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

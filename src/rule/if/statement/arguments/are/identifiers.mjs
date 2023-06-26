@@ -15,9 +15,9 @@ import { result_property_success_get } from '../../../../../result/property/succ
 import { result_property_data_get } from '../../../../../result/property/data/get.mjs';
 export async function rule_if_statement_arguments_are_identifiers() {
     arguments_assert(arguments, []);
-    await function_names_each_map(function v_3(args) {
+    let v_5 = function v_3(args) {
         let {parsed, file_path} = args;
-        js_visit_nodes_filter(parsed, js_node_is_if_statement, function v_4(v) {
+        let v_6 = function v_4(v) {
             let {node, stack} = v;
             let test = js_node_property_test_get(node);
             let v_2 = js_node_is_identifier(test);
@@ -26,12 +26,15 @@ export async function rule_if_statement_arguments_are_identifiers() {
             }
             let stack_reversed = list_reversed_get(stack);
             let ancestor_list_result = js_visit_stack_reversed_to_ancestor_list(stack_reversed);
-            assert(result_property_success_get(ancestor_list_result));
+            let v_7 = result_property_success_get(ancestor_list_result);
+            assert(v_7);
             let ancestor_list = result_property_data_get(ancestor_list_result);
             let add_assignment_before_node_index = list_index_before(stack_reversed, ancestor_list);
             let add_assignment_before_node = list_get(stack_reversed, add_assignment_before_node_index);
             js_node_assign_and_replace(parsed, test, ancestor_list, add_assignment_before_node);
-        });
-    });
+        };
+        js_visit_nodes_filter(parsed, js_node_is_if_statement, v_6);
+    };
+    await function_names_each_map(v_5);
     metadata([]);
 }

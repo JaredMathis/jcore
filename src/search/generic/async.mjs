@@ -13,11 +13,12 @@ export async function search_generic_async(candidates_get, candidate_mapper, can
     ]);
     let candidates = await candidates_get();
     let query_mapped = await query_map(query);
-    let candidates_matching = await list_filter_async(candidates, async function list_filter_predicate(candidate) {
+    let v_2 = async function list_filter_predicate(candidate) {
         let candidate_mapped = await candidate_mapper(candidate);
         let v = await candidate_mapped_matches(candidate_mapped, query_mapped);
         return v;
-    });
+    };
+    let candidates_matching = await list_filter_async(candidates, v_2);
     return candidates_matching;
     metadata([]);
 }

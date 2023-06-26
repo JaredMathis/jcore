@@ -8,7 +8,9 @@ import { string_includes } from '../../../includes.mjs';
 export function string_includes_test_generated_5() {
     arguments_assert(arguments, []);
     let expected = boolean_value_false();
-    let actual = string_includes('a', 'aa');
+    let v_2 = 'a';
+    let v_3 = 'aa';
+    let actual = string_includes(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

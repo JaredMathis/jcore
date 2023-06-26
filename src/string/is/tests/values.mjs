@@ -7,14 +7,15 @@ import { string_a } from '../../a.mjs';
 export function string_is_tests_values() {
     arguments_assert(arguments, []);
     let aa = `${ string_a() }${ string_a() }`;
-    let v = list_multiple_combine([
+    let v_2 = [
         character_is_tests_values(),
         [
             string_empty(),
             aa,
             `${ aa }b`
         ]
-    ]);
+    ];
+    let v = list_multiple_combine(v_2);
     return v;
     metadata([]);
 }

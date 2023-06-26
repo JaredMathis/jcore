@@ -27,7 +27,7 @@ export async function rule_operator_to_function_call_generic(operator_function, 
     ]);
     let operator_function_name = function_name_get(operator_function);
     let dependencies = await function_dependencies_names(operator_function_name);
-    await function_names_each_map(async function v(args) {
+    let v_5 = async function v(args) {
         let {parsed} = args;
         let function_name = js_mapper_args_to_function_name(args);
         if (list_contains(dependencies, function_name)) {
@@ -36,27 +36,35 @@ export async function rule_operator_to_function_call_generic(operator_function, 
         if (js_mapper_args_to_metadata_args_contains(args, metadata_rule_operator_to_function_call_none)) {
             return;
         }
-        await refactor_import_fix_if_changed(args, async function v_2(changed) {
-            js_nodes_each(parsed, function v_4(n) {
+        let v_6 = async function v_2(changed) {
+            let v_7 = function v_4(n) {
                 try {
-                    return node_type(n);
+                    let v_9 = node_type(n);
+                    return v_9;
                 } catch (e) {
-                    console.log({ n });
+                    let v_10 = { n };
+                    console.log(v_10);
                     throw e;
                 }
-            }, function v_3(node) {
+            };
+            let v_8 = function v_3(node) {
                 let operator = js_node_property_operator_get(node);
                 if (!equal(operator, operator_value)) {
                     return;
                 }
                 let ce = js_parse_call_expression(operator_function_name);
                 let ce_args = js_node_property_arguments_get(ce);
-                list_add(ce_args, js_node_property_left_get(node));
-                list_add(ce_args, js_node_property_right_get(node));
+                let v_11 = js_node_property_left_get(node);
+                list_add(ce_args, v_11);
+                let v_12 = js_node_property_right_get(node);
+                list_add(ce_args, v_12);
                 object_replace(node, ce);
                 changed();
-            });
-        });
-    });
+            };
+            js_nodes_each(parsed, v_7, v_8);
+        };
+        await refactor_import_fix_if_changed(args, v_6);
+    };
+    await function_names_each_map(v_5);
     metadata([]);
 }

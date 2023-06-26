@@ -8,7 +8,9 @@ import { string_index_of_try } from '../../../try.mjs';
 export function string_index_of_try_test_generated_4() {
     arguments_assert(arguments, []);
     let expected = -integer_value_1();
-    let actual = string_index_of_try('a', 'aa');
+    let v_2 = 'a';
+    let v_3 = 'aa';
+    let actual = string_index_of_try(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

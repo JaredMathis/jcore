@@ -7,7 +7,9 @@ import { string_prefix_without } from '../../../without.mjs';
 export function string_prefix_without_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = 'a';
-    let actual = string_prefix_without('a', '');
+    let v_2 = 'a';
+    let v_3 = '';
+    let actual = string_prefix_without(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

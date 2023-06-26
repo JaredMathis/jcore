@@ -8,7 +8,8 @@ import { string_function_tests_name_is } from '../../is.mjs';
 export function string_function_tests_name_is_test_4() {
     arguments_assert(arguments, []);
     let expected = boolean_value_false();
-    let actual = string_function_tests_name_is('a_test_');
+    let v_2 = 'a_test_';
+    let actual = string_function_tests_name_is(v_2);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

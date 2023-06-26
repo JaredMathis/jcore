@@ -14,11 +14,12 @@ export function search_generic(candidates_get, candidate_mapper, candidate_mappe
     ]);
     let candidates = candidates_get();
     let query_mapped = query_map(query);
-    let candidates_matching = list_filter(candidates, async function list_filter_predicate(candidate) {
+    let v_2 = async function list_filter_predicate(candidate) {
         let candidate_mapped = candidate_mapper(candidate);
         let v = candidate_mapped_matches(candidate_mapped, query_mapped);
         return v;
-    });
+    };
+    let candidates_matching = list_filter(candidates, v_2);
     return candidates_matching;
     metadata([metadata_generated()]);
 }

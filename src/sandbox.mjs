@@ -53,7 +53,8 @@ export async function sandbox() {
     let fn1 = string_difference_get;
     let fn2 = string_difference_apply;
     let pairs = [];
-    for (let i of range(integer_value_10())) {
+    let v_4 = integer_value_10();
+    for (let i of range(v_4)) {
         let left = random_input();
         let right = random_input();
         let args1 = [
@@ -68,10 +69,11 @@ export async function sandbox() {
         let result2 = fn2(...args2);
         let v_2 = equal(right, result2);
         assert(v_2);
-        list_add(pairs, {
+        let v_5 = {
             args1,
             args2
-        });
+        };
+        list_add(pairs, v_5);
     }
     for (let pair of pairs) {
         let {args1, args2} = pair;
@@ -81,9 +83,14 @@ export async function sandbox() {
     await tests_generate();
     function random_input() {
         let result = '';
-        for (let index of range(random_between(integer_value_8(), integer_value_16()))) {
+        let v_12 = integer_value_8();
+        let v_13 = integer_value_16();
+        let v_6 = random_between(v_12, v_13);
+        for (let index of range(v_6)) {
             let c = random_get() > integer_value_1() / integer_value_2() ? 'a' : 'b';
-            let v_3 = random_between(integer_value_1(), integer_value_3());
+            let v_7 = integer_value_1();
+            let v_8 = integer_value_3();
+            let v_3 = random_between(v_7, v_8);
             let m = string_multiply(c, v_3);
             result = string_combine(result, m);
         }
@@ -98,7 +105,8 @@ export async function sandbox() {
     ];
     await tests();
     for (let v of values) {
-        await function_tests_generate_next(string_difference_apply_parse, [v]);
+        let v_9 = [v];
+        await function_tests_generate_next(string_difference_apply_parse, v_9);
     }
     await tests_generate();
     return;
@@ -110,10 +118,12 @@ export async function sandbox() {
         let function_name = function_name_get(f);
         log(function_name);
         let inputs_string = `1,2,3,_,d,b,c`;
-        let inputs = string_split(inputs_string, ',');
+        let v_10 = ',';
+        let inputs = string_split(inputs_string, v_10);
         for (let i of inputs) {
             let test_name = await tests_name_next(function_name);
-            await function_tests_generate_generic_each(function_name, test_name, [i]);
+            let v_11 = [i];
+            await function_tests_generate_generic_each(function_name, test_name, v_11);
         }
         await function_tests_generate_after();
     }

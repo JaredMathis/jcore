@@ -8,9 +8,11 @@ export function string_similar_generic(other_get, range_count, target) {
         let other = other_get(i);
         let v = equal(other, target);
         if (v) {
-            return boolean_value_true();
+            let v_2 = boolean_value_true();
+            return v_2;
         }
     }
-    return boolean_value_false();
+    let v_3 = boolean_value_false();
+    return v_3;
     metadata([]);
 }

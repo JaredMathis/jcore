@@ -14,9 +14,11 @@ export function string_repeat_is(input) {
     let length = string_length(input);
     let v_2 = integer_odd_is(length);
     if (v_2) {
-        return boolean_value_false();
+        let v_3 = boolean_value_false();
+        return v_3;
     }
-    let half = integer_divide_evenly(length, integer_value_2());
+    let v_4 = integer_value_2();
+    let half = integer_divide_evenly(length, v_4);
     let split = string_split_at(input, half);
     let values = object_properties(split);
     let v = list_elements_all_equal(values);

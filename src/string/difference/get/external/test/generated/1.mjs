@@ -25,7 +25,9 @@ export function string_difference_get_external_test_generated_1() {
                 '\n'
             ]
         }];
-    let actual = string_difference_get_external('aa', 'aab');
+    let v_2 = 'aa';
+    let v_3 = 'aab';
+    let actual = string_difference_get_external(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

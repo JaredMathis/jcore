@@ -14,11 +14,14 @@ export function string_set(input, index, value) {
         integer_is,
         character_is
     ]);
-    let v = string_combine_multiple([
+    let v_4 = integer_value_1();
+    let v_3 = add(index, v_4);
+    let v_2 = [
         string_take(input, index),
         value,
-        string_skip(input, add(index, integer_value_1()))
-    ]);
+        string_skip(input, v_3)
+    ];
+    let v = string_combine_multiple(v_2);
     return v;
     metadata([]);
 }

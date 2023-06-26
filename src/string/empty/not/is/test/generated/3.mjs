@@ -8,7 +8,8 @@ import { string_empty_not_is } from '../../../is.mjs';
 export function string_empty_not_is_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = boolean_value_true();
-    let actual = string_empty_not_is('b');
+    let v_2 = 'b';
+    let actual = string_empty_not_is(v_2);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

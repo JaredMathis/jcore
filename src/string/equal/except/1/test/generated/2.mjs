@@ -8,7 +8,9 @@ import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 export function string_equal_except_1_test_generated_2() {
     arguments_assert(arguments, []);
     let expected = boolean_value_false();
-    let actual = string_equal_except_1('aa', 'aa');
+    let v_2 = 'aa';
+    let v_3 = 'aa';
+    let actual = string_equal_except_1(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

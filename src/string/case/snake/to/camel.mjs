@@ -10,7 +10,8 @@ export function string_case_snake_to_camel(input) {
     arguments_assert(arguments, [string_is]);
     let parsed = js_identifier_parts_to(input);
     let mapped = list_map(parsed, string_case_upper_character_first);
-    let snake = list_join(mapped, string_empty());
+    let v = string_empty();
+    let snake = list_join(mapped, v);
     return snake;
     metadata([]);
 }

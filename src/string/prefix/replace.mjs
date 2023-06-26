@@ -10,6 +10,7 @@ export function string_prefix_replace(input, prefix_old, prefix_new) {
         string_is
     ]);
     let prefix_without = string_prefix_without(input, prefix_old);
-    return string_combine(prefix_new, prefix_without);
+    let v = string_combine(prefix_new, prefix_without);
+    return v;
     metadata([]);
 }

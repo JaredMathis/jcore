@@ -8,7 +8,10 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function string_set_test_generated_10() {
     arguments_assert(arguments, []);
     let expected = 'a';
-    let actual = string_set('b', integer_value_0(), 'a');
+    let v_2 = 'b';
+    let v_3 = integer_value_0();
+    let v_4 = 'a';
+    let actual = string_set(v_2, v_3, v_4);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

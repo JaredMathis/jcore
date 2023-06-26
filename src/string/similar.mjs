@@ -16,7 +16,8 @@ export function string_similar(a, b) {
     const fns_commutative = [string_similar_remove_single];
     let v_2 = list_each_function_results_any(fns_commutative, results_commutative_get);
     if (v_2) {
-        return boolean_value_true();
+        let v_4 = boolean_value_true();
+        return v_4;
     }
     const fns = [
         string_similar_swap_adjascent,
@@ -24,18 +25,22 @@ export function string_similar(a, b) {
     ];
     let v_3 = list_each_function_results_any(fns, results_get);
     if (v_3) {
-        return boolean_value_true();
+        let v_5 = boolean_value_true();
+        return v_5;
     }
-    return boolean_value_false();
+    let v_6 = boolean_value_false();
+    return v_6;
     function results_commutative_get(fn) {
-        let v = list_multiple_combine([
+        let v_7 = [
             results_get(fn),
             [fn(b, a)]
-        ]);
+        ];
+        let v = list_multiple_combine(v_7);
         return v;
     }
     function results_get(fn) {
-        return [fn(a, b)];
+        let v_8 = fn(a, b);
+        return [v_8];
     }
     metadata([]);
 }

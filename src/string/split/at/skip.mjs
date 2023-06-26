@@ -14,7 +14,8 @@ export function string_split_at_skip(s, index, skip) {
         integer_is
     ]);
     let left = string_take(s, index);
-    let right = string_skip(s, add(index, skip));
+    let v = add(index, skip);
+    let right = string_skip(s, v);
     return {
         [string_split_at_property_left()]: left,
         [string_split_at_property_right()]: right

@@ -10,7 +10,9 @@ export function string_split_test_generated_10() {
         '',
         ''
     ];
-    let actual = string_split('aa', 'aa');
+    let v_2 = 'aa';
+    let v_3 = 'aa';
+    let actual = string_split(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

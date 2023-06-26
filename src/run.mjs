@@ -8,6 +8,7 @@ export async function run() {
     arguments_assert(arguments, []);
     let skipped = command_line_args_skipped();
     let result = await function_run_arguments(skipped);
-    log(`Run result: ${ result ? json_to(result) : result }`);
+    let v = `Run result: ${ result ? json_to(result) : result }`;
+    log(v);
     metadata([]);
 }

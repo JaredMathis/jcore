@@ -8,7 +8,8 @@ import { string_letter_digit_or_underscore_is } from '../../../is.mjs';
 export function string_letter_digit_or_underscore_is_test_generated_5() {
     arguments_assert(arguments, []);
     let expected = boolean_value_false();
-    let actual = string_letter_digit_or_underscore_is('aa');
+    let v_2 = 'aa';
+    let actual = string_letter_digit_or_underscore_is(v_2);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

@@ -8,7 +8,9 @@ import { string_skip } from '../../../skip.mjs';
 export function string_skip_test_generated_4() {
     arguments_assert(arguments, []);
     let expected = 'b';
-    let actual = string_skip('b', integer_value_0());
+    let v_2 = 'b';
+    let v_3 = integer_value_0();
+    let actual = string_skip(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

@@ -11,7 +11,9 @@ export function string_split_test_generated_6() {
         'a',
         'b'
     ];
-    let actual = string_split('aab', '');
+    let v_2 = 'aab';
+    let v_3 = '';
+    let actual = string_split(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

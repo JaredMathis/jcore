@@ -8,7 +8,8 @@ import { string_digit_is } from '../../is.mjs';
 export function string_digit_is_test_10() {
     arguments_assert(arguments, []);
     let expected = boolean_value_true();
-    let actual = string_digit_is('8');
+    let v_2 = '8';
+    let actual = string_digit_is(v_2);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

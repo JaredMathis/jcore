@@ -32,17 +32,19 @@ export function string_difference_apply_parse(hunk) {
         string_difference_removed(),
         string_difference_added()
     ];
-    let indexes = list_map(operations, function v_6(o) {
+    let v_11 = function v_6(o) {
         let v_7 = string_index_of_try(hunk, o);
         return v_7;
-    });
+    };
+    let indexes = list_map(operations, v_11);
     let valid = list_filter(indexes, string_index_of_try_valid);
     let v_8 = list_empty(valid);
     if (v_8) {
         error();
     }
     let valid_min = list_min(valid);
-    let position_string = string_sub(hunk, integer_value_0(), valid_min);
+    let v_12 = integer_value_0();
+    let position_string = string_sub(hunk, v_12, valid_min);
     let position = integer_parse(position_string);
     const valid_min_add_1 = add_1(valid_min);
     let operation = string_sub(hunk, valid_min, valid_min_add_1);
@@ -52,11 +54,14 @@ export function string_difference_apply_parse(hunk) {
         [string_difference_property_position()]: position,
         [string_difference_property_operation()]: operation
     };
-    let v_9 = equal(operation, string_difference_removed());
-    let v_10 = equal(operation, string_difference_added());
+    let v_13 = string_difference_removed();
+    let v_9 = equal(operation, v_13);
+    let v_14 = string_difference_added();
+    let v_10 = equal(operation, v_14);
     if (v_9) {
         let count = integer_parse(after);
-        assert(count >= integer_value_1());
+        let v_15 = count >= integer_value_1();
+        assert(v_15);
         let v_2 = string_difference_property_removed();
         object_property_initialize(result, v_2, count);
     } else if (v_10) {

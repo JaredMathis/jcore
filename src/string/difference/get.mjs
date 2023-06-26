@@ -8,7 +8,9 @@ export function string_difference_get(left, right) {
         string_is,
         string_is
     ]);
-    let v = string_difference_get_recursive(left, right, integer_value_0(), integer_value_0());
+    let v_2 = integer_value_0();
+    let v_3 = integer_value_0();
+    let v = string_difference_get_recursive(left, right, v_2, v_3);
     return v;
     metadata([]);
 }

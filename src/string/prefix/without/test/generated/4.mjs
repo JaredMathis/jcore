@@ -6,10 +6,13 @@ import { assert_throws } from '../../../../../assert/throws.mjs';
 import { assert } from '../../../../../assert.mjs';
 export function string_prefix_without_test_generated_4() {
     arguments_assert(arguments, []);
-    let v = assert_throws(function v_2() {
-        let v_3 = string_prefix_without('a', 'aab');
+    let v_4 = function v_2() {
+        let v_5 = 'a';
+        let v_6 = 'aab';
+        let v_3 = string_prefix_without(v_5, v_6);
         return v_3;
-    });
+    };
+    let v = assert_throws(v_4);
     assert(v);
     metadata([metadata_generated()]);
 }

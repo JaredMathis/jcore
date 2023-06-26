@@ -9,9 +9,11 @@ import { string_to_case_upper } from '../../../to/case/upper.mjs';
 import { string_is } from '../../../is.mjs';
 export function string_case_upper_character_first(value) {
     arguments_assert(arguments, [string_is]);
-    let first = string_get(value, integer_value_0());
+    let v = integer_value_0();
+    let first = string_get(value, v);
     let first_upper = string_to_case_upper(first);
-    let remaining = string_skip(value, integer_value_1());
+    let v_2 = integer_value_1();
+    let remaining = string_skip(value, v_2);
     let result = string_combine(first_upper, remaining);
     return result;
     metadata([]);

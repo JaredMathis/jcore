@@ -22,7 +22,9 @@ export function string_difference_get_external_test_generated_6() {
                 '\n'
             ]
         }];
-    let actual = string_difference_get_external('', 'aa');
+    let v_2 = '';
+    let v_3 = 'aa';
+    let actual = string_difference_get_external(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

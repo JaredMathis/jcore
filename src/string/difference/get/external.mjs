@@ -14,7 +14,8 @@ export function string_difference_get_external(string_old, string_new) {
     let patch = Diff.createPatch(file_name, string_old, string_new, header, header);
     let structured = Diff.parsePatch(patch);
     let first = list_single(structured);
-    let hunks = object_property_get(first, 'hunks');
+    let v = 'hunks';
+    let hunks = object_property_get(first, v);
     return hunks;
     metadata([]);
 }

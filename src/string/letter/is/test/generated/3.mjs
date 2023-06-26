@@ -8,7 +8,8 @@ import { string_letter_is } from '../../../is.mjs';
 export function string_letter_is_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = boolean_value_true();
-    let actual = string_letter_is('aab');
+    let v_2 = 'aab';
+    let actual = string_letter_is(v_2);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

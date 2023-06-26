@@ -21,18 +21,26 @@ export async function rule_function_call_arguments_are_identifiers_each(args) {
     if (v_5) {
         return;
     }
-    js_nodes_each(parsed, js_node_is_call_expression, function v(node) {
+    let v_3 = function v(node) {
         const skip = refactor_call_arguments_to_assignments_skip(node);
         if (skip) {
             return;
         }
         let args = js_node_property_arguments_get(node);
-        assert_message(list_all(args, function v_2(n) {
-            return or(js_node_is_identifier(n), js_node_is_spread_element(n));
-        }), json_to({
+        let v_7 = function v_2(n) {
+            let v_9 = js_node_is_identifier(n);
+            let v_10 = js_node_is_spread_element(n);
+            let v_11 = or(v_9, v_10);
+            return v_11;
+        };
+        let v_4 = list_all(args, v_7);
+        let v_8 = {
             file_path,
             args
-        }));
-    });
+        };
+        let v_6 = json_to(v_8);
+        assert_message(v_4, v_6);
+    };
+    js_nodes_each(parsed, js_node_is_call_expression, v_3);
     metadata([]);
 }

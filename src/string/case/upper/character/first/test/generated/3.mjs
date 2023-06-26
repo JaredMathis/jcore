@@ -7,7 +7,9 @@ import { arguments_assert } from '../../../../../../../arguments/assert.mjs';
 export function string_case_upper_character_first_test_generated_3() {
     arguments_assert(arguments, []);
     let expected = 'B';
-    let actual = string_case_upper_character_first('b');
-    assert(json_equal(actual, expected));
+    let v = 'b';
+    let actual = string_case_upper_character_first(v);
+    let v_2 = json_equal(actual, expected);
+    assert(v_2);
     metadata([metadata_generated()]);
 }

@@ -7,7 +7,9 @@ import { string_split } from '../../../split.mjs';
 export function string_split_test_generated_2() {
     arguments_assert(arguments, []);
     let expected = ['b'];
-    let actual = string_split('b', 'aab');
+    let v_2 = 'b';
+    let v_3 = 'aab';
+    let actual = string_split(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

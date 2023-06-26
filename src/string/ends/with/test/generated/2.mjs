@@ -8,7 +8,9 @@ import { string_ends_with } from '../../../with.mjs';
 export function string_ends_with_test_generated_2() {
     arguments_assert(arguments, []);
     let expected = boolean_value_true();
-    let actual = string_ends_with('b', 'b');
+    let v_2 = 'b';
+    let v_3 = 'b';
+    let actual = string_ends_with(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

@@ -39,7 +39,8 @@ export function string_difference_apply(string_old, hunks) {
     let v_2 = string_difference_removed();
     let removals = list_filter_property(mapped, v, v_2);
     let v_3 = string_difference_property_position();
-    list_sort_property_generic(removals, v_3, boolean_value_true());
+    let v_21 = boolean_value_true();
+    list_sort_property_generic(removals, v_3, v_21);
     let v_4 = string_difference_property_operation();
     let v_5 = string_difference_added();
     let addeds = list_filter_property(mapped, v_4, v_5);
@@ -50,7 +51,8 @@ export function string_difference_apply(string_old, hunks) {
     let v_6 = equal(v_16, v_17);
     assert(v_6);
     let v_7 = string_difference_property_position();
-    list_sort_property_generic(addeds, v_7, boolean_value_false());
+    let v_22 = boolean_value_false();
+    list_sort_property_generic(addeds, v_7, v_22);
     let value = string_old;
     for (let m of removals) {
         let v_8 = string_difference_property_position();

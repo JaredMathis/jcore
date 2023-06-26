@@ -12,7 +12,9 @@ export function string_difference_get_test_13() {
         '2-1',
         '6+abcde'
     ];
-    let actual = string_difference_get('zfz', 'abcdefabcde');
+    let v_2 = 'zfz';
+    let v_3 = 'abcdefabcde';
+    let actual = string_difference_get(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

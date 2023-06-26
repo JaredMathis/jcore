@@ -7,13 +7,15 @@ import { string_difference_apply } from '../../apply.mjs';
 export function string_difference_apply_test_5() {
     arguments_assert(arguments, []);
     let expected = 'aaabbbbaaaaaaaaaaabbbbbaaabbb';
-    let actual = string_difference_apply('bbbbbbbbbaaaaaabbbaaaabb', [
+    let v_2 = 'bbbbbbbbbaaaaaabbbaaaabb';
+    let v_3 = [
         '0-5',
         '0+aaa',
         '13+aaaaabb',
         '21-1',
         '28+b'
-    ]);
+    ];
+    let actual = string_difference_apply(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

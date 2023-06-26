@@ -7,7 +7,9 @@ import { string_difference_get } from '../../get.mjs';
 export function string_difference_get_test_11() {
     arguments_assert(arguments, []);
     let expected = ['0-10'];
-    let actual = string_difference_get('abcdeabcde', '');
+    let v_2 = 'abcdeabcde';
+    let v_3 = '';
+    let actual = string_difference_get(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

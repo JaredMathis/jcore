@@ -11,18 +11,20 @@ import { function_name_get } from '../../../../../function/name/get.mjs';
 export async function rule_function_call_arguments_are_identifiers() {
     arguments_assert(arguments, []);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
-    await function_names_each_map(async function v_2(args) {
+    let v_3 = async function v_2(args) {
         let function_name = js_mapper_args_to_function_name(args);
         let v = list_contains(excludes, function_name);
         if (v) {
             return;
         }
-        let v_2 = list_contains([function_name_get(boolean_is)], function_name);
+        let v_4 = [function_name_get(boolean_is)];
+        let v_2 = list_contains(v_4, function_name);
         if (v_2) {
             return;
         }
         refactor_call_arguments_to_assignments(args);
         await rule_function_call_arguments_are_identifiers_each(args);
-    });
+    };
+    await function_names_each_map(v_3);
     metadata([]);
 }

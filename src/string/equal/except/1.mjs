@@ -16,19 +16,23 @@ export function string_equal_except_1(a, b) {
         string_is,
         string_is
     ]);
-    let lengths = list_string_lengths([
+    let v_3 = [
         a,
         b
-    ]);
+    ];
+    let lengths = list_string_lengths(v_3);
     let unique = list_unique(lengths);
-    let v_2 = not(list_length_is_1(unique));
+    let v_4 = list_length_is_1(unique);
+    let v_2 = not(v_4);
     if (v_2) {
-        return boolean_value_false();
+        let v_5 = boolean_value_false();
+        return v_5;
     }
     let equal_count = string_equal_count(a, b);
     let length = list_single(unique);
     let difference = subtract(length, equal_count);
-    let v = equal(difference, integer_value_1());
+    let v_6 = integer_value_1();
+    let v = equal(difference, v_6);
     return v;
     metadata([]);
 }

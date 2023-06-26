@@ -22,31 +22,37 @@ export function string_case_camel_parse(input) {
     let characters = string_to_list(input);
     const property_is_capital = 'is_capital';
     const property_index = 'index';
-    let mapped = list_map_with_index(characters, function v_2(c, index) {
+    let v_6 = function v_2(c, index) {
         return {
             [property_is_capital]: string_case_upper_is(c),
             [property_index]: index
         };
-    });
-    let filtered = list_filter_property(mapped, property_is_capital, boolean_value_true());
+    };
+    let mapped = list_map_with_index(characters, v_6);
+    let v_7 = boolean_value_true();
+    let filtered = list_filter_property(mapped, property_is_capital, v_7);
     let indices = list_map_property(filtered, property_index);
     let v = list_length(characters);
     list_add(indices, v);
-    let parts = list_adder(function v_3(list_new_then_add) {
+    let v_8 = function v_3(list_new_then_add) {
         let previous = integer_value_0();
         for (let index of indices) {
-            let v_4 = equal(index, integer_value_0());
+            let v_9 = integer_value_0();
+            let v_4 = equal(index, v_9);
             if (v_4) {
                 continue;
             }
             let part = string_sub(input, previous, index);
-            let v_5 = not(equal(part, string_empty()));
+            let v_11 = string_empty();
+            let v_10 = equal(part, v_11);
+            let v_5 = not(v_10);
             if (v_5) {
                 list_new_then_add(part);
             }
             previous = index;
         }
-    });
+    };
+    let parts = list_adder(v_8);
     let parts_case_lower = list_map(parts, string_to_case_lower);
     return parts_case_lower;
     metadata([]);

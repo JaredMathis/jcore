@@ -6,7 +6,9 @@ import { integer_is } from '../../../../integer/is.mjs';
 import { boolean_is } from '../../../../boolean/is.mjs';
 export async function rule_literals_are_function_outputs() {
     arguments_assert(arguments, []);
-    await rule_literals_are_function_outputs_generic(`integer`, number_is, integer_is);
-    await rule_literals_are_function_outputs_generic(`boolean`, boolean_is, boolean_is);
+    let v = `integer`;
+    await rule_literals_are_function_outputs_generic(v, number_is, integer_is);
+    let v_2 = `boolean`;
+    await rule_literals_are_function_outputs_generic(v_2, boolean_is, boolean_is);
     metadata([]);
 }
