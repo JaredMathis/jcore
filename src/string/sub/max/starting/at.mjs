@@ -11,7 +11,7 @@ export function string_sub_max_starting_at(left, right, left_index, right_index)
     function test() {
         return and(less_than(add(left_walker, offset), left.length), less_than(add(right_walker, offset), right.length));
     }
-    for ( ; test(); ) {
+    while (test()) {
         let left_offset = left[add(left_walker, offset)];
         let right_offset = right[add(right_walker, offset)];
         let v = equal_not(left_offset, right_offset);
