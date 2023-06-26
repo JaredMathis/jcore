@@ -7,7 +7,8 @@ import { object_property_get } from '../object/property/get.mjs';
 export async function function_add(function_name) {
     arguments_assert(arguments, [js_identifier_is]);
     let result = await function_add_with_body_error(function_name);
-    let function_path = object_property_get(result, 'file_path');
+    let v = 'file_path';
+    let function_path = object_property_get(result, v);
     await file_open_vs_code(function_path);
     metadata([]);
 }

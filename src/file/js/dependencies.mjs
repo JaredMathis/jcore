@@ -7,13 +7,15 @@ import { path_is } from '../../path/is.mjs';
 export async function file_js_dependencies(file_path) {
     arguments_assert(arguments, [path_is]);
     let result = [];
-    await visit_ignore_duplicates_async(file_path, async function v_3(node) {
+    let v_5 = async function v_3(node) {
         let v_2 = await file_js_dependencies_non_recursive(node);
         return v_2;
-    }, function v_4(v) {
+    };
+    let v_6 = function v_4(v) {
         let {node} = v;
         list_add(result, node);
-    });
+    };
+    await visit_ignore_duplicates_async(file_path, v_5, v_6);
     return result;
     metadata([]);
 }

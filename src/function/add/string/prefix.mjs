@@ -7,5 +7,6 @@ export async function function_add_string_prefix(prefix, suffix) {
         arguments_assert_todo
     ]);
     let value = suffix;
-    await function_add_string_prefix_generic(prefix, suffix, value, true);
+    let v = true;
+    await function_add_string_prefix_generic(prefix, suffix, value, v);
 }

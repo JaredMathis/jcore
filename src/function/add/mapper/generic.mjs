@@ -25,9 +25,11 @@ export async function function_add_mapper_generic(prefix, function_name_suffix, 
     let v_3 = function_name_separator();
     let function_name_suffix_parts = string_split(function_name_suffix, v_3);
     let function_name_refactor = refactor_function_name_from_parts(function_name_suffix_parts);
-    let v = not(await function_exists(function_name_refactor));
+    let v_2 = await function_exists(function_name_refactor);
+    let v = not(v_2);
     if (v) {
-        await function_add_inputs(function_name_refactor, 'args');
+        let v_4 = 'args';
+        await function_add_inputs(function_name_refactor, v_4);
     }
     const prefix_refactor = refactor_prefix();
     let prefixes = [
@@ -35,12 +37,15 @@ export async function function_add_mapper_generic(prefix, function_name_suffix, 
         prefix_refactor
     ];
     let function_name_suffix_parts_first = list_first(function_name_suffix_parts);
-    assert_message(!list_contains(prefixes, function_name_suffix_parts_first), `Cannot start with: ` + prefixes);
+    let v_5 = !list_contains(prefixes, function_name_suffix_parts_first);
+    let v_6 = `Cannot start with: ` + prefixes;
+    assert_message(v_5, v_6);
     let prefix_parts = js_identifier_parts_to(prefix);
-    let function_name_function = js_identifier_parts_from_combine([
+    let v_7 = [
         prefix_parts,
         function_name_suffix_parts
-    ]);
+    ];
+    let function_name_function = js_identifier_parts_from_combine(v_7);
     const expression_code_args = expression_code_args_get(function_name_refactor);
     await function_add_with_call_expression_synchronized(function_name_function, function_name_to_call, expression_code_args);
     await add_after(function_name_function);

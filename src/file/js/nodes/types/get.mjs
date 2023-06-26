@@ -6,6 +6,7 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function file_js_nodes_types_get(file_path) {
     arguments_assert(arguments, [path_is]);
     let lambda = mapper => file_js_map_args(file_path, mapper);
-    return await file_js_all_nodes_types_get_generic(lambda);
+    let v = await file_js_all_nodes_types_get_generic(lambda);
+    return v;
     metadata([]);
 }

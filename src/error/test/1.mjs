@@ -4,9 +4,10 @@ import { error } from '../../error.mjs';
 import { assert_throws } from '../../assert/throws.mjs';
 export function error_test_1() {
     arguments_assert(arguments, []);
-    assert_throws(function v() {
+    let v_3 = function v() {
         let v_2 = error();
         return v_2;
-    });
+    };
+    assert_throws(v_3);
     metadata([]);
 }

@@ -5,6 +5,7 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export async function file_js_all_nodes_types_get() {
     arguments_assert(arguments, []);
     let lambda = function_names_each_map;
-    return await file_js_all_nodes_types_get_generic(lambda);
+    let v = await file_js_all_nodes_types_get_generic(lambda);
+    return v;
     metadata([]);
 }

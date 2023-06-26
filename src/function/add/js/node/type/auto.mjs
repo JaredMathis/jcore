@@ -22,7 +22,8 @@ export async function function_add_js_node_type_auto(function_name) {
         let function_name_new = js_identifier_combine(property_name_fn_get, method);
         let v = !await function_exists(function_name_new);
         if (v) {
-            await function_add_property_get(js_prefix_node(), property_name);
+            let v_2 = js_prefix_node();
+            await function_add_property_get(v_2, property_name);
         }
     }
     await functions_new_if_not_exists(js_identifiers_filter_to_node_types, function_add_js_node_type_snake, identifiers);

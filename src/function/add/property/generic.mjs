@@ -24,7 +24,8 @@ export async function function_add_property_generic(property_prefix, property_na
     ]);
     let property_name_fn_get_prefix = js_identifier_prefix_property(property_prefix);
     let property_name_fn_get = js_identifier_combine(property_name_fn_get_prefix, property_name);
-    let v = not(await function_exists(property_name_fn_get));
+    let v_2 = await function_exists(property_name_fn_get);
+    let v = not(v_2);
     if (v) {
         await function_add_string_prefix(property_name_fn_get_prefix, property_name);
     }

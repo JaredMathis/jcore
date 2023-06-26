@@ -10,8 +10,9 @@ export async function function_call_replace(function_name, function_name_called_
         arguments_assert_todo
     ]);
     let v = function_name_get(refactor_call_expressions_replace);
-    await function_map_with_args(v, function_name, {
+    let v_2 = {
         function_name_called_old,
         function_name_called_new
-    });
+    };
+    await function_map_with_args(v, function_name, v_2);
 }

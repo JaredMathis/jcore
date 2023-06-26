@@ -10,5 +10,6 @@ export async function function_call_name(function_name, name_new) {
         arguments_assert_todo
     ]);
     let v = function_name_get(refactor_first_call_name);
-    await function_map_with_args(v, function_name, { name_new });
+    let v_2 = { name_new };
+    await function_map_with_args(v, function_name, v_2);
 }

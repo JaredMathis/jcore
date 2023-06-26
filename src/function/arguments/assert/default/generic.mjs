@@ -20,11 +20,12 @@ import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 export async function function_arguments_assert_default_generic(on_equals) {
     arguments_assert(arguments, [function_is]);
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
-    await function_names_each_filter(logic, function v_5(function_name) {
+    let v_7 = function v_5(function_name) {
         let v = list_contains(excludes, function_name);
         let result = not(v);
         return result;
-    });
+    };
+    await function_names_each_filter(logic, v_7);
     async function logic(args) {
         let {parsed, function_name} = args;
         await js_mapper_args_to_statement_arguments_assert(args);
@@ -36,7 +37,8 @@ export async function function_arguments_assert_default_generic(on_equals) {
         let v_2 = equal(name_actual, v_4);
         assert(v_2);
         let counts = js_identifier_counts(expression);
-        todo(`Maybe this should be ${ arguments_assert_todo } not ${ tautology }`);
+        let v_8 = `Maybe this should be ${ arguments_assert_todo } not ${ tautology }`;
+        todo(v_8);
         let property_name = function_name_get(tautology);
         let v_6 = object_property_exists(counts, property_name);
         if (v_6) {

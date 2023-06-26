@@ -7,16 +7,19 @@ import { js_node_is_type } from '../../../../../js/node/is/type.mjs';
 export async function file_js_all_node_type_first(node_type) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let result;
-    await function_names_each_map(async function logic(args) {
+    let v_4 = async function logic(args) {
         let {parsed} = args;
-        js_nodes_each(parsed, function v(n) {
+        let v_5 = function v(n) {
             let v_3 = js_node_is_type(n, node_type);
             return v_3;
-        }, function v_2(n) {
+        };
+        let v_6 = function v_2(n) {
             result = n;
             return true;
-        });
-    });
+        };
+        js_nodes_each(parsed, v_5, v_6);
+    };
+    await function_names_each_map(v_4);
     return result;
     metadata([]);
 }

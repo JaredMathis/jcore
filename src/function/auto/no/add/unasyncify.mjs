@@ -6,5 +6,6 @@ export async function function_auto_no_add_unasyncify(function_name) {
     let refactors = function_auto_no_add_refactors();
     await function_map_multiple_references(refactors, function_name);
     await function_add_js_node_type_auto(function_name);
-    await function_map_multiple_references([refactor_import_fix], function_name);
+    let v = [refactor_import_fix];
+    await function_map_multiple_references(v, function_name);
 }

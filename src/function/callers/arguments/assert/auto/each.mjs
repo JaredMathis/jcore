@@ -8,5 +8,6 @@ export async function function_callers_arguments_assert_auto_each(function_name,
         js_identifier_is
     ]);
     let arguments_assert_args = await function_to_statement_arguments_assert_args_predicate(function_name);
-    await function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, []);
+    let v = [];
+    await function_callers_arguments_assert_auto_generic(c_function_name, function_name, arguments_assert_args, v);
 }

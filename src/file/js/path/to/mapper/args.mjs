@@ -6,7 +6,8 @@ import { object_property_initialize } from '../../../../../object/property/initi
 export async function file_js_path_to_mapper_args(file_path) {
     arguments_assert(arguments, [path_is]);
     let args = await file_js_parse_with_unparsed(file_path);
-    object_property_initialize(args, 'file_path', file_path);
+    let v = 'file_path';
+    object_property_initialize(args, v, file_path);
     return args;
     metadata([]);
 }

@@ -8,6 +8,7 @@ export async function file_js_map(function_name_mapper, file_path) {
         js_identifier_is,
         path_is
     ]);
-    await file_js_map_with_args(file_path, function_name_mapper, {});
+    let v = {};
+    await file_js_map_with_args(file_path, function_name_mapper, v);
     metadata([]);
 }

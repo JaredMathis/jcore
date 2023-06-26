@@ -4,8 +4,9 @@ import fs from 'fs';
 export async function directory_delete(directory_path) {
     let v = await path_exists(directory_path);
     assert(v);
-    await fs.promises.rm(directory_path, {
+    let v_2 = {
         recursive: true,
         force: true
-    });
+    };
+    await fs.promises.rm(directory_path, v_2);
 }

@@ -6,6 +6,7 @@ import { directory_read_non_recursive } from '../read/non/recursive.mjs';
 export async function directory_empty_is(directory_path) {
     let file_paths = await directory_read_non_recursive(directory_path);
     let count = list_length(file_paths);
-    const is_empty = equal(count, integer_value_0());
+    let v = integer_value_0();
+    const is_empty = equal(count, v);
     return is_empty;
 }

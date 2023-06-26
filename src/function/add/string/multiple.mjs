@@ -23,12 +23,13 @@ export async function function_add_string_multiple(prefix, keys_unparsed, values
     assert(v);
     let v_4 = list_length(keys);
     let v_2 = range(v_4);
-    let result = await list_map_async(v_2, async function v_5(i) {
+    let v_6 = async function v_5(i) {
         let key = list_get(keys, i);
         let value = list_get(values, i);
         let function_name = js_identifier_combine(prefix, key);
         let v_3 = await function_add_string(function_name, value);
         return v_3;
-    });
+    };
+    let result = await list_map_async(v_2, v_6);
     return result;
 }

@@ -8,8 +8,10 @@ import { assert_message } from '../assert/message.mjs';
 export async function file_read(file_path) {
     arguments_assert(arguments, [path_is]);
     let v = await path_exists(file_path);
-    assert_message(v, `Path does not exist: ` + file_path);
-    let result = await fs.promises.readFile(file_path, 'utf8');
+    let v_2 = `Path does not exist: ` + file_path;
+    assert_message(v, v_2);
+    let v_3 = 'utf8';
+    let result = await fs.promises.readFile(file_path, v_3);
     return result;
     metadata([]);
 }

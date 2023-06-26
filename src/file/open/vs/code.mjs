@@ -4,6 +4,7 @@ import { command_line } from '../../../command/line.mjs';
 import { path_is } from '../../../path/is.mjs';
 export async function file_open_vs_code(function_path) {
     arguments_assert(arguments, [path_is]);
-    await command_line(`code ${ function_path }`);
+    let v = `code ${ function_path }`;
+    await command_line(v);
     metadata([]);
 }

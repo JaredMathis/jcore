@@ -3,7 +3,8 @@ import { file_json_read } from './read.mjs';
 import { file_json_overwrite } from './overwrite.mjs';
 import { file_exists } from '../exists.mjs';
 export async function file_json_map(tasks_all_path, initial_value, map) {
-    let v = not(await file_exists(tasks_all_path));
+    let v_3 = await file_exists(tasks_all_path);
+    let v = not(v_3);
     if (v) {
         await file_json_overwrite(tasks_all_path, initial_value);
     }

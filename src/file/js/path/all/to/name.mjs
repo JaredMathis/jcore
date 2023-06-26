@@ -13,26 +13,31 @@ import { file_path_split } from '../../../../path/split.mjs';
 import { list_map } from '../../../../../list/map.mjs';
 export function file_js_path_all_to_name(file_js_paths) {
     arguments_assert(arguments, [list_is]);
-    let mapped = list_map(file_js_paths, function v_2(a) {
+    let v_11 = function v_2(a) {
         let v_6 = file_path_split(a);
         return v_6;
-    });
+    };
+    let mapped = list_map(file_js_paths, v_11);
     let directory_source_result = directory_source();
-    let mapped2 = list_map(mapped, function v_3(a) {
-        assert(list_first(a) === directory_source_result);
+    let v_12 = function v_3(a) {
+        let v_15 = list_first(a) === directory_source_result;
+        assert(v_15);
         let v = list_skip_first(a);
         return v;
-    });
-    let mapped3 = list_map(mapped2, function v_4(a) {
+    };
+    let mapped2 = list_map(mapped, v_12);
+    let v_13 = function v_4(a) {
         let v_7 = function_name_separator();
         let v_8 = list_join(a, v_7);
         return v_8;
-    });
-    let mapped4 = list_map(mapped3, function v_5(a) {
+    };
+    let mapped3 = list_map(mapped2, v_13);
+    let v_14 = function v_5(a) {
         let v_9 = function_extension();
         let v_10 = string_suffix_without(a, v_9);
         return v_10;
-    });
+    };
+    let mapped4 = list_map(mapped3, v_14);
     return mapped4;
     metadata([]);
 }

@@ -11,8 +11,10 @@ export async function function_add_mapper(function_name_suffix) {
     arguments_assert(arguments, [js_identifier_is]);
     let input = 'function_name';
     function expression_code_args_get(function_name_refactor) {
+        let v = function_name_get(function_name_get);
+        let v_3 = [function_name_refactor];
         const expression_code_args = [
-            js_code_call_expression_with_args(function_name_get(function_name_get), [function_name_refactor]),
+            js_code_call_expression_with_args(v, v_3),
             input,
             js_brace_left_right()
         ];

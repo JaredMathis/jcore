@@ -6,5 +6,6 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function function_call_arguments_to_assignments(function_name) {
     arguments_assert(arguments, [js_identifier_is]);
     let v = function_name_get(refactor_call_arguments_to_assignments);
-    await function_map_with_args(v, function_name, {});
+    let v_2 = {};
+    await function_map_with_args(v, function_name, v_2);
 }

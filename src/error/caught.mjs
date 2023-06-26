@@ -14,6 +14,7 @@ export function error_caught(fn, exception, error_message) {
     ]);
     log(exception);
     log(error_message);
-    error(`${ function_name_get(fn) } failed`);
+    let v = `${ function_name_get(fn) } failed`;
+    error(v);
     metadata([]);
 }

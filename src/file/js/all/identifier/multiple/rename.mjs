@@ -22,12 +22,14 @@ export async function file_js_all_identifier_multiple_rename(dictionary) {
     let v = list_unique_is(concat);
     assert(v);
     let file_paths_changed = [];
-    await file_js_all_map_args(function mapper(args) {
+    let v_2 = function mapper(args) {
         let occurs = js_identifier_multiple_rename(dictionary, args);
         if (occurs) {
-            list_add_property(file_paths_changed, args, 'file_path');
+            let v_3 = 'file_path';
+            list_add_property(file_paths_changed, args, v_3);
         }
-    });
+    };
+    await file_js_all_map_args(v_2);
     return file_paths_changed;
     metadata([]);
 }

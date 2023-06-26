@@ -11,6 +11,8 @@ export function date_now_iso_underscores() {
         let v = function_name_separator();
         iso = string_replace(iso, r, v);
     }
-    iso = string_replace(iso, 'Z', '');
+    let v_2 = 'Z';
+    let v_3 = '';
+    iso = string_replace(iso, v_2, v_3);
     return iso;
 }

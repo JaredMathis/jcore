@@ -10,9 +10,10 @@ export async function file_js_identifier_rename(file_path, identifier_name_old, 
         js_identifier_is,
         js_identifier_is
     ]);
-    await file_js_map_args(file_path, function v(args) {
+    let v_3 = function v(args) {
         let v_2 = js_identifier_rename(args, identifier_name_old, identifier_name_new);
         return v_2;
-    });
+    };
+    await file_js_map_args(file_path, v_3);
     metadata([]);
 }

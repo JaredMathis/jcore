@@ -11,8 +11,10 @@ export async function file_js_map_with_args(file_path, function_name_mapper, arg
         js_identifier_is,
         defined_is
     ]);
-    await file_js_map_args(file_path, async function mapper(mapper_args) {
+    let v = async function mapper(mapper_args) {
         object_merge(args, mapper_args);
-        await function_run(function_name_mapper, [mapper_args]);
-    });
+        let v_2 = [mapper_args];
+        await function_run(function_name_mapper, v_2);
+    };
+    await file_js_map_args(file_path, v);
 }
