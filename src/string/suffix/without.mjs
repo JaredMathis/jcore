@@ -1,3 +1,4 @@
+import { subtract } from '../../subtract.mjs';
 import { string_take } from '../take.mjs';
 import { string_is } from '../is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -12,7 +13,7 @@ export function string_suffix_without(input, suffix) {
     ]);
     let v = string_ends_with(input, suffix);
     assert(v);
-    let end = string_length(input) - string_length(suffix);
+    let end = subtract(string_length(input), string_length(suffix));
     let v_2 = string_take(input, end);
     return v_2;
     metadata([]);
