@@ -10,8 +10,10 @@ export function list_remove_while_first_equals(args, value) {
         list_is,
         defined_is
     ]);
-    while (equal(list_first(args), value)) {
+    let test = true;
+    while (test) {
         list_first_remove(args);
+        test = equal(list_first(args), value);
     }
     metadata([]);
 }
