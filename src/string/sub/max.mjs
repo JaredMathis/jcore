@@ -9,7 +9,8 @@ export function string_sub_max(left, right) {
     let offset_max = integer_value_0();
     let left_index_max = integer_value_0();
     let right_index_max = integer_value_0();
-    for (let left_index = integer_value_0(); less_than(left_index, left.length); left_index++) {
+    let left_index = integer_value_0()
+    for (; less_than(left_index, left.length); left_index++) {
         for (let right_index = integer_value_0(); less_than(right_index, right.length); right_index++) {
             let offset = string_sub_max_starting_at(left, right, left_index, right_index);
             let v = offset > offset_max;
