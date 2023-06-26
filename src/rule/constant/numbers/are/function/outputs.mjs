@@ -38,7 +38,7 @@ export async function rule_constant_numbers_are_function_outputs() {
             await js_visit_nodes_filter_async(parsed, js_node_is_literal, async function v_8(v) {
                 let {node} = v;
                 let value = js_node_property_value_get(node);
-                let v_4 = !number_is(value);
+                let v_4 = !lambda_change(value);
                 if (v_4) {
                     return;
                 }
