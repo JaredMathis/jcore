@@ -112,6 +112,7 @@ export function js_visit_call_statements(args, call_each) {
                 }
                 return;
             }
+            DoWhileStatement
             let v_15 = not(js_node_is_call_expression(expression));
             if (v_15) {
                 return;
