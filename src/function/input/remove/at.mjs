@@ -11,5 +11,6 @@ export async function function_input_remove_at(function_name, index_string) {
     ]);
     let input_index = integer_parse(index_string);
     let v = function_name_get(refactor_input_remove_at);
-    await function_map_with_args(v, function_name, { input_index });
+    let v_2 = { input_index };
+    await function_map_with_args(v, function_name, v_2);
 }

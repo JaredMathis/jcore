@@ -19,11 +19,12 @@ export async function function_dependencies_generic(function_name, recursive) {
         lambda = file_js_dependencies_non_recursive;
     }
     let d = await lambda(file_path);
-    let v = list_map(d, function v_2(file_path) {
+    let v_4 = function v_2(file_path) {
         return {
             file_path,
             function_name: file_js_path_to_name(file_path)
         };
-    });
+    };
+    let v = list_map(d, v_4);
     return v;
 }

@@ -7,9 +7,10 @@ export async function function_copy_suffix_remove(function_name_new, function_na
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let function_name_old = js_identifier_parts_from([
+    let v = [
         function_name_new,
         function_name_suffix
-    ]);
+    ];
+    let function_name_old = js_identifier_parts_from(v);
     await function_copy(function_name_old, function_name_new);
 }

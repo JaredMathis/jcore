@@ -10,9 +10,10 @@ export async function function_copy_suffix_add(function_name_old, function_name_
     ]);
     let function_name_suffix_parts = js_identifier_parts_to(function_name_suffix);
     let function_name_old_parts = js_identifier_parts_to(function_name_old);
-    let function_name_new = js_identifier_parts_from_combine([
+    let v = [
         function_name_old_parts,
         function_name_suffix_parts
-    ]);
+    ];
+    let function_name_new = js_identifier_parts_from_combine(v);
     await function_copy(function_name_old, function_name_new);
 }

@@ -22,22 +22,27 @@ export async function function_import(import_meta, function_name) {
     let function_path = function_name_to_file_path(function_name);
     let concated = path_relative_file(__filename, function_path);
     let replaced = js_import_path_normalize(concated);
-    let imported = await try_catch_throw_async(async function v() {
+    let v_6 = async function v() {
         return await import(replaced);
-    }, async function v_2(e) {
+    };
+    let v_7 = async function v_2(e) {
         let all = await function_name_all();
-        let similar = list_filter(all, function v_3(a) {
+        let v_8 = function v_3(a) {
             let v_4 = string_similar(a, function_name);
             return v_4;
-        });
-        let v_5 = not(list_empty(similar));
+        };
+        let similar = list_filter(all, v_8);
+        let v_9 = list_empty(similar);
+        let v_5 = not(v_9);
         if (v_5) {
             let similar_paths = function_name_list_to_file_path(similar);
-            log_multiple([
+            let v_10 = [
                 `Did you mean: `,
                 similar_paths
-            ]);
+            ];
+            log_multiple(v_10);
         }
-    });
+    };
+    let imported = await try_catch_throw_async(v_6, v_7);
     return imported;
 }

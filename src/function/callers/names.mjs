@@ -9,9 +9,13 @@ export async function function_callers_names(function_name) {
     let candidates = await function_name_all();
     for (let c of candidates) {
         let dependencies = await function_dependencies_non_recursive(c);
-        let v_2 = list_any(dependencies, function v(d) {
-            return equal(object_property_get(d, 'function_name'), function_name);
-        });
+        let v_3 = function v(d) {
+            let v_6 = 'function_name';
+            let v_4 = object_property_get(d, v_6);
+            let v_5 = equal(v_4, function_name);
+            return v_5;
+        };
+        let v_2 = list_any(dependencies, v_3);
         if (v_2) {
             list_add(result, c);
         }

@@ -11,10 +11,11 @@ export async function function_input_add_multiple_prefix(function_name, prefix, 
     let result = await function_input_add_multiple_generic(function_name, inputs_string, map);
     return result;
     function map(i) {
-        let v = js_identifier_parts_from([
+        let v_2 = [
             prefix,
             i
-        ]);
+        ];
+        let v = js_identifier_parts_from(v_2);
         return v;
     }
 }

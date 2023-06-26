@@ -13,10 +13,11 @@ export async function function_callers_arguments_assert_auto_recursive(root) {
         result_previous = result;
         const v_3 = [];
         result = await function_callers_arguments_assert_auto_multiple_list(result, v_3);
-        log({
+        let v_4 = {
             result_previous,
             result
-        });
+        };
+        log(v_4);
         const v_2 = json_equal(result, result_previous);
         v = not(v_2);
     } while (v);

@@ -13,10 +13,11 @@ export async function function_input_add_generic(function_name, input_name, inpu
         integer_is
     ]);
     let v = function_name_get(refactor_input_add);
-    await function_map_with_args(v, function_name, {
+    let v_2 = {
         input_name,
         input_value_default,
         input_type,
         input_index
-    });
+    };
+    await function_map_with_args(v, function_name, v_2);
 }
