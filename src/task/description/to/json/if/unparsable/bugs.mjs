@@ -6,19 +6,20 @@ import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { string_combine_multiple } from '../../../../../../string/combine/multiple.mjs';
 export async function task_description_to_json_if_unparsable_bugs() {
     arguments_assert(arguments, []);
+    const body_62 = [
+        'If file ends in _async\r\n',
+        'There must be a non-async version?\r\n',
+        '\r\n',
+        ' node run.mjs git function_unasyncify \r\n',
+        '\r\n',
+        'Therefore  function_unasyncify  can safely remove _async suffix'
+    ];
     let bugs = [
         {
             number: integer_value_62(),
             title: 'Maybe enforce naming convention of _async',
             state: 'open',
-            body: string_combine_multiple([
-                'If file ends in _async\r\n',
-                'There must be a non-async version?\r\n',
-                '\r\n',
-                ' node run.mjs git function_unasyncify \r\n',
-                '\r\n',
-                'Therefore  function_unasyncify  can safely remove _async suffix'
-            ])
+            body: string_combine_multiple(body_62)
         },
         {
             number: integer_value_76(),
