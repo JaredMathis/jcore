@@ -1,6 +1,5 @@
-import { js_bracket_both } from '../../../js/bracket/both.mjs';
+import { js_code_call_expression_metadata } from '../../../js/code/call/expression/metadata.mjs';
 import { js_code_statement } from '../../../js/code/statement.mjs';
-import { js_code_call_expression_with_args_code } from '../../../js/code/call/expression/with/args/code.mjs';
 import { not } from '../../../not.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -8,7 +7,6 @@ import { refactor_import_fix } from '../../import/fix.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { js_parse_statement } from '../../../js/parse/statement.mjs';
 import { metadata } from '../../../metadata.mjs';
-import { function_name_get } from '../../../function/name/get.mjs';
 import { js_statement_if_metadata } from '../../../js/statement/if/metadata.mjs';
 import { list_last } from '../../../list/last.mjs';
 import { list_empty } from '../../../list/empty.mjs';
@@ -27,9 +25,7 @@ export async function refactor_metadata_missing_add(args) {
     }
     let v_2 = not(already_exists);
     if (v_2) {
-        const name = function_name_get(metadata);
-        const call_args = js_bracket_both();
-        let metadata_new_code = js_code_call_expression_with_args_code(name, call_args);
+        let metadata_new_code = js_code_call_expression_metadata();
         let metadata_new_statement_code = js_code_statement(metadata_new_code);
         let metadata_new = js_parse_statement(metadata_new_statement_code);
         list_add(statements, metadata_new);
