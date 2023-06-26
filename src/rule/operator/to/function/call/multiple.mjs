@@ -1,3 +1,4 @@
+import { or } from '../../../../../or.mjs';
 import { js_node_is_logical_expression } from '../../../../../js/node/is/logical/expression.mjs';
 import { js_node_is_binary_expression } from '../../../../../js/node/is/binary/expression.mjs';
 import { and } from '../../../../../and.mjs';
@@ -8,4 +9,5 @@ export async function rule_operator_to_function_call_multiple() {
     arguments_assert(arguments, []);
     await rule_operator_to_function_call_generic(equal, '===', js_node_is_binary_expression);
     await rule_operator_to_function_call_generic(and, '&&', js_node_is_logical_expression);
+    await rule_operator_to_function_call_generic(or, '||', js_node_is_logical_expression);
 }
