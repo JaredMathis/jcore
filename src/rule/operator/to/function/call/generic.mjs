@@ -1,3 +1,6 @@
+import { function_name_get } from '../../../../../function/name/get.mjs';
+import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
 import { js_node_property_right_get } from '../../../../../js/node/property/right/get.mjs';
 import { js_node_property_left_get } from '../../../../../js/node/property/left/get.mjs';
@@ -12,6 +15,10 @@ import { equal } from '../../../../../equal.mjs';
 import { js_mapper_args_to_function_name } from '../../../../../js/mapper/args/to/function/name.mjs';
 import { function_names_each_map } from '../../../../../function/names/each/map.mjs';
 export async function rule_operator_to_function_call_generic(operator_function, operator_value) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     let operator_function_name = function_name_get(operator_function);
     await function_names_each_map(async function v(args) {
         let {parsed} = args;
