@@ -1,4 +1,4 @@
-import { defined_is } from '../../../defined/is.mjs';
+import { metadata } from '../../../metadata.mjs';
 import { refactor_metadata_add_named } from './named.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { function_name_get } from '../../../function/name/get.mjs';
