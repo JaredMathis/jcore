@@ -1,3 +1,4 @@
+import { js_code_call_expression_with_args_code } from '../js/code/call/expression/with/args/code.mjs';
 import { metadata_tests_none } from '../metadata/tests/none.mjs';
 import { js_mapper_args_to_metadata_args_contains } from '../js/mapper/args/to/metadata/args/contains.mjs';
 import { function_map_args } from '../function/map/args.mjs';
@@ -43,7 +44,7 @@ export async function tests_generate() {
         let v = js_code_await(awaited);
         return v;
     });
-    list_add(mapped, `${ function_name_get(log) }(${ list_length(mapped) } + ' tests ran successfully')`);
+    list_add(mapped, js_code_call_expression_with_args_code(function_name_get(log), `${ list_length(mapped) } + ' tests ran successfully')`));
     let v_2 = string_new_line();
     let code = list_join(mapped, v_2);
     let statements = js_parse_statements(code);
