@@ -1,3 +1,4 @@
+import { js_node_is_for_of_statement } from '../../node/is/for/of/statement.mjs';
 import { js_node_property_body_get } from '../../node/property/body/get.mjs';
 import { js_node_property_test_get } from '../../node/property/test/get.mjs';
 import { js_node_is_do_while_statement } from '../../node/is/do/while/statement.mjs';
@@ -118,22 +119,28 @@ export function js_visit_call_statements(args, call_each) {
             if (js_node_is_do_while_statement(expression)) {
                 let test = js_node_property_test_get(expression);
                 let body = js_node_property_body_get(expression);
-                for (let e of [test,body]) {
+                for (let e of [
+                        test,
+                        body
+                    ]) {
                     refactor_call_expression_to_assignments(e, list_copy_shallow_add_multiple(refactor_stack, [
                         expression,
                         e
-                    ]))
+                    ]));
                 }
                 return;
             }
             if (js_node_is_for_of_statement(expression)) {
-                let test = js_node_property_test_get(expression);
                 let body = js_node_property_body_get(expression);
-                for (let e of [test,body]) {
+                let right = js_node_property_right_get(expression);
+                for (let e of [
+                        test,
+                        right
+                    ]) {
                     refactor_call_expression_to_assignments(e, list_copy_shallow_add_multiple(refactor_stack, [
                         expression,
                         e
-                    ]))
+                    ]));
                 }
                 return;
             }
