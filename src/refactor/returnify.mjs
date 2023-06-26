@@ -21,7 +21,7 @@ export function refactor_returnify(args) {
         let v_2 = result_property_success_get(r);
         assert(v_2);
         let ancestor_list = result_property_data_get(r);
-        let child = js_node_property_argument_get(node);
+        let child = lambda_child_get(node);
         js_node_assign_and_replace(parsed, child, ancestor_list, node);
     };
     js_visit_nodes_filter(parsed, js_node_is_return_statement, v_4);
