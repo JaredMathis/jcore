@@ -15,6 +15,7 @@ import { function_name_separator } from '../../name/separator.mjs';
 import { not } from '../../../not.mjs';
 import { function_exists } from '../../exists.mjs';
 import { js_identifier_parts_to } from '../../../js/identifier/parts/to.mjs';
+import { string_combine } from '../../../string/combine.mjs';
 export async function function_add_mapper_generic(prefix, function_name_suffix, function_name_to_call, expression_code_args_get, add_after) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -39,7 +40,7 @@ export async function function_add_mapper_generic(prefix, function_name_suffix, 
     ];
     let function_name_suffix_parts_first = list_first(function_name_suffix_parts);
     let v_5 = !list_contains(prefixes, function_name_suffix_parts_first);
-    let v_6 = `Cannot start with: ` + prefixes;
+    let v_6 = string_combine(`Cannot start with: `, prefixes);
     assert_message(v_5, v_6);
     let prefix_parts = js_identifier_parts_to(prefix);
     let v_7 = [
