@@ -13,6 +13,7 @@ import { js_node_property_argument_get } from '../js/node/property/argument/get.
 export function refactor_returnify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let lambda_child_get = js_node_assign_and_replace
+    let lambda_node_is_type = js_node_is_return_statement
     let {parsed} = args;
     let v_4 = function v_3(v) {
         let {node, stack} = v;
