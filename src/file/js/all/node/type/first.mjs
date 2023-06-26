@@ -16,7 +16,8 @@ export async function file_js_all_node_type_first(node_type) {
         };
         let v_6 = function v_2(n) {
             result = n;
-            return boolean_value_true();
+            let v_7 = boolean_value_true();
+            return v_7;
         };
         js_nodes_each(parsed, v_5, v_6);
     };

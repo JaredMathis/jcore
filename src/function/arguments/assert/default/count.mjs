@@ -9,7 +9,8 @@ export async function function_arguments_assert_default_count() {
         await function_arguments_assert_default_generic(on_equals);
         async function on_equals(function_name) {
             counter();
-            return boolean_value_false();
+            let v_3 = boolean_value_false();
+            return v_3;
         }
     };
     let result = await count_async(v_2);

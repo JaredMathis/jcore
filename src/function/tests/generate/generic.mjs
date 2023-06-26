@@ -77,7 +77,8 @@ export async function function_tests_generate_generic(function_name, count_strin
     };
     let v_16 = await list_any_async(names_with_endings_unqiue, v_22);
     if (v_16) {
-        let v_23 = string_combine(`${ function_name_get(arguments_assert) } types need filling in `, names_with_endings_unqiue);
+        let v_29 = `${ function_name_get(arguments_assert) } types need filling in `;
+        let v_23 = string_combine(v_29, names_with_endings_unqiue);
         error(v_23);
         return;
     }
@@ -93,11 +94,14 @@ export async function function_tests_generate_generic(function_name, count_strin
     let count_error = integer_value_0();
     log(function_name);
     for (let i of range(count)) {
-        let test_name = string_combine_multiple([
+        let v_33 = integer_value_1();
+        let v_32 = add(i, v_33);
+        let v_30 = [
             function_name,
             function_tests_generated_string_sub(),
-            string_to(add(i, integer_value_1()))
-        ]);
+            string_to(v_32)
+        ];
+        let test_name = string_combine_multiple(v_30);
         for (let j of range(tries)) {
             let v_25 = function v_10(n) {
                 let key = function_name_to_tests_values(n);
@@ -116,7 +120,8 @@ export async function function_tests_generate_generic(function_name, count_strin
                 count_error++;
                 let v_18 = count_error > count_error_max;
                 if (v_18) {
-                    return boolean_value_true();
+                    let v_31 = boolean_value_true();
+                    return v_31;
                 }
             };
             await function_tests_generate_generic_each(function_name, test_name, args, v_26);

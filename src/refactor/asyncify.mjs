@@ -27,11 +27,12 @@ export async function refactor_asyncify(args) {
     let function_names = await function_name_all();
     let function_names_dictionary = list_string_to_dictionary(function_names, identity);
     let calls = js_nodes_get(parsed, js_node_is_call_expression);
-    let function_calls = list_filter(calls, function v_3(ce) {
+    let v_7 = function v_3(ce) {
         let v_4 = js_call_expression_name_get_or_null(ce);
         let v_5 = object_property_exists(function_names_dictionary, v_4);
         return v_5;
-    });
+    };
+    let function_calls = list_filter(calls, v_7);
     let suffix = function_naming_suffix_asynk();
     for (let f of function_calls) {
         let name = js_call_expression_name_get_or_null(f);

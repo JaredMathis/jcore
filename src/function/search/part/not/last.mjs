@@ -12,7 +12,8 @@ export async function function_search_part_not_last(query) {
         let v_5 = list_last(candidate_mapped);
         let v_4 = equal(v_5, query_mapped);
         if (v_4) {
-            return boolean_value_false();
+            let v_6 = boolean_value_false();
+            return v_6;
         }
         let v_2 = list_contains(candidate_mapped, query_mapped);
         return v_2;

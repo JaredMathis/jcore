@@ -9,7 +9,8 @@ export function js_node_is(candidate) {
     arguments_assert(arguments, [defined_is]);
     let v_3 = not(candidate);
     if (v_3) {
-        return boolean_value_false();
+        let v_4 = boolean_value_false();
+        return v_4;
     }
     let v = js_node_property_type();
     let v_2 = object_property_exists(candidate, v);

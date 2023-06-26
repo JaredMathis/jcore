@@ -21,26 +21,34 @@ export async function refactor_variable_set(args) {
     let {identifier, value} = args;
     let {parsed} = args;
     const predicate = function v_6(n) {
-        let v_7 = not(js_node_is_variable_declaration(n));
+        let v_11 = js_node_is_variable_declaration(n);
+        let v_7 = not(v_11);
         if (v_7) {
-            return boolean_value_false();
+            let v_12 = boolean_value_false();
+            return v_12;
         }
         let v = js_node_property_declarations();
         let declarations = object_property_get(n, v);
-        let v_8 = not(list_length_is_1(declarations));
+        let v_13 = list_length_is_1(declarations);
+        let v_8 = not(v_13);
         if (v_8) {
-            return boolean_value_false();
+            let v_14 = boolean_value_false();
+            return v_14;
         }
         let declaration = list_single(declarations);
-        let v_9 = not(js_node_is_variable_declarator(declaration));
+        let v_15 = js_node_is_variable_declarator(declaration);
+        let v_9 = not(v_15);
         if (v_9) {
-            return boolean_value_false();
+            let v_16 = boolean_value_false();
+            return v_16;
         }
         let v_2 = js_node_property_id();
         let id = object_property_get(declaration, v_2);
-        let v_10 = not(js_node_is_identifier(id));
+        let v_17 = js_node_is_identifier(id);
+        let v_10 = not(v_17);
         if (v_10) {
-            return boolean_value_false();
+            let v_18 = boolean_value_false();
+            return v_18;
         }
         let v_5 = js_property_name();
         let v_3 = object_property_get(id, v_5);

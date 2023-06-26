@@ -11,7 +11,8 @@ export async function function_search_part_last_async_not_is(query) {
     let candidate_mapped_matches = async function v(candidate_mapped, query_mapped) {
         let async_is = await function_name_parts_async_is(candidate_mapped);
         if (async_is) {
-            return boolean_value_false();
+            let v_5 = boolean_value_false();
+            return v_5;
         }
         let v_2 = list_last(candidate_mapped);
         let v_3 = equal(v_2, query_mapped);

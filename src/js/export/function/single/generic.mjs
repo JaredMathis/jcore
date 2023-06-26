@@ -38,7 +38,8 @@ export function js_export_function_single_generic(parsed, or_null) {
                 return name;
             };
             let names = list_map(exports_existing, v_8);
-            let v_9 = string_combine(`Multiple exports? Look into this: `, names);
+            let v_11 = `Multiple exports? Look into this: `;
+            let v_9 = string_combine(v_11, names);
             error(v_9);
         }
     }

@@ -14,7 +14,8 @@ export async function refactor_console_to_function(args) {
     arguments_assert(arguments, [js_mapper_args_is]);
     let {parsed, file_path} = args;
     let exports_existing = js_exports(parsed);
-    let v = not(list_empty(exports_existing));
+    let v_3 = list_empty(exports_existing);
+    let v = not(v_3);
     if (v) {
         return;
     }

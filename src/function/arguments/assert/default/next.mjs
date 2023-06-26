@@ -8,7 +8,8 @@ export async function function_arguments_assert_default_next() {
     await function_arguments_assert_default_generic(on_equals);
     async function on_equals(function_name) {
         await function_open_vs_code(function_name);
-        return boolean_value_true();
+        let v = boolean_value_true();
+        return v;
     }
     metadata([]);
 }

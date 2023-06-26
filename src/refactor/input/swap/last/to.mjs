@@ -17,7 +17,8 @@ export async function refactor_input_swap_last_to(args) {
     }
     function predicate(index, params) {
         let index_last = list_last_index(params);
-        return less_than(index, index_last);
+        let v_2 = less_than(index, index_last);
+        return v_2;
     }
     metadata([]);
 }

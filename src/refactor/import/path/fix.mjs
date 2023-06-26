@@ -11,14 +11,17 @@ import { js_mapper_args_is } from '../../../js/mapper/args/is.mjs';
 export async function refactor_import_path_fix(args) {
     arguments_assert(arguments, [js_mapper_args_is]);
     let {parsed} = args;
-    let file_path = object_property_get(args, 'file_path');
+    let v_2 = 'file_path';
+    let file_path = object_property_get(args, v_2);
     let imports = await js_import_all_with_function_names(parsed);
     for (let iw of imports) {
-        let function_name = object_property_get(iw, 'name');
+        let v_3 = 'name';
+        let function_name = object_property_get(iw, v_3);
         let function_path = function_name_to_file_path(function_name);
         let relative = path_relative_file(file_path, function_path);
         let normalized = js_import_path_normalize(relative);
-        let i = object_property_get(iw, 'import');
+        let v_4 = 'import';
+        let i = object_property_get(iw, v_4);
         let v = js_node_property_source();
         let source = object_property_get(i, v);
         js_literal_value_raw_set(source, normalized);

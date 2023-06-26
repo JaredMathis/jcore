@@ -24,7 +24,8 @@ export async function function_arguments_assert_extra_next() {
         if (v_2) {
             function_open_vs_code(function_name);
             result = function_name;
-            return boolean_value_true();
+            let v_3 = boolean_value_true();
+            return v_3;
         }
     }
     return result;

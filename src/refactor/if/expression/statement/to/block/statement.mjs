@@ -16,18 +16,21 @@ import { metadata } from '../../../../../../metadata.mjs';
 export function refactor_if_expression_statement_to_block_statement(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
-    js_nodes_each(parsed, js_node_is_if_statement, function v_2(node) {
+    let v_3 = function v_2(node) {
         let consequent = js_node_property_consequent_get(node);
         let v = js_node_is_expression_statement(consequent);
         if (v) {
-            let function_expression = js_function_declaration_named(string_a());
+            let v_4 = string_a();
+            let function_expression = js_function_declaration_named(v_4);
             let block_statement = js_node_property_body_get(function_expression);
-            assert(js_node_is_block_statement(block_statement));
+            let v_5 = js_node_is_block_statement(block_statement);
+            assert(v_5);
             let body = js_node_property_body_get(block_statement);
             let copy = object_copy_shallow(consequent);
             list_add(body, copy);
             object_replace(consequent, block_statement);
         }
-    });
+    };
+    js_nodes_each(parsed, js_node_is_if_statement, v_3);
     metadata([]);
 }

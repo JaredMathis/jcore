@@ -17,7 +17,9 @@ export function function_name_to_file_path(function_name) {
     let v = directory_current();
     list_add_beginning(parts, v);
     let v_3 = function v_2(last) {
-        return string_combine(last, function_extension());
+        let v_4 = function_extension();
+        let v_5 = string_combine(last, v_4);
+        return v_5;
     };
     list_last_map(parts, v_3);
     let joined = path_join(parts);

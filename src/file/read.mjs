@@ -8,7 +8,8 @@ import { string_combine } from '../string/combine.mjs';
 export async function file_read(file_path) {
     arguments_assert(arguments, [path_is]);
     let v = await path_exists(file_path);
-    let v_2 = string_combine(`Path does not exist: `, file_path);
+    let v_4 = `Path does not exist: `;
+    let v_2 = string_combine(v_4, file_path);
     assert_message(v, v_2);
     let v_3 = 'utf8';
     let result = await fs.promises.readFile(file_path, v_3);

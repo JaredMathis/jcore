@@ -18,7 +18,9 @@ export function js_import_path_normalize(import_path) {
     let v_4 = string_starts_with(result, v_5);
     let v_3 = not(v_4);
     if (v_3) {
-        return `${ directory_current() }${ js_directory_separator() }${ result }`;
+        let v_6 = directory_current();
+        let v_7 = js_directory_separator();
+        return `${ v_6 }${ v_7 }${ result }`;
     }
     return result;
     metadata([]);

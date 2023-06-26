@@ -26,18 +26,21 @@ export async function refactor_unasyncify(args) {
     let callables = js_nodes_get(parsed, js_node_callable_is);
     for (let callable of callables) {
         let v = js_keyword_asynk();
-        object_property_change(callable, v, boolean_value_false());
+        let v_6 = boolean_value_false();
+        object_property_change(callable, v, v_6);
     }
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     await refactor_metadata_generated_add_function(args);
     let suffix = function_naming_suffix_asynk();
-    js_identifier_rename_if(args, function v_2(name) {
+    let v_7 = function v_2(name) {
         let v_4 = string_ends_with(name, suffix);
         return v_4;
-    }, function v_3(name) {
+    };
+    let v_8 = function v_3(name) {
         let v_5 = string_suffix_without(name, suffix);
         return v_5;
-    });
+    };
+    js_identifier_rename_if(args, v_7, v_8);
     let imports = await js_import_all_with_function_names(parsed);
     let function_name = js_function_declaration_to_name(function_declaration);
     js_import_remove_if_exists(parsed, imports, function_name);

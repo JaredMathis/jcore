@@ -8,10 +8,13 @@ import { assert } from '../../../../assert.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function range_from_test_generated_8() {
     arguments_assert(arguments, []);
-    let v = assert_throws(function v_2() {
-        let v_3 = range_from(integer_value_1(), integer_value_0());
+    let v_4 = function v_2() {
+        let v_5 = integer_value_1();
+        let v_6 = integer_value_0();
+        let v_3 = range_from(v_5, v_6);
         return v_3;
-    });
+    };
+    let v = assert_throws(v_4);
     assert(v);
     metadata([metadata_generated()]);
 }

@@ -28,20 +28,22 @@ import { js_parse_statement } from '../../js/parse/statement.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';
 export async function refactor_destructure_expand(args) {
     arguments_assert(arguments, [defined_is]);
-    refactor_import_fix_if_changed(args, function v_13(o) {
+    let v_14 = function v_13(o) {
         let {function_declaration, parsed} = args;
-        js_visit_nodes_filter(parsed, js_node_is_object_pattern, function v_8(v) {
+        let v_15 = function v_8(v) {
             let {stack, parent, node} = v;
             let v_9 = js_node_is_variable_declarator(parent);
             if (v_9) {
-                let grandparent = js_visit_node_grandparent(stack, integer_value_0());
+                let v_16 = integer_value_0();
+                let grandparent = js_visit_node_grandparent(stack, v_16);
                 let v_10 = js_node_is_variable_declaration(grandparent);
                 if (v_10) {
                     let v_2 = js_node_property_declarations();
                     let declarations = object_property_get(grandparent, v_2);
                     let v_11 = list_length_is_1(declarations);
                     if (v_11) {
-                        let grandparent_great = js_visit_node_grandparent(stack, integer_value_1());
+                        let v_17 = integer_value_1();
+                        let grandparent_great = js_visit_node_grandparent(stack, v_17);
                         let v_12 = js_node_is_block_statement(grandparent_great);
                         if (v_12) {
                             let function_body_statements = js_block_statement_body(grandparent_great);
@@ -68,7 +70,9 @@ export async function refactor_destructure_expand(args) {
                     }
                 }
             }
-        });
-    });
+        };
+        js_visit_nodes_filter(parsed, js_node_is_object_pattern, v_15);
+    };
+    refactor_import_fix_if_changed(args, v_14);
     metadata([]);
 }

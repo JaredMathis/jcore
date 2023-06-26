@@ -8,8 +8,15 @@ import { random_get } from './get.mjs';
 import { number_floor } from '../number/floor.mjs';
 import { assert } from '../assert.mjs';
 export function random_between(lower, upper) {
-    assert(less_than(lower, upper));
-    let difference = add(subtract(upper, lower), integer_value_1());
-    return add(number_floor(multiply(difference, random_get())), lower);
+    let v = less_than(lower, upper);
+    assert(v);
+    let v_2 = subtract(upper, lower);
+    let v_3 = integer_value_1();
+    let difference = add(v_2, v_3);
+    let v_7 = random_get();
+    let v_6 = multiply(difference, v_7);
+    let v_4 = number_floor(v_6);
+    let v_5 = add(v_4, lower);
+    return v_5;
     metadata([]);
 }

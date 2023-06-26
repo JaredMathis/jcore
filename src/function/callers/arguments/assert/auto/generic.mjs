@@ -55,7 +55,8 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         let c_params = object_property_get(c_function_declaration, v_2);
         let v_13 = list_empty(c_params);
         if (v_13) {
-            return boolean_value_true();
+            let v_37 = boolean_value_true();
+            return v_37;
         }
         let c_arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(c_function_declaration);
         let v_24 = async function lambda(c_arg, c_arg_index) {
@@ -72,7 +73,8 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             let v_25 = equal(c_predicate_name, default_name);
             let v_14 = not(v_25);
             if (v_14) {
-                return boolean_value_false();
+                let v_38 = boolean_value_false();
+                return v_38;
             }
             let occurs = boolean_value_false();
             let assignment_exists = boolean_value_false();

@@ -18,9 +18,10 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { js_node_is_identifier } from '../../../../js/node/is/identifier.mjs';
 export function refactor_call_arguments_to_assignments(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let parsed = object_property_get(args, 'parsed');
+    let v_3 = 'parsed';
+    let parsed = object_property_get(args, v_3);
     let {file_path} = args;
-    occurs_while(function v_17(c) {
+    let v_4 = function v_17(c) {
         js_visit_call_statements(args, call_each);
         function call_each(stack_reversed, node, expression, ancestor_list) {
             const skip = refactor_call_arguments_to_assignments_skip(expression);
@@ -39,7 +40,8 @@ export function refactor_call_arguments_to_assignments(args) {
             }
             let v_2 = js_node_is_return_statement(node);
             if (v_2) {
-                let expression_parent = list_get(stack_reversed, integer_value_1());
+                let v_5 = integer_value_1();
+                let expression_parent = list_get(stack_reversed, v_5);
                 let use_parent = boolean_value_false();
                 if (js_node_is(expression_parent)) {
                     if (js_node_is_await_expression(expression_parent)) {
@@ -57,6 +59,7 @@ export function refactor_call_arguments_to_assignments(args) {
                 c();
             }
         }
-    });
+    };
+    occurs_while(v_4);
     metadata([]);
 }

@@ -11,9 +11,10 @@ import { list_filter } from '../../../../list/filter.mjs';
 import { list_remove } from '../../../../list/remove.mjs';
 export async function refactor_functions_metadata_extra_remove() {
     arguments_assert(arguments, []);
-    await function_names_each_map(async function logic(args) {
+    let v = async function logic(args) {
         let last_metadata_args = js_mapper_args_to_metadata_args(args);
-        let statements = error(`not sure what happened to statements - putting this here for now`);
+        let v_2 = `not sure what happened to statements - putting this here for now`;
+        let statements = error(v_2);
         let remaining = list_take_without_last(statements);
         let removals = list_filter(remaining, js_statement_metadata_is);
         for (let r of removals) {
@@ -21,6 +22,7 @@ export async function refactor_functions_metadata_extra_remove() {
             list_add_multiple(last_metadata_args, expression_args);
             list_remove(statements, r);
         }
-    });
+    };
+    await function_names_each_map(v);
     metadata([]);
 }

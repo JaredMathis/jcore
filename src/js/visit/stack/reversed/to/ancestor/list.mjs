@@ -26,7 +26,8 @@ export function js_visit_stack_reversed_to_ancestor_list(stack_reversed) {
     let index_starting_at = integer_value_0();
     let v_3 = function v(n) {
         if (!js_node_is(n)) {
-            return boolean_value_false();
+            let v_5 = boolean_value_false();
+            return v_5;
         }
         let v_4 = js_node_is_block_statement(n);
         return v_4;

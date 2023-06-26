@@ -14,17 +14,19 @@ import { function_name_get } from '../../../../../function/name/get.mjs';
 import { refactor_import_fix } from '../../../../import/fix.mjs';
 export async function refactor_functions_arguments_assert_missing_add() {
     arguments_assert(arguments, []);
-    await function_names_each_map(async function logic(args) {
+    let v_4 = async function logic(args) {
         let {function_declaration} = args;
         let exists = boolean_value_false();
         let statements = js_function_declaration_to_statements(function_declaration);
-        let v_2 = not(list_empty(statements));
+        let v_5 = list_empty(statements);
+        let v_2 = not(v_5);
         if (v_2) {
             let statement_first = list_first(statements);
             let v = function_name_get(arguments_assert);
-            js_node_call_expression_statement_if_name_equal(statement_first, v, function on_name_equal() {
+            let v_6 = function on_name_equal() {
                 exists = boolean_value_true();
-            });
+            };
+            js_node_call_expression_statement_if_name_equal(statement_first, v, v_6);
         }
         let v_3 = not(exists);
         if (v_3) {
@@ -32,6 +34,7 @@ export async function refactor_functions_arguments_assert_missing_add() {
             refactor_arguments_assert_add_no_check(function_declaration, excludes);
             await refactor_import_fix(args);
         }
-    });
+    };
+    await function_names_each_map(v_4);
     metadata([]);
 }

@@ -25,41 +25,48 @@ export function js_identifier_is_generic(value, enforce_first, enforce_last, all
     let v_7 = string_is(value);
     let v = not(v_7);
     if (v) {
-        return boolean_value_false();
+        let v_11 = boolean_value_false();
+        return v_11;
     }
     let list = string_to_list(value);
     let v_2 = list_empty(list);
     if (v_2) {
-        return boolean_value_false();
+        let v_12 = boolean_value_false();
+        return v_12;
     }
     if (enforce_first) {
         let first = list_first(list);
         let v_8 = string_letter_is(first);
         let v_3 = not(v_8);
         if (v_3) {
-            return boolean_value_false();
+            let v_13 = boolean_value_false();
+            return v_13;
         }
     }
     if (enforce_last) {
         let last = list_last(list);
         let v_4 = string_underscore_is(last);
         if (v_4) {
-            return boolean_value_false();
+            let v_14 = boolean_value_false();
+            return v_14;
         }
     }
     let underscore = function_name_separator();
     let v_9 = `${ underscore }${ underscore }`;
     let v_5 = string_includes(value, v_9);
     if (v_5) {
-        return boolean_value_false();
+        let v_15 = boolean_value_false();
+        return v_15;
     }
     for (let c of list) {
         let v_10 = string_letter_digit_or_underscore_is_generic(c, allow_underscores);
         let v_6 = not(v_10);
         if (v_6) {
-            return boolean_value_false();
+            let v_16 = boolean_value_false();
+            return v_16;
         }
     }
-    return boolean_value_true();
+    let v_17 = boolean_value_true();
+    return v_17;
     metadata([]);
 }

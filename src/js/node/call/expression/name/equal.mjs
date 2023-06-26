@@ -19,10 +19,12 @@ export function js_node_call_expression_name_equal(node, name_expected) {
         if (v_2) {
             let v_3 = equal(name_actual, name_expected);
             if (v_3) {
-                return boolean_value_true();
+                let v_4 = boolean_value_true();
+                return v_4;
             }
         }
     }
-    return boolean_value_false();
+    let v_5 = boolean_value_false();
+    return v_5;
     metadata([]);
 }

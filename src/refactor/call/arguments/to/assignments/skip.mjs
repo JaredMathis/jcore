@@ -13,7 +13,8 @@ export function refactor_call_arguments_to_assignments_skip(node) {
     arguments_assert(arguments, [js_node_is_call_expression]);
     let name = js_call_expression_name_get_or_null(node);
     if (null_is(name)) {
-        return boolean_value_false();
+        let v_2 = boolean_value_false();
+        return v_2;
     }
     const rule_exceptions = [
         arguments_assert,
@@ -21,9 +22,11 @@ export function refactor_call_arguments_to_assignments_skip(node) {
         comment
     ];
     let rule_exceptions_names = list_map(rule_exceptions, function_name_get);
-    const skip = list_any(rule_exceptions_names, function v(e) {
-        return equal(e, name);
-    });
+    let v_3 = function v(e) {
+        let v_4 = equal(e, name);
+        return v_4;
+    };
+    const skip = list_any(rule_exceptions_names, v_3);
     return skip;
     metadata([]);
 }

@@ -23,31 +23,40 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 export async function refactor_member_expression_none(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {file_path} = args;
-    await refactor_import_fix_if_changed(args, function v_2(changed) {
+    let v_4 = function v_2(changed) {
         let {parsed} = args;
-        js_nodes_each(parsed, js_node_is_member_expression, function v_3(node) {
+        let v_5 = function v_3(node) {
             let object = js_node_property_object_get(node);
             let property = js_node_property_property_get(node);
             let computed = js_node_property_computed_get(node);
             let arg_1 = property;
             let v = !computed;
             if (v) {
-                assert_message(js_node_is_identifier(property), json_to({
+                let v_6 = js_node_is_identifier(property);
+                let v_12 = {
                     file_path,
                     node
-                }));
+                };
+                let v_7 = json_to(v_12);
+                assert_message(v_6, v_7);
                 let property_name = js_node_property_name_get(property);
                 let arg_1_code = js_code_expression_string(property_name);
                 arg_1 = js_parse_expression(arg_1_code);
             }
-            let ce_code = js_code_call_expression_object_property_get(string_a(), string_a());
+            let v_8 = string_a();
+            let v_9 = string_a();
+            let ce_code = js_code_call_expression_object_property_get(v_8, v_9);
             let ce = js_parse_expression(ce_code);
             let args = js_node_property_arguments_get(ce);
-            list_set(args, integer_value_0(), object);
-            list_set(args, integer_value_1(), arg_1);
+            let v_10 = integer_value_0();
+            list_set(args, v_10, object);
+            let v_11 = integer_value_1();
+            list_set(args, v_11, arg_1);
             object_replace(node, ce);
             changed();
-        });
-    });
+        };
+        js_nodes_each(parsed, js_node_is_member_expression, v_5);
+    };
+    await refactor_import_fix_if_changed(args, v_4);
     metadata([]);
 }

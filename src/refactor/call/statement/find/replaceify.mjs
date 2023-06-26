@@ -71,9 +71,9 @@ export async function refactor_call_statement_find_replaceify(args) {
         }
     }
     let function_find_inputs = js_function_declaration_to_params_names(function_declaration_find);
-    await refactor_import_fix_if_changed(args, function v_8(o) {
-        js_visit_call_statements(args, function v_9(stack_reversed, node, expression, ancestor_list) {
-            js_node_call_expression_if_name_equal(expression, function_name_find_statements_last_name, function v_10() {
+    let v_12 = function v_8(o) {
+        let v_13 = function v_9(stack_reversed, node, expression, ancestor_list) {
+            let v_14 = function v_10() {
                 let index = list_index_of(ancestor_list, node);
                 let index_previous = subtract_1(index);
                 let previous = list_get(ancestor_list, index_previous);
@@ -94,21 +94,26 @@ export async function refactor_call_statement_find_replaceify(args) {
                 js_call_expression_name_change(expression, function_name_find);
                 let expression_arguments = js_node_property_arguments_get(expression);
                 let args = js_node_property_params_get(function_declaration_find);
-                log({
+                let v_15 = {
                     args,
                     refactorable_data,
                     j: js_unparse(function_declaration_find)
-                });
-                let v_2 = list_map(args, function v_11(a) {
+                };
+                log(v_15);
+                let v_16 = function v_11(a) {
                     let name_before = js_identifier_name_get(a);
                     let name_after = object_property_get(refactorable_data, name_before);
                     let p_after = js_parse_identifier(name_after);
                     return p_after;
-                });
+                };
+                let v_2 = list_map(args, v_16);
                 list_replace(expression_arguments, v_2);
                 o();
-            });
-        });
-    });
+            };
+            js_node_call_expression_if_name_equal(expression, function_name_find_statements_last_name, v_14);
+        };
+        js_visit_call_statements(args, v_13);
+    };
+    await refactor_import_fix_if_changed(args, v_12);
     metadata([]);
 }

@@ -13,9 +13,11 @@ export function list_any(list, predicate) {
     for (let a of list) {
         let v = predicate(a);
         if (v) {
-            return boolean_value_true();
+            let v_2 = boolean_value_true();
+            return v_2;
         }
     }
-    return boolean_value_false();
+    let v_3 = boolean_value_false();
+    return v_3;
     metadata([metadata_generated()]);
 }

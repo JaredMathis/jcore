@@ -9,7 +9,8 @@ export async function refactor_input_swap_first_to(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     await refactor_input_swap_generic_to(args, predicate, indices_get);
     function indices_get(index, params) {
-        let ranged = range_from(integer_value_1(), index);
+        let v = integer_value_1();
+        let ranged = range_from(v, index);
         list_reverse(ranged);
         return ranged;
     }

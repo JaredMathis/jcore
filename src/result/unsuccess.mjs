@@ -7,6 +7,7 @@ import { object_property_change } from '../object/property/change.mjs';
 export function result_unsuccess(result) {
     arguments_assert(arguments, [defined_is]);
     let v = result_property_success();
-    object_property_change(result, v, boolean_value_false());
+    let v_2 = boolean_value_false();
+    object_property_change(result, v, v_2);
     metadata([]);
 }

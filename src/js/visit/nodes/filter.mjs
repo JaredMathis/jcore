@@ -14,7 +14,8 @@ export function js_visit_nodes_filter(parsed, predicate, lambda) {
     let v_2 = function v(node) {
         let v_3 = js_node_is(node);
         if (!v_3) {
-            return boolean_value_false();
+            let v_5 = boolean_value_false();
+            return v_5;
         }
         let v_4 = predicate(node);
         return v_4;

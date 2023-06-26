@@ -8,10 +8,11 @@ import { arguments_assert } from '../arguments/assert.mjs';
 export function refactor_unlambdaify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
-    js_nodes_each(parsed, js_node_is_arrow_function_expression, function v(n) {
+    let v_4 = function v(n) {
         let v_2 = js_identifier_name_next(parsed);
         let v_3 = js_arrow_function_expression_functionify(n, v_2);
         return v_3;
-    });
+    };
+    js_nodes_each(parsed, js_node_is_arrow_function_expression, v_4);
     metadata([]);
 }

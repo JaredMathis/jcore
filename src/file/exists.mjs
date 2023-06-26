@@ -12,10 +12,12 @@ export async function file_exists(file_path) {
     let v_3 = await path_exists(file_path);
     let v_2 = not(v_3);
     if (v_2) {
-        return boolean_value_false();
+        let v_4 = boolean_value_false();
+        return v_4;
     }
     let v = await file_is(file_path);
     assert(v);
-    return boolean_value_true();
+    let v_5 = boolean_value_true();
+    return v_5;
     metadata([]);
 }

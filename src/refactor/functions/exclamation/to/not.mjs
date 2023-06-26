@@ -16,12 +16,13 @@ import { function_name_get } from '../../../../function/name/get.mjs';
 import { list_add } from '../../../../list/add.mjs';
 export async function refactor_functions_exclamation_to_not() {
     arguments_assert(arguments, []);
-    await function_names_each_map(async function logic(args) {
-        await refactor_import_fix_if_changed(args, function v_2(change) {
+    let v_5 = async function logic(args) {
+        let v_6 = function v_2(change) {
             let {parsed} = args;
-            js_nodes_each(parsed, js_node_is_unary_expression, function v_3(n) {
+            let v_7 = function v_3(n) {
                 let operator = js_node_property_operator_get(n);
-                let v_4 = equal(operator, js_token_exclamation());
+                let v_8 = js_token_exclamation();
+                let v_4 = equal(operator, v_8);
                 if (v_4) {
                     let argument = js_node_property_argument_get(n);
                     let v = function_name_get(not);
@@ -31,8 +32,11 @@ export async function refactor_functions_exclamation_to_not() {
                     object_replace(n, call_expression);
                     change();
                 }
-            });
-        });
-    });
+            };
+            js_nodes_each(parsed, js_node_is_unary_expression, v_7);
+        };
+        await refactor_import_fix_if_changed(args, v_6);
+    };
+    await function_names_each_map(v_5);
     metadata([]);
 }

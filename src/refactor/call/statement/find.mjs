@@ -9,10 +9,12 @@ export function refactor_call_statement_find(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let function_name = js_mapper_args_to_function_name(args);
     log(function_name);
-    js_visit_call_statements(args, function v(stack_reversed, node, expression, ancestor_list) {
+    let v_2 = function v(stack_reversed, node, expression, ancestor_list) {
         let node_string = js_unparse(node);
         log(node_string);
-    });
-    log('');
+    };
+    js_visit_call_statements(args, v_2);
+    let v_3 = '';
+    log(v_3);
     metadata([]);
 }

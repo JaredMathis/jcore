@@ -12,16 +12,22 @@ import { js_import_all_with_function_names } from '../../js/import/all/with/func
 import { js_mapper_args_is } from '../../js/mapper/args/is.mjs';
 export async function refactor_import_unused(args) {
     arguments_assert(arguments, [js_mapper_args_is]);
-    let parsed = object_property_get(args, 'parsed');
+    let v_3 = 'parsed';
+    let parsed = object_property_get(args, v_3);
     let imports = await js_import_all_with_function_names(parsed);
-    let import_name_all = list_map(imports, function v(w) {
-        let v_2 = object_property_get(w, 'name');
+    let v_4 = function v(w) {
+        let v_6 = 'name';
+        let v_2 = object_property_get(w, v_6);
         return v_2;
-    });
+    };
+    let import_name_all = list_map(imports, v_4);
     let counts = js_identifier_counts(parsed);
-    let twices = object_keys_each_filter(counts, function is_two(value, key) {
-        return equal(value, integer_value_2());
-    });
+    let v_5 = function is_two(value, key) {
+        let v_7 = integer_value_2();
+        let v_8 = equal(value, v_7);
+        return v_8;
+    };
+    let twices = object_keys_each_filter(counts, v_5);
     let intersection = list_intersection(import_name_all, twices);
     js_imports_remove_multiple(parsed, imports, intersection);
     metadata([]);

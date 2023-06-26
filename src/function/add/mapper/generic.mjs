@@ -41,7 +41,9 @@ export async function function_add_mapper_generic(prefix, function_name_suffix, 
     ];
     let function_name_suffix_parts_first = list_first(function_name_suffix_parts);
     let v_5 = !list_contains(prefixes, function_name_suffix_parts_first);
-    let v_6 = string_combine(`Cannot start with: `, list_to_string(prefixes));
+    let v_8 = `Cannot start with: `;
+    let v_9 = list_to_string(prefixes);
+    let v_6 = string_combine(v_8, v_9);
     assert_message(v_5, v_6);
     let prefix_parts = js_identifier_parts_to(prefix);
     let v_7 = [

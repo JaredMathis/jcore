@@ -13,7 +13,7 @@ import { js_node_property_argument_get } from '../js/node/property/argument/get.
 export function refactor_returnify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
-    js_visit_nodes_filter(parsed, js_node_is_return_statement, function v_3(v) {
+    let v_4 = function v_3(v) {
         let {node, stack} = v;
         let stack_reversed = list_reversed_get(stack);
         let r = js_visit_stack_reversed_to_ancestor_list(stack_reversed);
@@ -22,6 +22,7 @@ export function refactor_returnify(args) {
         let ancestor_list = result_property_data_get(r);
         let argument = js_node_property_argument_get(node);
         js_node_assign_and_replace(parsed, argument, ancestor_list, node);
-    });
+    };
+    js_visit_nodes_filter(parsed, js_node_is_return_statement, v_4);
     metadata([]);
 }

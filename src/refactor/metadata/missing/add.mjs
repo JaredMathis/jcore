@@ -18,12 +18,14 @@ export async function refactor_metadata_missing_add(args) {
     let {function_declaration} = args;
     let already_exists = boolean_value_false();
     let statements = js_function_declaration_to_statements(function_declaration);
-    let v = not(list_empty(statements));
+    let v_3 = list_empty(statements);
+    let v = not(v_3);
     if (v) {
         let last_statement = list_last(statements);
-        js_statement_if_metadata(last_statement, function if_statement_metadata(last_statement, last_expression) {
+        let v_4 = function if_statement_metadata(last_statement, last_expression) {
             already_exists = boolean_value_true();
-        });
+        };
+        js_statement_if_metadata(last_statement, v_4);
     }
     let v_2 = not(already_exists);
     if (v_2) {

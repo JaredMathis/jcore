@@ -15,7 +15,9 @@ export function range_from_test_generated_4() {
         integer_value_0(),
         integer_value_1()
     ];
-    let actual = range_from(-integer_value_2(), integer_value_1());
+    let v_2 = -integer_value_2();
+    let v_3 = integer_value_1();
+    let actual = range_from(v_2, v_3);
     let v = json_equal(actual, expected);
     assert(v);
     metadata([metadata_generated()]);

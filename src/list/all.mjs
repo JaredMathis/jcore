@@ -14,9 +14,11 @@ export function list_all(list, predicate) {
         let v_2 = predicate(a);
         let v = not(v_2);
         if (v) {
-            return boolean_value_false();
+            let v_3 = boolean_value_false();
+            return v_3;
         }
     }
-    return boolean_value_true();
+    let v_4 = boolean_value_true();
+    return v_4;
     metadata([]);
 }

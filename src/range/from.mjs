@@ -12,14 +12,16 @@ export function range_from(from, to) {
         integer_is,
         integer_is
     ]);
-    assert(from <= to);
+    let v_3 = from <= to;
+    assert(v_3);
     let difference = subtract(to, from);
     let value = add_1(difference);
     let ranged = range(value);
-    let mapped = list_map(ranged, function v(r) {
+    let v_4 = function v(r) {
         let v_2 = add(r, from);
         return v_2;
-    });
+    };
+    let mapped = list_map(ranged, v_4);
     return mapped;
     metadata([]);
 }
