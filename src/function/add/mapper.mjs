@@ -1,6 +1,6 @@
 import { metadata } from '../../metadata.mjs';
 import { function_add_mapper_generic } from './mapper/generic.mjs';
-import { js_brace_left_right } from '../../js/brace/left/right.mjs';
+import { js_brace_both } from '../../js/brace/both.mjs';
 import { function_map_with_args } from '../map/with/args.mjs';
 import { function_input_add_type } from '../input/add/type.mjs';
 import { function_name_get } from '../name/get.mjs';
@@ -17,7 +17,7 @@ export async function function_add_mapper(function_name_suffix) {
         const expression_code_args = [
             js_code_call_expression_with_args(v, v_3),
             input,
-            js_brace_left_right()
+            js_brace_both()
         ];
         return expression_code_args;
     }
