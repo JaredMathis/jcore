@@ -1,3 +1,5 @@
+import { js_node_property_elements_get } from '../../node/property/elements/get.mjs';
+import { js_node_is_array_expression } from '../../node/is/array/expression.mjs';
 import { js_node_property_expressions_get } from '../../node/property/expressions/get.mjs';
 import { js_node_is_template_literal } from '../../node/is/template/literal.mjs';
 import { result_property_data_get } from '../../../result/property/data/get.mjs';
@@ -26,7 +28,6 @@ import { js_node_is_expression_statement } from '../../node/is/expression/statem
 import { js_visit_nodes_filter } from '../nodes/filter.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
 import { result_property_success_get } from '../../../result/property/success/get.mjs';
-import { error } from '../../../error.mjs';
 export function js_visit_call_statements(args, call_each) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -96,6 +97,16 @@ export function js_visit_call_statements(args, call_each) {
                 for (let e of expressions) {
                     refactor_call_expression_to_assignments(e, list_copy_shallow_add_multiple(refactor_stack, [
                         expressions,
+                        e
+                    ]));
+                }
+                return;
+            }
+            if (js_node_is_array_expression(expression)) {
+                let elements = js_node_property_elements_get(expression);
+                for (let e of elements) {
+                    refactor_call_expression_to_assignments(e, list_copy_shallow_add_multiple(refactor_stack, [
+                        elements,
                         e
                     ]));
                 }
