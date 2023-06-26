@@ -1,3 +1,4 @@
+import { list_to_string } from '../../../list/to/string.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -40,7 +41,7 @@ export async function function_add_mapper_generic(prefix, function_name_suffix, 
     ];
     let function_name_suffix_parts_first = list_first(function_name_suffix_parts);
     let v_5 = !list_contains(prefixes, function_name_suffix_parts_first);
-    let v_6 = string_combine(`Cannot start with: `, prefixes);
+    let v_6 = string_combine(`Cannot start with: `, list_to_string(prefixes));
     assert_message(v_5, v_6);
     let prefix_parts = js_identifier_parts_to(prefix);
     let v_7 = [
