@@ -1,3 +1,4 @@
+import { and } from '../and.mjs';
 import { list_empty } from './empty.mjs';
 import { function_is } from '../function/is.mjs';
 import { list_is } from './is.mjs';
@@ -19,5 +20,5 @@ export function list_consume(list, lambda) {
             return v;
         }
     });
-    return !exceeded && list_empty(list);
+    return and(!exceeded, list_empty(list));
 }

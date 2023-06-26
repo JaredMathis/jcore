@@ -33,7 +33,7 @@ export async function rule_operator_to_function_call_generic(operator_function, 
                 try {
                     return node_type(n);
                 } catch (e) {
-                    console.log({n})
+                    console.log({ n });
                     throw e;
                 }
             }, function v_3(node) {

@@ -1,3 +1,4 @@
+import { and } from '../../and.mjs';
 import { not } from '../../not.mjs';
 import { list_all } from '../../list/all.mjs';
 import { equal } from '../../equal.mjs';
@@ -19,7 +20,7 @@ export async function git_ignore_filter(file_paths) {
     ]);
     let filtered = list_filter(file_paths, function v_2(f) {
         let v = list_all(filter, function v_3(g) {
-            return not(string_starts_with(f, string_combine(g, directory_separator()))) && not(equal(f, g));
+            return and(not(string_starts_with(f, string_combine(g, directory_separator()))), not(equal(f, g)));
         });
         return v;
     });

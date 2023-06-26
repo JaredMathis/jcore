@@ -1,3 +1,4 @@
+import { and } from '../../../../and.mjs';
 import { js_node_is_spread_element } from '../../../../js/node/is/spread/element.mjs';
 import { js_node_is } from '../../../../js/node/is.mjs';
 import { refactor_call_arguments_to_assignments_skip } from './assignments/skip.mjs';
@@ -37,7 +38,7 @@ export function refactor_call_arguments_to_assignments(args) {
             let v_2 = js_node_is_return_statement(node);
             if (v_2) {
                 let expression_parent = list_get(stack_reversed, integer_value_1());
-                let v_3 = js_node_is(expression_parent) && js_node_is_await_expression(expression_parent);
+                let v_3 = and(js_node_is(expression_parent), js_node_is_await_expression(expression_parent));
                 if (v_3) {
                     replace(expression_parent);
                 } else {
