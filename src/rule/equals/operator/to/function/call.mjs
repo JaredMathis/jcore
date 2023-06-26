@@ -1,27 +1,18 @@
-import { list_set } from '../../../../../list/set.mjs';
+import { js_node_property_right_get } from '../../../../../js/node/property/right/get.mjs';
+import { js_node_property_left_get } from '../../../../../js/node/property/left/get.mjs';
 import { js_node_property_arguments_get } from '../../../../../js/node/property/arguments/get.mjs';
 import { equal } from '../../../../../equal.mjs';
-import { js_code_call_expression_with_args } from '../../../../../js/code/call/expression/with/args.mjs';
 import { js_node_property_operator_get } from '../../../../../js/node/property/operator/get.mjs';
 import { js_node_is_binary_expression } from '../../../../../js/node/is/binary/expression.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
-import { string_to } from '../../../../../string/to.mjs';
-import { function_add_return } from '../../../../../function/add/return.mjs';
-import { function_exists } from '../../../../../function/exists.mjs';
-import { integer_is } from '../../../../../integer/is.mjs';
-import { assert_message } from '../../../../../assert/message.mjs';
-import { number_is } from '../../../../../number/is.mjs';
-import { js_node_property_value_get } from '../../../../../js/node/property/value/get.mjs';
-import { js_visit_nodes_filter_async } from '../../../../../js/visit/nodes/filter/async.mjs';
 import { refactor_import_fix_if_changed } from '../../../../../refactor/import/fix/if/changed.mjs';
 import { function_names_each_map } from '../../../../../function/names/each/map.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
-import { error } from '../../../../../error.mjs';
-import { json_to } from '../../../../../json/to.mjs';
 import { function_name_get } from '../../../../../function/name/get.mjs';
 import { js_mapper_args_to_function_name } from '../../../../../js/mapper/args/to/function/name.mjs';
-import { string_a } from '../../../../../string/a.mjs';
-import { js_parse_expression } from '../../../../../js/parse/expression.mjs';
+import { js_parse_call_expression } from '../../../../../js/parse/call/expression.mjs';
+import { list_add } from '../../../../../list/add.mjs';
+import { js_nodes_each } from '../../../../../js/nodes/each.mjs';
 export async function rule_equals_operator_to_function_call() {
     arguments_assert(arguments, []);
     let equal_function_name = function_name_get(equal);
@@ -32,34 +23,15 @@ export async function rule_equals_operator_to_function_call() {
             return;
         }
         await refactor_import_fix_if_changed(args, async changed => {
-            await js_visit_nodes_filter_async(parsed, js_node_is_binary_expression, async v => {
-                let {node} = v;
+            await js_nodes_each(parsed, js_node_is_binary_expression, async node => {
                 let operator = js_node_property_operator_get(node);
                 if (!equal(operator, '===')) {
                     return;
                 }
-                let code = js_code_call_expression_with_args(equal_function_name, [
-                    string_a(),
-                    string_a()
-                ]);
-                let ce = js_parse_expression(code);
+                let ce = js_parse_call_expression(equal_function_name);
                 let ce_args = js_node_property_arguments_get(ce);
-                list_set;
-                error(json_to({
-                    ce,
-                    node
-                }));
-                let value = js_node_property_value_get(node);
-                let v_4 = !number_is(value);
-                if (v_4) {
-                    return;
-                }
-                assert_message(integer_is(value), 'need to handle non-integers maybe');
-                let function_name_new = `${ prefix }${ value }`;
-                let v_5 = !await function_exists(function_name_new);
-                if (v_5) {
-                    await function_add_return(function_name_new, string_to(value));
-                }
+                list_add(ce_args, js_node_property_left_get(node));
+                list_add(ce_args, js_node_property_right_get(node));
                 object_replace(node, ce);
                 changed();
             });
