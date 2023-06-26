@@ -1,3 +1,6 @@
+import { js_node_property_body_get } from '../../node/property/body/get.mjs';
+import { js_node_property_test_get } from '../../node/property/test/get.mjs';
+import { js_node_is_do_while_statement } from '../../node/is/do/while/statement.mjs';
 import { js_node_property_elements_get } from '../../node/property/elements/get.mjs';
 import { js_node_is_array_expression } from '../../node/is/array/expression.mjs';
 import { js_node_property_expressions_get } from '../../node/property/expressions/get.mjs';
@@ -112,7 +115,20 @@ export function js_visit_call_statements(args, call_each) {
                 }
                 return;
             }
-            DoWhileStatement
+            if (js_node_is_do_while_statement(expression)) {
+                let test = js_node_property_test_get(expression);
+                let body = js_node_property_body_get(expression);
+                for (let e of [
+                        test,
+                        body
+                    ]) {
+                    refactor_call_expression_to_assignments(e, list_copy_shallow_add_multiple(refactor_stack, [
+                        expression,
+                        e
+                    ]));
+                }
+                return;
+            }
             let v_15 = not(js_node_is_call_expression(expression));
             if (v_15) {
                 return;
