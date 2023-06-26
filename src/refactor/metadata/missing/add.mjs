@@ -27,8 +27,8 @@ export async function refactor_metadata_missing_add(args) {
     if (v_2) {
         const name = function_name_get(metadata);
         const call_args = '[]';
-        let metadata_new_code = js_code_call_expression_statement_with_args_code(name, call_args);
-        let metadata_new = js_parse_statement(metadata_new_code);
+        let metadata_new_statement_code = js_code_call_expression_statement_with_args_code(name, call_args);
+        let metadata_new = js_parse_statement(metadata_new_statement_code);
         list_add(statements, metadata_new);
         await refactor_import_fix(args);
     }
