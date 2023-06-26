@@ -15,9 +15,10 @@ import { js_node_property_argument_get } from '../../property/argument/get.mjs';
 import { js_node_is_await_expression } from '../../is/await/expression.mjs';
 import { list_is } from '../../../../list/is.mjs';
 import { js_node_is_do_while_statement } from '../../is/do/while/statement.mjs';
-import { js_node_property_body } from '../../property/body.mjs';
 import { js_node_property_body_get } from '../../property/body/get.mjs';
 import { list_add } from '../../../../list/add.mjs';
+import { assert } from '../../../../assert.mjs';
+import { comment } from '../../../../comment.mjs';
 export function js_node_assign_and_replace(parsed, expression_to_replace, ancestor_list, add_assignment_before_node) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -40,10 +41,12 @@ export function js_node_assign_and_replace(parsed, expression_to_replace, ancest
     js_variable_declarator_init_change(declaration, v_4);
     let v_5 = js_parse_expression(id);
     object_replace(expression_to_replace_root, v_5);
+    assert(!js_node_is_do_while_statement(add_assignment_before_node));
     if (js_node_is_do_while_statement(add_assignment_before_node)) {
-        let block_statement = js_node_property_body_get(add_assignment_before_node)
-        let body = js_node_property_body_get(block_statement)
-        list_add(body, assignment)
+        comment(`The following code needs fixing`);
+        let block_statement = js_node_property_body_get(add_assignment_before_node);
+        let body = js_node_property_body_get(block_statement);
+        list_add(body, assignment);
     } else {
         list_add_before(ancestor_list, assignment, add_assignment_before_node);
     }
