@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { tasks_all_map } from '../../tasks/all/map.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 export async function task_all_unsummarized() {

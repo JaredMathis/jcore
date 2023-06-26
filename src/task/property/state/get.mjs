@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { task_property_state } from '../state.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';

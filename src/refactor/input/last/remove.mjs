@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { refactor_input_generic_simple } from '../generic/simple.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';

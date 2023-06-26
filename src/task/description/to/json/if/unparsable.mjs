@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { task_all_unsummarized } from '../../../../all/unsummarized.mjs';
 import { task_description_to_json_if_unparsable_generic } from './unparsable/generic.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';

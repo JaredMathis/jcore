@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { string_combine } from './combine.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { string_is } from './is.mjs';

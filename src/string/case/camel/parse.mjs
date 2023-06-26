@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { integer_value_0 } from '../../../integer/value/0.mjs';
 import { not } from '../../../not.mjs';
 import { string_to_case_lower } from '../../to/case/lower.mjs';

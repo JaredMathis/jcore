@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { task_available } from '../available.mjs';
 import { task_property_change_local } from '../property/change/local.mjs';
 import { task_property_state } from '../property/state.mjs';

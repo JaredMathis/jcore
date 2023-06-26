@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { not } from '../not.mjs';
 import { js_callable_multiple_assert_not } from '../js/callable/multiple/assert/not.mjs';
 import { function_naming_suffix_asynk } from '../function/naming/suffix/asynk.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../metadata.mjs';
 import { not } from '../../../../../../not.mjs';
 import { string_underscore_is } from '../../../../../underscore/is.mjs';
 import { string_digit_is } from '../../../../../digit/is.mjs';

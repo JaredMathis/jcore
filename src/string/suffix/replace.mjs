@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { string_combine } from '../combine.mjs';
 import { string_suffix_without } from './without.mjs';
 export function string_suffix_replace(string_old, suffix_old, suffix_new) {

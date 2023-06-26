@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { version_commit_files_difference } from './files/difference.mjs';
 import { version_write_all } from '../write/all.mjs';
 import { object_is } from '../../object/is.mjs';

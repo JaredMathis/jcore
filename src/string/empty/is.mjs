@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { equal } from '../../equal.mjs';
 import { integer_value_0 } from '../../integer/value/0.mjs';
 import { string_is } from '../is.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { function_is } from '../../../function/is.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { visit_async } from '../../async.mjs';

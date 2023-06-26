@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { task_property_open } from '../../../task/property/open.mjs';
 import { task_property_state } from '../../../task/property/state.mjs';
 import { list_filter_property } from '../../../list/filter/property.mjs';

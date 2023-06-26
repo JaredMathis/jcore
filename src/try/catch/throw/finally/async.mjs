@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { function_is } from '../../../../function/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function try_catch_throw_finally_async(lambda_try, lambda_catch, lambda_finally) {

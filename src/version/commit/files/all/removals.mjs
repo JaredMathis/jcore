@@ -1,3 +1,5 @@
+import { metadata } from '../../../../metadata.mjs';
+import { version_commit_data } from '../../data.mjs';
 import { directory_read_current } from '../../../../directory/read/current.mjs';
 import { version_commit_files_all_removals_generic } from './removals/generic.mjs';
 import { version_write_all } from '../../../write/all.mjs';

@@ -1,4 +1,4 @@
-import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
+import { metadata } from '../../metadata.mjs';
 import { task_get } from '../get.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { object_property_get } from '../../object/property/get.mjs';

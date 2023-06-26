@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_token_equal } from '../../../js/token/equal.mjs';
 import { refactor_variable_add_generic } from './generic.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';

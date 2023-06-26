@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { date_now_iso_underscores } from '../../../../date/now/iso/underscores.mjs';
 import { file_path_json } from '../../../../file/path/json.mjs';
 import { version_path_log_get } from '../get.mjs';

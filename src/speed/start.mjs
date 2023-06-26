@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { speed_property_differences_set } from './property/differences/set.mjs';
 import { speed_now } from './now.mjs';
 import { speed_property_previous_set } from './property/previous/set.mjs';

@@ -1,7 +1,6 @@
 import { path_is } from '../path/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
-import { assert } from '../assert.mjs';
 import { path_exists } from '../path/exists.mjs';
 import fs from 'fs';
 import { assert_message } from '../assert/message.mjs';

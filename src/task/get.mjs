@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { task_get_generic } from './get/generic.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';

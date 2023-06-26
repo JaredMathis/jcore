@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { task_close_generic } from './close/generic.mjs';
 import { task_state_change } from './state/change.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';

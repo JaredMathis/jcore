@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { refactor_input_generic } from '../generic.mjs';
 export async function refactor_input_generic_simple(args, lambda) {
     let {function_declaration} = args;

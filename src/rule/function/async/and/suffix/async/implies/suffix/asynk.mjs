@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../../../metadata.mjs';
 import { list_take_without_last } from '../../../../../../../../list/take/without/last.mjs';
 import { arguments_assert } from '../../../../../../../../arguments/assert.mjs';
 import { function_rename_suffix_change } from '../../../../../../../../function/rename/suffix/change.mjs';

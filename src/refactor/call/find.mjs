@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { js_function_declaration_to_name } from '../../js/function/declaration/to/name.mjs';
 import { log } from '../../log.mjs';
 import { js_visit_nodes_call_expression_name_equal } from '../../js/visit/nodes/call/expression/name/equal.mjs';

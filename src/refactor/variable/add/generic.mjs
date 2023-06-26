@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_parse_statement_let } from '../../../js/parse/statement/let.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';

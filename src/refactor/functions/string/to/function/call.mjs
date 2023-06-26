@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { js_mapper_args_to_function_name } from '../../../../../js/mapper/args/to/function/name.mjs';
 import { refactor_import_fix_if_changed } from '../../../../import/fix/if/changed.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';

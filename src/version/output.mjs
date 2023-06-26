@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { version_path_outputs } from './path/outputs.mjs';
 import { version_path_sub_get } from './path/sub/get.mjs';
 import { directory_read_current } from '../directory/read/current.mjs';

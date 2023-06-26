@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { not } from '../../../not.mjs';
 import { js_node_property_name } from '../../../js/node/property/name.mjs';
 import { refactor_import_fix } from '../../import/fix.mjs';

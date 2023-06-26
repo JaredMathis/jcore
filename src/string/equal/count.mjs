@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_min } from '../../list/min.mjs';
 import { list_string_lengths } from '../../list/string/lengths.mjs';
 import { count } from '../../count.mjs';

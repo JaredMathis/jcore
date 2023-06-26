@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { task_set } from '../../set.mjs';
 import { task_available_first } from '../../available/first.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_to } from '../../list/to.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { function_name_get } from '../../function/name/get.mjs';

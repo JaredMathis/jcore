@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../metadata.mjs';
 import { metadata_function_call_arguments_are_identifiers_none } from '../../../../../../metadata/function/call/arguments/are/identifiers/none.mjs';
 import { js_mapper_args_to_metadata_args_contains } from '../../../../../../js/mapper/args/to/metadata/args/contains.mjs';
 import { or } from '../../../../../../or.mjs';

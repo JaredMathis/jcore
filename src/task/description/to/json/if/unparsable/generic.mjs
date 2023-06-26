@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../metadata.mjs';
 import { lambda_get } from '../../../../../../lambda/get.mjs';
 import { arguments_assert_todo } from '../../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';

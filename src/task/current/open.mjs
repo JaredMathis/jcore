@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { task_id_get_or_null } from '../id/get/or/null.mjs';
 import { task_open } from '../open.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';

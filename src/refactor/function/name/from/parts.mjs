@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { function_name_from_parts_and_prefix } from '../../../../function/name/from/parts/and/prefix.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';

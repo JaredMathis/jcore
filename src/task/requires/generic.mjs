@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { task_body_requires } from '../body/requires.mjs';
 import { task_available } from '../available.mjs';
 import { task_body_map_json } from '../body/map/json.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { equal } from '../../equal.mjs';
 import { string_starts_with } from '../../string/starts/with.mjs';
 import { implies } from '../../implies.mjs';

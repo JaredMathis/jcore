@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { and } from '../../and.mjs';
 import { string_length_is_1 } from '../length/is/1.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';

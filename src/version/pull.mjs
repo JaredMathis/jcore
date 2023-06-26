@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { not } from '../not.mjs';
 import { file_json_write } from '../file/json/write.mjs';
 import { version_path_file_next } from './path/file/next.mjs';

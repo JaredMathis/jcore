@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { not } from '../../../../not.mjs';
 import { list_multiple_summary } from '../../../../list/multiple/summary.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { version_file_contents_each } from '../file/contents/each.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { git_ignore_filter } from '../../git/ignore/filter.mjs';

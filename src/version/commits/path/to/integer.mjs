@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { integer_parse } from '../../../../integer/parse.mjs';
 import { file_extension_json } from '../../../../file/extension/json.mjs';
 import { string_suffix_without } from '../../../../string/suffix/without.mjs';

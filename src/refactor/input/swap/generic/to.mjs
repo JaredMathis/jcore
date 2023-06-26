@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { refactor_input_swap_generic } from '../generic.mjs';
 import { subtract_1 } from '../../../../subtract/1.mjs';
 import { js_function_declaration_to_params } from '../../../../js/function/declaration/to/params.mjs';

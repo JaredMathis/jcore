@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { refactor_unlambdaify } from '../unlambdaify.mjs';
 import { function_names_each_map } from '../../function/names/each/map.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { and } from '../../../and.mjs';
 import { string_to_case_upper } from '../../to/case/upper.mjs';
 import { equal } from '../../../equal.mjs';

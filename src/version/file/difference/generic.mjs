@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { version_path_file_next } from '../../path/file/next.mjs';
 import { string_difference_get } from '../../../string/difference/get.mjs';
 import { version_property_hunks } from '../../property/hunks.mjs';

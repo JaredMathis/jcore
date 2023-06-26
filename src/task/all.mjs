@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { task_summary } from './summary.mjs';
 import { list_map } from '../list/map.mjs';
 import { task_all_unsummarized } from './all/unsummarized.mjs';

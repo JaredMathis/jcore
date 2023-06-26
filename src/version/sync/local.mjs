@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_multiple_summary } from '../../list/multiple/summary.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { version_write_all } from '../write/all.mjs';

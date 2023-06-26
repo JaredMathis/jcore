@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { refactor_call_statement_find } from '../../../call/statement/find.mjs';
 import { function_names_each_map_args } from '../../../../function/names/each/map/args.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';

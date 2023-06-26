@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { function_inputs } from '../../../function/inputs.mjs';
 import { js_call_expression_name_get_or_null } from '../../../js/call/expression/name/get/or/null.mjs';
 import { js_call_expression_arguments_get } from '../../../js/call/expression/arguments/get.mjs';

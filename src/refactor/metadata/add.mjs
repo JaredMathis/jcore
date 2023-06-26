@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { not } from '../../not.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { metadata_prefix } from '../../metadata/prefix.mjs';

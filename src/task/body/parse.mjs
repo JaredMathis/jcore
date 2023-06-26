@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { json_from } from '../../json/from.mjs';
 import { null_is } from '../../null/is.mjs';
 import { task_property_body } from '../property/body.mjs';

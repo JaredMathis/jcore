@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { object_property_exists } from '../object/property/exists.mjs';
 import { assert } from '../assert.mjs';
 import { integer_is } from '../integer/is.mjs';

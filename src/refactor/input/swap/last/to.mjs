@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { less_than } from '../../../../less/than.mjs';
 import { refactor_input_swap_generic_to } from '../generic/to.mjs';
 import { range_from } from '../../../../range/from.mjs';

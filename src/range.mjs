@@ -1,3 +1,4 @@
+import { count } from './count.mjs';
 import { number_is } from './number/is.mjs';
 import { assert_arguments_count } from './assert/arguments/count.mjs';
 import { metadata } from './metadata.mjs';

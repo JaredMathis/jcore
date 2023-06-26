@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { integer_value_2 } from '../../integer/value/2.mjs';
 import { integer_odd_is } from '../../integer/odd/is.mjs';
 import { string_split_at } from '../split/at.mjs';

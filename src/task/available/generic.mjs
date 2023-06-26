@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { task_property_number } from '../property/number.mjs';
 import { list_find_property_exists } from '../../list/find/property/exists.mjs';

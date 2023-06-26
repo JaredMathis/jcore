@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { refactor_member_expression_none } from '../../../refactor/member/expression/none.mjs';
 import { function_dependencies_names } from '../../../function/dependencies/names.mjs';
 import { function_names_each_map } from '../../../function/names/each/map.mjs';

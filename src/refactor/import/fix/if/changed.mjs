@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { occurs_async } from '../../../../occurs/async.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { list_remove } from '../list/remove.mjs';
 import { task_requires_generic } from './requires/generic.mjs';
 import { string_is } from '../string/is.mjs';

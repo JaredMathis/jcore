@@ -1,4 +1,4 @@
-import { and } from '../../../../and.mjs';
+import { metadata } from '../../../../metadata.mjs';
 import { js_node_is_spread_element } from '../../../../js/node/is/spread/element.mjs';
 import { js_node_is } from '../../../../js/node/is.mjs';
 import { refactor_call_arguments_to_assignments_skip } from './assignments/skip.mjs';

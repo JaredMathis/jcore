@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { directory_delete } from '../../../directory/delete.mjs';
 import { version_path_repository } from '../../path/repository.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';

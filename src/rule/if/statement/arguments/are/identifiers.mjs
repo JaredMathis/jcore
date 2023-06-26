@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { js_node_assign_and_replace } from '../../../../../js/node/assign/and/replace.mjs';
 import { js_visit_stack_reversed_to_ancestor_list } from '../../../../../js/visit/stack/reversed/to/ancestor/list.mjs';
 import { list_reversed_get } from '../../../../../list/reversed/get.mjs';

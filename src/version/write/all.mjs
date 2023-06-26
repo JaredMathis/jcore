@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { not } from '../../not.mjs';
 import { try_catch_throw } from '../../try/catch/throw.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';

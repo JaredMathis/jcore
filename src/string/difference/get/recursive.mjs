@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { add } from '../../../add.mjs';
 import { string_to } from '../../to.mjs';
 import { integer_value_0 } from '../../../integer/value/0.mjs';

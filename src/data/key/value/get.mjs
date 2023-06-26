@@ -1,6 +1,5 @@
 import { data_get } from '../../get.mjs';
 import { metadata } from '../../../metadata.mjs';
-import { defined_is } from '../../../defined/is.mjs';
 import { string_is } from '../../../string/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';

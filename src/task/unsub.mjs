@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { task_set_available_first } from './set/available/first.mjs';
 import { task_unsub_generic } from './unsub/generic.mjs';
 import { result_property_success_get } from '../result/property/success/get.mjs';

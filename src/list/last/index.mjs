@@ -1,4 +1,3 @@
-import { list_length_subtract_1 } from '../length/subtract/1.mjs';
 import { list_is } from '../is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { subtract_1 } from '../../subtract/1.mjs';

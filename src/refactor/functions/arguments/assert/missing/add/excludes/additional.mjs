@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../../metadata.mjs';
 import { git_no_commit } from '../../../../../../../git/no/commit.mjs';
 import { git } from '../../../../../../../git.mjs';
 import { arguments_assert_predicate_default } from '../../../../../../../arguments/assert/predicate/default.mjs';

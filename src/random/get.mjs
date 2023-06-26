@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 export function random_get() {
     let v = Math.random();
     return v;

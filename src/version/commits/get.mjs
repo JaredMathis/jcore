@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { version_commits_path_to_integer } from './path/to/integer.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';

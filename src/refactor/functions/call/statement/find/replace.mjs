@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { refactor_call_statement_find_replaceify } from '../../../../call/statement/find/replaceify.mjs';
 import { function_names_each_map_args } from '../../../../../function/names/each/map/args.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';

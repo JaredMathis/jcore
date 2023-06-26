@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { js_node_property_arguments_get } from '../../../../js/node/property/arguments/get.mjs';
 import { js_unparse } from '../../../../js/unparse.mjs';
 import { js_node_property_params_get } from '../../../../js/node/property/params/get.mjs';

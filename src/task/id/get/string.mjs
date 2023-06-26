@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { task_number_unhash } from '../../number/unhash.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { string_to } from '../../../string/to.mjs';

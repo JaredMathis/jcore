@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { list_add } from '../../../list/add.mjs';
 import { version_property_contents } from '../../property/contents.mjs';
 import { version_property_file_path } from '../../property/file/path.mjs';

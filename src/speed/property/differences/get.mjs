@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { speed_property_differences } from '../differences.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';

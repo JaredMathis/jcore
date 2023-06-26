@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_filter_async } from '../../list/filter/async.mjs';
 import { string_is } from '../../string/is.mjs';
 import { function_is } from '../../function/is.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { string_similar_generic } from '../generic.mjs';
 import { string_swap } from '../../swap.mjs';
 import { add_1 } from '../../../add/1.mjs';

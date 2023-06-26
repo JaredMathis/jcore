@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { string_combine } from '../combine.mjs';
 export function string_combine_multiple(strings) {
     let function_name = '';

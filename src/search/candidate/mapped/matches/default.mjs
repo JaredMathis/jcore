@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { string_includes } from '../../../../string/includes.mjs';
 import { list_all } from '../../../../list/all.mjs';
 export function search_candidate_mapped_matches_default(candidate_as_string, parts) {

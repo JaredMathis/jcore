@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { try_catch_throw_finally_async } from './finally/async.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { function_is } from '../../../function/is.mjs';

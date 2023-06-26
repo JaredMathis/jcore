@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { string_similar_generic } from '../generic.mjs';
 import { string_remove_at } from '../../remove/at.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';

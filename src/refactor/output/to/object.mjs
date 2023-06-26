@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_return_statement_argument_change } from '../../../js/return/statement/argument/change.mjs';
 import { object_property_change } from '../../../object/property/change.mjs';
 import { js_parse_statement } from '../../../js/parse/statement.mjs';

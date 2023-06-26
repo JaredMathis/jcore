@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { not } from '../../not.mjs';
 import { js_variable_declarator_init_change_unparsed } from '../../js/variable/declarator/init/change/unparsed.mjs';
 import { js_declarations_single } from '../../js/declarations/single.mjs';

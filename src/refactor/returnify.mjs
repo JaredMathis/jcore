@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { js_visit_stack_reversed_to_ancestor_list } from '../js/visit/stack/reversed/to/ancestor/list.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';

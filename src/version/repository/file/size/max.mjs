@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { directory_read_contents } from '../../../../directory/read/contents.mjs';
 import { directory_property_contents } from '../../../../directory/property/contents.mjs';
 import { list_map_property } from '../../../../list/map/property.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { string_equal_except_1 } from './equal/except/1.mjs';
 import { list_each_function_results_any } from '../list/each/function/results/any.mjs';
 import { list_multiple_combine } from '../list/multiple/combine.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { add } from '../../../../add.mjs';
 import { less_than } from '../../../../less/than.mjs';
 import { equal_not } from '../../../../equal/not.mjs';

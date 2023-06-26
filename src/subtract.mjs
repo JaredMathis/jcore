@@ -1,3 +1,4 @@
+import { metadata } from './metadata.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 import { number_is } from './number/is.mjs';
 export function subtract(a, b) {

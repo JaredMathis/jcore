@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { task_number_get_string } from '../number/get/string.mjs';
 import { task_set } from '../set.mjs';
 import { task_available_last } from '../available/last.mjs';

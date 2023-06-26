@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_call_expression_arguments_get } from '../../../js/call/expression/arguments/get.mjs';
 import { js_visit_nodes_call_expression_name_equal } from '../../../js/visit/nodes/call/expression/name/equal.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';

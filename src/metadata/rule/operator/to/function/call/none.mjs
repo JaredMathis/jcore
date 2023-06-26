@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../metadata.mjs';
 import { error } from '../../../../../../error.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 export function metadata_rule_operator_to_function_call_none() {

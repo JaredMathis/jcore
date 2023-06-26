@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { task_property_number } from '../property/number.mjs';
 import { task_all_unsummarized } from '../all/unsummarized.mjs';
 import { integer_parse } from '../../integer/parse.mjs';

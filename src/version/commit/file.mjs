@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_single_item } from '../../list/single/item.mjs';
 import { version_commit_data } from './data.mjs';
 import { path_is } from '../../path/is.mjs';

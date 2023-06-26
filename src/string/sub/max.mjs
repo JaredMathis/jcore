@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { less_than } from '../../less/than.mjs';
 import { integer_value_0 } from '../../integer/value/0.mjs';
 import { string_sub_max_property_right_index } from './max/property/right/index.mjs';

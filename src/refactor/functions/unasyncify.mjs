@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { function_unasyncify } from '../../function/unasyncify.mjs';
 import { not } from '../../not.mjs';
 import { function_naming_suffix_asynk } from '../../function/naming/suffix/asynk.mjs';

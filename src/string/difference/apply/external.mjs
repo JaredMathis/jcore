@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { object_merge } from '../../../object/merge.mjs';
 import { string_is } from '../../is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';

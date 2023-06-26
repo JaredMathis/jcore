@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { string_set } from './set.mjs';
 import { string_get } from './get.mjs';
 import { swap_generic } from '../swap/generic.mjs';

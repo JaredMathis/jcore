@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_last_string_to } from '../../list/last/string/to.mjs';
 import { if_else_async } from '../../if/else/async.mjs';
 import { list_empty } from '../../list/empty.mjs';

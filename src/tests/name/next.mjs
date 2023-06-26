@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { string_starts_with } from '../../string/starts/with.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { function_tests_prefix_get } from '../../function/tests/prefix/get.mjs';

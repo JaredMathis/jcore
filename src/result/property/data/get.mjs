@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { result_property_data } from '../data.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';

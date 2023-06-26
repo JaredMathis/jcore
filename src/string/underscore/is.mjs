@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { equal } from '../../equal.mjs';
 import { string_underscore } from '../underscore.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';

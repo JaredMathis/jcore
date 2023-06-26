@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { not } from '../../../not.mjs';
 import { date_now_iso } from '../../../date/now/iso.mjs';
 import { version_path_commit } from '../../path/commit.mjs';

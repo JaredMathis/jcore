@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { string_split_at } from '../split/at.mjs';
 import { string_difference_property_added } from './property/added.mjs';
 import { value_new } from '../../value/new.mjs';

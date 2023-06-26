@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { defined_is } from '../../../defined/is.mjs';
 import { speed_property_previous } from '../previous.mjs';
 import { object_property_set } from '../../../object/property/set.mjs';

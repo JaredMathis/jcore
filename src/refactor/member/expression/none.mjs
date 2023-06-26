@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { object_replace } from '../../../object/replace.mjs';
 import { list_set } from '../../../list/set.mjs';
 import { js_node_property_arguments_get } from '../../../js/node/property/arguments/get.mjs';

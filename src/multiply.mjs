@@ -1,3 +1,4 @@
+import { metadata } from './metadata.mjs';
 import { number_is } from './number/is.mjs';
 import { arguments_assert } from './arguments/assert.mjs';
 export function multiply(a, b) {

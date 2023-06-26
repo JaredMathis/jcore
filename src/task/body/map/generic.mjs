@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { task_body } from '../../body.mjs';
 import { task_property_body } from '../../property/body.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';

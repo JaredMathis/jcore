@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { string_to_case_lower } from '../to/case/lower.mjs';
 import { string_to_case_upper } from '../to/case/upper.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';

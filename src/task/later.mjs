@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { not } from '../not.mjs';
 import { list_find_property_exists } from '../list/find/property/exists.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';

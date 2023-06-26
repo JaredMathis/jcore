@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { integer_value_1 } from '../../../../../integer/value/1.mjs';
 import { list_multiple_combine } from '../../../../../list/multiple/combine.mjs';
 import { equal } from '../../../../../equal.mjs';

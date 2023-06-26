@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_mapper_args_to_function_name } from '../../../js/mapper/args/to/function/name.mjs';
 import { js_visit_call_statements } from '../../../js/visit/call/statements.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';

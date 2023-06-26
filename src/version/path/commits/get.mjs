@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { version_path_sub_get } from '../sub/get.mjs';
 import { version_path_commits } from '../commits.mjs';
 export function version_path_commits_get(repository_name) {

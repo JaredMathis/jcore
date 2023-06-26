@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { list_empty_not } from '../../../../list/empty/not.mjs';
 import { string_a } from '../../../../string/a.mjs';
 import { refactor_import_fix } from '../../../import/fix.mjs';

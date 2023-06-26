@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { task_summary } from '../task/summary.mjs';
 import { lambda_get } from '../lambda/get.mjs';
 import { tasks_open_generic } from './open/generic.mjs';

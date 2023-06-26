@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { result_property_data_get } from '../result/property/data/get.mjs';
 import { task_number_get_string } from './number/get/string.mjs';
 import { task_current } from './current.mjs';

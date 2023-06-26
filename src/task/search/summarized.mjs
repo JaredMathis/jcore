@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { task_all } from '../all.mjs';
 import { search_query_map_default } from '../../search/query/map/default.mjs';
 import { search_candidate_mapped_matches_default } from '../../search/candidate/mapped/matches/default.mjs';

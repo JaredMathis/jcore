@@ -1,4 +1,4 @@
-import { error } from '../../error.mjs';
+import { metadata } from '../../metadata.mjs';
 import { refactor_input_generic } from './generic.mjs';
 import { js_list_add_identifier } from '../../js/list/add/identifier.mjs';
 import { js_parse_expression } from '../../js/parse/expression.mjs';

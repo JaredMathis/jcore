@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { equal } from '../../equal.mjs';
 import { range } from '../../range.mjs';
 export function string_similar_generic(other_get, range_count, target) {

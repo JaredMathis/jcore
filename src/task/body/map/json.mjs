@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { task_body_map_generic } from './generic.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { json_map_empty_if_null } from '../../../json/map/empty/if/null.mjs';

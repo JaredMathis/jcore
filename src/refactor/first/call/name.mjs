@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { js_function_declaration_to_expression_after_arguments_assert } from '../../../js/function/declaration/to/expression/after/arguments/assert.mjs';
 import { refactor_import_fix } from '../../import/fix.mjs';
 import { js_call_expression_name_change } from '../../../js/call/expression/name/change.mjs';

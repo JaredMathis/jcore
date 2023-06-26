@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../metadata.mjs';
 import { task_git_hub_issues_pull_cached } from '../cached.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { list_length } from '../../../../../../list/length.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { list_last } from '../../list/last.mjs';
 import { identity } from '../../identity.mjs';
 import { task_available_generic } from './generic.mjs';

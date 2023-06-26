@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { version_removals } from '../../../../removals.mjs';
 import { string_empty } from '../../../../../string/empty.mjs';
 import { version_file_difference_generic } from '../../../../file/difference/generic.mjs';

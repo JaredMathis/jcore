@@ -1,3 +1,4 @@
+import { metadata } from './metadata.mjs';
 import { refactor_functions_unlambdaify } from './refactor/functions/unlambdaify.mjs';
 import { rule_operator_to_function_call_multiple } from './rule/operator/to/function/call/multiple.mjs';
 import { rule_constant_numbers_are_function_outputs } from './rule/constant/numbers/are/function/outputs.mjs';

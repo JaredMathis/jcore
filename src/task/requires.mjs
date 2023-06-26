@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { task_requires_generic } from './requires/generic.mjs';
 import { list_add_assert_exists_not } from '../list/add/assert/exists/not.mjs';
 import { string_is } from '../string/is.mjs';

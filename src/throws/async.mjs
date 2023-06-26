@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { result_property_success_get } from '../result/property/success/get.mjs';
 import { not } from '../not.mjs';
 import { function_is } from '../function/is.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { integer_value_1 } from '../../../../integer/value/1.mjs';
 import { list_reverse } from '../../../../list/reverse.mjs';
 import { range_from } from '../../../../range/from.mjs';

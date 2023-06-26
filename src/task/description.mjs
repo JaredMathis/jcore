@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { task_body_map_json } from './body/map/json.mjs';
 import { task_body_property_description } from './body/property/description.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';

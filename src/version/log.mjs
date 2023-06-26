@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { function_name_get } from '../function/name/get.mjs';
 import { file_json_write } from '../file/json/write.mjs';
 import { version_path_log_now_get } from './path/log/now/get.mjs';

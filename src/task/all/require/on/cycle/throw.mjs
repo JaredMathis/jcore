@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../metadata.mjs';
 import { visit_lambda_none } from '../../../../../visit/lambda/none.mjs';
 import { list_map_property } from '../../../../../list/map/property.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';

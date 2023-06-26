@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { integer_value_1 } from '../../../integer/value/1.mjs';
 import { not } from '../../../not.mjs';
 import { list_string_lengths } from '../../../list/string/lengths.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { path_join } from '../../../path/join.mjs';
 import { version_path_files_get } from '../files/get.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { list_swap_first_2 } from '../../../../list/swap/first/2.mjs';
 import { refactor_input_generic_simple } from '../../generic/simple.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';

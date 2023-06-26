@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { task_title } from '../title.mjs';
 import { task_id_get_string } from '../id/get/string.mjs';
 import { string_is } from '../../string/is.mjs';

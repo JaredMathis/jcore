@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { version_file_difference_generic } from './difference/generic.mjs';
 import { file_read } from '../../file/read.mjs';
 import { path_is } from '../../path/is.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { task_map_local } from '../map/local.mjs';
 import { task_property_state_set } from '../property/state/set.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';

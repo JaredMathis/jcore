@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { integer_value_0 } from '../../integer/value/0.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';

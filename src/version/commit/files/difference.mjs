@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { version_file_difference } from '../../file/difference.mjs';
 import { version_commit_files_generic } from './generic.mjs';
 export async function version_commit_files_difference(repository_name, file_paths, commit_data) {

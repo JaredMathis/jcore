@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { noop } from '../../../noop.mjs';
 import { try_catch_throw_finally_async } from '../throw/finally/async.mjs';
 import { function_is } from '../../../function/is.mjs';

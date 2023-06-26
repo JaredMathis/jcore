@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { null_is } from '../../null/is.mjs';
 import { task_body_requires } from '../body/requires.mjs';
 import { task_body_parse } from '../body/parse.mjs';

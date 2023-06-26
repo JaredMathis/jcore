@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { add } from '../add.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { range } from '../range.mjs';

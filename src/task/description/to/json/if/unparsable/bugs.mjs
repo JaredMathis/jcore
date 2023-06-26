@@ -1,3 +1,4 @@
+import { metadata } from '../../../../../../metadata.mjs';
 import { integer_value_76 } from '../../../../../../integer/value/76.mjs';
 import { integer_value_62 } from '../../../../../../integer/value/62.mjs';
 import { task_description_to_json_if_unparsable_generic } from './generic.mjs';

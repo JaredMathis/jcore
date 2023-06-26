@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { string_split_comma } from '../../string/split/comma.mjs';
 import { task_close } from '../close.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';

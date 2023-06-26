@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { equal } from '../equal.mjs';
 import { boolean_is } from '../boolean/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';

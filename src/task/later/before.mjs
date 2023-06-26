@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { string_to } from '../../string/to.mjs';
 import { task_property_number_get } from '../property/number/get.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';

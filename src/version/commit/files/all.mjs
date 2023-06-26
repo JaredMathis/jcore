@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { directory_read_current } from '../../../directory/read/current.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { version_commit_data } from '../data.mjs';

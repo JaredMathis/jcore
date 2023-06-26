@@ -1,3 +1,4 @@
+import { metadata } from '../../metadata.mjs';
 import { result_property_data_set } from '../../result/property/data/set.mjs';
 import { result_unsuccess } from '../../result/unsuccess.mjs';
 import { result_empty } from '../../result/empty.mjs';

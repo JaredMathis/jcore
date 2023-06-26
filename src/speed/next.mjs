@@ -1,3 +1,4 @@
+import { metadata } from '../metadata.mjs';
 import { speed_property_previous_set } from './property/previous/set.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';

@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { list_multiple_combine } from '../../../list/multiple/combine.mjs';
 import { character_is_tests_values } from '../../../character/is/tests/values.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';

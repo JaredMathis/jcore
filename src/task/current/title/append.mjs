@@ -1,3 +1,4 @@
+import { metadata } from '../../../metadata.mjs';
 import { task_id_get_string } from '../../id/get/string.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { task_title_append } from '../../title/append.mjs';
