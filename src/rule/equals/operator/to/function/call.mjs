@@ -40,6 +40,7 @@ export async function rule_equals_operator_to_function_call() {
                     string_a(),
                     string_a()
                 ]);
+                let ce = js_parse_call_expression(code);
                 error(json_to({ node }));
                 let value = js_node_property_value_get(node);
                 let v_4 = !number_is(value);
@@ -52,7 +53,6 @@ export async function rule_equals_operator_to_function_call() {
                 if (v_5) {
                     await function_add_return(function_name_new, string_to(value));
                 }
-                let ce = js_parse_call_expression(function_name_new);
                 object_replace(node, ce);
                 changed();
             });
