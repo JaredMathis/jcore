@@ -1,3 +1,4 @@
+import { js_code_call_expression_with_args } from '../../../../../js/code/call/expression/with/args.mjs';
 import { js_node_property_operator_get } from '../../../../../js/node/property/operator/get.mjs';
 import { js_node_is_binary_expression } from '../../../../../js/node/is/binary/expression.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
@@ -15,10 +16,12 @@ import { function_names_each_map } from '../../../../../function/names/each/map.
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { error } from '../../../../../error.mjs';
 import { json_to } from '../../../../../json/to.mjs';
+import { function_name_get } from '../../../../../function/name/get.mjs';
 export async function rule_equals_operator_to_function_call() {
     arguments_assert(arguments, []);
     await function_names_each_map(async args => {
         let {parsed} = args;
+        let equals_function_name = function_name_get(equals);
         await refactor_import_fix_if_changed(args, async changed => {
             await js_visit_nodes_filter_async(parsed, js_node_is_binary_expression, async v => {
                 let {node} = v;
@@ -26,6 +29,7 @@ export async function rule_equals_operator_to_function_call() {
                 if (!equals(operator, '===')) {
                     return;
                 }
+                js_code_call_expression_with_args();
                 error(json_to({ node }));
                 let value = js_node_property_value_get(node);
                 let v_4 = !number_is(value);
