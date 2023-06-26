@@ -1,3 +1,4 @@
+import { string_to } from '../../to.mjs';
 import { integer_value_0 } from '../../../integer/value/0.mjs';
 import { string_length } from '../../length.mjs';
 import { string_difference_added } from '../added.mjs';
@@ -41,12 +42,12 @@ export function string_difference_get_recursive(left, right, left_offset, right_
         let v_10 = string_empty_not_is(left);
         if (v_10) {
             const position = left_index + left_offset;
-            list_add(result, position + string_difference_removed() + string_length(left));
+            list_add(result, string_to(position) + string_difference_removed() + string_to(string_length(left)));
         }
         let v_11 = string_empty_not_is(right);
         if (v_11) {
             const position = right_index + right_offset;
-            list_add(result, position + string_difference_added() + right);
+            list_add(result, string_to(position) + string_difference_added() + string_to(right));
         }
         return result;
     }
