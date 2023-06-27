@@ -39,7 +39,7 @@ export async function refactor_awaitify(args) {
             return;
         }
         let stack_reversed = list_reversed_get(stack);
-        let ancestor_function_declaration = list_find(stack_reversed, (s) => {
+        let ancestor_function_declaration = list_find(stack_reversed, function v_4(s) {
             if (!js_node_is(s)) {
                 return false;
             }
