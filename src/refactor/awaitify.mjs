@@ -37,4 +37,7 @@ export async function refactor_awaitify(args) {
         js_function_declaration_asyncify_try(ancestor_function_declaration);
         js_expression_awaitify(node);
     });
+    function test() {
+        js_visit_nodes_filter_async();
+    }
 }
