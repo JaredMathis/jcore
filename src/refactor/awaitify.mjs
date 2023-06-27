@@ -32,6 +32,9 @@ export async function refactor_awaitify(args) {
         if (null_is(name)) {
             return;
         }
+        if (!js_node_is(parent)) {
+            return;
+        }
         if (js_node_is_await_expression(parent)) {
             return;
         }
