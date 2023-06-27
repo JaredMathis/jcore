@@ -14,6 +14,7 @@ import { function_exists } from '../../../../exists.mjs';
 import { js_prefix_node } from '../../../../../js/prefix/node.mjs';
 import { js_identifier_parts_to } from '../../../../../js/identifier/parts/to.mjs';
 import { list_last } from '../../../../../list/last.mjs';
+import { equal_not } from '../../../../../equal/not.mjs';
 export async function function_add_js_node_type_auto(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let identifiers = await function_identifiers(function_name);
@@ -22,6 +23,9 @@ export async function function_add_js_node_type_auto(function_name) {
         let parts = js_identifier_parts_to(property_name);
         let parts_last = list_last(parts);
         let method = js_suffix_get();
+        if (equal_not(parts_last, method)) {
+            continue;
+        }
         let prefix = js_prefix_node_property();
         let property_name_fn_get = js_identifier_combine(prefix, property_name);
         let function_name_new = js_identifier_combine(property_name_fn_get, method);
