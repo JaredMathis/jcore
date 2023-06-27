@@ -15,6 +15,7 @@ import { error } from '../error.mjs';
 import { list_reversed_get } from '../list/reversed/get.mjs';
 import { js_node_is_function_declaration } from '../js/node/is/function/declaration.mjs';
 import { js_node_is } from '../js/node/is.mjs';
+import { function_exists } from '../function/exists.mjs';
 export async function refactor_awaitify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
@@ -36,6 +37,9 @@ export async function refactor_awaitify(args) {
             return;
         }
         if (js_node_is_await_expression(parent)) {
+            return;
+        }
+        if (!await function_exists(name)) {
             return;
         }
         if (!await function_name_async_is(name)) {

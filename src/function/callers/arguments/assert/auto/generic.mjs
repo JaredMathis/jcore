@@ -47,8 +47,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
     }
     await function_map_args(c_function_name, mapper);
     async function mapper(c_args) {
-        let v_22 = 'parsed';
-        let c_parsed = object_property_get(c_args, v_22);
+        let c_parsed = js_mapper_args_property_parsed_get(c_args);
         let v_23 = 'function_declaration';
         let c_function_declaration = object_property_get(c_args, v_23);
         let v_2 = js_node_property_params();
