@@ -1,5 +1,4 @@
 import { list_find_first } from '../list/find/first.mjs';
-import { log } from '../log.mjs';
 import { js_expression_awaitify } from '../js/expression/awaitify.mjs';
 import { js_function_declaration_asyncify_try } from '../js/function/declaration/asyncify/try.mjs';
 import { function_name_async_is } from '../function/name/async/is.mjs';
@@ -40,7 +39,6 @@ export async function refactor_awaitify(args) {
             return;
         }
         let stack_reversed = list_reversed_get(stack);
-        console.log({ stack_reversed });
         let ancestor_function_declaration = list_find_first(stack_reversed, function v_4(s) {
             if (!js_node_is(s)) {
                 return false;
@@ -50,7 +48,4 @@ export async function refactor_awaitify(args) {
         js_function_declaration_asyncify_try(ancestor_function_declaration);
         js_expression_awaitify(node);
     });
-    async function test() {
-        await js_visit_nodes_filter_async();
-    }
 }
