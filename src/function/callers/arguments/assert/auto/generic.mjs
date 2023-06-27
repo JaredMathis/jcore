@@ -51,7 +51,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
     async function mapper(c_args) {
         let c_parsed = js_mapper_args_property_parsed_get(c_args);
         let c_function_declaration = js_mapper_args_property_function_declaration_get(c_args);
-        let c_params = js_mapper_args_property_params_get(c_function_declaration, v_2);
+        let c_params = js_mapper_args_property_params_get(c_function_declaration);
         let v_13 = list_empty(c_params);
         if (v_13) {
             let v_37 = boolean_value_true();
