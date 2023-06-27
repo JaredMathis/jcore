@@ -9,6 +9,7 @@ import { js_node_is_await_expression } from '../js/node/is/await/expression.mjs'
 import { list_any } from '../list/any.mjs';
 import { js_node_is_arrow_function_expression } from '../js/node/is/arrow/function/expression.mjs';
 import { error } from '../error.mjs';
+import { list_reversed_get } from '../list/reversed/get.mjs';
 export async function refactor_awaitify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
@@ -27,5 +28,6 @@ export async function refactor_awaitify(args) {
         if (!await function_name_async_is(name)) {
             return;
         }
+        let stack_reversed = list_reversed_get(stack);
     });
 }
