@@ -39,7 +39,12 @@ export async function refactor_awaitify(args) {
             return;
         }
         let stack_reversed = list_reversed_get(stack);
-        let ancestor_function_declaration = list_find(stack_reversed, js_node_is_function_declaration);
+        let ancestor_function_declaration = list_find(stack_reversed, (s) => {
+            if (!js_node_is(s)) {
+                return false;
+            }
+            return js_node_is_function_declaration(s);
+        });
         js_function_declaration_asyncify_try(ancestor_function_declaration);
         js_expression_awaitify(node);
     });
