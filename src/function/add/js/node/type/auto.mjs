@@ -1,3 +1,4 @@
+import { js_suffix_get } from '../../../../../js/suffix/get.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { js_identifier_combine } from '../../../../../js/identifier/combine.mjs';
 import { js_prefix_node_property } from '../../../../../js/prefix/node/property.mjs';
