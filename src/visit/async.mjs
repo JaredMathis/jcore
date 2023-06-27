@@ -9,6 +9,8 @@ export async function visit_async(root, children_get, lambda_local) {
         function_is,
         function_is
     ]);
-    await visit_recursive_async(root, children_get, lambda_local, [], []);
+    let v = [];
+    let v_2 = [];
+    await visit_recursive_async(root, children_get, lambda_local, v, v_2);
     metadata([]);
 }

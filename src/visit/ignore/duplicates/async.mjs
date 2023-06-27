@@ -11,6 +11,8 @@ export async function visit_ignore_duplicates_async(node, children_get, lambda) 
         function_is
     ]);
     let ignore_duplicates = boolean_value_true();
-    await visit_recursive_ignore_duplicates_async(node, children_get, lambda, [], [], ignore_duplicates);
+    let v = [];
+    let v_2 = [];
+    await visit_recursive_ignore_duplicates_async(node, children_get, lambda, v, v_2, ignore_duplicates);
     metadata([]);
 }

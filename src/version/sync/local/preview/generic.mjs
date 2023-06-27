@@ -22,23 +22,28 @@ export async function version_sync_local_preview_generic(repository_name) {
         todo(contents, existing, file_path);
     }
     let removals = await version_removals(repository_name, file_paths);
-    await version_file_contents_each(repository_name, removals, async function v_2(file_path, contents) {
-        todo(contents, '', file_path);
-    });
+    let v_4 = async function v_2(file_path, contents) {
+        let v_8 = '';
+        todo(contents, v_8, file_path);
+    };
+    await version_file_contents_each(repository_name, removals, v_4);
     function todo(contents, existing, file_path) {
         let hunks = string_difference_get(contents, existing);
-        let v_3 = not(list_empty(hunks));
+        let v_5 = list_empty(hunks);
+        let v_3 = not(v_5);
         if (v_3) {
-            list_add(differences, {
+            let v_6 = {
                 file_path,
                 hunks
-            });
+            };
+            list_add(differences, v_6);
         }
     }
-    let v = list_multiple_summary({
+    let v_7 = {
         differences,
         removals
-    });
+    };
+    let v = list_multiple_summary(v_7);
     return v;
     ;
     metadata([]);

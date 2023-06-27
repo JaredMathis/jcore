@@ -14,15 +14,17 @@ export async function version_sync_local(repository_name) {
     let file_paths = await directory_read_current();
     let differences = await version_commit_files_difference(repository_name, file_paths, commit_data);
     let removals = await version_commit_files_all_removals_generic(repository_name, file_paths, commit_data);
-    let writes = list_multiple_combine([
+    let v_2 = [
         differences,
         removals
-    ]);
+    ];
+    let writes = list_multiple_combine(v_2);
     await version_write_all(writes);
-    let v = list_multiple_summary({
+    let v_3 = {
         differences,
         removals
-    });
+    };
+    let v = list_multiple_summary(v_3);
     return v;
     metadata([]);
 }

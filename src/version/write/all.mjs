@@ -20,13 +20,14 @@ export async function version_write_all(writes) {
         let v = not(v_2);
         assert(v);
     }
-    await try_catch_throw(async function lambda_try() {
+    let v_4 = async function lambda_try() {
         for (let w of writes) {
             const file_path = object_property_get(w, property_file_path);
             const contents = object_property_get(w, property_contents);
             await file_json_overwrite(file_path, contents);
         }
-    }, async function lambda_catch(e) {
+    };
+    let v_5 = async function lambda_catch(e) {
         for (let w of writes) {
             const file_path = object_property_get(w, property_file_path);
             let v_3 = await file_exists(file_path);
@@ -34,6 +35,7 @@ export async function version_write_all(writes) {
                 await file_delete(file_path);
             }
         }
-    });
+    };
+    await try_catch_throw(v_4, v_5);
     metadata([]);
 }

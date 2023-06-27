@@ -27,11 +27,12 @@ export async function visit_recursive_ignore_duplicates_async(node, children_get
         list_add(visited, node);
     }
     list_add_assert_exists_not(stack, node);
-    await lambda({
+    let v_2 = {
         node,
         parent,
         stack
-    });
+    };
+    await lambda(v_2);
     let children = await children_get(node);
     for (let c of children) {
         await visit_recursive_ignore_duplicates_async(c, children_get, lambda, stack, visited, ignore_duplicates);

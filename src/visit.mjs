@@ -10,6 +10,8 @@ export function visit(root, children_get, lambda_local) {
         function_is,
         function_is
     ]);
-    visit_recursive(root, children_get, lambda_local, [], []);
+    let v = [];
+    let v_2 = [];
+    visit_recursive(root, children_get, lambda_local, v, v_2);
     metadata([metadata_generated()]);
 }

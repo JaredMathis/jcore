@@ -45,17 +45,19 @@ export async function version_push_generic(repository_name, preview) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let list_commits = await list_adder_async(async function v_11(list_commits_add) {
+    let v_20 = async function v_11(list_commits_add) {
         let db = database_firestore_get();
         let database_collection_name = version_collection_repository(repository_name);
         let fns = function_name_separator();
         let property_commit_latest = version_property_commit_latest();
         let info_refererence = database_document_info_reference(db, database_collection_name);
-        await database_transaction(db, async function v_12(transaction) {
+        let v_21 = async function v_12(transaction) {
             let v_18 = integer_value_0();
-            await database_reference_set_if_not_exists(transaction, info_refererence, { [property_commit_latest]: v_18 });
-        });
-        await database_transaction(db, async function v_13(transaction) {
+            let v_23 = { [property_commit_latest]: v_18 };
+            await database_reference_set_if_not_exists(transaction, info_refererence, v_23);
+        };
+        await database_transaction(db, v_21);
+        let v_22 = async function v_13(transaction) {
             const property_commit_latest_data = `${ database_collection_name }${ fns }${ property_commit_latest }`;
             let property_commit_latest_data_value = await data_key_value_get(property_commit_latest_data);
             let info_data = await database_reference_get_data(transaction, info_refererence);
@@ -68,7 +70,7 @@ export async function version_push_generic(repository_name, preview) {
             let repository_commits_path = version_path_commits_get(repository_name);
             let commits = await directory_read_json(repository_commits_path);
             let last_index = list_last_index(commits);
-            await list_each_with_index_async(commits, async function v_14(commit, index) {
+            let v_24 = async function v_14(commit, index) {
                 let v_2 = directory_property_file_path();
                 let commit_path = object_property_get(commit, v_2);
                 let v_10 = list_single_item(commit_path);
@@ -93,11 +95,13 @@ export async function version_push_generic(repository_name, preview) {
                         list_add(commit_files, file_json);
                     }
                 }
-                let v_19 = subtract_1(list_length(commit_files));
-                list_commits_add({
+                let v_25 = list_length(commit_files);
+                let v_19 = subtract_1(v_25);
+                let v_26 = {
                     commit_vesion,
                     files_length: v_19
-                });
+                };
+                list_commits_add(v_26);
                 if (preview) {
                     return;
                 }
@@ -109,7 +113,8 @@ export async function version_push_generic(repository_name, preview) {
                     database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_vesion);
                     await data_key_value_set(property_commit_latest_data, commit_vesion);
                 }
-            });
+            };
+            await list_each_with_index_async(commits, v_24);
             if (preview) {
                 return;
             }
@@ -117,8 +122,10 @@ export async function version_push_generic(repository_name, preview) {
             let latest_refererence = database_reference(db, database_collection_name, property_commit_latest);
             let v_9 = database_value(latest_files);
             await database_reference_set(transaction, latest_refererence, v_9);
-        });
-    });
+        };
+        await database_transaction(db, v_22);
+    };
+    let list_commits = await list_adder_async(v_20);
     return list_commits;
     metadata([]);
 }

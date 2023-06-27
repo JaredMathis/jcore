@@ -14,9 +14,12 @@ export async function version_removals(repository_name, file_paths) {
     ]);
     let files_current_filtered = await git_ignore_filter(file_paths);
     let files_committed = await version_files_paths(repository_name);
-    let mapped2 = list_map(files_current_filtered, function v(f) {
-        return string_combine(directory_current_with_separator(), f);
-    });
+    let v_2 = function v(f) {
+        let v_3 = directory_current_with_separator();
+        let v_4 = string_combine(v_3, f);
+        return v_4;
+    };
+    let mapped2 = list_map(files_current_filtered, v_2);
     let removals = list_without_multiple(files_committed, mapped2);
     return removals;
     metadata([]);

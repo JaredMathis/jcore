@@ -8,9 +8,10 @@ export async function version_push_latest(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let latest_files = [];
     let file_paths = await version_files_paths(repository_name);
-    await version_file_contents_each(repository_name, file_paths, async function v(file_path, contents) {
+    let v_2 = async function v(file_path, contents) {
         version_list_file_add(latest_files, file_path, contents);
-    });
+    };
+    await version_file_contents_each(repository_name, file_paths, v_2);
     return latest_files;
     metadata([]);
 }

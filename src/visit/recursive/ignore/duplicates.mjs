@@ -28,11 +28,12 @@ export function visit_recursive_ignore_duplicates(node, children_get, lambda, st
         list_add(visited, node);
     }
     list_add_assert_exists_not(stack, node);
-    lambda({
+    let v_2 = {
         node,
         parent,
         stack
-    });
+    };
+    lambda(v_2);
     let children = children_get(node);
     for (let c of children) {
         visit_recursive_ignore_duplicates(c, children_get, lambda, stack, visited, ignore_duplicates);
