@@ -1,14 +1,11 @@
-import { boolean_value_true } from '../../../boolean/value/true.mjs';
+import { js_function_declaration_asyncify_try } from './asyncify/try.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
-import { js_keyword_asynk } from '../../keyword/asynk.mjs';
 import { object_property_change } from '../../../object/property/change.mjs';
 import { js_node_is_function_declaration } from '../../node/is/function/declaration.mjs';
 export function js_function_declaration_asyncify(fd) {
     arguments_assert(arguments, [js_node_is_function_declaration]);
-    let lambda_object_property = object_property_change
-    let v = js_keyword_asynk();
-    let v_2 = boolean_value_true();
-    lambda_object_property(fd, v, v_2);
+    let lambda_object_property = object_property_change;
+    js_function_declaration_asyncify_try(lambda_object_property, fd);
     metadata([]);
 }
