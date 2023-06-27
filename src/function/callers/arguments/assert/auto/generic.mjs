@@ -1,3 +1,4 @@
+import { js_mapper_args_property_params_get } from '../../../../../js/mapper/args/property/params/get.mjs';
 import { js_mapper_args_property_function_declaration_get } from '../../../../../js/mapper/args/property/function/declaration/get.mjs';
 import { js_mapper_args_property_parsed_get } from '../../../../../js/mapper/args/property/parsed/get.mjs';
 import { boolean_value_false } from '../../../../../boolean/value/false.mjs';
@@ -31,7 +32,6 @@ import { assert } from '../../../../../assert.mjs';
 import { list_each_with_index_async } from '../../../../../list/each/with/index/async.mjs';
 import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../../../../../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
 import { list_empty } from '../../../../../list/empty.mjs';
-import { js_node_property_params } from '../../../../../js/node/property/params.mjs';
 import { object_property_get } from '../../../../../object/property/get.mjs';
 import { equal } from '../../../../../equal.mjs';
 import { js_identifier_is } from '../../../../../js/identifier/is.mjs';
@@ -51,8 +51,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
     async function mapper(c_args) {
         let c_parsed = js_mapper_args_property_parsed_get(c_args);
         let c_function_declaration = js_mapper_args_property_function_declaration_get(c_args);
-        let v_2 = js_node_property_params();
-        let c_params = object_property_get(c_function_declaration, v_2);
+        let c_params = js_mapper_args_property_params_get(c_function_declaration, v_2);
         let v_13 = list_empty(c_params);
         if (v_13) {
             let v_37 = boolean_value_true();
