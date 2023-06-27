@@ -4,12 +4,14 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { refactor_functions_to_files } from '../../../../refactor/functions/to/files.mjs';
 import { refactor_awaitify } from '../../../../refactor/awaitify.mjs';
+import { refactor_unlambdaify } from '../../../../refactor/unlambdaify.mjs';
 export function function_auto_no_add_refactors() {
     arguments_assert(arguments, []);
     let v = [
         js_mapper_args_to_statement_arguments_assert,
         refactor_if_expression_statement_to_block_statement,
         refactor_functions_to_files,
+        refactor_unlambdaify,
         refactor_awaitify
     ];
     return v;
