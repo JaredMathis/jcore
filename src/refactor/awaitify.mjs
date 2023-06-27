@@ -20,7 +20,7 @@ export async function refactor_awaitify(args) {
     let {parsed} = args;
     await js_visit_nodes_filter_async(parsed, js_node_is_call_expression, async function v_2(v) {
         let {node, stack, parent} = v;
-        if (list_any(stack, s => {
+        if (list_any(stack, function v_3(s) {
                 if (!js_node_is(s)) {
                     return false;
                 }
