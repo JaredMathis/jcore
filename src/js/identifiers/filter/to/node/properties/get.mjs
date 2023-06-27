@@ -12,10 +12,12 @@ export function js_identifiers_filter_to_node_properties_get(identifier_names) {
         js_prefix_node_property(),
         js_prefix_mapper_args_property()
     ];
-    let filtered = js_identifiers_prefixes_without(prefixes, identifier_names);
-    let suffix = js_suffix_get();
-    let v = [suffix];
-    let v_2 = js_identifiers_suffixes_without(v, filtered);
-    return v_2;
+    for (let prefix of prefixes) {
+        let filtered = js_identifiers_prefixes_without(prefixes, identifier_names);
+        let suffix = js_suffix_get();
+        let v = [suffix];
+        let v_2 = js_identifiers_suffixes_without(v, filtered);
+        return v_2;
+    }
     metadata([]);
 }
