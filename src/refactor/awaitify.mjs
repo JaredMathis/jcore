@@ -1,3 +1,4 @@
+import { js_function_declaration_asyncify_try } from '../js/function/declaration/asyncify/try.mjs';
 import { list_find } from '../list/find.mjs';
 import { function_name_async_is } from '../function/name/async/is.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
@@ -32,5 +33,6 @@ export async function refactor_awaitify(args) {
         }
         let stack_reversed = list_reversed_get(stack);
         let ancestor_function_declaration = list_find(stack_reversed, js_node_is_function_declaration);
+        js_function_declaration_asyncify_try(ancestor_function_declaration);
     });
 }
