@@ -7,13 +7,14 @@ import { js_identifiers_prefixes_without } from '../../../../prefixes/without.mj
 import { list_is } from '../../../../../../list/is.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { list_to_dictionary } from '../../../../../../list/to/dictionary.mjs';
+import { identity } from '../../../../../../identity.mjs';
 export function js_identifiers_filter_to_node_properties_get(identifier_names) {
     arguments_assert(arguments, [list_is]);
     const prefixes = [
         js_prefix_node_property(),
         js_prefix_mapper_args_property()
     ];
-    return list_to_dictionary(prefixes, function v_3(prefix) {
+    return list_to_dictionary(prefixes, identity, function v_3(prefix) {
         let filtered = js_identifiers_prefixes_without([prefix], identifier_names);
         let suffix = js_suffix_get();
         let v = [suffix];
