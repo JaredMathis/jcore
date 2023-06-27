@@ -6,6 +6,6 @@ import { js_node_is_function_declaration } from '../../node/is/function/declarat
 export function js_function_declaration_asyncify(fd) {
     arguments_assert(arguments, [js_node_is_function_declaration]);
     let lambda_object_property = object_property_change;
-    js_function_declaration_asyncify_generic(lambda_object_property, fd);
+    js_function_declaration_asyncify_generic(fd, lambda_object_property);
     metadata([]);
 }
