@@ -17,7 +17,7 @@ import { js_node_is_function_declaration } from '../js/node/is/function/declarat
 export async function refactor_awaitify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
-    await js_visit_nodes_filter_async(parsed, js_node_is_call_expression, async v => {
+    await js_visit_nodes_filter_async(parsed, js_node_is_call_expression, async function v_2(v) {
         let {node, stack, parent} = v;
         if (list_any(stack, js_node_is_arrow_function_expression)) {
             error('must unlambdaify');

@@ -10,7 +10,7 @@ import { task_current } from './current.mjs';
 import { assert } from '../assert.mjs';
 export async function task_unsub() {
     arguments_assert(arguments, []);
-    let v_4 = await task_unsub_generic(async () => {
+    let v_4 = await task_unsub_generic(async function v() {
         await task_finish();
         return await task_set_available_first();
     }, on_empty_not);
