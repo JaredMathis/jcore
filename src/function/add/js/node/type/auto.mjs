@@ -1,7 +1,7 @@
+import { object_keys_each_async } from '../../../../../object/keys/each/async.mjs';
 import { js_suffix_get } from '../../../../../js/suffix/get.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { js_identifier_combine } from '../../../../../js/identifier/combine.mjs';
-import { js_prefix_node_property } from '../../../../../js/prefix/node/property.mjs';
 import { function_add_property_get } from '../../../property/get.mjs';
 import { functions_new_if_not_exists } from '../../../../../functions/new/if/not/exists.mjs';
 import { js_identifiers_filter_to_node_properties_get } from '../../../../../js/identifiers/filter/to/node/properties/get.mjs';
@@ -12,14 +12,12 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { function_add_js_node_type_snake } from './snake.mjs';
 import { function_exists } from '../../../../exists.mjs';
 import { js_prefix_node } from '../../../../../js/prefix/node.mjs';
-import { object_keys } from '../../../../../object/keys.mjs';
-import { object_keys_each } from '../../../../../object/keys/each.mjs';
 export async function function_add_js_node_type_auto(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let identifiers = await function_identifiers(function_name);
     let property_names_dictionary = js_identifiers_filter_to_node_properties_get(identifiers);
     return;
-    object_keys_each_async(property_names_dictionary, async function v_3(property_names, prefix) {
+    await object_keys_each_async(property_names_dictionary, async function v_3(property_names, prefix) {
         for (let property_name of property_names) {
             let method = js_suffix_get();
             let property_name_fn_get = js_identifier_combine(prefix, property_name);
