@@ -4,14 +4,14 @@ import { object_property_get } from '../property/get.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { function_is } from '../../function/is.mjs';
 import { object_keys } from '../keys.mjs';
-export function object_keys_each(object, lambda) {
+export function object_keys_each(object, lambda_value_key) {
     arguments_assert(arguments, [
         defined_is,
         function_is
     ]);
     for (let key of object_keys(object)) {
         let value = object_property_get(object, key);
-        lambda(value, key);
+        lambda_value_key(value, key);
     }
     metadata([]);
 }
