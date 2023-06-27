@@ -5,6 +5,7 @@ import { js_node_is_call_expression } from '../js/node/is/call/expression.mjs';
 import { js_visit_nodes_filter_async } from '../js/visit/nodes/filter/async.mjs';
 import { js_call_expression_name_get_or_null } from '../js/call/expression/name/get/or/null.mjs';
 import { null_is } from '../null/is.mjs';
+import { js_node_is_await_expression } from '../js/node/is/await/expression.mjs';
 export async function refactor_awaitify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
@@ -12,6 +13,9 @@ export async function refactor_awaitify(args) {
         let {node, stack, parent} = v;
         let name = js_call_expression_name_get_or_null(node);
         if (null_is(name)) {
+            return;
+        }
+        if (js_node_is_await_expression(parent)) {
             return;
         }
         if (!await function_name_async_is(name)) {
