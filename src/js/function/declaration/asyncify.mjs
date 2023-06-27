@@ -9,6 +9,6 @@ export function js_function_declaration_asyncify(fd) {
     let lambda_object_property = object_property_change
     let v = js_keyword_asynk();
     let v_2 = boolean_value_true();
-    object_property_change(fd, v, v_2);
+    lambda_object_property(fd, v, v_2);
     metadata([]);
 }
