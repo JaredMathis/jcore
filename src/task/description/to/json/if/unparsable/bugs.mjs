@@ -14,18 +14,26 @@ export async function task_description_to_json_if_unparsable_bugs() {
         '\r\n',
         'Therefore  function_unasyncify  can safely remove _async suffix'
     ];
+    let v_2 = integer_value_62();
+    let v_3 = 'Maybe enforce naming convention of _async';
+    let v_4 = 'open';
+    let v_5 = string_combine_multiple(body_62);
+    let v_6 = integer_value_76();
+    let v_7 = 'release function';
+    let v_8 = 'open';
+    let v_9 = 'release should run all tests, enforce all rules';
     let bugs = [
         {
-            number: integer_value_62(),
-            title: 'Maybe enforce naming convention of _async',
-            state: 'open',
-            body: string_combine_multiple(body_62)
+            number: v_2,
+            title: v_3,
+            state: v_4,
+            body: v_5
         },
         {
-            number: integer_value_76(),
-            title: 'release function',
-            state: 'open',
-            body: 'release should run all tests, enforce all rules'
+            number: v_6,
+            title: v_7,
+            state: v_8,
+            body: v_9
         }
     ];
     let v = await task_description_to_json_if_unparsable_generic(bugs);

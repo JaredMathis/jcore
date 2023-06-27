@@ -9,9 +9,11 @@ export function version_commit_data(fn, args) {
         function_is,
         defined_is
     ]);
+    let v = function_name_get(fn);
+    let v_2 = list_to(args);
     return {
-        command: function_name_get(fn),
-        args: list_to(args)
+        command: v,
+        args: v_2
     };
     metadata([]);
 }

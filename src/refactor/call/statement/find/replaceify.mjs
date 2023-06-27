@@ -94,10 +94,11 @@ export async function refactor_call_statement_find_replaceify(args) {
                 js_call_expression_name_change(expression, function_name_find);
                 let expression_arguments = js_node_property_arguments_get(expression);
                 let args = js_node_property_params_get(function_declaration_find);
+                let v_17 = js_unparse(function_declaration_find);
                 let v_15 = {
                     args,
                     refactorable_data,
-                    j: js_unparse(function_declaration_find)
+                    j: v_17
                 };
                 log(v_15);
                 let v_16 = function v_11(a) {

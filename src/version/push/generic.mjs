@@ -52,7 +52,8 @@ export async function version_push_generic(repository_name, preview) {
         let property_commit_latest = version_property_commit_latest();
         let info_refererence = database_document_info_reference(db, database_collection_name);
         await database_transaction(db, async function v_12(transaction) {
-            await database_reference_set_if_not_exists(transaction, info_refererence, { [property_commit_latest]: integer_value_0() });
+            let v_18 = integer_value_0();
+            await database_reference_set_if_not_exists(transaction, info_refererence, { [property_commit_latest]: v_18 });
         });
         await database_transaction(db, async function v_13(transaction) {
             const property_commit_latest_data = `${ database_collection_name }${ fns }${ property_commit_latest }`;
@@ -92,9 +93,10 @@ export async function version_push_generic(repository_name, preview) {
                         list_add(commit_files, file_json);
                     }
                 }
+                let v_19 = subtract_1(list_length(commit_files));
                 list_commits_add({
                     commit_vesion,
-                    files_length: subtract_1(list_length(commit_files))
+                    files_length: v_19
                 });
                 if (preview) {
                     return;

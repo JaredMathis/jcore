@@ -8,7 +8,8 @@ let initialized = boolean_value_false();
 export function database_firestore_get() {
     let v = not(initialized);
     if (v) {
-        let v_2 = { projectId: 'truthcode' };
+        let v_3 = 'truthcode';
+        let v_2 = { projectId: v_3 };
         initializeApp(v_2);
         initialized = boolean_value_true();
     }

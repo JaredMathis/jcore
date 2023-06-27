@@ -44,9 +44,10 @@ export async function function_tests_generate_generic_each(function_name, test_n
         let v_2 = function_name_get(assert);
         statement_assert = js_code_call_expression_statement_with_args_code(v_2, ce_throws);
         statements_code = [statement_assert];
+        let v_12 = boolean_value_true();
         let v_8 = {
             args,
-            error: boolean_value_true()
+            error: v_12
         };
         log(v_8);
     } else {

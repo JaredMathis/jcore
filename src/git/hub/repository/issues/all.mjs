@@ -8,7 +8,8 @@ export async function git_hub_repository_issues_all(no_cache, page) {
         boolean_is,
         integer_is
     ]);
-    let v_2 = { state: 'all' };
+    let v_3 = 'all';
+    let v_2 = { state: v_3 };
     let v = await git_hub_repository_issues_get(v_2, no_cache, page);
     return v;
     metadata([]);

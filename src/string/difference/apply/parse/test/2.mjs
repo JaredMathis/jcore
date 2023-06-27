@@ -8,10 +8,13 @@ import { assert } from '../../../../../assert.mjs';
 import { string_difference_apply_parse } from '../../parse.mjs';
 export function string_difference_apply_parse_test_2() {
     arguments_assert(arguments, []);
+    let v_3 = integer_value_3();
+    let v_4 = '-';
+    let v_5 = integer_value_2();
     let expected = {
-        'position': integer_value_3(),
-        'operation': '-',
-        'removed': integer_value_2()
+        'position': v_3,
+        'operation': v_4,
+        'removed': v_5
     };
     let v_2 = '3-2';
     let actual = string_difference_apply_parse(v_2);

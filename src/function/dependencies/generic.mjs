@@ -21,9 +21,10 @@ export async function function_dependencies_generic(function_name, recursive) {
     }
     let d = await lambda(file_path);
     let v_4 = function v_2(file_path) {
+        let v_5 = file_js_path_to_name(file_path);
         return {
             file_path,
-            function_name: file_js_path_to_name(file_path)
+            function_name: v_5
         };
     };
     let v = list_map(d, v_4);

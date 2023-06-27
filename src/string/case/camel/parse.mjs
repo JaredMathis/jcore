@@ -23,8 +23,9 @@ export function string_case_camel_parse(input) {
     const property_is_capital = 'is_capital';
     const property_index = 'index';
     let v_6 = function v_2(c, index) {
+        let v_12 = string_case_upper_is(c);
         return {
-            [property_is_capital]: string_case_upper_is(c),
+            [property_is_capital]: v_12,
             [property_index]: index
         };
     };

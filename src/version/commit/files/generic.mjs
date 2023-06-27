@@ -46,13 +46,14 @@ export async function version_commit_files_generic(repository_name, file_paths, 
             let difference_path = object_property_get(difference, v);
             let part_id = guid_generate();
             list_add(parts, part_id);
+            let v_6 = {
+                [version_property_file_path()]: file_path,
+                [version_property_part_id()]: part_id,
+                hunks
+            };
             let difference_write = {
                 [property_file_path]: difference_path,
-                [property_contents]: {
-                    [version_property_file_path()]: file_path,
-                    [version_property_part_id()]: part_id,
-                    hunks
-                }
+                [property_contents]: v_6
             };
             list_add(writes, difference_write);
         }

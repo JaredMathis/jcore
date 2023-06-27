@@ -9,11 +9,15 @@ export function string_difference_apply_external(string_old, hunks) {
         string_is,
         list_is
     ]);
+    let v_2 = '';
+    let v_3 = '';
+    let v_4 = '';
+    let v_5 = '';
     let patch = {
-        'oldFileName': '',
-        'oldHeader': '',
-        'newFileName': '',
-        'newHeader': ''
+        'oldFileName': v_2,
+        'oldHeader': v_3,
+        'newFileName': v_4,
+        'newHeader': v_5
     };
     let v = { hunks };
     object_merge(v, patch);

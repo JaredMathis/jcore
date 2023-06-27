@@ -44,7 +44,8 @@ export async function sandbox() {
     return;
     const collection_path = 'cities';
     const document_path = 'new-city-id';
-    const document_data = { message: 'test' };
+    let v_14 = 'test';
+    const document_data = { message: v_14 };
     await database_set(collection_path, document_path, document_data);
     return;
     let differences = await version_sync_local_preview(repository_name);

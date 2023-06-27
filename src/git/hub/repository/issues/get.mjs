@@ -13,8 +13,9 @@ export async function git_hub_repository_issues_get(api_args_to_merge, no_cache,
         integer_is
     ]);
     let verb = 'GET';
+    let v_3 = git_hub_page_size();
     let v_2 = {
-        per_page: git_hub_page_size(),
+        per_page: v_3,
         page
     };
     object_merge(v_2, api_args_to_merge);
