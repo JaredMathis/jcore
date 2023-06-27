@@ -826,9 +826,6 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    let v_2 = '411';
-    let v_3 = ' tests ran successfully';
-    let v = string_combine(v_2, v_3);
-    log(v);
+    log(string_combine('411', ' tests ran successfully'));
     metadata([]);
 }
