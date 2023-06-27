@@ -26,7 +26,7 @@ export async function function_add_js_node_type_auto(function_name) {
             let function_name_new = js_identifier_combine(property_name_fn_get, method);
             let v = !await function_exists(function_name_new);
             if (v) {
-                let prefix_parts = js_identifier_parts_to(string_value_property);
+                let prefix_parts = js_identifier_parts_to(prefix);
                 list_remove_last_verify(prefix_parts, string_value_property());
                 let without = js_identifier_parts_from(prefix_parts);
                 await function_add_property_get(without, property_name);
