@@ -10,10 +10,12 @@ import { list_filter } from '../../../../list/filter.mjs';
 import { js_node_is_identifier } from '../../../../js/node/is/identifier.mjs';
 export function refactor_object_expression_value_assign(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let lambda_children_get = n => {
+    let lambda_children_get = function v_3(n) {
         let properties = js_node_property_properties_get(n);
         let mapped = list_map(properties, js_node_property_value_get);
-        let v = n => !js_node_is_identifier(n);
+        let v = function v_4(n) {
+            return !js_node_is_identifier(n);
+        };
         let v_2 = list_filter(mapped, v);
         return v_2;
     };
