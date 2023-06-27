@@ -16,6 +16,7 @@ export async function function_add_js_node_type_auto(function_name) {
     let identifiers = await function_identifiers(function_name);
     let property_names = js_identifiers_filter_to_node_properties_get(identifiers);
     for (let property_name of property_names) {
+        let method = js_suffix_get();
         let prefix = js_prefix_node_property();
         let property_name_fn_get = js_identifier_combine(prefix, property_name);
         let function_name_new = js_identifier_combine(property_name_fn_get, method);
