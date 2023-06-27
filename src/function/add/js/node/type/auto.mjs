@@ -12,11 +12,13 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { function_add_js_node_type_snake } from './snake.mjs';
 import { function_exists } from '../../../../exists.mjs';
 import { js_prefix_node } from '../../../../../js/prefix/node.mjs';
+import { js_identifier_parts_to } from '../../../../../js/identifier/parts/to.mjs';
 export async function function_add_js_node_type_auto(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let identifiers = await function_identifiers(function_name);
     let property_names = js_identifiers_filter_to_node_properties_get(identifiers);
     for (let property_name of property_names) {
+        let parts = js_identifier_parts_to(property_name);
         let method = js_suffix_get();
         let prefix = js_prefix_node_property();
         let property_name_fn_get = js_identifier_combine(prefix, property_name);
