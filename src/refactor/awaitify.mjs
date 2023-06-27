@@ -1,3 +1,4 @@
+import { list_find } from '../list/find.mjs';
 import { function_name_async_is } from '../function/name/async/is.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
@@ -10,6 +11,7 @@ import { list_any } from '../list/any.mjs';
 import { js_node_is_arrow_function_expression } from '../js/node/is/arrow/function/expression.mjs';
 import { error } from '../error.mjs';
 import { list_reversed_get } from '../list/reversed/get.mjs';
+import { js_node_is_function_declaration } from '../js/node/is/function/declaration.mjs';
 export async function refactor_awaitify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
@@ -29,5 +31,6 @@ export async function refactor_awaitify(args) {
             return;
         }
         let stack_reversed = list_reversed_get(stack);
+        let ancestor_function_declaration = list_find(stack_reversed, js_node_is_function_declaration);
     });
 }
