@@ -11,7 +11,7 @@ export async function object_keys_each_async(object, lambda_value_key) {
     ]);
     for (let key of object_keys(object)) {
         let value = object_property_get(object, key);
-        lambda_value_key(value, key);
+        await lambda_value_key(value, key);
     }
     metadata([]);
 }
