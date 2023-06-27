@@ -14,12 +14,18 @@ import { js_node_is_arrow_function_expression } from '../js/node/is/arrow/functi
 import { error } from '../error.mjs';
 import { list_reversed_get } from '../list/reversed/get.mjs';
 import { js_node_is_function_declaration } from '../js/node/is/function/declaration.mjs';
+import { js_node_is } from '../js/node/is.mjs';
 export async function refactor_awaitify(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
     await js_visit_nodes_filter_async(parsed, js_node_is_call_expression, async function v_2(v) {
         let {node, stack, parent} = v;
-        if (list_any(stack, js_node_is_arrow_function_expression)) {
+        if (list_any(stack, s => {
+                if (!js_node_is(s)) {
+                    return false;
+                }
+                return js_node_is_arrow_function_expression(s);
+            })) {
             error('must unlambdaify');
         }
         let name = js_call_expression_name_get_or_null(node);
