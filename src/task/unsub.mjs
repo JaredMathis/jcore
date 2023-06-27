@@ -12,7 +12,7 @@ export async function task_unsub() {
     arguments_assert(arguments, []);
     let v_4 = await task_unsub_generic(async () => {
         await task_finish();
-        await task_set_available_first()
+        return await task_set_available_first()
     }, on_empty_not);
     return v_4;
     async function on_empty_not(last_string) {
