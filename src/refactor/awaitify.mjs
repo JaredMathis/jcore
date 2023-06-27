@@ -1,3 +1,4 @@
+import { function_name_async_is } from '../function/name/async/is.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { js_node_is_call_expression } from '../js/node/is/call/expression.mjs';
@@ -11,6 +12,9 @@ export async function refactor_awaitify(args) {
         let {node, stack, parent} = v;
         let name = js_call_expression_name_get_or_null(node);
         if (null_is(name)) {
+            return;
+        }
+        if (!await function_name_async_is(name)) {
             return;
         }
     });
