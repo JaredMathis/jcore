@@ -13,7 +13,9 @@ export function refactor_object_expression_value_assign(args) {
     let lambda_children_get = n => {
         let properties = js_node_property_properties_get(n);
         let mapped = list_map(properties, js_node_property_value_get);
-        return list_filter(mapped, n => !js_node_is_identifier(n));
+        let v = n => !js_node_is_identifier(n);
+        let v_2 = list_filter(mapped, v);
+        return v_2;
     };
     let lambda_node_is_type = js_node_is_object_expression;
     refactor_node_assign_and_replace(args, lambda_node_is_type, lambda_children_get);

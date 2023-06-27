@@ -1,3 +1,4 @@
+import { metadata } from '../../../../metadata.mjs';
 import { list_get } from '../../../../list/get.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -31,4 +32,5 @@ export function refactor_node_assign_and_replace(args, lambda_node_is_type, lamb
         }
     };
     js_visit_nodes_filter(parsed, lambda_node_is_type, v_4);
+    metadata([]);
 }
