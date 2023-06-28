@@ -27,6 +27,7 @@ export async function video_screen_recordings_combine() {
     await directory_exists_ensure(path_output);
     await git_exclude(path_output);
     let paths = await directory_read(path_combined);
+    let c = string_combine_multiple(["\"concat:", list_join(paths, '|'), "\""])
     let file_path = `${ guid_generate() }.txt`;
     await try_catch_finally_async(async function v() {
         let contents = list_join(paths, string_new_line());
@@ -37,7 +38,7 @@ export async function video_screen_recordings_combine() {
             path_output,
             file_path_output_name
         ]);
-        let command = `ffmpeg -f concat -i ${ file_path } -c copy ${ file_path_output }`;
+        let command = `ffmpeg -f concat -i ${ c } -c copy ${ file_path_output }`;
         await command_line(command);
     }, async function v_2() {
         if (await file_exists(file_path)) {
