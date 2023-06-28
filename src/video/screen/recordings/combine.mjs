@@ -19,11 +19,11 @@ import { log } from '../../../log.mjs';
 import { file_read } from '../../../file/read.mjs';
 export async function video_screen_recordings_combine() {
     arguments_assert(arguments, []);
-    let file_path_output_name = 'ish_video_1';
+    let ish_video_1 = 'ish_video_1';
     let path_base = path_video_screen_recordings();
     let path_combined = path_join([
         path_base,
-        file_path_output_name
+        ish_video_1
     ]);
     let path_output = 'videos';
     await directory_exists_ensure(path_output);
@@ -37,11 +37,12 @@ export async function video_screen_recordings_combine() {
     await try_catch_finally_async(async function v() {
         let contents = list_join(mapped, string_new_line());
         await file_write(file_path_input, contents);
+        let file_path_output_name = `${ish_video_1}.mp4`;
         let file_path_output = path_join([
             path_output,
             file_path_output_name
         ]);
-        let command = `ffmpeg -f concat -safe 0 -i ${ file_path_input } -c copy ${ file_path_output }`;
+        let command = `ffmpeg -f concat -safe 0-i ${ file_path_input } -c copy ${ file_path_output }`;
         await command_line(command);
     }, async function v_2() {
         if (await file_exists(file_path_input)) {
