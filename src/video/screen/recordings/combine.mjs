@@ -31,7 +31,7 @@ export async function video_screen_recordings_combine() {
     await try_catch_finally_async(async function v() {
         let contents = list_join(paths, string_new_line());
         let replaced = string_replace(contents, '\\', '/');
-        await file_write(file_path, contents);
+        await file_write(file_path, replaced);
         let file_path_output_name = `merged_video.mp4`;
         let file_path_output = path_join([
             path_output,
