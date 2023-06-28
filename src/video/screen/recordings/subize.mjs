@@ -9,11 +9,14 @@ import { video_screen_recordings_prefix } from './prefix.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { directory_read_non_recursive } from '../../../directory/read/non/recursive.mjs';
 import { log } from '../../../log.mjs';
+import { list_map } from '../../../list/map.mjs';
 export async function video_screen_recordings_subize() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
     let path_base = video_screen_recordings_path();
     let paths = await directory_read_non_recursive(path_base);
+    let bases = list_map(paths, path_parse_base);
+    return bases;
     let filtered = list_filter(paths, function v(p) {
         return string_ends_with(p, '.mkv');
     });
