@@ -1,3 +1,4 @@
+import { directory_add } from '../../../directory/add.mjs';
 import { git_exclude } from '../../../git/exclude.mjs';
 import { command_line } from '../../../command/line.mjs';
 import { file_delete } from '../../../file/delete.mjs';
@@ -27,9 +28,12 @@ export async function video_screen_recordings_combine() {
     await try_catch_finally_async(async function v() {
         let file_path = `${ guid_generate() }.txt`;
         await file_write(file_path, list_join(paths, string_new_line()));
-        let file_path_output_name = `merged_video.mp4`
-        let file_path_output = path_join([path_output, file_path_output_name])
-        let command = `ffmpeg -f concat -i ${ file_path } -c copy ${file_path_output}`;
+        let file_path_output_name = `merged_video.mp4`;
+        let file_path_output = path_join([
+            path_output,
+            file_path_output_name
+        ]);
+        let command = `ffmpeg -f concat -i ${ file_path } -c copy ${ file_path_output }`;
         await command_line(command);
     }, async function v_2() {
         if (await file_exists(file_path)) {
