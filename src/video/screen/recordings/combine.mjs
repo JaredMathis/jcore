@@ -1,5 +1,4 @@
-import { list_take } from '../../../list/take.mjs';
-import { string_combine_multiple } from '../../../string/combine/multiple.mjs';
+import { list_add_beginning } from '../../../list/add/beginning.mjs';
 import { string_replace } from '../../../string/replace.mjs';
 import { git_exclude } from '../../../git/exclude.mjs';
 import { command_line } from '../../../command/line.mjs';
@@ -29,6 +28,7 @@ export async function video_screen_recordings_combine() {
     await directory_exists_ensure(path_output);
     await git_exclude(path_output);
     let paths = await directory_read(path_combined);
+    list_add_beginning(paths, `ffconcat version 1.0`);
     let file_path = `${ guid_generate() }.txt`;
     await try_catch_finally_async(async function v() {
         let contents = list_join(paths, string_new_line());
