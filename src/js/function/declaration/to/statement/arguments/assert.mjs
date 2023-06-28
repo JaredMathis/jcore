@@ -11,7 +11,11 @@ import { js_node_call_expression_statement_if_name_equal } from '../../../../../
 import { list_first } from '../../../../../../list/first.mjs';
 import { list_empty } from '../../../../../../list/empty.mjs';
 import { js_function_declaration_to_statements } from '../../statements.mjs';
-
+export async function js_function_declaration_to_statement_arguments_assert(function_declaration) {
+    let {statement} = await js_function_declaration_to_statement_arguments_assert_added(function_declaration);
+    return statement;
+    metadata([]);
+}
 async function js_function_declaration_to_statement_arguments_assert_added(function_declaration) {
     let statements = js_function_declaration_to_statements(function_declaration);
     let exists = boolean_value_false();
@@ -31,11 +35,8 @@ async function js_function_declaration_to_statement_arguments_assert_added(funct
         refactor_arguments_assert_add_no_check(function_declaration, excludes);
     }
     let statement = js_function_delcaration_to_statement_first(function_declaration);
-    return { statement, added };
-}
-
-export async function js_function_declaration_to_statement_arguments_assert(function_declaration) {
-    let { statement } = await js_function_declaration_to_statement_arguments_assert_added(function_declaration);
-    return statement;
-    metadata([]);
+    return {
+        statement,
+        added
+    };
 }
