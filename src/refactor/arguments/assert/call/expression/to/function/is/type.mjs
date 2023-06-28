@@ -18,6 +18,7 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_declaration, file_path, parsed} = args;
     let params = js_mapper_args_property_params_get(function_declaration);
+    console.log({file_path})
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     await refactor_import_fix_if_changed(args, async function v_3(c) {
         await list_each_with_index_async(arguments_assert_args, function v(arg, arg_index) {
