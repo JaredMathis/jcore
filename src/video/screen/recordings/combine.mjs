@@ -5,5 +5,5 @@ export async function video_screen_recordings_combine() {
     arguments_assert(arguments, []);
     let result = path_video_screen_recordings();
     let paths = await directory_read(result);
-    return result;
+    return paths;
 }
