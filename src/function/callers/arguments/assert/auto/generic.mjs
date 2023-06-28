@@ -1,3 +1,4 @@
+import { arguments_assert_predicate_default_name_equal } from '../../../../../arguments/assert/predicate/default/name/equal.mjs';
 import { refactor_import_fix_if_changed } from '../../../../../refactor/import/fix/if/changed.mjs';
 import { js_visit_assignment_exists } from '../../../../../js/visit/assignment/exists.mjs';
 import { js_node_property_name_get } from '../../../../../js/node/property/name/get.mjs';
@@ -22,8 +23,6 @@ import { list_add_if_not_exists } from '../../../../../list/add/if/not/exists.mj
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { list_set } from '../../../../../list/set.mjs';
 import { list_get } from '../../../../../list/get.mjs';
-import { arguments_assert_predicate_default } from '../../../../../arguments/assert/predicate/default.mjs';
-import { function_name_get } from '../../../../name/get.mjs';
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
 import { assert } from '../../../../../assert.mjs';
 import { list_each_with_index_async } from '../../../../../list/each/with/index/async.mjs';
@@ -61,9 +60,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             let v_4 = js_node_is_identifier(c_arg);
             assert(v_4);
             let c_predicate_name = js_node_property_name_get(c_arg);
-            let v_6 = arguments_assert_predicate_default();
-            let default_name = function_name_get(v_6);
-            let v_25 = equal(c_predicate_name, default_name);
+            let v_25 = arguments_assert_predicate_default_name_equal(c_predicate_name);
             let v_14 = not(v_25);
             if (v_14) {
                 let v_38 = boolean_value_false();

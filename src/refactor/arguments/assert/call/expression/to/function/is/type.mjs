@@ -14,8 +14,8 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
         function_name,
         file_path
     });
-    log(arguments_assert_args);
     await list_each_with_index_async(arguments_assert_args, function v(arg, arg_index) {
+        log(arg);
     });
     error('todo: refactor_arguments_assert_call_expression_to_function_is_type');
 }
