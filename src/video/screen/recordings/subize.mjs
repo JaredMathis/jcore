@@ -29,8 +29,6 @@ export async function video_screen_recordings_subize() {
     for (let f of filtered) {
         let base = path_parse_base(f);
         let parent = path_parent(f);
-        if (false) {
-        }
         file_rename;
         log({
             f,
