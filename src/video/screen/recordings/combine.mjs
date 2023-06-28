@@ -8,5 +8,13 @@ export async function video_screen_recordings_combine() {
     let path_base = path_video_screen_recordings();
     let path_combined = path_join([path_base, ish_video_1])
     let paths = await directory_read(path_combined);
+    let cmd = "ffmpeg -f concat -i all_videos.txt -c copy merged_video.mp4"
+    `
+
+Exec(cmd, function(err, stdout, stderr) {
+  if(err) console.log(err)
+  else console.log("Done!")
+})
+    `
     return paths;
 }
