@@ -20,7 +20,8 @@ export async function video_screen_recordings_subize() {
     let bases_filtered = list_filter(bases, function v_2(p) {
         return string_starts_with(p, ish_video_prefix);
     });
-    return bases_filtered;
+    let next = js_identifier_name_next_prefix_list(bases_filtered, ish_video_prefix);
+    return next;
     let filtered = list_filter(paths, function v(p) {
         return string_ends_with(p, '.mkv');
     });
@@ -28,7 +29,6 @@ export async function video_screen_recordings_subize() {
         let base = path_parse_base(f);
         let parent = path_parent(f);
         if (false) {
-            js_identifier_name_next_prefix_list(identifiers, identifier_next_prefix);
         }
         file_rename;
         log({
