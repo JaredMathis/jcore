@@ -73,6 +73,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 let v_38 = boolean_value_false();
                 return v_38;
             }
+            comment(`Value has been changed through assignment - will not assume predicate can be copied`);
             let assignment_exists = occurs(function v_3(o) {
                 let v_26 = function v_9(v) {
                     let {node} = v;
@@ -82,7 +83,6 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                         let v_29 = js_node_property_name_get(left);
                         let v_16 = equal(v_29, c_predicate_name);
                         if (v_16) {
-                            comment(`Value has been changed - will not assume predicate can be copied`);
                             o();
                         }
                     }
