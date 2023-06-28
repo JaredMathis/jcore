@@ -27,14 +27,18 @@ export async function video_screen_recordings_subize() {
     let filtered = list_filter(paths, function v(p) {
         return string_ends_with(p, '.mkv');
     });
-    for (let f of filtered) {
-        let base = path_parse_base(f);
-        let parent = path_parent(f);
-        let joined = path_join([parent, next, base])
-        file_rename;
+    for (let file_path_before of filtered) {
+        let base = path_parse_base(file_path_before);
+        let parent = path_parent(file_path_before);
+        let file_path_after = path_join([
+            parent,
+            next,
+            base
+        ]);
+        await file_rename(file_path_before, file_path_after);
         log({
-            f,
-            joined
+            f: file_path_before,
+            joined: file_path_after
         });
     }
 }
