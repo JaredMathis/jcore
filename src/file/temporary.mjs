@@ -9,7 +9,7 @@ export async function file_temporary(contents, logic) {
     let file_path_temporary = `${ guid_generate() }.txt`;
     await try_catch_finally_async(async function v() {
         await file_write(file_path_temporary, contents);
-        await logic();
+        await logic(file_path_temporary);
     }, async function v_2() {
         if (await file_exists(file_path_temporary)) {
             log(await file_read(file_path_temporary));
