@@ -30,14 +30,14 @@ export async function video_screen_recordings_combine() {
     await git_exclude(path_output);
     let paths = await directory_read(path_combined);
     let mapped = list_map(paths, function v_3(p) {
-        return string_replace(p, ' ', '%20');
+        return `file \'${p}\'`;
     });
     list_add_beginning(mapped, `ffconcat version 1.0`);
     let file_path_input = `${ guid_generate() }.txt`;
     await try_catch_finally_async(async function v() {
         let contents = list_join(mapped, string_new_line());
         let replaced = string_replace(contents, '\\', '/');
-        await file_write(file_path_input, contents);
+        await file_write(file_path_input, replaced);
         let file_path_output_name = `merged_video.mp4`;
         let file_path_output = path_join([
             path_output,
