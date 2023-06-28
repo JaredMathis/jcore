@@ -7,4 +7,5 @@ export async function video_screen_recordings_subize() {
     let ish_video_prefix = video_screen_recordings_prefix();
     let path_base = video_screen_recordings_path();
     let paths = await directory_read_non_recursive(path_base);
+    return paths;
 }
