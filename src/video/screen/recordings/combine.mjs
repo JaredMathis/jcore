@@ -33,23 +33,8 @@ export async function video_screen_recordings_combine() {
         return `file \'${p}\'`;
     });
     list_add_beginning(mapped, `ffconcat version 1.0`);
-    let file_path_temporary = `${ guid_generate() }.txt`;
-    await try_catch_finally_async(async function v() {
-        let contents = list_join(mapped, string_new_line());
-        await file_write(file_path_temporary, contents);
-        let file_path_output_name = `${ish_video_1}.mp4`;
-        let file_path_output = path_join([
-            path_output,
-            file_path_output_name
-        ]);
-        let command = `ffmpeg -f concat -safe 0 -i ${ file_path_temporary } -c copy ${ file_path_output }`;
-        await command_line(command);
-    }, async function v_2() {
-        if (await file_exists(file_path_temporary)) {
-            log(await file_read(file_path_temporary));
-            await file_delete(file_path_temporary);
-        }
-    });
+    let contents = list_join(mapped, string_new_line());
+    let file_path_temporary = await file_temporary(contents, logic);
     `
 
 Exec(cmd, function(err, stdout, stderr) {
@@ -58,4 +43,28 @@ Exec(cmd, function(err, stdout, stderr) {
 })
     `;
     return paths;
+
+    async function logic() {
+        let file_path_output_name = `${ish_video_1}.mp4`;
+        let file_path_output = path_join([
+            path_output,
+            file_path_output_name
+        ]);
+        let command = `ffmpeg -f concat -safe 0 -i ${file_path_temporary} -c copy ${file_path_output}`;
+        await command_line(command);
+    }
+}
+
+async function file_temporary(contents, logic) {
+    let file_path_temporary = `${guid_generate()}.txt`;
+    await try_catch_finally_async(async function v() {
+        await file_write(file_path_temporary, contents);
+        await logic();
+    }, async function v_2() {
+        if (await file_exists(file_path_temporary)) {
+            log(await file_read(file_path_temporary));
+            await file_delete(file_path_temporary);
+        }
+    });
+    return file_path_temporary;
 }
