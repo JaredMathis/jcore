@@ -75,7 +75,6 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 let v_38 = boolean_value_false();
                 return v_38;
             }
-            let occurs = boolean_value_false();
             let assignment_exists = boolean_value_false();
             let v_26 = function v_9(v) {
                 let {node} = v;
@@ -98,6 +97,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             if (v_17) {
                 return boolean_value_false();
             }
+            let occurs = boolean_value_false();
             let v_28 = function v_10(v) {
                 let {node} = v;
                 let ce_args = js_call_expression_arguments_get(node);
