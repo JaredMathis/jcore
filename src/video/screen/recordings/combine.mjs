@@ -20,6 +20,7 @@ export async function video_screen_recordings_combine() {
         ish_video_1
     ]);
     let path_output = 'videos';
+    await directory_add(path_output);
     await git_exclude(path_output);
     return;
     let paths = await directory_read(path_combined);
