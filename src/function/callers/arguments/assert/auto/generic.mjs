@@ -96,7 +96,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             let v_27 = boolean_value_true();
             let v_17 = equal(assignment_exists, v_27);
             if (v_17) {
-                return occurs;
+                return boolean_value_false();
             }
             let v_28 = function v_10(v) {
                 let {node} = v;
