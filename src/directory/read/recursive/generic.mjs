@@ -1,3 +1,4 @@
+import { boolean_is } from '../../../boolean/is.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { directory_is } from '../../is.mjs';
 import { directory_read_non_recursive } from '../non/recursive.mjs';
@@ -5,12 +6,13 @@ import { function_is } from '../../../function/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { list_is } from '../../../list/is.mjs';
 import { path_is } from '../../../path/is.mjs';
-export async function directory_read_recursive_generic(dir, path_list, on_directory, on_file) {
+export async function directory_read_recursive_generic(dir, path_list, on_directory, on_file, recursive) {
     arguments_assert(arguments, [
         path_is,
         list_is,
         function_is,
-        function_is
+        function_is,
+        boolean_is
     ]);
     let recursive = true;
     let file_paths = await directory_read_non_recursive(dir);
