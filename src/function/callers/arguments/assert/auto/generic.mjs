@@ -97,7 +97,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             if (v_17) {
                 return boolean_value_false();
             }
-            let occurs = boolean_value_false();
+            let occurs_result = boolean_value_false();
             let v_28 = function v_10(v) {
                 let {node} = v;
                 let ce_args = js_call_expression_arguments_get(node);
@@ -127,18 +127,18 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                         let v_21 = not(identical);
                         if (v_21) {
                             list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
-                            occurs = boolean_value_true();
+                            occurs_result = boolean_value_true();
                         }
                     }
                 };
                 list_each_with_index(ce_args, v_30);
             };
             js_visit_nodes_call_expression_name_equal(c_parsed, function_name, v_28);
-            if (occurs) {
+            if (occurs_result) {
                 await refactor_import_fix(c_args);
                 list_add_if_not_exists(result, c_function_name);
             }
-            let v_8 = not(occurs);
+            let v_8 = not(occurs_result);
             return v_8;
         };
         await list_each_with_index_async(c_arguments_assert_args, v_24);
