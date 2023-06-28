@@ -1,3 +1,4 @@
+import { file_rename } from '../../../file/rename.mjs';
 import { string_ends_with } from '../../../string/ends/with.mjs';
 import { list_filter } from '../../../list/filter.mjs';
 import { video_screen_recordings_path } from './path.mjs';
@@ -12,5 +13,8 @@ export async function video_screen_recordings_subize() {
     let filtered = list_filter(paths, function v(p) {
         return string_ends_with(p, '.mkv');
     });
+    for (let f of filtered) {
+        file_rename;
+    }
     return filtered;
 }
