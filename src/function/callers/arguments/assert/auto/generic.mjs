@@ -97,10 +97,10 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             if (v_17) {
                 return boolean_value_false();
             }
-            occurs(o => {
-                
+            let occurs_result = occurs(o => {
+
             })
-            let occurs_result = boolean_value_false();
+            occurs_result = boolean_value_false();
             let v_28 = function v_10(v) {
                 let {node} = v;
                 let ce_args = js_call_expression_arguments_get(node);
