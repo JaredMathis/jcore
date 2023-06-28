@@ -36,7 +36,7 @@ Exec(cmd, function(err, stdout, stderr) {
 })
     `;
     return paths;
-    async function logic() {
+    async function logic(file_path_temporary) {
         let file_path_output_name = `${ ish_video_1 }.mp4`;
         let file_path_output = path_join([
             path_output,
