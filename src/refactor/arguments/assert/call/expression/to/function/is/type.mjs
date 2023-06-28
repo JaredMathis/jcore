@@ -1,3 +1,4 @@
+import { list_each_with_index_async } from '../../../../../../../../list/each/with/index/async.mjs';
 import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../../../../../../../../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
 import { arguments_assert_todo } from '../../../../../../../../arguments/assert/todo.mjs';
 import { error } from '../../../../../../../../error.mjs';
@@ -14,5 +15,7 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
         file_path
     });
     log(arguments_assert_args);
+    await list_each_with_index_async(arguments_assert_args, function v(arg, arg_index) {
+    });
     error('todo: refactor_arguments_assert_call_expression_to_function_is_type');
 }
