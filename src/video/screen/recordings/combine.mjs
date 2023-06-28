@@ -12,7 +12,7 @@ import { path_join } from '../../../path/join.mjs';
 import { directory_exists_ensure } from '../../../directory/exists/ensure.mjs';
 export async function video_screen_recordings_combine() {
     arguments_assert(arguments, []);
-    let ish_video_1 = 'ish_video_1';
+    let ish_video_1 = `ish_video_1`;
     let path_base = path_video_screen_recordings();
     let path_combined = path_join([
         path_base,
