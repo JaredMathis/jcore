@@ -42,7 +42,7 @@ export async function video_screen_recordings_combine() {
             path_output,
             file_path_output_name
         ]);
-        let command = `ffmpeg -f concat -safe 0-i ${ file_path_input } -c copy ${ file_path_output }`;
+        let command = `ffmpeg -f concat -safe 0 -i ${ file_path_input } -c copy ${ file_path_output }`;
         await command_line(command);
     }, async function v_2() {
         if (await file_exists(file_path_input)) {
