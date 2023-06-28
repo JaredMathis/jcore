@@ -1,3 +1,4 @@
+import { js_visit_nodes_call_expression_name_equal } from '../../../../../../../../js/visit/nodes/call/expression/name/equal.mjs';
 import { js_visit_assignment_exists } from '../../../../../../../../js/visit/assignment/exists.mjs';
 import { js_mapper_args_property_params_get } from '../../../../../../../../js/mapper/args/property/params/get.mjs';
 import { arguments_assert_predicate_default_name_equal } from '../../../../../../../../arguments/assert/predicate/default/name/equal.mjs';
@@ -32,6 +33,7 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
         if (assignment_existed) {
             return;
         }
+        js_visit_nodes_call_expression_name_equal;
         log({
             param,
             is_equal,
