@@ -12,5 +12,6 @@ export async function refactor_import_fix_if_changed(args, changed_lambda) {
     if (c) {
         await refactor_import_fix(args);
     }
+    return c;
     metadata([]);
 }

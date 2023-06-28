@@ -76,7 +76,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             if (assignment_exists) {
                 return boolean_value_false();
             }
-            let occurs_result = occurs(function v_2(o) {
+            let occurs_result = await refactor_import_fix_if_changed(function v_2(o) {
                 let v_28 = function v_10(v) {
                     let {node} = v;
                     let ce_args = js_call_expression_arguments_get(node);
@@ -114,7 +114,6 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 js_visit_nodes_call_expression_name_equal(c_parsed, function_name, v_28);
             });
             if (occurs_result) {
-                await refactor_import_fix(c_args);
                 list_add_if_not_exists(result, c_function_name);
             }
             let v_8 = not(occurs_result);
