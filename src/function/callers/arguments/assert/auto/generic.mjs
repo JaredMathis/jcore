@@ -98,45 +98,43 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 return boolean_value_false();
             }
             let occurs_result = occurs(o => {
-
-            })
-            occurs_result = boolean_value_false();
-            let v_28 = function v_10(v) {
-                let {node} = v;
-                let ce_args = js_call_expression_arguments_get(node);
-                let v_30 = function v_11(ce_arg, ce_arg_index) {
-                    let v_32 = js_node_is_identifier(ce_arg);
-                    let v_18 = not(v_32);
-                    if (v_18) {
-                        return;
-                    }
-                    let v_33 = 'name';
-                    const ce_arg_name = object_property_get(ce_arg, v_33);
-                    let v_34 = equal(c_param_name, ce_arg_name);
-                    let v_19 = not(v_34);
-                    if (v_19) {
-                        return;
-                    }
-                    let v_36 = null;
-                    let v_20 = equal_not(ce_arg, v_36);
-                    if (v_20) {
-                        let arguments_assert_arg = list_get(arguments_assert_args, ce_arg_index);
-                        let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index);
-                        let v_35 = [
-                            js_node_property_start(),
-                            js_node_property_end()
-                        ];
-                        let identical = json_equal_keys_without(arguments_assert_arg, c_arguments_assert_arg, v_35);
-                        let v_21 = not(identical);
-                        if (v_21) {
-                            list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
-                            occurs_result = boolean_value_true();
+                let v_28 = function v_10(v) {
+                    let {node} = v;
+                    let ce_args = js_call_expression_arguments_get(node);
+                    let v_30 = function v_11(ce_arg, ce_arg_index) {
+                        let v_32 = js_node_is_identifier(ce_arg);
+                        let v_18 = not(v_32);
+                        if (v_18) {
+                            return;
                         }
-                    }
+                        let v_33 = 'name';
+                        const ce_arg_name = object_property_get(ce_arg, v_33);
+                        let v_34 = equal(c_param_name, ce_arg_name);
+                        let v_19 = not(v_34);
+                        if (v_19) {
+                            return;
+                        }
+                        let v_36 = null;
+                        let v_20 = equal_not(ce_arg, v_36);
+                        if (v_20) {
+                            let arguments_assert_arg = list_get(arguments_assert_args, ce_arg_index);
+                            let c_arguments_assert_arg = list_get(c_arguments_assert_args, c_arg_index);
+                            let v_35 = [
+                                js_node_property_start(),
+                                js_node_property_end()
+                            ];
+                            let identical = json_equal_keys_without(arguments_assert_arg, c_arguments_assert_arg, v_35);
+                            let v_21 = not(identical);
+                            if (v_21) {
+                                list_set(c_arguments_assert_args, c_arg_index, arguments_assert_arg);
+                                o();
+                            }
+                        }
+                    };
+                    list_each_with_index(ce_args, v_30);
                 };
-                list_each_with_index(ce_args, v_30);
-            };
-            js_visit_nodes_call_expression_name_equal(c_parsed, function_name, v_28);
+                js_visit_nodes_call_expression_name_equal(c_parsed, function_name, v_28);
+            })
             if (occurs_result) {
                 await refactor_import_fix(c_args);
                 list_add_if_not_exists(result, c_function_name);
