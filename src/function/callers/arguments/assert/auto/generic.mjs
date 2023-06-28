@@ -1,3 +1,4 @@
+import { js_node_property_left_get } from '../../../../../js/node/property/left/get.mjs';
 import { js_node_property_name_get } from '../../../../../js/node/property/name/get.mjs';
 import { js_mapper_args_property_params_get } from '../../../../../js/mapper/args/property/params/get.mjs';
 import { js_mapper_args_property_function_declaration_get } from '../../../../../js/mapper/args/property/function/declaration/get.mjs';
@@ -22,12 +23,10 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { refactor_import_fix } from '../../../../../refactor/import/fix.mjs';
 import { list_set } from '../../../../../list/set.mjs';
 import { list_get } from '../../../../../list/get.mjs';
-import { js_node_property_left } from '../../../../../js/node/property/left.mjs';
 import { js_node_is_assignment_expression } from '../../../../../js/node/is/assignment/expression.mjs';
 import { js_visit_nodes_filter } from '../../../../../js/visit/nodes/filter.mjs';
 import { arguments_assert_predicate_default } from '../../../../../arguments/assert/predicate/default.mjs';
 import { function_name_get } from '../../../../name/get.mjs';
-import { js_node_property_name } from '../../../../../js/node/property/name.mjs';
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
 import { assert } from '../../../../../assert.mjs';
 import { list_each_with_index_async } from '../../../../../list/each/with/index/async.mjs';
@@ -74,11 +73,10 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 let v_38 = boolean_value_false();
                 return v_38;
             }
-            let assignment_exists = occurs(o => {
+            let assignment_exists = occurs(function v_3(o) {
                 let v_26 = function v_9(v) {
                     let {node} = v;
-                    let v_7 = js_node_property_left();
-                    let left = object_property_get(node, v_7);
+                    let left = js_node_property_left_get(node);
                     let v_15 = js_node_is_identifier(left);
                     if (v_15) {
                         let v_31 = 'name';
@@ -86,12 +84,12 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                         let v_16 = equal(v_29, c_predicate_name);
                         if (v_16) {
                             comment(`Value has been changed - will not assume predicate can be copied`);
-                            o()
+                            o();
                         }
                     }
                 };
                 js_visit_nodes_filter(c_parsed, js_node_is_assignment_expression, v_26);
-            })
+            });
             let v_27 = boolean_value_true();
             let v_17 = equal(assignment_exists, v_27);
             if (v_17) {
