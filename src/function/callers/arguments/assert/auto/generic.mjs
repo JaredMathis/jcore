@@ -74,7 +74,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             if (assignment_exists) {
                 return boolean_value_false();
             }
-            let occurs_result = await refactor_import_fix_if_changed(function v_2(o) {
+            let occurs_result = await refactor_import_fix_if_changed(c_args, function v_2(o) {
                 let v_28 = function v_10(v) {
                     let {node} = v;
                     let ce_args = js_call_expression_arguments_get(node);
