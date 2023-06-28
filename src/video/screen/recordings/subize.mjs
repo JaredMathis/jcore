@@ -23,7 +23,6 @@ export async function video_screen_recordings_subize() {
         return string_starts_with(p, ish_video_prefix);
     });
     let next = js_identifier_name_next_prefix_list(bases_filtered, ish_video_prefix, js_identifier_combine(ish_video_prefix, string_to(1)));
-    return next;
     let filtered = list_filter(paths, function v(p) {
         return string_ends_with(p, '.mkv');
     });
