@@ -1,18 +1,18 @@
-import { js_identifier_combine } from '../../../js/identifier/combine.mjs';
-import { video_screen_recordings_prefix } from './prefix.mjs';
-import { file_temporary } from '../../../file/temporary.mjs';
-import { list_map } from '../../../list/map.mjs';
-import { list_add_beginning } from '../../../list/add/beginning.mjs';
-import { git_exclude } from '../../../git/exclude.mjs';
-import { command_line } from '../../../command/line.mjs';
-import { string_new_line } from '../../../string/new/line.mjs';
-import { list_join } from '../../../list/join.mjs';
-import { directory_read } from '../../../directory/read.mjs';
-import { video_screen_recordings_path } from './path.mjs';
-import { arguments_assert } from '../../../arguments/assert.mjs';
-import { path_join } from '../../../path/join.mjs';
-import { directory_exists_ensure } from '../../../directory/exists/ensure.mjs';
-export async function video_screen_recordings_combine() {
+import { js_identifier_combine } from '../../../../js/identifier/combine.mjs';
+import { video_screen_recordings_prefix } from '../prefix.mjs';
+import { file_temporary } from '../../../../file/temporary.mjs';
+import { list_map } from '../../../../list/map.mjs';
+import { list_add_beginning } from '../../../../list/add/beginning.mjs';
+import { git_exclude } from '../../../../git/exclude.mjs';
+import { command_line } from '../../../../command/line.mjs';
+import { string_new_line } from '../../../../string/new/line.mjs';
+import { list_join } from '../../../../list/join.mjs';
+import { directory_read } from '../../../../directory/read.mjs';
+import { video_screen_recordings_path } from '../path.mjs';
+import { arguments_assert } from '../../../../arguments/assert.mjs';
+import { path_join } from '../../../../path/join.mjs';
+import { directory_exists_ensure } from '../../../../directory/exists/ensure.mjs';
+export async function video_screen_recordings_combine_1() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
     let ish_video_1 = js_identifier_combine(ish_video_prefix, `1`);
