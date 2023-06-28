@@ -29,22 +29,22 @@ export async function video_screen_recordings_combine() {
     await git_exclude(path_output);
     let paths = await directory_read(path_combined);
     list_add_beginning(paths, `ffconcat version 1.0`);
-    let file_path = `${ guid_generate() }.txt`;
+    let file_path_input = `${ guid_generate() }.txt`;
     await try_catch_finally_async(async function v() {
         let contents = list_join(paths, string_new_line());
         let replaced = string_replace(contents, '\\', '/');
-        await file_write(file_path, replaced);
+        await file_write(file_path_input, replaced);
         let file_path_output_name = `merged_video.mp4`;
         let file_path_output = path_join([
             path_output,
             file_path_output_name
         ]);
-        let command = `ffmpeg -f concat -i ${ file_path_output } -c copy ${ file_path_output }`;
+        let command = `ffmpeg -f concat -i ${ file_path_input } -c copy ${ file_path_output }`;
         await command_line(command);
     }, async function v_2() {
-        if (await file_exists(file_path)) {
-            log(await file_read(file_path));
-            await file_delete(file_path);
+        if (await file_exists(file_path_input)) {
+            log(await file_read(file_path_input));
+            await file_delete(file_path_input);
         }
     });
     `
