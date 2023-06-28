@@ -13,6 +13,8 @@ import { js_function_declaration_to_name } from '../../../../../../../../js/func
 import { js_node_property_name_get } from '../../../../../../../../js/node/property/name/get.mjs';
 import { list_get } from '../../../../../../../../list/get.mjs';
 import { occurs } from '../../../../../../../../occurs.mjs';
+import { function_name_get } from '../../../../../../../../function/name/get.mjs';
+import { function_is } from '../../../../../../../../function/is.mjs';
 export async function refactor_arguments_assert_call_expression_to_function_is_type(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_declaration, file_path, parsed} = args;
@@ -39,14 +41,9 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
             js_visit_nodes_call_expression_name_equal(parsed, param_name, o);
         });
         if (called) {
-            js_node_property_name_set;
+            js_node_property_name_set(arg, function_name_get(function_is));
         }
-        log({
-            param,
-            is_equal,
-            assignment_existed,
-            called
-        });
+        log({ arg });
     });
     error('todo: refactor_arguments_assert_call_expression_to_function_is_type');
 }
