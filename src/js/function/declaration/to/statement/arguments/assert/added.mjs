@@ -28,6 +28,7 @@ export async function js_function_declaration_to_statement_arguments_assert_adde
         let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
         refactor_arguments_assert_add_no_check(function_declaration, excludes);
     }
+    console.log({added,exists})
     let statement = js_function_delcaration_to_statement_first(function_declaration);
     return {
         statement,
