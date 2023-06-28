@@ -7,7 +7,7 @@ import { js_node_is_function_declaration } from '../../../../../../../../node/is
 import { arguments_assert } from '../../../../../../../../../arguments/assert.mjs';
 export async function js_function_declaration_to_statement_arguments_assert_args_predicate_added(function_declaration) {
     arguments_assert(arguments, [js_node_is_function_declaration]);
-    const {arguments_assert_args, added} = await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
+    let {arguments_assert_args, added} = await js_mapper_args_to_statement_arguments_assert_args(function_declaration);
     let v_2 = integer_value_1();
     let array_expression = list_get(arguments_assert_args, v_2);
     let v = js_node_property_elements();
