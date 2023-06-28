@@ -14,7 +14,6 @@ export async function directory_read_recursive_generic(dir, path_list, on_direct
         function_is,
         boolean_is
     ]);
-    let recursive = true;
     let file_paths = await directory_read_non_recursive(dir);
     for (let file_path of file_paths) {
         const is_directory = await directory_is(file_path);
