@@ -11,7 +11,6 @@ import { video_screen_recordings_path } from './path.mjs';
 import { video_screen_recordings_prefix } from './prefix.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { directory_read_non_recursive } from '../../../directory/read/non/recursive.mjs';
-import { log } from '../../../log.mjs';
 import { list_map } from '../../../list/map.mjs';
 import { path_join } from '../../../path/join.mjs';
 export async function video_screen_recordings_subize() {
@@ -36,9 +35,5 @@ export async function video_screen_recordings_subize() {
             base
         ]);
         await file_rename(file_path_before, file_path_after);
-        log({
-            f: file_path_before,
-            joined: file_path_after
-        });
     }
 }
