@@ -28,7 +28,8 @@ export async function video_screen_recordings_combine() {
     let paths = await directory_read(path_combined);
     let file_path = `${ guid_generate() }.txt`;
     await try_catch_finally_async(async function v() {
-        await file_write(file_path, list_join(paths, string_new_line()));
+        const contents = list_join(paths, string_new_line());
+        await file_write(file_path, contents);
         let file_path_output_name = `merged_video.mp4`;
         let file_path_output = path_join([
             path_output,
