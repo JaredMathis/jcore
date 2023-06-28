@@ -27,15 +27,6 @@ export async function video_screen_recordings_combine() {
     });
     list_add_beginning(mapped, `ffconcat version 1.0`);
     let contents = list_join(mapped, string_new_line());
-    let file_path_temporary = await file_temporary(contents, logic);
-    `
-
-Exec(cmd, function(err, stdout, stderr) {
-  if(err) console.log(err)
-  else console.log("Done!")
-})
-    `;
-    return paths;
     async function logic(file_path_temporary) {
         let file_path_output_name = `${ ish_video_1 }.mp4`;
         let file_path_output = path_join([
@@ -45,4 +36,13 @@ Exec(cmd, function(err, stdout, stderr) {
         let command = `ffmpeg -f concat -safe 0 -i ${ file_path_temporary } -c copy ${ file_path_output }`;
         await command_line(command);
     }
+    await file_temporary(contents, logic);
+    `
+
+Exec(cmd, function(err, stdout, stderr) {
+  if(err) console.log(err)
+  else console.log("Done!")
+})
+    `;
+    return paths;
 }

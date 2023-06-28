@@ -16,5 +16,4 @@ export async function file_temporary(contents, logic) {
             await file_delete(file_path_temporary);
         }
     });
-    return file_path_temporary;
 }
