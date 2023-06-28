@@ -1,4 +1,4 @@
-import { error } from '../../../error.mjs';
+import { string_to } from '../../../string/to.mjs';
 import { string_starts_with } from '../../../string/starts/with.mjs';
 import { js_identifier_name_next_prefix_list } from '../../../js/identifier/name/next/prefix/list.mjs';
 import { path_parse_base } from '../../../path/parse/base.mjs';
@@ -12,6 +12,7 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { directory_read_non_recursive } from '../../../directory/read/non/recursive.mjs';
 import { log } from '../../../log.mjs';
 import { list_map } from '../../../list/map.mjs';
+import { string_combine } from '../../../string/combine.mjs';
 export async function video_screen_recordings_subize() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
@@ -21,7 +22,7 @@ export async function video_screen_recordings_subize() {
     let bases_filtered = list_filter(bases, function v_2(p) {
         return string_starts_with(p, ish_video_prefix);
     });
-    let next = js_identifier_name_next_prefix_list(bases_filtered, ish_video_prefix, error());
+    let next = js_identifier_name_next_prefix_list(bases_filtered, ish_video_prefix, string_combine(ish_video_prefix, string_to(1)));
     return next;
     let filtered = list_filter(paths, function v(p) {
         return string_ends_with(p, '.mkv');
