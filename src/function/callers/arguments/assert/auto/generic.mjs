@@ -58,7 +58,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             return v_37;
         }
         let c_arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(c_function_declaration);
-        let v_24 = async function lambda(c_arg, c_arg_index) {
+        let v_24 = async function c_arguments_assert_args_each(c_arg, c_arg_index) {
             let c_param = list_get(c_params, c_arg_index);
             let v_3 = js_node_property_name();
             let c_param_name = object_property_get(c_param, v_3);
