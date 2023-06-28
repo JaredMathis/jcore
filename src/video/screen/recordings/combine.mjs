@@ -15,7 +15,7 @@ export async function video_screen_recordings_combine() {
     ]);
     let paths = await directory_read(path_combined);
     let file_path = `${ guid_generate() }.txt`;
-    await file_write(file_path, list_join);
+    await file_write(file_path, list_join(paths, string_new_line()));
     let cmd = `ffmpeg -f concat -i ${ file_path } -c copy merged_video.mp4``
 
 Exec(cmd, function(err, stdout, stderr) {
