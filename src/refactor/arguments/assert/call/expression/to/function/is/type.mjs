@@ -22,8 +22,8 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
     arguments_assert(arguments, [arguments_assert_todo]);
     let excludes = await function_dependencies_names(function_name_get(arguments_assert));
     let {function_declaration, file_path, parsed} = args;
-    let function_name = js_function_declaration_to_name(function_declaration)
-    if (list_contains(excludes, function_name)){
+    let function_name = js_function_declaration_to_name(function_declaration);
+    if (list_contains(excludes, function_name)) {
         return;
     }
     let params = js_mapper_args_property_params_get(function_declaration);
