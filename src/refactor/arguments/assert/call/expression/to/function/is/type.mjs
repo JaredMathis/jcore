@@ -1,3 +1,4 @@
+import { js_visit_assignment_exists } from '../../../../../../../../js/visit/assignment/exists.mjs';
 import { js_mapper_args_property_params_get } from '../../../../../../../../js/mapper/args/property/params/get.mjs';
 import { arguments_assert_predicate_default_name_equal } from '../../../../../../../../arguments/assert/predicate/default/name/equal.mjs';
 import { list_each_with_index_async } from '../../../../../../../../list/each/with/index/async.mjs';
@@ -11,7 +12,7 @@ import { js_node_property_name_get } from '../../../../../../../../js/node/prope
 import { list_get } from '../../../../../../../../list/get.mjs';
 export async function refactor_arguments_assert_call_expression_to_function_is_type(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let {function_declaration, file_path} = args;
+    let {function_declaration, file_path, parsed} = args;
     let function_name = js_function_declaration_to_name(function_declaration);
     let params = js_mapper_args_property_params_get(function_declaration);
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
@@ -23,9 +24,12 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
         let arg_name = js_node_property_name_get(arg);
         let is_equal = arguments_assert_predicate_default_name_equal(arg_name);
         let param = list_get(params, arg_index);
+        let param_name = js_node_property_name_get(param);
+        let assignment_existed = js_visit_assignment_exists(parsed, param_name);
         log({
             param,
-            is_equal
+            is_equal,
+            assignment_existed
         });
     });
     error('todo: refactor_arguments_assert_call_expression_to_function_is_type');
