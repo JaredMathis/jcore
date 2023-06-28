@@ -1,3 +1,4 @@
+import { git_exclude } from '../../../git/exclude.mjs';
 import { command_line } from '../../../command/line.mjs';
 import { file_delete } from '../../../file/delete.mjs';
 import { try_catch_finally_async } from '../../../try/catch/finally/async.mjs';
@@ -18,7 +19,8 @@ export async function video_screen_recordings_combine() {
         path_base,
         ish_video_1
     ]);
-    let path_output = 'videos'
+    let path_output = 'videos';
+    await git_exclude(path_output);
     let paths = await directory_read(path_combined);
     await try_catch_finally_async(async function v() {
         let file_path = `${ guid_generate() }.txt`;
