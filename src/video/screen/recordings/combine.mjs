@@ -32,7 +32,7 @@ export async function video_screen_recordings_combine() {
     let paths_2 = list_take(paths, 2);
     let c = string_combine_multiple([
         '"concat:',
-        list_join(paths, '|'),
+        list_join(paths_2, '|'),
         '"'
     ]);
     let file_path = `${ guid_generate() }.txt`;
