@@ -43,6 +43,5 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
         if (called) {
             js_node_property_name_set(arg, function_name_get(function_is));
         }
-        log({ arg });
     });
 }
