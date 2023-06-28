@@ -1,3 +1,4 @@
+import { list_join } from '../../../list/join.mjs';
 import { file_write } from '../../../file/write.mjs';
 import { guid_generate } from '../../../guid/generate.mjs';
 import { directory_read } from '../../../directory/read.mjs';
@@ -14,7 +15,7 @@ export async function video_screen_recordings_combine() {
     ]);
     let paths = await directory_read(path_combined);
     let file_path = `${ guid_generate() }.txt`;
-    await file_write(file_path);
+    await file_write(file_path, list_join);
     let cmd = `ffmpeg -f concat -i ${ file_path } -c copy merged_video.mp4``
 
 Exec(cmd, function(err, stdout, stderr) {
