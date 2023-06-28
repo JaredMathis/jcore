@@ -1,6 +1,6 @@
+import { arguments_assert_todo } from '../../../../../../arguments/assert/todo.mjs';
 import { boolean_value_true } from '../../../../../../boolean/value/true.mjs';
 import { boolean_value_false } from '../../../../../../boolean/value/false.mjs';
-import { metadata } from '../../../../../../metadata.mjs';
 import { not } from '../../../../../../not.mjs';
 import { js_function_delcaration_to_statement_first } from '../../../../delcaration/to/statement/first.mjs';
 import { refactor_arguments_assert_add_no_check } from '../../../../../../refactor/arguments/assert/add/no/check.mjs';
@@ -12,6 +12,7 @@ import { list_first } from '../../../../../../list/first.mjs';
 import { list_empty } from '../../../../../../list/empty.mjs';
 import { js_function_declaration_to_statements } from '../../statements.mjs';
 export async function js_function_declaration_to_statement_arguments_assert(function_declaration) {
+    arguments_assert(arguments, [arguments_assert_todo]);
     let statements = js_function_declaration_to_statements(function_declaration);
     let exists = boolean_value_false();
     let v_5 = list_empty(statements);
@@ -30,6 +31,8 @@ export async function js_function_declaration_to_statement_arguments_assert(func
         refactor_arguments_assert_add_no_check(function_declaration, excludes);
     }
     let statement = js_function_delcaration_to_statement_first(function_declaration);
-    return {statement,added};
-    metadata([]);
+    return {
+        statement,
+        added
+    };
 }
