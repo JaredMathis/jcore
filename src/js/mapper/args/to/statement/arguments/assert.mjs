@@ -9,7 +9,8 @@ export async function js_mapper_args_to_statement_arguments_assert(args) {
     let {function_declaration} = args;
     let v = js_node_is_function_declaration(function_declaration);
     assert(v);
-    let {statement} = await js_function_declaration_to_statement_arguments_assert_added(function_declaration);
+    let result = await js_function_declaration_to_statement_arguments_assert_added(function_declaration);
+    let {statement} = result
     return statement;
     metadata([]);
 }
