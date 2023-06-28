@@ -17,7 +17,9 @@ export async function directory_read_recursive_generic(dir, path_list, on_direct
     for (let file_path of file_paths) {
         const is_directory = await directory_is(file_path);
         if (is_directory) {
-            await directory_read_recursive_generic(file_path, path_list, on_directory, on_file);
+            if (recursive) {
+                await directory_read_recursive_generic(file_path, path_list, on_directory, on_file);
+            }
             await on_directory(path_list, file_path);
         } else {
             await on_file(path_list, file_path);
