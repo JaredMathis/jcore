@@ -1,7 +1,6 @@
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { js_node_is_assignment_expression } from '../../node/is/assignment/expression.mjs';
-import { js_visit_nodes_filter } from '../nodes/filter.mjs';
 import { equal } from '../../../equal.mjs';
 import { js_node_property_name_get } from '../../node/property/name/get.mjs';
 import { js_node_is_identifier } from '../../node/is/identifier.mjs';
