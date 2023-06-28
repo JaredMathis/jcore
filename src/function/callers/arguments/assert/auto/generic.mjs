@@ -65,8 +65,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             comment(`If this isn't true then this code needs changing`);
             let v_4 = js_node_is_identifier(c_arg);
             assert(v_4);
-            let v_5 = js_node_property_name();
-            let c_predicate_name = object_property_get(c_arg, v_5);
+            let c_predicate_name = js_node_property_name_get(c_arg);
             let v_6 = arguments_assert_predicate_default();
             let default_name = function_name_get(v_6);
             let v_25 = equal(c_predicate_name, default_name);
