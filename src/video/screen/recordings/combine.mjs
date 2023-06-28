@@ -1,3 +1,4 @@
+import { string_replace } from '../../../string/replace.mjs';
 import { git_exclude } from '../../../git/exclude.mjs';
 import { command_line } from '../../../command/line.mjs';
 import { file_delete } from '../../../file/delete.mjs';
@@ -28,7 +29,8 @@ export async function video_screen_recordings_combine() {
     let paths = await directory_read(path_combined);
     let file_path = `${ guid_generate() }.txt`;
     await try_catch_finally_async(async function v() {
-        const contents = list_join(paths, string_new_line());
+        let contents = list_join(paths, string_new_line());
+        let replaced = string_replace(contents, '\\', '/');
         await file_write(file_path, contents);
         let file_path_output_name = `merged_video.mp4`;
         let file_path_output = path_join([
@@ -39,7 +41,7 @@ export async function video_screen_recordings_combine() {
         await command_line(command);
     }, async function v_2() {
         if (await file_exists(file_path)) {
-            log(await file_read(file_path))
+            log(await file_read(file_path));
             await file_delete(file_path);
         }
     });
