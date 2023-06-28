@@ -74,23 +74,24 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 let v_38 = boolean_value_false();
                 return v_38;
             }
-            let assignment_exists = boolean_value_false();
-            let v_26 = function v_9(v) {
-                let {node} = v;
-                let v_7 = js_node_property_left();
-                let left = object_property_get(node, v_7);
-                let v_15 = js_node_is_identifier(left);
-                if (v_15) {
-                    let v_31 = 'name';
-                    let v_29 = object_property_get(left, v_31);
-                    let v_16 = equal(v_29, c_predicate_name);
-                    if (v_16) {
-                        comment(`Value has been changed - will not assume predicate can be copied`);
-                        assignment_exists = boolean_value_true();
+            let assignment_exists = occurs(o => {
+                let v_26 = function v_9(v) {
+                    let {node} = v;
+                    let v_7 = js_node_property_left();
+                    let left = object_property_get(node, v_7);
+                    let v_15 = js_node_is_identifier(left);
+                    if (v_15) {
+                        let v_31 = 'name';
+                        let v_29 = object_property_get(left, v_31);
+                        let v_16 = equal(v_29, c_predicate_name);
+                        if (v_16) {
+                            comment(`Value has been changed - will not assume predicate can be copied`);
+                            o()
+                        }
                     }
-                }
-            };
-            js_visit_nodes_filter(c_parsed, js_node_is_assignment_expression, v_26);
+                };
+                js_visit_nodes_filter(c_parsed, js_node_is_assignment_expression, v_26);
+            })
             let v_27 = boolean_value_true();
             let v_17 = equal(assignment_exists, v_27);
             if (v_17) {
