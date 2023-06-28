@@ -1,3 +1,4 @@
+import { try_catch_finally } from '../../../try/catch/finally.mjs';
 import { string_new_line } from '../../../string/new/line.mjs';
 import { list_join } from '../../../list/join.mjs';
 import { file_write } from '../../../file/write.mjs';
@@ -16,7 +17,7 @@ export async function video_screen_recordings_combine() {
     ]);
     let paths = await directory_read(path_combined);
     let file_path = `${ guid_generate() }.txt`;
-    try_finally;
+    try_catch_finally;
     await file_write(file_path, list_join(paths, string_new_line()));
     let cmd = `ffmpeg -f concat -i ${ file_path } -c copy merged_video.mp4``
 
