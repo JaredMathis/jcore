@@ -23,9 +23,15 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
     await list_each_with_index_async(arguments_assert_args, function v(arg, arg_index) {
         let arg_name = js_node_property_name_get(arg);
         let is_equal = arguments_assert_predicate_default_name_equal(arg_name);
+        if (!is_equal) {
+            return;
+        }
         let param = list_get(params, arg_index);
         let param_name = js_node_property_name_get(param);
         let assignment_existed = js_visit_assignment_exists(parsed, param_name);
+        if (assignment_existed) {
+            return;
+        }
         log({
             param,
             is_equal,

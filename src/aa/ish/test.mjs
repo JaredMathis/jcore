@@ -5,5 +5,6 @@ export function aa_ish_test(person_name, greeter) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
+    greeter = 1;
     return greeter(person_name);
 }
