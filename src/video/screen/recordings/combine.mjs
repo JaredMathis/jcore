@@ -1,3 +1,4 @@
+import { js_identifier_combine } from '../../../js/identifier/combine.mjs';
 import { video_screen_recordings_prefix } from './prefix.mjs';
 import { file_temporary } from '../../../file/temporary.mjs';
 import { list_map } from '../../../list/map.mjs';
@@ -14,7 +15,7 @@ import { directory_exists_ensure } from '../../../directory/exists/ensure.mjs';
 export async function video_screen_recordings_combine() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
-    let ish_video_1 = string_identifier_combine(ish_video_prefix, `1`);
+    let ish_video_1 = js_identifier_combine(ish_video_prefix, `1`);
     let path_base = video_screen_recordings_path();
     let path_combined = path_join([
         path_base,
