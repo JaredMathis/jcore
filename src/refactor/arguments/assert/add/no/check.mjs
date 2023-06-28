@@ -49,6 +49,7 @@ export function refactor_arguments_assert_add_no_check(function_declaration, exc
     const call_expression_function_name = function_name_get(arguments_assert);
     const statment_code = js_code_call_expression_with_args(call_expression_function_name, params2);
     let statement_new = js_parse_statement(statment_code);
+    console.log({statement_new})
     list_add_beginning(statements, statement_new);
     metadata([]);
 }
