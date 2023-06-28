@@ -13,6 +13,7 @@ import { path_join } from '../../../path/join.mjs';
 import { file_exists } from '../../../file/exists.mjs';
 import { directory_exists_ensure } from '../../../directory/exists/ensure.mjs';
 import { log } from '../../../log.mjs';
+import { file_read } from '../../../file/read.mjs';
 export async function video_screen_recordings_combine() {
     arguments_assert(arguments, []);
     let ish_video_1 = 'ish_video_1';
@@ -37,7 +38,7 @@ export async function video_screen_recordings_combine() {
         await command_line(command);
     }, async function v_2() {
         if (await file_exists(file_path)) {
-            log(file_path)
+            log(await file_read(file_path))
             await file_delete(file_path);
         }
     });
