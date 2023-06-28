@@ -30,6 +30,6 @@ export async function js_function_declaration_to_statement_arguments_assert(func
         refactor_arguments_assert_add_no_check(function_declaration, excludes);
     }
     let statement = js_function_delcaration_to_statement_first(function_declaration);
-    return statement;
+    return {statement,added};
     metadata([]);
 }
