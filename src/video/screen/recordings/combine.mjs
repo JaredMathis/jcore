@@ -23,7 +23,6 @@ export async function video_screen_recordings_combine() {
     let path_output = 'videos';
     await directory_add(path_output);
     await git_exclude(path_output);
-    return;
     let paths = await directory_read(path_combined);
     await try_catch_finally_async(async function v() {
         let file_path = `${ guid_generate() }.txt`;
