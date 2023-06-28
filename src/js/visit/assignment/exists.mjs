@@ -1,3 +1,5 @@
+import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { js_node_is_assignment_expression } from '../../node/is/assignment/expression.mjs';
 import { js_visit_nodes_filter } from '../nodes/filter.mjs';
 import { equal } from '../../../equal.mjs';
@@ -5,7 +7,11 @@ import { js_node_property_name_get } from '../../node/property/name/get.mjs';
 import { js_node_is_identifier } from '../../node/is/identifier.mjs';
 import { js_node_property_left_get } from '../../node/property/left/get.mjs';
 import { occurs } from '../../../occurs.mjs';
-export function js_visit_assignment_exists(c_predicate_name, c_parsed) {
+export function js_visit_assignment_exists(c_parsed, c_predicate_name) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     return occurs(function v_3(o) {
         let v_26 = function v_9(v) {
             let {node} = v;

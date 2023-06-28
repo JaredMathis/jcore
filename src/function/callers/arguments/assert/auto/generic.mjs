@@ -72,7 +72,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 return v_38;
             }
             comment(`Value has been changed through assignment - will not assume predicate can be copied`);
-            let assignment_exists = js_visit_assignment_exists(c_predicate_name, c_parsed);
+            let assignment_exists = js_visit_assignment_exists(c_parsed, c_predicate_name);
             let v_27 = boolean_value_true();
             let v_17 = equal(assignment_exists, v_27);
             if (v_17) {
