@@ -1,4 +1,4 @@
-import { js_node_property_left_get } from '../../../../../js/node/property/left/get.mjs';
+import { js_visit_assignment_exists } from '../../../../../js/visit/assignment/exists.mjs';
 import { js_node_property_name_get } from '../../../../../js/node/property/name/get.mjs';
 import { js_mapper_args_property_params_get } from '../../../../../js/mapper/args/property/params/get.mjs';
 import { js_mapper_args_property_function_declaration_get } from '../../../../../js/mapper/args/property/function/declaration/get.mjs';
@@ -23,8 +23,6 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { refactor_import_fix } from '../../../../../refactor/import/fix.mjs';
 import { list_set } from '../../../../../list/set.mjs';
 import { list_get } from '../../../../../list/get.mjs';
-import { js_node_is_assignment_expression } from '../../../../../js/node/is/assignment/expression.mjs';
-import { js_visit_nodes_filter } from '../../../../../js/visit/nodes/filter.mjs';
 import { arguments_assert_predicate_default } from '../../../../../arguments/assert/predicate/default.mjs';
 import { function_name_get } from '../../../../name/get.mjs';
 import { js_node_is_identifier } from '../../../../../js/node/is/identifier.mjs';
@@ -74,21 +72,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                 return v_38;
             }
             comment(`Value has been changed through assignment - will not assume predicate can be copied`);
-            let assignment_exists = occurs(function v_3(o) {
-                let v_26 = function v_9(v) {
-                    let {node} = v;
-                    let left = js_node_property_left_get(node);
-                    let v_15 = js_node_is_identifier(left);
-                    if (v_15) {
-                        let v_29 = js_node_property_name_get(left);
-                        let v_16 = equal(v_29, c_predicate_name);
-                        if (v_16) {
-                            o();
-                        }
-                    }
-                };
-                js_visit_nodes_filter(c_parsed, js_node_is_assignment_expression, v_26);
-            });
+            let assignment_exists = js_visit_assignment_exists(c_predicate_name, c_parsed);
             let v_27 = boolean_value_true();
             let v_17 = equal(assignment_exists, v_27);
             if (v_17) {
