@@ -37,12 +37,5 @@ export async function video_screen_recordings_combine() {
         await command_line(command);
     }
     await file_temporary(contents, logic);
-    `
-
-Exec(cmd, function(err, stdout, stderr) {
-  if(err) console.log(err)
-  else console.log("Done!")
-})
-    `;
     return paths;
 }
