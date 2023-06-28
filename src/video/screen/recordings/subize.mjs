@@ -1,3 +1,5 @@
+import { js_identifier_name_next_prefix_list } from '../../../js/identifier/name/next/prefix/list.mjs';
+import { path_parse_base } from '../../../path/parse/base.mjs';
 import { path_parent } from '../../../path/parent.mjs';
 import { file_rename } from '../../../file/rename.mjs';
 import { string_ends_with } from '../../../string/ends/with.mjs';
@@ -16,11 +18,16 @@ export async function video_screen_recordings_subize() {
         return string_ends_with(p, '.mkv');
     });
     for (let f of filtered) {
+        let base = path_parse_base(f);
         let parent = path_parent(f);
+        if (false) {
+            js_identifier_name_next_prefix_list(identifiers, identifier_next_prefix);
+        }
         file_rename;
         log({
             f,
-            parent
+            parent,
+            base
         });
     }
 }
