@@ -14,6 +14,6 @@ export async function js_mapper_args_to_statement_arguments_assert_args(function
     let v = js_node_property_arguments();
     const arguments_assert_args = object_property_get(arguments_assert_call_expression, v);
     let {added} = result;
-    return arguments_assert_args;
+    return {arguments_assert_args,added};
     metadata([]);
 }
