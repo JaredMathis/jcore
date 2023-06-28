@@ -24,8 +24,8 @@ export async function js_function_declaration_to_statement_arguments_assert(func
         };
         js_node_call_expression_statement_if_name_equal(statement_first, v, v_6);
     }
-    let v_4 = not(exists);
-    if (v_4) {
+    let added = not(exists);
+    if (added) {
         let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
         refactor_arguments_assert_add_no_check(function_declaration, excludes);
     }
