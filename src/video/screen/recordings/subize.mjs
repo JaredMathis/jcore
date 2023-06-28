@@ -1,3 +1,4 @@
+import { video_screen_recordings_combine } from './combine.mjs';
 import { js_identifier_combine } from '../../../js/identifier/combine.mjs';
 import { string_to } from '../../../string/to.mjs';
 import { string_starts_with } from '../../../string/starts/with.mjs';
@@ -36,4 +37,5 @@ export async function video_screen_recordings_subize() {
         ]);
         await file_rename(file_path_before, file_path_after);
     }
+    return await video_screen_recordings_combine(next);
 }
