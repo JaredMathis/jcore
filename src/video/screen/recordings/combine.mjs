@@ -19,10 +19,10 @@ export async function video_screen_recordings_combine() {
         ish_video_1
     ]);
     let paths = await directory_read(path_combined);
-    let file_path = `${ guid_generate() }.txt`;
-    try_catch_finally;
-    await file_write(file_path, list_join(paths, string_new_line()));
-    await try_catch_finally_async(function v() {
+    await try_catch_finally_async(async function v() {
+        let file_path = `${ guid_generate() }.txt`;
+        try_catch_finally;
+        await file_write(file_path, list_join(paths, string_new_line()));
     }, async function v_2() {
         if (await file_exists(file_path)) {
             await file_delete(file_path);
