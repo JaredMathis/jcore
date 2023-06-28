@@ -1,3 +1,4 @@
+import { list_map } from '../../../list/map.mjs';
 import { list_add_beginning } from '../../../list/add/beginning.mjs';
 import { string_replace } from '../../../string/replace.mjs';
 import { git_exclude } from '../../../git/exclude.mjs';
@@ -28,7 +29,10 @@ export async function video_screen_recordings_combine() {
     await directory_exists_ensure(path_output);
     await git_exclude(path_output);
     let paths = await directory_read(path_combined);
-    list_add_beginning(paths, `ffconcat version 1.0`);
+    let mapped = list_map(paths, function v_3(p) {
+        return `"${ p }"`;
+    });
+    list_add_beginning(mapped, `ffconcat version 1.0`);
     let file_path_input = `${ guid_generate() }.txt`;
     await try_catch_finally_async(async function v() {
         let contents = list_join(paths, string_new_line());
