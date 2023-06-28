@@ -34,10 +34,14 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
         if (assignment_existed) {
             return;
         }
+        let called = occurs(o => {
+            js_visit_nodes_call_expression_name_equal(parsed, param_name, o);
+        })
         log({
             param,
             is_equal,
-            assignment_existed
+            assignment_existed,
+            called
         });
     });
     error('todo: refactor_arguments_assert_call_expression_to_function_is_type');
