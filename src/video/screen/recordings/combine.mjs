@@ -12,6 +12,7 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { path_join } from '../../../path/join.mjs';
 import { file_exists } from '../../../file/exists.mjs';
 import { directory_exists_ensure } from '../../../directory/exists/ensure.mjs';
+import { log } from '../../../log.mjs';
 export async function video_screen_recordings_combine() {
     arguments_assert(arguments, []);
     let ish_video_1 = 'ish_video_1';
@@ -36,6 +37,7 @@ export async function video_screen_recordings_combine() {
         await command_line(command);
     }, async function v_2() {
         if (await file_exists(file_path)) {
+            log(file_path)
             await file_delete(file_path);
         }
     });
