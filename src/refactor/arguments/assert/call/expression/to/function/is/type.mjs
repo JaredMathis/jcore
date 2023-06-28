@@ -30,6 +30,9 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
     console.log({ file_path });
     let {arguments_assert_args, added} = await js_function_declaration_to_statement_arguments_assert_args_predicate_added(function_declaration);
     await refactor_import_fix_if_changed(args, async function v_3(c) {
+        if (added) {
+            c();
+        }
         await list_each_with_index_async(arguments_assert_args, function v(arg, arg_index) {
             if (!js_node_is_identifier(arg)) {
                 return;
