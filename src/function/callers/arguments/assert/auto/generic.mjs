@@ -79,8 +79,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                     let left = js_node_property_left_get(node);
                     let v_15 = js_node_is_identifier(left);
                     if (v_15) {
-                        let v_31 = 'name';
-                        let v_29 = object_property_get(left, v_31);
+                        let v_29 = js_node_property_name_get(left);
                         let v_16 = equal(v_29, c_predicate_name);
                         if (v_16) {
                             comment(`Value has been changed - will not assume predicate can be copied`);
