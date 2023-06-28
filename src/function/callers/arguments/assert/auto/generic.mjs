@@ -86,8 +86,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                         if (v_18) {
                             return;
                         }
-                        let v_33 = 'name';
-                        const ce_arg_name = object_property_get(ce_arg, v_33);
+                        const ce_arg_name = js_node_property_name_get(ce_arg);
                         let v_34 = equal(c_param_name, ce_arg_name);
                         let v_19 = not(v_34);
                         if (v_19) {
