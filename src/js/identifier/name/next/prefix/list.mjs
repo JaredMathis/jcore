@@ -9,7 +9,8 @@ export function js_identifier_name_next_prefix_list(identifiers, identifier_next
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let identifier_next = identifier_next_prefix;
+    let initial = identifier_next_prefix;
+    let identifier_next = initial;
     let c = integer_value_2();
     while (list_contains(identifiers, identifier_next)) {
         let v = string_to(c);
