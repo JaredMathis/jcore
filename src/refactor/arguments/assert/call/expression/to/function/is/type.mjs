@@ -1,6 +1,5 @@
+import { refactor_functions_arguments_assert_missing_add_excludes } from '../../../../../../../functions/arguments/assert/missing/add/excludes.mjs';
 import { js_function_declaration_to_statement_arguments_assert_args_predicate_added } from '../../../../../../../../js/function/declaration/to/statement/arguments/assert/args/predicate/added.mjs';
-import { log } from '../../../../../../../../log.mjs';
-import { function_dependencies_names } from '../../../../../../../../function/dependencies/names.mjs';
 import { refactor_import_fix_if_changed } from '../../../../../../../import/fix/if/changed.mjs';
 import { js_node_property_name_set } from '../../../../../../../../js/node/property/name/set.mjs';
 import { js_visit_nodes_call_expression_name_equal } from '../../../../../../../../js/visit/nodes/call/expression/name/equal.mjs';
@@ -20,14 +19,13 @@ import { js_function_declaration_to_name } from '../../../../../../../../js/func
 import { list_contains } from '../../../../../../../../list/contains.mjs';
 export async function refactor_arguments_assert_call_expression_to_function_is_type(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let excludes = await function_dependencies_names(function_name_get(arguments_assert));
+    let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     let {function_declaration, file_path, parsed} = args;
     let function_name = js_function_declaration_to_name(function_declaration);
     if (list_contains(excludes, function_name)) {
         return;
     }
     let params = js_mapper_args_property_params_get(function_declaration);
-    console.log({ file_path });
     let {arguments_assert_args, added} = await js_function_declaration_to_statement_arguments_assert_args_predicate_added(function_declaration);
     await refactor_import_fix_if_changed(args, async function v_3(c) {
         if (added) {
