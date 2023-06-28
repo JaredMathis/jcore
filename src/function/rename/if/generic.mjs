@@ -1,3 +1,4 @@
+import { function_is } from '../../is.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { function_rename_generic } from '../generic.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
@@ -6,8 +7,8 @@ export async function function_rename_if_generic(prefix_old, prefix_new, predica
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo,
-        arguments_assert_todo,
-        arguments_assert_todo
+        function_is,
+        function_is
     ]);
     function predicate_should_rename(n) {
         let v = predicate(n, prefix_old);

@@ -1,3 +1,4 @@
+import { function_is } from '../../is.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { js_identifier_prefix_property } from '../../../js/identifier/prefix/property.mjs';
 import { function_input_named_value } from '../../input/named/value.mjs';
@@ -19,7 +20,7 @@ export async function function_add_property_generic(property_prefix, property_na
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo,
-        arguments_assert_todo,
+        function_is,
         arguments_assert_todo,
         boolean_is
     ]);

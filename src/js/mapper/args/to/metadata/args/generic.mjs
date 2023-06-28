@@ -1,3 +1,5 @@
+import { arguments_assert_todo } from '../../../../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { boolean_value_true } from '../../../../../../boolean/value/true.mjs';
 import { boolean_value_false } from '../../../../../../boolean/value/false.mjs';
 import { metadata } from '../../../../../../metadata.mjs';
@@ -9,6 +11,10 @@ import { list_last } from '../../../../../../list/last.mjs';
 import { list_empty } from '../../../../../../list/empty.mjs';
 import { js_function_declaration_to_statements } from '../../../../../function/declaration/to/statements.mjs';
 export async function js_mapper_args_to_metadata_args_generic(args, add_missing) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     let {function_declaration} = args;
     let statements = js_function_declaration_to_statements(function_declaration);
     let missing = boolean_value_false();

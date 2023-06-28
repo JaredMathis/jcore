@@ -1,3 +1,5 @@
+import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { add } from '../../../../add.mjs';
 import { less_than } from '../../../../less/than.mjs';
@@ -5,6 +7,12 @@ import { equal_not } from '../../../../equal/not.mjs';
 import { and } from '../../../../and.mjs';
 import { integer_value_0 } from '../../../../integer/value/0.mjs';
 export function string_sub_max_starting_at(left, right, left_index, right_index) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     let left_walker = left_index;
     let right_walker = right_index;
     let offset = integer_value_0();

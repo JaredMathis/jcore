@@ -1,3 +1,5 @@
+import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
+import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
 import { add } from '../add.mjs';
 import { multiply } from '../multiply.mjs';
@@ -8,6 +10,10 @@ import { random_get } from './get.mjs';
 import { number_floor } from '../number/floor.mjs';
 import { assert } from '../assert.mjs';
 export function random_between(lower, upper) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     let v = less_than(lower, upper);
     assert(v);
     let v_2 = subtract(upper, lower);

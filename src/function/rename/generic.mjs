@@ -1,3 +1,5 @@
+import { function_is } from '../is.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { function_rename_after } from './after.mjs';
 import { file_js_all_identifier_multiple_rename } from '../../file/js/all/identifier/multiple/rename.mjs';
@@ -7,6 +9,10 @@ import { list_string_to_dictionary_async } from '../../list/string/to/dictionary
 import { list_filter } from '../../list/filter.mjs';
 import { function_name_all } from '../name/all.mjs';
 export async function function_rename_generic(predicate_should_rename, function_name_new_get) {
+    arguments_assert(arguments, [
+        function_is,
+        function_is
+    ]);
     let names = await function_name_all();
     let v_3 = function v(n) {
         let v_2 = predicate_should_rename(n);

@@ -1,3 +1,6 @@
+import { function_is } from '../../../is.mjs';
+import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { boolean_value_true } from '../../../../boolean/value/true.mjs';
 import { boolean_value_false } from '../../../../boolean/value/false.mjs';
 import { metadata } from '../../../../metadata.mjs';
@@ -20,6 +23,12 @@ import { json_to } from '../../../../json/to.mjs';
 import { list_map } from '../../../../list/map.mjs';
 import { function_run } from '../../../run.mjs';
 export async function function_tests_generate_generic_each(function_name, test_name, args, on_has_error) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo,
+        arguments_assert_todo,
+        function_is
+    ]);
     let expected;
     let has_error = boolean_value_false();
     try {

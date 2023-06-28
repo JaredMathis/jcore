@@ -1,8 +1,10 @@
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { string_replace } from '../../../string/replace.mjs';
 import { function_name_separator } from '../../../function/name/separator.mjs';
 import { date_now_iso } from '../iso.mjs';
 export function date_now_iso_underscores() {
+    arguments_assert(arguments, []);
     let iso = date_now_iso();
     for (let r of [
             '-',

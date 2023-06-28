@@ -1,3 +1,5 @@
+import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../arguments/assert.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { list_single } from '../../../list/single.mjs';
 import { js_call_expression_name_get } from '../expression/name/get.mjs';
@@ -10,6 +12,7 @@ import { string_a } from '../../../string/a.mjs';
 import { js_code_function_name_to_export } from '../../code/function/name/to/export.mjs';
 import { js_parse } from '../../parse.mjs';
 export function js_call_statement_name(function_name_find_statements_last) {
+    arguments_assert(arguments, [arguments_assert_todo]);
     let v_2 = string_a();
     let v = js_code_function_name_to_export(v_2);
     let program = js_parse(v);

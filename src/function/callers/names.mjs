@@ -1,3 +1,5 @@
+import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { equal } from '../../equal.mjs';
 import { list_add } from '../../list/add.mjs';
@@ -6,6 +8,7 @@ import { list_any } from '../../list/any.mjs';
 import { function_dependencies_non_recursive } from '../dependencies/non/recursive.mjs';
 import { function_name_all } from '../name/all.mjs';
 export async function function_callers_names(function_name) {
+    arguments_assert(arguments, [arguments_assert_todo]);
     let result = [];
     let candidates = await function_name_all();
     for (let c of candidates) {

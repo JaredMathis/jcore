@@ -1,8 +1,11 @@
+import { function_is } from '../../../../../../function/is.mjs';
+import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../../metadata.mjs';
 import { list_sort_string } from '../../../../../../list/sort/string.mjs';
 import { js_visit_nodes_types_get } from '../../../../../../js/visit/nodes/types/get.mjs';
 import { list_adder_unique_async } from '../../../../../../list/adder/unique/async.mjs';
 export async function file_js_all_nodes_types_get_generic(lambda) {
+    arguments_assert(arguments, [function_is]);
     let v_2 = async function v(la) {
         let v_3 = async function mapper(args) {
             let {parsed} = args;

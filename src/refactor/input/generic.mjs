@@ -1,3 +1,4 @@
+import { function_is } from '../../function/is.mjs';
 import { metadata } from '../../metadata.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -14,9 +15,9 @@ export async function refactor_input_generic(args, function_declaration, args_ad
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo,
-        arguments_assert_todo,
-        arguments_assert_todo,
-        arguments_assert_todo
+        function_is,
+        function_is,
+        function_is
     ]);
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     let params = js_function_declaration_to_params(function_declaration);

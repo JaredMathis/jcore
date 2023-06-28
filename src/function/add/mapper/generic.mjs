@@ -1,3 +1,4 @@
+import { function_is } from '../../is.mjs';
 import { list_to_string } from '../../../list/to/string.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
@@ -22,8 +23,8 @@ export async function function_add_mapper_generic(prefix, function_name_suffix, 
         arguments_assert_todo,
         arguments_assert_todo,
         arguments_assert_todo,
-        arguments_assert_todo,
-        arguments_assert_todo
+        function_is,
+        function_is
     ]);
     let v_3 = function_name_separator();
     let function_name_suffix_parts = string_split(function_name_suffix, v_3);

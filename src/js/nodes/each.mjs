@@ -1,3 +1,4 @@
+import { function_is } from '../../function/is.mjs';
 import { metadata } from '../../metadata.mjs';
 import { js_visit_nodes_filter } from '../visit/nodes/filter.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
@@ -6,7 +7,7 @@ export function js_nodes_each(parsed, predicate, lambda) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo,
-        arguments_assert_todo
+        function_is
     ]);
     let v_4 = function v_3(v) {
         let {node} = v;

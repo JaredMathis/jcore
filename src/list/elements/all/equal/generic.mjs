@@ -1,3 +1,4 @@
+import { function_is } from '../../../../function/is.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
@@ -5,7 +6,7 @@ import { list_all } from '../../../all.mjs';
 import { list_first } from '../../../first.mjs';
 export function list_elements_all_equal_generic(lambda, values) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
+        function_is,
         arguments_assert_todo
     ]);
     let first = list_first(values);

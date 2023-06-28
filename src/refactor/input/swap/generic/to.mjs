@@ -1,3 +1,6 @@
+import { function_is } from '../../../../function/is.mjs';
+import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { refactor_input_swap_generic } from '../generic.mjs';
 import { subtract_1 } from '../../../../subtract/1.mjs';
@@ -5,6 +8,11 @@ import { js_function_declaration_to_params } from '../../../../js/function/decla
 import { list_index_valid } from '../../../../list/index/valid.mjs';
 import { assert } from '../../../../assert.mjs';
 export async function refactor_input_swap_generic_to(args, predicate, indices_get) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        function_is,
+        function_is
+    ]);
     let {index} = args;
     let {function_declaration} = args;
     let params = js_function_declaration_to_params(function_declaration);

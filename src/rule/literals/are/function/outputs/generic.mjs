@@ -1,3 +1,6 @@
+import { function_is } from '../../../../../function/is.mjs';
+import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../../../arguments/assert.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { object_replace } from '../../../../../object/replace.mjs';
 import { js_parse_call_expression } from '../../../../../js/parse/call/expression.mjs';
@@ -15,6 +18,11 @@ import { js_mapper_args_to_function_name } from '../../../../../js/mapper/args/t
 import { function_names_each_map } from '../../../../../function/names/each/map.mjs';
 import { refactor_functions_arguments_assert_missing_add_excludes } from '../../../../../refactor/functions/arguments/assert/missing/add/excludes.mjs';
 export async function rule_literals_are_function_outputs_generic(prefix_type, lambda_change, lambda_assert) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        function_is,
+        function_is
+    ]);
     let prefix = `${ prefix_type }_value_`;
     let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
     let v_9 = async function v_6(args) {

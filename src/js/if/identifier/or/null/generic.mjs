@@ -1,3 +1,4 @@
+import { function_is } from '../../../../../function/is.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { not } from '../../../../../not.mjs';
 import { js_node_is_identifier } from '../../../../node/is/identifier.mjs';
@@ -9,7 +10,7 @@ export function js_if_identifier_or_null_generic(node, property_name, or_null, l
         arguments_assert_todo,
         arguments_assert_todo,
         arguments_assert_todo,
-        arguments_assert_todo
+        function_is
     ]);
     let property = object_property_get(node, property_name);
     if (or_null) {

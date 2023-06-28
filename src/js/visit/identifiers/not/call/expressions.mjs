@@ -1,3 +1,4 @@
+import { function_is } from '../../../../../function/is.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { and } from '../../../../../and.mjs';
 import { js_visit_identifiers } from '../../../identifiers.mjs';
@@ -8,7 +9,7 @@ import { js_node_is } from '../../../../node/is.mjs';
 export function js_visit_identifiers_not_call_expressions(node, lambda) {
     arguments_assert(arguments, [
         arguments_assert_todo,
-        arguments_assert_todo
+        function_is
     ]);
     js_visit_identifiers(node, v_2);
     function v_2(v) {

@@ -1,3 +1,4 @@
+import { function_is } from '../../../function/is.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { or } from '../../../or.mjs';
 import { js_node_is_for_of_statement } from '../../node/is/for/of/statement.mjs';
@@ -37,7 +38,7 @@ import { result_property_success_get } from '../../../result/property/success/ge
 export function js_visit_call_statements(args, call_each) {
     arguments_assert(arguments, [
         arguments_assert_todo,
-        arguments_assert_todo
+        function_is
     ]);
     let v_17 = 'parsed';
     let parsed = object_property_get(args, v_17);

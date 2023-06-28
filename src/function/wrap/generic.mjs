@@ -1,3 +1,4 @@
+import { function_is } from '../is.mjs';
 import { metadata } from '../../metadata.mjs';
 import { function_dependencies_names_arguments_assert } from '../dependencies/names/arguments/assert.mjs';
 import { js_code_function_declaration_to_statement_assignment_wrapped } from '../../js/code/function/declaration/to/statement/assignment/wrapped.mjs';
@@ -24,7 +25,7 @@ export async function function_wrap_generic(function_name_to_wrap, function_name
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo,
-        arguments_assert_todo
+        function_is
     ]);
     let function_declaration = await function_name_to_declaration(function_name_to_wrap);
     let dependencies = await function_dependencies_names_arguments_assert();

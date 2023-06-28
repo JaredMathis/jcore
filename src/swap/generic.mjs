@@ -1,10 +1,11 @@
+import { function_is } from '../function/is.mjs';
 import { metadata } from '../metadata.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 export function swap_generic(generic_get, generic_set, list, index_from, index_to) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
-        arguments_assert_todo,
+        function_is,
+        function_is,
         arguments_assert_todo,
         arguments_assert_todo,
         arguments_assert_todo

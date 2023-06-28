@@ -1,9 +1,12 @@
+import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
+import { arguments_assert } from '../arguments/assert.mjs';
 import { boolean_value_true } from '../boolean/value/true.mjs';
 import { metadata } from '../metadata.mjs';
 import { path_exists } from '../path/exists.mjs';
 import { assert } from '../assert.mjs';
 import fs from 'fs';
 export async function directory_delete(directory_path) {
+    arguments_assert(arguments, [arguments_assert_todo]);
     let v = await path_exists(directory_path);
     assert(v);
     let v_3 = boolean_value_true();

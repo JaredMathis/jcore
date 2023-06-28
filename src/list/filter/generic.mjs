@@ -1,3 +1,4 @@
+import { function_is } from '../../function/is.mjs';
 import { metadata_generated } from '../../metadata/generated.mjs';
 import { metadata } from '../../metadata.mjs';
 import { list_each_with_index } from '../each/with/index.mjs';
@@ -7,8 +8,8 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 export function list_filter_generic(array, filter, added_get) {
     arguments_assert(arguments, [
         arguments_assert_todo,
-        arguments_assert_todo,
-        arguments_assert_todo
+        function_is,
+        function_is
     ]);
     let v_5 = async function v_2(la) {
         let v_6 = async function v_3(element, index) {

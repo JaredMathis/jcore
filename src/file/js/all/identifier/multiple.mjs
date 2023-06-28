@@ -1,3 +1,5 @@
+import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { metadata } from '../../../../metadata.mjs';
 import { list_add_property_generic } from '../../../../list/add/property/generic.mjs';
 import { js_identifier_rename } from '../../../../js/identifier/rename.mjs';
@@ -6,6 +8,7 @@ import { object_keys_each } from '../../../../object/keys/each.mjs';
 import { file_js_all_map_args } from '../map/args.mjs';
 import { list_adder_async } from '../../../../list/adder/async.mjs';
 export async function file_js_all_identifier_multiple(renames) {
+    arguments_assert(arguments, [arguments_assert_todo]);
     let v_3 = async function v(la) {
         let v_4 = function mapper(args) {
             let v_5 = function v_2(identifier_name_new, identifier_name_old) {

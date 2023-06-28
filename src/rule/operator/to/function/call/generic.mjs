@@ -1,3 +1,4 @@
+import { function_is } from '../../../../../function/is.mjs';
 import { metadata } from '../../../../../metadata.mjs';
 import { metadata_rule_operator_to_function_call_none } from '../../../../../metadata/rule/operator/to/function/call/none.mjs';
 import { js_mapper_args_to_metadata_args_contains } from '../../../../../js/mapper/args/to/metadata/args/contains.mjs';
@@ -23,7 +24,7 @@ export async function rule_operator_to_function_call_generic(operator_function, 
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo,
-        arguments_assert_todo
+        function_is
     ]);
     let operator_function_name = function_name_get(operator_function);
     let dependencies = await function_dependencies_names(operator_function_name);

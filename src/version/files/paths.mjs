@@ -1,3 +1,5 @@
+import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
 import { equal } from '../../equal.mjs';
 import { string_starts_with } from '../../string/starts/with.mjs';
@@ -12,6 +14,7 @@ import { path_exists } from '../../path/exists.mjs';
 import { version_path_files_get } from '../path/files/get.mjs';
 import { string_combine } from '../../string/combine.mjs';
 export async function version_files_paths(repository_name) {
+    arguments_assert(arguments, [arguments_assert_todo]);
     let repository_files_path = version_path_files_get(repository_name);
     let paths;
     let v_8 = await path_exists(repository_files_path);
