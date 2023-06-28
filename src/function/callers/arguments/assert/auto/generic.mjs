@@ -97,6 +97,9 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             if (v_17) {
                 return boolean_value_false();
             }
+            occurs(o => {
+                
+            })
             let occurs_result = boolean_value_false();
             let v_28 = function v_10(v) {
                 let {node} = v;
