@@ -13,6 +13,7 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { directory_read_non_recursive } from '../../../directory/read/non/recursive.mjs';
 import { log } from '../../../log.mjs';
 import { list_map } from '../../../list/map.mjs';
+import { path_join } from '../../../path/join.mjs';
 export async function video_screen_recordings_subize() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
@@ -29,11 +30,11 @@ export async function video_screen_recordings_subize() {
     for (let f of filtered) {
         let base = path_parse_base(f);
         let parent = path_parent(f);
+        let joined = path_join([parent, next, base])
         file_rename;
         log({
             f,
-            parent,
-            base
+            joined
         });
     }
 }
