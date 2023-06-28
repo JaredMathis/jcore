@@ -21,10 +21,6 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
     let function_name = js_function_declaration_to_name(function_declaration);
     let params = js_mapper_args_property_params_get(function_declaration);
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
-    log({
-        function_name,
-        file_path
-    });
     await list_each_with_index_async(arguments_assert_args, function v(arg, arg_index) {
         let arg_name = js_node_property_name_get(arg);
         let is_equal = arguments_assert_predicate_default_name_equal(arg_name);
