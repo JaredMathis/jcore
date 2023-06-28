@@ -1,3 +1,4 @@
+import { path_parent } from '../../../path/parent.mjs';
 import { file_rename } from '../../../file/rename.mjs';
 import { string_ends_with } from '../../../string/ends/with.mjs';
 import { list_filter } from '../../../list/filter.mjs';
@@ -15,7 +16,11 @@ export async function video_screen_recordings_subize() {
         return string_ends_with(p, '.mkv');
     });
     for (let f of filtered) {
+        let parent = path_parent(f);
         file_rename;
-        log(f);
+        log({
+            f,
+            parent
+        });
     }
 }
