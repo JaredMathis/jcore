@@ -1,3 +1,4 @@
+import { js_function_declaration_to_statement_arguments_assert_args_predicate_added } from '../../../../../../../../js/function/declaration/to/statement/arguments/assert/args/predicate/added.mjs';
 import { log } from '../../../../../../../../log.mjs';
 import { function_dependencies_names } from '../../../../../../../../function/dependencies/names.mjs';
 import { refactor_import_fix_if_changed } from '../../../../../../../import/fix/if/changed.mjs';
@@ -7,7 +8,6 @@ import { js_visit_assignment_exists } from '../../../../../../../../js/visit/ass
 import { js_mapper_args_property_params_get } from '../../../../../../../../js/mapper/args/property/params/get.mjs';
 import { arguments_assert_predicate_default_name_equal } from '../../../../../../../../arguments/assert/predicate/default/name/equal.mjs';
 import { list_each_with_index_async } from '../../../../../../../../list/each/with/index/async.mjs';
-import { js_function_declaration_to_statement_arguments_assert_args_predicate } from '../../../../../../../../js/function/declaration/to/statement/arguments/assert/args/predicate.mjs';
 import { arguments_assert_todo } from '../../../../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../../../../arguments/assert.mjs';
 import { js_node_property_name_get } from '../../../../../../../../js/node/property/name/get.mjs';
@@ -28,7 +28,7 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
     }
     let params = js_mapper_args_property_params_get(function_declaration);
     console.log({ file_path });
-    let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
+    let {arguments_assert_args, added} = await js_function_declaration_to_statement_arguments_assert_args_predicate_added(function_declaration);
     await refactor_import_fix_if_changed(args, async function v_3(c) {
         await list_each_with_index_async(arguments_assert_args, function v(arg, arg_index) {
             if (!js_node_is_identifier(arg)) {
