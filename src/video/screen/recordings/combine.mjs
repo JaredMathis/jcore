@@ -18,6 +18,7 @@ export async function video_screen_recordings_combine() {
         path_base,
         ish_video_1
     ]);
+    let path_output = 'videos'
     let paths = await directory_read(path_combined);
     await try_catch_finally_async(async function v() {
         let file_path = `${ guid_generate() }.txt`;
