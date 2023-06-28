@@ -18,7 +18,6 @@ import { function_is } from '../../../../../../../../function/is.mjs';
 export async function refactor_arguments_assert_call_expression_to_function_is_type(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {function_declaration, file_path, parsed} = args;
-    let function_name = js_function_declaration_to_name(function_declaration);
     let params = js_mapper_args_property_params_get(function_declaration);
     let arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(function_declaration);
     await list_each_with_index_async(arguments_assert_args, function v(arg, arg_index) {
