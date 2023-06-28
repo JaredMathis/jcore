@@ -358,6 +358,7 @@ import { js_identifier_is_test_3 } from './js/identifier/is/test/3.mjs';
 import { js_identifier_is_test_2 } from './js/identifier/is/test/2.mjs';
 import { js_identifier_is_test_10 } from './js/identifier/is/test/10.mjs';
 import { js_identifier_is_test_1 } from './js/identifier/is/test/1.mjs';
+import { ish_test_outer } from './ish/test/outer.mjs';
 import { integer_mod_test_generated_9 } from './integer/mod/test/generated/9.mjs';
 import { integer_mod_test_generated_8 } from './integer/mod/test/generated/8.mjs';
 import { integer_mod_test_generated_7 } from './integer/mod/test/generated/7.mjs';
@@ -469,6 +470,7 @@ export async function tests() {
     await integer_mod_test_generated_7();
     await integer_mod_test_generated_8();
     await integer_mod_test_generated_9();
+    await ish_test_outer();
     await js_identifier_is_test_1();
     await js_identifier_is_test_10();
     await js_identifier_is_test_2();
@@ -826,6 +828,6 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(string_combine('411', ' tests ran successfully'));
+    log(string_combine('412', ' tests ran successfully'));
     metadata([]);
 }
