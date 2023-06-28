@@ -9,6 +9,6 @@ export function js_identifier_name_next_prefix(parsed, identifier_next_prefix) {
         arguments_assert_todo
     ]);
     let identifiers = js_identifiers(parsed);
-    return js_identifier_name_next_prefix_list(identifier_next_prefix, identifiers);
+    return js_identifier_name_next_prefix_list(identifiers, identifier_next_prefix);
     metadata([]);
 }
