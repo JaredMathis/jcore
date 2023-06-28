@@ -12,5 +12,5 @@ export async function video_screen_recordings_subize() {
     let filtered = list_filter(paths, function v(p) {
         return string_ends_with(p, '.mkv');
     });
-    return paths;
+    return filtered;
 }
