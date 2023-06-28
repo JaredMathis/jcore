@@ -1,3 +1,4 @@
+import { error } from '../../../error.mjs';
 import { string_starts_with } from '../../../string/starts/with.mjs';
 import { js_identifier_name_next_prefix_list } from '../../../js/identifier/name/next/prefix/list.mjs';
 import { path_parse_base } from '../../../path/parse/base.mjs';
@@ -20,7 +21,7 @@ export async function video_screen_recordings_subize() {
     let bases_filtered = list_filter(bases, function v_2(p) {
         return string_starts_with(p, ish_video_prefix);
     });
-    let next = js_identifier_name_next_prefix_list(bases_filtered, ish_video_prefix);
+    let next = js_identifier_name_next_prefix_list(bases_filtered, ish_video_prefix, error());
     return next;
     let filtered = list_filter(paths, function v(p) {
         return string_ends_with(p, '.mkv');
