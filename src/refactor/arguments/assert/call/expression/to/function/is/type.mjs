@@ -1,3 +1,4 @@
+import { js_node_property_name_set } from '../../../../../../../../js/node/property/name/set.mjs';
 import { js_visit_nodes_call_expression_name_equal } from '../../../../../../../../js/visit/nodes/call/expression/name/equal.mjs';
 import { js_visit_assignment_exists } from '../../../../../../../../js/visit/assignment/exists.mjs';
 import { js_mapper_args_property_params_get } from '../../../../../../../../js/mapper/args/property/params/get.mjs';
@@ -34,9 +35,12 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
         if (assignment_existed) {
             return;
         }
-        let called = occurs(o => {
+        let called = occurs(function v_2(o) {
             js_visit_nodes_call_expression_name_equal(parsed, param_name, o);
-        })
+        });
+        if (called) {
+            js_node_property_name_set;
+        }
         log({
             param,
             is_equal,
