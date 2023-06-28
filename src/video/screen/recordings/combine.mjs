@@ -6,15 +6,15 @@ import { command_line } from '../../../command/line.mjs';
 import { string_new_line } from '../../../string/new/line.mjs';
 import { list_join } from '../../../list/join.mjs';
 import { directory_read } from '../../../directory/read.mjs';
-import { path_video_screen_recordings } from '../../../path/video/screen/recordings.mjs';
+import { video_screen_recordings_path } from './path.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { path_join } from '../../../path/join.mjs';
 import { directory_exists_ensure } from '../../../directory/exists/ensure.mjs';
 export async function video_screen_recordings_combine() {
     arguments_assert(arguments, []);
     let ish_video_prefix = `ish_video_`;
-    let ish_video_1 = `${ish_video_prefix}1`;
-    let path_base = path_video_screen_recordings();
+    let ish_video_1 = `${ ish_video_prefix }1`;
+    let path_base = video_screen_recordings_path();
     let path_combined = path_join([
         path_base,
         ish_video_1
