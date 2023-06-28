@@ -30,7 +30,7 @@ export async function video_screen_recordings_combine() {
     await git_exclude(path_output);
     let paths = await directory_read(path_combined);
     let mapped = list_map(paths, function v_3(p) {
-        return `"${ p }"`;
+        return `'${ p }'`;
     });
     list_add_beginning(mapped, `ffconcat version 1.0`);
     let file_path_input = `${ guid_generate() }.txt`;
