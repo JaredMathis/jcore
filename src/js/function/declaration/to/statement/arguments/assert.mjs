@@ -29,7 +29,7 @@ export async function js_function_declaration_to_statement_arguments_assert(func
         let excludes = await refactor_functions_arguments_assert_missing_add_excludes();
         refactor_arguments_assert_add_no_check(function_declaration, excludes);
     }
-    let v_2 = js_function_delcaration_to_statement_first(function_declaration);
-    return v_2;
+    let statement = js_function_delcaration_to_statement_first(function_declaration);
+    return statement;
     metadata([]);
 }
