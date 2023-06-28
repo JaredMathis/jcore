@@ -1,6 +1,6 @@
+import { command_line } from '../../../command/line.mjs';
 import { file_delete } from '../../../file/delete.mjs';
 import { try_catch_finally_async } from '../../../try/catch/finally/async.mjs';
-import { try_catch_finally } from '../../../try/catch/finally.mjs';
 import { string_new_line } from '../../../string/new/line.mjs';
 import { list_join } from '../../../list/join.mjs';
 import { file_write } from '../../../file/write.mjs';
@@ -21,8 +21,8 @@ export async function video_screen_recordings_combine() {
     let paths = await directory_read(path_combined);
     await try_catch_finally_async(async function v() {
         let file_path = `${ guid_generate() }.txt`;
-        try_catch_finally;
         await file_write(file_path, list_join(paths, string_new_line()));
+        command_line;
     }, async function v_2() {
         if (await file_exists(file_path)) {
             await file_delete(file_path);
