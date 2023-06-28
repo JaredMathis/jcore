@@ -45,5 +45,4 @@ export async function refactor_arguments_assert_call_expression_to_function_is_t
         }
         log({ arg });
     });
-    error('todo: refactor_arguments_assert_call_expression_to_function_is_type');
 }
