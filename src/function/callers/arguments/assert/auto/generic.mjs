@@ -1,3 +1,4 @@
+import { js_node_property_name_get } from '../../../../../js/node/property/name/get.mjs';
 import { js_mapper_args_property_params_get } from '../../../../../js/mapper/args/property/params/get.mjs';
 import { js_mapper_args_property_function_declaration_get } from '../../../../../js/mapper/args/property/function/declaration/get.mjs';
 import { js_mapper_args_property_parsed_get } from '../../../../../js/mapper/args/property/parsed/get.mjs';
@@ -60,8 +61,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
         let c_arguments_assert_args = await js_function_declaration_to_statement_arguments_assert_args_predicate(c_function_declaration);
         let v_24 = async function c_arguments_assert_args_each(c_arg, c_arg_index) {
             let c_param = list_get(c_params, c_arg_index);
-            let v_3 = js_node_property_name();
-            let c_param_name = object_property_get(c_param, v_3);
+            let c_param_name = js_node_property_name_get(c_param);
             comment(`If this isn't true then this code needs changing`);
             let v_4 = js_node_is_identifier(c_arg);
             assert(v_4);
@@ -97,7 +97,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
             if (v_17) {
                 return boolean_value_false();
             }
-            let occurs_result = occurs(o => {
+            let occurs_result = occurs(function v_2(o) {
                 let v_28 = function v_10(v) {
                     let {node} = v;
                     let ce_args = js_call_expression_arguments_get(node);
@@ -134,7 +134,7 @@ export async function function_callers_arguments_assert_auto_generic(c_function_
                     list_each_with_index(ce_args, v_30);
                 };
                 js_visit_nodes_call_expression_name_equal(c_parsed, function_name, v_28);
-            })
+            });
             if (occurs_result) {
                 await refactor_import_fix(c_args);
                 list_add_if_not_exists(result, c_function_name);
