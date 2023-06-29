@@ -9,5 +9,14 @@ export function video_upload() {
     let ish_video_1 = js_identifier_combine(ish_video_prefix, `1`);
     let ish_video_1_path = video_path_get(ish_video_1);
     const youtube = google.youtube('v3');
+      // Obtain user credentials to use for the request
+  const auth = await authenticate({
+    keyfilePath: path.join(__dirname, '../oauth2.keys.json'),
+    scopes: [
+      'https://www.googleapis.com/auth/youtube.upload',
+      'https://www.googleapis.com/auth/youtube',
+    ],
+  });
+  google.options({auth});
     return youtube;
 }
