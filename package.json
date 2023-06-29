@@ -4,6 +4,7 @@
     "diff": "^5.1.0",
     "escodegen": "^2.0.0",
     "firebase-admin": "^11.9.0",
+    "googleapis": "^120.0.0",
     "octokit": "^2.0.19",
     "uuid": "^9.0.0"
   }
