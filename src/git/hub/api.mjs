@@ -29,9 +29,9 @@ export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge, n
     let v_2 = await git_hub_cached(fn, args, lambda);
     return v_2;
     async function lambda() {
+        let v_6 = 'git_hub_api_token';
         let v_5 = '../private.json';
         let p = await file_json_read(v_5);
-        let v_6 = 'git_hub_api_token';
         let token = object_property_get(p, v_6);
         const octokit = new Octokit({ auth: token });
         let owner = 'JaredMathis';
