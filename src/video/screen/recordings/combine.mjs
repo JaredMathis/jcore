@@ -1,3 +1,4 @@
+import { video_path_get } from '../../path/get.mjs';
 import { video_path_output } from '../../path/output.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -29,11 +30,7 @@ export async function video_screen_recordings_combine(ish_video_1) {
     list_add_beginning(mapped, `ffconcat version 1.0`);
     let contents = list_join(mapped, string_new_line());
     async function logic(file_path_temporary) {
-        let file_path_output_name = `${ ish_video_1 }.mp4`;
-        let file_path_output = path_join([
-            video_path_output(),
-            file_path_output_name
-        ]);
+        let file_path_output = video_path_get(ish_video_1);
         let command = `ffmpeg -f concat -safe 0 -i ${ file_path_temporary } -c copy ${ file_path_output }`;
         await command_line(command);
     }
