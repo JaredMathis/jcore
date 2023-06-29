@@ -31,7 +31,7 @@ export async function video_screen_recordings_combine(ish_video_1) {
     async function logic(file_path_temporary) {
         let file_path_output_name = `${ ish_video_1 }.mp4`;
         let file_path_output = path_join([
-            path_output,
+            video_path_output(),
             file_path_output_name
         ]);
         let command = `ffmpeg -f concat -safe 0 -i ${ file_path_temporary } -c copy ${ file_path_output }`;
