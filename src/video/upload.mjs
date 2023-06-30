@@ -11,7 +11,7 @@ export function video_upload() {
     const youtube = google.youtube('v3');
       // Obtain user credentials to use for the request
   const auth = await authenticate({
-    keyfilePath: path.join(__dirname, '../oauth2.keys.json'),
+    keyfilePath: `../oauth2.keys.json`,
     scopes: [
       'https://www.googleapis.com/auth/youtube.upload',
       'https://www.googleapis.com/auth/youtube',
