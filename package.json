@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@google-cloud/local-auth": "^2.1.1",
     "acorn": "^8.8.2",
     "diff": "^5.1.0",
     "escodegen": "^2.0.0",
