@@ -6,6 +6,7 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { google } from 'googleapis';
 import { file_extension_json } from '../file/extension/json.mjs';
 import { path_join } from '../path/join.mjs';
+import { directory_size } from '../directory/size.mjs';
 export async function video_upload() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
@@ -25,7 +26,8 @@ export async function video_upload() {
         ]
     });
     google.options({ auth });
+    await directory_size(file_name);
     `
-    const fileSize = fs.statSync(fileName).size;`
+    const fileSize = fs.statSync(fileName).size;`;
     return auth;
 }
