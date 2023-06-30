@@ -26,7 +26,7 @@ export async function video_upload() {
         ]
     });
     google.options({ auth });
-    await directory_size(file_name);
+    return await directory_size(ish_video_1_path);
     `
     const fileSize = fs.statSync(fileName).size;`;
     return auth;
