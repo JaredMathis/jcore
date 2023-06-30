@@ -32,6 +32,10 @@ export async function video_upload() {
         'https://www.googleapis.com/auth/youtube.upload',
         'https://www.googleapis.com/auth/youtube'
     ]
+    const authUrl = oAuth2Client.generateAuthUrl({
+        access_type: 'offline',
+        scope: scopes,
+      });
 
     oauth2Client.setCredentials(
         {
