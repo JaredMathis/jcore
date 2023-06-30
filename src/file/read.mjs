@@ -1,16 +1,11 @@
+import { path_exists_assert } from '../path/exists/assert.mjs';
 import { path_is } from '../path/is.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { metadata } from '../metadata.mjs';
-import { path_exists } from '../path/exists.mjs';
 import fs from 'fs';
-import { assert_message } from '../assert/message.mjs';
-import { string_combine } from '../string/combine.mjs';
 export async function file_read(file_path) {
     arguments_assert(arguments, [path_is]);
-    let v = await path_exists(file_path);
-    let v_4 = `Path does not exist: `;
-    let v_2 = string_combine(v_4, file_path);
-    assert_message(v, v_2);
+    await path_exists_assert(file_path);
     let v_3 = 'utf8';
     let result = await fs.promises.readFile(file_path, v_3);
     return result;
