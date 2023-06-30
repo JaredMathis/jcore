@@ -4,16 +4,17 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { file_read_bytes } from '../../file/read/bytes.mjs';
 import { private_get } from '../../private/get.mjs';
 import { publitioApi } from 'publitio_js_sdk';
-export async function video_upload_single(first) {
+import { path_parse_name } from '../../path/parse/name.mjs';
+export async function video_upload_single(video_path) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    ;
     return await git_hub_cached(video_upload_single, arguments, lambda);
     async function lambda() {
+        let name = path_parse_name(video_path);
         const publitio = publitioApi(await private_get(`publit_api_key`), await private_get(`publit_api_secret`));
-        const file = await file_read_bytes(first);
+        const file = await file_read_bytes(video_path);
         return await publitio.uploadFile(file, 'file', {
-            title: first,
-            description: first,
+            title: name,
+            description: name,
             tags: '',
             privacy: '1',
             option_download: '0'
