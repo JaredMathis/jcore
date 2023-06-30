@@ -40,7 +40,6 @@ export async function video_upload() {
         'https://www.googleapis.com/auth/youtube'
     ];
     oauth2Client.setCredentials({ access_token });
-    google.options({ auth: oauth2Client });
     const res = await youtube.videos.insert({
         part: 'id,snippet,status',
         notifySubscribers: false,
@@ -51,7 +50,8 @@ export async function video_upload() {
             },
             status: { privacyStatus: 'private' }
         },
-        media: { body: fs.createReadStream(ish_video_1_path) }
+        media: { body: fs.createReadStream(ish_video_1_path) },
+        auth: oauth2Client
     });
     return res.data;
 }
