@@ -1,3 +1,4 @@
+import { list_map_property } from '../../list/map/property.mjs';
 import { video_upload } from '../../video/upload.mjs';
 import { video_segment } from '../../video/segment.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
@@ -9,4 +10,5 @@ export async function task_comment_video(issue_number, video_key) {
     ]);
     await video_segment(video_key);
     let uploads = await video_upload(video_key);
+    list_map_property(uploads, 'url_stream');
 }
