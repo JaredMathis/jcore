@@ -11,6 +11,7 @@ import { file_extension_json } from '../file/extension/json.mjs';
 import { path_join } from '../path/join.mjs';
 import fs from 'fs';
 import { object_property_get } from '../object/property/get.mjs';
+import { getAuth } from 'firebase-admin/auth';
 export async function video_upload() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
