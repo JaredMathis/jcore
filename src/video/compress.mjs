@@ -5,6 +5,8 @@ import { path_exists } from '../path/exists.mjs';
 import { assert } from '../assert.mjs';
 import { video_path_get } from './path/get.mjs';
 export async function video_compress(video_key) {
+    `ffmpeg -i input.mp4 -c copy -map 0 -segment_time 00:20:00 -f segment output%03d.mp4
+    `;
     let file_path_input = video_path_get(video_key);
     assert(await path_exists(file_path_input));
     let file_path_output = video_name_map(file_path_input, lambda_map);
