@@ -39,7 +39,6 @@ export async function video_upload() {
             status: { privacyStatus: 'private' }
         },
         media: { body: fs.createReadStream(ish_video_1_path) },
-        auth
     });
     return res.data;
 }
