@@ -23,7 +23,7 @@ export async function video_screen_recordings_subize() {
     let bases_filtered = list_filter(bases, function v_2(p) {
         return string_starts_with(p, ish_video_prefix);
     });
-    let next = js_identifier_name_next_prefix_list(bases_filtered, ish_video_prefix, js_identifier_combine(ish_video_prefix, string_to(1)));
+    let video_key = js_identifier_name_next_prefix_list(bases_filtered, ish_video_prefix, js_identifier_combine(ish_video_prefix, string_to(1)));
     let filtered = list_filter(paths, function v(p) {
         return string_ends_with(p, '.mkv');
     });
@@ -32,10 +32,10 @@ export async function video_screen_recordings_subize() {
         let parent = path_parent(file_path_before);
         let file_path_after = path_join([
             parent,
-            next,
+            video_key,
             base
         ]);
         await file_rename(file_path_before, file_path_after);
     }
-    return await video_screen_recordings_combine(next);
+    return await video_screen_recordings_combine(video_key);
 }
