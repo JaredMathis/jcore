@@ -4,7 +4,7 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { boolean_value_true } from '../boolean/value/true.mjs';
 import { not } from '../not.mjs';
 import { initializeApp } from 'firebase-admin/app';
-import * as admin from 'firebase-admin';
+import admin from 'firebase-admin';
 import { file_json_read } from '../file/json/read.mjs';
 import { path_join } from '../path/join.mjs';
 import { directory_parent } from '../directory/parent.mjs';
