@@ -5,6 +5,7 @@ import { js_identifier_combine } from '../js/identifier/combine.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { google } from 'googleapis';
 import { file_extension_json } from '../file/extension/json.mjs';
+import { path_join } from '../path/join.mjs';
 export async function video_upload() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
@@ -13,7 +14,10 @@ export async function video_upload() {
     const youtube = google.youtube('v3');
     let dp = directory_parent();
     const auth = await authenticate({
-        keyfilePath: `${ dp }/oauth2.keys${ file_extension_json() }`,
+        keyfilePath: path_join([
+            dp,
+            `oauth2.keys${ file_extension_json() }`
+        ]),
         scopes: [
             'https://www.googleapis.com/auth/youtube.upload',
             'https://www.googleapis.com/auth/youtube'
