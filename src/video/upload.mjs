@@ -1,3 +1,4 @@
+import { firebase_initialize } from '../firebase/initialize.mjs';
 import { date_now_iso_underscores } from '../date/now/iso/underscores.mjs';
 import { list_single } from '../list/single.mjs';
 import { file_json_read } from '../file/json/read.mjs';
@@ -16,6 +17,7 @@ import { string_combine } from '../string/combine.mjs';
 import { function_name_get } from '../function/name/get.mjs';
 export async function video_upload() {
     arguments_assert(arguments, []);
+    firebase_initialize();
     const uid = string_combine(function_name_get(video_upload), date_now_iso_underscores());
     return getAuth().createCustomToken(uid);
     let ish_video_prefix = video_screen_recordings_prefix();
