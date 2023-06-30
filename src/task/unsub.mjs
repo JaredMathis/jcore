@@ -1,3 +1,4 @@
+import { task_current_video } from './current/video.mjs';
 import { metadata } from '../metadata.mjs';
 import { task_set_available_first } from './set/available/first.mjs';
 import { task_unsub_generic } from './unsub/generic.mjs';
@@ -11,6 +12,7 @@ import { assert } from '../assert.mjs';
 export async function task_unsub() {
     arguments_assert(arguments, []);
     let v_4 = await task_unsub_generic(async function v() {
+        await task_current_video();
         await task_finish();
         return await task_set_available_first();
     }, on_empty_not);
