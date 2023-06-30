@@ -6,6 +6,8 @@ import { file_json_read } from '../../file/json/read.mjs';
 import { file_extension_json } from '../../file/extension/json.mjs';
 import { directory_parent } from '../../directory/parent.mjs';
 import { path_join } from '../../path/join.mjs';
+import { google } from 'googleapis';
+import fs from 'fs';
 export async function video_upload_youtube(ish_video_1_path) {
     const youtube = google.youtube('v3');
     const key_path = path_join([
