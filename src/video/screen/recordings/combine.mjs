@@ -36,7 +36,7 @@ export async function video_screen_recordings_combine(ish_video_1) {
         let middle1 = `-vcodec libx265 -crf 28``${ ffmpeg } ${ before1 } -i ${ file_path_temporary } ${ middle1 } ${ file_path_output }`;
         let before2 = `-f concat -safe 0`;
         let middle2 = `-c copy`;
-        await command_line_ffmpeg(before2, ffmpeg, file_path_temporary, middle2, file_path_output);
+        await command_line_ffmpeg(before2, middle2, file_path_temporary, ffmpeg, file_path_output);
     }
     await file_temporary(contents, logic);
     return paths;
