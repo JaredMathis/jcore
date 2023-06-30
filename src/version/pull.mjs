@@ -27,7 +27,7 @@ import { list_empty } from '../list/empty.mjs';
 import { file_exists } from '../file/exists.mjs';
 export async function version_pull(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let db = database_firestore_get();
+    let db = await database_firestore_get();
     let database_collection_name = version_collection_repository(repository_name);
     const property_commit_latest = version_property_commit_latest();
     let info_refererence = database_document_info_reference(db, database_collection_name);
