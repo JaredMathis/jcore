@@ -1,3 +1,4 @@
+import { command_line_website } from '../command/line/website.mjs';
 import { list_single } from '../list/single.mjs';
 import { file_json_read } from '../file/json/read.mjs';
 import { directory_parent } from '../directory/parent.mjs';
@@ -27,21 +28,16 @@ export async function video_upload() {
     const client_secret = object_property_get(web, 'client_secret');
     const redirect_uris = object_property_get(web, 'redirect_uris');
     const oauth2Client = new google.auth.OAuth2(client_id, client_secret, list_single(redirect_uris));
-
     let scopes = [
         'https://www.googleapis.com/auth/youtube.upload',
         'https://www.googleapis.com/auth/youtube'
-    ]
-    const authUrl = oAuth2Client.generateAuthUrl({
+    ];
+    const auth_url = oAuth2Client.generateAuthUrl({
         access_type: 'offline',
-        scope: scopes,
-      });
-
-    oauth2Client.setCredentials(
-        {
-          access_token
-        }
-      );
+        scope: scopes
+    });
+    await command_line_website(auth_url);
+    oauth2Client.setCredentials({ access_token });
     google.options({ auth: oauth2Client });
     const res = await youtube.videos.insert({
         part: 'id,snippet,status',
@@ -53,7 +49,7 @@ export async function video_upload() {
             },
             status: { privacyStatus: 'private' }
         },
-        media: { body: fs.createReadStream(ish_video_1_path) },
+        media: { body: fs.createReadStream(ish_video_1_path) }
     });
     return res.data;
 }
