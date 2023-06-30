@@ -27,7 +27,6 @@ export async function video_upload() {
         ]
     });
     google.options({ auth });
-    let fileSize= await directory_size(ish_video_1_path);
     const res = await youtube.videos.insert({
         part: 'id,snippet,status',
         notifySubscribers: false,
@@ -39,13 +38,6 @@ export async function video_upload() {
             status: { privacyStatus: 'private' }
         },
         media: { body: fs.createReadStream(ish_video_1_path) }
-    }, {
-        onUploadProgress: function v(evt) {
-            const progress = evt.bytesRead / fileSize * 100;
-            readline.clearLine(process.stdout, 0);
-            readline.cursorTo(process.stdout, 0, null);
-            process.stdout.write(`${ Math.round(progress) }% complete`);
-        }
     });
     return res.data;
 }
