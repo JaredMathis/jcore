@@ -11,7 +11,8 @@ export async function video_upload() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
     let ish_video_1 = js_identifier_combine(ish_video_prefix, `1`);
-    let all = await directory_read(video_path_output());
+    let video_path_output_files = await directory_read(video_path_output());
+    return video_path_output_files;
     let ish_video_1_path_prefix = video_path_prefix_get(ish_video_1);
     const publitio = publitioApi(await private_get(`publit_api_key`), await private_get(`publit_api_secret`));
     const file = await file_read_bytes(ish_video_1_path);
