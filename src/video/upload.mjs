@@ -8,6 +8,7 @@ import { file_extension_json } from '../file/extension/json.mjs';
 import { path_join } from '../path/join.mjs';
 import { directory_size } from '../directory/size.mjs';
 import fs from 'fs';
+import { private_get } from '../private/get.mjs';
 export async function video_upload() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
@@ -26,8 +27,7 @@ export async function video_upload() {
             'https://www.googleapis.com/auth/youtube'
         ]
     });
-    console.log({auth})
-    google.options({ auth });
+    google.options({ auth: await private_get('google_api_key') });
     const res = await youtube.videos.insert({
         part: 'id,snippet,status',
         notifySubscribers: false,
