@@ -1,3 +1,5 @@
+import { task_property_closed } from './property/closed.mjs';
+import { equal } from '../equal.mjs';
 import { task_property_state_get } from './property/state/get.mjs';
 import { task_current_open } from './current/open.mjs';
 import { task_symbol_hash } from './symbol/hash.mjs';
@@ -13,7 +15,7 @@ export async function task_set(task_id_unhashed) {
     let hashed = string_combine(v, task_id_unhashed);
     await task_id_set(hashed);
     let before = await task_current();
-    if (task_property_state_get(before)) {
+    if (equal(task_property_state_get(before), task_property_closed())) {
         await task_current_open();
     }
     return await task_current();
