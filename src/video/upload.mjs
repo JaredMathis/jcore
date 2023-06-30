@@ -1,3 +1,4 @@
+import { list_single } from '../list/single.mjs';
 import { file_json_read } from '../file/json/read.mjs';
 import { directory_parent } from '../directory/parent.mjs';
 import { video_screen_recordings_prefix } from './screen/recordings/prefix.mjs';
@@ -8,6 +9,7 @@ import { google } from 'googleapis';
 import { file_extension_json } from '../file/extension/json.mjs';
 import { path_join } from '../path/join.mjs';
 import fs from 'fs';
+import { object_property_get } from '../object/property/get.mjs';
 export async function video_upload() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
@@ -20,7 +22,8 @@ export async function video_upload() {
         `oauth2.keys${ file_extension_json() }`
     ]);
     let key = await file_json_read(key_path);
-    return key;
+    const oauth2Client = new google.auth.OAuth2(object_property_get(key, 'client_id'), object_property_get(key, 'client_secret'), list_single(object_property_get(key, 'redirect_uris')));
+    google.options({ auth: oauth2Client });
     const res = await youtube.videos.insert({
         part: 'id,snippet,status',
         notifySubscribers: false,
