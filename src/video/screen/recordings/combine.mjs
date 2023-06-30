@@ -13,12 +13,12 @@ import { git_exclude } from '../../../git/exclude.mjs';
 import { directory_exists_ensure } from '../../../directory/exists/ensure.mjs';
 import { path_join } from '../../../path/join.mjs';
 import { video_screen_recordings_path } from './path.mjs';
-export async function video_screen_recordings_combine(ish_video_1) {
+export async function video_screen_recordings_combine(video_key) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let path_base = video_screen_recordings_path();
     let path_combined = path_join([
         path_base,
-        ish_video_1
+        video_key
     ]);
     let path_output = video_path_output();
     await directory_exists_ensure(path_output);
@@ -30,7 +30,7 @@ export async function video_screen_recordings_combine(ish_video_1) {
     list_add_beginning(mapped, `ffconcat version 1.0`);
     let contents = list_join(mapped, string_new_line());
     async function logic(file_path_temporary) {
-        let file_path_output = video_path_get(ish_video_1);
+        let file_path_output = video_path_get(video_key);
         await command_line_ffmpeg(file_path_temporary, file_path_output, `-f concat -safe 0`, `-c copy`);
     }
     await file_temporary(contents, logic);

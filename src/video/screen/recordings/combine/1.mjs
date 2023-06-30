@@ -5,6 +5,6 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function video_screen_recordings_combine_1() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
-    let ish_video_1 = js_identifier_combine(ish_video_prefix, `1`);
-    return await video_screen_recordings_combine(ish_video_1);
+    let video_key = js_identifier_combine(ish_video_prefix, `1`);
+    return await video_screen_recordings_combine(video_key);
 }
