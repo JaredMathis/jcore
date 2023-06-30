@@ -1,7 +1,7 @@
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { command_line } from '../line.mjs';
-export async function command_line_ffmpeg(file_path_temporary, file_path_output, middle, before) {
+export async function command_line_ffmpeg(file_path_temporary, file_path_output, before, middle) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo,
