@@ -22,6 +22,6 @@ export async function task_comment_video(issue_number, video_key) {
     let mapped = list_map(notify, function v(n) {
         return string_combine('@', n);
     });
-    let comment_lines = list_multiple_combine(mapped, url_streams);
+    let comment_lines = list_multiple_combine([mapped, url_streams]);
     await git_hub_repository_issue_comments_add(issue_number, list_join(comment_lines, string_new_line()));
 }
