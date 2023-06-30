@@ -31,9 +31,6 @@ export async function video_screen_recordings_combine(ish_video_1) {
     let contents = list_join(mapped, string_new_line());
     async function logic(file_path_temporary) {
         let file_path_output = video_path_get(ish_video_1);
-        if (false) {
-            await command_line_ffmpeg(file_path_temporary, file_path_output, ``, `-vcodec libx265 -crf 28`);
-        }
         await command_line_ffmpeg(file_path_temporary, file_path_output, `-f concat -safe 0`, `-c copy`);
     }
     await file_temporary(contents, logic);

@@ -1,6 +1,8 @@
-import { error } from '../error.mjs';
+import { command_line_ffmpeg } from '../command/line/ffmpeg.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
-export function video_compress() {
+export async function video_compress() {
     arguments_assert(arguments, []);
-    error('todo: video_compress');
+    if (false) {
+        await command_line_ffmpeg(file_path_temporary, file_path_output, ``, `-vcodec libx265 -crf 28`);
+    }
 }
