@@ -11,7 +11,7 @@ import { file_extension_json } from '../file/extension/json.mjs';
 import { path_join } from '../path/join.mjs';
 import fs from 'fs';
 import { object_property_get } from '../object/property/get.mjs';
-import { getAuth } from 'firebase-admin/auth';
+import { comment } from '../comment.mjs';
 export async function video_upload() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
@@ -33,6 +33,7 @@ export async function video_upload() {
         'https://www.googleapis.com/auth/youtube.upload',
         'https://www.googleapis.com/auth/youtube'
     ];
+    comment(`Generate new access token here: https://developers.google.com/oauthplayground`)
     oauth2Client.setCredentials({ access_token: await private_get(`google_access_token`) });
     const res = await youtube.videos.insert({
         part: 'id,snippet,status',
