@@ -14,14 +14,14 @@ export async function git_ignore_add_if_not_exists(gitignore_line_to_add) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let slashed = string_combine('/', gitignore_line_to_add);
     let {
-        lines: gitignore_lines,
+        lines: gitignore_lines_before,
         contents: gitignore_contents_old
     } = await git_ignore_lines();
     let gitignore_file_path = git_ignore_path();
-    let mapped = list_map(gitignore_lines, string_trim);
-    list_add_if_not_exists(mapped, slashed);
+    let gitignore_lines_after = list_map(gitignore_lines_before, string_trim);
+    list_add_if_not_exists(gitignore_lines_after, slashed);
     let v = string_new_line();
-    let gitignore_contents_new = list_join(mapped, v);
+    let gitignore_contents_new = list_join(gitignore_lines_after, v);
     await file_overwrite_if_changed(gitignore_file_path, gitignore_contents_new, gitignore_contents_old);
     metadata([]);
 }
