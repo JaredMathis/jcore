@@ -11,7 +11,9 @@ export async function task_set(task_id_unhashed) {
     let v = task_symbol_hash();
     let hashed = string_combine(v, task_id_unhashed);
     await task_id_set(hashed);
-    await task_current_open();
+    if (false) {
+        await task_current_open();
+    }
     return await task_current();
     metadata([]);
 }
