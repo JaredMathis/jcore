@@ -14,7 +14,7 @@ export async function firebase_initialize() {
     let v = not(initialized);
     if (v) {
         let v_3 = 'truthcode';
-        let serviceAccount = await file_json_read(path_join(directory_parent(), file_name_json(`truthcode-firebase-adminsdk-hcmrs-5fe0e2478e`)));
+        let serviceAccount = await file_json_read(path_join([directory_parent(), file_name_json(`truthcode-firebase-adminsdk-hcmrs-5fe0e2478e`)]));
         let v_2 = {
             projectId: v_3,
             credential: admin.credential.cert(serviceAccount)
