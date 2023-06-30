@@ -27,37 +27,24 @@ export async function video_upload() {
     });
     google.options({ auth });
     await directory_size(ish_video_1_path);
-
-    const res = await youtube.videos.insert(
-        {
-          part: 'id,snippet,status',
-          notifySubscribers: false,
-          requestBody: {
+    const res = await youtube.videos.insert({
+        part: 'id,snippet,status',
+        notifySubscribers: false,
+        requestBody: {
             snippet: {
-              title: 'Node.js YouTube Upload Test',
-              description: 'Testing YouTube upload via Google APIs Node.js Client',
+                title: 'Node.js YouTube Upload Test',
+                description: 'Testing YouTube upload via Google APIs Node.js Client'
             },
-            status: {
-              privacyStatus: 'private',
-            },
-          },
-          media: {
-            body: fs.createReadStream(ish_video_1_path),
-          },
+            status: { privacyStatus: 'private' }
         },
-        {
-          // Use the `onUploadProgress` event from Axios to track the
-          // number of bytes uploaded to this point.
-          onUploadProgress: evt => {
-            const progress = (evt.bytesRead / fileSize) * 100;
+        media: { body: fs.createReadStream(ish_video_1_path) }
+    }, {
+        onUploadProgress: function v(evt) {
+            const progress = evt.bytesRead / fileSize * 100;
             readline.clearLine(process.stdout, 0);
             readline.cursorTo(process.stdout, 0, null);
-            process.stdout.write(`${Math.round(progress)}% complete`);
-          },
+            process.stdout.write(`${ Math.round(progress) }% complete`);
         }
-      );
-      console.log('\n\n');
-      console.log(res.data);
-      return res.data;
-    
+    });
+    return res.data;
 }
