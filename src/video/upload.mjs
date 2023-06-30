@@ -26,6 +26,7 @@ export async function video_upload() {
             'https://www.googleapis.com/auth/youtube'
         ]
     });
+    console.log({auth})
     google.options({ auth });
     const res = await youtube.videos.insert({
         part: 'id,snippet,status',
