@@ -36,7 +36,7 @@ export async function video_upload() {
         access_type: 'offline',
         scope: scopes
     });
-    return await command_line_website(auth_url);
+    return auth_url;
     oauth2Client.setCredentials({ access_token });
     google.options({ auth: oauth2Client });
     const res = await youtube.videos.insert({
