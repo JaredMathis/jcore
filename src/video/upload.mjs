@@ -25,5 +25,7 @@ export async function video_upload() {
         ]
     });
     google.options({ auth });
+    `
+    const fileSize = fs.statSync(fileName).size;`
     return auth;
 }
