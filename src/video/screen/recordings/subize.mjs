@@ -37,5 +37,8 @@ export async function video_screen_recordings_subize() {
         ]);
         await file_rename(file_path_before, file_path_after);
     }
-    return await video_screen_recordings_combine(video_key);
+    return {
+        file_paths: await video_screen_recordings_combine(video_key),
+        video_key
+    };
 }
