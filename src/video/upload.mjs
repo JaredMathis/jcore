@@ -24,5 +24,5 @@ export async function video_upload() {
         ]
     });
     google.options({ auth });
-    return youtube;
+    return auth;
 }
