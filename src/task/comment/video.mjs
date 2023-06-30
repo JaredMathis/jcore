@@ -8,5 +8,5 @@ export async function task_comment_video(issue_number, video_key) {
         arguments_assert_todo
     ]);
     await video_segment(video_key);
-    return await video_upload(video_key);
+    let uploads = await video_upload(video_key);
 }
