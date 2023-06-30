@@ -32,13 +32,19 @@ export async function video_screen_recordings_combine(ish_video_1) {
     async function logic(file_path_temporary) {
         let file_path_output = video_path_get(ish_video_1);
         let ffmpeg =`ffmpeg`
+        let before1  = ``
         let middle1 = `-vcodec libx265 -crf 28`
-        `${ffmpeg} -i ${ file_path_temporary } ${middle1} ${ file_path_output }`
-        let before  = `-f concat -safe 0`
+        `${ffmpeg} ${before1} -i ${ file_path_temporary } ${middle1} ${ file_path_output }`
+        let before2  = `-f concat -safe 0`
         let middle2 = `-c copy`
-        let command = `${ffmpeg} ${before} -i ${ file_path_temporary } ${middle2} ${ file_path_output }`;
-        await command_line(command);
+        await command_line_ffmpeg(ffmpeg, before2, file_path_temporary, middle2, file_path_output);
     }
     await file_temporary(contents, logic);
     return paths;
+}
+
+async function command_line_ffmpeg(before, file_path_temporary, middle, file_path_output) {
+    let ffmpeg =`ffmpeg`
+    let command = `${ffmpeg} ${before} -i ${file_path_temporary} ${middle} ${file_path_output}`;
+    await command_line(command);
 }
