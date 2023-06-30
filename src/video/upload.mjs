@@ -27,8 +27,6 @@ export async function video_upload() {
             'https://www.googleapis.com/auth/youtube'
         ]
     });
-return await auth.getClient();
-    google.options({ auth });
     const res = await youtube.videos.insert({
         part: 'id,snippet,status',
         notifySubscribers: false,
@@ -39,7 +37,8 @@ return await auth.getClient();
             },
             status: { privacyStatus: 'private' }
         },
-        media: { body: fs.createReadStream(ish_video_1_path) }
+        media: { body: fs.createReadStream(ish_video_1_path) },
+        auth
     });
     return res.data;
 }
