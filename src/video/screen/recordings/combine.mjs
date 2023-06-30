@@ -1,9 +1,9 @@
+import { command_line_ffmpeg } from '../../../command/line/ffmpeg.mjs';
 import { video_path_get } from '../../path/get.mjs';
 import { video_path_output } from '../../path/output.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { file_temporary } from '../../../file/temporary.mjs';
-import { command_line } from '../../../command/line.mjs';
 import { string_new_line } from '../../../string/new/line.mjs';
 import { list_join } from '../../../list/join.mjs';
 import { list_add_beginning } from '../../../list/add/beginning.mjs';
@@ -31,20 +31,13 @@ export async function video_screen_recordings_combine(ish_video_1) {
     let contents = list_join(mapped, string_new_line());
     async function logic(file_path_temporary) {
         let file_path_output = video_path_get(ish_video_1);
-        let ffmpeg =`ffmpeg`
-        let before1  = ``
-        let middle1 = `-vcodec libx265 -crf 28`
-        `${ffmpeg} ${before1} -i ${ file_path_temporary } ${middle1} ${ file_path_output }`
-        let before2  = `-f concat -safe 0`
-        let middle2 = `-c copy`
+        let ffmpeg = `ffmpeg`;
+        let before1 = ``;
+        let middle1 = `-vcodec libx265 -crf 28``${ ffmpeg } ${ before1 } -i ${ file_path_temporary } ${ middle1 } ${ file_path_output }`;
+        let before2 = `-f concat -safe 0`;
+        let middle2 = `-c copy`;
         await command_line_ffmpeg(ffmpeg, before2, file_path_temporary, middle2, file_path_output);
     }
     await file_temporary(contents, logic);
     return paths;
-}
-
-async function command_line_ffmpeg(before, file_path_temporary, middle, file_path_output) {
-    let ffmpeg =`ffmpeg`
-    let command = `${ffmpeg} ${before} -i ${file_path_temporary} ${middle} ${file_path_output}`;
-    await command_line(command);
 }
