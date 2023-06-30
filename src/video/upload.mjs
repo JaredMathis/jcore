@@ -14,21 +14,11 @@ export async function video_upload() {
     let ish_video_1_path = video_path_get(ish_video_1);
     const publitio = publitioApi(await private_get(`publit_api_key`), await private_get(`publit_api_secret`));
     const file = await file_read_bytes(ish_video_1_path);
-    publitio.uploadFile(file, 'file').then(function v(data) {
-        console.log(data);
-    }).catch(function v_2(error) {
-        console.log(error);
+    return await publitio.uploadFile(file, 'file', {
+        title: ish_video_1,
+        description: ish_video_1,
+        tags: '',
+        privacy: '1',
+        option_download: '0'
     });
-    publitio.uploadFile(file, 'file', {
-        title: '<file title>',
-        description: '<file description>',
-        tags: '<file tags separated by spaces or commas>',
-        privacy: '<0 - private, 1 - public>',
-        option_download: '<0 - disable downloads, 1 - enable downloads>'
-    }).then(function v_3(data) {
-        console.log(data);
-    }).catch(function v_4(error) {
-        console.log(error);
-    });
-    return publitio;
 }
