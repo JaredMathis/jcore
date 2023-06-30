@@ -3,6 +3,7 @@ import { assert_message } from '../../assert/message.mjs';
 import { string_combine } from '../../string/combine.mjs';
 import { path_exists } from '../../path/exists.mjs';
 import { path_is } from '../../path/is.mjs';
+import fs from 'fs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 export async function file_read_bytes(file_path) {
     arguments_assert(arguments, [path_is]);
