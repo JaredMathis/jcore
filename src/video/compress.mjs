@@ -10,5 +10,6 @@ export async function video_compress() {
     let video_key = js_identifier_combine(ish_video_prefix, `1`);
     let file_path_output = video_path_get(video_key);
     let name = path_parse_name(file_path_output);
+    let name_new = js_identifier_combine(name, 'compressed');
     await command_line_ffmpeg(file_path_input, file_path_output, ``, `-vcodec libx265 -crf 28`);
 }
