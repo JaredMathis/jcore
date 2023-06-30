@@ -33,7 +33,11 @@ export async function video_screen_recordings_combine(ish_video_1) {
         let file_path_output = video_path_get(ish_video_1);
         let ffmpeg = `ffmpeg`;
         let before1 = ``;
-        let middle1 = `-vcodec libx265 -crf 28`;`${ ffmpeg } ${ before1 } -i ${ file_path_temporary } ${ middle1 } ${ file_path_output }`;
+        let middle1 = `-vcodec libx265 -crf 28`;
+        `${ ffmpeg } ${ before1 } -i ${ file_path_temporary } ${ middle1 } ${ file_path_output }`;
+        if (false) {
+            await command_line_ffmpeg(file_path_temporary, file_path_output, `-f concat -safe 0`, `-c copy`);
+        }
         await command_line_ffmpeg(file_path_temporary, file_path_output, `-f concat -safe 0`, `-c copy`);
     }
     await file_temporary(contents, logic);
