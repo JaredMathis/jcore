@@ -6,7 +6,7 @@ import { initializeApp } from 'firebase-admin/app';
 import { cert } from 'firebase-admin/credential';
 import { file_json_read } from '../file/json/read.mjs';
 let initialized = boolean_value_false();
-export function firebase_initialize() {
+export async function firebase_initialize() {
     arguments_assert(arguments, []);
     let v = not(initialized);
     if (v) {
