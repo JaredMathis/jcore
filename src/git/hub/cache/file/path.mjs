@@ -1,3 +1,4 @@
+import { function_name_get } from '../../../../function/name/get.mjs';
 import { file_path_json } from '../../../../file/path/json.mjs';
 import { string_base64_to } from '../../../../string/base64/to.mjs';
 import { json_to_minimized } from '../../../../json/to/minimized.mjs';
@@ -11,7 +12,7 @@ export function git_hub_cache_file_path(fn, args) {
         defined_is
     ]);
     let together = [
-        fn,
+        function_name_get(fn),
         args
     ];
     let json = json_to_minimized(together);
