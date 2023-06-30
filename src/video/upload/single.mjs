@@ -12,8 +12,8 @@ export async function video_upload_single(first) {
         const publitio = publitioApi(await private_get(`publit_api_key`), await private_get(`publit_api_secret`));
         const file = await file_read_bytes(first);
         return await publitio.uploadFile(file, 'file', {
-            title: video_key,
-            description: video_key,
+            title: first,
+            description: first,
             tags: '',
             privacy: '1',
             option_download: '0'

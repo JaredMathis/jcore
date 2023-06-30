@@ -19,6 +19,7 @@ export async function video_upload(video_key) {
         return string_starts_with(f, ish_video_1_path_prefix);
     });
     let first = list_first(matches);
+    return first;
     let file_path = git_hub_cache_file_path(video_upload_single, args);
     await file_json_write(file_path, {
         'success': true,
