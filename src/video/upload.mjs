@@ -19,7 +19,7 @@ export async function video_upload() {
     arguments_assert(arguments, []);
     await firebase_initialize();
     const uid = string_combine(function_name_get(video_upload), date_now_iso_underscores());
-    return getAuth().createCustomToken(uid);
+    let access_token = getAuth().createCustomToken(uid);
     let ish_video_prefix = video_screen_recordings_prefix();
     let ish_video_1 = js_identifier_combine(ish_video_prefix, `1`);
     let ish_video_1_path = video_path_get(ish_video_1);
@@ -39,14 +39,7 @@ export async function video_upload() {
         'https://www.googleapis.com/auth/youtube.upload',
         'https://www.googleapis.com/auth/youtube'
     ];
-    if (false) {
-        const auth_url = oauth2Client.generateAuthUrl({
-            access_type: 'offline',
-            scope: scopes
-        });
-        return auth_url;
-        oauth2Client.setCredentials({ access_token });
-    }
+    oauth2Client.setCredentials({ access_token });
     google.options({ auth: oauth2Client });
     const res = await youtube.videos.insert({
         part: 'id,snippet,status',
