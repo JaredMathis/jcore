@@ -31,7 +31,7 @@ export async function video_screen_recordings_combine(ish_video_1) {
     let contents = list_join(mapped, string_new_line());
     async function logic(file_path_temporary) {
         let file_path_output = video_path_get(ish_video_1);
-        let command = `ffmpeg -f concat -safe 0 -i ${ file_path_temporary } ${ file_path_output }`;
+        let command = `ffmpeg -f concat -safe 0 -i ${ file_path_temporary } -c copy ${ file_path_output }`;
         await command_line(command);
     }
     await file_temporary(contents, logic);
