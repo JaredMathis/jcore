@@ -57,5 +57,5 @@ export async function video_upload(video_key) {
         'updated_at': '2023-06-30 18:17:53'
     });
     return;
-    return await video_upload_single(first, video_key);
+    return await video_upload_single(first);
 }
