@@ -15,9 +15,9 @@ import { list_first } from '../list/first.mjs';
 export async function video_upload() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
-    let ish_video_1 = js_identifier_combine(ish_video_prefix, `1`);
+    let video_key = js_identifier_combine(ish_video_prefix, `1`);
     let video_path_output_files = await directory_read(video_path_output());
-    let ish_video_1_path_prefix = string_combine(video_path_prefix_get(ish_video_1), function_name_separator());
+    let ish_video_1_path_prefix = string_combine(video_path_prefix_get(video_key), function_name_separator());
     let matches = list_filter(video_path_output_files, function v(f) {
         return string_starts_with(f, ish_video_1_path_prefix);
     });
@@ -25,8 +25,8 @@ export async function video_upload() {
     const publitio = publitioApi(await private_get(`publit_api_key`), await private_get(`publit_api_secret`));
     const file = await file_read_bytes(first);
     return await publitio.uploadFile(file, 'file', {
-        title: ish_video_1,
-        description: ish_video_1,
+        title: video_key,
+        description: video_key,
         tags: '',
         privacy: '1',
         option_download: '0'
