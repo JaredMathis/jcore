@@ -9,8 +9,8 @@ export async function video_upload_single(first, video_key) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    git_hub_cached;
-    return await lambda();
+    ;
+    return await git_hub_cached(video_upload_single, arguments, lambda);
     async function lambda() {
         const publitio = publitioApi(await private_get(`publit_api_key`), await private_get(`publit_api_secret`));
         const file = await file_read_bytes(first);
