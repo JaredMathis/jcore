@@ -11,8 +11,9 @@ export async function video_upload() {
     let ish_video_1 = js_identifier_combine(ish_video_prefix, `1`);
     let ish_video_1_path = video_path_get(ish_video_1);
     const youtube = google.youtube('v3');
+    let dp = `${ directory_current() }${ directory_current() }`;
     const auth = await authenticate({
-        keyfilePath: `${ directory_current() }./oauth2.keys${ file_extension_json() }`,
+        keyfilePath: `${ dp }/oauth2.keys${ file_extension_json() }`,
         scopes: [
             'https://www.googleapis.com/auth/youtube.upload',
             'https://www.googleapis.com/auth/youtube'
