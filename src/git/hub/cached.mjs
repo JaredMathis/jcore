@@ -22,8 +22,8 @@ export async function git_hub_cached(fn, args, lambda) {
         let result = await file_json_read(file_path);
         return result;
     }
-    let issues = await lambda();
-    await file_json_write(file_path, issues);
-    return issues;
+    let result = await lambda();
+    await file_json_write(file_path, result);
+    return result;
     metadata([]);
 }
