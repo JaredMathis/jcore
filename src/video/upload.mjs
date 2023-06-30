@@ -35,7 +35,7 @@ export async function video_upload() {
 
     oauth2Client.setCredentials(
         {
-          access_token: accessToken
+          access_token
         }
       );
     google.options({ auth: oauth2Client });
