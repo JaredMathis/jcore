@@ -1,3 +1,5 @@
+import { video_name_get } from './name/get.mjs';
+import { path_join } from '../path/join.mjs';
 import { path_parse_name } from '../path/parse/name.mjs';
 import { video_path_get } from './path/get.mjs';
 import { js_identifier_combine } from '../js/identifier/combine.mjs';
@@ -13,6 +15,10 @@ export async function video_compress() {
     let name = path_parse_name(file_path_output);
     let name_new = js_identifier_combine(name, 'compressed');
     let parent = path_parent(file_path_output);
-    return parent;
+    let file_path_output_new = path_join([
+        parent,
+        video_name_get(name_new)
+    ]);
+    return file_path_output_new;
     await command_line_ffmpeg(file_path_input, file_path_output, ``, `-vcodec libx265 -crf 28`);
 }
