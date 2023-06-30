@@ -1,9 +1,16 @@
+import { git_hub_cached } from '../../git/hub/cached.mjs';
+import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { file_read_bytes } from '../../file/read/bytes.mjs';
 import { private_get } from '../../private/get.mjs';
 import { publitioApi } from 'publitio_js_sdk';
 export async function video_upload_single(first, video_key) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
+    git_hub_cached;
     return await lambda();
-
     async function lambda() {
         const publitio = publitioApi(await private_get(`publit_api_key`), await private_get(`publit_api_secret`));
         const file = await file_read_bytes(first);
