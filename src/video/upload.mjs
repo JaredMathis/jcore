@@ -15,7 +15,7 @@ import { getAuth } from 'firebase-admin/auth';
 export async function video_upload() {
     arguments_assert(arguments, []);
     return getAuth()
-    .createCustomToken(uid);
+    .createCustomToken(guid_generate());
     let ish_video_prefix = video_screen_recordings_prefix();
     let ish_video_1 = js_identifier_combine(ish_video_prefix, `1`);
     let ish_video_1_path = video_path_get(ish_video_1);
