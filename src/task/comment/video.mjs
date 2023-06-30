@@ -18,7 +18,6 @@ export async function task_comment_video(issue_number, video_key) {
     let uploads = await video_upload(video_key);
     let url_streams = list_map_property(uploads, 'url_stream');
     let notify = ['ismael-texidor'];
-    notify = ['JaredMathis'];
     let mapped = list_map(notify, function v(n) {
         return string_combine('@', n);
     });
