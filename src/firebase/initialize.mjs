@@ -3,7 +3,7 @@ import { arguments_assert } from '../arguments/assert.mjs';
 import { boolean_value_true } from '../boolean/value/true.mjs';
 import { not } from '../not.mjs';
 import { initializeApp } from 'firebase-admin/app';
-import admin from 'firebase-admin/';
+import * as admin from 'firebase-admin/';
 import { file_json_read } from '../file/json/read.mjs';
 let initialized = boolean_value_false();
 export async function firebase_initialize() {
