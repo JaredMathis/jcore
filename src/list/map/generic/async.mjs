@@ -45,7 +45,7 @@ export async function list_map_generic_async(list, lambda, allow_error_mapping, 
             if (v_8) {
                 mapped = result_property_data_get(result);
             }
-            la(result, mapped);
+            la(mapped);
         };
         await list_each_with_index_async(list, v_11);
     };
