@@ -4,7 +4,7 @@ import { metadata } from '../../../../../metadata.mjs';
 import { object_merge } from '../../../../../object/merge.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
-export async function git_hub_repository_issue_comments_add(body, issue_number) {
+export async function git_hub_repository_issue_comments_add(issue_number, body) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo
