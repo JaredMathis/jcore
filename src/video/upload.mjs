@@ -22,7 +22,10 @@ export async function video_upload() {
         `oauth2.keys${ file_extension_json() }`
     ]);
     let key = await file_json_read(key_path);
-    const oauth2Client = new google.auth.OAuth2(object_property_get(key, 'client_id'), object_property_get(key, 'client_secret'), list_single(object_property_get(key, 'redirect_uris')));
+    const client_id = object_property_get(key, 'client_id');
+    const client_secret = object_property_get(key, 'client_secret');
+    const redirect_uris = object_property_get(key, 'redirect_uris');
+    const oauth2Client = new google.auth.OAuth2(client_id, client_secret, list_single(redirect_uris));
     google.options({ auth: oauth2Client });
     const res = await youtube.videos.insert({
         part: 'id,snippet,status',
