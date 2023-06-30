@@ -46,7 +46,7 @@ export async function version_push_generic(repository_name, preview) {
         arguments_assert_todo
     ]);
     let v_20 = async function v_11(list_commits_add) {
-        let db = database_firestore_get();
+        let db = await database_firestore_get();
         let database_collection_name = version_collection_repository(repository_name);
         let fns = function_name_separator();
         let property_commit_latest = version_property_commit_latest();
@@ -107,7 +107,7 @@ export async function version_push_generic(repository_name, preview) {
                 }
                 let document_path_commit = version_document_path_commit(commit_vesion);
                 let v_8 = database_value(commit_files);
-                database_create(db, transaction, database_collection_name, document_path_commit, v_8);
+                await database_create(db, transaction, database_collection_name, document_path_commit, v_8);
                 let v_17 = equal(index, last_index);
                 if (v_17) {
                     database_reference_update_property(transaction, info_refererence, property_commit_latest, commit_vesion);
