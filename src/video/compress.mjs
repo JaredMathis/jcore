@@ -1,6 +1,10 @@
+import { js_identifier_combine } from '../js/identifier/combine.mjs';
+import { video_screen_recordings_prefix } from './screen/recordings/prefix.mjs';
 import { command_line_ffmpeg } from '../command/line/ffmpeg.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 export async function video_compress() {
     arguments_assert(arguments, []);
-        await command_line_ffmpeg(file_path_input, file_path_output, ``, `-vcodec libx265 -crf 28`);
+    let ish_video_prefix = video_screen_recordings_prefix();
+    let video_key = js_identifier_combine(ish_video_prefix, `1`);
+    await command_line_ffmpeg(file_path_input, file_path_output, ``, `-vcodec libx265 -crf 28`);
 }
