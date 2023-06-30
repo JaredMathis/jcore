@@ -11,6 +11,7 @@ import { private_get } from '../private/get.mjs';
 import { directory_read } from '../directory/read.mjs';
 import { string_combine } from '../string/combine.mjs';
 import { function_name_separator } from '../function/name/separator.mjs';
+import { list_first } from '../list/first.mjs';
 export async function video_upload() {
     arguments_assert(arguments, []);
     let ish_video_prefix = video_screen_recordings_prefix();
@@ -20,9 +21,9 @@ export async function video_upload() {
     let matches = list_filter(video_path_output_files, function v(f) {
         return string_starts_with(f, ish_video_1_path_prefix);
     });
-    return matches;
+    let first = list_first(matches);
     const publitio = publitioApi(await private_get(`publit_api_key`), await private_get(`publit_api_secret`));
-    const file = await file_read_bytes(ish_video_1_path);
+    const file = await file_read_bytes(first);
     return await publitio.uploadFile(file, 'file', {
         title: ish_video_1,
         description: ish_video_1,
