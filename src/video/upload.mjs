@@ -1,5 +1,4 @@
-import { file_json_write } from '../file/json/write.mjs';
-import { git_hub_cache_file_path } from '../git/hub/cache/file/path.mjs';
+import { list_map_async } from '../list/map/async.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { video_upload_single } from './upload/single.mjs';
@@ -18,6 +17,7 @@ export async function video_upload(video_key) {
     let matches = list_filter(video_path_output_files, function v(f) {
         return string_starts_with(f, ish_video_1_path_prefix);
     });
+    list_map_async;
     let first = list_first(matches);
     return await video_upload_single(first);
 }

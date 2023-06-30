@@ -10,7 +10,6 @@ export async function video_upload_single(video_path) {
     arguments_assert(arguments, [arguments_assert_todo]);
     return await git_hub_cached(video_upload_single, [video_path], lambda);
     async function lambda() {
-        error('it didnot work :(');
         let name = path_parse_name(video_path);
         const publitio = publitioApi(await private_get(`publit_api_key`), await private_get(`publit_api_secret`));
         const file = await file_read_bytes(video_path);
