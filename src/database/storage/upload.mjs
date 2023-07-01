@@ -16,7 +16,6 @@ export async function database_storage_upload(file_name, file_path) {
         arguments_assert_todo
     ]);
     const data = await file_read_bytes(file_path);
-    return byes_length(data);
     let hash = bytes_to_sha1(data);
     `
     b2_start_large_file
@@ -40,7 +39,8 @@ b2_finish_large_file
         part_number: 1,
         upload_auth_token: authorization_token,
         data,
-        hash
+        hash,
+        content_length:byes_length(data)
     };
     object_merge(upload_url, options_upload_part);
     `let result3 = await b2.uploadPart({
