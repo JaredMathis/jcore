@@ -1,5 +1,5 @@
+import { video_upload } from '../upload.mjs';
 import { string_to } from '../../string/to.mjs';
-import { video_upload_publit } from './publit.mjs';
 import { video_segment } from '../segment.mjs';
 import { js_identifier_combine } from '../../js/identifier/combine.mjs';
 import { video_screen_recordings_prefix } from '../screen/recordings/prefix.mjs';
@@ -9,5 +9,5 @@ export async function video_upload_1() {
     let ish_video_prefix = video_screen_recordings_prefix();
     let video_key = js_identifier_combine(ish_video_prefix, string_to(1));
     await video_segment(video_key);
-    return await video_upload_publit(video_key);
+    return await video_upload(video_key);
 }
