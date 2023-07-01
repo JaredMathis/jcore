@@ -39,8 +39,8 @@ export async function rule_operator_to_function_call_generic(operator_function, 
         }
         let v_6 = async function v_2(changed) {
             let v_7 = function v_4(n) {
-                    let v_9 = node_type(n);
-                    return v_9;
+                let v_9 = node_type(n);
+                return v_9;
             };
             let v_8 = function v_3(node) {
                 let operator = js_node_property_operator_get(node);

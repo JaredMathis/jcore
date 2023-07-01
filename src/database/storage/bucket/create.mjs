@@ -12,5 +12,5 @@ export async function database_storage_bucket_create() {
         bucketName: 'truthcode',
         bucketType: 'allPublic'
     };
-    return await b2.createBucket(options)
+    return await b2.createBucket(options);
 }

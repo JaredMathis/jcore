@@ -17,7 +17,7 @@ import { list_add } from '../../../list/add.mjs';
 import { list_length } from '../../../list/length.mjs';
 import { string_empty } from '../../empty.mjs';
 import { list_map } from '../../../list/map.mjs';
-export function string_case_camel_parse(input) {
+export function string_case_pascal_parse(input) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let characters = string_to_list(input);
     const property_is_capital = 'is_capital';

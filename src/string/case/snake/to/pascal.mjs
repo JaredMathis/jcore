@@ -6,7 +6,7 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { string_empty } from '../../../empty.mjs';
 import { list_map } from '../../../../list/map.mjs';
 import { string_is } from '../../../is.mjs';
-export function string_case_snake_to_camel(input) {
+export function string_case_snake_to_pascal(input) {
     arguments_assert(arguments, [string_is]);
     let parsed = js_identifier_parts_to(input);
     let mapped = list_map(parsed, string_case_upper_character_first);

@@ -9,7 +9,7 @@ export async function git_hub_repository_issue_comments_add(issue_number, body) 
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let api_args_to_merge = {issue_number};
+    let api_args_to_merge = { issue_number };
     let verb = 'POST';
     let no_cache = boolean_value_true();
     let v_2 = { body };
