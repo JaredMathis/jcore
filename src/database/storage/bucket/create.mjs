@@ -1,3 +1,5 @@
+import { object_property_initialize } from '../../../object/property/initialize.mjs';
+import { string_case_snake_to_camel } from '../../../string/case/snake/to/camel.mjs';
 import { log } from '../../../log.mjs';
 import { object_keys_each } from '../../../object/keys/each.mjs';
 import { private_get } from '../../../private/get.mjs';
@@ -14,12 +16,12 @@ export async function database_storage_bucket_create() {
         bucket_name: 'truthcode',
         bucket_type: 'allPublic'
     };
+    let mapped = {};
     object_keys_each(options, function v(value, key) {
-        console.log({
-            value,
-            key
-        });
+        let key_mapped = string_case_snake_to_camel(key);
+        object_property_initialize(mapped, key_mapped, value);
     });
+    console.log({ mapped });
     return;
     return await b2.createBucket(options);
 }
