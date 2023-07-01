@@ -47,7 +47,6 @@ export async function database_storage_upload(file_name, file_path) {
     const data = await file_read_bytes(file_path);
     let hash = bytes_to_sha1(data);
     const b2 = await b2_get();
-    b2.uploadFile()
     let mapped = await database_storage_bucket_name_to_id_object(b2);
     let camel2 = object_keys_to_camel(mapped);
     let result2 = await b2.getUploadUrl(camel2);
@@ -61,7 +60,7 @@ export async function database_storage_upload(file_name, file_path) {
         hash,
         content_length: byes_length(data)
     };
-    let result3 = await b2.uploadPart(object_keys_to_camel(object_merge(upload_url, options_upload_part)));
+    let result3 = await b2.uploadFile(object_keys_to_camel(object_merge(upload_url, options_upload_part)));
     let data_snake4 = b2_data_snake_get(result4);
     return data_snake4;
 }
