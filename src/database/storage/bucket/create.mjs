@@ -9,8 +9,8 @@ export async function database_storage_bucket_create() {
     });
     await b2.authorize();
     const options = {
-        bucketName: 'truthcode',
-        bucketType: 'allPublic'
+        bucket_name: 'truthcode',
+        bucket_type: 'allPublic'
     };
     return await b2.createBucket(options);
 }
