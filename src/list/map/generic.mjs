@@ -1,15 +1,15 @@
+import { result_property_data_get } from '../../result/property/data/get.mjs';
+import { defined_is } from '../../defined/is.mjs';
 import { metadata_generated } from '../../metadata/generated.mjs';
 import { metadata } from '../../metadata.mjs';
-import { list_adder } from '../adder.mjs';
-import { list_each_with_index } from '../each/with/index.mjs';
-import { result_property_data_get } from '../../result/property/data/get.mjs';
-import { not } from '../../not.mjs';
-import { occurs } from '../../occurs.mjs';
-import { assert } from '../../assert.mjs';
 import { result_property_success_get } from '../../result/property/success/get.mjs';
+import { assert } from '../../assert.mjs';
 import { result_unsuccess_is } from '../../result/unsuccess/is.mjs';
+import { occurs } from '../../occurs.mjs';
+import { not } from '../../not.mjs';
 import { throws_generic } from '../../throws/generic.mjs';
-import { defined_is } from '../../defined/is.mjs';
+import { list_each_with_index } from '../each/with/index.mjs';
+import { list_adder } from '../adder.mjs';
 import { boolean_is } from '../../boolean/is.mjs';
 import { function_is } from '../../function/is.mjs';
 import { list_is } from '../is.mjs';
@@ -21,9 +21,9 @@ export function list_map_generic(list, lambda, allow_error_mapping, value_on_err
         boolean_is,
         defined_is
     ]);
-    let v_10 = async function v_4(la) {
-        let v_11 = async function v_5(element, index) {
-            let v_12 = async function v_6() {
+    let v_10 = function v_4(la) {
+        let v_11 = function v_5(element, index) {
+            let v_12 = function v_6() {
                 let v_2 = lambda(element, index);
                 return v_2;
             };

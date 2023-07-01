@@ -16,8 +16,7 @@ export function refactor_unasyncify_each(v) {
         let arg = object_property_get(node, v_2);
         object_replace(node, arg);
     }
-    if (js_node_is_function_declaration(node)) {
-        console.log({node})
+    if (js_node_is_function_declaration(node) || js_node_is_function_expression(node)) {
         js_function_declaration_unasyncify_try(node);
     }
     metadata([]);
