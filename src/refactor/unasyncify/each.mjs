@@ -1,3 +1,4 @@
+import { js_node_is_function_expression } from '../../js/node/is/function/expression.mjs';
 import { js_function_declaration_unasyncify_try } from '../../js/function/declaration/unasyncify/try.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { metadata } from '../../metadata.mjs';
