@@ -20,8 +20,8 @@ b2_finish_large_file
     `;
     const b2 = await b2_get();
     let mapped = await database_storage_bucket_name_to_id_object(b2);
-    const options = { file_name };
-    let camel = object_keys_to_camel(object_merge(mapped, options));
+    const options_large_file = { file_name };
+    let camel = object_keys_to_camel(object_merge(mapped, options_large_file));
     let result = await b2.startLargeFile(camel);
     let data_snake = b2_data_snake_get(result);
     let file_id = object_keys_include(data_snake, ['file_id']);
