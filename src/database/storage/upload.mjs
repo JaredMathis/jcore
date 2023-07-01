@@ -38,7 +38,7 @@ export async function database_storage_upload(file_name, file_path) {
         file_name,
         data,
         content_length: byes_length(data),
-        hash,
+        hash
     };
     let result3 = await b2.uploadFile(object_keys_to_camel(object_merge(upload_url, options_upload_part)));
     let data_snake4 = b2_data_snake_get(result3);

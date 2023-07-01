@@ -17,7 +17,7 @@ export async function database_storage_upload_large(file_name, file_path) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    error('this needs to be refactored to upload mulitple parts; b2 requires at least 2 parts')
+    error('this needs to be refactored to upload mulitple parts; b2 requires at least 2 parts');
     const data = await file_read_bytes(file_path);
     let hash = bytes_to_sha1(data);
     const b2 = await b2_get();
