@@ -15,7 +15,7 @@ export async function database_storage_upload(file_name, file_path) {
         arguments_assert_todo
     ]);
     const data = await file_read_bytes(file_path);
-    return object_property_get(data, 'length');
+    return data;
     let hash = bytes_to_sha1(data);
     `
     b2_start_large_file
