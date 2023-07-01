@@ -31,12 +31,13 @@ b2_finish_large_file
     let data_snake2 = b2_data_snake_get(result2);
     let upload_url = object_keys_include(data_snake2, ['upload_url']);
     let authorization_token = object_property_get(data_snake2, 'authorization_token');
-    object_merge(upload_url, { upload_auth_token: authorization_token });
     const data = await file_read_bytes(file_path);
     const options_upload_part = {
         part_number: 1,
-        data
+        data,
+        upload_auth_token: authorization_token
     };
+    object_merge(upload_url, options_upload_part);
     `let result3 = await b2.uploadPart({
         partNumber: number;
         uploadUrl: string;
