@@ -1,3 +1,5 @@
+import { object_keys_include } from '../../object/keys/include.mjs';
+import { object_keys_camel_to_snake } from '../../object/keys/camel/to/snake.mjs';
 import { b2_property_data_get } from '../../b2/property/data/get.mjs';
 import { object_merge } from '../../object/merge.mjs';
 import { database_storage_bucket_name_to_id_object } from './bucket/name/to/id/object.mjs';
@@ -19,5 +21,8 @@ b2_finish_large_file
     let camel = object_keys_to_camel(object_merge(mapped, options));
     let result = await b2.startLargeFile(camel);
     let data = b2_property_data_get(result);
-    return data;
+    let data_snake = object_keys_camel_to_snake(data);
+    let file_id = object_keys_include(data_snake, ['file_id']);
+    return file_id;
+    b2.getUploadPartUrl();
 }
