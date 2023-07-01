@@ -43,13 +43,5 @@ b2_finish_large_file
         content_length: byes_length(data)
     };
     object_merge(upload_url, options_upload_part);
-    `let result3 = await b2.uploadPart({
-        partNumber: number;
-        uploadUrl: string;
-        uploadAuthToken: string;
-        data: Buffer;
-        hash?: string | undefined;
-        onUploadProgress?: UploadProgressFn | null | undefined;
-        contentLength?: number | undefined;});`;
     return data2;
 }
