@@ -1,10 +1,10 @@
+import { object_keys_camel_to_snake } from '../../object/keys/camel/to/snake.mjs';
 import { database_storage_bucket_name_object } from './bucket/name/object.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { database_storage_bucket_name } from './bucket/name.mjs';
 import { object_keys_to_camel } from '../../object/keys/to/camel.mjs';
 import { b2_get } from '../../b2/get.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-import { object_keys } from '../../object/keys.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { list_single } from '../../list/single.mjs';
 export async function database_storage_upload(file_name) {
@@ -18,9 +18,10 @@ b2_finish_large_file
     const b2 = await b2_get();
     let result = await b2.getBucket(object_keys_to_camel(database_storage_bucket_name_object()));
     let data = object_property_get(result, 'data');
-    let buckets = object_property_get(result, 'buckets');
+    let buckets = object_property_get(data, 'buckets');
     let bucket = list_single(buckets);
-    return buckets;
+    let mapped2 = object_keys_camel_to_snake(bucket);
+    return mapped2;
     let mapped = object_keys_to_camel({
         bucket_id: database_storage_bucket_name(),
         file_name
