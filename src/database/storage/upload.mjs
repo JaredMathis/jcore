@@ -32,7 +32,6 @@ b2_finish_large_file
     let upload_url = object_keys_include(data_snake2, ['upload_url']);
     let authorization_token = object_property_get(data_snake2, 'authorization_token');
     object_merge(upload_url, { upload_auth_token: authorization_token });
-    return data_snake2;
     const data = await file_read_bytes(file_path);
     const options_upload_part = {
         part_number: 1,
