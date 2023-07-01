@@ -42,6 +42,7 @@ b2_finish_large_file
         hash,
         content_length: byes_length(data)
     };
-    object_merge(upload_url, options_upload_part);
+    let result3 = await b2.uploadPart(object_merge(upload_url, options_upload_part))
+    let data_snake3 = b2_data_snake_get(result3);
     return data2;
 }
