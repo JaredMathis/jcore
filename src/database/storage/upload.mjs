@@ -1,3 +1,4 @@
+import { database_storage_bucket_name_object } from './bucket/name/object.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { database_storage_bucket_name } from './bucket/name.mjs';
 import { object_keys_to_camel } from '../../object/keys/to/camel.mjs';
@@ -16,5 +17,6 @@ b2_finish_large_file
         bucket_id: database_storage_bucket_name(),
         file_name
     });
+    b2.getBucket(database_storage_bucket_name_object());
     return await b2.startLargeFile(mapped);
 }
