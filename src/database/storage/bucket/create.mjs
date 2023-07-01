@@ -12,5 +12,9 @@ export async function database_storage_bucket_create() {
         bucket_name: 'truthcode',
         bucket_type: 'allPublic'
     };
+    object_keys_each(options, (value, key) => {
+        console.log({value,key});
+    })
+    return;
     return await b2.createBucket(options);
 }
