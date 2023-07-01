@@ -1,3 +1,5 @@
+import { log } from '../../../log.mjs';
+import { object_keys_each } from '../../../object/keys/each.mjs';
 import { private_get } from '../../../private/get.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import B2 from 'backblaze-b2';
@@ -12,9 +14,12 @@ export async function database_storage_bucket_create() {
         bucket_name: 'truthcode',
         bucket_type: 'allPublic'
     };
-    object_keys_each(options, (value, key) => {
-        console.log({value,key});
-    })
+    object_keys_each(options, function v(value, key) {
+        console.log({
+            value,
+            key
+        });
+    });
     return;
     return await b2.createBucket(options);
 }
