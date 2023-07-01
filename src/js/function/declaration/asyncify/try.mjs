@@ -5,6 +5,6 @@ import { js_node_is_function_declaration } from '../../../node/is/function/decla
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 export function js_function_declaration_asyncify_try(fd) {
     arguments_assert(arguments, [js_node_is_function_declaration]);
-    js_function_declaration_asyncify_generic(fd, object_property_set);
+    js_function_declaration_asyncify_generic(fd, object_property_set, true);
     metadata([]);
 }
