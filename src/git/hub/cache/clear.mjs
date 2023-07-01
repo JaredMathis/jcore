@@ -1,5 +1,4 @@
-import { path_join } from '../../../path/join.mjs';
-import { file_rename } from '../../../file/rename.mjs';
+import { file_delete_multiple_soft } from '../../../file/delete/multiple/soft.mjs';
 import { file_paths_to_name_base64 } from '../../../file/paths/to/name/base64.mjs';
 import { git_ignore_cache_file_paths } from '../../ignore/cache/file/paths.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
@@ -16,12 +15,6 @@ export async function git_hub_cache_clear(function_name) {
         let b64 = list_single(file_paths_to_name_base64([f]));
         return list_contains(filtered, b64);
     });
-    for (let file_path_old of file_paths_filtered) {
-        let file_path_new = path_join([
-            'delete',
-            file_path_old
-        ]);
-        await file_rename(file_path_old, file_path_new);
-    }
+    await file_delete_multiple_soft(file_paths_filtered);
     return file_paths_filtered;
 }
