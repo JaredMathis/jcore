@@ -14,7 +14,7 @@ export async function git_hub_cache_clear(function_name) {
     let file_paths = await git_ignore_cache_file_paths();
     let file_paths_filtered = list_filter(file_paths, function v(f) {
         let b64 = list_single(file_paths_to_name_base64([f]));
-        list_contains(filtered, b64);
+        return list_contains(filtered, b64);
     });
     return file_paths_filtered;
 }
