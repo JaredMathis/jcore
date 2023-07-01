@@ -9,14 +9,13 @@ import { b2_get } from '../../b2/get.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { bytes_to_sha1 } from '../../bytes/to/sha1.mjs';
-import { list_length } from '../../list/length.mjs';
 export async function database_storage_upload(file_name, file_path) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo
     ]);
     const data = await file_read_bytes(file_path);
-    return list_length(data);
+    return object_property_get(data, 'length');
     let hash = bytes_to_sha1(data);
     `
     b2_start_large_file
