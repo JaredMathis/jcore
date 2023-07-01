@@ -13,6 +13,6 @@ export function object_keys_include(value, include) {
         let v_2 = list_contains(include, key);
         return v_2;
     };
-    object_map_generic(value, v_4);
+    return object_map_generic(value, v_4);
     metadata([]);
 }
