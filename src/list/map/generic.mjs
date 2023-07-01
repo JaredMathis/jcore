@@ -21,9 +21,9 @@ export function list_map_generic(list, lambda, allow_error_mapping, value_on_err
         boolean_is,
         defined_is
     ]);
-    let v_10 = function v_4(la) {
-        let v_11 = function v_5(element, index) {
-            let v_12 = function v_6() {
+    let v_10 = async function v_4(la) {
+        let v_11 = async function v_5(element, index) {
+            let v_12 = async function v_6() {
                 let v_2 = lambda(element, index);
                 return v_2;
             };
