@@ -1,3 +1,4 @@
+import { file_read_bytes } from '../../file/read/bytes.mjs';
 import { b2_data_snake_get } from '../../b2/data/snake/get.mjs';
 import { object_keys_include } from '../../object/keys/include.mjs';
 import { object_merge } from '../../object/merge.mjs';
@@ -6,8 +7,11 @@ import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { object_keys_to_camel } from '../../object/keys/to/camel.mjs';
 import { b2_get } from '../../b2/get.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-export async function database_storage_upload(file_name) {
-    arguments_assert(arguments, [arguments_assert_todo]);
+export async function database_storage_upload(file_name, file_path) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     `
     b2_start_large_file
 b2_get_upload_part_url (for each thread that are are uploading)
@@ -25,6 +29,7 @@ b2_finish_large_file
     let result2 = await b2.getUploadPartUrl(camel2);
     let data_snake2 = b2_data_snake_get(result2);
     return data_snake2;
+    const file = await file_read_bytes(video_path);
     `let result3 = await b2.uploadPart({
         partNumber: number;
         uploadUrl: string;
