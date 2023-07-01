@@ -2,6 +2,7 @@
   "dependencies": {
     "@google-cloud/local-auth": "^2.1.1",
     "acorn": "^8.8.2",
+    "backblaze-b2": "^1.7.0",
     "diff": "^5.1.0",
     "escodegen": "^2.0.0",
     "firebase-admin": "^11.9.0",
