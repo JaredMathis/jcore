@@ -19,5 +19,7 @@ b2_finish_large_file
         file_name
     };
     let camel = object_keys_to_camel(object_merge(mapped, options));
-    return await b2.startLargeFile(camel);
+    let result = await b2.startLargeFile(camel);
+    let data = b2_property_data_get(result);
+    return data;
 }
