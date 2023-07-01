@@ -17,7 +17,7 @@ export function refactor_unasyncify_each(v) {
         object_replace(node, arg);
     }
     if (js_node_is_function_declaration(node)) {
-        js_function_declaration_unasyncify_try();
+        js_function_declaration_unasyncify_try(node);
     }
     metadata([]);
 }
