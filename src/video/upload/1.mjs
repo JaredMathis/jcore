@@ -11,6 +11,6 @@ export async function video_upload_1() {
     for (let i of range_from(1, 5)) {
         let video_key = js_identifier_combine(ish_video_prefix, string_to(i));
         await video_segment(video_key);
-        return await video_upload(video_key);
+        await video_upload(video_key);
     }
 }
