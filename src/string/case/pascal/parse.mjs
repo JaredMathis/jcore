@@ -31,7 +31,7 @@ export function string_case_pascal_parse(input) {
     };
     let mapped = list_map_with_index(characters, v_6);
     let v_7 = boolean_value_true();
-    console.log({mapped})
+    console.log({mapped, characters})
     let filtered = list_filter_property(mapped, property_is_capital, v_7);
     let indices = list_map_property(filtered, property_index);
     let v = list_length(characters);
