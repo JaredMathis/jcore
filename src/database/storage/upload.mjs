@@ -15,8 +15,6 @@ export async function database_storage_upload(file_name, file_path) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    const data = await file_read_bytes(file_path);
-    let hash = bytes_to_sha1(data);
     `
     uploadUrl: string;
     uploadAuthToken: string;
@@ -46,6 +44,8 @@ export async function database_storage_upload(file_name, file_path) {
     info?: Record<string, string> | undefined;
     onUploadProgress?: UploadProgressFn | null | undefined;
     `;
+    const data = await file_read_bytes(file_path);
+    let hash = bytes_to_sha1(data);
     const b2 = await b2_get();
     b2.uploadFile()
     let mapped = await database_storage_bucket_name_to_id_object(b2);
