@@ -13,10 +13,10 @@ b2_upload_part or b2_copy_part (for each part of the file)
 b2_finish_large_file
     `;
     const b2 = await b2_get();
+    return b2.getBucket(object_keys_to_camel(database_storage_bucket_name_object()));
     let mapped = object_keys_to_camel({
         bucket_id: database_storage_bucket_name(),
         file_name
     });
-    b2.getBucket(database_storage_bucket_name_object());
     return await b2.startLargeFile(mapped);
 }
