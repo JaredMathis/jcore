@@ -29,6 +29,7 @@ b2_finish_large_file
     let result2 = await b2.getUploadPartUrl(camel2);
     let data_snake2 = b2_data_snake_get(result2);
     return data_snake2;
+    const options_upload_part = { file_name };
     const data = await file_read_bytes(file_path);
     `let result3 = await b2.uploadPart({
         partNumber: number;
