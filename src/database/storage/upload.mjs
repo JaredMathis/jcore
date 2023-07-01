@@ -1,3 +1,4 @@
+import { object_merge } from '../../object/merge.mjs';
 import { database_storage_bucket_name_object } from './bucket/name/object.mjs';
 import { database_storage_bucket_name } from './bucket/name.mjs';
 import { object_keys_to_camel } from '../../object/keys/to/camel.mjs';
@@ -17,6 +18,7 @@ b2_finish_large_file
         bucket_name: database_storage_bucket_name(),
         bucket_type: 'allPublic'
     };
+    object_merge;
     let mapped = object_keys_to_camel(options);
     return await b2.createBucket(mapped);
 }
