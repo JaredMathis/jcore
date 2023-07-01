@@ -1,7 +1,5 @@
-import { object_property_initialize } from '../../../object/property/initialize.mjs';
-import { string_case_snake_to_camel } from '../../../string/case/snake/to/camel.mjs';
+import { object_keys_to_camel } from '../../../object/keys/to/camel.mjs';
 import { log } from '../../../log.mjs';
-import { object_keys_each } from '../../../object/keys/each.mjs';
 import { private_get } from '../../../private/get.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import B2 from 'backblaze-b2';
@@ -16,11 +14,7 @@ export async function database_storage_bucket_create() {
         bucket_name: 'truthcode',
         bucket_type: 'allPublic'
     };
-    let mapped = {};
-    object_keys_each(options, function v(value, key) {
-        let key_mapped = string_case_snake_to_camel(key);
-        object_property_initialize(mapped, key_mapped, value);
-    });
+    let mapped = object_keys_to_camel(options);
     console.log({ mapped });
     return;
     return await b2.createBucket(options);
