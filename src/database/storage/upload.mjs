@@ -1,3 +1,4 @@
+import { byes_length } from '../../byes/length.mjs';
 import { file_read_bytes } from '../../file/read/bytes.mjs';
 import { b2_data_snake_get } from '../../b2/data/snake/get.mjs';
 import { object_keys_include } from '../../object/keys/include.mjs';
@@ -9,14 +10,13 @@ import { b2_get } from '../../b2/get.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { bytes_to_sha1 } from '../../bytes/to/sha1.mjs';
-import { object_property_get_in } from '../../object/property/get/in.mjs';
 export async function database_storage_upload(file_name, file_path) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo
     ]);
     const data = await file_read_bytes(file_path);
-    return object_property_get_in(data, 'length');
+    return byes_length(data);
     let hash = bytes_to_sha1(data);
     `
     b2_start_large_file
