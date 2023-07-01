@@ -4,6 +4,7 @@ import { database_storage_bucket_name } from './bucket/name.mjs';
 import { object_keys_to_camel } from '../../object/keys/to/camel.mjs';
 import { b2_get } from '../../b2/get.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
+import { object_keys } from '../../object/keys.mjs';
 export async function database_storage_upload(file_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     `
@@ -13,7 +14,8 @@ b2_upload_part or b2_copy_part (for each part of the file)
 b2_finish_large_file
     `;
     const b2 = await b2_get();
-    return await b2.getBucket(object_keys_to_camel(database_storage_bucket_name_object()));
+    let result = await b2.getBucket(object_keys_to_camel(database_storage_bucket_name_object()));
+    return object_keys(result);
     let mapped = object_keys_to_camel({
         bucket_id: database_storage_bucket_name(),
         file_name
