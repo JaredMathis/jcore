@@ -28,9 +28,10 @@ b2_finish_large_file
     let camel2 = object_keys_to_camel(file_id);
     let result2 = await b2.getUploadPartUrl(camel2);
     let data_snake2 = b2_data_snake_get(result2);
+    let upload_url = object_keys_include(data_snake2, ['upload_url']);
     return data_snake2;
-    const options_upload_part = { file_name };
     const data = await file_read_bytes(file_path);
+    const options_upload_part = { part_number: 1, data };
     `let result3 = await b2.uploadPart({
         partNumber: number;
         uploadUrl: string;
