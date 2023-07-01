@@ -9,13 +9,15 @@ import { b2_get } from '../../b2/get.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { bytes_to_sha1 } from '../../bytes/to/sha1.mjs';
+import { list_length } from '../../list/length.mjs';
 export async function database_storage_upload(file_name, file_path) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo
     ]);
     const data = await file_read_bytes(file_path);
-    return bytes_to_sha1(data);
+    return list_length(data);
+    let hash = bytes_to_sha1(data);
     `
     b2_start_large_file
 b2_get_upload_part_url (for each thread that are are uploading)
@@ -36,8 +38,9 @@ b2_finish_large_file
     let authorization_token = object_property_get(data_snake2, 'authorization_token');
     const options_upload_part = {
         part_number: 1,
+        upload_auth_token: authorization_token,
         data,
-        upload_auth_token: authorization_token
+        hash
     };
     object_merge(upload_url, options_upload_part);
     `let result3 = await b2.uploadPart({
