@@ -30,10 +30,14 @@ b2_finish_large_file
     let result2 = await b2.getUploadPartUrl(camel2);
     let data_snake2 = b2_data_snake_get(result2);
     let upload_url = object_keys_include(data_snake2, ['upload_url']);
-    let authorization_token = object_property_get(data_snake2, 'authorization_token')
+    let authorization_token = object_property_get(data_snake2, 'authorization_token');
+    object_merge(upload_url, { upload_auth_token: authorization_token });
     return data_snake2;
     const data = await file_read_bytes(file_path);
-    const options_upload_part = { part_number: 1, data };
+    const options_upload_part = {
+        part_number: 1,
+        data
+    };
     `let result3 = await b2.uploadPart({
         partNumber: number;
         uploadUrl: string;
