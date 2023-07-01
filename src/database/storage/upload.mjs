@@ -32,16 +32,15 @@ export async function database_storage_upload(file_name, file_path) {
     let result2 = await b2.getUploadUrl(camel2);
     let data_snake2 = b2_data_snake_get(result2);
     let upload_url = object_keys_include(data_snake2, ['upload_url']);
-    return upload_url;
     let authorization_token = object_property_get(data_snake2, 'authorization_token');
     const options_upload_part = {
-        part_number: 1,
         upload_auth_token: authorization_token,
+        file_name,
         data,
+        content_length: byes_length(data),
         hash,
-        content_length: byes_length(data)
     };
     let result3 = await b2.uploadFile(object_keys_to_camel(object_merge(upload_url, options_upload_part)));
-    let data_snake4 = b2_data_snake_get(result4);
+    let data_snake4 = b2_data_snake_get(result3);
     return data_snake4;
 }
