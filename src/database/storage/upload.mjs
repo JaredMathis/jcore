@@ -1,3 +1,4 @@
+import { object_keys_include } from '../../object/keys/include.mjs';
 import { object_keys_camel_to_snake } from '../../object/keys/camel/to/snake.mjs';
 import { database_storage_bucket_name_object } from './bucket/name/object.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
@@ -21,7 +22,8 @@ b2_finish_large_file
     let buckets = object_property_get(data, 'buckets');
     let bucket = list_single(buckets);
     let mapped2 = object_keys_camel_to_snake(bucket);
-    return mapped2;
+    let mapped3 = object_keys_include(mapped2, ['bucket_id']);
+    return mapped3;
     let mapped = object_keys_to_camel({
         bucket_id: database_storage_bucket_name(),
         file_name
