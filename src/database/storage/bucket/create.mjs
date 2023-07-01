@@ -15,7 +15,5 @@ export async function database_storage_bucket_create() {
         bucket_type: 'allPublic'
     };
     let mapped = object_keys_to_camel(options);
-    console.log({ mapped });
-    return;
-    return await b2.createBucket(options);
+    return await b2.createBucket(mapped);
 }
