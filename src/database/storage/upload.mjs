@@ -49,12 +49,7 @@ export async function database_storage_upload(file_name, file_path) {
     const b2 = await b2_get();
     b2.uploadFile()
     let mapped = await database_storage_bucket_name_to_id_object(b2);
-    const options_large_file = { file_name };
-    let camel = object_keys_to_camel(object_merge(mapped, options_large_file));
-    let result = await b2.startLargeFile(camel);
-    let data_snake = b2_data_snake_get(result);
-    let file_id = object_keys_include(data_snake, ['file_id']);
-    let camel2 = object_keys_to_camel(file_id);
+    let camel2 = object_keys_to_camel(mapped);
     let result2 = await b2.getUploadUrl(camel2);
     let data_snake2 = b2_data_snake_get(result2);
     let upload_url = object_keys_include(data_snake2, ['upload_url']);
@@ -67,9 +62,6 @@ export async function database_storage_upload(file_name, file_path) {
         content_length: byes_length(data)
     };
     let result3 = await b2.uploadPart(object_keys_to_camel(object_merge(upload_url, options_upload_part)));
-    let data_snake3 = b2_data_snake_get(result3);
-    let result4 = await b2.finishLargeFile(object_keys_to_camel(object_merge(file_id, { part_sha1_array: [hash] })));
-    `{ fileId: string; partSha1Array: string[] }`;
     let data_snake4 = b2_data_snake_get(result4);
     return data_snake4;
 }
