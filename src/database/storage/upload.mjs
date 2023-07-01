@@ -7,6 +7,7 @@ import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { object_keys_to_camel } from '../../object/keys/to/camel.mjs';
 import { b2_get } from '../../b2/get.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
+import { object_property_get } from '../../object/property/get.mjs';
 export async function database_storage_upload(file_name, file_path) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -29,6 +30,7 @@ b2_finish_large_file
     let result2 = await b2.getUploadPartUrl(camel2);
     let data_snake2 = b2_data_snake_get(result2);
     let upload_url = object_keys_include(data_snake2, ['upload_url']);
+    let authorization_token = object_property_get(data_snake2, 'authorization_token')
     return data_snake2;
     const data = await file_read_bytes(file_path);
     const options_upload_part = { part_number: 1, data };
