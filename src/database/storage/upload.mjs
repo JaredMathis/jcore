@@ -45,6 +45,7 @@ b2_finish_large_file
     let result3 = await b2.uploadPart(object_merge(upload_url, options_upload_part))
     let data_snake3 = b2_data_snake_get(result3);
     let result4 = await b2.finishLargeFile(todo);
+    `{ fileId: string; partSha1Array: string[] }`
     let data_snake4 = b2_data_snake_get(result4);
     return data_snake4;
 }
