@@ -8,6 +8,6 @@ export async function video_upload_single(video_path) {
     return await git_hub_cached(video_upload_single, [video_path], lambda);
     async function lambda() {
         let file_name = path_separator_change(video_path);
-        await database_storage_upload(file_name, video_path);
+        return await database_storage_upload(file_name, video_path);
     }
 }
