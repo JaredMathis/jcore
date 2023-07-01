@@ -1,3 +1,4 @@
+import { git_exclude_ensure_exists } from '../../../git/exclude/ensure/exists.mjs';
 import { command_line_ffmpeg } from '../../../command/line/ffmpeg.mjs';
 import { video_path_get } from '../../path/get.mjs';
 import { video_path_output } from '../../path/output.mjs';
@@ -9,8 +10,6 @@ import { list_join } from '../../../list/join.mjs';
 import { list_add_beginning } from '../../../list/add/beginning.mjs';
 import { list_map } from '../../../list/map.mjs';
 import { directory_read } from '../../../directory/read.mjs';
-import { git_exclude } from '../../../git/exclude.mjs';
-import { directory_exists_ensure } from '../../../directory/exists/ensure.mjs';
 import { path_join } from '../../../path/join.mjs';
 import { video_screen_recordings_path } from './path.mjs';
 export async function video_screen_recordings_combine(video_key) {
@@ -21,8 +20,7 @@ export async function video_screen_recordings_combine(video_key) {
         video_key
     ]);
     let path_output = video_path_output();
-    await directory_exists_ensure(path_output);
-    await git_exclude(path_output);
+    await git_exclude_ensure_exists(path_output);
     let paths = await directory_read(path_combined);
     let mapped = list_map(paths, function v_3(p) {
         return `file \'${ p }\'`;
