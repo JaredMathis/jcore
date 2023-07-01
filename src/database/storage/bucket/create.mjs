@@ -7,5 +7,10 @@ export async function database_storage_bucket_create() {
         applicationKeyId: await private_get('b2_key_id'),
         applicationKey: await private_get('b2_application_key')
     });
-    return b2;
+    await b2.authorize();
+    const options = {
+        bucketName: 'truthcode',
+        bucketType: 'allPublic'
+    };
+    return await b2.createBucket(options)
 }
