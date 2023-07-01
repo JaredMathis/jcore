@@ -18,12 +18,36 @@ export async function database_storage_upload(file_name, file_path) {
     const data = await file_read_bytes(file_path);
     let hash = bytes_to_sha1(data);
     `
-    b2_start_large_file
-b2_get_upload_part_url (for each thread that are are uploading)
-b2_upload_part or b2_copy_part (for each part of the file)
-b2_finish_large_file
+    uploadUrl: string;
+    uploadAuthToken: string;
+    fileName: string;
+    data: Buffer;
+    /**
+     * data length
+     * @default  data.byteLength or data.length
+     */
+    contentLength?: number | undefined;
+    /**
+     * mime type
+     * @default 'b2/x-auto'
+     */
+    mime?: string | undefined;
+    /**
+     * data hash
+     * @default sha1(data)
+     */
+    hash?: string | undefined;
+    /**
+     * info headers, prepended with X-Bz-Info- when sent,
+     * throws error if more than 10 keys set.
+     * valid characters should be a-z, A-Z and '-',
+     * all other characters will cause an error to be thrown
+     */
+    info?: Record<string, string> | undefined;
+    onUploadProgress?: UploadProgressFn | null | undefined;
     `;
     const b2 = await b2_get();
+    b2.uploadFile()
     let mapped = await database_storage_bucket_name_to_id_object(b2);
     const options_large_file = { file_name };
     let camel = object_keys_to_camel(object_merge(mapped, options_large_file));

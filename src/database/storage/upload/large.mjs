@@ -20,12 +20,6 @@ export async function database_storage_upload_large(file_name, file_path) {
     error('this needs to be refactored to upload mulitple parts; b2 requires at least 2 parts')
     const data = await file_read_bytes(file_path);
     let hash = bytes_to_sha1(data);
-    `
-    b2_start_large_file
-b2_get_upload_part_url (for each thread that are are uploading)
-b2_upload_part or b2_copy_part (for each part of the file)
-b2_finish_large_file
-    `;
     const b2 = await b2_get();
     let mapped = await database_storage_bucket_name_to_id_object(b2);
     const options_large_file = { file_name };
