@@ -1,3 +1,4 @@
+import { database_storage_bucket_name } from './bucket/name.mjs';
 import { object_keys_to_camel } from '../../object/keys/to/camel.mjs';
 import { b2_get } from '../../b2/get.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -11,7 +12,7 @@ b2_finish_large_file
     `;
     const b2 = await b2_get();
     const options = {
-        bucket_name: 'truthcode',
+        bucket_name: database_storage_bucket_name(),
         bucket_type: 'allPublic'
     };
     let mapped = object_keys_to_camel(options);
