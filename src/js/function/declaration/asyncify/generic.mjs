@@ -11,6 +11,5 @@ export function js_function_declaration_asyncify_generic(fd, lambda_object_prope
         boolean_is
     ]);
     let v = js_keyword_asynk();
-    let v_2 = boolean_value_true();
-    lambda_object_property(fd, v, v_2);
+    lambda_object_property(fd, v, async_is_true);
 }
