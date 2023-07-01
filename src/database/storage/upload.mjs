@@ -40,7 +40,7 @@ b2_finish_large_file
         upload_auth_token: authorization_token,
         data,
         hash,
-        content_length:byes_length(data)
+        content_length: byes_length(data)
     };
     object_merge(upload_url, options_upload_part);
     `let result3 = await b2.uploadPart({
