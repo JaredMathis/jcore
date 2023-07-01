@@ -11,6 +11,7 @@ b2_upload_part or b2_copy_part (for each part of the file)
 b2_finish_large_file
     `;
     const b2 = await b2_get();
+    b2.startLargeFile({ bucket_name: database_storage_bucket_name() });
     const options = {
         bucket_name: database_storage_bucket_name(),
         bucket_type: 'allPublic'
