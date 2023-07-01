@@ -1,6 +1,5 @@
 import { b2_data_snake_get } from '../../b2/data/snake/get.mjs';
 import { object_keys_include } from '../../object/keys/include.mjs';
-import { b2_property_data_get } from '../../b2/property/data/get.mjs';
 import { object_merge } from '../../object/merge.mjs';
 import { database_storage_bucket_name_to_id_object } from './bucket/name/to/id/object.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
@@ -24,7 +23,8 @@ b2_finish_large_file
     let file_id = object_keys_include(data_snake, ['file_id']);
     let camel2 = object_keys_to_camel(file_id);
     let result2 = await b2.getUploadPartUrl(camel2);
-    let data2 = b2_property_data_get(result2);
+    let data_snake2 = b2_data_snake_get(result2);
+    return data_snake2;
     `let result3 = await b2.uploadPart({
         partNumber: number;
         uploadUrl: string;
