@@ -12,15 +12,15 @@ export async function function_rename_part_generic(part, parts_map) {
         function_is
     ]);
     function predicate_should_rename(n) {
-        let parts = js_identifier_parts_from(n);
+        let parts = js_identifier_parts_to(n);
         let v = list_contains(parts, part);
         return v;
     }
     await function_rename_generic(predicate_should_rename, function_name_new_get);
     function function_name_new_get(n_old) {
-        let parts = js_identifier_parts_from(n_old);
+        let parts = js_identifier_parts_to(n_old);
         parts_map(parts);
-        let v_2 = js_identifier_parts_to(parts);
+        let v_2 = js_identifier_parts_from(parts);
         return v_2;
     }
     metadata([]);
