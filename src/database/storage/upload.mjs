@@ -14,11 +14,11 @@ b2_upload_part or b2_copy_part (for each part of the file)
 b2_finish_large_file
     `;
     const b2 = await b2_get();
-    let mapped3 = await database_storage_bucket_name_to_id_object(b2);
+    let mapped = await database_storage_bucket_name_to_id_object(b2);
     const options = {
         bucket_id: database_storage_bucket_name(),
         file_name
     };
-    let mapped = object_keys_to_camel(object_merge(options));
-    return await b2.startLargeFile(mapped);
+    let camel = object_keys_to_camel(object_merge(mapped, options));
+    return await b2.startLargeFile(camel);
 }
