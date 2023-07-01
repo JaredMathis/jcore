@@ -20,28 +20,8 @@ export async function database_storage_upload(file_name, file_path) {
     uploadAuthToken: string;
     fileName: string;
     data: Buffer;
-    /**
-     * data length
-     * @default  data.byteLength or data.length
-     */
     contentLength?: number | undefined;
-    /**
-     * mime type
-     * @default 'b2/x-auto'
-     */
-    mime?: string | undefined;
-    /**
-     * data hash
-     * @default sha1(data)
-     */
     hash?: string | undefined;
-    /**
-     * info headers, prepended with X-Bz-Info- when sent,
-     * throws error if more than 10 keys set.
-     * valid characters should be a-z, A-Z and '-',
-     * all other characters will cause an error to be thrown
-     */
-    info?: Record<string, string> | undefined;
     onUploadProgress?: UploadProgressFn | null | undefined;
     `;
     const data = await file_read_bytes(file_path);
