@@ -21,7 +21,7 @@ export async function task_comment_video(issue_number, video_key) {
     let b2 = await b2_get();
     let authorize = await b2.authorize();
     let authorize_data = b2_data_snake_get(authorize);
-    return authorize;
+    return authorize_data;
     let uploads = await video_upload(video_key);
     console.log({ uploads });
     let url_streams = list_map_property(uploads, 'url_stream');
