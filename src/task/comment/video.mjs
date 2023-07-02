@@ -1,3 +1,4 @@
+import { database_storage_bucket_name } from '../../database/storage/bucket/name.mjs';
 import { log } from '../../log.mjs';
 import { b2_data_snake_get } from '../../b2/data/snake/get.mjs';
 import { video_upload } from '../../video/upload.mjs';
@@ -22,16 +23,21 @@ export async function task_comment_video(issue_number, video_key) {
     let b2 = await b2_get();
     let authorize = await b2.authorize();
     let authorize_data = b2_data_snake_get(authorize);
-    let download_url = object_property_get(authorize_data, 'download_url')
-    list_join([download_url, database_storage_bucket_name()], '/');
-    return authorize_data;
+    let download_url = object_property_get(authorize_data, 'download_url');
     let uploads = await video_upload(video_key);
     console.log({ uploads });
-    let url_streams = list_map_property(uploads, 'url_stream');
-    assert(list_empty_not(url_streams));
+    let file_names = list_map_property(uploads, 'file_name');
+    assert(list_empty_not(file_names));
     let notify = ['ismael-texidor'];
     let mapped = list_map(notify, function v(n) {
         return string_combine('@', n);
+    });
+    let download_urls = list_map(file_names, function v_2(f) {
+        return list_join([
+            download_url,
+            database_storage_bucket_name(),
+            f
+        ], '/');
     });
     let comment_lines = list_multiple_combine([
         mapped,
