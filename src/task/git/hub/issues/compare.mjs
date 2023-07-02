@@ -1,3 +1,4 @@
+import { log } from '../../../../log.mjs';
 import { git_hub_repository_issue_state_generic } from '../../../../git/hub/repository/issue/state/generic.mjs';
 import { equal_by_property } from '../../../../equal/by/property.mjs';
 import { task_property_state } from '../../../property/state.mjs';
@@ -25,6 +26,10 @@ export async function task_git_hub_issues_compare() {
         const property_name = task_property_state();
         if (!equal_by_property(property_name, a, a_2)) {
             let property_value = object_property_get(a, property_name);
+            log({
+                number_value,
+                property_value
+            });
             if (false) {
                 await git_hub_repository_issue_state_generic(number_value, property_value);
             }
