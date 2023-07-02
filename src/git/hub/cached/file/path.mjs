@@ -6,7 +6,7 @@ import { git_ignore_cache } from '../../../ignore/cache.mjs';
 import { function_is } from '../../../../function/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
 import { defined_is } from '../../../../defined/is.mjs';
-export function git_hub_cache_file_path(fn, args) {
+export function git_hub_cached_file_path(fn, args) {
     arguments_assert(arguments, [
         function_is,
         defined_is

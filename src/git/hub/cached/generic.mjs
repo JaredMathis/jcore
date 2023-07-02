@@ -5,7 +5,7 @@ import { file_json_read } from '../../../file/json/read.mjs';
 import { file_exists } from '../../../file/exists.mjs';
 import { git_ignore_add_if_not_exists } from '../../ignore/add/if/not/exists.mjs';
 import { git_ignore_cache } from '../../ignore/cache.mjs';
-import { git_hub_cache_file_path } from '../cache/file/path.mjs';
+import { git_hub_cached_file_path } from './file/path.mjs';
 export async function git_hub_cached_generic(fn, args, lambda, no_cache) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -14,7 +14,7 @@ export async function git_hub_cached_generic(fn, args, lambda, no_cache) {
         arguments_assert_todo
     ]);
     let cache = !no_cache;
-    let file_path = git_hub_cache_file_path(fn, args);
+    let file_path = git_hub_cached_file_path(fn, args);
     if (cache) {
         let v = git_ignore_cache();
         await git_ignore_add_if_not_exists(v);

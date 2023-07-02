@@ -39,7 +39,7 @@ export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge, n
             repo: repository
         };
         object_merge(api_args_to_merge, api_args);
-        log({api_args})
+        log({ api_args });
         let v_7 = `${ verb } ${ api_path }`;
         let issues = await octokit.request(v_7, api_args);
         let data = external_octokit_property_data(issues);
