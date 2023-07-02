@@ -18,14 +18,8 @@ export async function task_git_hub_issues_compare() {
     const number = 'number';
     let all_2_numbers = list_map_property(all_2, number);
     list_sort(all_2_numbers);
-    log({ a: list_length(all_2) });
     for (let a of all) {
         const number_value = object_property_get(a, number);
-        log({ number_value });
         let a_2 = list_find_property(all_2, number, number_value);
-        log({
-            a_2,
-            a
-        });
     }
 }
