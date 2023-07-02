@@ -12,7 +12,9 @@ export async function file_temporary(contents, logic) {
         await logic(file_path_temporary);
     }, async function v_2() {
         if (await file_exists(file_path_temporary)) {
-            log(await file_read(file_path_temporary));
+            if (false) {
+                log(await file_read(file_path_temporary));
+            }
             await file_delete(file_path_temporary);
         }
     });
