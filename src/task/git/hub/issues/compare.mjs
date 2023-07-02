@@ -1,3 +1,4 @@
+import { git_hub_repository_issue_state_generic } from '../../../../git/hub/repository/issue/state/generic.mjs';
 import { equal_by_property } from '../../../../equal/by/property.mjs';
 import { task_property_state } from '../../../property/state.mjs';
 import { list_sort } from '../../../../list/sort.mjs';
@@ -23,8 +24,10 @@ export async function task_git_hub_issues_compare() {
         let a_2 = list_find_property(all_2, number, number_value);
         const property_name = task_property_state();
         if (!equal_by_property(property_name, a, a_2)) {
-            let property_value = object_property_get(a, property_name)
-            await git_hub_repository_issue_state_generic(number_value, property_value);
+            let property_value = object_property_get(a, property_name);
+            if (false) {
+                await git_hub_repository_issue_state_generic(number_value, property_value);
+            }
         }
     }
 }
