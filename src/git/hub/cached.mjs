@@ -10,6 +10,6 @@ export async function git_hub_cached(fn, args, lambda) {
         function_is
     ]);
     let no_cache = false;
-    return await git_hub_cached_generic(no_cache, fn, args, lambda);
+    return await git_hub_cached_generic(fn, args, lambda, no_cache);
     metadata([]);
 }
