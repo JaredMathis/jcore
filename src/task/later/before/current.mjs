@@ -13,9 +13,6 @@ export async function task_later_before_current(title) {
     let task_number_string = await task_id_get_string();
     let result = await task_later_before(task_number_string, title);
     await task_unset();
-    let taf = await task_available_first();
-    let taf_number = task_property_number_get(taf);
-    let taf_number_string = string_to(taf_number);
-    return await task_set(taf_number_string);
+    return await task_set_available_first();
     metadata([]);
 }
