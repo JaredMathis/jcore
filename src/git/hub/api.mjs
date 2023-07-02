@@ -6,7 +6,7 @@ import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { external_octokit_property_data } from '../../external/octokit/property/data.mjs';
 import { object_merge } from '../../object/merge.mjs';
-import { git_hub_cached } from './cached.mjs';
+import { cached } from '../../cached.mjs';
 import { Octokit } from 'octokit';
 import { list_contains } from '../../list/contains.mjs';
 import { log } from '../../log.mjs';
@@ -26,7 +26,7 @@ export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge, n
         let v = await lambda();
         return v;
     }
-    let v_2 = await git_hub_cached(fn, args, lambda);
+    let v_2 = await cached(fn, args, lambda);
     return v_2;
     async function lambda() {
         let v_6 = 'git_hub_api_token';
