@@ -14,8 +14,11 @@ import { git_hub_page_size } from '../../../../../git/hub/page/size.mjs';
 import { list_length } from '../../../../../list/length.mjs';
 import { git_hub_repository_issues_all } from '../../../../../git/hub/repository/issues/all.mjs';
 import { version_repository_default } from '../../../../../version/repository/default.mjs';
-export async function task_git_hub_issues_pull_generic(no_cache) {
-    arguments_assert(arguments, [arguments_assert_todo]);
+export async function task_git_hub_issues_pull_generic(no_cache, tasks_all_path) {
+    arguments_assert(arguments, [
+        arguments_assert_todo,
+        arguments_assert_todo
+    ]);
     let v_2 = async function v(list_add_then) {
         let page = integer_value_1();
         let test;
