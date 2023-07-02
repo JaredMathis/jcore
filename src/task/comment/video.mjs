@@ -1,5 +1,4 @@
 import { database_storage_bucket_name } from '../../database/storage/bucket/name.mjs';
-import { log } from '../../log.mjs';
 import { b2_data_snake_get } from '../../b2/data/snake/get.mjs';
 import { video_upload } from '../../video/upload.mjs';
 import { list_multiple_combine } from '../../list/multiple/combine.mjs';
@@ -25,7 +24,6 @@ export async function task_comment_video(issue_number, video_key) {
     let authorize_data = b2_data_snake_get(authorize);
     let download_url = object_property_get(authorize_data, 'download_url');
     let uploads = await video_upload(video_key);
-    console.log({ uploads });
     let file_names = list_map_property(uploads, 'file_name');
     assert(list_empty_not(file_names));
     let notify = ['ismael-texidor'];
@@ -42,7 +40,7 @@ export async function task_comment_video(issue_number, video_key) {
     let comment_lines = list_multiple_combine([
         mapped,
         [video_key],
-        url_streams
+        download_urls
     ]);
     await git_hub_repository_issue_comments_add(issue_number, list_join(comment_lines, string_new_line()));
 }
