@@ -35,7 +35,6 @@ export async function task_git_hub_issues_pull_generic(no_cache, tasks_all_path)
     let pages = await list_adder_async(v_2);
     let issues_combined = list_multiple_combine(pages);
     let mapped = list_map(issues_combined, task_from_git_hub_issue);
-    let tasks_all_path = version_path_tasks_all_get(version_repository_default());
     await file_json_overwrite(tasks_all_path, mapped);
     return mapped;
     metadata([]);
