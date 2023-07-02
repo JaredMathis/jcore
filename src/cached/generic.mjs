@@ -1,3 +1,4 @@
+import { file_json_overwrite } from '../file/json/overwrite.mjs';
 import { arguments_assert_todo } from '../arguments/assert/todo.mjs';
 import { arguments_assert } from '../arguments/assert.mjs';
 import { file_json_write } from '../file/json/write.mjs';
@@ -25,6 +26,10 @@ export async function cached_generic(fn, args, lambda, no_cache) {
         }
     }
     let result = await lambda();
-    await file_json_write(file_path, result);
+    let lambda_file_json_write = file_json_write;
+    if (no_cache) {
+        lambda_file_json_write = file_json_overwrite;
+    }
+    await lambda_file_json_write(file_path, result);
     return result;
 }
