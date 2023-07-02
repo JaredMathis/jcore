@@ -38,7 +38,6 @@ export async function task_comment_video(issue_number, video_key) {
             f
         ], '/');
     });
-    return download_urls;
     let comment_lines = list_multiple_combine([
         mapped,
         [video_key],
