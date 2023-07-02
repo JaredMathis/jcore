@@ -23,6 +23,7 @@ export async function task_git_hub_issues_compare() {
         let a_2 = list_find_property(all_2, number, number_value);
         const property_name = task_property_state();
         if (!equal_by_property(property_name, a, a_2)) {
+            await git_hub_repository_issue_state_generic(number_value, property_value);
         }
     }
 }
