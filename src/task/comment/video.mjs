@@ -1,3 +1,5 @@
+import { log } from '../../log.mjs';
+import { b2_data_snake_get } from '../../b2/data/snake/get.mjs';
 import { video_upload } from '../../video/upload.mjs';
 import { list_multiple_combine } from '../../list/multiple/combine.mjs';
 import { git_hub_repository_issue_comments_add } from '../../git/hub/repository/issue/comments/add.mjs';
@@ -18,9 +20,10 @@ export async function task_comment_video(issue_number, video_key) {
     ]);
     let b2 = await b2_get();
     let authorize = b2.authorize();
+    let authorize_data = b2_data_snake_get(authorize);
     return authorize;
     let uploads = await video_upload(video_key);
-    console.log({uploads})
+    console.log({ uploads });
     let url_streams = list_map_property(uploads, 'url_stream');
     assert(list_empty_not(url_streams));
     let notify = ['ismael-texidor'];
