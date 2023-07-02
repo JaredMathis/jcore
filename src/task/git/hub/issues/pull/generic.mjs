@@ -16,7 +16,6 @@ import { git_hub_repository_issues_all } from '../../../../../git/hub/repository
 import { version_repository_default } from '../../../../../version/repository/default.mjs';
 export async function task_git_hub_issues_pull_generic(no_cache) {
     arguments_assert(arguments, [arguments_assert_todo]);
-    let repository_name = version_repository_default();
     let v_2 = async function v(list_add_then) {
         let page = integer_value_1();
         let test;
@@ -33,7 +32,7 @@ export async function task_git_hub_issues_pull_generic(no_cache) {
     let pages = await list_adder_async(v_2);
     let issues_combined = list_multiple_combine(pages);
     let mapped = list_map(issues_combined, task_from_git_hub_issue);
-    let tasks_all_path = version_path_tasks_all_get(repository_name);
+    let tasks_all_path = version_path_tasks_all_get(version_repository_default());
     await file_json_overwrite(tasks_all_path, mapped);
     return mapped;
     metadata([]);
