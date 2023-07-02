@@ -14,6 +14,7 @@ import { git_hub_page_size } from '../../../../../git/hub/page/size.mjs';
 import { list_length } from '../../../../../list/length.mjs';
 import { git_hub_repository_issues_all } from '../../../../../git/hub/repository/issues/all.mjs';
 import { version_repository_default } from '../../../../../version/repository/default.mjs';
+import { log } from '../../../../../log.mjs';
 export async function task_git_hub_issues_pull_generic(no_cache, tasks_all_path) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -27,9 +28,10 @@ export async function task_git_hub_issues_pull_generic(no_cache, tasks_all_path)
             issues = await git_hub_repository_issues_all(no_cache, page);
             list_add_then(issues);
             page = add_1(page);
-            let v_3 = list_length(issues);
+            let issues_length = list_length(issues);
+            log({issues_length})
             let v_4 = git_hub_page_size();
-            test = equal(v_3, v_4);
+            test = equal(issues_length, v_4);
         } while (test);
     };
     let pages = await list_adder_async(v_2);
