@@ -1,5 +1,5 @@
+import { equal_by_property } from '../../../../equal/by/property.mjs';
 import { task_property_state } from '../../../property/state.mjs';
-import { equal_by } from '../../../../equal/by.mjs';
 import { list_sort } from '../../../../list/sort.mjs';
 import { list_find_property } from '../../../../list/find/property.mjs';
 import { version_path_tasks_all_get } from '../../../../version/path/tasks/all/get.mjs';
@@ -21,9 +21,8 @@ export async function task_git_hub_issues_compare() {
     for (let a of all) {
         const number_value = object_property_get(a, number);
         let a_2 = list_find_property(all_2, number, number_value);
-        if (!equal_by(function v(b) {
-                return object_property_get(b, task_property_state());
-            }, a, a_2)) {
+        const property_name = task_property_state();
+        if (!equal_by_property(property_name, a, a_2)) {
         }
     }
 }
