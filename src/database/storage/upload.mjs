@@ -15,15 +15,6 @@ export async function database_storage_upload(file_name, file_path) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    `
-    uploadUrl: string;
-    uploadAuthToken: string;
-    fileName: string;
-    data: Buffer;
-    contentLength?: number | undefined;
-    hash?: string | undefined;
-    onUploadProgress?: UploadProgressFn | null | undefined;
-    `;
     const data = await file_read_bytes(file_path);
     let hash = bytes_to_sha1(data);
     const b2 = await b2_get();

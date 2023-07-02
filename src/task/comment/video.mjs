@@ -13,6 +13,7 @@ import { string_combine } from '../../string/combine.mjs';
 import { assert } from '../../assert.mjs';
 import { list_empty_not } from '../../list/empty/not.mjs';
 import { b2_get } from '../../b2/get.mjs';
+import { object_property_get } from '../../object/property/get.mjs';
 export async function task_comment_video(issue_number, video_key) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -21,6 +22,8 @@ export async function task_comment_video(issue_number, video_key) {
     let b2 = await b2_get();
     let authorize = await b2.authorize();
     let authorize_data = b2_data_snake_get(authorize);
+    let download_url = object_property_get(authorize_data, 'download_url')
+    list_join([download_url, database_storage_bucket_name()], '/');
     return authorize_data;
     let uploads = await video_upload(video_key);
     console.log({ uploads });
