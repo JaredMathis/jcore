@@ -1,7 +1,7 @@
+import { video_upload } from '../../video/upload.mjs';
 import { list_multiple_combine } from '../../list/multiple/combine.mjs';
 import { git_hub_repository_issue_comments_add } from '../../git/hub/repository/issue/comments/add.mjs';
 import { list_map_property } from '../../list/map/property.mjs';
-import { video_upload_publit } from '../../video/upload/publit.mjs';
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_join } from '../../list/join.mjs';
@@ -15,7 +15,7 @@ export async function task_comment_video(issue_number, video_key) {
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let uploads = await video_upload_publit(video_key);
+    let uploads = await video_upload(video_key);
     let url_streams = list_map_property(uploads, 'url_stream');
     assert(list_empty_not(url_streams));
     let notify = ['ismael-texidor'];
