@@ -1,3 +1,4 @@
+import { cached_generic } from '../../cached/generic.mjs';
 import { private_get } from '../../private/get.mjs';
 import { metadata } from '../../metadata.mjs';
 import { not } from '../../not.mjs';
@@ -6,7 +7,6 @@ import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { external_octokit_property_data } from '../../external/octokit/property/data.mjs';
 import { object_merge } from '../../object/merge.mjs';
-import { cached } from '../../cached.mjs';
 import { Octokit } from 'octokit';
 import { list_contains } from '../../list/contains.mjs';
 import { log } from '../../log.mjs';
