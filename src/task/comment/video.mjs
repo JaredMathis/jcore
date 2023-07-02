@@ -19,7 +19,7 @@ export async function task_comment_video(issue_number, video_key) {
         arguments_assert_todo
     ]);
     let b2 = await b2_get();
-    let authorize = b2.authorize();
+    let authorize = await b2.authorize();
     let authorize_data = b2_data_snake_get(authorize);
     return authorize;
     let uploads = await video_upload(video_key);
