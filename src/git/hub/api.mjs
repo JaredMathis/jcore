@@ -26,7 +26,7 @@ export async function git_hub_api(fn, args, verb, api_path, api_args_to_merge, n
         let v = await lambda();
         return v;
     }
-    let v_2 = await cached(fn, args, lambda);
+    let v_2 = await cached_generic(fn, args, lambda, no_cache);
     return v_2;
     async function lambda() {
         let v_6 = 'git_hub_api_token';
