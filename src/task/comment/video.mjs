@@ -10,12 +10,17 @@ import { list_map } from '../../list/map.mjs';
 import { string_combine } from '../../string/combine.mjs';
 import { assert } from '../../assert.mjs';
 import { list_empty_not } from '../../list/empty/not.mjs';
+import { b2_get } from '../../b2/get.mjs';
 export async function task_comment_video(issue_number, video_key) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo
     ]);
+    let b2 = await b2_get();
+    let authorize = b2.authorize();
+    return authorize;
     let uploads = await video_upload(video_key);
+    console.log({uploads})
     let url_streams = list_map_property(uploads, 'url_stream');
     assert(list_empty_not(url_streams));
     let notify = ['ismael-texidor'];
