@@ -4,7 +4,7 @@ import { metadata } from '../../../../metadata.mjs';
 import { js_identifier_combine } from '../../../../js/identifier/combine.mjs';
 import { function_add_property_get } from '../../property/get.mjs';
 import { functions_new_if_not_exists } from '../../../../functions/new/if/not/exists.mjs';
-import { js_identifiers_filter_to_node_properties_get } from '../../../../js/identifiers/filter/to/node/properties/get.mjs';
+import { js_identifiers_filter_to_properties_gets_get } from '../../../../js/identifiers/filter/to/properties/gets/get.mjs';
 import { function_identifiers } from '../../../identifiers.mjs';
 import { js_identifiers_filter_to_node_types } from '../../../../js/identifiers/filter/to/node/types.mjs';
 import { arguments_assert_todo } from '../../../../arguments/assert/todo.mjs';
@@ -18,7 +18,7 @@ import { js_identifier_parts_from } from '../../../../js/identifier/parts/from.m
 export async function function_add_properties_get_auto(function_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let identifiers = await function_identifiers(function_name);
-    let property_names_dictionary = js_identifiers_filter_to_node_properties_get(identifiers);
+    let property_names_dictionary = js_identifiers_filter_to_properties_gets_get(identifiers);
     await object_keys_each_async(property_names_dictionary, async function v_3(property_names, prefix) {
         for (let property_name of property_names) {
             let method = js_suffix_get();

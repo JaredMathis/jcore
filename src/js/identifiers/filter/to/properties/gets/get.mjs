@@ -8,7 +8,7 @@ import { list_is } from '../../../../../../list/is.mjs';
 import { arguments_assert } from '../../../../../../arguments/assert.mjs';
 import { list_to_dictionary } from '../../../../../../list/to/dictionary.mjs';
 import { identity } from '../../../../../../identity.mjs';
-export function js_identifiers_filter_to_node_properties_get(identifier_names) {
+export function js_identifiers_filter_to_properties_gets_get(identifier_names) {
     arguments_assert(arguments, [list_is]);
     const prefixes = [
         js_prefix_node_property(),
