@@ -33,6 +33,7 @@ export async function task_comment_video(issue_number, video_key) {
     let download_urls = list_map(file_names, function v_2(f) {
         return list_join([
             download_url,
+            'file',
             database_storage_bucket_name(),
             f
         ], '/');
