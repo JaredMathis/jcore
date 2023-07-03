@@ -28,7 +28,9 @@ export async function version_sync_local_preview_generic(repository_name) {
     };
     await version_file_contents_each(repository_name, removals, v_4);
     function todo(contents, existing, file_path) {
+        console.log({file_path})
         let hunks = string_difference_get(contents, existing);
+        console.log({hunks})
         let v_5 = list_empty(hunks);
         let v_3 = not(v_5);
         if (v_3) {

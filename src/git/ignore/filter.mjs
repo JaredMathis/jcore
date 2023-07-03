@@ -43,8 +43,6 @@ export async function git_ignore_filter(file_paths) {
         return v;
     };
     let filtered = list_filter(file_paths, v_5);
-    console.log({ filtered });
-    error()
     return filtered;
     metadata([]);
 }
