@@ -7,11 +7,15 @@ import { list_length } from '../../../../list/length.mjs';
 import { object_recursive_skip_root } from '../root.mjs';
 import { list_adder } from '../../../../list/adder.mjs';
 export function object_recursive_skip_root_depth(object, depth) {
+    const max = add_1(depth);
     return list_adder(la => {
         object_recursive_skip_root(object, function lambda(v) {
             let {node, stack} = v;
             let stack_length = list_length(stack);
-            if (stack_length > add_1(depth)) {
+            if (stack_length > max) {
+                return;
+            }
+            if (stack_length <max) {
                 return;
             }
             la(node);
