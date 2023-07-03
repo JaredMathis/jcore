@@ -20,6 +20,7 @@ export function string_sub_max(left, right) {
     const left_length = string_length(left);
     const right_length = string_length(right);
     while (less_than(left_index, left_length)) {
+        console.log({left_index})
         let right_index = integer_value_0();
         while (less_than(right_index, right_length)) {
             let offset = string_sub_max_starting_at(left, right, left_index, right_index);
