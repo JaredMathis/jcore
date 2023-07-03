@@ -36,8 +36,11 @@ export function string_to_tree(s) {
     log({ result });
     visit(result, function v_3(node) {
         let keys = object_keys(node);
-        list_map(keys, function v_4(k) {
-            return { value: object_property_get(k) };
+        list_map(keys, function v_4(key) {
+            return {
+                key,
+                value: object_property_get(key)
+            };
         });
     }, function v_2(v) {
         log({ v });
