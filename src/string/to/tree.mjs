@@ -1,4 +1,3 @@
-import { list_add } from '../../list/add.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { object_property_initialize_if_unset } from '../../object/property/initialize/if/unset.mjs';
 import { string_get } from '../get.mjs';
@@ -15,9 +14,11 @@ export function string_to_tree(s) {
     for (let index = string_length(s) - 2; index >= 0; index--) {
         let s_index = string_get(s, index);
         let s_index_next = string_get(s, add_1(index));
-        for (let s_i of [s_index, s_index_next]) {
+        for (let s_i of [
+                s_index,
+                s_index_next
+            ]) {
             object_property_initialize_if_unset(result, s_i, {});
-
         }
         let sub_result = object_property_get(result, s_index);
         const result_s_index_next = object_property_get(result, s_index_next);
