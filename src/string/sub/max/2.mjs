@@ -31,7 +31,7 @@ export function string_sub_max_2(left, right) {
     let tree_left_subs = object_keys_recursive(tree_left);
     let tree_right_subs = object_keys_recursive(tree_right);
     let length_max = 1;
-    let tree_right_found = object_recursive_skip_root_depth(tree_left, length_max);
+    let tree_right_found = object_recursive_skip_root_depth(tree_right, length_max);
     tree_right_found;
     return {
         tree_right,
