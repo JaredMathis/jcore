@@ -1,3 +1,4 @@
+import { object_property_initialize_if_unset } from '../../object/property/initialize/if/unset.mjs';
 import { string_get } from '../get.mjs';
 import { string_to_tree_recursive } from './tree/recursive.mjs';
 import { string_to_list } from './list.mjs';
@@ -11,7 +12,7 @@ export function string_to_tree(s) {
     for (let index = string_length(s) - 2; index >= 0; index--) {
         let s_index = string_get(s, index);
         let s_index_next = string_get(s, add_1(index));
-        console.log({s_index, s_index_next})
+        object_property_initialize_if_unset(result, s_index, []);
     }
     return result;
     let offset = 0;
