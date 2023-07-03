@@ -12,7 +12,7 @@ export function string_sub_max_2(left, right) {
     let tree_left_keys = object_keys_recursive(tree_left);
     let tree_right = string_to_tree(right);
     let tree_right_keys = object_keys_recursive(tree_right);
-    let r = list_without_multiple(tree_left_keys, tree_right_keys);
+    let r = list_without_multiple(tree_right_keys, tree_left_keys);
     return {
         tree_left_keys,
         tree_right_keys,
