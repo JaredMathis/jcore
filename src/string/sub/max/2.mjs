@@ -1,3 +1,4 @@
+import { json_to } from '../../../json/to.mjs';
 import { log } from '../../../log.mjs';
 import { object_recursive } from '../../../object/recursive.mjs';
 import { list_without_multiple } from '../../../list/without/multiple.mjs';
@@ -16,9 +17,8 @@ export function string_sub_max_2(left, right) {
     let tree_right_keys = object_keys_recursive(tree_right);
     let r = list_without_multiple(tree_right_keys, tree_left_keys);
     object_recursive(tree_right, function v_2(v) {
-        return log({ v });
+        let {node} = v;
+        return log(json_to(node));
     });
-    return {
-        r
-    };
+    return { r };
 }
