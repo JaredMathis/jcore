@@ -1,3 +1,4 @@
+import { git_hub_repository_issue_close } from '../../git/hub/repository/issue/close.mjs';
 import { metadata } from '../../metadata.mjs';
 import { task_map_local } from '../map/local.mjs';
 import { task_property_state_set } from '../property/state/set.mjs';
@@ -11,6 +12,7 @@ export async function task_close_try(task_number_string) {
         let v_5 = task_property_state_set(t, v_4);
         return v_5;
     };
+    await git_hub_repository_issue_close(task_number_string);
     let v = await task_map_local(task_number_string, v_3);
     return v;
     metadata([]);
