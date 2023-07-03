@@ -1,4 +1,4 @@
-import { list_to_string_log } from '../../../../../list/to/string/log.mjs';
+import { list_to_string } from '../../../../../list/to/string.mjs';
 import { log } from '../../../../../log.mjs';
 import { arguments_assert_todo } from '../../../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
@@ -19,7 +19,7 @@ export function object_recursive_skip_root_depth_keys(tree_right, length_max) {
             return object_property_exists(s, object_recursive_property_key());
         });
         let mapped = list_map_property(with_key, object_recursive_property_key());
-        return list_to_string_log(mapped);
+        return list_to_string(mapped);
     });
     log({ tree_right_found_keys });
     return tree_right_found_keys;
