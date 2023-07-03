@@ -13,6 +13,11 @@ import { string_underscore_is_test_4 } from './string/underscore/is/test/4.mjs';
 import { string_underscore_is_test_3 } from './string/underscore/is/test/3.mjs';
 import { string_underscore_is_test_2 } from './string/underscore/is/test/2.mjs';
 import { string_underscore_is_test_1 } from './string/underscore/is/test/1.mjs';
+import { string_to_tree_test_generated_5 } from './string/to/tree/test/generated/5.mjs';
+import { string_to_tree_test_generated_4 } from './string/to/tree/test/generated/4.mjs';
+import { string_to_tree_test_generated_3 } from './string/to/tree/test/generated/3.mjs';
+import { string_to_tree_test_generated_2 } from './string/to/tree/test/generated/2.mjs';
+import { string_to_tree_test_generated_1 } from './string/to/tree/test/generated/1.mjs';
 import { string_to_list_test_generated_5 } from './string/to/list/test/generated/5.mjs';
 import { string_to_list_test_generated_4 } from './string/to/list/test/generated/4.mjs';
 import { string_to_list_test_generated_3 } from './string/to/list/test/generated/3.mjs';
@@ -814,6 +819,11 @@ export async function tests() {
     await string_to_list_test_generated_3();
     await string_to_list_test_generated_4();
     await string_to_list_test_generated_5();
+    await string_to_tree_test_generated_1();
+    await string_to_tree_test_generated_2();
+    await string_to_tree_test_generated_3();
+    await string_to_tree_test_generated_4();
+    await string_to_tree_test_generated_5();
     await string_underscore_is_test_1();
     await string_underscore_is_test_2();
     await string_underscore_is_test_3();
@@ -826,6 +836,6 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(string_combine('411', ' tests ran successfully'));
+    log(string_combine('416', ' tests ran successfully'));
     metadata([]);
 }

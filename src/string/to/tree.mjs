@@ -14,8 +14,9 @@ import { equal } from '../../equal.mjs';
 import { log } from '../../log.mjs';
 import { list_contains } from '../../list/contains.mjs';
 import { list_add } from '../../list/add.mjs';
+import { string_is } from '../is.mjs';
 export function string_to_tree(s) {
-    arguments_assert(arguments, [arguments_assert_todo]);
+    arguments_assert(arguments, [string_is]);
     let result = {};
     const s_index_last = string_length(s) - 1;
     for (let index = string_length(s) - 1; index >= 0; index--) {
@@ -41,8 +42,6 @@ export function string_to_tree(s) {
             object_property_set(sub_result, s_next, result_s_index_next);
         }
     }
-    let keys = object_keys_recursive(result);
-    log({ keys });
     return result;
     let offset = 0;
     let list_of_characters = string_to_list(s);
