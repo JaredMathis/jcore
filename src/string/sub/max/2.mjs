@@ -27,5 +27,5 @@ export function string_sub_max_2(left, right) {
         }
         return log(key);
     });
-    return { r };
+    return { tree_right };
 }
