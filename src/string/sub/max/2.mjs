@@ -1,3 +1,4 @@
+import { number_min } from '../../../number/min.mjs';
 import { list_intersection } from '../../../list/intersection.mjs';
 import { object_recursive_skip_root_depth_keys } from '../../../object/recursive/skip/root/depth/keys.mjs';
 import { object_recursive_property_value } from '../../../object/recursive/property/value.mjs';
@@ -12,6 +13,7 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { object_recursive_skip_root } from '../../../object/recursive/skip/root.mjs';
 import { list_contains } from '../../../list/contains.mjs';
 import { list_empty } from '../../../list/empty.mjs';
+import { string_length } from '../../length.mjs';
 export function string_sub_max_2(left, right) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -32,10 +34,11 @@ export function string_sub_max_2(left, right) {
     });
     let tree_left_subs = object_keys_recursive(tree_left);
     let tree_right_subs = object_keys_recursive(tree_right);
-    for (let length_max = 1; length_max <= max; length_max++) {
+    let intersection;
+    for (let length_max = 1; length_max <= number_min(string_length(left), string_length(right)); length_max++) {
         let tree_right_found_keys = object_recursive_skip_root_depth_keys(tree_right, length_max);
         let tree_left_found_keys = object_recursive_skip_root_depth_keys(tree_left, length_max);
-        let intersection = list_intersection(tree_right_found_keys, tree_left_found_keys);
+        intersection = list_intersection(tree_right_found_keys, tree_left_found_keys);
         if (list_empty(intersection)) {
             break;
         }
