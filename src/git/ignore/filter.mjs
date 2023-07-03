@@ -15,6 +15,7 @@ import { list_filter } from '../../list/filter.mjs';
 import { git_ignore_lines } from './lines.mjs';
 import { string_combine } from '../../string/combine.mjs';
 import { list_map } from '../../list/map.mjs';
+import { error } from '../../error.mjs';
 export async function git_ignore_filter(file_paths) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {lines: gil} = await git_ignore_lines();
@@ -43,6 +44,7 @@ export async function git_ignore_filter(file_paths) {
     };
     let filtered = list_filter(file_paths, v_5);
     console.log({ filtered });
+    error()
     return filtered;
     metadata([]);
 }
