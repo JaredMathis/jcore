@@ -5,6 +5,7 @@ import { object_property_initialize_if_unset } from '../../../object/property/in
 import { list_each_with_index } from '../../../list/each/with/index.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
 import { list_add } from '../../../list/add.mjs';
+import { list_index_valid } from '../../../list/index/valid.mjs';
 export function string_to_tree_recursive(list_of_characters, offset) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -16,6 +17,9 @@ export function string_to_tree_recursive(list_of_characters, offset) {
             return;
         }
         const index_next = add_1(index);
+        if (!list_index_valid(list_of_characters, index_next)) {
+            return;
+        }
         object_property_initialize_if_unset(result, element, []);
         let list = object_property_get(result, element);
         let value = string_to_tree_recursive(list_of_characters, index_next);
