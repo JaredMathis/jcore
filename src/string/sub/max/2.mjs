@@ -12,6 +12,8 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { object_recursive_skip_root } from '../../../object/recursive/skip/root.mjs';
 import { list_contains } from '../../../list/contains.mjs';
 import { list_length } from '../../../list/length.mjs';
+import { object_keys } from '../../../object/keys.mjs';
+import { list_empty } from '../../../list/empty.mjs';
 export function string_sub_max_2(left, right) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -40,7 +42,10 @@ export function string_sub_max_2(left, right) {
             return;
         }
         let node_value = object_property_get(node, object_recursive_property_value());
-        log({ node_value });
+        let node_value_keys = object_keys(node_value);
+        if (list_empty(node_value_keys)) {
+            log({ node_value });
+        }
     });
     return;
     return { tree_right };
