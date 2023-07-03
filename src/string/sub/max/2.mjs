@@ -1,7 +1,7 @@
+import { object_property_remove } from '../../../object/property/remove.mjs';
 import { object_recursive_property_key } from '../../../object/recursive/property/key.mjs';
 import { object_property_get } from '../../../object/property/get.mjs';
 import { log } from '../../../log.mjs';
-import { object_recursive } from '../../../object/recursive.mjs';
 import { list_without_multiple } from '../../../list/without/multiple.mjs';
 import { object_keys_recursive } from '../../../object/keys/recursive.mjs';
 import { string_to_tree } from '../../to/tree.mjs';
@@ -23,7 +23,7 @@ export function string_sub_max_2(left, right) {
         let {node, parent} = v;
         let key = object_property_get(node, object_recursive_property_key());
         if (list_contains(r, key)) {
-            object_property_remove(parent, key)
+            object_property_remove(parent, key);
         }
         return log(key);
     });
