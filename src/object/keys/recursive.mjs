@@ -8,7 +8,8 @@ export function object_keys_recursive(result) {
     arguments_assert(arguments, [arguments_assert_todo]);
     return list_adder_unique(function v_5(la) {
         object_recursive_skip_root(result, lambda);
-        function lambda(node) {
+        function lambda(v) {
+            let {node} = v;
             let key = object_property_get(node, object_recursive_property_key());
             la(key);
         }

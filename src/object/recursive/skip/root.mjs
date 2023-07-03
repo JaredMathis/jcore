@@ -9,6 +9,6 @@ export function object_recursive_skip_root(result, lambda) {
         if (!object_property_exists(node, property_key)) {
             return;
         }
-        lambda(node);
+        lambda(v);
     }
 }
