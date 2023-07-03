@@ -14,9 +14,13 @@ export function string_to_tree(s) {
     for (let index = string_length(s) - 2; index >= 0; index--) {
         let s_index = string_get(s, index);
         let s_index_next = string_get(s, add_1(index));
-        object_property_initialize_if_unset(result, s_index, []);
-        let list = object_property_get(result, element);
-        list_add(list, value);
+        for (let s_i of [s_index, s_index_next]) {
+            object_property_initialize_if_unset(result, s_i, []);
+
+        }
+        let list = object_property_get(result, s_index);
+        const newLocal = object_property_get(result, s_index_next);
+        list_add(list, newLocal);
     }
     return result;
     let offset = 0;
