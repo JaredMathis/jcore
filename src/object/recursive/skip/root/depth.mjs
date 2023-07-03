@@ -6,6 +6,7 @@ import { add_1 } from '../../../../add/1.mjs';
 import { list_length } from '../../../../list/length.mjs';
 import { object_recursive_skip_root } from '../root.mjs';
 import { list_adder } from '../../../../list/adder.mjs';
+import { object_copy_shallow } from '../../../copy/shallow.mjs';
 export function object_recursive_skip_root_depth(object, depth) {
     const max = add_1(depth);
     return list_adder(la => {
@@ -18,7 +19,7 @@ export function object_recursive_skip_root_depth(object, depth) {
             if (stack_length < max) {
                 return;
             }
-            la(node);
+            la(object_copy_shallow(stack));
             return;
             let node_value = object_property_get(node, object_recursive_property_value());
             let node_value_keys = object_keys(node_value);
