@@ -13,6 +13,9 @@ export async function function_tests_copy(function_name_from, function_name_to) 
     assert(list_empty_not(result_from));
     let result_to = await function_tests_all(function_name_to);
     assert(list_empty(result_to));
+    for (let r of result_from) {
+        let r_mapped = 
+    }
     return {
         result_from,
         result_to,
