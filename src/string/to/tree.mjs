@@ -1,3 +1,4 @@
+import { list_adder_unique } from '../../list/adder/unique.mjs';
 import { list_map } from '../../list/map.mjs';
 import { object_keys } from '../../object/keys.mjs';
 import { visit } from '../../visit.mjs';
@@ -14,7 +15,6 @@ import { add_1 } from '../../add/1.mjs';
 import { object_property_set } from '../../object/property/set.mjs';
 import { equal } from '../../equal.mjs';
 import { log } from '../../log.mjs';
-import { error } from '../../error.mjs';
 import { object_property_exists } from '../../object/property/exists.mjs';
 export function string_to_tree(s) {
     arguments_assert(arguments, [arguments_assert_todo]);
@@ -35,8 +35,8 @@ export function string_to_tree(s) {
         }
         object_property_set(sub_result, s_index_next, result_s_index_next);
     }
-    let keys = list_adder_unique(la => {
-        let property_key = 'key'
+    let keys = list_adder_unique(function v_5(la) {
+        let property_key = 'key';
         visit({ value: result }, function v_3(node) {
             let {value} = node;
             let keys = object_keys(value);
@@ -54,8 +54,8 @@ export function string_to_tree(s) {
             let key = object_property_get(node, property_key);
             la(key);
         });
-    })
-    log({keys})
+    });
+    log({ keys });
     return result;
     let offset = 0;
     let list_of_characters = string_to_list(s);
