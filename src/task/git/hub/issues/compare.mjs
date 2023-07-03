@@ -18,7 +18,7 @@ export async function task_git_hub_issues_compare() {
     let all = await file_json_read(all_path);
     let all_2 = await file_json_read(all_2_path);
     if (!equal_by(list_length, all, all_2)) {
-        await task_git_hub_issues_pull_2();
+        all_2 = await task_git_hub_issues_pull_2();
     }
     const number = 'number';
     for (let a of all) {
