@@ -13,12 +13,12 @@ export function object_recursive_skip_root_depth_keys(tree_right, length_max) {
         arguments_assert_todo
     ]);
     let stacks = object_recursive_skip_root_depth(tree_right, length_max);
-    list_map(stacks, function v(stack) {
+    let tree_right_found_keys=list_map(stacks, function v(stack) {
         let with_key = list_filter(stack, function v_2(s) {
             return object_property_exists(s, object_recursive_property_key());
         });
-        log({ with_key });
+        let mapped = list_map_property(with_key, object_recursive_property_key());
+        return mapped
     });
-    let tree_right_found_keys = list_map_property(stacks, object_recursive_property_key());
     return tree_right_found_keys;
 }
