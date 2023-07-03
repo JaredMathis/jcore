@@ -19,10 +19,10 @@ export function string_to_tree(s) {
     let result = {};
     for (let index = string_length(s) - 1; index >= 0; index--) {
         let s_index = string_get(s, index);
-        let s_index_next = string_get(s, add_1(index));
         const s_is = [
             s_index
         ];
+        let s_index_next = string_get(s, add_1(index));
         list_add(s_is, 
             s_index_next)
         for (let s_i of s_is) {
