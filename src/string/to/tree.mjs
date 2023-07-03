@@ -8,6 +8,7 @@ export function string_to_tree(s) {
     arguments_assert(arguments, [arguments_assert_todo]);
     for (let index = string_length(s) - 2; index >= 0; index--) {
         let s_index = string_get(s, index);
+        console.log({s_index})
     }
     return;
     let offset = 0;
