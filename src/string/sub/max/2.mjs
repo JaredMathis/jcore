@@ -39,7 +39,8 @@ export function string_sub_max_2(left, right) {
         if (stack_length > add_1(length_max)) {
             return;
         }
-        log({ node });
+        let node_value = object_property_get(node, object_recursive_property_value());
+        log({ node_value });
     });
     return;
     return { tree_right };
