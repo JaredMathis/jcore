@@ -1,3 +1,4 @@
+import { log } from '../../../log.mjs';
 import { number_min } from '../../../number/min.mjs';
 import { list_intersection } from '../../../list/intersection.mjs';
 import { object_recursive_skip_root_depth_keys } from '../../../object/recursive/skip/root/depth/keys.mjs';
@@ -35,7 +36,9 @@ export function string_sub_max_2(left, right) {
     let tree_left_subs = object_keys_recursive(tree_left);
     let tree_right_subs = object_keys_recursive(tree_right);
     let intersection;
-    for (let length_max = 1; length_max <= number_min(string_length(left), string_length(right)); length_max++) {
+    const max = number_min(string_length(left), string_length(right));
+    log({ max });
+    for (let length_max = 1; length_max <= max; length_max++) {
         let tree_right_found_keys = object_recursive_skip_root_depth_keys(tree_right, length_max);
         let tree_left_found_keys = object_recursive_skip_root_depth_keys(tree_left, length_max);
         intersection = list_intersection(tree_right_found_keys, tree_left_found_keys);
