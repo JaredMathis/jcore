@@ -16,13 +16,14 @@ export function object_keys_recursive(result) {
                     value: object_property_get(value, key)
                 };
             });
-        }, function v_2(v) {
+        },lambda );
+        function lambda(v) {
             let {node} = v;
             if (!object_property_exists(node, property_key)) {
-                return;
+                return;;
             }
             let key = object_property_get(node, property_key);
             la(key);
-        });
+        }
     });
 }
