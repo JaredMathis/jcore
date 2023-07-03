@@ -1,3 +1,4 @@
+import { string_to } from '../../../string/to.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { version_path_file_directory } from './directory.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
@@ -13,7 +14,7 @@ export function version_path_file_get(repository_name, file_path, file_version) 
         integer_is
     ]);
     let repository_file_path = version_path_file_directory(repository_name, file_path);
-    let file_name = file_name_json(file_version);
+    let file_name = file_name_json(string_to(file_version));
     let v = [
         repository_file_path,
         file_name
