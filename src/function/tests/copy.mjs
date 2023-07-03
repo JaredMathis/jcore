@@ -1,3 +1,4 @@
+import { log } from '../../log.mjs';
 import { file_js_identifier_rename } from '../../file/js/identifier/rename.mjs';
 import { function_name_to_file_path } from '../name/to/file/path.mjs';
 import { string_prefix_replace } from '../../string/prefix/replace.mjs';
@@ -21,7 +22,11 @@ export async function function_tests_copy(function_name_from, function_name_to) 
         let r_mapped = string_prefix_replace(r, function_name_from, function_name_to);
         await function_copy(r, r_mapped);
         let file_path = function_name_to_file_path(r_mapped);
-        log({file_path, function_name_from, function_name_to})
+        log({
+            file_path,
+            function_name_from,
+            function_name_to
+        });
         await file_js_identifier_rename(file_path, function_name_from, function_name_to);
         break;
     }
