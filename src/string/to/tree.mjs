@@ -22,9 +22,10 @@ export function string_to_tree(s) {
         let s_index = string_get(s, index);
         const s_is = [s_index];
         const index_next = add_1(index);
-        let s_next = string_get(s, index_next);
+        let s_next;
         const s_index_next_valid = index_next <= s_index_last;
         if (s_index_next_valid) {
+            s_next = string_get(s, index_next);
             list_add(s_is, s_next);
         }
         for (let s_i of s_is) {
