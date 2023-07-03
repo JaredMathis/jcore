@@ -36,6 +36,7 @@ export function string_sub_max_2(left, right) {
     let tree_left_subs = object_keys_recursive(tree_left);
     let tree_right_subs = object_keys_recursive(tree_right);
     let intersection;
+    let intersection_previous;
     const max = number_min(string_length(left), string_length(right));
     log({ max });
     for (let length_max = 1; length_max <= max; length_max++) {
@@ -45,10 +46,11 @@ export function string_sub_max_2(left, right) {
         if (list_empty(intersection)) {
             break;
         }
+        intersection_previous = intersection
     }
     return {
         tree_right,
         tree_left,
-        intersection
+        intersection_previous
     };
 }
