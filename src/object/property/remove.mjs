@@ -9,7 +9,7 @@ export function object_property_remove(object, property_name) {
         defined_is,
         string_is
     ]);
-    assert(object_property_exists(object, property_name))
+    assert(object_property_exists(object, property_name));
     delete object[property_name];
     metadata([]);
 }

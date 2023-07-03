@@ -14,7 +14,10 @@ export async function version_file_contents_each(repository_name, file_paths, la
     for (let file_path of file_paths) {
         let contents = await version_file_contents(repository_name, file_path);
         await lambda(file_path, contents);
-        console.log([list_length(file_paths), list_index_of(file_paths, file_path)])
+        console.log([
+            list_length(file_paths),
+            list_index_of(file_paths, file_path)
+        ]);
     }
     metadata([]);
 }
