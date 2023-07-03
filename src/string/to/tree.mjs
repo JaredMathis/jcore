@@ -18,7 +18,7 @@ export function string_to_tree(s) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let result = {};
     const s_index_last = string_length(s) - 1;
-    for (let index = s_index_last; index >= 0; index--) {
+    for (let index = string_length(s) - 2; index >= 0; index--) {
         let s_index = string_get(s, index);
         const s_is = [s_index];
         const index_next = add_1(index);
