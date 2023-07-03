@@ -23,23 +23,24 @@ export function string_to_tree(s) {
         const s_is = [
             s_index
         ];
-        let s_index_next = string_get(s, add_1(index));
-        const s_index_next_valid = s_index_next <= s_index_last;
+        const index_next = add_1(index);
+        let s_next = string_get(s, index_next);
+        const s_index_next_valid = s_next <= s_index_last;
         if (s_index_next_valid) {
             list_add(s_is, 
-                s_index_next)
+                s_next)
         }
         for (let s_i of s_is) {
             object_property_initialize_if_unset(result, s_i, {});
         }
         if (s_index_next_valid) {
         let sub_result = object_property_get(result, s_index);
-        let result_s_index_next = object_property_get(result, s_index_next);
+        let result_s_index_next = object_property_get(result, s_next);
         let keys = object_keys_recursive(result);
-        if (equal(s_index, s_index_next) || list_contains(keys, s_index)) {
+        if (equal(s_index, s_next) || list_contains(keys, s_index)) {
             result_s_index_next = object_copy_shallow(result_s_index_next);
         }
-        object_property_set(sub_result, s_index_next, result_s_index_next);
+        object_property_set(sub_result, s_next, result_s_index_next);
         }
     }
     let keys = object_keys_recursive(result);
