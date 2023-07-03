@@ -24,7 +24,6 @@ export function string_to_tree(s) {
         let sub_result = object_property_get(result, s_index);
         let result_s_index_next = object_property_get(result, s_index_next);
         if (equal(s_index, s_index_next)) {
-            
         }
         object_property_set(sub_result, s_index_next, result_s_index_next);
     }
