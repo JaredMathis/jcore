@@ -26,12 +26,8 @@ export function string_sub_max_2(left, right) {
         if (list_contains(r, key)) {
             let parent_value = object_property_get(parent, object_recursive_property_value());
             object_property_remove(parent_value, key);
-            log({
-                key,
-                parent_value
-            });
         }
-        return log(key);
     });
+    let length = 1;
     return { tree_right };
 }
