@@ -8,10 +8,11 @@ import { string_sub_max_property_right_index } from './max/property/right/index.
 import { string_sub_max_property_left_index } from './max/property/left/index.mjs';
 import { string_sub_max_property_offset } from './max/property/offset.mjs';
 import { string_sub_max_starting_at } from './max/starting/at.mjs';
+import { string_is } from '../is.mjs';
 export function string_sub_max(left, right) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
-        arguments_assert_todo
+        string_is,
+        string_is
     ]);
     let offset_max = integer_value_0();
     let left_index_max = integer_value_0();
