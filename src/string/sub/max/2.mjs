@@ -39,6 +39,7 @@ export function string_sub_max_2(left, right) {
         tree_right,
         tree_left,
         tree_right_found_keys,
-        tree_left_found_keys
+        tree_left_found_keys,
+        intersection
     };
 }
