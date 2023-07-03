@@ -28,8 +28,8 @@ export function string_to_tree(s) {
             s_next = string_get(s, index_next);
             list_add(s_is, s_next);
         }
-        console.log({s_is})
         for (let s_i of s_is) {
+            console.log({s_i})
             object_property_initialize_if_unset(result, s_i, {});
         }
         if (s_index_next_valid) {
