@@ -12,6 +12,7 @@ import { todo } from '../../../../todo.mjs';
 import { file_read } from '../../../../file/read.mjs';
 import { version_output_generic } from '../../../output/generic.mjs';
 import { directory_read_current } from '../../../../directory/read/current.mjs';
+import { string_length } from '../../../../string/length.mjs';
 export async function version_sync_local_preview_generic(repository_name) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let file_paths = await directory_read_current();
@@ -28,7 +29,7 @@ export async function version_sync_local_preview_generic(repository_name) {
     };
     await version_file_contents_each(repository_name, removals, v_4);
     function todo(contents, existing, file_path) {
-        console.log({file_path})
+        console.log({file_path, a:[string_length(contents), string_length(existing)]})
         let hunks = string_difference_get(contents, existing);
         console.log({hunks})
         let v_5 = list_empty(hunks);
