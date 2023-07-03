@@ -15,7 +15,7 @@ export function string_sub_max_2(left, right) {
     let r = list_without_multiple(tree_right_keys, tree_left_keys);
     return {
         tree_left,
-        tree_left,
+        tree_right,
         r
     };
 }
