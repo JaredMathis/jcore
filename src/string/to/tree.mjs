@@ -36,21 +36,22 @@ export function string_to_tree(s) {
         object_property_set(sub_result, s_index_next, result_s_index_next);
     }
     log({ result });
+    let property_key = 'key'
     visit({ value: result }, function v_3(node) {
         let {value} = node;
         let keys = object_keys(value);
         return list_map(keys, function v_4(key) {
             return {
-                key,
+                [property_key]: key,
                 value: object_property_get(value, key)
             };
         });
     }, function v_2(v) {
         let {node} = v;
-        if (!object_property_exists(node, 'key')) {
+        if (!object_property_exists(node, property_key)) {
             return;
         }
-        let {key} = node;
+        let key = object_property_get(node, property_key);
         log({ key });
     });
     return result;
