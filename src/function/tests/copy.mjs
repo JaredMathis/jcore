@@ -22,6 +22,7 @@ export async function function_tests_copy(function_name_from, function_name_to) 
         await function_copy(r, r_mapped);
         let file_path = function_name_to_file_path(r_mapped);
         await file_js_identifier_rename(file_path, function_name_from, function_name_to);
+        break;
     }
     return {
         result_from,
