@@ -45,7 +45,9 @@ export function string_to_tree(s) {
             };
         });
     }, function v_2(v) {
-        log({ v });
+        let {node} = v;
+        let {key} = node;
+        log({ key });
     });
     return result;
     let offset = 0;
