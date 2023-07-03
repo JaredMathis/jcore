@@ -32,9 +32,11 @@ export function string_sub_max_2(left, right) {
     let tree_right_subs = object_keys_recursive(tree_right);
     let length_max = 1;
     let tree_right_found_keys = object_recursive_skip_root_depth_keys(tree_right, length_max);
+    let tree_left_found_keys = object_recursive_skip_root_depth_keys(tree_left, length_max);
     return {
         tree_right,
         tree_left,
-        tree_right_found_keys
+        tree_right_found_keys,
+        tree_left_found_keys
     };
 }
