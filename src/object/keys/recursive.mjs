@@ -15,7 +15,7 @@ export function object_keys_recursive(result) {
             if (!object_property_exists(node, property_key)) {
                 return;
             }
-            let key = object_property_get(node, property_key);
+            let key = object_property_get(node, object_recursive_property_key());
             la(key);
         }
     });
