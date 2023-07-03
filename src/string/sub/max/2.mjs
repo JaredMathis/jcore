@@ -29,5 +29,7 @@ export function string_sub_max_2(left, right) {
         }
     });
     let length = 1;
+    let tree_left_subs = object_keys_recursive(tree_left);
+    let tree_right_subs = object_keys_recursive(tree_right);
     return { tree_right };
 }
