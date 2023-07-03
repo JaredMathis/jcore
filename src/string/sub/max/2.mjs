@@ -7,6 +7,7 @@ import { object_keys_recursive } from '../../../object/keys/recursive.mjs';
 import { string_to_tree } from '../../to/tree.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
+import { object_recursive_skip_root } from '../../../object/recursive/skip/root.mjs';
 export function string_sub_max_2(left, right) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -17,7 +18,7 @@ export function string_sub_max_2(left, right) {
     let tree_right = string_to_tree(right);
     let tree_right_keys = object_keys_recursive(tree_right);
     let r = list_without_multiple(tree_right_keys, tree_left_keys);
-    object_recursive(tree_right, function v_2(v) {
+    object_recursive_skip_root(tree_right, function v_2(v) {
         let {node} = v;
         let key = object_property_get(node, object_recursive_property_key());
         return log(key);
