@@ -1,26 +1,20 @@
+import { object_recursive_property_key } from '../recursive/property/key.mjs';
+import { object_recursive } from '../recursive.mjs';
+import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
+import { arguments_assert } from '../../arguments/assert.mjs';
 import { object_property_exists } from '../property/exists.mjs';
 import { object_property_get } from '../property/get.mjs';
-import { list_map } from '../../list/map.mjs';
-import { object_keys } from '../keys.mjs';
-import { visit } from '../../visit.mjs';
 import { list_adder_unique } from '../../list/adder/unique.mjs';
 export function object_keys_recursive(result) {
+    arguments_assert(arguments, [arguments_assert_todo]);
     return list_adder_unique(function v_5(la) {
-        let property_key = 'key';
-        visit({ value: result }, function v_3(node) {
-            let {value} = node;
-            let keys = object_keys(value);
-            return list_map(keys, function v_4(key) {
-                return {
-                    [property_key]: key,
-                    value: object_property_get(value, key)
-                };
-            });
-        },lambda );
+        object_recursive(result, lambda);
         function lambda(v) {
             let {node} = v;
+            let property_key = object_recursive_property_key();
             if (!object_property_exists(node, property_key)) {
-                return;;
+                return;
+                ;
             }
             let key = object_property_get(node, property_key);
             la(key);
