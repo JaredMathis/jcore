@@ -44,7 +44,7 @@ export function string_sub_max_2(left, right) {
         let node_value = object_property_get(node, object_recursive_property_value());
         let node_value_keys = object_keys(node_value);
         if (list_empty(node_value_keys)) {
-            log({ node_value });
+            log({ node });
         }
     });
     return;
