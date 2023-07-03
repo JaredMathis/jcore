@@ -16,7 +16,7 @@ import { list_contains } from '../../list/contains.mjs';
 export function string_to_tree(s) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let result = {};
-    for (let index = string_length(s) - 2; index >= 0; index--) {
+    for (let index = string_length(s) - 1; index >= 0; index--) {
         let s_index = string_get(s, index);
         let s_index_next = string_get(s, add_1(index));
         for (let s_i of [
