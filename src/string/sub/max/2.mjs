@@ -35,6 +35,7 @@ export function string_sub_max_2(left, right) {
     tree_right_found;
     return {
         tree_right,
-        tree_left
+        tree_left,
+        tree_right_found
     };
 }
