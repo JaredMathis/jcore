@@ -1,3 +1,4 @@
+import { list_map_property } from '../../../list/map/property.mjs';
 import { object_recursive_skip_root_depth } from '../../../object/recursive/skip/root/depth.mjs';
 import { object_recursive_property_value } from '../../../object/recursive/property/value.mjs';
 import { object_property_remove } from '../../../object/property/remove.mjs';
@@ -32,6 +33,7 @@ export function string_sub_max_2(left, right) {
     let tree_right_subs = object_keys_recursive(tree_right);
     let length_max = 1;
     let tree_right_found = object_recursive_skip_root_depth(tree_right, length_max);
+    list_map_property(tree_right_found, object_recursive_property_key());
     tree_right_found;
     return {
         tree_right,
