@@ -1,3 +1,5 @@
+import { object_keys } from '../../object/keys.mjs';
+import { visit } from '../../visit.mjs';
 import { object_copy_shallow } from '../../object/copy/shallow.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { object_property_initialize_if_unset } from '../../object/property/initialize/if/unset.mjs';
@@ -10,6 +12,8 @@ import { string_length } from '../length.mjs';
 import { add_1 } from '../../add/1.mjs';
 import { object_property_set } from '../../object/property/set.mjs';
 import { equal } from '../../equal.mjs';
+import { log } from '../../log.mjs';
+import { error } from '../../error.mjs';
 export function string_to_tree(s) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let result = {};
@@ -24,6 +28,10 @@ export function string_to_tree(s) {
         }
         let sub_result = object_property_get(result, s_index);
         let result_s_index_next = object_property_get(result, s_index_next);
+        visit(result_s_index_next, object_keys, n, function v_2(v) {
+            log({ v });
+        });
+        error();
         if (equal(s_index, s_index_next)) {
             result_s_index_next = object_copy_shallow(result_s_index_next);
         }
