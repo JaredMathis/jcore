@@ -19,8 +19,6 @@ export function string_sub_max_2(left, right) {
         return log({ v });
     });
     return {
-        tree_left,
-        tree_right,
         r
     };
 }
