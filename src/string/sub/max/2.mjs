@@ -10,6 +10,7 @@ import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { object_recursive_skip_root } from '../../../object/recursive/skip/root.mjs';
 import { list_contains } from '../../../list/contains.mjs';
+import { list_length } from '../../../list/length.mjs';
 export function string_sub_max_2(left, right) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -28,8 +29,17 @@ export function string_sub_max_2(left, right) {
             object_property_remove(parent_value, key);
         }
     });
-    let length = 1;
+    let length_max = 1;
     let tree_left_subs = object_keys_recursive(tree_left);
     let tree_right_subs = object_keys_recursive(tree_right);
+    
+    object_recursive_skip_root(tree_right, function lambda(v) {
+        let {node, stack} = v;
+        let stack_length = list_length(stack);
+        if (stack_length > length_max) {
+            return;
+        }
+    });
+    
     return { tree_right };
 }
