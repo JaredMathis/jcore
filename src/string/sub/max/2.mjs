@@ -33,11 +33,11 @@ export function string_sub_max_2(left, right) {
     let tree_right_subs = object_keys_recursive(tree_right);
     let length_max = 1;
     let tree_right_found = object_recursive_skip_root_depth(tree_right, length_max);
-    list_map_property(tree_right_found, object_recursive_property_key());
-    tree_right_found;
+    let tree_right_found_keys = list_map_property(tree_right_found, object_recursive_property_key());
     return {
         tree_right,
         tree_left,
         tree_right_found
+
     };
 }
