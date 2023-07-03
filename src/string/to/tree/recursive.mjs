@@ -17,7 +17,8 @@ export function string_to_tree_recursive(list_of_characters, offset) {
         }
         object_property_initialize_if_unset(result, element, []);
         let list = object_property_get(result, element);
-        let value = string_to_tree_recursive(list_of_characters, add_1(index));
+        const index_next = add_1(index);
+        let value = string_to_tree_recursive(list_of_characters, index_next);
         list_add(list, value);
     });
     return result;
