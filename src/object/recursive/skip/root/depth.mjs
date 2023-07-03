@@ -14,10 +14,11 @@ export function object_recursive_skip_root_depth(object, depth) {
             if (stack_length > add_1(depth)) {
                 return;
             }
+            la(node);
+            return;
             let node_value = object_property_get(node, object_recursive_property_value());
             let node_value_keys = object_keys(node_value);
             if (list_empty(node_value_keys)) {
-                la(node);
             }
         });
     });
