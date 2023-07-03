@@ -17,17 +17,22 @@ import { list_add } from '../../list/add.mjs';
 export function string_to_tree(s) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let result = {};
-    for (let index = string_length(s) - 1; index >= 0; index--) {
+    const s_index_last = string_length(s) - 1;
+    for (let index = s_index_last; index >= 0; index--) {
         let s_index = string_get(s, index);
         const s_is = [
             s_index
         ];
         let s_index_next = string_get(s, add_1(index));
-        list_add(s_is, 
-            s_index_next)
+        const s_index_next_valid = s_index_next <= s_index_last;
+        if (s_index_next_valid) {
+            list_add(s_is, 
+                s_index_next)
+        }
         for (let s_i of s_is) {
             object_property_initialize_if_unset(result, s_i, {});
         }
+        if (s_index_next_valid) {
         let sub_result = object_property_get(result, s_index);
         let result_s_index_next = object_property_get(result, s_index_next);
         let keys = object_keys_recursive(result);
@@ -35,6 +40,7 @@ export function string_to_tree(s) {
             result_s_index_next = object_copy_shallow(result_s_index_next);
         }
         object_property_set(sub_result, s_index_next, result_s_index_next);
+        }
     }
     let keys = object_keys_recursive(result);
     log({ keys });
