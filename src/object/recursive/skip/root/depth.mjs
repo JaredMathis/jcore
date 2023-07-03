@@ -15,7 +15,7 @@ export function object_recursive_skip_root_depth(object, depth) {
             if (stack_length > max) {
                 return;
             }
-            if (stack_length <max) {
+            if (stack_length < max) {
                 return;
             }
             la(node);
