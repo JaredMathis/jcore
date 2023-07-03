@@ -28,7 +28,7 @@ export function string_sub_max_2(left, right) {
             object_property_remove(parent_value, key);
             log({
                 key,
-                parent
+                parent_value
             });
         }
         return log(key);
