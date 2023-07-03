@@ -1,3 +1,4 @@
+import { list_first } from '../../../list/first.mjs';
 import { log } from '../../../log.mjs';
 import { number_min } from '../../../number/min.mjs';
 import { list_intersection } from '../../../list/intersection.mjs';
@@ -33,10 +34,8 @@ export function string_sub_max_2(left, right) {
             object_property_remove(parent_value, key);
         }
     });
-    let tree_left_subs = object_keys_recursive(tree_left);
-    let tree_right_subs = object_keys_recursive(tree_right);
     let intersection;
-    let intersection_previous;
+    let intersection_previous = [];
     const max = number_min(string_length(left), string_length(right));
     log({ max });
     let length_max;
@@ -49,10 +48,5 @@ export function string_sub_max_2(left, right) {
         }
         intersection_previous = intersection;
     }
-    return {
-        tree_right,
-        tree_left,
-        intersection_previous,
-        length_max
-    };
+    return list_first(intersection_previous);
 }
