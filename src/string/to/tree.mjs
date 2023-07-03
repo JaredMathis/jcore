@@ -1,7 +1,4 @@
-import { list_adder_unique } from '../../list/adder/unique.mjs';
-import { list_map } from '../../list/map.mjs';
-import { object_keys } from '../../object/keys.mjs';
-import { visit } from '../../visit.mjs';
+import { object_keys_recursive } from '../../object/keys/recursive.mjs';
 import { object_copy_shallow } from '../../object/copy/shallow.mjs';
 import { object_property_get } from '../../object/property/get.mjs';
 import { object_property_initialize_if_unset } from '../../object/property/initialize/if/unset.mjs';
@@ -15,7 +12,6 @@ import { add_1 } from '../../add/1.mjs';
 import { object_property_set } from '../../object/property/set.mjs';
 import { equal } from '../../equal.mjs';
 import { log } from '../../log.mjs';
-import { object_property_exists } from '../../object/property/exists.mjs';
 export function string_to_tree(s) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let result = {};
@@ -35,26 +31,7 @@ export function string_to_tree(s) {
         }
         object_property_set(sub_result, s_index_next, result_s_index_next);
     }
-    let keys = list_adder_unique(function v_5(la) {
-        let property_key = 'key';
-        visit({ value: result }, function v_3(node) {
-            let {value} = node;
-            let keys = object_keys(value);
-            return list_map(keys, function v_4(key) {
-                return {
-                    [property_key]: key,
-                    value: object_property_get(value, key)
-                };
-            });
-        }, function v_2(v) {
-            let {node} = v;
-            if (!object_property_exists(node, property_key)) {
-                return;
-            }
-            let key = object_property_get(node, property_key);
-            la(key);
-        });
-    });
+    let keys = object_keys_recursive(result);
     log({ keys });
     return result;
     let offset = 0;
