@@ -8,6 +8,7 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { string_length } from '../length.mjs';
 import { add_1 } from '../../add/1.mjs';
 import { object_property_set } from '../../object/property/set.mjs';
+import { equal } from '../../equal.mjs';
 export function string_to_tree(s) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let result = {};
@@ -21,7 +22,10 @@ export function string_to_tree(s) {
             object_property_initialize_if_unset(result, s_i, {});
         }
         let sub_result = object_property_get(result, s_index);
-        const result_s_index_next = object_property_get(result, s_index_next);
+        let result_s_index_next = object_property_get(result, s_index_next);
+        if (equal(s_index, s_index_next)) {
+            
+        }
         object_property_set(sub_result, s_index_next, result_s_index_next);
     }
     return result;
