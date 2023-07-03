@@ -13,16 +13,19 @@ import { object_property_set } from '../../object/property/set.mjs';
 import { equal } from '../../equal.mjs';
 import { log } from '../../log.mjs';
 import { list_contains } from '../../list/contains.mjs';
+import { list_add } from '../../list/add.mjs';
 export function string_to_tree(s) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let result = {};
     for (let index = string_length(s) - 1; index >= 0; index--) {
         let s_index = string_get(s, index);
         let s_index_next = string_get(s, add_1(index));
-        for (let s_i of [
-                s_index,
-                s_index_next
-            ]) {
+        const s_is = [
+            s_index
+        ];
+        list_add(s_is, 
+            s_index_next)
+        for (let s_i of s_is) {
             object_property_initialize_if_unset(result, s_i, {});
         }
         let sub_result = object_property_get(result, s_index);
