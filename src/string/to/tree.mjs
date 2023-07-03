@@ -15,6 +15,7 @@ import { object_property_set } from '../../object/property/set.mjs';
 import { equal } from '../../equal.mjs';
 import { log } from '../../log.mjs';
 import { error } from '../../error.mjs';
+import { object_property_exists } from '../../object/property/exists.mjs';
 export function string_to_tree(s) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let result = {};
@@ -46,6 +47,9 @@ export function string_to_tree(s) {
         });
     }, function v_2(v) {
         let {node} = v;
+        if (!object_property_exists(node, 'key')) {
+            return;
+        }
         let {key} = node;
         log({ key });
     });
