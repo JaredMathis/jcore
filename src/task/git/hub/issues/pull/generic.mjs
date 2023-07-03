@@ -29,7 +29,6 @@ export async function task_git_hub_issues_pull_generic(no_cache, tasks_all_path)
             list_add_then(issues);
             page = add_1(page);
             let issues_length = list_length(issues);
-            log({ issues_length });
             let v_4 = git_hub_page_size();
             test = equal(issues_length, v_4);
         } while (test);
