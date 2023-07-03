@@ -1,3 +1,5 @@
+import { list_add } from '../../list/add.mjs';
+import { object_property_get } from '../../object/property/get.mjs';
 import { object_property_initialize_if_unset } from '../../object/property/initialize/if/unset.mjs';
 import { string_get } from '../get.mjs';
 import { string_to_tree_recursive } from './tree/recursive.mjs';
@@ -13,6 +15,8 @@ export function string_to_tree(s) {
         let s_index = string_get(s, index);
         let s_index_next = string_get(s, add_1(index));
         object_property_initialize_if_unset(result, s_index, []);
+        let list = object_property_get(result, element);
+        list_add(list, value);
     }
     return result;
     let offset = 0;
