@@ -8,5 +8,5 @@ export function string_sub_max_2(left, right) {
     ]);
     let tree_left = string_to_tree(left);
     let tree_right = string_to_tree(right);
-    return result;
+    return {tree_left,tree_right};
 }
