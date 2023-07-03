@@ -14,6 +14,7 @@ import { add_1 } from '../../add/1.mjs';
 import { object_property_set } from '../../object/property/set.mjs';
 import { equal } from '../../equal.mjs';
 import { log } from '../../log.mjs';
+import { error } from '../../error.mjs';
 export function string_to_tree(s) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let result = {};
@@ -34,12 +35,13 @@ export function string_to_tree(s) {
         object_property_set(sub_result, s_index_next, result_s_index_next);
     }
     log({ result });
-    visit(result, function v_3(node) {
-        let keys = object_keys(node);
-        list_map(keys, function v_4(key) {
+    visit({ value: result }, function v_3(node) {
+        let {value} = node;
+        let keys = object_keys(value);
+        return list_map(keys, function v_4(key) {
             return {
                 key,
-                value: object_property_get(key)
+                value: object_property_get(value, key)
             };
         });
     }, function v_2(v) {
