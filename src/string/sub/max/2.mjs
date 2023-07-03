@@ -1,3 +1,4 @@
+import { list_intersection } from '../../../list/intersection.mjs';
 import { object_recursive_skip_root_depth_keys } from '../../../object/recursive/skip/root/depth/keys.mjs';
 import { object_recursive_property_value } from '../../../object/recursive/property/value.mjs';
 import { object_property_remove } from '../../../object/property/remove.mjs';
@@ -33,6 +34,7 @@ export function string_sub_max_2(left, right) {
     let length_max = 1;
     let tree_right_found_keys = object_recursive_skip_root_depth_keys(tree_right, length_max);
     let tree_left_found_keys = object_recursive_skip_root_depth_keys(tree_left, length_max);
+    let intersection = list_intersection(tree_right_found_keys, tree_left_found_keys);
     return {
         tree_right,
         tree_left,
