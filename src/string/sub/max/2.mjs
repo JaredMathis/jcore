@@ -1,3 +1,4 @@
+import { add_1 } from '../../../add/1.mjs';
 import { object_recursive_property_value } from '../../../object/recursive/property/value.mjs';
 import { object_property_remove } from '../../../object/property/remove.mjs';
 import { object_recursive_property_key } from '../../../object/recursive/property/key.mjs';
@@ -32,14 +33,13 @@ export function string_sub_max_2(left, right) {
     let length_max = 1;
     let tree_left_subs = object_keys_recursive(tree_left);
     let tree_right_subs = object_keys_recursive(tree_right);
-    
     object_recursive_skip_root(tree_right, function lambda(v) {
         let {node, stack} = v;
         let stack_length = list_length(stack);
-        if (stack_length > length_max) {
+        if (stack_length > add_1(length_max)) {
             return;
         }
-        log({node})
+        log({ node });
     });
     return;
     return { tree_right };
