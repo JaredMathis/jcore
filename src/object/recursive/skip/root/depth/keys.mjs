@@ -20,5 +20,6 @@ export function object_recursive_skip_root_depth_keys(tree_right, length_max) {
         let mapped = list_map_property(with_key, object_recursive_property_key());
         return mapped
     });
+    log({tree_right_found_keys})
     return tree_right_found_keys;
 }
