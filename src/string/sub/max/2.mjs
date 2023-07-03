@@ -39,7 +39,8 @@ export function string_sub_max_2(left, right) {
     let intersection_previous;
     const max = number_min(string_length(left), string_length(right));
     log({ max });
-    for (let length_max = 1; length_max <= max; length_max++) {
+    let length_max ;
+    for (length_max = 1; length_max <= max; length_max++) {
         let tree_right_found_keys = object_recursive_skip_root_depth_keys(tree_right, length_max);
         let tree_left_found_keys = object_recursive_skip_root_depth_keys(tree_left, length_max);
         intersection = list_intersection(tree_right_found_keys, tree_left_found_keys);
@@ -51,6 +52,7 @@ export function string_sub_max_2(left, right) {
     return {
         tree_right,
         tree_left,
-        intersection_previous
+        intersection_previous,
+        length_max
     };
 }
