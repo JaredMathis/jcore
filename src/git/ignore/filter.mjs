@@ -1,3 +1,5 @@
+import { log } from '../../log.mjs';
+import { string_prefix_without } from '../../string/prefix/without.mjs';
 import { metadata } from '../../metadata.mjs';
 import { and } from '../../and.mjs';
 import { not } from '../../not.mjs';
@@ -12,12 +14,16 @@ import { directory_separator } from '../../directory/separator.mjs';
 import { list_filter } from '../../list/filter.mjs';
 import { git_ignore_lines } from './lines.mjs';
 import { string_combine } from '../../string/combine.mjs';
+import { list_map } from '../../list/map.mjs';
 export async function git_ignore_filter(file_paths) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {lines: gil} = await git_ignore_lines();
     let v_6 = '.git';
+    let gil_mapped = list_map(gil, function v_15(g) {
+        return string_prefix_without(g, '/');
+    });
     let v_4 = [
-        gil,
+        gil_mapped,
         list_single_item(v_6)
     ];
     let filter = list_multiple_combine(v_4);
@@ -36,7 +42,7 @@ export async function git_ignore_filter(file_paths) {
         return v;
     };
     let filtered = list_filter(file_paths, v_5);
-    console.log({filtered})
+    console.log({ filtered });
     return filtered;
     metadata([]);
 }
