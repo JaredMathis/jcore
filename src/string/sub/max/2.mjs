@@ -47,6 +47,5 @@ export function string_sub_max_2(left, right) {
             log({ node });
         }
     });
-    return;
     return { tree_right };
 }
