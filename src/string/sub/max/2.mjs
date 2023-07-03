@@ -39,6 +39,7 @@ export function string_sub_max_2(left, right) {
         if (stack_length > length_max) {
             return;
         }
+        log({node})
     });
     
     return { tree_right };
