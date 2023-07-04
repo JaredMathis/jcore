@@ -38,14 +38,16 @@ export function string_difference_get_recursive(left, right, left_offset, right_
         return result;
     }
 
+    let max;
+    let max2;
     function checkpoint() {
         speed_next(s);
     }
     let s = speed_start();
-    let max = string_sub_max(left, right);
+    max = string_sub_max(left, right);
     checkpoint();
-    let max2 = string_sub_max_2(left, right);
-    speed_next(s);
+    max2 = string_sub_max_2(left, right);
+    checkpoint();
     speed_log(s);
     let v = string_sub_max_property_offset();
     let offset = object_property_get(max, v);
