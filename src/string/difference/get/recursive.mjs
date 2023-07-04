@@ -39,8 +39,9 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     let max2;
     function lambda(checkpoint) {
         max = string_sub_max(left, right);
-        checkpoint();
-        max2 = string_sub_max_2(left, right);
+        if (false) {
+            max2 = string_sub_max_2(left, right);
+        }
     }
     lambda()
     let v = string_sub_max_property_offset();
