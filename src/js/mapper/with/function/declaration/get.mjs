@@ -16,6 +16,7 @@ export function js_mapper_with_function_declaration_get(mapper) {
             object_merge(v_4, args);
         }
         let v = await mapper(args);
+        console.log('js_mapper_with_function_declaration_get mapper finished')
         return v;
     };
     metadata([]);
