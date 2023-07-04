@@ -13,9 +13,7 @@ export function reduce_generic(intialize, each_inner, then) {
     then(each);
     function each(element) {
         arguments_assert(arguments, [defined_is]);
-        console.log({before:current})
         current = each_inner(current, element);
-        console.log({after:current})
     }
     return current;
     metadata([metadata_generated()]);
