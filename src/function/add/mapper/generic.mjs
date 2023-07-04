@@ -21,6 +21,7 @@ import { string_combine } from '../../../string/combine.mjs';
 import { function_input_add_type } from '../../input/add/type.mjs';
 import { function_name_get } from '../../name/get.mjs';
 import { js_mapper_args_is } from '../../../js/mapper/args/is.mjs';
+import { function_add } from '../../add.mjs';
 export async function function_add_mapper_generic(prefix, function_name_suffix, function_name_to_call, expression_code_args_get, add_after) {
     arguments_assert(arguments, [
         arguments_assert_todo,
