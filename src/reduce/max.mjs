@@ -6,7 +6,9 @@ export function reduce_max(then) {
     function intialize(){
         return Number.NEGATIVE_INFINITY;
     }
-    function each_inner(){}
+    function each_inner(max, value){
+        return max
+    }
     let result = reduce_generic(intialize, each_inner, then);
     return result;
 }
