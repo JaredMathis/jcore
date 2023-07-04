@@ -40,7 +40,6 @@ export function string_sub_max_2(left, right) {
     let intersection;
     let intersection_previous = [];
     const max = number_min(string_length(left), string_length(right));
-    log({ max });
     let length_max;
     for (length_max = 1; length_max <= max; length_max++) {
         let tree_right_found_keys = object_recursive_skip_root_depth_keys(tree_right, length_max);
