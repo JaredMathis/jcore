@@ -15,6 +15,6 @@ export function list_adder_generic(then, lambda) {
         lambda(list, element);
         return list;
     }
-    return reduce_generic(intialize, then, each_inner);
+    return reduce_generic(intialize, each_inner, then);
     metadata([metadata_generated()]);
 }
