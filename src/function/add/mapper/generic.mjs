@@ -18,6 +18,9 @@ import { not } from '../../../not.mjs';
 import { function_exists } from '../../exists.mjs';
 import { js_identifier_parts_to } from '../../../js/identifier/parts/to.mjs';
 import { string_combine } from '../../../string/combine.mjs';
+import { function_input_add_type } from '../../input/add/type.mjs';
+import { function_name_get } from '../../name/get.mjs';
+import { js_mapper_args_is } from '../../../js/mapper/args/is.mjs';
 export async function function_add_mapper_generic(prefix, function_name_suffix, function_name_to_call, expression_code_args_get, add_after) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -33,7 +36,8 @@ export async function function_add_mapper_generic(prefix, function_name_suffix, 
     let v = not(v_2);
     if (v) {
         let v_4 = 'args';
-        await function_add_inputs(function_name_refactor, v_4);
+        await function_add(function_name_refactor);
+        await function_input_add_type(function_name_refactor, v_4, function_name_get(js_mapper_args_is));
     }
     const prefix_refactor = refactor_prefix();
     let prefixes = [
