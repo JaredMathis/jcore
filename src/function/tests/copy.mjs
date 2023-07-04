@@ -1,3 +1,4 @@
+import { function_import_fix } from '../import/fix.mjs';
 import { function_copy_no_open } from '../copy/no/open.mjs';
 import { log } from '../../log.mjs';
 import { file_js_identifier_rename } from '../../file/js/identifier/rename.mjs';
@@ -29,6 +30,7 @@ export async function function_tests_copy(function_name_from, function_name_to) 
             function_name_to
         });
         await file_js_identifier_rename(file_path, function_name_from, function_name_to);
+        await function_import_fix(r_mapped);
     }
     await tests_generate();
     return {
