@@ -5,6 +5,7 @@ import { metadata } from '../../../metadata.mjs';
 import { file_js_overwrite } from '../overwrite.mjs';
 import { file_js_path_to_mapper_args } from '../path/to/mapper/args.mjs';
 import { js_mapper_with_function_declaration_get } from '../../../js/mapper/with/function/declaration/get.mjs';
+import { js_unparse } from '../../../js/unparse.mjs';
 export async function file_js_map_args(file_path, mapper) {
     arguments_assert(arguments, [
         path_is,
@@ -16,6 +17,8 @@ export async function file_js_map_args(file_path, mapper) {
     if (result) {
         return;
     }
+    let {parsed} = args;
+    console.log(js_unparse(parsed))
     await file_js_overwrite(args);
     metadata([]);
 }
