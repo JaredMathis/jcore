@@ -18,7 +18,7 @@ export function refactor_console_log_delete(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
     js_visit_nodes_filter(parsed, js_node_is_expression_statement, function v_2(v) {
-        let {node} = v;
+        let {node,stack} = v;
         let expression = js_node_property_expression_get(node);
         if (js_node_is_call_expression(expression)) {
             let callee = js_node_property_callee_get(expression);
