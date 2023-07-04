@@ -12,6 +12,7 @@ import { js_visit_nodes_filter } from '../../../js/visit/nodes/filter.mjs';
 import { js_node_is_expression_statement } from '../../../js/node/is/expression/statement.mjs';
 import { error } from '../../../error.mjs';
 import { json_to } from '../../../json/to.mjs';
+import { equal } from '../../../equal.mjs';
 export function refactor_console_log_delete(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
@@ -27,10 +28,12 @@ export function refactor_console_log_delete(args) {
                     if (js_node_is_identifier(property)) {
                         let o_name = js_identifier_name_get(object);
                         let p_name = js_identifier_name_get(property);
-                        error(json_to({
-                            o_name,
-                            p_name
-                        }));
+                        if (equal(o_name, 'console')) {
+                            
+                        if (equal(p_name, 'log')) {
+                            
+                        }
+                        }
                     }
                 }
             }
