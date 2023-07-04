@@ -27,6 +27,5 @@ export function string_sub_max_3(left, right) {
                 max_candidate(i_offset_value);
             }
         }
-        return result;
     });
 }
