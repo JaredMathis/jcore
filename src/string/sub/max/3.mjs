@@ -18,13 +18,18 @@ export function string_sub_max_3(left, right) {
         }
         return value;
     }, function v_3(max_candidate) {
+        let start = 0;
         let offset = 1;
         for (let i = 0; i < string_length(left); i++) {
-            let i_offset = add(i, offset);
-            let i_offset_value = string_sub(left, i, i_offset);
-            const contains = string_includes(right, i_offset_value);
+            let start_offset = add(start, offset);
+            let start_offset_value = string_sub(left, start, start_offset);
+            const contains = string_includes(right, start_offset_value);
             if (contains) {
-                max_candidate(i_offset_value);
+                max_candidate(start_offset_value);
+                offset++;
+            } else {
+                offset = 1;
+                start = i;
             }
         }
     });
