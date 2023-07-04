@@ -1,3 +1,4 @@
+import { string_includes } from '../../includes.mjs';
 import { list_first } from '../../../list/first.mjs';
 import { log } from '../../../log.mjs';
 import { number_min } from '../../../number/min.mjs';
@@ -50,7 +51,7 @@ export function string_sub_max_2(left, right) {
     }
     let first = list_first(intersection_previous);
     return {
-        'offset':string_length(first),
+        'offset': string_length(first),
         'left_index': string_includes(left, first),
         'right_index': string_includes(right, first)
     };
