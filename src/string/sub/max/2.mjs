@@ -48,5 +48,10 @@ export function string_sub_max_2(left, right) {
         }
         intersection_previous = intersection;
     }
-    return list_first(intersection_previous);
+    let first = list_first(intersection_previous);
+    return {
+        'offset': 1,
+        'left_index': 0,
+        'right_index': 0
+    };
 }
