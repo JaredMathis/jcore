@@ -11,7 +11,7 @@ export function string_sub_max_2_test_generated_4() {
         'left_index': 0,
         'right_index': 0
     };
-    let actual = string_sub_max_2('aa', '');
+    let actual = string_sub_max_2('aa', 'b');
     assert(json_equal(actual, expected));
     metadata([metadata_generated()]);
 }
