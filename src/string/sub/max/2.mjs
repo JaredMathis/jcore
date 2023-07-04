@@ -22,7 +22,7 @@ export function string_sub_max_2(left, right) {
         string_is,
         string_is
     ]);
-    speed_group(function v_3(c) {
+    return speed_group(function v_3(c) {
         let tree_left = string_to_tree(left);
         let tree_left_keys = object_keys_recursive(tree_left);
         let tree_right = string_to_tree(right);
@@ -36,6 +36,7 @@ export function string_sub_max_2(left, right) {
                 object_property_remove(parent_value, key);
             }
         });
+        c();
         let intersection;
         let intersection_previous = [];
         const max = number_min(string_length(left), string_length(right));
