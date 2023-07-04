@@ -1,3 +1,4 @@
+import { string_sub_max_to_result } from './to/result.mjs';
 import { add } from '../../../add.mjs';
 import { string_includes } from '../../includes.mjs';
 import { reduce_generic } from '../../../reduce/generic.mjs';
@@ -10,7 +11,7 @@ export function string_sub_max_3(left, right) {
         string_is,
         string_is
     ]);
-    return reduce_generic(function v() {
+    let sub_result = reduce_generic(function v() {
         return '';
     }, function v_2(max, value) {
         if (string_length(max) > string_length(value)) {
@@ -33,4 +34,5 @@ export function string_sub_max_3(left, right) {
             }
         }
     });
+    return string_sub_max_to_result(sub_result, left, right);
 }
