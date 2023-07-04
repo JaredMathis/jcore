@@ -1,3 +1,4 @@
+import { add } from '../../../add.mjs';
 import { string_includes } from '../../includes.mjs';
 import { reduce_generic } from '../../../reduce/generic.mjs';
 import { string_is } from '../../is.mjs';
@@ -19,7 +20,7 @@ export function string_sub_max_3(left, right) {
     }, function v_3(max_candidate) {
         let offset = 0;
         for (let i = 0; i < string_length(left); i++) {
-            let i_offset = number_add(i, offset);
+            let i_offset = add(i, offset);
             let i_offset_value = string_sub(left, i, i_offset);
             const contains = string_includes(right, i_offset_value);
             if (contains) {
