@@ -17,6 +17,7 @@ import { object_recursive_skip_root } from '../../../object/recursive/skip/root.
 import { list_contains } from '../../../list/contains.mjs';
 import { list_empty } from '../../../list/empty.mjs';
 import { string_length } from '../../length.mjs';
+import { string_index_of } from '../../index/of.mjs';
 export function string_sub_max_2(left, right) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -52,7 +53,7 @@ export function string_sub_max_2(left, right) {
     let first = list_first(intersection_previous);
     return {
         'offset': string_length(first),
-        'left_index': string_includes(left, first),
-        'right_index': string_includes(right, first)
+        'left_index': string_index_of(left, first),
+        'right_index': string_index_of(right, first)
     };
 }
