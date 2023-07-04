@@ -1,3 +1,5 @@
+import { js_node_property_property_get } from '../../../js/node/property/property/get.mjs';
+import { js_node_property_object_get } from '../../../js/node/property/object/get.mjs';
 import { js_identifier_name_get } from '../../../js/identifier/name/get.mjs';
 import { js_identifier_is } from '../../../js/identifier/is.mjs';
 import { js_node_property_callee_get } from '../../../js/node/property/callee/get.mjs';
@@ -17,8 +19,10 @@ export function refactor_console_log_delete(args) {
         let {node} = v;
         let expression = js_node_property_expression_get(node);
         if (js_node_is_call_expression(expression)) {
-            let callee = js_node_property_callee_get(node);
+            let callee = js_node_property_callee_get(expression);
             if (js_node_is_member_expression(callee)) {
+                let object = js_node_property_object_get(callee);
+                let property = js_node_property_property_get(callee);
                 error(json_to({ callee }));
                 js_identifier_is;
                 js_identifier_name_get;
