@@ -40,6 +40,7 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     let s = speed_start();
     let max = string_sub_max(left, right);
     speed_next(s);
+    let max2 = string_sub_max_2(left, right);
     speed_next(s);
     speed_log(s);
     let v = string_sub_max_property_offset();
