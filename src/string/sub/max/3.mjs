@@ -1,3 +1,4 @@
+import { string_length_max } from '../../length/max.mjs';
 import { string_sub_max_to_result } from './to/result.mjs';
 import { add } from '../../../add.mjs';
 import { string_includes } from '../../includes.mjs';
@@ -13,12 +14,7 @@ export function string_sub_max_3(left, right) {
     ]);
     let sub_result = reduce_generic(function v() {
         return '';
-    }, function v_2(max, value) {
-        if (string_length(max) > string_length(value)) {
-            max;
-        }
-        return value;
-    }, function v_3(max_candidate) {
+    }, string_length_max, function v_3(max_candidate) {
         let start = 0;
         let offset = 1;
         for (let i = 0; i < string_length(left); i++) {
