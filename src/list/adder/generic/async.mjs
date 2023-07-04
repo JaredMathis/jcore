@@ -16,12 +16,10 @@ export async function list_adder_generic_async(then, lambda) {
     }
     let current = intialize();
     await then(each);
-
     function each(element) {
         arguments_assert(arguments, [defined_is]);
         current = each_inner(current, element);
     }
-
     return current;
     metadata([]);
 }
