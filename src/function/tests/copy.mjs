@@ -1,3 +1,4 @@
+import { function_tests_generate_after } from './generate/after.mjs';
 import { function_import_fix } from '../import/fix.mjs';
 import { function_copy_no_open } from '../copy/no/open.mjs';
 import { log } from '../../log.mjs';
