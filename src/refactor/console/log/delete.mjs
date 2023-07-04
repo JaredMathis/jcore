@@ -1,3 +1,4 @@
+import { list_reversed_get } from '../../../list/reversed/get.mjs';
 import { js_visit_stack_reversed_to_ancestor_list_assert } from '../../../js/visit/stack/reversed/to/ancestor/list/assert.mjs';
 import { js_node_is_identifier } from '../../../js/node/is/identifier.mjs';
 import { js_node_property_property_get } from '../../../js/node/property/property/get.mjs';
@@ -29,7 +30,8 @@ export function refactor_console_log_delete(args) {
                         let p_name = js_identifier_name_get(property);
                         if (equal(o_name, 'console')) {
                             if (equal(p_name, 'log')) {
-                                js_visit_stack_reversed_to_ancestor_list_assert();
+                                let stack_reversed = list_reversed_get(stack);
+                                js_visit_stack_reversed_to_ancestor_list_assert(stack_reversed);
                             }
                         }
                     }
