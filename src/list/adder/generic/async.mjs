@@ -14,6 +14,6 @@ export async function list_adder_generic_async(then, lambda) {
         lambda(list, element);
         return list;
     }
-    return await reduce_generic_async(intialize, then, each_inner);
+    return await reduce_generic_async(intialize, each_inner, then);
     metadata([]);
 }

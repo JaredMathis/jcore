@@ -1,7 +1,7 @@
 import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { defined_is } from '../../defined/is.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-export async function reduce_generic_async(intialize, then, each_inner) {
+export async function reduce_generic_async(intialize, each_inner, then) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo,
