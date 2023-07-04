@@ -15,12 +15,9 @@ export async function file_js_map_args(file_path, mapper) {
     const get_result = js_mapper_with_function_declaration_get(mapper);
     let result = await get_result(args);
     if (result) {
-        console.log('not writing')
         return;
     }
     let {parsed} = args;
-    console.log(js_unparse(parsed))
-    console.log('file_js_map_args writing')
     await file_js_overwrite(args);
     metadata([]);
 }

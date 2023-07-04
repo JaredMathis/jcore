@@ -1,3 +1,4 @@
+import { js_mapper_args_to_function_name } from '../../../js/mapper/args/to/function/name.mjs';
 import { list_reversed_get } from '../../../list/reversed/get.mjs';
 import { js_visit_stack_reversed_to_ancestor_list_assert } from '../../../js/visit/stack/reversed/to/ancestor/list/assert.mjs';
 import { js_node_is_identifier } from '../../../js/node/is/identifier.mjs';
@@ -19,12 +20,12 @@ import { log } from '../../../log.mjs';
 export function refactor_console_log_delete(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
-    let function_name = js_mapper_args_to_function_name(args)
+    let function_name = js_mapper_args_to_function_name(args);
     if (equal(function_name, function_name_get(log))) {
         return;
     }
     js_visit_nodes_filter(parsed, js_node_is_expression_statement, function v_2(v) {
-        let {node,stack} = v;
+        let {node, stack} = v;
         let expression = js_node_property_expression_get(node);
         if (js_node_is_call_expression(expression)) {
             let callee = js_node_property_callee_get(expression);
