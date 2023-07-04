@@ -6,8 +6,8 @@ export function speed_group(lambda) {
         speed_next(s);
     }
     let s = speed_start();
-    lambda(checkpoint);
+    let result = lambda(checkpoint);
     checkpoint();
     speed_log(s);
-    return s;
+    return result;
 }
