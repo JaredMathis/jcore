@@ -37,9 +37,13 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     if (v_8) {
         return result;
     }
+
+    function checkpoint() {
+        speed_next(s);
+    }
     let s = speed_start();
     let max = string_sub_max(left, right);
-    speed_next(s);
+    checkpoint();
     let max2 = string_sub_max_2(left, right);
     speed_next(s);
     speed_log(s);
