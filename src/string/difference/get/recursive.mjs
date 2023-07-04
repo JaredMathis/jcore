@@ -43,7 +43,6 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     let max2 = string_sub_max_2(left, right);
     speed_next(s);
     speed_log(s);
-    console.log('here')
     let v = string_sub_max_property_offset();
     let offset = object_property_get(max, v);
     let v_2 = string_sub_max_property_left_index();
