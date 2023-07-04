@@ -19,6 +19,7 @@ export async function file_js_map_args(file_path, mapper) {
     }
     let {parsed} = args;
     console.log(js_unparse(parsed))
+    console.log('file_js_map_args writing')
     await file_js_overwrite(args);
     metadata([]);
 }
