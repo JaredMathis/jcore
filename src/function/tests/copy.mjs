@@ -31,6 +31,7 @@ export async function function_tests_copy(function_name_from, function_name_to) 
         });
         await file_js_identifier_rename(file_path, function_name_from, function_name_to);
         await function_import_fix(r_mapped);
+        await function_tests_generate_after();
     }
     await tests_generate();
     return {
