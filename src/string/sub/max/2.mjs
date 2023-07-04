@@ -51,7 +51,8 @@ export function string_sub_max_2(left, right) {
         }
         intersection_previous = intersection;
     }
-    let first = list_first(intersection_previous);
+    let first;
+    first = list_first(intersection_previous);
     return {
         'offset': string_length(first),
         'left_index': string_index_of(left, first),
