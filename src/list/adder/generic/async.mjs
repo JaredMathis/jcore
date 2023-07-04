@@ -7,21 +7,21 @@ export async function list_adder_generic_async(then, lambda) {
         function_is,
         function_is
     ]);
-    let current = intialize();
-    await then(each);
     function intialize() {
         return [];
     }
+    function each_inner(list, element) {
+        lambda(list, element);
+        return list;
+    }
+    let current = intialize();
+    await then(each);
 
     function each(element) {
         arguments_assert(arguments, [defined_is]);
         current = each_inner(current, element);
     }
 
-    function each_inner(list, element) {
-        lambda(list, element);
-        return list;
-    }
     return current;
     metadata([]);
 }
