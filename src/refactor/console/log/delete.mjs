@@ -1,3 +1,4 @@
+import { js_node_property_callee_get } from '../../../js/node/property/callee/get.mjs';
 import { js_node_is_member_expression } from '../../../js/node/is/member/expression.mjs';
 import { js_node_is_call_expression } from '../../../js/node/is/call/expression.mjs';
 import { js_node_property_expression_get } from '../../../js/node/property/expression/get.mjs';
@@ -12,7 +13,8 @@ export function refactor_console_log_delete(args) {
         let {node} = v;
         let expression = js_node_property_expression_get(node);
         if (js_node_is_call_expression(expression)) {
-            if (js_node_is_member_expression(expression)) {
+            let callee = js_node_property_callee_get(node);
+            if (js_node_is_member_expression(callee)) {
             }
         }
     });
