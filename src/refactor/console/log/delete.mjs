@@ -13,6 +13,7 @@ import { arguments_assert } from '../../../arguments/assert.mjs';
 import { js_visit_nodes_filter } from '../../../js/visit/nodes/filter.mjs';
 import { js_node_is_expression_statement } from '../../../js/node/is/expression/statement.mjs';
 import { equal } from '../../../equal.mjs';
+import { list_remove } from '../../../list/remove.mjs';
 export function refactor_console_log_delete(args) {
     arguments_assert(arguments, [arguments_assert_todo]);
     let {parsed} = args;
@@ -31,7 +32,8 @@ export function refactor_console_log_delete(args) {
                         if (equal(o_name, 'console')) {
                             if (equal(p_name, 'log')) {
                                 let stack_reversed = list_reversed_get(stack);
-                                js_visit_stack_reversed_to_ancestor_list_assert(stack_reversed);
+                                let ancestor_list = js_visit_stack_reversed_to_ancestor_list_assert(stack_reversed);
+                                list_remove(ancestor_list, node);
                             }
                         }
                     }
