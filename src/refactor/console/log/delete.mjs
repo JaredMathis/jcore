@@ -9,6 +9,9 @@ export function refactor_console_log_delete(args) {
     let {parsed} =args
     js_visit_nodes_filter(parsed, js_node_is_expression_statement, v => {
         let {node} =v;
-        error(json_to(node))
+        let expression= js_node_property_expression_get(node)
+        if (js_node_is_member_expression(expression)) {
+            
+        }
     })
 }
