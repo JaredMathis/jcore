@@ -1,6 +1,6 @@
+import { reduce_generic_async } from '../../../reduce/generic/async.mjs';
 import { function_is } from '../../../function/is.mjs';
 import { metadata } from '../../../metadata.mjs';
-import { defined_is } from '../../../defined/is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 export async function list_adder_generic_async(then, lambda) {
     arguments_assert(arguments, [
@@ -14,12 +14,6 @@ export async function list_adder_generic_async(then, lambda) {
         lambda(list, element);
         return list;
     }
-    let current = intialize();
-    await then(each);
-    function each(element) {
-        arguments_assert(arguments, [defined_is]);
-        current = each_inner(current, element);
-    }
-    return current;
+    return await reduce_generic_async(intialize, then, each_inner);
     metadata([]);
 }
