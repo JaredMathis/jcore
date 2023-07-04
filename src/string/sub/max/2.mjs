@@ -50,8 +50,8 @@ export function string_sub_max_2(left, right) {
     }
     let first = list_first(intersection_previous);
     return {
-        'offset': 1,
-        'left_index': string_index_of(),
-        'right_index': 0
+        'offset':string_length(first),
+        'left_index': string_includes(left, first),
+        'right_index': string_includes(right, first)
     };
 }
