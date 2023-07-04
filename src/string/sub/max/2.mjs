@@ -18,10 +18,11 @@ import { list_contains } from '../../../list/contains.mjs';
 import { list_empty } from '../../../list/empty.mjs';
 import { string_length } from '../../length.mjs';
 import { string_index_of } from '../../index/of.mjs';
+import { string_is } from '../../is.mjs';
 export function string_sub_max_2(left, right) {
     arguments_assert(arguments, [
-        arguments_assert_todo,
-        arguments_assert_todo
+        string_is,
+        string_is
     ]);
     let tree_left = string_to_tree(left);
     let tree_left_keys = object_keys_recursive(tree_left);

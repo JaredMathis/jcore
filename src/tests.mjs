@@ -56,7 +56,6 @@ import { string_sub_max_test_generated_3 } from './string/sub/max/test/generated
 import { string_sub_max_test_generated_2 } from './string/sub/max/test/generated/2.mjs';
 import { string_sub_max_test_generated_10 } from './string/sub/max/test/generated/10.mjs';
 import { string_sub_max_test_generated_1 } from './string/sub/max/test/generated/1.mjs';
-import { string_sub_max_2_test_generated_1 } from './string/sub/max/2/test/generated/1.mjs';
 import { string_starts_with_test_generated_9 } from './string/starts/with/test/generated/9.mjs';
 import { string_starts_with_test_generated_8 } from './string/starts/with/test/generated/8.mjs';
 import { string_starts_with_test_generated_7 } from './string/starts/with/test/generated/7.mjs';
@@ -816,7 +815,6 @@ export async function tests() {
     await string_starts_with_test_generated_7();
     await string_starts_with_test_generated_8();
     await string_starts_with_test_generated_9();
-    await string_sub_max_2_test_generated_1();
     await string_sub_max_test_generated_1();
     await string_sub_max_test_generated_10();
     await string_sub_max_test_generated_2();
@@ -872,6 +870,6 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(string_combine('434', ' tests ran successfully'));
+    log(string_combine('433', ' tests ran successfully'));
     metadata([]);
 }
