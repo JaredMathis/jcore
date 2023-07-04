@@ -20,6 +20,7 @@ import { js_function_declaration_to_name } from '../js/function/declaration/to/n
 import { object_property_change } from '../object/property/change.mjs';
 import { list_add } from '../list/add.mjs';
 import { refactor_import_fix } from './import/fix.mjs';
+import { object_property_set } from '../object/property/set.mjs';
 export async function refactor_unasyncify(args) {
     arguments_assert(arguments, [defined_is]);
     let {parsed, function_declaration} = args;
@@ -27,7 +28,7 @@ export async function refactor_unasyncify(args) {
     for (let callable of callables) {
         let v = js_keyword_asynk();
         let v_6 = boolean_value_false();
-        object_property_change(callable, v, v_6);
+        object_property_set(callable, v, v_6);
     }
     js_visit_nodes_all(parsed, refactor_unasyncify_each);
     await refactor_metadata_generated_add_function(args);
