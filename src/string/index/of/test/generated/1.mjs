@@ -7,7 +7,7 @@ import { arguments_assert } from '../../../../../arguments/assert.mjs';
 export function string_index_of_test_generated_1() {
     arguments_assert(arguments, []);
     assert(assert_throws(function v() {
-        return string_index_of('a', 'aab');
+        return string_index_of('', 'a');
     }));
     metadata([metadata_generated()]);
 }

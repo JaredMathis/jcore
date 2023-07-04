@@ -1,13 +1,13 @@
 import { metadata_generated } from '../../../../../metadata/generated.mjs';
 import { metadata } from '../../../../../metadata.mjs';
-import { string_index_of } from '../../../of.mjs';
-import { assert_throws } from '../../../../../assert/throws.mjs';
+import { json_equal } from '../../../../../json/equal.mjs';
 import { assert } from '../../../../../assert.mjs';
+import { string_index_of } from '../../../of.mjs';
 import { arguments_assert } from '../../../../../arguments/assert.mjs';
-export function string_index_of_test_generated_2() {
+export function string_index_of_test_generated_10() {
     arguments_assert(arguments, []);
-    assert(assert_throws(function v() {
-        return string_index_of('a', 'b');
-    }));
+    let expected = 0;
+    let actual = string_index_of('', '');
+    assert(json_equal(actual, expected));
     metadata([metadata_generated()]);
 }

@@ -188,7 +188,12 @@ import { string_index_of_try_test_generated_3 } from './string/index/of/try/test
 import { string_index_of_try_test_generated_2 } from './string/index/of/try/test/generated/2.mjs';
 import { string_index_of_try_test_generated_10 } from './string/index/of/try/test/generated/10.mjs';
 import { string_index_of_try_test_generated_1 } from './string/index/of/try/test/generated/1.mjs';
+import { string_index_of_test_generated_8 } from './string/index/of/test/generated/8.mjs';
+import { string_index_of_test_generated_6 } from './string/index/of/test/generated/6.mjs';
+import { string_index_of_test_generated_5 } from './string/index/of/test/generated/5.mjs';
+import { string_index_of_test_generated_4 } from './string/index/of/test/generated/4.mjs';
 import { string_index_of_test_generated_2 } from './string/index/of/test/generated/2.mjs';
+import { string_index_of_test_generated_10 } from './string/index/of/test/generated/10.mjs';
 import { string_index_of_test_generated_1 } from './string/index/of/test/generated/1.mjs';
 import { string_includes_test_generated_9 } from './string/includes/test/generated/9.mjs';
 import { string_includes_test_generated_8 } from './string/includes/test/generated/8.mjs';
@@ -674,7 +679,12 @@ export async function tests() {
     await string_includes_test_generated_8();
     await string_includes_test_generated_9();
     await string_index_of_test_generated_1();
+    await string_index_of_test_generated_10();
     await string_index_of_test_generated_2();
+    await string_index_of_test_generated_4();
+    await string_index_of_test_generated_5();
+    await string_index_of_test_generated_6();
+    await string_index_of_test_generated_8();
     await string_index_of_try_test_generated_1();
     await string_index_of_try_test_generated_10();
     await string_index_of_try_test_generated_2();
@@ -862,6 +872,6 @@ export async function tests() {
     await string_underscore_is_test_generated_3();
     await string_underscore_is_test_generated_4();
     await string_underscore_is_test_generated_5();
-    log(string_combine('429', ' tests ran successfully'));
+    log(string_combine('434', ' tests ran successfully'));
     metadata([]);
 }
