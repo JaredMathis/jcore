@@ -31,7 +31,7 @@ export function js_identifier_rename_if(args, should_rename, name_new_get) {
         };
         js_identifiers_each(parsed, v_9);
     };
-    let v_3 = occurs(v_7);
+    let v_3 = !(occurs(v_7));
     console.log('js_identifier_rename_if finished')
     return v_3;
     metadata([]);
