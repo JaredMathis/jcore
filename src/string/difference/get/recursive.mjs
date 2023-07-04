@@ -1,7 +1,5 @@
+import { speed_group } from '../../../speed/group.mjs';
 import { string_sub_max_2 } from '../../sub/max/2.mjs';
-import { speed_log } from '../../../speed/log.mjs';
-import { speed_next } from '../../../speed/next.mjs';
-import { speed_start } from '../../../speed/start.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { add } from '../../../add.mjs';
 import { string_to } from '../../to.mjs';
@@ -37,7 +35,6 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     if (v_8) {
         return result;
     }
-
     let max;
     let max2;
     function lambda(checkpoint) {
@@ -100,15 +97,4 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     list_add_multiple(result, right_result);
     return result;
     metadata([]);
-}
-
-function speed_group(lambda) {
-    function checkpoint() {
-        speed_next(s);
-    }
-    let s = speed_start();
-    lambda(checkpoint);
-    checkpoint();
-    speed_log(s);
-    return s;
 }
