@@ -1,7 +1,7 @@
+import { js_node_is_identifier } from '../../../js/node/is/identifier.mjs';
 import { js_node_property_property_get } from '../../../js/node/property/property/get.mjs';
 import { js_node_property_object_get } from '../../../js/node/property/object/get.mjs';
 import { js_identifier_name_get } from '../../../js/identifier/name/get.mjs';
-import { js_identifier_is } from '../../../js/identifier/is.mjs';
 import { js_node_property_callee_get } from '../../../js/node/property/callee/get.mjs';
 import { js_node_is_member_expression } from '../../../js/node/is/member/expression.mjs';
 import { js_node_is_call_expression } from '../../../js/node/is/call/expression.mjs';
@@ -23,8 +23,8 @@ export function refactor_console_log_delete(args) {
             if (js_node_is_member_expression(callee)) {
                 let object = js_node_property_object_get(callee);
                 let property = js_node_property_property_get(callee);
-                if (js_node_is_identifer(object)) {
-                    if (js_node_is_identifer(property)) {
+                if (js_node_is_identifier(object)) {
+                    if (js_node_is_identifier(property)) {
                         let o_name = js_identifier_name_get(object);
                         let p_name = js_identifier_name_get(property);
                         error(json_to({
