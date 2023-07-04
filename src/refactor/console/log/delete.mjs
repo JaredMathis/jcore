@@ -23,9 +23,16 @@ export function refactor_console_log_delete(args) {
             if (js_node_is_member_expression(callee)) {
                 let object = js_node_property_object_get(callee);
                 let property = js_node_property_property_get(callee);
-                error(json_to({ callee }));
-                js_identifier_is;
-                js_identifier_name_get;
+                if (js_identifier_is(object)) {
+                    if (js_identifier_is(property)) {
+                        let o_name = js_identifier_name_get(object);
+                        let p_name = js_identifier_name_get(property);
+                        error(json_to({
+                            o_name,
+                            p_name
+                        }));
+                    }
+                }
             }
         }
     });
