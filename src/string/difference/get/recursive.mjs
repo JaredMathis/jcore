@@ -1,3 +1,6 @@
+import { speed_log } from '../../../speed/log.mjs';
+import { speed_next } from '../../../speed/next.mjs';
+import { speed_start } from '../../../speed/start.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { add } from '../../../add.mjs';
 import { string_to } from '../../to.mjs';
@@ -33,7 +36,10 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     if (v_8) {
         return result;
     }
+    let s = speed_start();
     let max = string_sub_max(left, right);
+    speed_next(s);
+    speed_log(s);
     let v = string_sub_max_property_offset();
     let offset = object_property_get(max, v);
     let v_2 = string_sub_max_property_left_index();
