@@ -9,6 +9,7 @@ import { arguments_assert_todo } from '../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
 import { assert } from '../../assert.mjs';
 import { list_empty_not } from '../../list/empty/not.mjs';
+import { tests_generate } from '../../tests/generate.mjs';
 export async function function_tests_copy(function_name_from, function_name_to) {
     arguments_assert(arguments, [
         arguments_assert_todo,
@@ -29,6 +30,7 @@ export async function function_tests_copy(function_name_from, function_name_to) 
         });
         await file_js_identifier_rename(file_path, function_name_from, function_name_to);
     }
+    await tests_generate();
     return {
         result_from,
         result_to
