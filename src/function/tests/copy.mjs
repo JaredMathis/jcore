@@ -28,7 +28,6 @@ export async function function_tests_copy(function_name_from, function_name_to) 
             function_name_to
         });
         await file_js_identifier_rename(file_path, function_name_from, function_name_to);
-        break;
     }
     return {
         result_from,
