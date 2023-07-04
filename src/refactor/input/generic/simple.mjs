@@ -9,6 +9,7 @@ export async function refactor_input_generic_simple(args, lambda) {
         function_is
     ]);
     let {function_declaration} = args;
+    console.log({args})
     await refactor_input_generic(args, function_declaration, args_additional_get, params_change, arguments_assert_args_change);
     function arguments_assert_args_change(arguments_assert_args) {
         lambda(arguments_assert_args);
