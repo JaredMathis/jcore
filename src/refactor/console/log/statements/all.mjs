@@ -1,3 +1,4 @@
+import { list_add_after } from '../../../../list/add/after.mjs';
 import { list_copy } from '../../../../list/copy.mjs';
 import { refactor_import_fix_if_changed } from '../../../import/fix/if/changed.mjs';
 import { js_function_declaration_to_statement_arguments_assert_added } from '../../../../js/function/declaration/to/statement/arguments/assert/added.mjs';
@@ -17,10 +18,10 @@ export async function refactor_console_log_statements_all(args) {
         }
         let statements = js_function_declaration_to_statements(function_declaration);
         let copy = list_copy(statements);
-        list_each_with_index(copy, (c, index) => {
-            js_parse_statement(`console.log(${index})`);
-            list_add_after(statements, new_statement, c)
-        })
+        list_each_with_index(copy, function v_2(c, index) {
+            js_parse_statement(`console.log(${ index })`);
+            list_add_after(statements, new_statement, c);
+        });
         log(statements);
     });
 }
