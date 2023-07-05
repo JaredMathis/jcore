@@ -6,6 +6,7 @@ export function string_sub_max_3(left, right) {
         string_is,
         string_is
     ]);
-    let result = string_sub_max_asymmetrical(left, right);
-    return result;
+    let result1 = string_sub_max_asymmetrical(left, right);
+    let result2 = string_sub_max_asymmetrical(right, left);
+    return string_length_max(result1,result2);
 }
