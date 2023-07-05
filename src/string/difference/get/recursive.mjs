@@ -38,7 +38,7 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     let max;
     let max2;
     function lambda(checkpoint) {
-        max = string_sub_max(left, right);
+        max = string_sub_max_3(left, right);
         if (false) {
             speed_group(function v_22(c) {
                 max = string_sub_max(left, right);
