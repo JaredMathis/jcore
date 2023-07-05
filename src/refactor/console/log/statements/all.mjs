@@ -19,7 +19,7 @@ export async function refactor_console_log_statements_all(args) {
         let statements = js_function_declaration_to_statements(function_declaration);
         let copy = list_copy(statements);
         list_each_with_index(copy, function v_2(c, index) {
-            js_parse_statement(`console.log(${ index })`);
+            let new_statement =js_parse_statement(`console.log(${ index })`);
             list_add_after(statements, new_statement, c);
         });
         log(statements);

@@ -11,14 +11,22 @@ export async function function_rename_single(function_name_old, function_name_ne
         js_identifier_is,
         js_identifier_is
     ]);
+    console.log(0);
     let tests_renames = await function_rename_without_all_refactor(function_name_old, function_name_new);
+    console.log(1);
     let file_paths_tests_changed = await file_js_all_identifier_multiple(tests_renames);
+    console.log(2);
     let file_paths_changed = await file_js_all_identifier_rename(function_name_old, function_name_new);
+    console.log(3);
     let v_2 = [
         file_paths_tests_changed,
         file_paths_changed
     ];
+    console.log(4);
     let v = list_multiple_combine(v_2);
+    console.log(5);
     await function_rename_after(v);
+    console.log(6);
     metadata([]);
+    console.log(7);
 }
