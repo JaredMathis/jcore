@@ -12,12 +12,11 @@ import { todo } from '../../../../todo.mjs';
 import { file_read } from '../../../../file/read.mjs';
 import { version_output_generic } from '../../../output/generic.mjs';
 import { directory_read_current } from '../../../../directory/read/current.mjs';
-export async function version_sync_local_preview_generic(repository_name, file_path) {
+export async function version_sync_local_preview_generic(repository_name, file_paths) {
     arguments_assert(arguments, [
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let file_paths = await directory_read_current();
     let differences = [];
     await version_output_generic(repository_name, file_paths, lambda);
     async function lambda(file_path, contents) {
