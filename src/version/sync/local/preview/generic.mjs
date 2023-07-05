@@ -45,12 +45,12 @@ export async function version_sync_local_preview_generic(repository_name, file_p
             list_add(differences, v_6);
         }
     }
-    let v_7 = {
+    let unsummarized = {
         differences,
         removals
     };
-    let v = v_7;
-    v = list_multiple_summary(v_7);
-    return v;
+    let result = unsummarized;
+    result = list_multiple_summary(unsummarized);
+    return result;
     metadata([]);
 }
