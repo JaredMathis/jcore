@@ -5,6 +5,7 @@ import { log } from '../../../../log.mjs';
 import { js_function_declaration_to_statements } from '../../../../js/function/declaration/to/statements.mjs';
 import { js_mapper_args_is } from '../../../../js/mapper/args/is.mjs';
 import { arguments_assert } from '../../../../arguments/assert.mjs';
+import { js_parse_statement } from '../../../../js/parse/statement.mjs';
 export async function refactor_console_log_statements_all(args) {
     arguments_assert(arguments, [js_mapper_args_is]);
     let {function_declaration} = args;
@@ -16,6 +17,7 @@ export async function refactor_console_log_statements_all(args) {
         let statements = js_function_declaration_to_statements(function_declaration);
         let copy = list_copy(statements);
         for (let c of copy) {
+            js_parse_statement(`console.log(${index})`);
             list_add_after(statements, new_statement, c)
         }
         log(statements);
