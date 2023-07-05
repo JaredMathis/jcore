@@ -1,3 +1,4 @@
+import { file_move_to_subdirectory } from '../../../file/move/to/subdirectory.mjs';
 import { video_paths_filter } from '../../paths/filter.mjs';
 import { video_screen_recordings_path_read } from './path/read.mjs';
 import { video_screen_recordings_combine } from './combine.mjs';
@@ -6,13 +7,10 @@ import { string_to } from '../../../string/to.mjs';
 import { string_starts_with } from '../../../string/starts/with.mjs';
 import { js_identifier_name_next_prefix_list } from '../../../js/identifier/name/next/prefix/list.mjs';
 import { path_parse_base } from '../../../path/parse/base.mjs';
-import { path_parent } from '../../../path/parent.mjs';
-import { file_rename } from '../../../file/rename.mjs';
 import { list_filter } from '../../../list/filter.mjs';
 import { video_screen_recordings_prefix } from './prefix.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { list_map } from '../../../list/map.mjs';
-import { path_join } from '../../../path/join.mjs';
 import { assert_message } from '../../../assert/message.mjs';
 import { list_empty_not } from '../../../list/empty/not.mjs';
 export async function video_screen_recordings_subize() {
@@ -27,14 +25,7 @@ export async function video_screen_recordings_subize() {
     let video_key = js_identifier_name_next_prefix_list(bases_filtered, ish_video_prefix, js_identifier_combine(ish_video_prefix, string_to(1)));
     let filtered = video_paths_filter(paths);
     for (let file_path_before of filtered) {
-        let base = path_parse_base(file_path_before);
-        let parent = path_parent(file_path_before);
-        let file_path_after = path_join([
-            parent,
-            video_key,
-            base
-        ]);
-        await file_rename(file_path_before, file_path_after);
+        await file_move_to_subdirectory(file_path_before, video_key);
     }
     return {
         file_paths: await video_screen_recordings_combine(video_key),

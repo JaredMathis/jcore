@@ -9,5 +9,6 @@ export async function video_latest_delete() {
     let filtered = video_paths_filter(paths);
     let last = list_last(filtered);
     let parent = path_parent(last)
+    const delete_name = string_delete_soft_path();
     await file_rename(file_path_before, file_path_after);
 }
