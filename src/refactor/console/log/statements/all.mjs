@@ -15,6 +15,9 @@ export async function refactor_console_log_statements_all(args) {
         }
         let statements = js_function_declaration_to_statements(function_declaration);
         let copy = list_copy(statements);
+        for (let c of copy) {
+            
+        }
         log(statements);
     });
 }
