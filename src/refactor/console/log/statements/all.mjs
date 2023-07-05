@@ -1,3 +1,4 @@
+import { refactor_import_fix_if_changed } from '../../../import/fix/if/changed.mjs';
 import { js_function_declaration_to_statement_arguments_assert_added } from '../../../../js/function/declaration/to/statement/arguments/assert/added.mjs';
 import { log } from '../../../../log.mjs';
 import { js_function_declaration_to_statements } from '../../../../js/function/declaration/to/statements.mjs';
@@ -6,7 +7,12 @@ import { arguments_assert } from '../../../../arguments/assert.mjs';
 export async function refactor_console_log_statements_all(args) {
     arguments_assert(arguments, [js_mapper_args_is]);
     let {function_declaration} = args;
-    let {added} = await js_function_declaration_to_statement_arguments_assert_added(function_declaration);
-    let statements = js_function_declaration_to_statements(function_declaration);
-    log(statements);
+    await refactor_import_fix_if_changed(async function v(c) {
+        let {added} = await js_function_declaration_to_statement_arguments_assert_added(function_declaration);
+        if (added) {
+            c();
+        }
+        let statements = js_function_declaration_to_statements(function_declaration);
+        log(statements);
+    });
 }
