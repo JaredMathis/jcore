@@ -38,11 +38,14 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     let max;
     let max2;
     function lambda(checkpoint) {
-        speed_group(function v_22(c) {
-            max = string_sub_max(left, right);
-            c();
-            max2 = string_sub_max_3(left, right);
-        });
+        max = string_sub_max(left, right);
+        if (false) {
+            speed_group(function v_22(c) {
+                max = string_sub_max(left, right);
+                c();
+                max2 = string_sub_max_3(left, right);
+            });
+        }
     }
     lambda();
     let v = string_sub_max_property_offset();
