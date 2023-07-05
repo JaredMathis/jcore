@@ -10,7 +10,6 @@ import { bytes_to_sha1 } from '../../../bytes/to/sha1.mjs';
 import { file_read_bytes } from '../../../file/read/bytes.mjs';
 import { arguments_assert_todo } from '../../../arguments/assert/todo.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
-import { assert_message } from '../../../assert/message.mjs';
 import { error } from '../../../error.mjs';
 export async function database_storage_upload_large(file_name, file_path) {
     arguments_assert(arguments, [
