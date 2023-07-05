@@ -11,9 +11,9 @@ import { version_removals } from '../../../removals.mjs';
 import { todo } from '../../../../todo.mjs';
 import { file_read } from '../../../../file/read.mjs';
 import { version_output_generic } from '../../../output/generic.mjs';
-import { directory_read_current } from '../../../../directory/read/current.mjs';
-export async function version_sync_local_preview_generic(repository_name, file_paths) {
+export async function version_sync_local_preview_generic(repository_name, file_paths, compute_removals) {
     arguments_assert(arguments, [
+        arguments_assert_todo,
         arguments_assert_todo,
         arguments_assert_todo
     ]);
@@ -23,7 +23,7 @@ export async function version_sync_local_preview_generic(repository_name, file_p
         let existing = await file_read(file_path);
         todo(contents, existing, file_path);
     }
-    let removals = []
+    let removals = [];
     removal = await version_removals(repository_name, file_paths);
     let v_4 = async function v_2(file_path, contents) {
         let v_8 = '';
