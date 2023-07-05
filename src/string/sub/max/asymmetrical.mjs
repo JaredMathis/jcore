@@ -7,7 +7,7 @@ import { string_is } from '../../is.mjs';
 import { arguments_assert } from '../../../arguments/assert.mjs';
 import { string_length } from '../../length.mjs';
 import { string_sub } from '../../sub.mjs';
-export function string_sub_max_3(left, right) {
+export function string_sub_max_asymmetrical(left, right) {
     arguments_assert(arguments, [
         string_is,
         string_is
