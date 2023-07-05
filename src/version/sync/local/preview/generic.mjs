@@ -28,6 +28,7 @@ export async function version_sync_local_preview_generic(repository_name, file_p
     }
     console.log(3);
     let removals = await version_removals(repository_name, file_paths);
+    console.log({removals});
     console.log(4);
     let v_4 = async function v_2(file_path, contents) {
         let v_8 = '';
