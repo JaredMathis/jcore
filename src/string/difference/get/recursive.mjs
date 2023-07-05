@@ -1,5 +1,5 @@
+import { string_sub_max_3 } from '../../sub/max/3.mjs';
 import { speed_group } from '../../../speed/group.mjs';
-import { string_sub_max_2 } from '../../sub/max/2.mjs';
 import { metadata } from '../../../metadata.mjs';
 import { add } from '../../../add.mjs';
 import { string_to } from '../../to.mjs';
@@ -38,10 +38,11 @@ export function string_difference_get_recursive(left, right, left_offset, right_
     let max;
     let max2;
     function lambda(checkpoint) {
-        max = string_sub_max(left, right);
-        if (false) {
-            max2 = string_sub_max_2(left, right);
-        }
+        speed_group(function v_22(c) {
+            max = string_sub_max(left, right);
+            c();
+            max2 = string_sub_max_3(left, right);
+        });
     }
     lambda();
     let v = string_sub_max_property_offset();
