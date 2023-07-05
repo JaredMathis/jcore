@@ -49,7 +49,8 @@ export async function version_sync_local_preview_generic(repository_name, file_p
         differences,
         removals
     };
-    let v = list_multiple_summary(v_7);
+    let v = v_7;
+    v = list_multiple_summary(v_7);
     return v;
     metadata([]);
 }
