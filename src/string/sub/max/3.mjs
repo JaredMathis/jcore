@@ -1,3 +1,4 @@
+import { string_sub_max_to_result } from './to/result.mjs';
 import { string_length_max } from '../../length/max.mjs';
 import { string_is } from '../../is.mjs';
 import { string_sub_max_asymmetrical } from './asymmetrical.mjs';
