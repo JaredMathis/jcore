@@ -30,5 +30,5 @@ export function string_sub_max_asymmetrical(left, right) {
             }
         }
     });
-    return string_sub_max_to_result(sub_result, left, right);
+    return sub_result;
 }

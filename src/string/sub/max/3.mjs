@@ -9,5 +9,5 @@ export function string_sub_max_3(left, right) {
     ]);
     let result1 = string_sub_max_asymmetrical(left, right);
     let result2 = string_sub_max_asymmetrical(right, left);
-    return string_length_max(result1, result2);
+    return string_sub_max_to_result(string_length_max(result1, result2), left, right);
 }
