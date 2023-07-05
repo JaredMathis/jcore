@@ -24,12 +24,14 @@ export async function version_sync_local_preview_generic(repository_name, file_p
         todo(contents, existing, file_path);
     }
     let removals = [];
-    removals = await version_removals(repository_name, file_paths);
-    let v_4 = async function v_2(file_path, contents) {
-        let v_8 = '';
-        todo(contents, v_8, file_path);
-    };
-    await version_file_contents_each(repository_name, removals, v_4);
+    if (compute_removals) {
+        removals = await version_removals(repository_name, file_paths);
+        let v_4 = async function v_2(file_path, contents) {
+            let v_8 = '';
+            todo(contents, v_8, file_path);
+        };
+        await version_file_contents_each(repository_name, removals, v_4);
+    }
     function todo(contents, existing, file_path) {
         let hunks = string_difference_get(contents, existing);
         let v_5 = list_empty(hunks);
