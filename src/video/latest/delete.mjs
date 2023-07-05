@@ -8,5 +8,6 @@ export async function video_latest_delete() {
     let paths = await video_screen_recordings_path_read();
     let filtered = video_paths_filter(paths);
     let last = list_last(filtered);
+    let parent = path_parent(last)
     await file_rename(file_path_before, file_path_after);
 }
