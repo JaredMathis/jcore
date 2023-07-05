@@ -7,6 +7,6 @@ export async function version_sync_local_preview_single_difference(repository_na
         arguments_assert_todo,
         arguments_assert_todo
     ]);
-    let result = await version_sync_local_preview_generic(repository_name, list_single_item(file_path), false, true);
+    let result = await version_sync_local_preview_generic(repository_name, list_single_item(file_path), false, false);
     return result;
 }

@@ -50,7 +50,9 @@ export async function version_sync_local_preview_generic(repository_name, file_p
         removals
     };
     let result = unsummarized;
-    result = list_multiple_summary(unsummarized);
+    if (summarize) {
+        result = list_multiple_summary(unsummarized);
+    }
     return result;
     metadata([]);
 }
