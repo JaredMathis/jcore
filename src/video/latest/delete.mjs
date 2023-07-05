@@ -1,6 +1,11 @@
-import { error } from '../../error.mjs';
+import { file_rename } from '../../file/rename.mjs';
+import { video_paths_filter } from '../paths/filter.mjs';
+import { video_screen_recordings_path_read } from '../screen/recordings/path/read.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
-export function video_latest_delete() {
+export async function video_latest_delete() {
     arguments_assert(arguments, []);
-    error('todo: video_latest_delete');
+    let paths = await video_screen_recordings_path_read();
+    let filtered = video_paths_filter(paths);
+    return filtered;
+    await file_rename(file_path_before, file_path_after);
 }
