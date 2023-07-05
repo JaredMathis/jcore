@@ -1,4 +1,5 @@
-import { file_rename } from '../../file/rename.mjs';
+import { string_delete_soft_path } from '../../string/delete/soft/path.mjs';
+import { file_move_to_subdirectory } from '../../file/move/to/subdirectory.mjs';
 import { video_paths_filter } from '../paths/filter.mjs';
 import { video_screen_recordings_path_read } from '../screen/recordings/path/read.mjs';
 import { arguments_assert } from '../../arguments/assert.mjs';
@@ -8,7 +9,5 @@ export async function video_latest_delete() {
     let paths = await video_screen_recordings_path_read();
     let filtered = video_paths_filter(paths);
     let last = list_last(filtered);
-    let parent = path_parent(last)
-    const delete_name = string_delete_soft_path();
-    await file_rename(file_path_before, file_path_after);
+    await file_move_to_subdirectory(last, string_delete_soft_path());
 }
