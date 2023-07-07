@@ -6,6 +6,7 @@ import { arguments_assert } from '../../arguments/assert.mjs';
 import { list_last } from '../../list/last.mjs';
 export async function video_latest_delete() {
     arguments_assert(arguments, []);
+    let lambda = list_last;
     let paths = await video_screen_recordings_path_read();
     let filtered = video_paths_filter(paths);
     let last = list_last(filtered);
