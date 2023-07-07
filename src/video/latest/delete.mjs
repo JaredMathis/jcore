@@ -10,5 +10,6 @@ export async function video_latest_delete() {
     let paths = await video_screen_recordings_path_read();
     let filtered = video_paths_filter(paths);
     let last = list_last_before(filtered);
+    return last
     await file_move_to_subdirectory(last, string_delete_soft_path());
 }
